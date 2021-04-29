@@ -1,0 +1,12 @@
+set( TEST_TARGET_NAME "Test${TARGET_NAME}" )	# TARGET_NAME defined by parent
+
+add_executable( ${TEST_TARGET_NAME} TestPhysics.cpp
+															 			FormulasUnitTests.cpp
+)
+
+target_link_libraries( ${TEST_TARGET_NAME} PRIVATE boost_unit_test_framework.a
+																									 Physics
+																									 UnitTestUtils
+)
+
+add_test( NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} )
