@@ -11,7 +11,7 @@ set( CMAKE_BUILD_TYPE DEBUG )
 
 # Utilities
 
-set( CONFIG_DIR Config )
+set( CONFIG_DIR "${PROJECT_SOURCE_DIR}/Config" )
 
 set(CMAKE_LINK_WHAT_YOU_USE ON)
 
@@ -61,8 +61,8 @@ set( INSTALL_LIB_DIR "lib/${VERSIONED_NAME}" )
 set( INSTALL_BIN_DIR "bin/${VERSIONED_NAME}" )
 
 # Macros used in targets
-include( CMake/AddInstallTargetCommon.cmake )
-include( CMake/AddLibraryCommon.cmake )
+include( "${PROJECT_SOURCE_DIR}/CMake/AddInstallTargetCommon.cmake" )
+include( "${PROJECT_SOURCE_DIR}/CMake/AddLibraryCommon.cmake" )
 
 # Source files
 enable_testing()
