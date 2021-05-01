@@ -8,6 +8,8 @@ set( SOURCE_LIST RandomTestFixture.cpp
 )
 
 add_library_common()
-target_link_libraries( SSE PRIVATE boost_unit_test_framework )
+target_link_libraries( SSE PRIVATE boost_unit_test_framework.a
+													 PUBLIC Boost::headers
+)
 
 add_install_target_common()

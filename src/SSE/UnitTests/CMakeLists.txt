@@ -4,9 +4,10 @@ add_executable( ${TEST_TARGET_NAME} TestSSE.cpp
 															 			ZeroAgeMainSequenceUnitTests.cpp
 )
 
-target_link_libraries( ${TEST_TARGET_NAME} PRIVATE boost_unit_test_framework.a
-																									 SSE
+target_link_libraries( ${TEST_TARGET_NAME} PRIVATE SSE
 																									 UnitTestUtils
+																									 boost_unit_test_framework.a
+																									 Boost::headers
 )
 
 add_test( NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} )

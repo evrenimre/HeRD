@@ -38,15 +38,9 @@ endif()
 set( CMAKE_LINK_WHAT_YOU_USE TRUE )
 
 # Dependencies
-
 find_package( Boost 1.74.0 REQUIRED )
-if( Boost_FOUND )
-  include_directories( "${Boost_INCLUDE_DIRS}" )
-endif()
-
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
-
-#TODO Dependency on range_v3
+find_package(range-v3 REQUIRED)
 
 # Documentation
 find_package( Doxygen )
@@ -71,10 +65,10 @@ include( CMake/AddInstallTargetCommon.cmake )
 include( CMake/AddLibraryCommon.cmake )
 
 # Source files
+enable_testing()
 add_subdirectory( src )
 
 # Unit tests
-include(CTest)
 add_custom_target( UnitTests ALL
                    DEPENDS ${TEST_TARGETS}	# Set at the next level
 )

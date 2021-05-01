@@ -6,8 +6,9 @@ set( HEADER_LIST Quantities.h
 set( SOURCE_LIST QuantityRange.cpp )
 
 add_library_common()
+target_link_libraries( ${TARGET_NAME} PUBLIC Boost::boost )
+
 add_install_target_common()
 
 # Unit tests
-enable_testing()
 add_subdirectory( UnitTests )
