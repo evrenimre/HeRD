@@ -38,7 +38,7 @@ endif()
 set( CMAKE_LINK_WHAT_YOU_USE TRUE )
 
 # Dependencies
-find_package( Boost 1.74.0 REQUIRED )
+find_package( Boost 1.71.0 REQUIRED )
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(range-v3 REQUIRED)
 
