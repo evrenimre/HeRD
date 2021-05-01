@@ -28,12 +28,18 @@ jobs:
         path: dependencies
         key: ${{ runner.os }}-dependencies
     
+    - name: Copy dependencies
+      if: steps.cache-deps.outputs.cache-hit == 'true'
+      run: |
+        sudo cp dependencies /
+    
     - name: Install dependencies
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: |
         sudo apt update
         sudo apt install libboost-dev libboost-all-dev librange-v3-dev libeigen3-dev
-
+        sudo dpkg -L libboost-dev libboost-all-dev librange-v3-dev libeigen3-dev | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory dependencies
+      
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
