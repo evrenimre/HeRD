@@ -54,6 +54,11 @@ if( DOXYGEN_FOUND )
 	doxygen_add_docs( docs src )	
 endif()
 
+# Build output directories
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
 # Installation
 set( VERSIONED_NAME ${PROJECT_NAME}-${PROJECT_VERSION} )
 set( INSTALL_INCLUDE_DIR "include/${VERSIONED_NAME}" )
