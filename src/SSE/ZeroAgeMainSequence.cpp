@@ -13,6 +13,7 @@
 
 #include <Generic/Quantities.h>
 #include <Generic/QuantityRange.h>
+#include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
 #include <algorithm>
@@ -66,7 +67,7 @@ std::optional< Herd::SSE::StarState > ZeroAgeMainSequence::ComputeStarState( Her
   
   Eigen::Matrix< double, 5, 1 > zVector;
   zVector[ 0 ] = 1;
-  zVector[ 1 ] = log10( i_Z );
+  zVector[ 1 ] = log10( i_Z / Herd::Physics::Constants::solarMetallicityTout96 );
   ranges::cpp20::for_each( ranges::cpp20::views::iota( 2, 5 ), [ & ]( auto i_Index ) // @suppress("Function cannot be resolved")
   { zVector[ i_Index ] = zVector[i_Index-1]*zVector[1];} );
 
@@ -101,7 +102,7 @@ bool ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
  */
 Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
 {
-  Eigen::Map< Eigen::Matrix< double, 7, 5 > > coefficientMatrix( &Detail::Data::eq3Coefficients[ 0 ] );
+  Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( &Detail::Data::eq3Coefficients[ 0 ] );
   Eigen::Matrix< double, 7, 1 > eq1Coeffs = coefficientMatrix * i_ZVector;  // Eq3
 
   // Powers of mass
@@ -129,7 +130,7 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
  */
 Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
 {
-  Eigen::Map< Eigen::Matrix< double, 9, 5 > > coefficientMatrix( &Detail::Data::eq4Coefficients[ 0 ] );
+  Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( &Detail::Data::eq4Coefficients[ 0 ] );
   Eigen::Matrix< double, 9, 1 > eq2Coeffs = coefficientMatrix * i_ZVector;  // Eq4
 
   // Powers of mass
@@ -144,8 +145,8 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
   double m195 = m110 * m85;
 
   // Eq2
-  double num = eq2Coeffs[ 0 ] * m25 + eq2Coeffs[ 1 ] * m65 + eq2Coeffs[ 2 ] * m110 + eq2Coeffs[ 3 ] * m190 + eq2Coeffs[ 3 ] * m195;
-  double den = eq2Coeffs[ 4 ] * m20 + eq2Coeffs[ 5 ] * m85 + eq2Coeffs[ 1 ] * m185 + eq2Coeffs[ 1 ] * m195;
+  double num = eq2Coeffs[ 0 ] * m25 + eq2Coeffs[ 1 ] * m65 + eq2Coeffs[ 2 ] * m110 + eq2Coeffs[ 3 ] * m190 + eq2Coeffs[ 4 ] * m195;
+  double den = eq2Coeffs[ 5 ] + eq2Coeffs[ 6 ] * m20 + eq2Coeffs[ 7 ] * m85 + m185 + eq2Coeffs[ 8 ] * m195;
 
   return Herd::Generic::Radius( num / den );
 }

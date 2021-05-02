@@ -53,7 +53,7 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
   for( std::size_t c = 1; c < argCount; ++c )
   {
     std::vector< std::string > parsed;
-    boost::split( parsed, boost::unit_test::framework::master_test_suite().argv[ c ], boost::is_any_of( "=" ) );
+    boost::split( parsed, boost::unit_test::framework::master_test_suite().argv[ c ], boost::is_any_of( "=" ), boost::token_compress_off );
     if( parsed.size() == 2 && parsed[ 0 ] == s_SeedParameterName )
     {
       unsigned int Seed = 0;
