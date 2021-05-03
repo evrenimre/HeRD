@@ -1,5 +1,5 @@
 /**
- * @file PhysicsUnitTests.cpp
+ * @file TestPhysics.cpp
  * @author Evren Imre
  * @date 28 Apr 2021	
  */
