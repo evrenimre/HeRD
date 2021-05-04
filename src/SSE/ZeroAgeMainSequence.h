@@ -33,7 +33,7 @@ inline constexpr double s_MaxMass = 100.0;  ///< Upper bound of the mass range
 inline constexpr double s_MinZ = 1e-4;  ///< Lower bound of the metallicity range
 inline constexpr double s_MaxZ = 0.03; ///< Upper bound of the metallicity range
 inline constexpr double s_MaxLuminosityError = 0.14;  ///< Maximum luminosity error in percentage
-inline constexpr double s_MaxRadiusError = 0.05;  ///< Maximum radius error in percentage
+inline constexpr double s_MaxRadiusError = 0.07;  ///< Maximum radius error in percentage
 inline constexpr double s_MaxTemperatureError = 0.07; ///< Maximum temperature error in percentage. Approximate computation from L and R errors
 }
 
