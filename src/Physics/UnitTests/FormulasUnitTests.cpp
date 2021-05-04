@@ -42,9 +42,9 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
 
   BOOST_TEST_CONTEXT( "Invalid input" )
   {
-    Herd::Generic::Radius rInvalid( GenerateReal( -1000.0, 0.0 ) );
-    Herd::Generic::Temperature tInvalid( GenerateReal( -1000.0, 0.0 ) );
-    Herd::Generic::Luminosity lInvalid( GenerateReal( -1000.0, 0.0 ) );
+    Herd::Generic::Radius rInvalid( GenerateNumber( -1000.0, 0.0 ) );
+    Herd::Generic::Temperature tInvalid( GenerateNumber( -1000.0, 0.0 ) );
+    Herd::Generic::Luminosity lInvalid( GenerateNumber( -1000.0, 0.0 ) );
 
     BOOST_TEST( !Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rInvalid, tInvalid ).has_value() );
     BOOST_TEST( !Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lInvalid, tInvalid ).has_value() );
@@ -53,9 +53,9 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
 
   BOOST_TEST_CONTEXT( "Random" )
   {
-    Herd::Generic::Radius rExpected( GenerateReal( 0.1, 12.0 ) );
-    Herd::Generic::Temperature tExpected( GenerateReal( 2200.0, 50000.0 ) );
-    Herd::Generic::Luminosity lExpected( GenerateReal( 0.003, 800000.0 ) );
+    Herd::Generic::Radius rExpected( GenerateNumber( 0.1, 12.0 ) );
+    Herd::Generic::Temperature tExpected( GenerateNumber( 2200.0, 50000.0 ) );
+    Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000.0 ) );
 
     {
       auto lComputed = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rExpected, tExpected );

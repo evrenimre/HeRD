@@ -76,7 +76,7 @@ std::optional< Herd::SSE::StarState > ZeroAgeMainSequence::ComputeStarState( Her
 
   Herd::SSE::StarState output;
   output.m_Age.Set( 0 );
-  output.m_Lumonosity = luminosity;
+  output.m_Luminosity = luminosity;
   output.m_Radius = radius;
   output.m_Mass = i_Mass;
   output.m_Z = i_Z;

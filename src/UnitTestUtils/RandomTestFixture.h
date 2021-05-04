@@ -14,6 +14,7 @@
 
 #include <cstdint>
 #include <limits>
+#include <optional>
 #include <random>
 #include <string>
 #include <type_traits>
@@ -34,20 +35,16 @@ public:
 
   /// @name Random value generators
   ///@{
-  template< class Real >
-  Real GenerateReal( Real i_Min, Real i_Max );  ///< Generates a real value
 
-  template< class Real >
-  Real GenerateReal();  ///< Generates a real value
+  bool GenerateBool( double i_Probability = 0.5 );  ///< Generates a boolean
 
-  template< class Int >
-  Int GenerateInt( Int i_Min, Int i_Max );  ///< Generates an integer
+  template< class Arithmetic >
+  Arithmetic GenerateNumber( Arithmetic i_Min, Arithmetic i_Max );  ///< Generates a number
 
-  template< class Int >
-  Int GenerateInt();  ///< Generates an integer
-
-  bool GenerateBool();  ///< Generates a boolean
+  template< class Arithmetic >
+  Arithmetic GenerateNumber(); ///< Generates a number
   ///@}
+  
 
 private:
 
@@ -55,62 +52,47 @@ private:
 
   uint_fast32_t m_Seed = 0; ///< Seed used for initialising the random number engine
                             // mt19937 seed type is uint_fast32_t
-  std::mt19937 m_Rng; ///< Random number generator
+  std::optional< std::mt19937 > m_Rng; ///< Random number generator
 
-  inline static const std::string s_SeedParameterName = "--random_seed";  ///< Command line parameter name
+  inline static const std::string s_SeedParameterName = "--seed";  ///< Command line parameter name
 };
+
+/**
+ * @tparam Arithmetic An arithmetic type
+ * @param i_Min Minimum value
+ * @param i_Max Maximum value
+ * @return A random value
+ */
+template< class Arithmetic >
+Arithmetic RandomTestFixture::GenerateNumber( Arithmetic i_Min, Arithmetic i_Max )
+{
+  static_assert( std::is_arithmetic< Arithmetic >::value);
+
+  // Lazy initialisation. Avoids redundant construction if user sets a different seed before first call to the generator
+  // mt19937 constructor is expensive.
+  if( !m_Rng )
+  {
+    m_Rng = std::mt19937( m_Seed );
+  }
+
+  if constexpr ( std::is_floating_point< Arithmetic >::value )
+  {
+    return std::uniform_real_distribution< Arithmetic >( i_Min, i_Max )( *m_Rng );
+  } else
+  {
+    return std::uniform_int_distribution< Arithmetic >( i_Min, i_Max )( *m_Rng );
+  }
+}
+
+/**
+ * @tparam Arithmetic An arithmetic type
+ * @return A random value
+ */
+template< class Arithmetic >
+Arithmetic RandomTestFixture::GenerateNumber()
+{
+  return GenerateNumber( std::numeric_limits< Arithmetic >::lowest(), std::numeric_limits< Arithmetic >::max() );
+}
 } // namespace Herd::UnitTestUtils
-
-/**
- * @tparam Real Value type
- * @param i_Min Minimum value
- * @param i_Max Maximum value. Right-open range
- * @return A random real value within the specified range
- * @pre \c Real is a floating point type
- */
-template< class Real >
-Real Herd::UnitTestUtils::RandomTestFixture::GenerateReal( Real i_Min, Real i_Max )
-{
-  static_assert( std::is_floating_point< Real >::value );
-  return std::uniform_real_distribution< Real >( i_Min, i_Max )( m_Rng );
-}
-
-/**
- * @tparam Real Value type
- * @return A random real value
- * @pre \c Real is a floating point type
- */
-template< class Real >
-Real Herd::UnitTestUtils::RandomTestFixture::GenerateReal()
-{
-  static_assert( std::is_floating_point< Real >::value );
-  return GenerateReal( std::numeric_limits< Real >::lowest(), std::numeric_limits< Real >::max() );
-}
-
-/**
- * @tparam Int Value type
- * @param i_Min Minimum value
- * @param i_Max Maximum value. Closed range
- * @return A random integer within the specified range
- * @pre \c Int is an integer type
- */
-template< class Int >
-Int Herd::UnitTestUtils::RandomTestFixture::GenerateInt( Int i_Min, Int i_Max )
-{
-  static_assert( std::is_integral< Int >::value );
-  return std::uniform_int_distribution< Int >( i_Min, i_Max )( m_Rng );
-}
-
-/**
- * @tparam Int Value type
- * @return A random integer
- * @pre \c Int is an integer type
- */
-template< class Int >
-Int Herd::UnitTestUtils::RandomTestFixture::GenerateInt()
-{
-  static_assert( std::is_integral< Int >::value );
-  return GenerateInt( std::numeric_limits< Int >::lowest(), std::numeric_limits< Int >::max() );
-}
 
 #endif /* H219F636B_7938_44D6_981D_D0D7FA5DAC8C */

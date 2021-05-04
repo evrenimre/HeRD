@@ -11,3 +11,4 @@ target_link_libraries( ${TEST_TARGET_NAME} PRIVATE SSE
 )
 
 add_test( NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} )
+configure_file( Data/ZAMSUnitTestData.xml ZAMSUnitTestData.xml )

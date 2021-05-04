@@ -23,6 +23,19 @@
 
 namespace Herd::SSE
 {
+
+namespace Detail::ZAMS
+{
+// Algorithm properties
+inline constexpr double s_MinMass = 0.1;  ///< Lower bound of the mass range
+inline constexpr double s_MaxMass = 100.0;  ///< Upper bound of the mass range
+inline constexpr double s_MinZ = 1e-4;  ///< Lower bound of the metallicity range
+inline constexpr double s_MaxZ = 0.03; ///< Upper bound of the metallicity range
+inline constexpr double s_MaxLuminosityError = 0.14;  ///< Maximum luminosity error in percentage
+inline constexpr double s_MaxRadiusError = 0.05;  ///< Maximum radius error in percentage
+inline constexpr double s_MaxTemperatureError = 0.07; ///< Maximum temperature error in percentage. Approximate computation from L and R errors
+}
+
 /**
  * @brief Computes the ZAMS state
  * @cite Tout96
@@ -39,8 +52,8 @@ private:
   static Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS luminosity
   static Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS radius
 
-  inline static const Herd::Generic::ClosedRange s_MassRange = Herd::Generic::ClosedRange( 0.1, 100 );  ///< Valid mass range
-  inline static const Herd::Generic::ClosedRange s_ZRange = Herd::Generic::ClosedRange( 1e-4, 0.03 ); ///< Valid metallicity range
+  inline static const Herd::Generic::ClosedRange s_MassRange = Herd::Generic::ClosedRange( Detail::ZAMS::s_MinMass, Detail::ZAMS::s_MaxMass ); ///< Valid mass range
+  inline static const Herd::Generic::ClosedRange s_ZRange = Herd::Generic::ClosedRange( Detail::ZAMS::s_MinZ, Detail::ZAMS::s_MaxZ ); ///< Valid metallicity range
 };
 }
 

@@ -26,7 +26,7 @@ namespace Herd::UnitTestUtils
 {
 
 RandomTestFixture::RandomTestFixture() :
-    m_Seed( std::time( NULL ) ), m_Rng( m_Seed )
+    m_Seed( std::time( NULL ) )
 {
   if( boost::unit_test::framework::master_test_suite().argc > 1 )
   {
@@ -34,13 +34,13 @@ RandomTestFixture::RandomTestFixture() :
   }
 
   // This adds a top-level context to report the rng seed in the event of a test failure
-  boost::unit_test::framework::add_context( BOOST_TEST_LAZY_MSG( "Seed " << m_Seed ), true );
+  boost::unit_test::framework::add_context( BOOST_TEST_LAZY_MSG( "Re-run the test with parameter --seed=" << m_Seed << " to reproduce" ), true );
 }
 
 void RandomTestFixture::SetSeed( unsigned int i_Seed )
 {
   m_Seed = i_Seed;
-  m_Rng.seed( m_Seed );
+  m_Rng.reset();
 }
 
 /**
@@ -56,13 +56,10 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
     boost::split( parsed, boost::unit_test::framework::master_test_suite().argv[ c ], boost::is_any_of( "=" ), boost::token_compress_off );
     if( parsed.size() == 2 && parsed[ 0 ] == s_SeedParameterName )
     {
-      unsigned int Seed = 0;
-      bool bOk = boost::conversion::try_lexical_convert( parsed[ 1 ], Seed );
-      if( bOk )
+      if( unsigned int Seed = 0; boost::conversion::try_lexical_convert( parsed[ 1 ], Seed ) )
       {
         SetSeed( Seed );
-      }
-      else
+      } else
       {
         BOOST_TEST( false, ( "Ignoring invalid seed value " + parsed[ 1 ] ).data() ); // Passing a string confuses the indexer
       }
@@ -70,9 +67,13 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
   }
 }
 
-bool RandomTestFixture::GenerateBool()
+/**
+ * @param i_Probability Probability of returning \c true
+ * @return A random boolean value
+ */
+bool RandomTestFixture::GenerateBool( double i_Probability )
 {
-  return GenerateInt( 0, 1 ) == 1;
+  return GenerateNumber( 0., 1. ) < i_Probability;
 }
 
 } // namespace Herd::UnitTestUtils

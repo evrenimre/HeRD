@@ -26,11 +26,11 @@ using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic
 /// Quantity construction and usage
 BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
 {
-  double value = GenerateReal( 0., 10. );
+  double value = GenerateNumber( 0., 10. );
   T quantity( value );
   BOOST_TEST( value == quantity.Value() );
 
-  double newValue = GenerateReal( 0., 10. );
+  double newValue = GenerateNumber( 0., 10. );
   quantity.Set( newValue );
   BOOST_TEST( newValue == quantity.Value() );
 
@@ -46,8 +46,8 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
 /// Quantity range construction and usage
 BOOST_AUTO_TEST_CASE( TestQuantityRange )
 {
-  double lower = GenerateReal( 0., 10. );
-  double upper = GenerateReal( lower, 10.0 ) + 1;
+  double lower = GenerateNumber( 0., 10. );
+  double upper = GenerateNumber( lower, 10.0 ) + 1;
 
   Herd::Generic::Mass minMass( lower );
   Herd::Generic::Mass maxMass( upper );
