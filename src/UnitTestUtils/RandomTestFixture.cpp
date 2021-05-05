@@ -19,7 +19,6 @@
 #include <iostream>
 #include <vector>
 
-#include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/test/unit_test.hpp>
 
@@ -27,12 +26,9 @@ namespace Herd::UnitTestUtils
 {
 
 RandomTestFixture::RandomTestFixture() :
-    m_Seed( std::time( NULL ) )
+    m_Seed( std::time( nullptr ) )
 {
-  if( boost::unit_test::framework::master_test_suite().argc > 1 )
-  {
-    TrySetSeedFromCommandLine();
-  }
+  TrySetSeedFromCommandLine();
 
   // This adds a top-level context to report the rng seed in the event of a test failure
   boost::unit_test::framework::add_context( BOOST_TEST_LAZY_MSG( "Re-run the test with parameter --seed=" << m_Seed << " to reproduce" ), true );
@@ -49,21 +45,14 @@ void RandomTestFixture::SetSeed( unsigned int i_Seed )
  */
 void RandomTestFixture::TrySetSeedFromCommandLine()
 {
-  // Scan the command line parameters for the random seed
-  std::size_t argCount = boost::unit_test::framework::master_test_suite().argc;
-  for( std::size_t c = 1; c < argCount; ++c )
+  if( auto seedString = Herd::UnitTestUtils::GetCommandLineArgument( s_SeedParameterName ); seedString )
   {
-    std::vector< std::string > parsed;
-    boost::split( parsed, boost::unit_test::framework::master_test_suite().argv[ c ], boost::is_any_of( "=" ), boost::token_compress_off );
-    if( parsed.size() == 2 && parsed[ 0 ] == s_SeedParameterName )
+    if( unsigned int seed = 0; boost::conversion::try_lexical_convert( *seedString, seed ) )
     {
-      if( unsigned int Seed = 0; boost::conversion::try_lexical_convert( parsed[ 1 ], Seed ) )
-      {
-        SetSeed( Seed );
-      } else
-      {
-        BOOST_TEST( false, ( "Ignoring invalid seed value " + parsed[ 1 ] ).data() ); // Passing a string confuses the indexer
-      }
+      SetSeed( seed );
+    } else
+    {
+      BOOST_TEST( false, "Ignoring invalid seed value " + *seedString ); // Passing a string confuses the indexer
     }
   }
 }
