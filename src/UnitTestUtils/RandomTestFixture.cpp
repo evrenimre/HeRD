@@ -52,7 +52,7 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
       SetSeed( seed );
     } else
     {
-      BOOST_TEST( false, "Ignoring invalid seed value " + *seedString ); // Passing a string confuses the indexer
+      BOOST_TEST_REQUIRE( false, "Invalid seed value " + *seedString ); // Passing a string confuses the indexer
     }
   }
 }

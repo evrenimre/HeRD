@@ -21,7 +21,7 @@
 namespace
 {
 
-std::unordered_set< std::string > s_RegisteredArguments { "--seed" };
+std::unordered_set< std::string > s_RegisteredArguments { "--seed", "--data" };
 
 }
 
@@ -51,7 +51,7 @@ std::unordered_map< std::string, std::string > ParseCommandLineArguments()
 
     if( !( parsed.size() == 1 || parsed.size() == 2 ) )
     {
-      BOOST_TEST( false, "Unable to parse argument " << boost::unit_test::framework::master_test_suite().argv[ c ] << ". Ignoring command line arguments" );
+      BOOST_TEST_REQUIRE( false, "Unable to parse argument " << boost::unit_test::framework::master_test_suite().argv[ c ] );
       // @formatter:off
       return {};
       // @formatter:oon
@@ -59,7 +59,7 @@ std::unordered_map< std::string, std::string > ParseCommandLineArguments()
 
     if( s_RegisteredArguments.count( parsed[ 0 ] ) == 0 )
     {
-      BOOST_TEST( false, "Unregistered argument " + parsed[ 0 ] + ". Ignoring command line arguments" );
+      BOOST_TEST_REQUIRE( false, "Unregistered argument " + parsed[ 0 ] );
       // @formatter:off
       return {};
             // @formatter:on
@@ -79,7 +79,7 @@ std::optional< std::string > GetCommandLineArgument( const std::string& i_rName 
 {
   if( s_RegisteredArguments.count( i_rName ) == 0 )
   {
-    BOOST_TEST( false, "Requested unregistered argument " + i_rName + " . Ignoring command line arguments" );
+    BOOST_TEST_REQUIRE( false, "Requested unregistered argument " + i_rName );
     return std::nullopt;
   }
 
