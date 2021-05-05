@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData )
   std::optional< Herd::SSE::StarState > Expected;
 
   // Try getting a valid star from the catalogue
-  for( int c = 0; c < 10; ++c )
+  for( int c = 0; c < 100; ++c )
   {
     Expected = GetRandomStar();
 
