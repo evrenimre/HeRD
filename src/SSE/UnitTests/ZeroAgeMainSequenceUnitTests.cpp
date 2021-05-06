@@ -20,7 +20,6 @@
 #include <SSE/ZeroAgeMainSequence.h>
 
 #include <iterator>
-#include <filesystem>
 #include <optional>
 #include <string>
 
@@ -63,17 +62,17 @@ Herd::SSE::StarState ZAMSTestFixture::GetRandomStar()
   // Rationale: unit tests need only a small number of entries from the catalogue. Hence, on demand, rather than constructing StarState items for all entries
 
   // Seek to the entry
-  auto It = std::next( m_Catalogue.get_child( "Catalogue" ).begin(), GenerateNumber( 0u, m_StarCount ) );
+  auto iStar = std::next( m_Catalogue.get_child( "Catalogue" ).begin(), GenerateNumber( 0u, m_StarCount ) ); // @suppress("Invalid arguments")
 
   Herd::SSE::StarState Star;
   try
   {
     Star.m_Age.Set( 0.0 );
-    Star.m_Luminosity.Set( It->second.get< double >( "<xmlattr>.L" ) );
-    Star.m_Mass.Set( It->second.get< double >( "<xmlattr>.M" ) );
-    Star.m_Radius.Set( It->second.get< double >( "<xmlattr>.R" ) );
-    Star.m_Temperature.Set( It->second.get< double >( "<xmlattr>.T" ) );
-    Star.m_Z.Set( It->second.get< double >( "<xmlattr>.Z" ) );
+    Star.m_Luminosity.Set( iStar->second.get< double >( "<xmlattr>.L" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Mass.Set( iStar->second.get< double >( "<xmlattr>.M" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Radius.Set( iStar->second.get< double >( "<xmlattr>.R" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Temperature.Set( iStar->second.get< double >( "<xmlattr>.T" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Z.Set( iStar->second.get< double >( "<xmlattr>.Z" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
   } catch( ... )
   {
     BOOST_TEST_REQUIRE( false, "Invalid or missing star attribute" );
@@ -118,7 +117,7 @@ void ZAMSTestFixture::LoadTestData()
     BOOST_TEST_REQUIRE( false, "Unable to load test data " + *dataPath );
   }
 
-  m_StarCount = std::distance( m_Catalogue.get_child( "Catalogue" ).begin(), m_Catalogue.get_child( "Catalogue" ).end() );
+  m_StarCount = std::distance( m_Catalogue.get_child( "Catalogue" ).begin(), m_Catalogue.get_child( "Catalogue" ).end() ); // @suppress("Invalid arguments")
   BOOST_TEST_REQUIRE( m_StarCount != 0 );
 }
 

@@ -47,14 +47,14 @@ std::unordered_map< std::string, std::string > ParseCommandLineArguments()
   for( std::size_t c = 1; c < argCount; ++c )
   {
     std::vector< std::string > parsed;
-    boost::split( parsed, boost::unit_test::framework::master_test_suite().argv[ c ], boost::is_any_of( "=" ), boost::token_compress_off );
+    boost::split( parsed, boost::unit_test::framework::master_test_suite().argv[ c ], boost::is_any_of( "=" ), boost::token_compress_off ); // @suppress("Invalid arguments")
 
     if( !( parsed.size() == 1 || parsed.size() == 2 ) )
     {
       BOOST_TEST_REQUIRE( false, "Unable to parse argument " << boost::unit_test::framework::master_test_suite().argv[ c ] );
       // @formatter:off
       return {};
-      // @formatter:oon
+            // @formatter:on
     }
 
     if( s_RegisteredArguments.count( parsed[ 0 ] ) == 0 )
