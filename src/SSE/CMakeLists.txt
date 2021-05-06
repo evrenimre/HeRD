@@ -6,11 +6,11 @@ set( HEADER_LIST StarState.h
 set( SOURCE_LIST ZeroAgeMainSequence.cpp )
 
 add_library_common()
-target_link_libraries( SSE PRIVATE Generic
-																	 Physics
-																	 Boost::boost
-																	 range-v3::range-v3
-													 PUBLIC	 Eigen3::Eigen
+target_link_libraries( ${TARGET_NAME} PRIVATE Generic
+																							Physics
+																							Boost::boost
+																							range-v3::range-v3
+																			PUBLIC Eigen3::Eigen
 )
 
 add_install_target_common()
