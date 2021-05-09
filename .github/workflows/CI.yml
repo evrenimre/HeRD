@@ -56,3 +56,13 @@ jobs:
         flags: unittests
         fail_ci_if_error: true
         
+    - name: Doxygen
+      run: |
+        sudo apt install doxygen
+        make docs
+        
+    - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/html
