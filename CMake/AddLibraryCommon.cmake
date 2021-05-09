@@ -11,4 +11,5 @@ macro( add_library_common )
 																									  "$<INSTALL_INTERFACE:${INSTALL_INCLUDEDIR}>"							                       
 	)
 
+	target_link_libraries( ${TARGET_NAME} PUBLIC ${COVERAGE_CONFIG} )	# Instruments the library and its dependents for coverage analysis 
 endmacro()

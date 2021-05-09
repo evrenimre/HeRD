@@ -65,9 +65,25 @@ set( INSTALL_INCLUDE_DIR "include/${VERSIONED_NAME}" )
 set( INSTALL_LIB_DIR "lib/${VERSIONED_NAME}" )
 set( INSTALL_BIN_DIR "bin/${VERSIONED_NAME}" )
 
-# Macros used in targets
-include( "${PROJECT_SOURCE_DIR}/CMake/AddInstallTargetCommon.cmake" )
-include( "${PROJECT_SOURCE_DIR}/CMake/AddLibraryCommon.cmake" )
+# Code coverage configuration
+set( COVERAGE_CONFIG CoverageConfig )
+set( COVERGE_CONFIG_EXPORT "${COVERAGE_CONFIG}Targets" )
+add_library( ${COVERAGE_CONFIG} INTERFACE )
+install( TARGETS ${COVERAGE_CONFIG} EXPORT ${COVERGE_CONFIG_EXPORT} )
+install( EXPORT ${COVERGE_CONFIG_EXPORT}
+				 FILE "${COVERGE_CONFIG_EXPORT}.cmake"
+	       NAMESPACE ${CMAKE_PROJECT_NAME}::
+	       DESTINATION "${INSTALL_LIB_DIR}/cmake/${COVERAGE_CONFIG}" )
+option( CODE_COVERAGE "Enable coverage reporting" OFF )
+if( CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang" )
+  # Add required flags (GCC & LLVM/Clang)
+  target_compile_options( ${COVERAGE_CONFIG} INTERFACE
+    -O0        # no optimization
+    -g         # generate debug info
+    --coverage # sets all required flags
+  )
+  target_link_options( ${COVERAGE_CONFIG} INTERFACE --coverage )
+endif()
 
 # Source files
 enable_testing()

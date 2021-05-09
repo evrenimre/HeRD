@@ -17,7 +17,7 @@ macro( add_install_target_common )
 	
 	install( EXPORT ${EXPORT_TARGET_NAME}
 	         FILE ${EXPORT_TARGET_NAME}.cmake
-	         NAMESPACE ${TARGET_NAME}::
+	         NAMESPACE ${CMAKE_PROJECT_NAME}::
 	         DESTINATION "${INSTALL_LIB_DIR}/cmake/${TARGET_NAME}"
 	)
 
