@@ -50,6 +50,7 @@ jobs:
         lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
         
     - name: Codecov
+      # Sends the coverage report to Codecov
       uses: codecov/codecov-action@v1
       with:
         files: ./build/coverage.lcov
@@ -57,11 +58,14 @@ jobs:
         fail_ci_if_error: true
         
     - name: Doxygen
+      # Documentation generation
+      working-directory: ${{github.workspace}}/build
       run: |
         sudo apt install doxygen
         make docs
         
-    - name: GitHub Pages action
+    - name: Deploy documentation
+      # Deploys the documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
