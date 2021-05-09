@@ -1,3 +1,6 @@
 # HeRD
 Stellar evolution simulator
-[![Build](https://github.com/evrenimre/HeRD/actions/workflows/Build.yml/badge.svg)](https://github.com/evrenimre/HeRD/actions/workflows/Build.yml)
+[![CI](https://github.com/evrenimre/HeRD/actions/workflows/CI.yml/badge.svg)](https://github.com/evrenimre/HeRD/actions/workflows/CI.yml)
+[![codecov.io](https://codecov.io/gh/evrenimre/HeRD/branch/main]
+[![codecov.io](https://codecov.io/gh/evrenimre/HeRD/coverage.svg?branch=main)]
+(https://codecov.io/gh/evrenimre/HeRD?branch=main)
