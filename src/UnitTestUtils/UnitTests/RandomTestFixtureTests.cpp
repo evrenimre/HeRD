@@ -34,9 +34,9 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( Generators, T, TestTypes )
   Herd::UnitTestUtils::RandomTestFixture Fixture;
 
   {
-    long double rolled = Fixture.GenerateNumber< T >();  // Convert to largest numerical type. Otherwise overflow/underflow would mask incorrect operation
-    BOOST_TEST( rolled >= static_cast< long double >(std::numeric_limits< T >::lowest()) );
-    BOOST_TEST( rolled <= static_cast< long double >(std::numeric_limits< T >::max() ) );
+    long double rolled = Fixture.GenerateNumber< T >(); // Convert to largest numerical type. Otherwise overflow/underflow would mask incorrect operation
+    BOOST_TEST( rolled >= static_cast< long double >( std::numeric_limits< T >::lowest() ) );
+    BOOST_TEST( rolled <= static_cast< long double >( std::numeric_limits< T >::max() ) );
   }
 
   {

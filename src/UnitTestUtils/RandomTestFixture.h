@@ -13,7 +13,6 @@
 #ifndef H219F636B_7938_44D6_981D_D0D7FA5DAC8C
 #define H219F636B_7938_44D6_981D_D0D7FA5DAC8C
 
-#include <cerrno>
 #include <cmath>
 #include <cstdint>
 #include <limits>
@@ -89,9 +88,7 @@ Arithmetic RandomTestFixture::GenerateNumber( Arithmetic i_Min, Arithmetic i_Max
 
   if constexpr ( std::is_floating_point< Arithmetic >::value )
   {
-    errno = 0;
-    Arithmetic span = i_Max - i_Min;
-    BOOST_TEST_REQUIRE( errno != ERANGE, std::strerror( errno ) );
+    BOOST_TEST_REQUIRE( i_Max - i_Min != std::numeric_limits< Arithmetic >::infinity() );
 
     return std::uniform_real_distribution< Arithmetic >( i_Min, std::nextafter( i_Max, std::numeric_limits< Arithmetic >::max() ) )( *m_Rng );  // Closed range
   } else
