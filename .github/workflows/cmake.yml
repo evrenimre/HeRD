@@ -46,6 +46,7 @@ jobs:
       # Collects the coverage info, removes the reports from third parties, sends it for analysis
       working-directory: ${{github.workspace}}/build
       run: |
+        sudo apt install lcov
         lcov --directory . --capture --output-file coverage.info
         lcov --remove coverage.info '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.info
         bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
