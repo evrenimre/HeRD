@@ -4,3 +4,5 @@
 
 # HeRD
 Stellar evolution simulator
+
+![API Documentation](https://evrenimre.github.io/HeRD/)
