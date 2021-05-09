@@ -28,12 +28,6 @@ std::unordered_set< std::string > s_RegisteredArguments { "--seed", "--data" };
 namespace Herd::UnitTestUtils
 {
 
-bool CheckCurrentTestCaseStatus()
-{
-  auto testId = boost::unit_test::framework::current_test_case().p_id;
-  return boost::unit_test::results_collector.results( testId ).passed();
-}
-
 /**
  * @return Key-value pairs for arguments
  * @remarks If an argument does not have a value, it is assigned an empty string
@@ -82,7 +76,6 @@ std::optional< std::string > GetCommandLineArgument( const std::string& i_rName 
     BOOST_TEST_REQUIRE( false, "Requested unregistered argument " + i_rName );
     return std::nullopt;
   }
-
 
   std::unordered_map< std::string, std::string > arguments = ParseCommandLineArguments();
   if( auto iQuery = arguments.find( i_rName ); iQuery == arguments.end() )

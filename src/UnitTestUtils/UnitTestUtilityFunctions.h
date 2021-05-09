@@ -17,16 +17,12 @@
 #include <string>
 #include <unordered_map>
 
-#include <boost/test/results_collector.hpp>
 #include <boost/test/unit_test.hpp>
 
 namespace Herd::UnitTestUtils
 {
-bool CheckCurrentTestCaseStatus();  ///< Checks whether the current test case passed
-
 std::unordered_map< std::string, std::string > ParseCommandLineArguments(); ///< Parses the command line arguments for the test executable
 std::optional< std::string > GetCommandLineArgument( const std::string& i_rName ); ///< Returns a command line argument
-
 }
 
 

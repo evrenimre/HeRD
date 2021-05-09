@@ -16,11 +16,9 @@
 
 #include <ctime>
 #include <cstddef>
-#include <iostream>
 #include <vector>
 
 #include <boost/lexical_cast.hpp>
-#include <boost/test/unit_test.hpp>
 
 namespace Herd::UnitTestUtils
 {
@@ -38,6 +36,14 @@ void RandomTestFixture::SetSeed( unsigned int i_Seed )
 {
   m_Seed = i_Seed;
   m_Rng.reset();
+}
+
+/**
+ * @return Returns \c m_Seed
+ */
+uint_fast32_t RandomTestFixture::Seed()
+{
+  return m_Seed;
 }
 
 /**
