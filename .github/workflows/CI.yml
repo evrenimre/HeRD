@@ -1,4 +1,4 @@
-name: Build
+name: CI
 
 on:
   push:
@@ -41,13 +41,18 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
       
-    - name: Coverage
-      # Coverage analysis
-      # Collects the coverage info, removes the reports from third parties, sends it for analysis
+    - name: lcov
+      # Coverage report
       working-directory: ${{github.workspace}}/build
       run: |
         sudo apt install lcov
-        lcov --directory . --capture --output-file coverage.info
-        lcov --remove coverage.info '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.info
-        bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
-      
+        lcov --directory . --capture --output-file coverage.lcov
+        lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
+        
+    - name: Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        files: ./build/coverage.lcov
+        flags: unittests
+        fail_ci_if_error: true
+        
