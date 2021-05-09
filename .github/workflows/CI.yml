@@ -22,9 +22,11 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Install dependencies
+      # CMake needs doxygen to build the docs target
       run: |
         sudo apt update
         sudo apt install libboost-dev libboost-all-dev librange-v3-dev libeigen3-dev
+        sudo apt install doxygen graphviz clang-tidy cppcheck 
       
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
@@ -57,12 +59,8 @@ jobs:
         flags: unittests
         fail_ci_if_error: true
         
-    - name: Doxygen
-      # Documentation generation
-      run: |
-        sudo apt install doxygen graphviz
-        ls ${{github.workspace}}/build
-        doxygen ${{github.workspace}}/build/Doxyfile.docs
+    - name: Generate documentation
+      run: cmake --build ${{github.workspace}}/build --target docs
         
     - name: Deploy documentation
       # Deploys the documentation to GitHub Pages
