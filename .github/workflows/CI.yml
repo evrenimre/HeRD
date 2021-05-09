@@ -59,9 +59,10 @@ jobs:
         
     - name: Doxygen
       # Documentation generation
+      working-directory: ${{github.workspace}}/build
       run: |
         sudo apt install doxygen graphviz
-        cmake --build ${{github.workspace}}/build --target docs
+        doxygen Doxyfile.docs
         
     - name: Deploy documentation
       # Deploys the documentation to GitHub Pages
