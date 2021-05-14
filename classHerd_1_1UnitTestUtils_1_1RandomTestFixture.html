@@ -264,9 +264,8 @@ template&lt;class Arithmetic &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A random value </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><code> i_Min &lt; i_Max </code> </dd>
-<dd>
-<code> i_Max - i_Min </code> can be represented as <code>Arithmetic</code> </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code> i_Min &lt; i_Max </code> </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>For real distributions if <code> i_Max - i_Min </code> is bigger than the maximum for <code>Arithmetic</code> the bounds are halved and the output is doubled This allows sampling over the entire range of a floating point type </dd></dl>
 
 </div>
 </div>
