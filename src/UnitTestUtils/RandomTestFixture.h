@@ -113,11 +113,11 @@ Arithmetic RandomTestFixture::GenerateNumber()
 {
   if constexpr ( std::is_floating_point< Arithmetic >::value )
   {
-    return GenerateNumber( std::numeric_limits< Arithmetic >::lowest() / 2,
-        std::nextafter( std::numeric_limits< Arithmetic >::max() / 2, std::numeric_limits< Arithmetic >::lowest() ) ); // This ensures that the span of the range is still representable as an Arithmetic
+    return GenerateNumber( std::numeric_limits< Arithmetic >::lowest(),
+        std::nextafter( std::numeric_limits< Arithmetic >::max(), std::numeric_limits< Arithmetic >::lowest() ) ); // This ensures that the span of the range is still representable as an Arithmetic
   } else
   {
-    return GenerateNumber( std::numeric_limits< Arithmetic >::lowest(), std::numeric_limits< Arithmetic >::max() ); // It seems like internally integers are promoted to floating point numbers if the span > the maximum value of Arithmetic
+    return GenerateNumber( std::numeric_limits< Arithmetic >::lowest(), std::numeric_limits< Arithmetic >::max() ); // It seems like internally integers are promoted to floating point numbers if the span > the maximum value of Arithmetic                                                                                                                  // uniform_int_distrubtion works over a closed range, unlike uniform_real_distribution
   }
 }
 } // namespace Herd::UnitTestUtils
