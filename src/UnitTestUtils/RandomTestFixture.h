@@ -70,7 +70,8 @@ private:
  * @param i_Max Maximum value
  * @return A random value
  * @pre <tt> i_Min < i_Max </tt>
- * @pre <tt> i_Max - i_Min </tt> can be represented as \c Arithmetic
+ * @remarks For real distributions if <tt> i_Max - i_Min </tt> is bigger than the maximum for \c Arithmetic the bounds are halved and the output is doubled
+ * This allows sampling over the entire range of a floating point type
  */
 template< class Arithmetic >
 Arithmetic RandomTestFixture::GenerateNumber( Arithmetic i_Min, Arithmetic i_Max )
@@ -88,9 +89,15 @@ Arithmetic RandomTestFixture::GenerateNumber( Arithmetic i_Min, Arithmetic i_Max
 
   if constexpr ( std::is_floating_point< Arithmetic >::value )
   {
-    BOOST_TEST_REQUIRE( i_Max - i_Min != std::numeric_limits< Arithmetic >::infinity() );
-
-    return std::uniform_real_distribution< Arithmetic >( i_Min, std::nextafter( i_Max, std::numeric_limits< Arithmetic >::max() ) )( *m_Rng );  // Closed range
+    if( i_Max - i_Min == std::numeric_limits< Arithmetic >::infinity() )
+    {
+      i_Min /= 2;
+      i_Max /= 2;
+      return 2 * std::uniform_real_distribution< Arithmetic >( i_Min, std::nextafter( i_Max, std::numeric_limits< Arithmetic >::max() ) )( *m_Rng ); // Closed range
+    } else
+    {
+      return std::uniform_real_distribution< Arithmetic >( i_Min, std::nextafter( i_Max, std::numeric_limits< Arithmetic >::max() ) )( *m_Rng ); // Closed range
+    }
   } else
   {
     return std::uniform_int_distribution< Arithmetic >( i_Min, i_Max )( *m_Rng ); // Closed range
