@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['file_5flist_20',['file_list',['../namespaceZAMSExtractor.html#a65636f3c526dd23f6825bf7b20c78898',1,'ZAMSExtractor']]],
-  ['formulasunittests_2ecpp_21',['FormulasUnitTests.cpp',['../FormulasUnitTests_8cpp.html',1,'']]]
+  ['file_5flist_21',['file_list',['../namespaceZAMSExtractor.html#a65636f3c526dd23f6825bf7b20c78898',1,'ZAMSExtractor']]]
 ];

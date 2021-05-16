@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('QuantityRange_8h.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Quantities_8h_source.html">Quantities.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;boost/icl/concept/interval.hpp&gt;</code><br />
 <code>#include &lt;boost/icl/continuous_interval.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -100,10 +101,11 @@ Include dependency graph for QuantityRange.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="QuantityRange_8h__incl.png" border="0" usemap="#src_2Generic_2QuantityRange_8h" alt=""/></div>
 <map name="src_2Generic_2QuantityRange_8h" id="src_2Generic_2QuantityRange_8h">
-<area shape="rect" title=" " alt="" coords="135,5,343,32"/>
+<area shape="rect" title=" " alt="" coords="152,5,360,32"/>
 <area shape="rect" href="Quantities_8h.html" title=" " alt="" coords="5,87,107,114"/>
-<area shape="rect" title=" " alt="" coords="131,87,346,114"/>
-<area shape="rect" title=" " alt="" coords="371,80,523,121"/>
+<area shape="rect" title=" " alt="" coords="131,87,211,114"/>
+<area shape="rect" title=" " alt="" coords="235,87,450,114"/>
+<area shape="rect" title=" " alt="" coords="475,80,627,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -167,6 +169,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aeac371f3da3113a90fce24a8070449bc"><td class="memItemLeft" align="right" valign="top">boost::icl::continuous_interval&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic_1_1Detail.html#aeac371f3da3113a90fce24a8070449bc">Herd::Generic::Detail::MakeRange</a> (double i_Min, double i_Max, Detail::ClosedRange *)</td></tr>
 <tr class="memdesc:aeac371f3da3113a90fce24a8070449bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a closed interval.  <a href="namespaceHerd_1_1Generic_1_1Detail.html#aeac371f3da3113a90fce24a8070449bc">More...</a><br /></td></tr>
 <tr class="separator:aeac371f3da3113a90fce24a8070449bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21471b612344f771a1cd4ffabb3f8e7a"><td class="memTemplParams" colspan="2">template&lt;class BoundaryPolicy &gt; </td></tr>
+<tr class="memitem:a21471b612344f771a1cd4ffabb3f8e7a"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#a21471b612344f771a1cd4ffabb3f8e7a">Herd::Generic::operator&lt;&lt;</a> (std::ostream &amp;io_rStream, const Range&lt; BoundaryPolicy &gt; &amp;i_rRange)</td></tr>
+<tr class="memdesc:a21471b612344f771a1cd4ffabb3f8e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream insertion operator for <code><a class="el" href="classHerd_1_1Generic_1_1Range.html" title="A wrapper for boost::icl::interval for Quantity types.">Range</a></code>.  <a href="namespaceHerd_1_1Generic.html#a21471b612344f771a1cd4ffabb3f8e7a">More...</a><br /></td></tr>
+<tr class="separator:a21471b612344f771a1cd4ffabb3f8e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Evren Imre </dd></dl>

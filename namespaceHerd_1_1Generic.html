@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('namespaceHerd_1_1Generic.html',''); in
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Herd::Generic Namespace Reference</div>  </div>
 </div><!--header-->
@@ -138,6 +139,13 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ad6cdeef14a28faff8a429c37ccb3d0cc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#ad6cdeef14a28faff8a429c37ccb3d0cc">ClosedRange</a> = <a class="el" href="classHerd_1_1Generic_1_1Range.html">Range</a>&lt; Detail::ClosedRange &gt;</td></tr>
 <tr class="memdesc:ad6cdeef14a28faff8a429c37ccb3d0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closed interval.  <a href="namespaceHerd_1_1Generic.html#ad6cdeef14a28faff8a429c37ccb3d0cc">More...</a><br /></td></tr>
 <tr class="separator:ad6cdeef14a28faff8a429c37ccb3d0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a21471b612344f771a1cd4ffabb3f8e7a"><td class="memTemplParams" colspan="2">template&lt;class BoundaryPolicy &gt; </td></tr>
+<tr class="memitem:a21471b612344f771a1cd4ffabb3f8e7a"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#a21471b612344f771a1cd4ffabb3f8e7a">operator&lt;&lt;</a> (std::ostream &amp;io_rStream, const <a class="el" href="classHerd_1_1Generic_1_1Range.html">Range</a>&lt; BoundaryPolicy &gt; &amp;i_rRange)</td></tr>
+<tr class="memdesc:a21471b612344f771a1cd4ffabb3f8e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream insertion operator for <code><a class="el" href="classHerd_1_1Generic_1_1Range.html" title="A wrapper for boost::icl::interval for Quantity types.">Range</a></code>.  <a href="namespaceHerd_1_1Generic.html#a21471b612344f771a1cd4ffabb3f8e7a">More...</a><br /></td></tr>
+<tr class="separator:a21471b612344f771a1cd4ffabb3f8e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a647bc89a7eec897942b3b239bf4df04b"></a>
@@ -297,6 +305,61 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Temperature. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a21471b612344f771a1cd4ffabb3f8e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21471b612344f771a1cd4ffabb3f8e7a">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class BoundaryPolicy &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; Herd::Generic::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>io_rStream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classHerd_1_1Generic_1_1Range.html">Range</a>&lt; BoundaryPolicy &gt; &amp;&#160;</td>
+          <td class="paramname"><em>i_rRange</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stream insertion operator for <code><a class="el" href="classHerd_1_1Generic_1_1Range.html" title="A wrapper for boost::icl::interval for Quantity types.">Range</a></code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BoundaryPolicy</td><td>Interval type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">io_rStream</td><td>Stream </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">i_rRange</td><td><a class="el" href="classHerd_1_1Generic_1_1Range.html" title="A wrapper for boost::icl::interval for Quantity types.">Range</a> to be serialised </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to <code>io_rStream</code> </dd></dl>
 
 </div>
 </div>

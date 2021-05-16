@@ -1,5 +1,6 @@
 var namespaceHerd =
 [
+    [ "Exceptions", "namespaceHerd_1_1Exceptions.html", "namespaceHerd_1_1Exceptions" ],
     [ "Generic", "namespaceHerd_1_1Generic.html", "namespaceHerd_1_1Generic" ],
     [ "Physics", "namespaceHerd_1_1Physics.html", "namespaceHerd_1_1Physics" ],
     [ "SSE", "namespaceHerd_1_1SSE.html", "namespaceHerd_1_1SSE" ],
