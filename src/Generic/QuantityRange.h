@@ -15,6 +15,8 @@
 
 #include "Quantities.h"
 
+#include <iostream>
+
 #include <boost/icl/concept/interval.hpp>
 #include <boost/icl/continuous_interval.hpp>
 
@@ -50,10 +52,16 @@ public:
   template< class Tag >
   bool Contains( Herd::Generic::Quantity< Tag > i_Query ) const; ///< Checks whether a quantity is within range
 
-private:
+  template< class IntervalType >
+  friend std::ostream& operator <<( std::ostream& io_rStream, const Range< IntervalType >& i_rRange );
+
+protected:
 
   boost::icl::continuous_interval< double > m_Range;  ///< Interval
 };
+
+template< class BoundaryPolicy >
+std::ostream& operator <<( std::ostream& io_rStream, const Range< BoundaryPolicy >& i_rRange ); ///< Stream insertion operator for \c Range
 
 // Range types
 // @formatter:off
@@ -86,5 +94,18 @@ bool Range< BoundaryPolicy >::Contains( Herd::Generic::Quantity< Tag > i_Query )
   return boost::icl::contains( m_Range, i_Query.Value() );
 }
 
+/**
+ * @tparam BoundaryPolicy Interval type
+ * @param[in, out] io_rStream Stream
+ * @param i_rRange Range to be serialised
+ * @return A reference to \c io_rStream
+ */
+template< class BoundaryPolicy >
+inline std::ostream& operator <<( std::ostream& io_rStream, const Range< BoundaryPolicy >& i_rRange )
+{
+  return io_rStream << i_rRange.m_Range;
 }
+
+}
+
 #endif /* HAE817853_F0C3_44C9_92ED_19BA7C220E0E */
