@@ -5,6 +5,7 @@ include( "${PROJECT_SOURCE_DIR}/CMake/AddInstallTargetCommon.cmake" )
 include( "${PROJECT_SOURCE_DIR}/CMake/AddLibraryCommon.cmake" )
 
 add_subdirectory( ComputeZAMS )
+add_subdirectory( Exceptions ) 
 add_subdirectory( Generic )
 add_subdirectory( Physics )
 add_subdirectory( SSE )
