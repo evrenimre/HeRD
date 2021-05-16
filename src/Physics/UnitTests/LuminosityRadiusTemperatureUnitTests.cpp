@@ -1,5 +1,5 @@
 /**
- * @file FormulasUnitTests.cpp
+ * @file LuminosityRadiusTemperatureUnitTests.cpp
  * @author Evren Imre
  * @date 28 Apr 2021	
  */
@@ -18,7 +18,7 @@
 #include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
-BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture )
+BOOST_FIXTURE_TEST_SUITE( Physics, Herd::UnitTestUtils::RandomTestFixture )
 
 BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolerance( 1e-8 ) )
 {
@@ -97,7 +97,6 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
       BOOST_TEST( rActual->Value() == rExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
     }
   }
-
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

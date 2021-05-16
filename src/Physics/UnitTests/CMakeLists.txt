@@ -1,7 +1,7 @@
 set( TEST_TARGET_NAME "Test${TARGET_NAME}" )	# TARGET_NAME defined by parent
 
 add_executable( ${TEST_TARGET_NAME} TestPhysics.cpp
-															 			FormulasUnitTests.cpp
+															 			LuminosityRadiusTemperatureUnitTests.cpp
 )
 
 target_link_libraries( ${TEST_TARGET_NAME} PRIVATE Physics
