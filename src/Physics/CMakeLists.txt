@@ -6,7 +6,8 @@ set( HEADER_LIST Constants.h
 set( SOURCE_LIST LuminosityRadiusTemperature.cpp )
 
 add_library_common()
-target_link_libraries( Physics PRIVATE Generic
+target_link_libraries( Physics PRIVATE Exceptions
+																			 Generic
 																			 Boost::boost
 )
 

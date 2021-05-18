@@ -14,6 +14,7 @@
 
 #include <UnitTestUtils/RandomTestFixture.h>
 
+#include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
 #include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
@@ -29,16 +30,13 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
     Herd::Generic::Luminosity lSun( 1.0 );
 
     auto luminosity = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rSun, tSun );
-    BOOST_TEST_REQUIRE( luminosity.has_value() );
-    BOOST_TEST( *luminosity == lSun );
+    BOOST_TEST( luminosity == lSun );
 
     auto radius = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lSun, tSun );
-    BOOST_TEST_REQUIRE( radius.has_value() );
-    BOOST_TEST( *radius == rSun );
+    BOOST_TEST( radius == rSun );
 
     auto temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lSun, rSun );
-    BOOST_TEST_REQUIRE( temperature.has_value() );
-    BOOST_TEST( *temperature == tSun );
+    BOOST_TEST( temperature == tSun );
   }
 
   BOOST_TEST_CONTEXT( "Invalid input" )
@@ -47,9 +45,9 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
     Herd::Generic::Temperature tInvalid( GenerateNumber( -1000.0, 0.0 ) );
     Herd::Generic::Luminosity lInvalid( GenerateNumber( -1000.0, 0.0 ) );
 
-    BOOST_TEST( !Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rInvalid, tInvalid ).has_value() );
-    BOOST_TEST( !Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lInvalid, tInvalid ).has_value() );
-    BOOST_TEST( !Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lInvalid, rInvalid ).has_value() );
+    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
+    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
+    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lInvalid, rInvalid ), Herd::Exceptions::PreconditionError );
   }
 
   BOOST_TEST_CONTEXT( "Random" )
@@ -60,41 +58,32 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
 
     {
       auto lComputed = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rExpected, tExpected );
-      BOOST_TEST_REQUIRE( lComputed.has_value() );
 
-      auto rActual = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( *lComputed, tExpected );
-      BOOST_TEST_REQUIRE( rActual.has_value() );
-      BOOST_TEST( rActual->Value() == rExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+      auto rActual = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lComputed, tExpected );
+      BOOST_TEST( rActual.Value() == rExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
 
-      auto tActual = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( *lComputed, rExpected );
-      BOOST_TEST_REQUIRE( tActual.has_value() );
-      BOOST_TEST( tActual->Value() == tExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+      auto tActual = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lComputed, rExpected );
+      BOOST_TEST( tActual.Value() == tExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
     }
 
     {
       auto rComputed = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lExpected, tExpected );
-      BOOST_TEST_REQUIRE( rComputed.has_value() );
 
-      auto lActual = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( *rComputed, tExpected );
-      BOOST_TEST_REQUIRE( lActual.has_value() );
-      BOOST_TEST( lActual->Value() == lExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+      auto lActual = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rComputed, tExpected );
+      BOOST_TEST( lActual.Value() == lExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
 
-      auto tActual = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lExpected, *rComputed );
-      BOOST_TEST_REQUIRE( tActual.has_value() );
-      BOOST_TEST( tActual->Value() == tExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+      auto tActual = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lExpected, rComputed );
+      BOOST_TEST( tActual.Value() == tExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
     }
 
     {
       auto tComputed = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lExpected, rExpected );
-      BOOST_TEST_REQUIRE( tComputed.has_value() );
 
-      auto lActual = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rExpected, *tComputed );
-      BOOST_TEST_REQUIRE( lActual.has_value() );
-      BOOST_TEST( lActual->Value() == lExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+      auto lActual = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rExpected, tComputed );
+      BOOST_TEST( lActual.Value() == lExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
 
-      auto rActual = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lExpected, *tComputed );
-      BOOST_TEST_REQUIRE( rActual.has_value() );
-      BOOST_TEST( rActual->Value() == rExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+      auto rActual = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lExpected, tComputed );
+      BOOST_TEST( rActual.Value() == rExpected.Value() ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
     }
   }
 }

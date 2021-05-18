@@ -18,8 +18,6 @@
 #include "Generic/Quantities.h"
 #include "Generic/QuantityRange.h"
 
-#include <optional>
-
 #include "Eigen/Core"
 
 namespace Herd::SSE
@@ -48,10 +46,10 @@ class ZeroAgeMainSequence
 {
 public:
 
-  static std::optional< Herd::SSE::StarState > ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star state at ZAMS
+  static Herd::SSE::StarState ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star state at ZAMS
 
 private:
-  static bool Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input
+  static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input
 
   static Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS luminosity
   static Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS radius

@@ -14,6 +14,8 @@
 
 #include "Constants.h"
 
+#include <Exceptions/PreconditionError.h>
+
 #include <cmath>
 
 #include <boost/math/special_functions/pow.hpp>
@@ -24,14 +26,22 @@ namespace Herd::Physics
 /**
  * @param i_Radius Radius in \f$ R_{\odot} \f$
  * @param i_Temperature Temperature in K
- * @return Luminosity in \f$ T_{\odot} \f$. Unset if any input parameters are invalid
+ * @return Luminosity in \f$ T_{\odot} \f$
+ * @pre \c i_Radius>0
+ * @pre \c i_Temperature>0
+ * @throws \c PreconditionError if preconditions are violated
  */
-std::optional< Herd::Generic::Luminosity > LuminosityRadiusTemperature::ComputeLuminosty( Herd::Generic::Radius i_Radius,
+Herd::Generic::Luminosity LuminosityRadiusTemperature::ComputeLuminosty( Herd::Generic::Radius i_Radius,
     Herd::Generic::Temperature i_Temperature )
 {
-  if( i_Radius.Value() <= 0 || i_Temperature.Value() <= 0 )
+  if( i_Radius.Value() <= 0 )
   {
-    return std::nullopt;
+    throw( Herd::Exceptions::PreconditionError( "Radius", ">0", i_Radius.Value() ) );
+  }
+
+  if( i_Temperature.Value() <= 0 )
+  {
+    throw( Herd::Exceptions::PreconditionError( "Temperature", ">0", i_Temperature.Value() ) );
   }
 
   double r2 = boost::math::pow< 2 >( i_Radius.Value() );
@@ -43,14 +53,22 @@ std::optional< Herd::Generic::Luminosity > LuminosityRadiusTemperature::ComputeL
 /**
  * @param i_Luminosity Luminosity in \f$ L_{\odot}\f$
  * @param i_Temperature Temperature in K
- * @return Radius in \f$ R_{\odot} \f$. Unset if any input parameters are invalid
+ * @return Radius in \f$ R_{\odot} \f$
+ * @pre \c i_Luminosity>0
+ * @pre \c i_Temperature>0
+ * @throws \c PreconditionError if preconditions are violated
  */
-std::optional< Herd::Generic::Radius > LuminosityRadiusTemperature::ComputeRadius( Herd::Generic::Luminosity i_Luminosity,
+Herd::Generic::Radius LuminosityRadiusTemperature::ComputeRadius( Herd::Generic::Luminosity i_Luminosity,
     Herd::Generic::Temperature i_Temperature )
 {
-  if( i_Temperature.Value() <= 0 || i_Luminosity.Value() <= 0 )
+  if( i_Luminosity.Value() <= 0 )
   {
-    return std::nullopt;
+    throw( Herd::Exceptions::PreconditionError( "Luminosity", ">0", i_Luminosity.Value() ) );
+  }
+
+  if( i_Temperature.Value() <= 0 )
+  {
+    throw( Herd::Exceptions::PreconditionError( "Temperature", ">0", i_Temperature.Value() ) );
   }
 
   double t2 = boost::math::pow< 2 >( i_Temperature.Value() / Herd::Physics::Constants::sunSurfaceTemperature );
@@ -60,14 +78,22 @@ std::optional< Herd::Generic::Radius > LuminosityRadiusTemperature::ComputeRadiu
 /**
  * @param i_Luminosity Luminosity in \f$ L_{\odot} \f$
  * @param i_Radius Radius in \f$ R_{\odot} \f$
- * @return Temperature in K.  Unset if any input parameters are invalid
+ * @return Temperature in K
+ * @pre \c i_Luminosity>0
+ * @pre \c i_Temperature>0
+ * @throws \c PreconditionError if preconditions are violated
  */
-std::optional< Herd::Generic::Temperature > LuminosityRadiusTemperature::ComputeTemperature( Herd::Generic::Luminosity i_Luminosity,
+Herd::Generic::Temperature LuminosityRadiusTemperature::ComputeTemperature( Herd::Generic::Luminosity i_Luminosity,
     Herd::Generic::Radius i_Radius )
 {
-  if( i_Luminosity.Value() <= 0 || i_Radius.Value() <= 0 )
+  if( i_Luminosity.Value() <= 0 )
   {
-    return std::nullopt;
+    throw( Herd::Exceptions::PreconditionError( "Luminosity", ">0", i_Luminosity.Value() ) );
+  }
+
+  if( i_Radius.Value() <= 0 )
+  {
+    throw( Herd::Exceptions::PreconditionError( "Radius", ">0", i_Radius.Value() ) );
   }
 
   double r2 = boost::math::pow< 2 >( i_Radius.Value() );

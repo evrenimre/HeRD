@@ -15,6 +15,7 @@
 #include <UnitTestUtils/RandomTestFixture.h>
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
+#include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
 #include <SSE/StarState.h>
 #include <SSE/ZeroAgeMainSequence.h>
@@ -127,19 +128,17 @@ BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
 
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *boost::unit_test::tolerance( 1e-8 ) )
 {
-Herd::Generic::Metallicity z = GenerateRandomZ();
-Herd::Generic::Mass m = GenerateRandomMass();
-
+  Herd::Generic::Metallicity z = GenerateRandomZ();
+  Herd::Generic::Mass m = GenerateRandomMass();
 
   auto starState = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z );
 
-  BOOST_TEST_REQUIRE( starState.has_value() );
-  BOOST_TEST( starState->m_Age == 0 );
-  BOOST_TEST( starState->m_Luminosity > 0.0 );
-  BOOST_TEST( starState->m_Mass == m );
-  BOOST_TEST( starState->m_Radius > 0 );
-  BOOST_TEST( starState->m_Temperature > 0 );
-  BOOST_TEST( starState->m_Z == z );
+  BOOST_TEST( starState.m_Age == 0 );
+  BOOST_TEST( starState.m_Luminosity > 0.0 );
+  BOOST_TEST( starState.m_Mass == m );
+  BOOST_TEST( starState.m_Radius > 0 );
+  BOOST_TEST( starState.m_Temperature > 0 );
+  BOOST_TEST( starState.m_Z == z );
 }
 
 BOOST_AUTO_TEST_CASE( InvalidParameters )
@@ -148,7 +147,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters )
     Herd::Generic::Metallicity z(
         GenerateRandomZ() + ( GenerateBool() ? Herd::SSE::Detail::ZAMS::s_MaxZ : ( Herd::SSE::Detail::ZAMS::s_MinZ - Herd::SSE::Detail::ZAMS::s_MaxZ ) ) );
     Herd::Generic::Mass m = GenerateRandomMass();
-    BOOST_TEST( !Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z ) );
+    BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z ), Herd::Exceptions::PreconditionError );
   }
 
   {
@@ -156,7 +155,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters )
     Herd::Generic::Mass m(
         GenerateRandomMass()
             + ( GenerateBool() ? Herd::SSE::Detail::ZAMS::s_MaxMass : ( Herd::SSE::Detail::ZAMS::s_MinMass - Herd::SSE::Detail::ZAMS::s_MaxMass ) ) );
-    BOOST_TEST( !Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z ) );
+    BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z ), Herd::Exceptions::PreconditionError );
   }
 
 }
@@ -185,14 +184,12 @@ BOOST_AUTO_TEST_CASE( ReferenceData )
 
   auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected->m_Mass, Expected->m_Z );
   
-  BOOST_TEST_REQUIRE( Actual.has_value() );
-  BOOST_TEST( Actual->m_Radius.Value() == Expected->m_Radius.Value(),
+  BOOST_TEST( Actual.m_Radius.Value() == Expected->m_Radius.Value(),
       boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxRadiusError ) );
-  BOOST_TEST( Actual->m_Temperature.Value() == Expected->m_Temperature.Value(),
+  BOOST_TEST( Actual.m_Temperature.Value() == Expected->m_Temperature.Value(),
       boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxTemperatureError ) );
-  BOOST_TEST( Actual->m_Luminosity.Value() == Expected->m_Luminosity.Value(),
+  BOOST_TEST( Actual.m_Luminosity.Value() == Expected->m_Luminosity.Value(),
       boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxLuminosityError ) );
-
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

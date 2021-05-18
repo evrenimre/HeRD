@@ -25,6 +25,7 @@ namespace Herd::Exceptions
 {
 /**
  * @brief Exception class indicating that a precondition was not met
+ * @remarks Stacktrace is not called in \c ComposeMessage so that the frame does not unnecessarily include an implementation detail
  */
 class PreconditionError : public Herd::Exceptions::RuntimeError
 {
@@ -36,7 +37,7 @@ public:
    * @param i_rActual Actual value
    */
   PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual ) :
-      Herd::Exceptions::RuntimeError( ComposeMessage( i_rElement, i_rExpected, i_rActual ) )
+      Herd::Exceptions::RuntimeError( ComposeMessage( i_rElement, i_rExpected, i_rActual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) )
   {
   }
 
@@ -49,12 +50,13 @@ public:
    */
   template< class Arithmetic >
   PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, Arithmetic i_Actual ) :
-      Herd::Exceptions::RuntimeError( ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) ) )
+      Herd::Exceptions::RuntimeError(
+          ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) ) )
   {
     static_assert( std::is_arithmetic< Arithmetic >::value, "Arihtmetic must be an arithmetic type");
   }
 
-protected:
+private:
   /**
    * @brief Composes the error message for the exception
    * @param i_rElement Element being tested
@@ -64,9 +66,7 @@ protected:
    */
   static std::string ComposeMessage( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual )
   {
-    return boost::str(
-        boost::format( "%s: Expected %s got %s\n %s" ) % i_rElement % i_rExpected % i_rActual
-            % boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) );
+    return boost::str( boost::format( "%s: Expected %s got %s\n" ) % i_rElement % i_rExpected % i_rActual );
   }
 };
 

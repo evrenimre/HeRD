@@ -6,7 +6,8 @@ set( HEADER_LIST StarState.h
 set( SOURCE_LIST ZeroAgeMainSequence.cpp )
 
 add_library_common()
-target_link_libraries( ${TARGET_NAME} PRIVATE Generic
+target_link_libraries( ${TARGET_NAME} PRIVATE Exceptions
+																							Generic
 																							Physics
 																							Boost::boost
 																							range-v3::range-v3

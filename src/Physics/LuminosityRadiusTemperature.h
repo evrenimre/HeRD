@@ -15,8 +15,6 @@
 
 #include <Generic/Quantities.h>
 
-#include <optional>
-
 namespace Herd::Physics
 {
 /**
@@ -29,9 +27,9 @@ class LuminosityRadiusTemperature
 {
 public:
 
-  static std::optional< Herd::Generic::Luminosity > ComputeLuminosty( Herd::Generic::Radius i_Radius, Herd::Generic::Temperature i_Temperature );
-  static std::optional< Herd::Generic::Radius > ComputeRadius( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Temperature i_Temperature );
-  static std::optional< Herd::Generic::Temperature > ComputeTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius );
+  static Herd::Generic::Luminosity ComputeLuminosty( Herd::Generic::Radius i_Radius, Herd::Generic::Temperature i_Temperature );
+  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Temperature i_Temperature );
+  static Herd::Generic::Temperature ComputeTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius );
 };
 }
 

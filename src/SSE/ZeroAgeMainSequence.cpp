@@ -12,6 +12,7 @@
 
 #include "ZeroAgeMainSequence.h"
 
+#include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
 #include <Generic/QuantityRange.h>
 #include <Physics/Constants.h>
@@ -57,14 +58,13 @@ double eq4Coefficients[] { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
  * @param i_Z Metallicity
- * @return ZAMS state. Unset if parameter validation fails
+ * @return ZAMS state
+ * @pre \c i_Mass is within \c s_MassRange
+ * @pre \c i_Z is is within \c s_ZRange
  */
-std::optional< Herd::SSE::StarState > ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+Herd::SSE::StarState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
-  if( !Validate( i_Mass, i_Z ) )
-  {
-    return std::nullopt;
-  }
+  Validate( i_Mass, i_Z );  // Throws is the input is invalid
   
   Eigen::Matrix< double, 5, 1 > zVector;
   zVector[ 0 ] = 1;
@@ -81,7 +81,7 @@ std::optional< Herd::SSE::StarState > ZeroAgeMainSequence::ComputeStarState( Her
   output.m_Radius = radius;
   output.m_Mass = i_Mass;
   output.m_Z = i_Z;
-  output.m_Temperature = *Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius );
+  output.m_Temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius );
 
   return output;
 }
@@ -89,11 +89,21 @@ std::optional< Herd::SSE::StarState > ZeroAgeMainSequence::ComputeStarState( Her
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
  * @param i_Z Metallicity
- * @return \c true if the parameters are valid
+ * @throws \c PreconditionError if preconditions are violated
  */
-bool ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
-  return s_MassRange.Contains( i_Mass ) && s_ZRange.Contains( i_Z );
+  // Mass is within the allowed range
+  if( !s_MassRange.Contains( i_Mass ) )
+  {
+    throw( Herd::Exceptions::PreconditionError( "Mass", s_MassRange.GetRangeString(), i_Mass.Value() ) );
+  }
+
+  // Metallicity is within the allowed range
+  if( !s_ZRange.Contains( i_Z ) )
+  {
+    throw( Herd::Exceptions::PreconditionError( "Metallicity", s_ZRange.GetRangeString(), i_Z.Value() ) );
+  }
 }
 
 /**
