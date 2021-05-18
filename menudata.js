@@ -61,8 +61,7 @@ var menudata={children:[
 {text:"t",url:"functions.html#index_t"},
 {text:"v",url:"functions.html#index_v"}]},
 {text:"Functions",url:"functions_func.html"},
-{text:"Variables",url:"functions_vars.html"},
-{text:"Related Functions",url:"functions_rela.html"}]}]},
+{text:"Variables",url:"functions_vars.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[

@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('classHerd_1_1Exceptions_1_1Preconditio
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="classHerd_1_1Exceptions_1_1PreconditionError-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Herd::Exceptions::PreconditionError Class Reference</div>  </div>
@@ -130,14 +130,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1ae4b108480d00a95eb825dfb165c8e8 inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1RuntimeError.html#a1ae4b108480d00a95eb825dfb165c8e8">RuntimeError</a> (const std::string &amp;i_rMessage)</td></tr>
 <tr class="separator:a1ae4b108480d00a95eb825dfb165c8e8 inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
 <tr class="memitem:aa6cbf3906306974a928065e11281ac0b"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#aa6cbf3906306974a928065e11281ac0b">ComposeMessage</a> (const std::string &amp;i_rElement, const std::string &amp;i_rExpected, const std::string &amp;i_rActual)</td></tr>
 <tr class="memdesc:aa6cbf3906306974a928065e11281ac0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes the error message for the exception.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#aa6cbf3906306974a928065e11281ac0b">More...</a><br /></td></tr>
 <tr class="separator:aa6cbf3906306974a928065e11281ac0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception class indicating that a precondition was not met. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Stacktrace is not called in <code>ComposeMessage</code> so that the frame does not unnecessarily include an implementation detail </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8d431cb3b9ed9b7f7dbf394bf64fb2e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d431cb3b9ed9b7f7dbf394bf64fb2e4">&#9670;&nbsp;</a></span>PreconditionError() <span class="overload">[1/2]</span></h2>
@@ -287,7 +288,7 @@ template&lt;class Arithmetic &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -7,9 +7,8 @@ var indexSectionsWithContent =
   4: "bcgmopqrstv",
   5: "defmprstz",
   6: "aclmoqrt",
-  7: "o",
-  8: "b",
-  9: "b"
+  7: "b",
+  8: "b"
 };
 
 var indexSectionNames =
@@ -21,9 +20,8 @@ var indexSectionNames =
   4: "functions",
   5: "variables",
   6: "typedefs",
-  7: "related",
-  8: "defines",
-  9: "pages"
+  7: "defines",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -35,8 +33,7 @@ var indexSectionLabels =
   4: "Functions",
   5: "Variables",
   6: "Typedefs",
-  7: "Friends",
-  8: "Macros",
-  9: "Pages"
+  7: "Macros",
+  8: "Pages"
 };
 
