@@ -25,17 +25,17 @@ namespace Herd::SSE
 
 namespace Detail::ZAMS
 {
-// Algorithm properties
+// Algorithm specs
 // Original mass range [0.1, 100] and z range [1e-4, 0.03]
 // Reported radius error 0.05 and luminosity error 0.075
 // Values updated by running the algorithm over the ZAMS unit test dataset
-inline constexpr double s_MinMass = 0.1;  ///< Lower bound of the mass range
-inline constexpr double s_MaxMass = 40.0;  ///< Upper bound of the mass range
+inline constexpr double s_MinMass = 0.2;  ///< Lower bound of the mass range
+inline constexpr double s_MaxMass = 100.0;  ///< Upper bound of the mass range
 inline constexpr double s_MinZ = 1e-4; ///< Lower bound of the metallicity range
-inline constexpr double s_MaxZ = 0.025; ///< Upper bound of the metallicity range
-inline constexpr double s_MaxLuminosityError = 0.7;  ///< Maximum luminosity error in percentage
-inline constexpr double s_MaxRadiusError = 0.125;  ///< Maximum radius error in percentage
-inline constexpr double s_MaxTemperatureError = 0.08; ///< Maximum temperature error in percentage. Approximate computation from L and R errors
+inline constexpr double s_MaxZ = 0.03; ///< Upper bound of the metallicity range
+inline constexpr double s_MaxLuminosityError = 0.075;  ///< Maximum percent luminosity error
+inline constexpr double s_MaxRadiusError = 0.05;  ///< Maximum percent radius error
+inline constexpr double s_MaxTemperatureError = 0.005; ///< Maximum percent temperature error. Set by trial and error over the unit test data range
 }
 
 /**

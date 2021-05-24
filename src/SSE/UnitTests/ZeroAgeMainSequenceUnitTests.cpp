@@ -63,7 +63,7 @@ Herd::SSE::StarState ZAMSTestFixture::GetRandomStar()
   // Rationale: unit tests need only a small number of entries from the catalogue. Hence, on demand, rather than constructing StarState items for all entries
 
   // Seek to the entry
-  auto iStar = std::next( m_Catalogue.get_child( "Catalogue" ).begin(), GenerateNumber( 0u, m_StarCount ) ); // @suppress("Invalid arguments")
+  auto iStar = std::next( m_Catalogue.get_child( "Catalogue" ).begin(), GenerateNumber( 0u, m_StarCount - 1 ) ); // @suppress("Invalid arguments")
 
   Herd::SSE::StarState Star;
   try
@@ -166,7 +166,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData )
   std::optional< Herd::SSE::StarState > Expected;
 
   // Try getting a valid star from the catalogue
-  for( int c = 0; c < 100; ++c )
+  for( int c = 0; c < 25; ++c )
   {
     Expected = GetRandomStar();
 
@@ -182,14 +182,15 @@ BOOST_AUTO_TEST_CASE( ReferenceData )
   BOOST_TEST_REQUIRE( Expected.has_value(),
       "Unable to get a star within the specified parameter range. There is a very small chance that this is a spurious failure" );
 
-  auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected->m_Mass, Expected->m_Z );
-  
-  BOOST_TEST( Actual.m_Radius.Value() == Expected->m_Radius.Value(),
-      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxRadiusError ) );
-  BOOST_TEST( Actual.m_Temperature.Value() == Expected->m_Temperature.Value(),
-      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxTemperatureError ) );
-  BOOST_TEST( Actual.m_Luminosity.Value() == Expected->m_Luminosity.Value(),
-      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxLuminosityError ) );
+  BOOST_TEST_CONTEXT( "Mass " << Expected->m_Mass << " Metallicity "<< Expected->m_Z )
+  {
+    auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected->m_Mass, Expected->m_Z );
+
+    BOOST_TEST( Actual.m_Radius.Value() == Expected->m_Radius.Value(), boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxRadiusError ) );
+    BOOST_TEST( Actual.m_Temperature.Value() == Expected->m_Temperature.Value(),
+        boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxTemperatureError ) );
+    BOOST_TEST( Actual.m_Luminosity.Value() == Expected->m_Luminosity.Value(), boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxLuminosityError ) );
+  }
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

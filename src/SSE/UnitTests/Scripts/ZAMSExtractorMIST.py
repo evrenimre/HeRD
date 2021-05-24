@@ -1,4 +1,7 @@
-## @file ZAMSExtractor.py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+## @file ZAMSExtractorMIST.py
 #  @author Evren Imre
 #  @date 02 May 2021    
  
@@ -17,7 +20,7 @@ import lxml.etree
 
 import read_mist_models # https://github.com/jieunchoi/MIST_codes/blob/master/scripts/read_mist_models.py
 
-rootdir = os.path.normpath(r"/home/evren/Code/Stellar Evolution/Scratchpad/MIST EEP/")  # Root for the EEP directories
+rootdir = os.path.normpath(r"MIST EEP/")  # Root for the EEP directories
 zams_eep_index = 201    # EEP index for ZAMS
 
 stars = []  # Tree nodes
@@ -44,4 +47,4 @@ for dir in dir_list:
 tree = lxml.etree.Element('Catalogue')            
 tree.extend(stars)  # Add the nodes to the tree
 
-lxml.etree.ElementTree(tree).write(os.path.join(rootdir, "ZAMSUnitTestData.xml"), pretty_print = True)
+lxml.etree.ElementTree(tree).write(os.path.join(rootdir, "ZAMSUnitTestDataMIST.xml"), pretty_print = True)

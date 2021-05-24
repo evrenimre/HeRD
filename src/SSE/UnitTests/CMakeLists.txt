@@ -10,5 +10,5 @@ target_link_libraries( ${TEST_TARGET_NAME} PRIVATE SSE
 																									 Boost::headers
 )
 
-set( TEST_DATA_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Data/ZAMSUnitTestData.xml" )
+set( TEST_DATA_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Data/ZAMSUnitTestDataSSE.xml" )
 add_test( NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} -- --data=${TEST_DATA_PATH} )
