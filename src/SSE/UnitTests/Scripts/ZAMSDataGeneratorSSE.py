@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-## @file ZAMSDataGeneratorSSE.py
+# @file ZAMSDataGeneratorSSE.py
 #  @author Evren Imre
-#  @date 23 May 2021    
- 
+#  @date 23 May 2021
+
 # This file is a part of HeRD, a stellar evolution library
-# Copyright © 2021 Evren Imre 
+# Copyright © 2021 Evren Imre
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,53 +16,64 @@
 """
 
 import argparse
+import lxml.etree
 import os
 import re
-import lxml.etree
 
 import RunSSE
 
+
 def generate_data(sse_dir, output_dir, mass_range, z_range):
-    
+    """Runs SSE over all combinations of mass and range, and extracts the ZAMS properties to an xml file
+    """
+
     os.chdir(output_dir)
-    
+
     stars = []  # Tree nodes
-    
+
     for mass in mass_range:
         for z in z_range:
             RunSSE.run_sse(mass, z, 0, sse_dir, output_dir)
-            
+
             # Get the second line of evolve.dat
             with open(os.path.join(output_dir, 'evolve.dat'), 'r') as file:
-                lines = file.readlines();
-                state = re.split(' +', lines[1])[1:]    # Starts with an empty element
+                lines = file.readlines()
+                # Starts with an empty element
+                state = re.split(' +', lines[1])[1:]
 
                 stars.append(
                     lxml.etree.Element(
-                        'Star',  
-                        M = state[2], 
-                        Z = z, 
-                        Age = state[0],
-                        L = str(10**float(state[4])),
-                        R = str(10**float(state[5])),
-                        T = str(10**float(state[6]))           
+                        'Star',
+                        M=state[2],
+                        Z=z,
+                        Age=state[0],
+                        L=str(10**float(state[4])),
+                        R=str(10**float(state[5])),
+                        T=str(10**float(state[6]))
                     ))
-                
-    tree = lxml.etree.Element('Catalogue')            
+
+    tree = lxml.etree.Element('Catalogue')
     tree.extend(stars)  # Add the nodes to the tree
 
-    lxml.etree.ElementTree(tree).write("ZAMSUnitTestDataSSE.xml", pretty_print = True)
+    lxml.etree.ElementTree(tree).write(
+        "ZAMSUnitTestDataSSE.xml", pretty_print=True)
+
 
 if __name__ == "__main__":
+    # @cond
+    parser = argparse.ArgumentParser(
+        description='Arguments for ZAMS data generation')
+    parser.add_argument('-s', '--sse-binary-dir',
+                        dest='sse_dir', help='Directory for the SSE binary')
+    parser.add_argument('-o', '--output-dir', dest='output_dir',
+                        help='Directory for the output files')
+    parser.add_argument('-m', '--mass', dest='mass_values',
+                        nargs='+', default='1', help='Mass values')
+    parser.add_argument('-z', '--metallicity', dest='z_values',
+                        nargs='+', default='0.02', help='Metallicity values')
 
-    parser = argparse.ArgumentParser(description='Arguments for ZAMS data generation')
-    parser.add_argument('-s', '--sse-binary-dir', dest = 'sse_dir', help = 'Directory for the SSE binary')
-    parser.add_argument('-o', '--output-dir', dest = 'output_dir', help = 'Directory for the output files')
-    parser.add_argument('-m', '--mass', dest = 'mass_values', nargs = '+', default = '1', help = 'Mass values')
-    parser.add_argument('-z', '--metallicity', dest = 'z_values', nargs = '+', default = '0.02', help = 'Metallicity values')
-    
     args = parser.parse_args()
 
-    generate_data(args.sse_dir, args.output_dir, args.mass_values, args.z_values) 
-    
-
+    generate_data(args.sse_dir, args.output_dir,
+                  args.mass_values, args.z_values)
+    # @endcond
