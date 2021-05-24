@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['default_17',['default',['../namespaceRunSSE.html#aa2d4ddf546db246fbb8e42a65944e754',1,'RunSSE.default()'],['../namespaceZAMSDataGeneratorSSE.html#ae7cfc8113f190dd613609977f1af7682',1,'ZAMSDataGeneratorSSE.default()']]],
-  ['dest_18',['dest',['../namespaceRunSSE.html#af63e6ecfb52b2d78cadf4649a6e8442e',1,'RunSSE.dest()'],['../namespaceZAMSDataGeneratorSSE.html#af302b24c2c87dd85edbfae2b3cd4f636',1,'ZAMSDataGeneratorSSE.dest()']]],
-  ['dir_5flist_19',['dir_list',['../namespaceZAMSExtractorMIST.html#ad1da8719d03728ab3578d1f4f6d9b9b3',1,'ZAMSExtractorMIST']]]
+  ['eq3coefficients_16',['eq3Coefficients',['../namespaceHerd_1_1SSE_1_1Detail_1_1Data.html#a3136d96682c248e1109fee6696a4b113',1,'Herd::SSE::Detail::Data']]],
+  ['eq4coefficients_17',['eq4Coefficients',['../namespaceHerd_1_1SSE_1_1Detail_1_1Data.html#ae72f839f8ed717d9f198a32fd301ac79',1,'Herd::SSE::Detail::Data']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['args_209',['args',['../namespaceRunSSE.html#abc4f3a1856599ec6630c1dfeae2518bb',1,'RunSSE.args()'],['../namespaceZAMSDataGeneratorSSE.html#aa68b31f7a564976ab36bb75bfa72b7c8',1,'ZAMSDataGeneratorSSE.args()']]]
+  ['eq3coefficients_195',['eq3Coefficients',['../namespaceHerd_1_1SSE_1_1Detail_1_1Data.html#a3136d96682c248e1109fee6696a4b113',1,'Herd::SSE::Detail::Data']]],
+  ['eq4coefficients_196',['eq4Coefficients',['../namespaceHerd_1_1SSE_1_1Detail_1_1Data.html#ae72f839f8ed717d9f198a32fd301ac79',1,'Herd::SSE::Detail::Data']]]
 ];

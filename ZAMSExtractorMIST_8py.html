@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('ZAMSExtractorMIST_8py.html',''); initR
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">ZAMSExtractorMIST.py File Reference</div>  </div>
 </div><!--header-->
@@ -95,31 +94,8 @@ $(document).ready(function(){initNavTree('ZAMSExtractorMIST_8py.html',''); initR
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceZAMSExtractorMIST"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html">ZAMSExtractorMIST</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8a89a2d29c3bba5d2b2d787e0bc226d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#a8a89a2d29c3bba5d2b2d787e0bc226d0">ZAMSExtractorMIST.rootdir</a> = os.path.normpath(r&quot;MIST EEP/&quot;)</td></tr>
-<tr class="separator:a8a89a2d29c3bba5d2b2d787e0bc226d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad429ad4652b78059a76fdeb4189ead72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#ad429ad4652b78059a76fdeb4189ead72">ZAMSExtractorMIST.zams_eep_index</a> = 201</td></tr>
-<tr class="separator:ad429ad4652b78059a76fdeb4189ead72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0a85aaa06651c4f62884b12630013f"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#a4b0a85aaa06651c4f62884b12630013f">ZAMSExtractorMIST.stars</a> = []</td></tr>
-<tr class="separator:a4b0a85aaa06651c4f62884b12630013f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1da8719d03728ab3578d1f4f6d9b9b3"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#ad1da8719d03728ab3578d1f4f6d9b9b3">ZAMSExtractorMIST.dir_list</a> = [dir for dir in os.listdir(rootdir) if os.path.isdir(dir)]</td></tr>
-<tr class="separator:ad1da8719d03728ab3578d1f4f6d9b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8a65a07c7aed15043e848db57ad317f"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#af8a65a07c7aed15043e848db57ad317f">ZAMSExtractorMIST.file_list</a> = [ file for file in os.listdir(dir) if os.path.splitext(file)[1]==&quot;.eep&quot;]</td></tr>
-<tr class="separator:af8a65a07c7aed15043e848db57ad317f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e98eb8cff7d9de324fd27374d26e2e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#a8e98eb8cff7d9de324fd27374d26e2e7">ZAMSExtractorMIST.eep</a> = read_mist_models.EEP( os.path.join(dir, file))</td></tr>
-<tr class="separator:a8e98eb8cff7d9de324fd27374d26e2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af11b71c93dc793802323ebbd5e37790b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#af11b71c93dc793802323ebbd5e37790b">ZAMSExtractorMIST.tree</a> = lxml.etree.Element('Catalogue')</td></tr>
-<tr class="separator:af11b71c93dc793802323ebbd5e37790b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fa624c80211f2c6845d941a4a894ce0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceZAMSExtractorMIST.html#a8fa624c80211f2c6845d941a4a894ce0">ZAMSExtractorMIST.pretty_print</a></td></tr>
-<tr class="separator:a8fa624c80211f2c6845d941a4a894ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Evren Imre </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>02 May 2021 <br  />
- </dd></dl>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
