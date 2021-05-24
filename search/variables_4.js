@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pretty_5fprint_207',['pretty_print',['../namespaceZAMSExtractor.html#afb7fc5efca1317d37e3b225101d4dc96',1,'ZAMSExtractor']]]
+  ['help_217',['help',['../namespaceRunSSE.html#a5201b176ce1bbd105606a3dda74f7b6d',1,'RunSSE.help()'],['../namespaceZAMSDataGeneratorSSE.html#ac22af162815415facb0448a8531c9b3e',1,'ZAMSDataGeneratorSSE.help()']]]
 ];

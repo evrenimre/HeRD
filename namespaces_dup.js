@@ -1,5 +1,7 @@
 var namespaces_dup =
 [
     [ "Herd", "namespaceHerd.html", "namespaceHerd" ],
-    [ "ZAMSExtractor", "namespaceZAMSExtractor.html", null ]
+    [ "RunSSE", "namespaceRunSSE.html", null ],
+    [ "ZAMSDataGeneratorSSE", "namespaceZAMSDataGeneratorSSE.html", null ],
+    [ "ZAMSExtractorMIST", "namespaceZAMSExtractorMIST.html", null ]
 ];
