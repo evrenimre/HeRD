@@ -51,7 +51,7 @@ make install
 ## Other
 
 ### Motivation
-Purely personal: the project is a focusing device for experimenting with new language features and technologies. My background is not in astrophysics. However, if you have not had enough of experts, check out [AMUSE](https://github.com/amusecode/amuse).
+Purely personal: the project is a focusing device for experimenting with new language features and technologies. My background is not in astrophysics. If you have not had enough of experts and want code from real astrophysicists, check out [AMUSE](https://github.com/amusecode/amuse).
 
 ### Name
 For Hertzsprung-Russell Diagram. The project is a child of the COVID pandemic.
