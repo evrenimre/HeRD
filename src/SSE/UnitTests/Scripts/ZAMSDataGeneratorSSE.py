@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # @file ZAMSDataGeneratorSSE.py
-#  @author Evren Imre
-#  @date 23 May 2021
+# @author Evren Imre
+# @date 23 May 2021
 
 # This file is a part of HeRD, a stellar evolution library
 # Copyright © 2021 Evren Imre
