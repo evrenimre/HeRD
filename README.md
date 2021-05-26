@@ -23,9 +23,11 @@ HeRD  is a library for stellar evolution simulators.
 
 ## Building and Installation
 
-The code is developed with standard C++ without any compiler-specific extensions. So, in principle, it should compile anywhere. However, my development environment is Linux, and compiler of choice is g++.
+### Supported compilers
+The code is developed with standard C++ without any compiler-specific extensions. So, in principle, it should compile anywhere. However, my development environment is Linux, and my compiler of choice is g++.
 
-`CI.yml` action is the most up-to-date way to build the library in Ubuntu. I hope to get around to creating a Windows build job, once I figure out how to deal with dependencies.
+### Building
+`CI.yml` action indicates the most up-to-date way to build the library in Ubuntu. I hope to get around to creating a Windows build job, once I figure out how to deal with dependencies.
  
 ### Dependencies
 * Boost
@@ -38,7 +40,7 @@ Please see `CI.yml` for an up-to-date list.
 From your build directory 
 
 ```
-cmake path-to-source
+cmake -DCMAKE_INSTALL_PREFIX=path-to-install-dir path-to-source
 ```
 
 ### Installation
