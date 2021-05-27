@@ -1,13 +1,17 @@
-set( TEST_TARGET_NAME "Test${TARGET_NAME}" )	# TARGET_NAME defined by parent
+set(TEST_TARGET_NAME "Test${TARGET_NAME}")	# TARGET_NAME defined by parent
 
-add_executable( ${TEST_TARGET_NAME} TestPhysics.cpp
-															 			LuminosityRadiusTemperatureUnitTests.cpp
+set(SOURCE_LIST TestPhysics.cpp
+								LuminosityRadiusTemperatureUnitTests.cpp
 )
 
-target_link_libraries( ${TEST_TARGET_NAME} PRIVATE Physics
-																									 UnitTestUtils
-																									 boost_unit_test_framework.a
-																									 Boost::headers
+set(PRIVATE_DEPS_LIST Physics
+											UnitTestUtils
+											boost_unit_test_framework.a
+											Boost::boost
 )
 
-add_test( NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} )
+herd_add_executable(TARGET ${TEST_TARGET_NAME} SOURCES ${SOURCE_LIST}
+																							 PRIVATE_DEPS ${PRIVATE_DEPS_LIST}
+)
+
+add_test(NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME})

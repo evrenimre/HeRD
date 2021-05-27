@@ -11,6 +11,11 @@ set( CMAKE_BUILD_TYPE DEBUG )
 
 list( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+# Disallow in-source builds
+if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
+	message(FATAL_ERROR “In-source builds are not allowed”)
+endif()
+
 # Utilities
 
 set( CONFIG_DIR "${PROJECT_SOURCE_DIR}/Config" )

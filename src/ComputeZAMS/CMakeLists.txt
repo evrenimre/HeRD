@@ -1,13 +1,14 @@
-# Config
-get_filename_component( TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE )
+get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 
-add_executable( ${TARGET_NAME} ComputeZAMS.cpp )
+set(SOURCE_LIST ComputeZAMS.cpp)
 
-																				  
-target_link_libraries( ${TARGET_NAME} PRIVATE Generic
-																			 				SSE
-																			 				Boost::boost
-																			 				boost_program_options
+set(PRIVATE_DEPS_LIST Generic
+											SSE
+											Boost::boost
+											boost_program_options
 )
 
-add_install_target_common()
+herd_add_executable(TARGET ${TARGET_NAME} SOURCES ${SOURCE_LIST}
+																					PRIVATE_DEPS ${PRIVATE_DEPS_LIST}
+																					INSTALL
+)
