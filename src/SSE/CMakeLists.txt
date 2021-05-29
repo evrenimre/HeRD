@@ -18,6 +18,7 @@ herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 												 											PRIVATE_DEPS ${PRIVATE_DEPS_LIST}
 												 											PUBLIC_DEPS ${PUBLIC_DEPS_LIST}
 												 											INSTALL
+												 											COVERAGE
 )
 
 # Unit tests

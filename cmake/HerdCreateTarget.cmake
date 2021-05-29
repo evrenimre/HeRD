@@ -2,7 +2,8 @@
 
 # Adds a static library
 function(herd_add_static_library)
-	set(options INSTALL	# If true, creates an install target
+	set(options INSTALL	# Creates an install target
+							COVERAGE	# Adds coverage instrumentation to library and its dependents
 	)
 	set(one_value_keywords TARGET	# Target name
 	)
@@ -27,7 +28,9 @@ function(herd_add_static_library)
 																		INTERFACE ${i_INTERFACE_DEPS}
 	)
 
-	target_link_libraries(${i_TARGET} PUBLIC ${COVERAGE_CONFIG})	# Instruments the library and its dependents for coverage analysis 
+	if(i_COVERAGE)
+		target_link_libraries(${i_TARGET} PUBLIC ${COVERAGE_TARGET})
+	endif()
 
 	if(i_INSTALL)
 		herd_internal_add_install_target()
@@ -38,6 +41,7 @@ endfunction()
 # Adds an interface library
 function(herd_add_interface_library)
 	set(options INSTALL	# If true, creates an install target
+							COVERAGE	# Adds coverage instrumentation to library and its dependents
 	)
 	set(one_value_keywords TARGET	# Target name
 	)
@@ -49,12 +53,14 @@ function(herd_add_interface_library)
 	add_library(${i_TARGET} INTERFACE)
 	
 	target_include_directories(${i_TARGET} INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
-																									 "$<INSTALL_INTERFACE:${INSTALL_INCLUDEDIR}>"							                       
+																									 	 "$<INSTALL_INTERFACE:${INSTALL_INCLUDEDIR}>"							                       
 	)
 
 	target_link_libraries(${i_TARGET} INTERFACE ${i_INTERFACE_DEPS})
 	
-	target_link_libraries(${i_TARGET} INTERFACE ${COVERAGE_CONFIG})	# Instruments the library and its dependents for coverage analysis 
+	if(i_COVERAGE)
+		target_link_libraries(${i_TARGET} INTERFACE ${COVERAGE_TARGET})
+	endif()
 
 	if(i_INSTALL)
 		herd_internal_add_install_target()
@@ -97,6 +103,6 @@ macro(herd_internal_add_install_target)
 		
 	install( EXPORT ${EXPORT_TARGET_NAME} FILE ${EXPORT_TARGET_NAME}.cmake
 		       															NAMESPACE ${CMAKE_PROJECT_NAME}::
-		       															DESTINATION "${INSTALL_LIB_DIR}/cmake/${i_TARGET}"
+		       															DESTINATION "${INSTALL_CMAKE_DIR}/${i_TARGET}"
 	)
 endmacro()
