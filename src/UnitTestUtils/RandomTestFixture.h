@@ -23,7 +23,6 @@
 
 #include <boost/test/unit_test.hpp>
 
-
 namespace Herd::UnitTestUtils
 {
 

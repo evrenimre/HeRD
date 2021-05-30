@@ -12,8 +12,8 @@
 
 #include <boost/test/unit_test.hpp>
 
+#include <UnitTestUtils/DataLoaderFixture.h>
 #include <UnitTestUtils/RandomTestFixture.h>
-#include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
@@ -25,11 +25,10 @@
 #include <string>
 
 #include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
 
 namespace
 {
-class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture
+class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture, Herd::UnitTestUtils::DataLoaderFixture
 {
 public:
 
@@ -44,8 +43,6 @@ public:
 private:
 
   void LoadTestData();  ///< Loads the test data
-
-  inline static const std::string s_DataArgumentName = "--data";  ///< Command line argument for the test data
 
   boost::property_tree::ptree m_Catalogue;  ///< Test data. May contain elements outside of the range for which the ZAMS algorithm is defined
   unsigned int m_StarCount = 0; ///< Number of elements in the test data
@@ -104,20 +101,7 @@ bool ZAMSTestFixture::IsValid( Herd::Generic::Metallicity i_Z )
 
 void ZAMSTestFixture::LoadTestData()
 {
-  std::optional< std::string > dataPath = Herd::UnitTestUtils::GetCommandLineArgument( s_DataArgumentName );
-  if( !dataPath )
-  {
-    BOOST_TEST_REQUIRE( false, "Missing command line argument " + s_DataArgumentName );
-  }
-
-  try
-  {
-    boost::property_tree::read_xml( *dataPath, m_Catalogue );
-  } catch( ... )
-  {
-    BOOST_TEST_REQUIRE( false, "Unable to load test data " + *dataPath );
-  }
-
+  m_Catalogue = ReadXML();
   m_StarCount = std::distance( m_Catalogue.get_child( "Catalogue" ).begin(), m_Catalogue.get_child( "Catalogue" ).end() ); // @suppress("Invalid arguments")
   BOOST_TEST_REQUIRE( m_StarCount != 0 );
 }

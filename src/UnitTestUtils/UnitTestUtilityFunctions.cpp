@@ -34,7 +34,6 @@ namespace Herd::UnitTestUtils
  */
 std::unordered_map< std::string, std::string > ParseCommandLineArguments()
 {
-
   std::unordered_map< std::string, std::string > output;
 
   std::size_t argCount = boost::unit_test::framework::master_test_suite().argc;

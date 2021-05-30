@@ -1,8 +1,10 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
-set(HEADER_LIST RandomTestFixture.h
+set(HEADER_LIST DataLoaderFixture.h
+								RandomTestFixture.h
 								UnitTestUtilityFunctions.h 
 )
-set(SOURCE_LIST RandomTestFixture.cpp
+set(SOURCE_LIST DataLoaderFixture.cpp
+								RandomTestFixture.cpp
 	 							UnitTestUtilityFunctions.cpp
 )
 
