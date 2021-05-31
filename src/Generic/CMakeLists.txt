@@ -14,4 +14,4 @@ herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 )
 
 # Unit tests
-add_subdirectory( UnitTests )
+add_subdirectory(UnitTests)

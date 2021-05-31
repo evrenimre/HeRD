@@ -13,6 +13,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include <UnitTestUtils/RandomTestFixture.h>
+#include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <cstddef>
 #include <limits>
@@ -25,7 +26,7 @@
 ///< Numeric types under test
 using TestTypes = boost::mpl::list< double, int, unsigned int >;
 
-BOOST_AUTO_TEST_SUITE( UnitTestUtils )
+BOOST_AUTO_TEST_SUITE( UnitTestUtils, *Herd::UnitTestUtils::Labels::s_Compile )
 
 
 /// Random number generation

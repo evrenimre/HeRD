@@ -13,13 +13,14 @@
 #include <boost/test/unit_test.hpp>
 
 #include <UnitTestUtils/RandomTestFixture.h>
+#include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
 #include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
-BOOST_FIXTURE_TEST_SUITE( Physics, Herd::UnitTestUtils::RandomTestFixture )
+BOOST_FIXTURE_TEST_SUITE( Physics, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
 BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolerance( 1e-8 ) )
 {

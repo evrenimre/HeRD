@@ -31,6 +31,9 @@ set(INSTALL_CMAKE_DIR "${INSTALL_LIB_DIR}/CMake" CACHE PATH "Installation direct
 # Options
 option(ENABLE_CODE_COVERAGE "Enable coverage reporting" OFF)
 
+set(UNIT_TEST_LABEL "Compile" CACHE STRING "Unit test label")	# Unit tests
+set_property(CACHE UNIT_TEST_LABEL PROPERTY STRINGS "Compile" "CI" "ALL")
+
 # Helper functions for creating targets
 include(HerdCreateTarget)	
 
@@ -44,6 +47,7 @@ set(CONFIG_DIR "${PROJECT_SOURCE_DIR}/Config")
 include(HerdConfigureStaticCheckers)	# Static checkers
 include(HerdConfigureDoxygen)	# Documentation
 include(HerdConfigureCodeCoverage)	# Code coverage
+include(HerdConfigureUnitTests)	# Unit tests
 
 # Source files
 enable_testing()
@@ -51,10 +55,11 @@ add_subdirectory(src)
 
 # Unit tests
 add_custom_target(UnitTests ALL
-                  DEPENDS ${TEST_TARGETS}	# Set at the next level
+                  DEPENDS ${TEST_TARGETS}	# Set in HerdConfigureUnitTests
 )
 add_custom_command(TARGET UnitTests
                    COMMENT "Run tests"
                    POST_BUILD COMMAND ${CMAKE_CTEST_COMMAND} ARGS --output-on-failure
                    WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
+

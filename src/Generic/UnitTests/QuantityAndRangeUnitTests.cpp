@@ -13,13 +13,14 @@
 #include <boost/test/unit_test.hpp>
 
 #include <UnitTestUtils/RandomTestFixture.h>
+#include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <Generic/Quantities.h>
 #include <Generic/QuantityRange.h>
 
 #include <boost/mpl/list.hpp>
 
-BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture )
+BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
 /// Quantity types under test
 using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic::Mass, Herd::Generic::Metallicity, Herd::Generic::Radius, Herd::Generic::Age >;

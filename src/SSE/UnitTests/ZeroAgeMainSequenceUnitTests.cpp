@@ -14,6 +14,7 @@
 
 #include <UnitTestUtils/DataLoaderFixture.h>
 #include <UnitTestUtils/RandomTestFixture.h>
+#include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
@@ -108,7 +109,7 @@ void ZAMSTestFixture::LoadTestData()
 
 }
 
-BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
+BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *boost::unit_test::tolerance( 1e-8 ) )
 {

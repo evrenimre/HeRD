@@ -21,9 +21,18 @@
 
 namespace Herd::UnitTestUtils
 {
+namespace Labels
+{
+// Unit test labels
+inline static const boost::unit_test_framework::label s_Compile( "Compile" );
+inline static const boost::unit_test_framework::label s_CI( "CI" );
+}
+
 std::unordered_map< std::string, std::string > ParseCommandLineArguments(); ///< Parses the command line arguments for the test executable
 std::optional< std::string > GetCommandLineArgument( const std::string& i_rName ); ///< Returns a command line argument
 }
+
+
 
 
 

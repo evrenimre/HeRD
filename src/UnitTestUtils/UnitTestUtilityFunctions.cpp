@@ -20,9 +20,7 @@
 
 namespace
 {
-
-std::unordered_set< std::string > s_RegisteredArguments { "--seed", "--data" };
-
+const std::unordered_set< std::string > s_RegisteredArguments { "--seed", "--data" };
 }
 
 namespace Herd::UnitTestUtils
