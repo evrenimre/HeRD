@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['luminosityradiustemperature_2ecpp_138',['LuminosityRadiusTemperature.cpp',['../LuminosityRadiusTemperature_8cpp.html',1,'']]],
-  ['luminosityradiustemperature_2eh_139',['LuminosityRadiusTemperature.h',['../LuminosityRadiusTemperature_8h.html',1,'']]],
-  ['luminosityradiustemperatureunittests_2ecpp_140',['LuminosityRadiusTemperatureUnitTests.cpp',['../LuminosityRadiusTemperatureUnitTests_8cpp.html',1,'']]]
+  ['dataloaderfixture_2ecpp_148',['DataLoaderFixture.cpp',['../DataLoaderFixture_8cpp.html',1,'']]],
+  ['dataloaderfixture_2eh_149',['DataLoaderFixture.h',['../DataLoaderFixture_8h.html',1,'']]]
 ];

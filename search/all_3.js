@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['eq3coefficients_16',['eq3Coefficients',['../namespaceHerd_1_1SSE_1_1Detail_1_1Data.html#a3136d96682c248e1109fee6696a4b113',1,'Herd::SSE::Detail::Data']]],
-  ['eq4coefficients_17',['eq4Coefficients',['../namespaceHerd_1_1SSE_1_1Detail_1_1Data.html#ae72f839f8ed717d9f198a32fd301ac79',1,'Herd::SSE::Detail::Data']]]
+  ['dataloaderfixture_16',['DataLoaderFixture',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html',1,'Herd::UnitTestUtils']]],
+  ['dataloaderfixture_2ecpp_17',['DataLoaderFixture.cpp',['../DataLoaderFixture_8cpp.html',1,'']]],
+  ['dataloaderfixture_2eh_18',['DataLoaderFixture.h',['../DataLoaderFixture_8h.html',1,'']]]
 ];

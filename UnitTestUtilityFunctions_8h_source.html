@@ -106,18 +106,29 @@ $(document).ready(function(){initNavTree('UnitTestUtilityFunctions_8h_source.htm
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceHerd_1_1UnitTestUtils.html">Herd::UnitTestUtils</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;std::unordered_map&lt; std::string, std::string &gt; <a class="code" href="namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582">ParseCommandLineArguments</a>(); </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;std::optional&lt; std::string &gt; <a class="code" href="namespaceHerd_1_1UnitTestUtils.html#a479c5f492ce2db9f1b2e40547c65aa2f">GetCommandLineArgument</a>( <span class="keyword">const</span> std::string&amp; i_rName ); </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* HDC594884_9ADE_4590_9B02_A26526B728C3 */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html">   24</a></span>&#160;<span class="keyword">namespace </span>Labels</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// Unit test labels</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> boost::unit_test_framework::label <a class="code" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">s_Compile</a>( <span class="stringliteral">&quot;Compile&quot;</span> );</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> boost::unit_test_framework::label <a class="code" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#af2e14ae07ebd3b314ab2361622750b61">s_CI</a>( <span class="stringliteral">&quot;CI&quot;</span> );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;std::unordered_map&lt; std::string, std::string &gt; <a class="code" href="namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582">ParseCommandLineArguments</a>(); </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;std::optional&lt; std::string &gt; <a class="code" href="namespaceHerd_1_1UnitTestUtils.html#a479c5f492ce2db9f1b2e40547c65aa2f">GetCommandLineArgument</a>( <span class="keyword">const</span> std::string&amp; i_rName ); </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* HDC594884_9ADE_4590_9B02_A26526B728C3 */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_html_a4204a5acd6719ad5c96b79694568c582"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582">Herd::UnitTestUtils::ParseCommandLineArguments</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::string &gt; ParseCommandLineArguments()</div><div class="ttdoc">Parses the command line arguments for the test executable.</div><div class="ttdef"><b>Definition:</b> UnitTestUtilityFunctions.cpp:35</div></div>
-<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_html_a479c5f492ce2db9f1b2e40547c65aa2f"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils.html#a479c5f492ce2db9f1b2e40547c65aa2f">Herd::UnitTestUtils::GetCommandLineArgument</a></div><div class="ttdeci">std::optional&lt; std::string &gt; GetCommandLineArgument(const std::string &amp;i_rName)</div><div class="ttdoc">Returns a command line argument.</div><div class="ttdef"><b>Definition:</b> UnitTestUtilityFunctions.cpp:72</div></div>
-<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_html"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils.html">Herd::UnitTestUtils</a></div><div class="ttdef"><b>Definition:</b> RandomTestFixture.cpp:23</div></div>
+<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_1_1Labels_html_af2e14ae07ebd3b314ab2361622750b61"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#af2e14ae07ebd3b314ab2361622750b61">Herd::UnitTestUtils::Labels::s_CI</a></div><div class="ttdeci">static const boost::unit_test_framework::label s_CI(&quot;CI&quot;)</div></div>
+<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_html_a4204a5acd6719ad5c96b79694568c582"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582">Herd::UnitTestUtils::ParseCommandLineArguments</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::string &gt; ParseCommandLineArguments()</div><div class="ttdoc">Parses the command line arguments for the test executable.</div><div class="ttdef"><b>Definition:</b> UnitTestUtilityFunctions.cpp:33</div></div>
+<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_1_1Labels_html_ab6b738d9535fc35745359b0af0150ceb"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a></div><div class="ttdeci">static const boost::unit_test_framework::label s_Compile(&quot;Compile&quot;)</div></div>
+<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_html_a479c5f492ce2db9f1b2e40547c65aa2f"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils.html#a479c5f492ce2db9f1b2e40547c65aa2f">Herd::UnitTestUtils::GetCommandLineArgument</a></div><div class="ttdeci">std::optional&lt; std::string &gt; GetCommandLineArgument(const std::string &amp;i_rName)</div><div class="ttdoc">Returns a command line argument.</div><div class="ttdef"><b>Definition:</b> UnitTestUtilityFunctions.cpp:69</div></div>
+<div class="ttc" id="anamespaceHerd_1_1UnitTestUtils_html"><div class="ttname"><a href="namespaceHerd_1_1UnitTestUtils.html">Herd::UnitTestUtils</a></div><div class="ttdef"><b>Definition:</b> DataLoaderFixture.cpp:19</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

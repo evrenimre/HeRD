@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parsecommandlinearguments_57',['ParseCommandLineArguments',['../namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582',1,'Herd::UnitTestUtils']]],
-  ['preconditionerror_58',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html',1,'Herd::Exceptions::PreconditionError'],['../classHerd_1_1Exceptions_1_1PreconditionError.html#a8d431cb3b9ed9b7f7dbf394bf64fb2e4',1,'Herd::Exceptions::PreconditionError::PreconditionError(const std::string &amp;i_rElement, const std::string &amp;i_rExpected, const std::string &amp;i_rActual)'],['../classHerd_1_1Exceptions_1_1PreconditionError.html#a887025f2b43a20e70246521f0dde4a24',1,'Herd::Exceptions::PreconditionError::PreconditionError(const std::string &amp;i_rElement, const std::string &amp;i_rExpected, Arithmetic i_Actual)']]],
-  ['preconditionerror_2eh_59',['PreconditionError.h',['../PreconditionError_8h.html',1,'']]]
+  ['openrange_58',['OpenRange',['../namespaceHerd_1_1Generic.html#ae42e03549e49d6f6f9d96c358f83264a',1,'Herd::Generic']]],
+  ['operator_20double_59',['operator double',['../classHerd_1_1Generic_1_1Quantity.html#adce932ee62a5006c15a8cdc7ec281ac5',1,'Herd::Generic::Quantity']]],
+  ['operator_3d_3d_60',['operator==',['../classHerd_1_1Generic_1_1Quantity.html#a3928a6057d76be30ca52514b3f011cc1',1,'Herd::Generic::Quantity']]]
 ];

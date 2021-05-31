@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quantity_117',['Quantity',['../classHerd_1_1Generic_1_1Quantity.html',1,'Herd::Generic']]]
+  ['preconditionerror_125',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html',1,'Herd::Exceptions']]]
 ];

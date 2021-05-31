@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "Herd::UnitTestUtils::DataLoaderFixture", "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html", null ],
     [ "Herd::Physics::LuminosityRadiusTemperature", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html", null ],
     [ "Herd::Generic::Quantity< Tag >", "classHerd_1_1Generic_1_1Quantity.html", null ],
     [ "Herd::UnitTestUtils::RandomTestFixture", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html", null ],
