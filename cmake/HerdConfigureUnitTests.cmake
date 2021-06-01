@@ -7,7 +7,7 @@ endif()
 
 # Test label string
 
-if(UNIT_TEST_LABEL STREQUAL "*" )
+if(UNIT_TEST_LABEL STREQUAL "ALL" )
 	set(TEST_LABEL_ARG --run_test=*)
 else()
 	set(TEST_LABEL_ARG --run_test=@Compile:@${UNIT_TEST_LABEL})	# Always run compile tests. Otherwise, if the filter does not hit any tests, the test fails

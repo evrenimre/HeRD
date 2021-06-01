@@ -26,6 +26,8 @@
 #include <string>
 
 #include <boost/property_tree/ptree.hpp>
+#include <boost/range/adaptors.hpp>
+#include <range/v3/algorithm.hpp>
 
 namespace
 {
@@ -41,12 +43,21 @@ public:
   static bool IsValid( Herd::Generic::Mass i_Mass ); ///< Returns true if valid
   static bool IsValid( Herd::Generic::Metallicity i_Z ); ///< Returns true if valid
 
+  static void IsWithinErrorTolerance( const Herd::SSE::StarState& i_rActual, const Herd::SSE::StarState& i_rExpected ); ///< Tests whether the state difference is within permissible bounds
+
+  const std::vector< Herd::SSE::StarState > Stars();  ///< \c m_Stars accessor
+
 private:
 
   void LoadTestData();  ///< Loads the test data
 
-  boost::property_tree::ptree m_Catalogue;  ///< Test data. May contain elements outside of the range for which the ZAMS algorithm is defined
+  Herd::SSE::StarState MakeStar( const boost::property_tree::ptree& i_rNode ); ///< Makes a star from a tree node
+  void InitialiseStars(); ///< Populates \c m_Stars from \c m_Catalogue
+
+  boost::property_tree::ptree m_Catalogue;  ///< Test data. May contain elements outside of the ZAMS parameter domain
   unsigned int m_StarCount = 0; ///< Number of elements in the test data
+
+  std::vector< Herd::SSE::StarState > m_Stars;  ///< \c m_Catalogue in vector format
 };
 
 Herd::SSE::StarState ZAMSTestFixture::GetRandomStar()
@@ -62,22 +73,7 @@ Herd::SSE::StarState ZAMSTestFixture::GetRandomStar()
 
   // Seek to the entry
   auto iStar = std::next( m_Catalogue.get_child( "Catalogue" ).begin(), GenerateNumber( 0u, m_StarCount - 1 ) ); // @suppress("Invalid arguments")
-
-  Herd::SSE::StarState Star;
-  try
-  {
-    Star.m_Age.Set( 0.0 );
-    Star.m_Luminosity.Set( iStar->second.get< double >( "<xmlattr>.L" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
-    Star.m_Mass.Set( iStar->second.get< double >( "<xmlattr>.M" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
-    Star.m_Radius.Set( iStar->second.get< double >( "<xmlattr>.R" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
-    Star.m_Temperature.Set( iStar->second.get< double >( "<xmlattr>.T" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
-    Star.m_Z.Set( iStar->second.get< double >( "<xmlattr>.Z" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
-  } catch( ... )
-  {
-    BOOST_TEST_REQUIRE( false, "Invalid or missing star attribute" );
-  }
-
-  return Star;
+  return MakeStar( iStar->second ); // @suppress("Invalid arguments") // @suppress("Field cannot be resolved")
 }
 
 Herd::Generic::Mass ZAMSTestFixture::GenerateRandomMass()
@@ -90,14 +86,35 @@ Herd::Generic::Metallicity ZAMSTestFixture::GenerateRandomZ()
   return Herd::Generic::Metallicity( GenerateNumber( Herd::SSE::Detail::ZAMS::s_MinZ, Herd::SSE::Detail::ZAMS::s_MaxZ ) );
 }
 
+/**
+ * @param i_Mass Mass
+ * @return \c true if the mass is within the permissible range
+ */
 bool ZAMSTestFixture::IsValid( Herd::Generic::Mass i_Mass )
 {
   return i_Mass.Value() >= Herd::SSE::Detail::ZAMS::s_MinMass && i_Mass.Value() <= Herd::SSE::Detail::ZAMS::s_MaxMass;
 }
 
+/**
+ * @param i_Z Metallicity
+ * @return \c true if the metallicity is within the permissible range
+ */
 bool ZAMSTestFixture::IsValid( Herd::Generic::Metallicity i_Z )
 {
   return i_Z.Value() >= Herd::SSE::Detail::ZAMS::s_MinZ && i_Z.Value() <= Herd::SSE::Detail::ZAMS::s_MaxZ;
+}
+
+/**
+ * @param i_rActual Actual values
+ * @param i_rExpected Expected values
+ */
+void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::StarState& i_rActual, const Herd::SSE::StarState& i_rExpected )
+{
+  BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxRadiusError ) );
+  BOOST_TEST( i_rActual.m_Temperature.Value() == i_rExpected.m_Temperature.Value(),
+      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxTemperatureError ) );
+  BOOST_TEST( i_rActual.m_Luminosity.Value() == i_rExpected.m_Luminosity.Value(),
+      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxLuminosityError ) );
 }
 
 void ZAMSTestFixture::LoadTestData()
@@ -107,11 +124,60 @@ void ZAMSTestFixture::LoadTestData()
   BOOST_TEST_REQUIRE( m_StarCount != 0 );
 }
 
+void ZAMSTestFixture::InitialiseStars()
+{
+  if( m_StarCount == 0 )
+  {
+    LoadTestData();
+  }
+
+  m_Stars.reserve( m_StarCount );
+  ranges::cpp20::transform( m_Catalogue.get_child( "Catalogue" ), std::back_inserter( m_Stars ), [ & ]( const auto& i_rNode )
+  { return MakeStar(i_rNode.second);} );
 }
 
-BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
+/**
+ * @return A constant reference to \c m_Stars
+ */
+const std::vector< Herd::SSE::StarState > ZAMSTestFixture::Stars()
+{
+  // Lazy implementation, as this is not needed for compile tests
+  if( m_Stars.empty() )
+  {
+    InitialiseStars();
+  }
+  
+  return m_Stars;
+}
 
-BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *boost::unit_test::tolerance( 1e-8 ) )
+/**
+ * @param i_rNode A property tree node
+ * @return The corresponding star
+ */
+Herd::SSE::StarState ZAMSTestFixture::MakeStar( const boost::property_tree::ptree& i_rNode )
+{
+  Herd::SSE::StarState Star;
+  try
+  {
+    Star.m_Age.Set( 0.0 );
+    Star.m_Luminosity.Set( i_rNode.get< double >( "<xmlattr>.L" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Mass.Set( i_rNode.get< double >( "<xmlattr>.M" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Radius.Set( i_rNode.get< double >( "<xmlattr>.R" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Temperature.Set( i_rNode.get< double >( "<xmlattr>.T" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Z.Set( i_rNode.get< double >( "<xmlattr>.Z" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+  } catch( ... )
+  {
+    BOOST_TEST_REQUIRE( false, "Invalid or missing star attribute" );
+  }
+
+  return Star;
+}
+
+}
+
+BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
+
+BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   Herd::Generic::Metallicity z = GenerateRandomZ();
   Herd::Generic::Mass m = GenerateRandomMass();
@@ -126,7 +192,7 @@ BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *boost::unit_test::tolerance( 1e-8
   BOOST_TEST( starState.m_Z == z );
 }
 
-BOOST_AUTO_TEST_CASE( InvalidParameters )
+BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   {
     Herd::Generic::Metallicity z(
@@ -145,13 +211,13 @@ BOOST_AUTO_TEST_CASE( InvalidParameters )
 
 }
 
-BOOST_AUTO_TEST_CASE( ReferenceData )
+BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
 {
 
   std::optional< Herd::SSE::StarState > Expected;
 
   // Try getting a valid star from the catalogue
-  for( int c = 0; c < 25; ++c )
+  for( int c = 0; c < 5; ++c )
   {
     Expected = GetRandomStar();
 
@@ -170,13 +236,35 @@ BOOST_AUTO_TEST_CASE( ReferenceData )
   BOOST_TEST_CONTEXT( "Mass " << Expected->m_Mass << " Metallicity "<< Expected->m_Z )
   {
     auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected->m_Mass, Expected->m_Z );
+    IsWithinErrorTolerance( Actual, *Expected );
+  }
+}
 
-    BOOST_TEST( Actual.m_Radius.Value() == Expected->m_Radius.Value(), boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxRadiusError ) );
-    BOOST_TEST( Actual.m_Temperature.Value() == Expected->m_Temperature.Value(),
-        boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxTemperatureError ) );
-    BOOST_TEST( Actual.m_Luminosity.Value() == Expected->m_Luminosity.Value(), boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxLuminosityError ) );
+// Calculate ZAMS and verify over the entire test data
+BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_CI )
+{
+  const auto& rStars = Stars();
+
+  for( const auto& Current : rStars | boost::adaptors::indexed() )
+  {
+    const Herd::SSE::StarState& Expected = Current.value(); // @suppress("Method cannot be resolved")
+
+    if( !IsValid( Expected.m_Mass ) || !IsValid( Expected.m_Z ) )
+    {
+      continue;
+    }
+
+
+    std::cout << Expected.m_Mass << " " << Current.index() << "\n";
+    std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
+    BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Z )
+    {
+      auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected.m_Mass, Expected.m_Z );
+      IsWithinErrorTolerance( Actual, Expected );
+    }
   }
 }
 
 BOOST_AUTO_TEST_SUITE_END( )
+
 
