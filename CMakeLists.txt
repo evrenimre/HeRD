@@ -31,8 +31,8 @@ set(INSTALL_CMAKE_DIR "${INSTALL_LIB_DIR}/CMake" CACHE PATH "Installation direct
 # Options
 option(ENABLE_CODE_COVERAGE "Enable coverage reporting" OFF)
 
-set(UNIT_TEST_LABEL "Compile" CACHE STRING "Unit test label")	# Unit tests
-set_property(CACHE UNIT_TEST_LABEL PROPERTY STRINGS "Compile" "CI" "ALL")
+set(UNIT_TEST_LEVEL "Compile" CACHE STRING "Unit test level")	# Unit tests
+set_property(CACHE UNIT_TEST_LEVEL PROPERTY STRINGS "0_Compile" "1_CI" "2_Nightly" "ALL")	# Numbers are introduced for correct lexicographical ordering, from simpler to more complex tests
 
 # Helper functions for creating targets
 include(HerdCreateTarget)	

@@ -24,8 +24,9 @@ namespace Herd::UnitTestUtils
 namespace Labels
 {
 // Unit test labels
-inline static const boost::unit_test_framework::label s_Compile( "Compile" );
-inline static const boost::unit_test_framework::label s_CI( "CI" );
+inline static const boost::unit_test_framework::label s_Compile( "Compile" ); ///< Compile test
+inline static const boost::unit_test_framework::label s_CI( "CI" ); ///< Continuous integration tests
+inline static const boost::unit_test_framework::label s_Nightly( "Nightly" ); ///< Nightly tests
 }
 
 std::unordered_map< std::string, std::string > ParseCommandLineArguments(); ///< Parses the command line arguments for the test executable

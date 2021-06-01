@@ -1,16 +1,28 @@
 # Configures unit tests
 # Defines TEST_TARGETS, TEST_LABEL_ARG
 
-if(NOT DEFINED UNIT_TEST_LABEL)
-	message(FATAL_ERROR "UNIT_TEST_LABEL not defined")
+if(NOT DEFINED UNIT_TEST_LEVEL)
+	message(FATAL_ERROR "UNIT_TEST_LEVEL not defined")
 endif()
 
 # Test label string
 
-if(UNIT_TEST_LABEL STREQUAL "ALL" )
-	set(TEST_LABEL_ARG --run_test=*)
+
+if(UNIT_TEST_LEVEL STREQUAL "ALL")
+	set(TEST_LABEL_ARG --run_test=*)	
 else()
-	set(TEST_LABEL_ARG --run_test=@Compile:@${UNIT_TEST_LABEL})	# Always run compile tests. Otherwise, if the filter does not hit any tests, the test fails
+	# Higher level tests always run those at the lower level as well
+
+	set(TEST_LABEL_ARG --run_test=@Compile)	# Always run compile tests. Otherwise, if the filter does not hit any tests, the test fails
+	
+	if(UNIT_TEST_LEVEL STRGREATER_EQUAL "1_CI")
+		set(TEST_LABEL_ARG ${TEST_LABEL_ARG}:@CI)
+	endif()
+	
+	if(UNIT_TEST_LEVEL STRGREATER_EQUAL "2_Nightly")
+		set(TEST_LABEL_ARG ${TEST_LABEL_ARG}:@Nightly)
+	endif()
+	
 endif()
 	
 # Unit test target list
