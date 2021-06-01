@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('ZeroAgeMainSequenceUnitTests_8cpp.html
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ZeroAgeMainSequenceUnitTests.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -102,70 +101,65 @@ $(document).ready(function(){initNavTree('ZeroAgeMainSequenceUnitTests_8cpp.html
 <code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;boost/range/adaptors.hpp&gt;</code><br />
+<code>#include &lt;boost/range/algorithm.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ZeroAgeMainSequenceUnitTests.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="ZeroAgeMainSequenceUnitTests_8cpp__incl.png" border="0" usemap="#src_2SSE_2UnitTests_2ZeroAgeMainSequenceUnitTests_8cpp" alt=""/></div>
 <map name="src_2SSE_2UnitTests_2ZeroAgeMainSequenceUnitTests_8cpp" id="src_2SSE_2UnitTests_2ZeroAgeMainSequenceUnitTests_8cpp">
-<area shape="rect" title=" " alt="" coords="847,5,1051,47"/>
-<area shape="rect" title=" " alt="" coords="399,191,575,218"/>
-<area shape="rect" href="DataLoaderFixture_8h.html" title=" " alt="" coords="120,95,304,136"/>
-<area shape="rect" title=" " alt="" coords="972,281,1031,307"/>
-<area shape="rect" title=" " alt="" coords="223,184,374,225"/>
-<area shape="rect" href="RandomTestFixture_8h.html" title=" " alt="" coords="921,95,1111,136"/>
-<area shape="rect" title=" " alt="" coords="799,191,873,218"/>
-<area shape="rect" href="UnitTestUtilityFunctions_8h.html" title=" " alt="" coords="644,95,847,136"/>
-<area shape="rect" href="PreconditionError_8h.html" title=" " alt="" coords="1373,102,1593,129"/>
-<area shape="rect" href="Quantities_8h.html" title=" " alt="" coords="1992,281,2147,307"/>
-<area shape="rect" href="StarState_8h.html" title=" " alt="" coords="2008,191,2131,218"/>
-<area shape="rect" href="ZeroAgeMainSequence_8h.html" title=" " alt="" coords="2061,102,2273,129"/>
-<area shape="rect" title=" " alt="" coords="2297,102,2367,129"/>
-<area shape="rect" title=" " alt="" coords="49,184,199,225"/>
-<area shape="rect" title=" " alt="" coords="1218,191,1281,218"/>
-<area shape="rect" title=" " alt="" coords="897,191,964,218"/>
-<area shape="rect" title=" " alt="" coords="1039,191,1097,218"/>
-<area shape="rect" title=" " alt="" coords="1121,191,1193,218"/>
-<area shape="rect" title=" " alt="" coords="1305,191,1397,218"/>
-<area shape="rect" title=" " alt="" coords="599,191,723,218"/>
-<area shape="rect" href="RuntimeError_8h.html" title=" " alt="" coords="1473,191,1591,218"/>
-<area shape="rect" title=" " alt="" coords="1615,191,1750,218"/>
-<area shape="rect" title=" " alt="" coords="1774,191,1933,218"/>
-<area shape="rect" title=" " alt="" coords="1489,281,1575,307"/>
-<area shape="rect" href="QuantityRange_8h.html" title=" " alt="" coords="2206,191,2391,218"/>
-<area shape="rect" title=" " alt="" coords="2415,191,2507,218"/>
-<area shape="rect" title=" " alt="" coords="2171,281,2245,307"/>
-<area shape="rect" title=" " alt="" coords="2270,281,2485,307"/>
-<area shape="rect" title=" " alt="" coords="2509,273,2661,315"/>
+<area shape="rect" title=" " alt="" coords="1140,5,1344,47"/>
+<area shape="rect" title=" " alt="" coords="390,191,566,218"/>
+<area shape="rect" href="DataLoaderFixture_8h.html" title=" " alt="" coords="112,95,296,136"/>
+<area shape="rect" title=" " alt="" coords="964,281,1022,307"/>
+<area shape="rect" title=" " alt="" coords="215,184,366,225"/>
+<area shape="rect" href="RandomTestFixture_8h.html" title=" " alt="" coords="965,95,1154,136"/>
+<area shape="rect" title=" " alt="" coords="790,191,865,218"/>
+<area shape="rect" href="UnitTestUtilityFunctions_8h.html" title=" " alt="" coords="652,95,854,136"/>
+<area shape="rect" href="PreconditionError_8h.html" title=" " alt="" coords="1364,102,1584,129"/>
+<area shape="rect" href="Quantities_8h.html" title=" " alt="" coords="1984,281,2138,307"/>
+<area shape="rect" href="StarState_8h.html" title=" " alt="" coords="2000,191,2122,218"/>
+<area shape="rect" href="ZeroAgeMainSequence_8h.html" title=" " alt="" coords="2050,102,2262,129"/>
+<area shape="rect" title=" " alt="" coords="2286,102,2356,129"/>
+<area shape="rect" title=" " alt="" coords="2380,102,2568,129"/>
+<area shape="rect" title=" " alt="" coords="2593,102,2788,129"/>
+<area shape="rect" title=" " alt="" coords="40,184,191,225"/>
+<area shape="rect" title=" " alt="" coords="1210,191,1272,218"/>
+<area shape="rect" title=" " alt="" coords="889,191,956,218"/>
+<area shape="rect" title=" " alt="" coords="1030,191,1089,218"/>
+<area shape="rect" title=" " alt="" coords="1113,191,1185,218"/>
+<area shape="rect" title=" " alt="" coords="1296,191,1388,218"/>
+<area shape="rect" title=" " alt="" coords="591,191,715,218"/>
+<area shape="rect" href="RuntimeError_8h.html" title=" " alt="" coords="1464,191,1583,218"/>
+<area shape="rect" title=" " alt="" coords="1607,191,1742,218"/>
+<area shape="rect" title=" " alt="" coords="1766,191,1924,218"/>
+<area shape="rect" title=" " alt="" coords="1480,281,1567,307"/>
+<area shape="rect" href="QuantityRange_8h.html" title=" " alt="" coords="2198,191,2383,218"/>
+<area shape="rect" title=" " alt="" coords="2407,191,2499,218"/>
+<area shape="rect" title=" " alt="" coords="2162,281,2237,307"/>
+<area shape="rect" title=" " alt="" coords="2262,281,2476,307"/>
+<area shape="rect" title=" " alt="" coords="2501,273,2653,315"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4f026eb9118764dcbc308dfaa887721b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#a4f026eb9118764dcbc308dfaa887721b">BOOST_TEST</a> (starState.m_Age==0)</td></tr>
-<tr class="separator:a4f026eb9118764dcbc308dfaa887721b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f51040935a6494e6d9b63a5f2561f7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#a1f51040935a6494e6d9b63a5f2561f7c">BOOST_TEST</a> (starState.m_Luminosity &gt; 0.0)</td></tr>
-<tr class="separator:a1f51040935a6494e6d9b63a5f2561f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacfa62944c7261aa599fe16b973bf1b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#aacfa62944c7261aa599fe16b973bf1b0">BOOST_TEST</a> (starState.m_Radius &gt; 0)</td></tr>
-<tr class="separator:aacfa62944c7261aa599fe16b973bf1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1124896ba622605d0cf1de8f2a460ee0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#a1124896ba622605d0cf1de8f2a460ee0">BOOST_AUTO_TEST_CASE</a> (InvalidParameters)</td></tr>
-<tr class="separator:a1124896ba622605d0cf1de8f2a460ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a677891032e151bb71ef3cb866b32b956"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#a677891032e151bb71ef3cb866b32b956">BOOST_AUTO_TEST_CASE</a> (ReferenceData)</td></tr>
-<tr class="separator:a677891032e151bb71ef3cb866b32b956"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3">m</a> = GenerateRandomMass()</td></tr>
-<tr class="separator:ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb385bcde564c93d6e65a691d6f42fd4"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#abb385bcde564c93d6e65a691d6f42fd4">starState</a> = <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a4529c05e42e4571af88daf0e88c955fe">Herd::SSE::ZeroAgeMainSequence::ComputeStarState</a>( <a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3">m</a>, z )</td></tr>
-<tr class="separator:abb385bcde564c93d6e65a691d6f42fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53ae5030f7b24060b723a88f4addf6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#ac53ae5030f7b24060b723a88f4addf6f">BOOST_AUTO_TEST_CASE</a> (ZerAgeMainSequenceTest, *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a>)</td></tr>
+<tr class="separator:ac53ae5030f7b24060b723a88f4addf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9022a1a1c74c33c4171485f149fee46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#ad9022a1a1c74c33c4171485f149fee46">BOOST_AUTO_TEST_CASE</a> (InvalidParameters, *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a>)</td></tr>
+<tr class="separator:ad9022a1a1c74c33c4171485f149fee46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c73fb5a93a0af118b07123002bae42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#a35c73fb5a93a0af118b07123002bae42">BOOST_AUTO_TEST_CASE</a> (ReferenceData, *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a>)</td></tr>
+<tr class="separator:a35c73fb5a93a0af118b07123002bae42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad00f916352f8606f1c7f1a6d11b6070b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#ad00f916352f8606f1c7f1a6d11b6070b">BOOST_AUTO_TEST_CASE</a> (CatalogueTest, *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#af2e14ae07ebd3b314ab2361622750b61">Herd::UnitTestUtils::Labels::s_CI</a>)</td></tr>
+<tr class="separator:ad00f916352f8606f1c7f1a6d11b6070b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Evren Imre </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>29 Apr 2021 <br  />
  </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a1124896ba622605d0cf1de8f2a460ee0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1124896ba622605d0cf1de8f2a460ee0">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/2]</span></h2>
+<a id="ad00f916352f8606f1c7f1a6d11b6070b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad00f916352f8606f1c7f1a6d11b6070b">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,95 +167,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">BOOST_AUTO_TEST_CASE </td>
           <td>(</td>
-          <td class="paramtype">InvalidParameters&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a677891032e151bb71ef3cb866b32b956"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a677891032e151bb71ef3cb866b32b956">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BOOST_AUTO_TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">ReferenceData&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4f026eb9118764dcbc308dfaa887721b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f026eb9118764dcbc308dfaa887721b">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BOOST_TEST </td>
-          <td>(</td>
-          <td class="paramtype">starState.&#160;</td>
-          <td class="paramname"><em>m_Age</em> = <code>=0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1f51040935a6494e6d9b63a5f2561f7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f51040935a6494e6d9b63a5f2561f7c">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BOOST_TEST </td>
-          <td>(</td>
-          <td class="paramtype">starState.&#160;</td>
-          <td class="paramname"><em>m_Luminosity</em>, </td>
+          <td class="paramtype">CatalogueTest&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">0.&#160;</td>
-          <td class="paramname"><em>0</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aacfa62944c7261aa599fe16b973bf1b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacfa62944c7261aa599fe16b973bf1b0">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BOOST_TEST </td>
-          <td>(</td>
-          <td class="paramtype">starState.&#160;</td>
-          <td class="paramname"><em>m_Radius</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">0&#160;</td>
+          <td class="paramtype"> *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#af2e14ae07ebd3b314ab2361622750b61">Herd::UnitTestUtils::Labels::s_CI</a>&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -274,29 +186,84 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3">&#9670;&nbsp;</a></span>m</h2>
+<a id="ad9022a1a1c74c33c4171485f149fee46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9022a1a1c74c33c4171485f149fee46">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a> m = GenerateRandomMass()</td>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">InvalidParameters&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abb385bcde564c93d6e65a691d6f42fd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb385bcde564c93d6e65a691d6f42fd4">&#9670;&nbsp;</a></span>starState</h2>
+<a id="a35c73fb5a93a0af118b07123002bae42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c73fb5a93a0af118b07123002bae42">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto starState = <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a4529c05e42e4571af88daf0e88c955fe">Herd::SSE::ZeroAgeMainSequence::ComputeStarState</a>( <a class="el" href="ZeroAgeMainSequenceUnitTests_8cpp.html#ac9b5d1f4dc507d9e5fdc0ddd6c5ad4b3">m</a>, z )</td>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">ReferenceData&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac53ae5030f7b24060b723a88f4addf6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53ae5030f7b24060b723a88f4addf6f">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">ZerAgeMainSequenceTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> *<a class="el" href="namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb">Herd::UnitTestUtils::Labels::s_Compile</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
