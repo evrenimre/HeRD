@@ -8,7 +8,6 @@ set(PRIVATE_DEPS_LIST SSE
 											UnitTestUtils
 											boost_unit_test_framework.a
 											Boost::boost
-											range-v3::range-v3
 )
 
 herd_add_executable(TARGET ${TEST_TARGET_NAME} SOURCES ${SOURCE_LIST}

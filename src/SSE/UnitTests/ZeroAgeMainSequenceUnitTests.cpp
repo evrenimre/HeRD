@@ -27,7 +27,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/range/adaptors.hpp>
-#include <range/v3/algorithm.hpp>
+#include <boost/range/algorithm.hpp>
 
 namespace
 {
@@ -132,7 +132,7 @@ void ZAMSTestFixture::InitialiseStars()
   }
 
   m_Stars.reserve( m_StarCount );
-  ranges::cpp20::transform( m_Catalogue.get_child( "Catalogue" ), std::back_inserter( m_Stars ), [ & ]( const auto& i_rNode )
+  boost::transform( m_Catalogue.get_child( "Catalogue" ), std::back_inserter( m_Stars ), [ & ]( const auto& i_rNode )
   { return MakeStar(i_rNode.second);} );
 }
 
@@ -254,8 +254,6 @@ BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_CI )
       continue;
     }
 
-
-    std::cout << Expected.m_Mass << " " << Current.index() << "\n";
     std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
     BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Z )
     {
