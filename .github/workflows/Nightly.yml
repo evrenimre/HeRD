@@ -1,0 +1,38 @@
+name: Nightly
+
+on:
+  # Triggers at 22:00 every day
+  schedule:
+    - cron:  '00 22 * * *'
+
+  # Manual trigger
+  workflow_dispatch:  
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      # CMake needs doxygen to build the docs target
+      run: |
+        sudo apt update
+        sudo apt install libboost-dev libboost-all-dev librange-v3-dev libeigen3-dev
+        sudo apt install doxygen graphviz gsfonts
+      
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: |
+        cmake .. -DUNIT_TEST_LEVEL=2_Nightly
+        ctest -C ${{env.BUILD_TYPE}} -VV
