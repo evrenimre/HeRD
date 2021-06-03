@@ -241,7 +241,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
 }
 
 // Calculate ZAMS and verify over the entire test data
-BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_CI )
+BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous )
 {
   const auto& rStars = Stars();
 

@@ -32,7 +32,7 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: |
-        cmake .. -DUNIT_TEST_LEVEL=1_CI
+        cmake .. -DUNIT_TEST_LEVEL=1_Continuous
         ctest -C ${{env.BUILD_TYPE}} -VV
       
     - name: lcov
