@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
 BOOST_AUTO_TEST_CASE( TestQuantityRange )
 {
   double lower = GenerateNumber( 0., 10. );
-  double upper = GenerateNumber( lower, 10.0 ) + 1;
+  double upper = GenerateNumber( lower, 10. ) + 1;
 
   Herd::Generic::Mass minMass( lower );
   Herd::Generic::Mass maxMass( upper );

@@ -31,6 +31,9 @@
 
 namespace
 {
+/**
+ * @brief Unit test fixture for \c ZeroAgeMainSequence
+ */
 class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture, Herd::UnitTestUtils::DataLoaderFixture
 {
 public:
@@ -177,6 +180,7 @@ Herd::SSE::StarState ZAMSTestFixture::MakeStar( const boost::property_tree::ptre
 
 BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
 
+/// Test ZAMS computation with a random input
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   Herd::Generic::Metallicity z = GenerateRandomZ();
@@ -192,6 +196,7 @@ BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Co
   BOOST_TEST( starState.m_Z == z );
 }
 
+/// Tests for invalid cases
 BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   {
@@ -211,6 +216,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 
 }
 
+/// Test ZAMS computation with a random pick from external data
 BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
 {
 
@@ -241,6 +247,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
 }
 
 // Calculate ZAMS and verify over the entire test data
+/// Test ZAMS computation over the entire reference data set
 BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous )
 {
   const auto& rStars = Stars();

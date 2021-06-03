@@ -29,7 +29,7 @@ namespace Herd::Physics
  * @return Luminosity in \f$ T_{\odot} \f$
  * @pre \c i_Radius>0
  * @pre \c i_Temperature>0
- * @throws \c PreconditionError if preconditions are violated
+ * @throws PreconditionError if preconditions are violated
  */
 Herd::Generic::Luminosity LuminosityRadiusTemperature::ComputeLuminosty( Herd::Generic::Radius i_Radius,
     Herd::Generic::Temperature i_Temperature )
@@ -56,7 +56,7 @@ Herd::Generic::Luminosity LuminosityRadiusTemperature::ComputeLuminosty( Herd::G
  * @return Radius in \f$ R_{\odot} \f$
  * @pre \c i_Luminosity>0
  * @pre \c i_Temperature>0
- * @throws \c PreconditionError if preconditions are violated
+ * @throws PreconditionError if preconditions are violated
  */
 Herd::Generic::Radius LuminosityRadiusTemperature::ComputeRadius( Herd::Generic::Luminosity i_Luminosity,
     Herd::Generic::Temperature i_Temperature )
@@ -81,7 +81,7 @@ Herd::Generic::Radius LuminosityRadiusTemperature::ComputeRadius( Herd::Generic:
  * @return Temperature in K
  * @pre \c i_Luminosity>0
  * @pre \c i_Temperature>0
- * @throws \c PreconditionError if preconditions are violated
+ * @throws PreconditionError if preconditions are violated
  */
 Herd::Generic::Temperature LuminosityRadiusTemperature::ComputeTemperature( Herd::Generic::Luminosity i_Luminosity,
     Herd::Generic::Radius i_Radius )

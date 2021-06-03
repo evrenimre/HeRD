@@ -20,43 +20,26 @@
 #include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
-BOOST_FIXTURE_TEST_SUITE( Physics, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
-
-BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolerance( 1e-8 ) )
+namespace
 {
-  BOOST_TEST_CONTEXT( "Sun" )
+/**
+ * @brief Unit test fixture for \c LuminosityRadiusTemperature
+ */
+class LRTTestFixture : public Herd::UnitTestUtils::RandomTestFixture
+{
+public:
+
+  void TestConsistency(); ///< Tests whether one of L, R and T can be computed correctly when the other two are known
+};
+
+void LRTTestFixture::TestConsistency()
+{
+  Herd::Generic::Radius rExpected( GenerateNumber( 0.1, 12.0 ) );
+  Herd::Generic::Temperature tExpected( GenerateNumber( 2200.0, 50000.0 ) );
+  Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000.0 ) );
+
+  BOOST_TEST_CONTEXT( "Luminosity "<< lExpected.Value() <<" Radius "<< rExpected.Value()<<" Temperature "<<tExpected.Value() )
   {
-    Herd::Generic::Radius rSun( 1.0 );
-    Herd::Generic::Temperature tSun( Herd::Physics::Constants::sunSurfaceTemperature );
-    Herd::Generic::Luminosity lSun( 1.0 );
-
-    auto luminosity = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rSun, tSun );
-    BOOST_TEST( luminosity == lSun );
-
-    auto radius = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lSun, tSun );
-    BOOST_TEST( radius == rSun );
-
-    auto temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lSun, rSun );
-    BOOST_TEST( temperature == tSun );
-  }
-
-  BOOST_TEST_CONTEXT( "Invalid input" )
-  {
-    Herd::Generic::Radius rInvalid( GenerateNumber( -1000.0, 0.0 ) );
-    Herd::Generic::Temperature tInvalid( GenerateNumber( -1000.0, 0.0 ) );
-    Herd::Generic::Luminosity lInvalid( GenerateNumber( -1000.0, 0.0 ) );
-
-    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
-    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
-    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lInvalid, rInvalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  BOOST_TEST_CONTEXT( "Random" )
-  {
-    Herd::Generic::Radius rExpected( GenerateNumber( 0.1, 12.0 ) );
-    Herd::Generic::Temperature tExpected( GenerateNumber( 2200.0, 50000.0 ) );
-    Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000.0 ) );
-
     {
       auto lComputed = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rExpected, tExpected );
 
@@ -89,4 +72,56 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTest, *boost::unit_test::tolera
   }
 }
 
+}
+
+BOOST_FIXTURE_TEST_SUITE( Physics, LRTTestFixture )
+
+/// LRT unit tests
+BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTests, *boost::unit_test::tolerance( 1e-8 ) *Herd::UnitTestUtils::Labels::s_Compile )
+{
+  BOOST_TEST_CONTEXT( "Sun" )
+  {
+    Herd::Generic::Radius rSun( 1.0 );
+    Herd::Generic::Temperature tSun( Herd::Physics::Constants::sunSurfaceTemperature );
+    Herd::Generic::Luminosity lSun( 1.0 );
+
+    auto luminosity = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rSun, tSun );
+    BOOST_TEST( luminosity == lSun );
+
+    auto radius = Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lSun, tSun );
+    BOOST_TEST( radius == rSun );
+
+    auto temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lSun, rSun );
+    BOOST_TEST( temperature == tSun );
+  }
+
+  BOOST_TEST_CONTEXT( "Invalid input" )
+  {
+    Herd::Generic::Radius rInvalid( GenerateNumber( -1000.0, 0.0 ) );
+    Herd::Generic::Temperature tInvalid( GenerateNumber( -1000.0, 0.0 ) );
+    Herd::Generic::Luminosity lInvalid( GenerateNumber( -1000.0, 0.0 ) );
+
+    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
+    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
+    BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( lInvalid, rInvalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  BOOST_TEST_CONTEXT( "Random" )
+  {
+    TestConsistency();
+  }
+}
+
+BOOST_AUTO_TEST_CASE( LRTDomainExploration, *boost::unit_test::tolerance( 1e-8 ) *Herd::UnitTestUtils::Labels::s_Nightly )
+{
+  for( int c = 0; c < 100; ++c )
+  {
+    BOOST_TEST_CONTEXT( "Run " << c)
+    {
+      TestConsistency();
+    }
+  }
+}
 BOOST_AUTO_TEST_SUITE_END( )
+
+

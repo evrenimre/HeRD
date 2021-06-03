@@ -89,7 +89,7 @@ Herd::SSE::StarState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass 
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
  * @param i_Z Metallicity
- * @throws \c PreconditionError if preconditions are violated
+ * @throws PreconditionError if preconditions are violated
  */
 void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
