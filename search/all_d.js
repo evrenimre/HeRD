@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['s_5fci_81',['s_CI',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#af2e14ae07ebd3b314ab2361622750b61',1,'Herd::UnitTestUtils::Labels']]],
-  ['s_5fcompile_82',['s_Compile',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab6b738d9535fc35745359b0af0150ceb',1,'Herd::UnitTestUtils::Labels']]],
+  ['s_5fcompile_81',['s_Compile',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab3b438276bae66825af5562f9f5d4a5e',1,'Herd::UnitTestUtils::Labels']]],
+  ['s_5fcontinuous_82',['s_Continuous',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#a66e55a4236abe8724848314949fac25f',1,'Herd::UnitTestUtils::Labels']]],
   ['s_5fdataargumentname_83',['s_DataArgumentName',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a676e4ba0c2fb64adadccc7f80f06d15c',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
   ['s_5fmassrange_84',['s_MassRange',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#aeb7755ae56af15878cb2f32bdd8da075',1,'Herd::SSE::ZeroAgeMainSequence']]],
   ['s_5fmaxluminosityerror_85',['s_MaxLuminosityError',['../namespaceHerd_1_1SSE_1_1Detail_1_1ZAMS.html#ab25256769a83530766214cb2bf3ae62b',1,'Herd::SSE::Detail::ZAMS']]],
@@ -11,7 +11,7 @@ var searchData=
   ['s_5fmaxz_89',['s_MaxZ',['../namespaceHerd_1_1SSE_1_1Detail_1_1ZAMS.html#aac4168de0c22a5475abfc14671994654',1,'Herd::SSE::Detail::ZAMS']]],
   ['s_5fminmass_90',['s_MinMass',['../namespaceHerd_1_1SSE_1_1Detail_1_1ZAMS.html#a002f8175d7d842470a39822b49e6b78a',1,'Herd::SSE::Detail::ZAMS']]],
   ['s_5fminz_91',['s_MinZ',['../namespaceHerd_1_1SSE_1_1Detail_1_1ZAMS.html#ae5c154fbcc7aeeed66e0c284a7866b60',1,'Herd::SSE::Detail::ZAMS']]],
-  ['s_5fnightly_92',['s_Nightly',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#aadc0458e6fd90f6c0474c0592b2b7db7',1,'Herd::UnitTestUtils::Labels']]],
+  ['s_5fnightly_92',['s_Nightly',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#a2d7d9c292699ee5009d9106dbc72156b',1,'Herd::UnitTestUtils::Labels']]],
   ['s_5fseedparametername_93',['s_SeedParameterName',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a596e700b82819bb99a5345b1be4dfbf5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
   ['s_5fzrange_94',['s_ZRange',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a465ad61f6ff672f898cd2fe6fbf1fa9c',1,'Herd::SSE::ZeroAgeMainSequence']]],
   ['seed_95',['Seed',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a7c362850b5a5b35dc8c10d4ef8e64b38',1,'Herd::UnitTestUtils::RandomTestFixture']]],
