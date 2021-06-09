@@ -59,21 +59,29 @@ BOOST_AUTO_TEST_CASE( TestQuantityRange )
   BOOST_TEST( !openRange.Contains( minMass ) );
   BOOST_TEST( !openRange.Contains( maxMass ) );
   BOOST_TEST( openRange.Contains( midMass ) );
+  BOOST_TEST( openRange.Lower() == lower );
+  BOOST_TEST( openRange.Upper() == upper );
 
   Herd::Generic::LeftOpenRange leftOpenRange( lower, upper );
   BOOST_TEST( !leftOpenRange.Contains( minMass ) );
   BOOST_TEST( leftOpenRange.Contains( maxMass ) );
   BOOST_TEST( leftOpenRange.Contains( midMass ) );
-
+  BOOST_TEST( leftOpenRange.Lower() == lower );
+  BOOST_TEST( leftOpenRange.Upper() == upper );
+  
   Herd::Generic::RightOpenRange rightOpenRange( lower, upper );
   BOOST_TEST( rightOpenRange.Contains( minMass ) );
   BOOST_TEST( !rightOpenRange.Contains( maxMass ) );
   BOOST_TEST( rightOpenRange.Contains( midMass ) );
+  BOOST_TEST( rightOpenRange.Lower() == lower );
+  BOOST_TEST( rightOpenRange.Upper() == upper );
 
   Herd::Generic::ClosedRange closedRange( lower, upper );
   BOOST_TEST( closedRange.Contains( minMass ) );
   BOOST_TEST( closedRange.Contains( maxMass ) );
   BOOST_TEST( closedRange.Contains( midMass ) );
+  BOOST_TEST( closedRange.Lower() == lower );
+  BOOST_TEST( closedRange.Upper() == upper );
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

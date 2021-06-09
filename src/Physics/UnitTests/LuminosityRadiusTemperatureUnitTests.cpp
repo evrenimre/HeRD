@@ -112,6 +112,7 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTests, *boost::unit_test::toler
   }
 }
 
+/// LRT domain exploration test
 BOOST_AUTO_TEST_CASE( LRTDomainExploration, *boost::unit_test::tolerance( 1e-8 ) *Herd::UnitTestUtils::Labels::s_Nightly )
 {
   for( int c = 0; c < 100; ++c )
@@ -122,6 +123,7 @@ BOOST_AUTO_TEST_CASE( LRTDomainExploration, *boost::unit_test::tolerance( 1e-8 )
     }
   }
 }
+
 BOOST_AUTO_TEST_SUITE_END( )
 
 

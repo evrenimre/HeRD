@@ -26,6 +26,7 @@
 #include <range/v3/view.hpp>
 
 #include <boost/math/special_functions/pow.hpp>
+#include <boost/math/special_functions/relative_difference.hpp>
 
 namespace Herd::SSE
 {
@@ -54,6 +55,8 @@ double eq4Coefficients[] { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996
 };
 // @formatter:on
 }
+
+struct ZeroAgeMainSequenceAlgorithmSpecs;
 
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
@@ -94,15 +97,15 @@ Herd::SSE::StarState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass 
 void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
   // Mass is within the allowed range
-  if( !s_MassRange.Contains( i_Mass ) )
+  if( !ZeroAgeMainSequenceSpecs::s_MassRange.Contains( i_Mass ) )
   {
-    throw( Herd::Exceptions::PreconditionError( "Mass", s_MassRange.GetRangeString(), i_Mass.Value() ) );
+    throw( Herd::Exceptions::PreconditionError( "Mass", ZeroAgeMainSequenceSpecs::s_MassRange.GetRangeString(), i_Mass.Value() ) );
   }
 
   // Metallicity is within the allowed range
-  if( !s_ZRange.Contains( i_Z ) )
+  if( !ZeroAgeMainSequenceSpecs::s_ZRange.Contains( i_Z ) )
   {
-    throw( Herd::Exceptions::PreconditionError( "Metallicity", s_ZRange.GetRangeString(), i_Z.Value() ) );
+    throw( Herd::Exceptions::PreconditionError( "Metallicity", ZeroAgeMainSequenceSpecs::s_ZRange.GetRangeString(), i_Z.Value() ) );
   }
 }
 
@@ -161,6 +164,7 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
 
   return Herd::Generic::Radius( num / den );
 }
+
 
 } // namespace Herd::SSE
 

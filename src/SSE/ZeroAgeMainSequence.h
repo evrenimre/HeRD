@@ -23,21 +23,6 @@
 namespace Herd::SSE
 {
 
-namespace Detail::ZAMS
-{
-// Algorithm specs
-// Original mass range [0.1, 100] and z range [1e-4, 0.03]
-// Reported radius error 0.05 and luminosity error 0.075
-// Values updated by running the algorithm over the ZAMS unit test dataset
-inline constexpr double s_MinMass = 0.2;  ///< Lower bound of the mass range
-inline constexpr double s_MaxMass = 100.0;  ///< Upper bound of the mass range
-inline constexpr double s_MinZ = 1e-4; ///< Lower bound of the metallicity range
-inline constexpr double s_MaxZ = 0.03; ///< Upper bound of the metallicity range
-inline constexpr double s_MaxLuminosityError = 0.075;  ///< Maximum percent luminosity error
-inline constexpr double s_MaxRadiusError = 0.05;  ///< Maximum percent radius error
-inline constexpr double s_MaxTemperatureError = 0.005; ///< Maximum percent temperature error. Set by trial and error over the unit test data range
-}
-
 /**
  * @brief Computes the ZAMS state
  * @cite Tout96
@@ -53,10 +38,24 @@ private:
 
   static Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS luminosity
   static Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS radius
-
-  inline static const Herd::Generic::ClosedRange s_MassRange = Herd::Generic::ClosedRange( Detail::ZAMS::s_MinMass, Detail::ZAMS::s_MaxMass ); ///< Valid mass range
-  inline static const Herd::Generic::ClosedRange s_ZRange = Herd::Generic::ClosedRange( Detail::ZAMS::s_MinZ, Detail::ZAMS::s_MaxZ ); ///< Valid metallicity range
 };
+
+/**
+ * @brief Algorithm specs for ZeroAgeMainSequence
+ * @remarks In the original paper, the mass range is \c [0.1, 100]. This is modified to \c [0.2, 100] to achieve a tighter tolerance
+ */
+struct ZeroAgeMainSequenceSpecs
+{
+  // Domain
+  inline static const Herd::Generic::ClosedRange s_MassRange = Herd::Generic::ClosedRange( 0.2, 100. ); ///< Valid mass range
+  inline static const Herd::Generic::ClosedRange s_ZRange = Herd::Generic::ClosedRange( 1e-4, 0.03 ); ///< Valid metallicity range
+
+  // Error tolerance
+  static constexpr double s_MaxLuminosityError = 0.075;  ///< Maximum percent luminosity error
+  static constexpr double s_MaxRadiusError = 0.05;  ///< Maximum percent radius error
+  static constexpr double s_MaxTemperatureError = 0.005; ///< Maximum percent temperature error. Set by trial and error over the unit test data range
+};
+
 }
 
 #endif /* HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03 */

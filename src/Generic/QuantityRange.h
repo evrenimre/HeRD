@@ -53,9 +53,12 @@ public:
   template< class Tag >
   bool Contains( Herd::Generic::Quantity< Tag > i_Query ) const; ///< Checks whether a quantity is within range
 
+  double Lower() const; ///< Returns the lower bound
+  double Upper() const; ///< Returns the upper bound
+
   std::string GetRangeString() const;  ///< Helper for printing range information
 
-protected:
+private:
 
   boost::icl::continuous_interval< double > m_Range;  ///< Interval
 };
@@ -89,6 +92,24 @@ template< class Tag >
 bool Range< BoundaryPolicy >::Contains( Herd::Generic::Quantity< Tag > i_Query ) const
 {
   return boost::icl::contains( m_Range, i_Query.Value() );
+}
+
+/**
+ * @return Lower bound of the interval
+ */
+template< class BoundaryPolicy >
+double Range< BoundaryPolicy >::Lower() const
+{
+  return boost::icl::lower( m_Range );
+}
+
+/**
+ * @return Upper bound of the interval
+ */
+template< class BoundaryPolicy >
+double Range< BoundaryPolicy >::Upper() const
+{
+  return boost::icl::upper( m_Range );
 }
 
 /**

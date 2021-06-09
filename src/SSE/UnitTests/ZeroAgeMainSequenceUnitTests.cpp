@@ -24,6 +24,7 @@
 #include <iterator>
 #include <optional>
 #include <string>
+#include <utility>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/range/adaptors.hpp>
@@ -34,17 +35,13 @@ namespace
 /**
  * @brief Unit test fixture for \c ZeroAgeMainSequence
  */
-class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture, Herd::UnitTestUtils::DataLoaderFixture
+class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture, public Herd::UnitTestUtils::DataLoaderFixture, public Herd::SSE::ZeroAgeMainSequenceSpecs
 {
 public:
 
   Herd::SSE::StarState GetRandomStar(); ///< Returns a random star from the catalogue
 
-  Herd::Generic::Mass GenerateRandomMass(); ///< Generates a random valid mass value
-  Herd::Generic::Metallicity GenerateRandomZ(); ///< Generates a random valid metallicity value
-
-  static bool IsValid( Herd::Generic::Mass i_Mass ); ///< Returns true if valid
-  static bool IsValid( Herd::Generic::Metallicity i_Z ); ///< Returns true if valid
+  std::pair< Herd::Generic::Mass, Herd::Generic::Metallicity > GenerateRandomInput();  ///< Generates a random mass and metallicity pair
 
   static void IsWithinErrorTolerance( const Herd::SSE::StarState& i_rActual, const Herd::SSE::StarState& i_rExpected ); ///< Tests whether the state difference is within permissible bounds
 
@@ -79,45 +76,17 @@ Herd::SSE::StarState ZAMSTestFixture::GetRandomStar()
   return MakeStar( iStar->second ); // @suppress("Invalid arguments") // @suppress("Field cannot be resolved")
 }
 
-Herd::Generic::Mass ZAMSTestFixture::GenerateRandomMass()
-{
-  return Herd::Generic::Mass( GenerateNumber( Herd::SSE::Detail::ZAMS::s_MinMass, Herd::SSE::Detail::ZAMS::s_MaxMass ) );
-}
-
-Herd::Generic::Metallicity ZAMSTestFixture::GenerateRandomZ()
-{
-  return Herd::Generic::Metallicity( GenerateNumber( Herd::SSE::Detail::ZAMS::s_MinZ, Herd::SSE::Detail::ZAMS::s_MaxZ ) );
-}
-
-/**
- * @param i_Mass Mass
- * @return \c true if the mass is within the permissible range
- */
-bool ZAMSTestFixture::IsValid( Herd::Generic::Mass i_Mass )
-{
-  return i_Mass.Value() >= Herd::SSE::Detail::ZAMS::s_MinMass && i_Mass.Value() <= Herd::SSE::Detail::ZAMS::s_MaxMass;
-}
-
-/**
- * @param i_Z Metallicity
- * @return \c true if the metallicity is within the permissible range
- */
-bool ZAMSTestFixture::IsValid( Herd::Generic::Metallicity i_Z )
-{
-  return i_Z.Value() >= Herd::SSE::Detail::ZAMS::s_MinZ && i_Z.Value() <= Herd::SSE::Detail::ZAMS::s_MaxZ;
-}
-
 /**
  * @param i_rActual Actual values
  * @param i_rExpected Expected values
  */
 void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::StarState& i_rActual, const Herd::SSE::StarState& i_rExpected )
 {
-  BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxRadiusError ) );
+  BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( s_MaxRadiusError ) );
   BOOST_TEST( i_rActual.m_Temperature.Value() == i_rExpected.m_Temperature.Value(),
-      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxTemperatureError ) );
+      boost::test_tools::tolerance( s_MaxTemperatureError ) );
   BOOST_TEST( i_rActual.m_Luminosity.Value() == i_rExpected.m_Luminosity.Value(),
-      boost::test_tools::tolerance( Herd::SSE::Detail::ZAMS::s_MaxLuminosityError ) );
+      boost::test_tools::tolerance( s_MaxLuminosityError ) );
 }
 
 void ZAMSTestFixture::LoadTestData()
@@ -125,6 +94,12 @@ void ZAMSTestFixture::LoadTestData()
   m_Catalogue = ReadXML();
   m_StarCount = std::distance( m_Catalogue.get_child( "Catalogue" ).begin(), m_Catalogue.get_child( "Catalogue" ).end() ); // @suppress("Invalid arguments")
   BOOST_TEST_REQUIRE( m_StarCount != 0 );
+}
+
+std::pair< Herd::Generic::Mass, Herd::Generic::Metallicity > ZAMSTestFixture::GenerateRandomInput()
+{
+  return std::pair( Herd::Generic::Mass( GenerateNumber( s_MassRange.Lower(), s_MassRange.Upper() ) ),
+      Herd::Generic::Metallicity( GenerateNumber( s_ZRange.Lower(), s_ZRange.Upper() ) ) );
 }
 
 void ZAMSTestFixture::InitialiseStars()
@@ -183,14 +158,12 @@ BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
 /// Test ZAMS computation with a random input
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
-  Herd::Generic::Metallicity z = GenerateRandomZ();
-  Herd::Generic::Mass m = GenerateRandomMass();
-
-  auto starState = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z );
+  auto [ mass, z ] = GenerateRandomInput();
+  auto starState = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, z );
 
   BOOST_TEST( starState.m_Age == 0 );
   BOOST_TEST( starState.m_Luminosity > 0.0 );
-  BOOST_TEST( starState.m_Mass == m );
+  BOOST_TEST( starState.m_Mass == mass );
   BOOST_TEST( starState.m_Radius > 0 );
   BOOST_TEST( starState.m_Temperature > 0 );
   BOOST_TEST( starState.m_Z == z );
@@ -199,68 +172,51 @@ BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Co
 /// Tests for invalid cases
 BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile )
 {
-  {
-    Herd::Generic::Metallicity z(
-        GenerateRandomZ() + ( GenerateBool() ? Herd::SSE::Detail::ZAMS::s_MaxZ : ( Herd::SSE::Detail::ZAMS::s_MinZ - Herd::SSE::Detail::ZAMS::s_MaxZ ) ) );
-    Herd::Generic::Mass m = GenerateRandomMass();
-    BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z ), Herd::Exceptions::PreconditionError );
-  }
+  auto [ mass, z ] = GenerateRandomInput();
 
-  {
-    Herd::Generic::Metallicity z = GenerateRandomZ();
-    Herd::Generic::Mass m(
-        GenerateRandomMass()
-            + ( GenerateBool() ? Herd::SSE::Detail::ZAMS::s_MaxMass : ( Herd::SSE::Detail::ZAMS::s_MinMass - Herd::SSE::Detail::ZAMS::s_MaxMass ) ) );
-    BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( m, z ), Herd::Exceptions::PreconditionError );
-  }
+  Herd::Generic::Metallicity invalidZ( z + ( GenerateBool() ? s_ZRange.Upper() : s_ZRange.Lower() - s_ZRange.Upper() ) );
+  BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, invalidZ ), Herd::Exceptions::PreconditionError );
 
+  Herd::Generic::Mass invalidMass( mass + ( GenerateBool() ? s_MassRange.Upper() : s_MassRange.Lower() - s_MassRange.Upper() ) );
+  BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( invalidMass, z ), Herd::Exceptions::PreconditionError );
 }
 
 /// Test ZAMS computation with a random pick from external data
 BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
 {
-
-  std::optional< Herd::SSE::StarState > Expected;
-
-  // Try getting a valid star from the catalogue
+  bool bFound = false;
   for( int c = 0; c < 5; ++c )
   {
-    Expected = GetRandomStar();
+    Herd::SSE::StarState Expected = GetRandomStar();
+    Herd::Generic::Mass mass = Expected.m_Mass;
+    Herd::Generic::Metallicity z = Expected.m_Z;
 
-    if( IsValid( Expected->m_Mass ) && IsValid( Expected->m_Z ) )
+    if( s_MassRange.Contains( mass ) && s_ZRange.Contains( z ) )
     {
-      break;
-    } else
-    {
-      Expected.reset();
+      BOOST_TEST_CONTEXT( "Mass " << mass << " Metallicity "<< z )
+      {
+        auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, z );
+        IsWithinErrorTolerance( Actual, Expected );
+        bFound = true;
+        break;
+      }
     }
   }
 
-  BOOST_TEST_REQUIRE( Expected.has_value(),
-      "Unable to get a star within the specified parameter range. There is a very small chance that this is a spurious failure" );
-
-  BOOST_TEST_CONTEXT( "Mass " << Expected->m_Mass << " Metallicity "<< Expected->m_Z )
-  {
-    auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected->m_Mass, Expected->m_Z );
-    IsWithinErrorTolerance( Actual, *Expected );
-  }
+  BOOST_TEST( bFound, "Unable to get a star within the algorithn specs. There is a very small chance that this is a spurious failure" );
 }
 
-// Calculate ZAMS and verify over the entire test data
 /// Test ZAMS computation over the entire reference data set
 BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous )
 {
   const auto& rStars = Stars();
 
-  for( const auto& Current : rStars | boost::adaptors::indexed() )
+  auto Filter = [ & ]( const auto& i_rStar )
+  { return s_MassRange.Contains( i_rStar.value().m_Mass) && s_ZRange.Contains( i_rStar.value().m_Z );};
+  
+  for( const auto& Current : rStars | boost::adaptors::indexed() | boost::adaptors::filtered( Filter ) )
   {
     const Herd::SSE::StarState& Expected = Current.value(); // @suppress("Method cannot be resolved")
-
-    if( !IsValid( Expected.m_Mass ) || !IsValid( Expected.m_Z ) )
-    {
-      continue;
-    }
-
     std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
     BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Z )
     {
