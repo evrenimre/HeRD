@@ -4,7 +4,7 @@ var searchData=
   ['m_5fluminosity_43',['m_Luminosity',['../structHerd_1_1SSE_1_1StarState.html#a492636584ec52cc6450e68d379fb3f2b',1,'Herd::SSE::StarState']]],
   ['m_5fmass_44',['m_Mass',['../structHerd_1_1SSE_1_1StarState.html#a871c5bfb1f1cde9c9728bac5b0c88b88',1,'Herd::SSE::StarState']]],
   ['m_5fradius_45',['m_Radius',['../structHerd_1_1SSE_1_1StarState.html#a5cc6e256468d8c3d4df8736aa8d07d3a',1,'Herd::SSE::StarState']]],
-  ['m_5frange_46',['m_Range',['../classHerd_1_1Generic_1_1Range.html#a481ec4c4adb1022d9c8a993a97aeb992',1,'Herd::Generic::Range']]],
+  ['m_5frange_46',['m_Range',['../classHerd_1_1Generic_1_1QuantityRange.html#aa3ce92f8cb248922b1707d7eb484da6f',1,'Herd::Generic::QuantityRange']]],
   ['m_5frng_47',['m_Rng',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763',1,'Herd::UnitTestUtils::RandomTestFixture']]],
   ['m_5fseed_48',['m_Seed',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#ae740b56f21e5f5c09cc51bb12a73fcb7',1,'Herd::UnitTestUtils::RandomTestFixture']]],
   ['m_5ftemperature_49',['m_Temperature',['../structHerd_1_1SSE_1_1StarState.html#ad37ce0a25776ee5cf674dc5dcc518721',1,'Herd::SSE::StarState']]],

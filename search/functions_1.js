@@ -6,5 +6,5 @@ var searchData=
   ['computeradius_179',['ComputeRadius',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4f0216d22fad3167db85fd9e077450d1',1,'Herd::Physics::LuminosityRadiusTemperature::ComputeRadius()'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a422febde172bffcd21697b24f1697f3d',1,'Herd::SSE::ZeroAgeMainSequence::ComputeRadius()']]],
   ['computestarstate_180',['ComputeStarState',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a4529c05e42e4571af88daf0e88c955fe',1,'Herd::SSE::ZeroAgeMainSequence']]],
   ['computetemperature_181',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
-  ['contains_182',['Contains',['../classHerd_1_1Generic_1_1Range.html#aa7325daae7c9d0655a267d1789e9d694',1,'Herd::Generic::Range']]]
+  ['contains_182',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quantity_194',['Quantity',['../classHerd_1_1Generic_1_1Quantity.html#ac5ea61d216fab033b7e20c87bf97a985',1,'Herd::Generic::Quantity::Quantity()'],['../classHerd_1_1Generic_1_1Quantity.html#a8ac696458cbfcf4d0c53081061583497',1,'Herd::Generic::Quantity::Quantity(double i_Value)']]]
+  ['parsecommandlinearguments_193',['ParseCommandLineArguments',['../namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582',1,'Herd::UnitTestUtils']]],
+  ['preconditionerror_194',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html#a8d431cb3b9ed9b7f7dbf394bf64fb2e4',1,'Herd::Exceptions::PreconditionError::PreconditionError(const std::string &amp;i_rElement, const std::string &amp;i_rExpected, const std::string &amp;i_rActual)'],['../classHerd_1_1Exceptions_1_1PreconditionError.html#a887025f2b43a20e70246521f0dde4a24',1,'Herd::Exceptions::PreconditionError::PreconditionError(const std::string &amp;i_rElement, const std::string &amp;i_rExpected, Arithmetic i_Actual)']]]
 ];
