@@ -71,7 +71,7 @@ Herd::SSE::StarState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass 
   
   Eigen::Matrix< double, 5, 1 > zVector;
   zVector[ 0 ] = 1;
-  zVector[ 1 ] = log10( i_Z / Herd::Physics::Constants::solarMetallicityTout96 );
+  zVector[ 1 ] = log10( i_Z / Herd::Physics::Constants::s_SolarMetallicityTout96 );
   ranges::cpp20::for_each( ranges::cpp20::views::iota( 2, 5 ), [ & ]( auto i_Index ) // @suppress("Function cannot be resolved")
   { zVector[ i_Index ] = zVector[i_Index-1]*zVector[1];} );
 
@@ -121,7 +121,7 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );
-  double m20 = boost::math::pow< 2 >( i_Mass.Value() );
+  double m20 = boost::math::pow< 2, double >( i_Mass.Value() );
   double m30 = m20 * i_Mass;
   double m50 = m30 * m20;
   double m55 = m50 * m05;
@@ -149,7 +149,7 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );
-  double m20 = boost::math::pow< 2 >( i_Mass.Value() );
+  double m20 = boost::math::pow< 2, double >( i_Mass );
   double m25 = m20 * m05;
   double m65 = boost::math::pow< 3 >( m20 ) * m05;
   double m85 = m65 * m20;

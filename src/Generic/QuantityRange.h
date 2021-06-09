@@ -56,7 +56,7 @@ public:
   double Lower() const; ///< Returns the lower bound
   double Upper() const; ///< Returns the upper bound
 
-  const boost::icl::continuous_interval< double >& Range(); ///< Returns a constant reference to the underlying interval
+  const boost::icl::continuous_interval< double >& Range() const; ///< Returns a constant reference to the underlying interval
 
   std::string GetRangeString() const;  ///< Helper for printing range information
 
@@ -115,7 +115,7 @@ double QuantityRange< BoundaryPolicy >::Upper() const
 }
 
 template< class BoundaryPolicy >
-const boost::icl::continuous_interval< double >& QuantityRange< BoundaryPolicy >::Range()
+const boost::icl::continuous_interval< double >& QuantityRange< BoundaryPolicy >::Range() const
 {
   return m_Range;
 }

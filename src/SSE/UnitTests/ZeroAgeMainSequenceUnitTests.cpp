@@ -98,8 +98,10 @@ void ZAMSTestFixture::LoadTestData()
 
 std::pair< Herd::Generic::Mass, Herd::Generic::Metallicity > ZAMSTestFixture::GenerateRandomInput()
 {
-  return std::pair( Herd::Generic::Mass( GenerateNumber( s_MassRange.Lower(), s_MassRange.Upper() ) ),
-      Herd::Generic::Metallicity( GenerateNumber( s_ZRange.Lower(), s_ZRange.Upper() ) ) );
+  //@formatter:off
+  return { Herd::Generic::Mass( GenerateNumber( s_MassRange.Lower(), s_MassRange.Upper() ) ),
+      Herd::Generic::Metallicity( GenerateNumber( s_ZRange.Lower(), s_ZRange.Upper() ) ) };
+    //@formatter:on
 }
 
 void ZAMSTestFixture::InitialiseStars()

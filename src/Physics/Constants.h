@@ -15,10 +15,10 @@
 
 namespace Herd::Physics::Constants
 {
-inline constexpr double stefanBoltzmannConstant = 5.670374419184429e-8;  ///< Stefan-Boltzmann constant
+inline constexpr double s_StefanBoltzmannConstant = 5.670374419184429e-8;  ///< Stefan-Boltzmann constant
 
-inline constexpr double sunSurfaceTemperature = 5778;  ///< Surface temperature of the sun in K
-inline constexpr double solarMetallicityTout96 = 0.02;  ///< Z value for the Sun in \cite Tout96
+inline constexpr double s_SunSurfaceTemperature = 5778;  ///< Surface temperature of the sun in K
+inline constexpr double s_SolarMetallicityTout96 = 0.02;  ///< Z value for the Sun in \cite Tout96
 }
 
 

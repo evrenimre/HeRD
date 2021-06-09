@@ -34,18 +34,18 @@ namespace Herd::Physics
 Herd::Generic::Luminosity LuminosityRadiusTemperature::ComputeLuminosty( Herd::Generic::Radius i_Radius,
     Herd::Generic::Temperature i_Temperature )
 {
-  if( i_Radius.Value() <= 0 )
+  if( i_Radius <= 0. )
   {
     throw( Herd::Exceptions::PreconditionError( "Radius", ">0", i_Radius.Value() ) );
   }
 
-  if( i_Temperature.Value() <= 0 )
+  if( i_Temperature <= 0. )
   {
     throw( Herd::Exceptions::PreconditionError( "Temperature", ">0", i_Temperature.Value() ) );
   }
 
-  double r2 = boost::math::pow< 2 >( i_Radius.Value() );
-  double t4 = boost::math::pow< 4 >( i_Temperature.Value() / Herd::Physics::Constants::sunSurfaceTemperature );
+  double r2 = boost::math::pow< 2, double >( i_Radius );
+  double t4 = boost::math::pow< 4 >( i_Temperature / Herd::Physics::Constants::s_SunSurfaceTemperature );
 
   return Herd::Generic::Luminosity( r2 * t4 );
 }
@@ -61,17 +61,17 @@ Herd::Generic::Luminosity LuminosityRadiusTemperature::ComputeLuminosty( Herd::G
 Herd::Generic::Radius LuminosityRadiusTemperature::ComputeRadius( Herd::Generic::Luminosity i_Luminosity,
     Herd::Generic::Temperature i_Temperature )
 {
-  if( i_Luminosity.Value() <= 0 )
+  if( i_Luminosity <= 0. )
   {
     throw( Herd::Exceptions::PreconditionError( "Luminosity", ">0", i_Luminosity.Value() ) );
   }
 
-  if( i_Temperature.Value() <= 0 )
+  if( i_Temperature <= 0. )
   {
     throw( Herd::Exceptions::PreconditionError( "Temperature", ">0", i_Temperature.Value() ) );
   }
 
-  double t2 = boost::math::pow< 2 >( i_Temperature.Value() / Herd::Physics::Constants::sunSurfaceTemperature );
+  double t2 = boost::math::pow< 2 >( i_Temperature / Herd::Physics::Constants::s_SunSurfaceTemperature );
   return Herd::Generic::Radius( std::sqrt( i_Luminosity ) / t2 );
 }
 
@@ -86,18 +86,18 @@ Herd::Generic::Radius LuminosityRadiusTemperature::ComputeRadius( Herd::Generic:
 Herd::Generic::Temperature LuminosityRadiusTemperature::ComputeTemperature( Herd::Generic::Luminosity i_Luminosity,
     Herd::Generic::Radius i_Radius )
 {
-  if( i_Luminosity.Value() <= 0 )
+  if( i_Luminosity <= 0. )
   {
     throw( Herd::Exceptions::PreconditionError( "Luminosity", ">0", i_Luminosity.Value() ) );
   }
 
-  if( i_Radius.Value() <= 0 )
+  if( i_Radius <= 0. )
   {
     throw( Herd::Exceptions::PreconditionError( "Radius", ">0", i_Radius.Value() ) );
   }
 
-  double r2 = boost::math::pow< 2 >( i_Radius.Value() );
-  return Herd::Generic::Temperature( std::pow( i_Luminosity / r2, 0.25 ) * Herd::Physics::Constants::sunSurfaceTemperature );
+  double r2 = boost::math::pow< 2, double >( i_Radius );
+  return Herd::Generic::Temperature( std::pow( i_Luminosity / r2, 0.25 ) * Herd::Physics::Constants::s_SunSurfaceTemperature );
 }
 
 }
