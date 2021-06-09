@@ -44,17 +44,19 @@ boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max,
  * @tparam BoundaryPolicy An interval boundary type
  */
 template< class BoundaryPolicy >
-class Range
+class QuantityRange
 {
 public:
 
-  Range( double i_Min, double i_Max );  ///< Constructor
+  QuantityRange( double i_Min, double i_Max );  ///< Constructor
 
   template< class Tag >
   bool Contains( Herd::Generic::Quantity< Tag > i_Query ) const; ///< Checks whether a quantity is within range
 
   double Lower() const; ///< Returns the lower bound
   double Upper() const; ///< Returns the upper bound
+
+  const boost::icl::continuous_interval< double >& Range(); ///< Returns a constant reference to the underlying interval
 
   std::string GetRangeString() const;  ///< Helper for printing range information
 
@@ -65,10 +67,10 @@ private:
 
 // Range types
 // @formatter:off
-using OpenRange = Range< Detail::OpenRange >; ///< Open interval
-using LeftOpenRange = Range< Detail::LeftOpenRange >; ///< Left-open interval
-using RightOpenRange = Range< Detail::RightOpenRange >; ///< Right-open interval
-using ClosedRange = Range< Detail::ClosedRange >; ///< Closed interval
+using OpenRange = QuantityRange< Detail::OpenRange >; ///< Open interval
+using LeftOpenRange = QuantityRange< Detail::LeftOpenRange >; ///< Left-open interval
+using RightOpenRange = QuantityRange< Detail::RightOpenRange >; ///< Right-open interval
+using ClosedRange = QuantityRange< Detail::ClosedRange >; ///< Closed interval
 // @formatter:on
 
 /**
@@ -76,7 +78,7 @@ using ClosedRange = Range< Detail::ClosedRange >; ///< Closed interval
  * @param i_Max Upper bound
  */
 template< class BoundaryPolicy >
-Range< BoundaryPolicy >::Range( double i_Min, double i_Max )
+QuantityRange< BoundaryPolicy >::QuantityRange( double i_Min, double i_Max )
 {
   BoundaryPolicy* pSelector = nullptr;
   m_Range = Detail::MakeRange( i_Min, i_Max, pSelector );
@@ -89,7 +91,7 @@ Range< BoundaryPolicy >::Range( double i_Min, double i_Max )
  */
 template< class BoundaryPolicy >
 template< class Tag >
-bool Range< BoundaryPolicy >::Contains( Herd::Generic::Quantity< Tag > i_Query ) const
+bool QuantityRange< BoundaryPolicy >::Contains( Herd::Generic::Quantity< Tag > i_Query ) const
 {
   return boost::icl::contains( m_Range, i_Query.Value() );
 }
@@ -98,7 +100,7 @@ bool Range< BoundaryPolicy >::Contains( Herd::Generic::Quantity< Tag > i_Query )
  * @return Lower bound of the interval
  */
 template< class BoundaryPolicy >
-double Range< BoundaryPolicy >::Lower() const
+double QuantityRange< BoundaryPolicy >::Lower() const
 {
   return boost::icl::lower( m_Range );
 }
@@ -107,16 +109,22 @@ double Range< BoundaryPolicy >::Lower() const
  * @return Upper bound of the interval
  */
 template< class BoundaryPolicy >
-double Range< BoundaryPolicy >::Upper() const
+double QuantityRange< BoundaryPolicy >::Upper() const
 {
   return boost::icl::upper( m_Range );
+}
+
+template< class BoundaryPolicy >
+const boost::icl::continuous_interval< double >& QuantityRange< BoundaryPolicy >::Range()
+{
+  return m_Range;
 }
 
 /**
  * @return String for printing the range boundaries
  */
 template< class BoundaryPolicy >
-std::string Range< BoundaryPolicy >::GetRangeString() const
+std::string QuantityRange< BoundaryPolicy >::GetRangeString() const
 {
   std::stringstream Buffer;
   Buffer << m_Range;
