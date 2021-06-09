@@ -19,6 +19,7 @@
 #include <Generic/QuantityRange.h>
 
 #include <boost/mpl/list.hpp>
+#include <boost/icl/interval.hpp>
 
 BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
@@ -89,6 +90,8 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantityRangeTemplated, T, QuantityRangeTypes
   BOOST_TEST( interval.Lower() == lower );
   BOOST_TEST( interval.Upper() = upper );
 
+  BOOST_TEST( boost::icl::lower( interval.Range() ) == lower );
+  BOOST_TEST( boost::icl::upper( interval.Range() ) == upper );
 }
 
 BOOST_AUTO_TEST_SUITE_END( )
