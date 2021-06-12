@@ -161,7 +161,7 @@ BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   auto [ mass, z ] = GenerateRandomInput();
-  auto starState = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, z );
+  auto starState = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z );
 
   BOOST_TEST( starState.m_Age == 0 );
   BOOST_TEST( starState.m_Luminosity > 0.0 );
@@ -177,10 +177,10 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   auto [ mass, z ] = GenerateRandomInput();
 
   Herd::Generic::Metallicity invalidZ( z + ( GenerateBool() ? s_ZRange.Upper() : s_ZRange.Lower() - s_ZRange.Upper() ) );
-  BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, invalidZ ), Herd::Exceptions::PreconditionError );
+  BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::Compute( mass, invalidZ ), Herd::Exceptions::PreconditionError );
 
   Herd::Generic::Mass invalidMass( mass + ( GenerateBool() ? s_MassRange.Upper() : s_MassRange.Lower() - s_MassRange.Upper() ) );
-  BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::ComputeStarState( invalidMass, z ), Herd::Exceptions::PreconditionError );
+  BOOST_CHECK_THROW( Herd::SSE::ZeroAgeMainSequence::Compute( invalidMass, z ), Herd::Exceptions::PreconditionError );
 }
 
 /// Test ZAMS computation with a random pick from external data
@@ -197,7 +197,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
     {
       BOOST_TEST_CONTEXT( "Mass " << mass << " Metallicity "<< z )
       {
-        auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, z );
+        auto Actual = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z );
         IsWithinErrorTolerance( Actual, Expected );
         bFound = true;
         break;
@@ -222,7 +222,7 @@ BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous 
     std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
     BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Z )
     {
-      auto Actual = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( Expected.m_Mass, Expected.m_Z );
+      auto Actual = Herd::SSE::ZeroAgeMainSequence::Compute( Expected.m_Mass, Expected.m_Z );
       IsWithinErrorTolerance( Actual, Expected );
     }
   }

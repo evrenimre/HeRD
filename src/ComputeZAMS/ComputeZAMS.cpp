@@ -48,7 +48,7 @@ int main( int argc, char* argv[] )
     Herd::Generic::Mass mass( argument_map[ "mass" ].as< double >() );
     Herd::Generic::Metallicity metallicity( argument_map[ "metallicity" ].as< double >() );
 
-    Herd::SSE::EvolutionState zamsState = Herd::SSE::ZeroAgeMainSequence::ComputeStarState( mass, metallicity );
+    Herd::SSE::EvolutionState zamsState = Herd::SSE::ZeroAgeMainSequence::Compute( mass, metallicity );
     std::cout << " Luminosity " << zamsState.m_Luminosity.Value() << " L_Sun \n";
     std::cout << " Radius " << zamsState.m_Radius.Value() << " R_Sun \n";
     std::cout << " Temperature " << zamsState.m_Temperature.Value() << " K \n";

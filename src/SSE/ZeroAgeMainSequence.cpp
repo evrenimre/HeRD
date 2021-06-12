@@ -65,7 +65,7 @@ struct ZeroAgeMainSequenceAlgorithmSpecs;
  * @pre \c i_Mass is within \c s_MassRange
  * @pre \c i_Z is is within \c s_ZRange
  */
-Herd::SSE::EvolutionState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+Herd::SSE::EvolutionState ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
   

@@ -31,7 +31,7 @@ class ZeroAgeMainSequence
 {
 public:
 
-  static Herd::SSE::EvolutionState ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star state at ZAMS
+  static Herd::SSE::EvolutionState Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star state at ZAMS
 
 private:
   static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input
