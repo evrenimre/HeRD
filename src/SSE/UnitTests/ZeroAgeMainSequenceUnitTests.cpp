@@ -82,11 +82,10 @@ Herd::SSE::EvolutionState ZAMSTestFixture::GetRandomStar()
  */
 void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::EvolutionState& i_rActual, const Herd::SSE::EvolutionState& i_rExpected )
 {
-  BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( s_MaxRadiusError ) );
+  BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( 2e-4 ) );
   BOOST_TEST( i_rActual.m_Temperature.Value() == i_rExpected.m_Temperature.Value(),
       boost::test_tools::tolerance( s_MaxTemperatureError ) );
-  BOOST_TEST( i_rActual.m_Luminosity.Value() == i_rExpected.m_Luminosity.Value(),
-      boost::test_tools::tolerance( s_MaxLuminosityError ) );
+  BOOST_TEST( i_rActual.m_Luminosity.Value() == i_rExpected.m_Luminosity.Value(), boost::test_tools::tolerance( 2e-4 ) );
 }
 
 void ZAMSTestFixture::LoadTestData()
