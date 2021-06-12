@@ -65,7 +65,7 @@ struct ZeroAgeMainSequenceAlgorithmSpecs;
  * @pre \c i_Mass is within \c s_MassRange
  * @pre \c i_Z is is within \c s_ZRange
  */
-Herd::SSE::StarState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+Herd::SSE::EvolutionState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
   
@@ -78,7 +78,7 @@ Herd::SSE::StarState ZeroAgeMainSequence::ComputeStarState( Herd::Generic::Mass 
   Herd::Generic::Luminosity luminosity = ComputeLuminosity( i_Mass, zVector );
   Herd::Generic::Radius radius = ComputeRadius( i_Mass, zVector );
 
-  Herd::SSE::StarState output;
+  Herd::SSE::EvolutionState output;
   output.m_Age.Set( 0 );
   output.m_Luminosity = luminosity;
   output.m_Radius = radius;

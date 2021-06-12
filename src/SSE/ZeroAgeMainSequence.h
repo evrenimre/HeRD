@@ -13,7 +13,7 @@
 #ifndef HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 #define HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 
-#include "StarState.h"
+#include "EvolutionState.h"
 
 #include "Generic/Quantities.h"
 #include "Generic/QuantityRange.h"
@@ -31,7 +31,7 @@ class ZeroAgeMainSequence
 {
 public:
 
-  static Herd::SSE::StarState ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star state at ZAMS
+  static Herd::SSE::EvolutionState ComputeStarState( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star state at ZAMS
 
 private:
   static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input

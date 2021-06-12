@@ -1,5 +1,5 @@
 /**
- * @file StarState.h
+ * @file EvolutionState.h
  * @author Evren Imre
  * @date 5 Nov 2020	
  */
@@ -20,7 +20,7 @@ namespace Herd::SSE
 /**
  * @brief State of a star
  */
-struct StarState
+struct EvolutionState
 {
   Herd::Generic::Mass m_Mass;	///< Mass in \f$ M_{\odot}\f$
   Herd::Generic::Metallicity m_Z; ///< Metallicity

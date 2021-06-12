@@ -1,5 +1,5 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
-set(HEADER_LIST StarState.h
+set(HEADER_LIST EvolutionState.h
 								ZeroAgeMainSequence.h 
 )
 set(SOURCE_LIST ZeroAgeMainSequence.cpp)
