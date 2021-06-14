@@ -144,6 +144,8 @@ Herd::SSE::EvolutionState ZAMSTestFixture::MakeStar( const boost::property_tree:
     Star.m_Radius.Set( i_rNode.get< double >( "<xmlattr>.R" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
     Star.m_Temperature.Set( i_rNode.get< double >( "<xmlattr>.T" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
     Star.m_Z.Set( i_rNode.get< double >( "<xmlattr>.Z" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+
+    Star.m_InitialMass = Star.m_Mass;
   } catch( ... )
   {
     BOOST_TEST_REQUIRE( false, "Invalid or missing star attribute" );
@@ -168,6 +170,7 @@ BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Co
   BOOST_TEST( starState.m_Radius > 0 );
   BOOST_TEST( starState.m_Temperature > 0 );
   BOOST_TEST( starState.m_Z == z );
+  BOOST_TEST( starState.m_InitialMass == mass );
 }
 
 /// Tests for invalid cases

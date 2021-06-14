@@ -18,7 +18,7 @@
 namespace Herd::Physics
 {
 /**
- * @brief Luminosity, radius and surface temperature equation
+ * @brief Relation between the elecktromagnatic radiation emitted by a blackbody, its temperature and radius
  * @remarks Expressions
  *  - The equation is \f$ L = 4\pi\sigma_{SB}R^2T^4 \f$ where \f$ \sigma_{SB} \f$ is the Stefan-Boltzmann constant
  *  - Expressed in terms of solar properties, it becomes \f$ \frac{L}{L_{\odot}} =  \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 \f$
@@ -27,9 +27,9 @@ class LuminosityRadiusTemperature
 {
 public:
 
-  static Herd::Generic::Luminosity ComputeLuminosty( Herd::Generic::Radius i_Radius, Herd::Generic::Temperature i_Temperature );
-  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Temperature i_Temperature );
-  static Herd::Generic::Temperature ComputeTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius );
+  static Herd::Generic::Luminosity ComputeLuminosty( Herd::Generic::Radius i_Radius, Herd::Generic::Temperature i_Temperature ); ///< Computes luminosity from radius and temperature
+  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Temperature i_Temperature ); ///< Computes radius from luminosity and temperature
+  static Herd::Generic::Temperature ComputeTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius ); ///< Computes temperature from luminosity and radius
 };
 }
 

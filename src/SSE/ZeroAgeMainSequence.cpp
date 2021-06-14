@@ -86,6 +86,8 @@ Herd::SSE::EvolutionState ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Ma
   output.m_Z = i_Z;
   output.m_Temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius );
 
+  output.m_InitialMass = i_Mass;
+
   return output;
 }
 

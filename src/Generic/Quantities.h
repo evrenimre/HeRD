@@ -90,6 +90,7 @@ using Metallicity = Quantity< struct MetallicityTag >;  ///< Metallicity
 using Radius = Quantity< struct RadiusTag >;  ///< Radius
 using Temperature = Quantity< struct TemperatureTag >;  ///< Temperature
 using Age = Quantity< struct AgeTag >;  ///< Age
+using AngularVelocity = Quantity< struct AngularVelocityTag >; ///< Angular velocity
 // @formatter:on
 
 }
