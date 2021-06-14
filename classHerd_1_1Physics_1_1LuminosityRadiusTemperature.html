@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('classHerd_1_1Physics_1_1LuminosityRadi
 </div><!--header-->
 <div class="contents">
 
-<p>Luminosity, radius and surface temperature equation.  
+<p>Relation between the elecktromagnatic radiation emitted by a blackbody, its temperature and radius.  
  <a href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="LuminosityRadiusTemperature_8h_source.html">LuminosityRadiusTemperature.h</a>&gt;</code></p>
@@ -99,14 +99,17 @@ $(document).ready(function(){initNavTree('classHerd_1_1Physics_1_1LuminosityRadi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af1c75bac618a43d4b9373260d6bf4672"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceHerd_1_1Generic.html#abecdaf56d77f2384701b976f8c352a94">Herd::Generic::Luminosity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#af1c75bac618a43d4b9373260d6bf4672">ComputeLuminosty</a> (<a class="el" href="namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0">Herd::Generic::Radius</a> i_Radius, <a class="el" href="namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986">Herd::Generic::Temperature</a> i_Temperature)</td></tr>
+<tr class="memdesc:af1c75bac618a43d4b9373260d6bf4672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes luminosity from radius and temperature.  <a href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#af1c75bac618a43d4b9373260d6bf4672">More...</a><br /></td></tr>
 <tr class="separator:af1c75bac618a43d4b9373260d6bf4672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f0216d22fad3167db85fd9e077450d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0">Herd::Generic::Radius</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4f0216d22fad3167db85fd9e077450d1">ComputeRadius</a> (<a class="el" href="namespaceHerd_1_1Generic.html#abecdaf56d77f2384701b976f8c352a94">Herd::Generic::Luminosity</a> i_Luminosity, <a class="el" href="namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986">Herd::Generic::Temperature</a> i_Temperature)</td></tr>
+<tr class="memdesc:a4f0216d22fad3167db85fd9e077450d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes radius from luminosity and temperature.  <a href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4f0216d22fad3167db85fd9e077450d1">More...</a><br /></td></tr>
 <tr class="separator:a4f0216d22fad3167db85fd9e077450d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d7d2e42d97e4edcb12d24476eaa3205"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986">Herd::Generic::Temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205">ComputeTemperature</a> (<a class="el" href="namespaceHerd_1_1Generic.html#abecdaf56d77f2384701b976f8c352a94">Herd::Generic::Luminosity</a> i_Luminosity, <a class="el" href="namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0">Herd::Generic::Radius</a> i_Radius)</td></tr>
+<tr class="memdesc:a4d7d2e42d97e4edcb12d24476eaa3205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes temperature from luminosity and radius.  <a href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205">More...</a><br /></td></tr>
 <tr class="separator:a4d7d2e42d97e4edcb12d24476eaa3205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Luminosity, radius and surface temperature equation. </p>
+<div class="textblock"><p>Relation between the elecktromagnatic radiation emitted by a blackbody, its temperature and radius. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>Expressions<ul>
 <li>The equation is <img class="formulaInl" alt="$ L = 4\pi\sigma_{SB}R^2T^4 $" src="form_4.png"/> where <img class="formulaInl" alt="$ \sigma_{SB} $" src="form_5.png"/> is the Stefan-Boltzmann constant</li>
 <li>Expressed in terms of solar properties, it becomes <img class="formulaInl" alt="$ \frac{L}{L_{\odot}} = \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 $" src="form_6.png"/> </li>
@@ -146,6 +149,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Computes luminosity from radius and temperature. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i_Radius</td><td>Radius in <img class="formulaInl" alt="$ R_{\odot} $" src="form_0.png"/> </td></tr>
@@ -199,6 +204,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Computes radius from luminosity and temperature. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i_Luminosity</td><td>Luminosity in <img class="formulaInl" alt="$ L_{\odot}$" src="form_2.png"/> </td></tr>
@@ -252,6 +259,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Computes temperature from luminosity and radius. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i_Luminosity</td><td>Luminosity in <img class="formulaInl" alt="$ L_{\odot} $" src="form_3.png"/> </td></tr>
