@@ -42,6 +42,17 @@ public:
   }
 
   /**
+   * @brief Constructor
+   * @param i_rElement Element tested for precondition, often a variable
+   * @param i_rExpected Precondition
+   * @param i_rActual Actual value
+   */
+  PreconditionError( const char* i_rElement, const char* i_rExpected, const char* i_rActual ) :
+      Herd::Exceptions::RuntimeError( ComposeMessage( i_rElement, i_rExpected, i_rActual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) )
+  {
+  }
+
+  /**
    * @brief Constructor for arithmetic types
    * @tparam Arithmetic An arithmetic type
    * @param i_rElement Element tested for precondition
