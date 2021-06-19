@@ -21,24 +21,24 @@ namespace Herd::SSE
  */
 enum class EvolutionStage
 {
-  e_MSLO,  // Low mass main sequence
-  e_MS,  // Main sequence
+  e_MSLM,  // Deeply or fully convective low mass MS star
+  e_MS,  // Main sequence star
   e_HG,  // Hertzsprung gap
   e_FGB, // First giant branch
-  e_CHB, // Core helium burning
-  e_FAGB,  // First ascent giant
-  e_SAGB,  // Second ascent giant
-  e_HGNH,  // Hertzsprung gap naked helium
-  e_HWD, // Helium white dwarf
+  e_CHeB, // Core helium burning
+  e_FAGB,  // First asymptotic giant branch
+  e_SAGB,  // Second asymptotic giant branch
+  e_HeMS, // Main sequence naked helium star
+  e_HeHG,  // Hertzsprung gap naked helium star
+  e_HeGB, // Giant branch naked helium star
+  e_HeWD, // Helium white dwarf
   e_COWD,  // Carbon/oxygen white dwarf
+  e_ONWD, // Oxygen/neon white dwarf
   e_NS,  // Neutron star
   e_BH,  // Black hole
   e_MSn,  // Massless supernova
-  e_Undefined/**< e_Undefined */
+  e_Undefined // Undefined
 };
-
 }
-
-
 
 #endif /* H808BBCA9_C3C4_4237_A17C_8721989DF8BE */

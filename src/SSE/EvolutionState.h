@@ -17,6 +17,8 @@
 
 #include <Generic/Quantities.h>
 
+#include <boost/container/flat_map.hpp>
+
 namespace Herd::SSE
 {
 
@@ -35,6 +37,7 @@ struct EvolutionState
   Herd::SSE::EvolutionStage m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
 
   Herd::Generic::Mass m_InitialMass;  ///< Initial mass in \f$ M_{\odot}\f$
+
 };
 
 }

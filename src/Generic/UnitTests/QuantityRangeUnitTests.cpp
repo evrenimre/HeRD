@@ -1,7 +1,7 @@
 /**
- * @file QuantityAndRangeUnitTests.cpp
+ * @file QuantityRangeUnitTests.cpp
  * @author Evren Imre
- * @date 14 Apr 2021	
+ * @date 19 Jun 2021	
  */
 /* This file is a part of HeRD, a stellar evolution library
  * Copyright © 2021 Evren Imre 
@@ -23,29 +23,6 @@
 
 BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
-/// Quantity types under test
-using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic::Mass, Herd::Generic::Metallicity, Herd::Generic::Radius, Herd::Generic::Age, Herd::Generic::AngularVelocity >;
-
-/// Quantity construction and usage
-BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
-{
-  double value = GenerateNumber( 0., 10. );
-  T quantity( value );
-  BOOST_TEST( value == quantity.Value() );
-
-  double newValue = GenerateNumber( 0., 10. );
-  quantity.Set( newValue );
-  BOOST_TEST( newValue == quantity.Value() );
-
-  // Conversion operator
-  double converted = quantity;
-  BOOST_TEST( converted == quantity.Value() );
-
-  // Equality operator
-  BOOST_TEST( quantity == quantity );
-  BOOST_TEST( !( quantity == T( quantity.Value() + 1 ) ) );
-}
-
 /// Quantity range construction and usage
 BOOST_AUTO_TEST_CASE( TestQuantityRange )
 {
@@ -65,7 +42,7 @@ BOOST_AUTO_TEST_CASE( TestQuantityRange )
   BOOST_TEST( !leftOpenRange.Contains( minMass ) );
   BOOST_TEST( leftOpenRange.Contains( maxMass ) );
   BOOST_TEST( leftOpenRange.Contains( midMass ) );
-  
+
   Herd::Generic::RightOpenRange rightOpenRange( lower, upper );
   BOOST_TEST( rightOpenRange.Contains( minMass ) );
   BOOST_TEST( !rightOpenRange.Contains( maxMass ) );

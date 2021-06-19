@@ -28,10 +28,7 @@
 #include <boost/math/special_functions/pow.hpp>
 #include <boost/math/special_functions/relative_difference.hpp>
 
-namespace Herd::SSE
-{
-
-namespace Detail::Data
+namespace
 {
 // @formatter:off
 double eq3Coefficients[] { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.7470851e-01, 9.011915e-02,
@@ -54,7 +51,11 @@ double eq4Coefficients[] { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996
     2.2582e-04, -1.86899e-03, 3.88783e-03, 1.42402e-03, -7.671e-05
 };
 // @formatter:on
+
 }
+
+namespace Herd::SSE
+{
 
 struct ZeroAgeMainSequenceAlgorithmSpecs;
 
@@ -101,13 +102,13 @@ void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
   // Mass is within the allowed range
   if( !ZeroAgeMainSequenceSpecs::s_MassRange.Contains( i_Mass ) )
   {
-    throw( Herd::Exceptions::PreconditionError( "Mass", ZeroAgeMainSequenceSpecs::s_MassRange.GetRangeString(), i_Mass.Value() ) );
+    throw( Herd::Exceptions::PreconditionError( "i_Mass", ZeroAgeMainSequenceSpecs::s_MassRange.GetRangeString(), i_Mass.Value() ) );
   }
 
   // Metallicity is within the allowed range
   if( !ZeroAgeMainSequenceSpecs::s_ZRange.Contains( i_Z ) )
   {
-    throw( Herd::Exceptions::PreconditionError( "Metallicity", ZeroAgeMainSequenceSpecs::s_ZRange.GetRangeString(), i_Z.Value() ) );
+    throw( Herd::Exceptions::PreconditionError( "i_Z", ZeroAgeMainSequenceSpecs::s_ZRange.GetRangeString(), i_Z.Value() ) );
   }
 }
 
@@ -118,7 +119,7 @@ void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
  */
 Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
 {
-  Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( &Detail::Data::eq3Coefficients[ 0 ] );
+  Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( &eq3Coefficients[ 0 ] );
   Eigen::Matrix< double, 7, 1 > eq1Coeffs = coefficientMatrix * i_ZVector;  // Eq3
 
   // Powers of mass
@@ -146,7 +147,7 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
  */
 Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
 {
-  Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( &Detail::Data::eq4Coefficients[ 0 ] );
+  Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( &eq4Coefficients[ 0 ] );
   Eigen::Matrix< double, 9, 1 > eq2Coeffs = coefficientMatrix * i_ZVector;  // Eq4
 
   // Powers of mass

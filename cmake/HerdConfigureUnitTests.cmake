@@ -11,7 +11,6 @@ endif()
 
 # Test label string
 
-message( ${UNIT_TEST_LEVEL})
 if(UNIT_TEST_LEVEL STREQUAL "ALL")
 	set(TEST_LABEL_ARG --run_test=*)	
 else()

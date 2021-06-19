@@ -13,6 +13,9 @@
 #ifndef HD075DEEE_908E_40CA_A6A7_83108CC172DD
 #define HD075DEEE_908E_40CA_A6A7_83108CC172DD
 
+#include <Exceptions/PreconditionError.h>
+
+#include <string>
 
 namespace Herd::Generic
 {
@@ -82,6 +85,12 @@ private:
   double m_Value = 0.0; ///< Value of the quantity
 };
 
+template< typename Tag >
+void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string& i_rName );  ///< Throws a PreconditionError for a negative quantity
+
+template< typename Tag >
+void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string& i_rName );  ///< Throws a PreconditionError for a non-positive quantity
+
 // Physical quantities
 // @formatter:off
 using Luminosity = Quantity< struct LuminosityTag >;  ///< Luminosity
@@ -90,8 +99,38 @@ using Metallicity = Quantity< struct MetallicityTag >;  ///< Metallicity
 using Radius = Quantity< struct RadiusTag >;  ///< Radius
 using Temperature = Quantity< struct TemperatureTag >;  ///< Temperature
 using Age = Quantity< struct AgeTag >;  ///< Age
-using AngularVelocity = Quantity< struct AngularVelocityTag >; ///< Angular velocity
+using AngularMomentum = Quantity< struct AngularVelocityTag >; ///< Angular velocity
 // @formatter:on
+
+/**
+ * @tparam Tag Quantity tag
+ * @param i_Quantity Quantity under test
+ * @param i_rName Name of the quantity, for the exception message
+ * @throws PreconditionError If \c i_Quantity<0
+ */
+template< typename Tag >
+void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string& i_rName )
+{
+  if( i_Quantity < 0 )
+  {
+    throw( Exceptions::PreconditionError( i_rName, ">=0", i_Quantity.Value() ) );
+  }
+}
+
+/**
+ * @tparam Tag Quantity tag
+ * @param i_Quantity Quantity under test
+ * @param i_rName Name of the quantity, for the exception message
+ * @throws PreconditionError If \c i_Quantity<=0
+ */
+template< typename Tag >
+void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string& i_rName )
+{
+  if( i_Quantity <= 0 )
+  {
+    throw( Exceptions::PreconditionError( i_rName, ">0", i_Quantity.Value() ) );
+  }
+}
 
 }
 

@@ -1,10 +1,12 @@
 set(TEST_TARGET_NAME "Test${TARGET_NAME}")	# TARGET_NAME defined by parent
 
 set(SOURCE_LIST TestGeneric.cpp
-								QuantityAndRangeUnitTests.cpp
+								QuantityRangeUnitTests.cpp
+								QuantityUnitTests.cpp
 )
 
-set(PRIVATE_DEPS_LIST Generic
+set(PRIVATE_DEPS_LIST Exceptions 
+											Generic
 											UnitTestUtils
 											boost_unit_test_framework.a
 											Boost::boost

@@ -36,7 +36,7 @@ struct Star
 
   Herd::Generic::Mass m_CoreMass; ///< Core mass in \f$ M_{\odot}\f$
   Herd::Generic::Mass m_EnvelopeMass; ///< Envelope mass in \f$ M_{\odot}\f$
-  Herd::Generic::AngularVelocity m_AngularVelocity; ///< Angular velocity in \f$ year^{-1} \f$
+  Herd::Generic::AngularMomentum m_AngularMomentum; ///< Angular momentum in f$ M_{\odot}R_{\odot}^2\f$/year
 };
 }
 
