@@ -4,8 +4,7 @@ set(HEADER_LIST Constants.h
 )
 set(SOURCE_LIST LuminosityRadiusTemperature.cpp)
 
-set(PRIVATE_DEPS_LIST Exceptions
-											Generic
+set(PRIVATE_DEPS_LIST Generic
 											Boost::boost
 )
 

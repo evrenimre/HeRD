@@ -5,8 +5,7 @@ set(SOURCE_LIST TestGeneric.cpp
 								QuantityUnitTests.cpp
 )
 
-set(PRIVATE_DEPS_LIST Exceptions 
-											Generic
+set(PRIVATE_DEPS_LIST Generic
 											UnitTestUtils
 											boost_unit_test_framework.a
 											Boost::boost

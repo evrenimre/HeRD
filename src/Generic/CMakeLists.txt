@@ -4,9 +4,9 @@ set(HEADER_LIST Quantities.h
 )
 set(SOURCE_LIST QuantityRange.cpp)
 
-set(PRIVATE_DEPS_LIST Exceptions)
-
-set(PUBLIC_DEPS_LIST PUBLIC Boost::boost)
+set(PUBLIC_DEPS_LIST PUBLIC Exceptions
+														Boost::boost
+)
 
 herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 												 											SOURCES ${SOURCE_LIST}
