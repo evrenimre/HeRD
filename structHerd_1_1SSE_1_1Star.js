@@ -1,7 +1,7 @@
 var structHerd_1_1SSE_1_1Star =
 [
     [ "m_Age", "structHerd_1_1SSE_1_1Star.html#a246bc88876f0fafd8540009c953b103f", null ],
-    [ "m_AngularVelocity", "structHerd_1_1SSE_1_1Star.html#a8deb99f5be10ef05db53b23a9c573db4", null ],
+    [ "m_AngularMomentum", "structHerd_1_1SSE_1_1Star.html#aa08fbcf7e8fe92e4394caf6f7036118c", null ],
     [ "m_CoreMass", "structHerd_1_1SSE_1_1Star.html#ad02a92b0f5a367f58d2bab2ce1bb105b", null ],
     [ "m_EnvelopeMass", "structHerd_1_1SSE_1_1Star.html#ac0689da1df37d8f06c46e94337ab51f2", null ],
     [ "m_InitialMass", "structHerd_1_1SSE_1_1Star.html#a67f0646a9f8628296539f108f39f488b", null ],

@@ -8,7 +8,7 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "Star.h", "Star_8h.html", [
       [ "Star", "structHerd_1_1SSE_1_1Star.html", "structHerd_1_1SSE_1_1Star" ]
     ] ],
-    [ "ZeroAgeMainSequence.cpp", "ZeroAgeMainSequence_8cpp.html", "ZeroAgeMainSequence_8cpp" ],
+    [ "ZeroAgeMainSequence.cpp", "ZeroAgeMainSequence_8cpp.html", null ],
     [ "ZeroAgeMainSequence.h", "ZeroAgeMainSequence_8h.html", [
       [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
       [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ]

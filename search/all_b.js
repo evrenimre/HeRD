@@ -2,10 +2,11 @@ var searchData=
 [
   ['quantities_2eh_86',['Quantities.h',['../Quantities_8h.html',1,'']]],
   ['quantity_87',['Quantity',['../classHerd_1_1Generic_1_1Quantity.html',1,'Herd::Generic::Quantity&lt; Tag &gt;'],['../classHerd_1_1Generic_1_1Quantity.html#ac5ea61d216fab033b7e20c87bf97a985',1,'Herd::Generic::Quantity::Quantity()'],['../classHerd_1_1Generic_1_1Quantity.html#a8ac696458cbfcf4d0c53081061583497',1,'Herd::Generic::Quantity::Quantity(double i_Value)']]],
-  ['quantityandrangeunittests_2ecpp_88',['QuantityAndRangeUnitTests.cpp',['../QuantityAndRangeUnitTests_8cpp.html',1,'']]],
-  ['quantityrange_89',['QuantityRange',['../classHerd_1_1Generic_1_1QuantityRange.html',1,'Herd::Generic::QuantityRange&lt; BoundaryPolicy &gt;'],['../classHerd_1_1Generic_1_1QuantityRange.html#a43f2c48e525f1e804f3512c4fb8a51e1',1,'Herd::Generic::QuantityRange::QuantityRange()']]],
-  ['quantityrange_2ecpp_90',['QuantityRange.cpp',['../QuantityRange_8cpp.html',1,'']]],
-  ['quantityrange_2eh_91',['QuantityRange.h',['../QuantityRange_8h.html',1,'']]],
-  ['quantityrangetypes_92',['QuantityRangeTypes',['../QuantityAndRangeUnitTests_8cpp.html#a5ab7cd256435e45bae394b52ba065327',1,'QuantityAndRangeUnitTests.cpp']]],
-  ['quantitytypes_93',['QuantityTypes',['../QuantityAndRangeUnitTests_8cpp.html#a3282a61e6ec48653090b86b4acf85abc',1,'QuantityAndRangeUnitTests.cpp']]]
+  ['quantityrange_88',['QuantityRange',['../classHerd_1_1Generic_1_1QuantityRange.html',1,'Herd::Generic::QuantityRange&lt; BoundaryPolicy &gt;'],['../classHerd_1_1Generic_1_1QuantityRange.html#a43f2c48e525f1e804f3512c4fb8a51e1',1,'Herd::Generic::QuantityRange::QuantityRange()']]],
+  ['quantityrange_2ecpp_89',['QuantityRange.cpp',['../QuantityRange_8cpp.html',1,'']]],
+  ['quantityrange_2eh_90',['QuantityRange.h',['../QuantityRange_8h.html',1,'']]],
+  ['quantityrangetypes_91',['QuantityRangeTypes',['../QuantityRangeUnitTests_8cpp.html#a5ab7cd256435e45bae394b52ba065327',1,'QuantityRangeUnitTests.cpp']]],
+  ['quantityrangeunittests_2ecpp_92',['QuantityRangeUnitTests.cpp',['../QuantityRangeUnitTests_8cpp.html',1,'']]],
+  ['quantitytypes_93',['QuantityTypes',['../QuantityUnitTests_8cpp.html#a349d6e1019135526394ea60a8c22ee60',1,'QuantityUnitTests.cpp']]],
+  ['quantityunittests_2ecpp_94',['QuantityUnitTests.cpp',['../QuantityUnitTests_8cpp.html',1,'']]]
 ];

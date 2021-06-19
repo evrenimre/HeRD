@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('classHerd_1_1Physics_1_1LuminosityRadi
 </div><!--header-->
 <div class="contents">
 
-<p>Relation between the elecktromagnatic radiation emitted by a blackbody, its temperature and radius.  
+<p>Relation between the electromagnetic radiation emitted by a blackbody, its temperature and radius.  
  <a href="classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="LuminosityRadiusTemperature_8h_source.html">LuminosityRadiusTemperature.h</a>&gt;</code></p>
@@ -109,7 +109,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a4d7d2e42d97e4edcb12d24476eaa3205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Relation between the elecktromagnatic radiation emitted by a blackbody, its temperature and radius. </p>
+<div class="textblock"><p>Relation between the electromagnetic radiation emitted by a blackbody, its temperature and radius. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>Expressions<ul>
 <li>The equation is <img class="formulaInl" alt="$ L = 4\pi\sigma_{SB}R^2T^4 $" src="form_4.png"/> where <img class="formulaInl" alt="$ \sigma_{SB} $" src="form_5.png"/> is the Stefan-Boltzmann constant</li>
 <li>Expressed in terms of solar properties, it becomes <img class="formulaInl" alt="$ \frac{L}{L_{\odot}} = \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 $" src="form_6.png"/> </li>
@@ -159,9 +159,9 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Luminosity in <img class="formulaInl" alt="$ T_{\odot} $" src="form_1.png"/> </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><code>i_Radius&gt;0</code> </dd>
+<dl class="section pre"><dt>Precondition</dt><dd><code>i_Radius&gt;=0</code> </dd>
 <dd>
-<code>i_Temperature&gt;0</code> </dd></dl>
+<code>i_Temperature&gt;=0</code> </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">PreconditionError</td><td>if preconditions are violated </td></tr>
@@ -214,7 +214,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Radius in <img class="formulaInl" alt="$ R_{\odot} $" src="form_0.png"/> </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><code>i_Luminosity&gt;0</code> </dd>
+<dl class="section pre"><dt>Precondition</dt><dd><code>i_Luminosity&gt;=0</code> </dd>
 <dd>
 <code>i_Temperature&gt;0</code> </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
@@ -269,9 +269,9 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Temperature in K </dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd><code>i_Luminosity&gt;0</code> </dd>
+<dl class="section pre"><dt>Precondition</dt><dd><code>i_Luminosity&gt;=0</code> </dd>
 <dd>
-<code>i_Temperature&gt;0</code> </dd></dl>
+<code>i_Radius&gt;0</code> </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">PreconditionError</td><td>if preconditions are violated </td></tr>

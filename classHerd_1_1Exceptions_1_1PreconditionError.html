@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d431cb3b9ed9b7f7dbf394bf64fb2e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a8d431cb3b9ed9b7f7dbf394bf64fb2e4">PreconditionError</a> (const std::string &amp;i_rElement, const std::string &amp;i_rExpected, const std::string &amp;i_rActual)</td></tr>
 <tr class="memdesc:a8d431cb3b9ed9b7f7dbf394bf64fb2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a8d431cb3b9ed9b7f7dbf394bf64fb2e4">More...</a><br /></td></tr>
 <tr class="separator:a8d431cb3b9ed9b7f7dbf394bf64fb2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbf8f685cd0dd8f9d2c17b740d2bef0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#adcbf8f685cd0dd8f9d2c17b740d2bef0">PreconditionError</a> (const char *i_pElement, const char *i_pExpected, const char *i_pActual)</td></tr>
+<tr class="memdesc:adcbf8f685cd0dd8f9d2c17b740d2bef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#adcbf8f685cd0dd8f9d2c17b740d2bef0">More...</a><br /></td></tr>
+<tr class="separator:adcbf8f685cd0dd8f9d2c17b740d2bef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a887025f2b43a20e70246521f0dde4a24"><td class="memTemplParams" colspan="2">template&lt;class Arithmetic &gt; </td></tr>
 <tr class="memitem:a887025f2b43a20e70246521f0dde4a24"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a887025f2b43a20e70246521f0dde4a24">PreconditionError</a> (const std::string &amp;i_rElement, const std::string &amp;i_rExpected, Arithmetic i_Actual)</td></tr>
 <tr class="memdesc:a887025f2b43a20e70246521f0dde4a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for arithmetic types.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a887025f2b43a20e70246521f0dde4a24">More...</a><br /></td></tr>
@@ -141,7 +144,7 @@ Static Private Member Functions</h2></td></tr>
 <dl class="section remark"><dt>Remarks</dt><dd>Stacktrace is not called in <code>ComposeMessage</code> so that the frame does not unnecessarily include an implementation detail </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8d431cb3b9ed9b7f7dbf394bf64fb2e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d431cb3b9ed9b7f7dbf394bf64fb2e4">&#9670;&nbsp;</a></span>PreconditionError() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d431cb3b9ed9b7f7dbf394bf64fb2e4">&#9670;&nbsp;</a></span>PreconditionError() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,8 +195,60 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="adcbf8f685cd0dd8f9d2c17b740d2bef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcbf8f685cd0dd8f9d2c17b740d2bef0">&#9670;&nbsp;</a></span>PreconditionError() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Herd::Exceptions::PreconditionError::PreconditionError </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>i_pElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>i_pExpected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>i_pActual</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_pElement</td><td>Element tested for precondition, often a variable </td></tr>
+    <tr><td class="paramname">i_pExpected</td><td>Precondition </td></tr>
+    <tr><td class="paramname">i_pActual</td><td>Actual value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a887025f2b43a20e70246521f0dde4a24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a887025f2b43a20e70246521f0dde4a24">&#9670;&nbsp;</a></span>PreconditionError() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a887025f2b43a20e70246521f0dde4a24">&#9670;&nbsp;</a></span>PreconditionError() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
