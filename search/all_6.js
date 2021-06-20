@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['constants_51',['Constants',['../namespaceHerd_1_1Physics_1_1Constants.html',1,'Herd::Physics']]],
+  ['constants_51',['Constants',['../namespaceHerd_1_1Physics_1_1Constants.html',1,'Herd::Physics::Constants'],['../namespaceHerd_1_1SSE_1_1Constants.html',1,'Herd::SSE::Constants']]],
   ['detail_52',['Detail',['../namespaceHerd_1_1Generic_1_1Detail.html',1,'Herd::Generic']]],
   ['exceptions_53',['Exceptions',['../namespaceHerd_1_1Exceptions.html',1,'Herd']]],
   ['generic_54',['Generic',['../namespaceHerd_1_1Generic.html',1,'Herd']]],

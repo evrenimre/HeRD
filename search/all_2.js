@@ -13,6 +13,6 @@ var searchData=
   ['computetemperature_16',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
   ['computewrlikeloss_17',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5afbff57a1939d12c5dcf696e4ac3e82',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computezams_2ecpp_18',['ComputeZAMS.cpp',['../ComputeZAMS_8cpp.html',1,'']]],
-  ['constants_2eh_19',['Constants.h',['../Constants_8h.html',1,'']]],
+  ['constants_2eh_19',['Constants.h',['../Physics_2Constants_8h.html',1,'(Global Namespace)'],['../SSE_2Constants_8h.html',1,'(Global Namespace)']]],
   ['contains_20',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]]
 ];
