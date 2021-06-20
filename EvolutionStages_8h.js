@@ -18,5 +18,9 @@ var EvolutionStages_8h =
       [ "e_BH", "EvolutionStages_8h.html#abfff4cd44552d6fe8771676ee95583aea9904e1448778feba669bddea30ac74cc", null ],
       [ "e_MSn", "EvolutionStages_8h.html#abfff4cd44552d6fe8771676ee95583aea435afc00b062b9e128ad7dc337ca775c", null ],
       [ "e_Undefined", "EvolutionStages_8h.html#abfff4cd44552d6fe8771676ee95583aeacb6f3fa57416b9f9569bcb73bbf2e4ed", null ]
-    ] ]
+    ] ],
+    [ "IsAGB", "EvolutionStages_8h.html#a4b1c6b74f16e1e3affa1df36dca80b79", null ],
+    [ "IsHeStar", "EvolutionStages_8h.html#a5e16e045b62428235960373056b9ebc6", null ],
+    [ "IsMS", "EvolutionStages_8h.html#a898168595caece7ff07acd89c110a3d1", null ],
+    [ "IsRemnant", "EvolutionStages_8h.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ]
 ];

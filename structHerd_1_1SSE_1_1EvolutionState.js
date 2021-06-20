@@ -1,6 +1,7 @@
 var structHerd_1_1SSE_1_1EvolutionState =
 [
     [ "m_Age", "structHerd_1_1SSE_1_1EvolutionState.html#ad4e055f7dff4aaeb029b1b344ecd21a6", null ],
+    [ "m_CoreMass", "structHerd_1_1SSE_1_1EvolutionState.html#adf751f107c403672845e1d03382c2d00", null ],
     [ "m_InitialMass", "structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454", null ],
     [ "m_Luminosity", "structHerd_1_1SSE_1_1EvolutionState.html#ae4e58e766cd0a15fccf6b79d151387a0", null ],
     [ "m_Mass", "structHerd_1_1SSE_1_1EvolutionState.html#af718bcb4cf3ac4c97c1d71d27e0969c7", null ],

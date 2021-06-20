@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_20double_221',['operator double',['../classHerd_1_1Generic_1_1Quantity.html#adce932ee62a5006c15a8cdc7ec281ac5',1,'Herd::Generic::Quantity']]],
-  ['operator_3d_3d_222',['operator==',['../classHerd_1_1Generic_1_1Quantity.html#a3928a6057d76be30ca52514b3f011cc1',1,'Herd::Generic::Quantity']]]
+  ['main_245',['main',['../ComputeZAMS_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'ComputeZAMS.cpp']]],
+  ['makerange_246',['MakeRange',['../namespaceHerd_1_1Generic_1_1Detail.html#a7e6d3fc48c22a8b391859c6de90cb1b6',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::OpenRange *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a0f5c65d5b94aeb7cc4c1275bdf33ba01',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::LeftOpenRange *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a93a692a174c952a370363fb2271fbb59',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::RightOpenRange *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#aeac371f3da3113a90fce24a8070449bc',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::ClosedRange *)']]]
 ];

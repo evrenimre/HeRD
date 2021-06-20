@@ -12,6 +12,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "Herd::SSE::Star", "structHerd_1_1SSE_1_1Star.html", null ],
+    [ "Herd::SSE::StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", null ]
 ];
