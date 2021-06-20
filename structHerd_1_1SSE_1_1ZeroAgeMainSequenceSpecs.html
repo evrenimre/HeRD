@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('structHerd_1_1SSE_1_1ZeroAgeMainSequen
 </div><!--header-->
 <div class="contents">
 
-<p>Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the ZAMS state .">ZeroAgeMainSequence</a>.  
+<p>Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the star at ZAMS .">ZeroAgeMainSequence</a>.  
  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ZeroAgeMainSequence_8h_source.html">ZeroAgeMainSequence.h</a>&gt;</code></p>
@@ -119,12 +119,12 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a3a645c7bed307843a9105299bdb0580a"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a3a645c7bed307843a9105299bdb0580a">s_MaxRadiusError</a> = 0.05</td></tr>
 <tr class="memdesc:a3a645c7bed307843a9105299bdb0580a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum percent radius error.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a3a645c7bed307843a9105299bdb0580a">More...</a><br /></td></tr>
 <tr class="separator:a3a645c7bed307843a9105299bdb0580a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cfba80fb75775db0404194b7d59b562"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a6cfba80fb75775db0404194b7d59b562">s_MaxTemperatureError</a> = 0.005</td></tr>
-<tr class="memdesc:a6cfba80fb75775db0404194b7d59b562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum percent temperature error. Set by trial and error over the unit test data range.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a6cfba80fb75775db0404194b7d59b562">More...</a><br /></td></tr>
+<tr class="memitem:a6cfba80fb75775db0404194b7d59b562"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a6cfba80fb75775db0404194b7d59b562">s_MaxTemperatureError</a> = 0.05</td></tr>
+<tr class="memdesc:a6cfba80fb75775db0404194b7d59b562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum percent temperature error. Estimated from the luminosity and radius tolerances.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a6cfba80fb75775db0404194b7d59b562">More...</a><br /></td></tr>
 <tr class="separator:a6cfba80fb75775db0404194b7d59b562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the ZAMS state .">ZeroAgeMainSequence</a>. </p>
+<div class="textblock"><p>Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the star at ZAMS .">ZeroAgeMainSequence</a>. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>In the original paper, the mass range is <code></code>[0.1, 100]. This is modified to <code></code>[0.2, 100] to achieve a tighter tolerance </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a07c9ea8dffc168ab4f63bca9ccc715b4"></a>
@@ -209,7 +209,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double Herd::SSE::ZeroAgeMainSequenceSpecs::s_MaxTemperatureError = 0.005</td>
+          <td class="memname">constexpr double Herd::SSE::ZeroAgeMainSequenceSpecs::s_MaxTemperatureError = 0.05</td>
         </tr>
       </table>
   </td>
@@ -219,7 +219,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Maximum percent temperature error. Set by trial and error over the unit test data range. </p>
+<p>Maximum percent temperature error. Estimated from the luminosity and radius tolerances. </p>
 
 </div>
 </div>

@@ -92,16 +92,16 @@ $(document).ready(function(){initNavTree('classHerd_1_1SSE_1_1ZeroAgeMainSequenc
 </div><!--header-->
 <div class="contents">
 
-<p>Computes the ZAMS state <b>[Tout96]</b>.  
+<p>Computes the star at ZAMS <b>[Tout96]</b>.  
  <a href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ZeroAgeMainSequence_8h_source.html">ZeroAgeMainSequence.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a490456581f43686da67c80afb71673cd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a490456581f43686da67c80afb71673cd">Compute</a> (<a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a> i_Mass, <a class="el" href="namespaceHerd_1_1Generic.html#aa2075b7c166c73710f4d34eca13966cf">Herd::Generic::Metallicity</a> i_Z)</td></tr>
-<tr class="memdesc:a490456581f43686da67c80afb71673cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the star state at ZAMS.  <a href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a490456581f43686da67c80afb71673cd">More...</a><br /></td></tr>
-<tr class="separator:a490456581f43686da67c80afb71673cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9855db94c5389434f32521c2f5be1a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structHerd_1_1SSE_1_1Star.html">Herd::SSE::Star</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a4b9855db94c5389434f32521c2f5be1a">Compute</a> (<a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a> i_Mass, <a class="el" href="namespaceHerd_1_1Generic.html#aa2075b7c166c73710f4d34eca13966cf">Herd::Generic::Metallicity</a> i_Z)</td></tr>
+<tr class="memdesc:a4b9855db94c5389434f32521c2f5be1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the star at ZAMS.  <a href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a4b9855db94c5389434f32521c2f5be1a">More...</a><br /></td></tr>
+<tr class="separator:a4b9855db94c5389434f32521c2f5be1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -116,10 +116,11 @@ Static Private Member Functions</h2></td></tr>
 <tr class="separator:a422febde172bffcd21697b24f1697f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Computes the ZAMS state <b>[Tout96]</b>. </p>
+<div class="textblock"><p>Computes the star at ZAMS <b>[Tout96]</b>. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Only computes the luminosity, radius and temperature </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a490456581f43686da67c80afb71673cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a490456581f43686da67c80afb71673cd">&#9670;&nbsp;</a></span>Compute()</h2>
+<a id="a4b9855db94c5389434f32521c2f5be1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9855db94c5389434f32521c2f5be1a">&#9670;&nbsp;</a></span>Compute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +129,7 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> Herd::SSE::ZeroAgeMainSequence::Compute </td>
+          <td class="memname"><a class="el" href="structHerd_1_1SSE_1_1Star.html">Herd::SSE::Star</a> Herd::SSE::ZeroAgeMainSequence::Compute </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a>&#160;</td>
           <td class="paramname"><em>i_Mass</em>, </td>
@@ -152,7 +153,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the star state at ZAMS. </p>
+<p>Computes the star at ZAMS. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i_Mass</td><td>Mass in <img class="formulaInl" alt="$ M_{\odot} $" src="form_9.png"/> </td></tr>
@@ -160,10 +161,11 @@ Static Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ZAMS state </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Partially initialised star at ZAMS </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd><code>i_Mass</code> is within <code>s_MassRange</code> </dd>
 <dd>
 <code>i_Z</code> is is within <code>s_ZRange</code> </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Only luminosity, radius and temperature are computed </dd></dl>
 
 </div>
 </div>
