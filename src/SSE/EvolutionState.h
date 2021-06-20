@@ -25,6 +25,7 @@ namespace Herd::SSE
 /**
  * @brief State of evolution
  * @remarks This is used for internal communication between various components
+ * @cite Hurley00
  */
 struct EvolutionState
 {
@@ -37,7 +38,7 @@ struct EvolutionState
   Herd::SSE::EvolutionStage m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
 
   Herd::Generic::Mass m_InitialMass;  ///< Initial mass in \f$ M_{\odot}\f$
-
+  Herd::Generic::Mass m_CoreMass; ///< Core mass in \f$ M_{\odot}\f$
 };
 
 }

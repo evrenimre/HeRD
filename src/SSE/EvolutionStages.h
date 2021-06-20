@@ -39,6 +39,13 @@ enum class EvolutionStage
   e_MSn,  // Massless supernova
   e_Undefined // Undefined
 };
+
+// Helpers
+bool IsRemnant( EvolutionStage i_Stage ); ///< Is a remnant stage?
+bool IsMS( EvolutionStage i_Stage );  ///< Is a MS stage?
+bool IsAGB( EvolutionStage i_Stage );  ///< Is an AGB stage?
+bool IsHeStar( EvolutionStage i_Stage );  ///< Is a He Star?
+
 }
 
 #endif /* H808BBCA9_C3C4_4237_A17C_8721989DF8BE */

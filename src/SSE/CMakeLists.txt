@@ -2,9 +2,14 @@ get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(HEADER_LIST EvolutionStages.h
 								EvolutionState.h
 								Star.h
+								StellarWindMassLoss.h
 								ZeroAgeMainSequence.h 
 )
-set(SOURCE_LIST ZeroAgeMainSequence.cpp)
+
+set(SOURCE_LIST EvolutionStages.cpp
+								StellarWindMassLoss.cpp
+								ZeroAgeMainSequence.cpp
+)
 
 set(PRIVATE_DEPS_LIST Exceptions
 											Generic
