@@ -18,7 +18,7 @@
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
-#include <SSE/EvolutionState.h>
+#include <SSE/Star.h>
 #include <SSE/ZeroAgeMainSequence.h>
 
 #include <iterator>
@@ -39,28 +39,28 @@ class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture, public He
 {
 public:
 
-  Herd::SSE::EvolutionState GetRandomStar(); ///< Returns a random star from the catalogue
+  Herd::SSE::Star GetRandomStar(); ///< Returns a random star from the catalogue
 
   std::pair< Herd::Generic::Mass, Herd::Generic::Metallicity > GenerateRandomInput();  ///< Generates a random mass and metallicity pair
 
-  static void IsWithinErrorTolerance( const Herd::SSE::EvolutionState& i_rActual, const Herd::SSE::EvolutionState& i_rExpected ); ///< Tests whether the state difference is within permissible bounds
+  static void IsWithinErrorTolerance( const Herd::SSE::Star& i_rActual, const Herd::SSE::Star& i_rExpected ); ///< Tests whether the difference is within permissible bounds
 
-  const std::vector< Herd::SSE::EvolutionState > Stars();  ///< \c m_Stars accessor
+  const std::vector< Herd::SSE::Star > Stars();  ///< \c m_Stars accessor
 
 private:
 
   void LoadTestData();  ///< Loads the test data
 
-  Herd::SSE::EvolutionState MakeStar( const boost::property_tree::ptree& i_rNode ); ///< Makes a star from a tree node
+  Herd::SSE::Star MakeStar( const boost::property_tree::ptree& i_rNode ); ///< Makes a star from a tree node
   void InitialiseStars(); ///< Populates \c m_Stars from \c m_Catalogue
 
   boost::property_tree::ptree m_Catalogue;  ///< Test data. May contain elements outside of the ZAMS parameter domain
   unsigned int m_StarCount = 0; ///< Number of elements in the test data
 
-  std::vector< Herd::SSE::EvolutionState > m_Stars;  ///< \c m_Catalogue in vector format
+  std::vector< Herd::SSE::Star > m_Stars;  ///< \c m_Catalogue in vector format
 };
 
-Herd::SSE::EvolutionState ZAMSTestFixture::GetRandomStar()
+Herd::SSE::Star ZAMSTestFixture::GetRandomStar()
 {
   // Lazy initialisation
   // Initialisation at constructor loads the file even when for cases that do not need it
@@ -69,7 +69,7 @@ Herd::SSE::EvolutionState ZAMSTestFixture::GetRandomStar()
     LoadTestData();
   }
 
-  // Rationale: unit tests need only a small number of entries from the catalogue. Hence, on demand, rather than constructing StarState items for all entries
+  // Rationale: unit tests need only a small number of entries from the catalogue. Hence, on demand, rather than constructing Star items for all entries
 
   // Seek to the entry
   auto iStar = std::next( m_Catalogue.get_child( "Catalogue" ).begin(), GenerateNumber( 0u, m_StarCount - 1 ) ); // @suppress("Invalid arguments")
@@ -80,7 +80,7 @@ Herd::SSE::EvolutionState ZAMSTestFixture::GetRandomStar()
  * @param i_rActual Actual values
  * @param i_rExpected Expected values
  */
-void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::EvolutionState& i_rActual, const Herd::SSE::EvolutionState& i_rExpected )
+void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::Star& i_rActual, const Herd::SSE::Star& i_rExpected )
 {
   BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( 2e-4 ) );
   BOOST_TEST( i_rActual.m_Temperature.Value() == i_rExpected.m_Temperature.Value(),
@@ -118,7 +118,7 @@ void ZAMSTestFixture::InitialiseStars()
 /**
  * @return A constant reference to \c m_Stars
  */
-const std::vector< Herd::SSE::EvolutionState > ZAMSTestFixture::Stars()
+const std::vector< Herd::SSE::Star > ZAMSTestFixture::Stars()
 {
   // Lazy implementation, as this is not needed for compile tests
   if( m_Stars.empty() )
@@ -133,9 +133,9 @@ const std::vector< Herd::SSE::EvolutionState > ZAMSTestFixture::Stars()
  * @param i_rNode A property tree node
  * @return The corresponding star
  */
-Herd::SSE::EvolutionState ZAMSTestFixture::MakeStar( const boost::property_tree::ptree& i_rNode )
+Herd::SSE::Star ZAMSTestFixture::MakeStar( const boost::property_tree::ptree& i_rNode )
 {
-  Herd::SSE::EvolutionState Star;
+  Herd::SSE::Star Star;
   try
   {
     Star.m_Age.Set( 0.0 );
@@ -162,15 +162,15 @@ BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   auto [ mass, z ] = GenerateRandomInput();
-  auto starState = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z );
+  auto star = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z );
 
-  BOOST_TEST( starState.m_Age == 0 );
-  BOOST_TEST( starState.m_Luminosity > 0.0 );
-  BOOST_TEST( starState.m_Mass == mass );
-  BOOST_TEST( starState.m_Radius > 0 );
-  BOOST_TEST( starState.m_Temperature > 0 );
-  BOOST_TEST( starState.m_Z == z );
-  BOOST_TEST( starState.m_InitialMass == mass );
+  BOOST_TEST( star.m_Age == 0 );
+  BOOST_TEST( star.m_Luminosity > 0.0 );
+  BOOST_TEST( star.m_Mass == mass );
+  BOOST_TEST( star.m_Radius > 0 );
+  BOOST_TEST( star.m_Temperature > 0 );
+  BOOST_TEST( star.m_Z == z );
+  BOOST_TEST( star.m_InitialMass == mass );
 }
 
 /// Tests for invalid cases
@@ -191,7 +191,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
   bool bFound = false;
   for( int c = 0; c < 5; ++c )
   {
-    Herd::SSE::EvolutionState Expected = GetRandomStar();
+    Herd::SSE::Star Expected = GetRandomStar();
     Herd::Generic::Mass mass = Expected.m_Mass;
     Herd::Generic::Metallicity z = Expected.m_Z;
 
@@ -220,7 +220,7 @@ BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous 
   
   for( const auto& Current : rStars | boost::adaptors::indexed() | boost::adaptors::filtered( Filter ) )
   {
-    const Herd::SSE::EvolutionState& Expected = Current.value(); // @suppress("Method cannot be resolved")
+    const Herd::SSE::Star& Expected = Current.value(); // @suppress("Method cannot be resolved")
     std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
     BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Z )
     {

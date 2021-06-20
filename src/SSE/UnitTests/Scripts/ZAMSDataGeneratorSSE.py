@@ -39,17 +39,17 @@ def generate_data(sse_dir, output_dir, mass_range, z_range):
             with open(os.path.join(output_dir, 'evolve.dat'), 'r') as file:
                 lines = file.readlines()
                 # Starts with an empty element
-                state = re.split(' +', lines[1])[1:]
+                zams = re.split(' +', lines[1])[1:]
 
                 stars.append(
                     lxml.etree.Element(
                         'Star',
-                        M=state[2],
+                        M=zams[2],
                         Z=z,
-                        Age=state[0],
-                        L=str(10**float(state[4])),
-                        R=str(10**float(state[5])),
-                        T=str(10**float(state[6]))
+                        Age=zams[0],
+                        L=str(10**float(zams[4])),
+                        R=str(10**float(zams[5])),
+                        T=str(10**float(zams[6]))
                     ))
 
     tree = lxml.etree.Element('Catalogue')
