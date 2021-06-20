@@ -13,12 +13,17 @@
 #ifndef H478BF0E6_1C4E_48C0_9531_57146385BE2B
 #define H478BF0E6_1C4E_48C0_9531_57146385BE2B
 
+/**
+ * @brief Physical constants
+ * @cite IAU16
+ */
 namespace Herd::Physics::Constants
 {
 inline constexpr double s_StefanBoltzmannConstant = 5.670374419184429e-8;  ///< Stefan-Boltzmann constant
 
-inline constexpr double s_SunSurfaceTemperatureSSE = 5797.885;  ///< Surface temperature of the sun in K in AMUSE.SSE (evolve.f, L266 1000*(1130)^0.25)
-inline constexpr double s_SolarMetallicityTout96 = 0.02;  ///< Z value for the Sun in Tout96
+inline constexpr double s_SunSurfaceTemperature = 5772.0; ///< Sun surface temperature in K (IAU recommended value)
+inline constexpr double s_SunRadius = 6.957e8; ///< Radius of the Sun in m
+inline constexpr double s_SunLuminosity = 3.828e26; ///< Solar luminosity in W
 }
 
 

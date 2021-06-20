@@ -12,10 +12,11 @@
 
 #include "ZeroAgeMainSequence.h"
 
+#include "Constants.h"
+
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
 #include <Generic/QuantityRange.h>
-#include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
 #include <algorithm>
@@ -73,7 +74,7 @@ Herd::SSE::Star ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::
   
   Eigen::Matrix< double, 5, 1 > zVector;
   zVector[ 0 ] = 1;
-  zVector[ 1 ] = log10( i_Z / Herd::Physics::Constants::s_SolarMetallicityTout96 );
+  zVector[ 1 ] = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
   ranges::cpp20::for_each( ranges::cpp20::views::iota( 2, 5 ), [ & ]( auto i_Index ) // @suppress("Function cannot be resolved")
   { zVector[ i_Index ] = zVector[i_Index-1]*zVector[1];} );
 
@@ -86,7 +87,8 @@ Herd::SSE::Star ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::
   output.m_Radius = radius;
   output.m_Mass = i_Mass;
   output.m_Z = i_Z;
-  output.m_Temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius );
+  output.m_Temperature.Set(
+      Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius ) * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
 
   output.m_InitialMass = i_Mass;
 

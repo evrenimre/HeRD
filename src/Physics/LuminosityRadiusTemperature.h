@@ -21,7 +21,7 @@ namespace Herd::Physics
  * @brief Relation between the electromagnetic radiation emitted by a blackbody, its temperature and radius
  * @remarks Expressions
  *  - The equation is \f$ L = 4\pi\sigma_{SB}R^2T^4 \f$ where \f$ \sigma_{SB} \f$ is the Stefan-Boltzmann constant
- *  - Expressed in terms of solar properties, it becomes \f$ \frac{L}{L_{\odot}} =  \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 \f$
+ *  - Expressed in terms of solar units, it becomes \f$ \frac{L}{L_{\odot}} =  \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 \f$
  */
 class LuminosityRadiusTemperature
 {

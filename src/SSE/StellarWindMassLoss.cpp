@@ -1,5 +1,5 @@
 /**
- * @file MassLossRate.cpp
+ * @file StellarWindMassLoss.cpp
  * @author Evren Imre
  * @date 19 Jun 2021	
  */
@@ -10,10 +10,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+#include "Constants.h"
 #include "EvolutionStages.h"
 
 #include <Exceptions/PreconditionError.h>
-#include <Physics/Constants.h>
 
 #include <algorithm>
 #include <cmath>
@@ -181,7 +181,7 @@ double StellarWindMassLoss::ComputeMassiveStarLoss( const Herd::SSE::Star& i_rSt
   double r081 = std::pow( i_rStar.m_Radius, 0.81 );
   double l124 = std::pow( i_rStar.m_Luminosity, 1.24 );
   double m016 = std::pow( i_rStar.m_Mass, 0.16 );
-  double zs05 = std::sqrt( i_rStar.m_Z / Herd::Physics::Constants::s_SolarMetallicityTout96 );
+  double zs05 = std::sqrt( i_rStar.m_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
 
   return 9.6e-15 * x * r081 * l124 * m016 * zs05;
 }

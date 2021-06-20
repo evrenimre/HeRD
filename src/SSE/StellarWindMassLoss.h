@@ -1,5 +1,5 @@
 /**
- * @file MassLossRate.h
+ * @file StellarWindMassLoss.h
  * @author Evren Imre
  * @date 19 Jun 2021	
  */

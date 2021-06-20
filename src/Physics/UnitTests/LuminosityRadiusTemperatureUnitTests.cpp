@@ -34,9 +34,12 @@ public:
 
 void LRTTestFixture::TestConsistency()
 {
-  Herd::Generic::Radius rExpected( GenerateNumber( 0.1, 12.0 ) );
-  Herd::Generic::Temperature tExpected( GenerateNumber( 2200.0, 50000.0 ) );
-  Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000.0 ) );
+  Herd::Generic::Radius rExpected( GenerateNumber( 0., 12. ) );
+
+  double lowerT = 2200. / Herd::Physics::Constants::s_SunSurfaceTemperature;
+  double upperT = 50000. / Herd::Physics::Constants::s_SunSurfaceTemperature;
+  Herd::Generic::Temperature tExpected( GenerateNumber( lowerT, upperT ) );
+  Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000. ) );
 
   BOOST_TEST_CONTEXT( "Luminosity "<< lExpected.Value() <<" Radius "<< rExpected.Value()<<" Temperature "<<tExpected.Value() )
   {
@@ -81,9 +84,9 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTests, *boost::unit_test::toler
 {
   BOOST_TEST_CONTEXT( "Sun" )
   {
-    Herd::Generic::Radius rSun( 1.0 );
-    Herd::Generic::Temperature tSun( Herd::Physics::Constants::s_SunSurfaceTemperatureSSE );
-    Herd::Generic::Luminosity lSun( 1.0 );
+    Herd::Generic::Radius rSun( 1. );
+    Herd::Generic::Temperature tSun( 1. );
+    Herd::Generic::Luminosity lSun( 1. );
 
     auto luminosity = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rSun, tSun );
     BOOST_TEST( luminosity == lSun );
