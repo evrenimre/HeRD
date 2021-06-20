@@ -84,7 +84,7 @@ void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::Star& i_rActual, 
 {
   BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( 2e-4 ) );
   BOOST_TEST( i_rActual.m_Temperature.Value() == i_rExpected.m_Temperature.Value(),
-      boost::test_tools::tolerance( s_MaxTemperatureError ) );
+      boost::test_tools::tolerance( 2e-4 ) );
   BOOST_TEST( i_rActual.m_Luminosity.Value() == i_rExpected.m_Luminosity.Value(), boost::test_tools::tolerance( 2e-4 ) );
 }
 

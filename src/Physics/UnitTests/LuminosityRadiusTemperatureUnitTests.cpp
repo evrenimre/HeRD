@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTests, *boost::unit_test::toler
   BOOST_TEST_CONTEXT( "Sun" )
   {
     Herd::Generic::Radius rSun( 1.0 );
-    Herd::Generic::Temperature tSun( Herd::Physics::Constants::s_SunSurfaceTemperature );
+    Herd::Generic::Temperature tSun( Herd::Physics::Constants::s_SunSurfaceTemperatureSSE );
     Herd::Generic::Luminosity lSun( 1.0 );
 
     auto luminosity = Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rSun, tSun );
