@@ -54,9 +54,7 @@ struct ZeroAgeMainSequenceSpecs
   // Error tolerance
   static constexpr double s_MaxLuminosityError = 0.075;  ///< Maximum percent luminosity error
   static constexpr double s_MaxRadiusError = 0.05;  ///< Maximum percent radius error
-  static constexpr double s_MaxTemperatureError = 0.005; ///< Maximum percent temperature error. Set by trial and error over the unit test data range
+  static constexpr double s_MaxTemperatureError = 0.05; ///< Maximum percent temperature error. Estimated from the luminosity and radius tolerances
 };
-
 }
-
 #endif /* HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03 */
