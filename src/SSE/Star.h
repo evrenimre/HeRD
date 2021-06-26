@@ -25,7 +25,7 @@ namespace Herd::SSE
 struct Star
 {
   Herd::Generic::Mass m_Mass;  ///< Mass in \f$ M_{\odot}\f$
-  Herd::Generic::Metallicity m_Z; ///< Metallicity
+  Herd::Generic::Metallicity m_Zo; ///< Initial metallicity
   Herd::Generic::Radius m_Radius; ///< Radius in \f$ R_{\odot}\f$
   Herd::Generic::Luminosity m_Luminosity;  ///< Luminosity in \f$ L_{\odot}\f$
   Herd::Generic::Temperature m_Temperature; ///< Effective surface temperature in K

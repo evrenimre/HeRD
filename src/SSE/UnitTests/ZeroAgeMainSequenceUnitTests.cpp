@@ -143,7 +143,7 @@ Herd::SSE::Star ZAMSTestFixture::MakeStar( const boost::property_tree::ptree& i_
     Star.m_Mass.Set( i_rNode.get< double >( "<xmlattr>.M" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
     Star.m_Radius.Set( i_rNode.get< double >( "<xmlattr>.R" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
     Star.m_Temperature.Set( i_rNode.get< double >( "<xmlattr>.T" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
-    Star.m_Z.Set( i_rNode.get< double >( "<xmlattr>.Z" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
+    Star.m_Zo.Set( i_rNode.get< double >( "<xmlattr>.Z" ) ); // @suppress("Invalid arguments") @suppress("Field cannot be resolved") @suppress("Method cannot be resolved") @suppress("Symbol is not resolved")
   } catch( ... )
   {
     BOOST_TEST_REQUIRE( false, "Invalid or missing star attribute" );
@@ -167,7 +167,7 @@ BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Co
   BOOST_TEST( star.m_Mass == mass );
   BOOST_TEST( star.m_Radius > 0 );
   BOOST_TEST( star.m_Temperature > 0 );
-  BOOST_TEST( star.m_Z == z );
+  BOOST_TEST( star.m_Zo == z );
 }
 
 /// Tests for invalid cases
@@ -190,7 +190,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
   {
     Herd::SSE::Star Expected = GetRandomStar();
     Herd::Generic::Mass mass = Expected.m_Mass;
-    Herd::Generic::Metallicity z = Expected.m_Z;
+    Herd::Generic::Metallicity z = Expected.m_Zo;
 
     if( s_MassRange.Contains( mass ) && s_ZRange.Contains( z ) )
     {
@@ -213,15 +213,15 @@ BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous 
   const auto& rStars = Stars();
 
   auto Filter = [ & ]( const auto& i_rStar )
-  { return s_MassRange.Contains( i_rStar.value().m_Mass) && s_ZRange.Contains( i_rStar.value().m_Z );};
+  { return s_MassRange.Contains( i_rStar.value().m_Mass) && s_ZRange.Contains( i_rStar.value().m_Zo );};
   
   for( const auto& Current : rStars | boost::adaptors::indexed() | boost::adaptors::filtered( Filter ) )
   {
     const Herd::SSE::Star& Expected = Current.value(); // @suppress("Method cannot be resolved")
     std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
-    BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Z )
+    BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_Zo )
     {
-      auto Actual = Herd::SSE::ZeroAgeMainSequence::Compute( Expected.m_Mass, Expected.m_Z );
+      auto Actual = Herd::SSE::ZeroAgeMainSequence::Compute( Expected.m_Mass, Expected.m_Zo );
       IsWithinErrorTolerance( Actual, Expected );
     }
   }
