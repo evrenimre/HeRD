@@ -90,8 +90,6 @@ Herd::SSE::Star ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::
   output.m_Temperature.Set(
       Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius ) * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
 
-  output.m_InitialMass = i_Mass;
-
   return output;
 }
 

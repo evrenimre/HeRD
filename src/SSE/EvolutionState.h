@@ -31,6 +31,8 @@ namespace Herd::SSE
 struct EvolutionState
 {
   Herd::SSE::Star m_Star; ///< Star
+
+  Herd::Generic::Mass m_InitialMass;  ///< Mass at the beginning of evolution in \f$ M_{\odot}\f$
 };
 
 }
