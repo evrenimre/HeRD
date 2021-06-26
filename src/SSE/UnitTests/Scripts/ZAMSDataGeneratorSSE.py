@@ -16,7 +16,7 @@
 """
 
 import argparse
-import lxml.etree
+from lxml import etree
 import os
 import re
 
@@ -24,7 +24,7 @@ import RunSSE
 
 
 def generate_data(sse_dir, output_dir, mass_range, z_range):
-    """Runs SSE over all combinations of mass and range, and extracts the ZAMS properties to an xml file
+    """Runs SSE over all combinations of mass and z, and extracts the ZAMS properties to an xml file
     """
 
     os.chdir(output_dir)
@@ -42,7 +42,7 @@ def generate_data(sse_dir, output_dir, mass_range, z_range):
                 zams = re.split(' +', lines[1])[1:]
 
                 stars.append(
-                    lxml.etree.Element(
+                    etree.Element(
                         'Star',
                         M=zams[2],
                         Z=z,
@@ -52,10 +52,10 @@ def generate_data(sse_dir, output_dir, mass_range, z_range):
                         T=str(10**float(zams[6]))
                     ))
 
-    tree = lxml.etree.Element('Catalogue')
+    tree = etree.Element('Catalogue')
     tree.extend(stars)  # Add the nodes to the tree
 
-    lxml.etree.ElementTree(tree).write(
+    lxml.ElementTree(tree).write(
         "ZAMSUnitTestDataSSE.xml", pretty_print=True)
 
 
