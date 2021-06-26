@@ -17,6 +17,8 @@ from lxml import etree
 import os
 import re
 
+"""Helper functions for managing SSE tracks
+"""
 
 _evolution_stages = [
     'MSLM',
@@ -99,3 +101,10 @@ def add_attribute_at(track, name, value, index):
 
     track.xpath('//{}//{}'.format(_track_tag, _track_point_tag)
                 )[index].attrib[name] = value
+
+
+def get_node(track, index):
+    """Returns the node at index
+    """
+    return track.xpath('//{}//{}'.format(_track_tag, _track_point_tag)
+                       )[index]

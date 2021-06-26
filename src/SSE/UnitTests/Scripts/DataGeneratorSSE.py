@@ -16,15 +16,33 @@ import argparse
 from lxml import etree
 import os
 import re
+import uuid
 
 import RunSSE
 import SSEHelpers
 
+"""Script for generating unit test data from SSE tracks. It runs SSE for over all mass-metallicity pairs in the user-specified mass and metallicity ranges and converts the output to xml. It generates
+- Evolutionary tracks for each pair
+- ZAMS unit test data, as the first entry in each track
+"""
 
-def generate_tracks(sse_dir, output_dir, mass_range, z_range, age):
-    """Runs SSE over all combinations of mass and z, and saves each track to an xml file
+_version = '1.0'
+_version_tag = 'Version'
+_uuid_tag = 'UUID'
+
+_zams_tag = 'ZAMS'
+
+_track_filename_pattern = '{}_{}.track.xml'
+_zams_filename = 'ZAMS.trackpoints.xml'
+
+
+def generate_tracks_and_zams(sse_dir, output_dir, mass_range, z_range, age):
+    """Runs SSE over all combinations of mass and z, and saves each track to an xml file. Also compiles the ZAMS test data from the tracks
     """
     os.chdir(output_dir)
+
+    uuid_string = str(uuid.uuid4())
+    zams_points = []   # Zero-age main sequence entries
 
     for mass in mass_range:
         for z in z_range:
@@ -39,8 +57,25 @@ def generate_tracks(sse_dir, output_dir, mass_range, z_range, age):
             # know the initial value
             SSEHelpers.add_constant_attribute(track, 'Z', '?')
             SSEHelpers.add_attribute_at(track, "Z", z, 0)
+
+            track.attrib[_version_tag] = _version
+            track.attrib[_uuid_tag] = uuid_string
+
             etree.ElementTree(track).write(
-                "{}_{}.herd.track.xml".format(mass, z), pretty_print=True)
+                _track_filename_pattern.format(mass, z), encoding='utf-8', xml_declaration=True, pretty_print=True)
+
+            # First entry corresponds to the zero-age main sequence state
+            zams_points.append(SSEHelpers.get_node(track, 0))
+
+    # ZAMS
+    zams = etree.Element(_zams_tag)
+    zams.extend(zams_points)  # Add the nodes to the tree
+    zams.attrib[_version_tag] = _version
+    zams.attrib[_uuid_tag] = uuid_string
+    etree.ElementTree(zams).write(
+        _zams_filename, encoding='utf-8', xml_declaration=True, pretty_print=True)
+
+    print("Version: {} uuid: {}".format(_version, uuid_string))
 
 
 if __name__ == "__main__":
@@ -60,6 +95,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    generate_tracks(args.sse_dir, args.output_dir,
-                    args.mass_values, args.z_values, args.age)
+    generate_tracks_and_zams(args.sse_dir, args.output_dir,
+                             args.mass_values, args.z_values, args.age)
     # @endcond
