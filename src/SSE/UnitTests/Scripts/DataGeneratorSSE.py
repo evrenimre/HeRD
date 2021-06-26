@@ -12,7 +12,13 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+"""Script for generating unit test data from SSE tracks. It runs SSE for over all mass-metallicity pairs in the user-specified mass and metallicity ranges and converts the output to xml. It generates
+- Evolutionary tracks for each pair
+- ZAMS unit test data, as the first entry in each track
+"""
+
 import argparse
+import datetime
 from lxml import etree
 import os
 import re
@@ -21,14 +27,13 @@ import uuid
 import RunSSE
 import SSEHelpers
 
-"""Script for generating unit test data from SSE tracks. It runs SSE for over all mass-metallicity pairs in the user-specified mass and metallicity ranges and converts the output to xml. It generates
-- Evolutionary tracks for each pair
-- ZAMS unit test data, as the first entry in each track
-"""
 
 _version = '1.0'
-_version_tag = 'Version'
-_uuid_tag = 'UUID'
+_version_attr = 'Version'
+_uuid_attr = 'UUID'
+_timestamp_attr = 'Timestamp'
+_source_attr = 'Source'
+_source_string = 'SSE'
 
 _zams_tag = 'ZAMS'
 
@@ -42,7 +47,16 @@ def generate_tracks_and_zams(sse_dir, output_dir, mass_range, z_range, age):
     os.chdir(output_dir)
 
     uuid_string = str(uuid.uuid4())
+    timestamp_string = datetime.datetime.now(
+        datetime.timezone.utc).strftime('%Y%m%d%H%M%SUTC')
+
     zams_points = []   # Zero-age main sequence entries
+
+    def _add_root_attr(root):
+        root.attrib[_version_attr] = _version
+        root.attrib[_uuid_attr] = uuid_string
+        root.attrib[_timestamp_attr] = timestamp_string
+        root.attrib[_source_attr] = _source_string
 
     for mass in mass_range:
         for z in z_range:
@@ -58,8 +72,7 @@ def generate_tracks_and_zams(sse_dir, output_dir, mass_range, z_range, age):
             SSEHelpers.add_constant_attribute(track, 'Z', '?')
             SSEHelpers.add_attribute_at(track, "Z", z, 0)
 
-            track.attrib[_version_tag] = _version
-            track.attrib[_uuid_tag] = uuid_string
+            _add_root_attr(track)
 
             etree.ElementTree(track).write(
                 _track_filename_pattern.format(mass, z), encoding='utf-8', xml_declaration=True, pretty_print=True)
@@ -70,8 +83,7 @@ def generate_tracks_and_zams(sse_dir, output_dir, mass_range, z_range, age):
     # ZAMS
     zams = etree.Element(_zams_tag)
     zams.extend(zams_points)  # Add the nodes to the tree
-    zams.attrib[_version_tag] = _version
-    zams.attrib[_uuid_tag] = uuid_string
+    _add_root_attr(zams)
     etree.ElementTree(zams).write(
         _zams_filename, encoding='utf-8', xml_declaration=True, pretty_print=True)
 
