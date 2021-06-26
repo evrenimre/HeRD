@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['lower_248',['Lower',['../classHerd_1_1Generic_1_1QuantityRange.html#a62e774ba344406d14542f581578256ff',1,'Herd::Generic::QuantityRange']]]
+  ['isagb_271',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
+  ['ishestar_272',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
+  ['isms_273',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
+  ['isremnant_274',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
 ];

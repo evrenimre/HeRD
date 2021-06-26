@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['isagb_244',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
-  ['ishestar_245',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
-  ['isms_246',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
-  ['isremnant_247',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
+  ['generate_5fdata_264',['generate_data',['../namespaceZAMSDataGeneratorSSE.html#aaa2bac86aae6aec4a654322a413c3431',1,'ZAMSDataGeneratorSSE']]],
+  ['generate_5ftracks_5fand_5fzams_265',['generate_tracks_and_zams',['../namespaceDataGeneratorSSE.html#ad036284123ecc3d88e9f471f1f6c44e5',1,'DataGeneratorSSE']]],
+  ['generatebool_266',['GenerateBool',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a8d8d101c0250f27d59ecd7d1db850dd1',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['generatenumber_267',['GenerateNumber',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a000ea6d5cf581de1f30bc265b141be53',1,'Herd::UnitTestUtils::RandomTestFixture::GenerateNumber(Arithmetic i_Min, Arithmetic i_Max)'],['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a3d17aa191a3e9fca20c65e5706c3ea6d',1,'Herd::UnitTestUtils::RandomTestFixture::GenerateNumber()']]],
+  ['get_5fnode_268',['get_node',['../namespaceSSEHelpers.html#aa82b7c9cc7216151f3bcf28dfa58c95f',1,'SSEHelpers']]],
+  ['getcommandlineargument_269',['GetCommandLineArgument',['../namespaceHerd_1_1UnitTestUtils.html#a479c5f492ce2db9f1b2e40547c65aa2f',1,'Herd::UnitTestUtils']]],
+  ['getrangestring_270',['GetRangeString',['../classHerd_1_1Generic_1_1QuantityRange.html#a723a2ef33dc039830e6c06c81f95d2d0',1,'Herd::Generic::QuantityRange']]]
 ];

@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['s_5fdataargumentname_290',['s_DataArgumentName',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a676e4ba0c2fb64adadccc7f80f06d15c',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
-  ['s_5fmassrange_291',['s_MassRange',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a07c9ea8dffc168ab4f63bca9ccc715b4',1,'Herd::SSE::ZeroAgeMainSequenceSpecs']]],
-  ['s_5fmaxluminosityerror_292',['s_MaxLuminosityError',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a0659b3b8402c18b2c479ae9f23d77021',1,'Herd::SSE::ZeroAgeMainSequenceSpecs']]],
-  ['s_5fmaxradiuserror_293',['s_MaxRadiusError',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a3a645c7bed307843a9105299bdb0580a',1,'Herd::SSE::ZeroAgeMainSequenceSpecs']]],
-  ['s_5fmaxtemperatureerror_294',['s_MaxTemperatureError',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a6cfba80fb75775db0404194b7d59b562',1,'Herd::SSE::ZeroAgeMainSequenceSpecs']]],
-  ['s_5fseedparametername_295',['s_SeedParameterName',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a596e700b82819bb99a5345b1be4dfbf5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
-  ['s_5fsolarmetallicitytout96_296',['s_SolarMetallicityTout96',['../namespaceHerd_1_1SSE_1_1Constants.html#a29c2af49f3835320fe2b022f7f0844c4',1,'Herd::SSE::Constants']]],
-  ['s_5fstefanboltzmannconstant_297',['s_StefanBoltzmannConstant',['../namespaceHerd_1_1Physics_1_1Constants.html#ad881a114f1f44632d92ccca6adf8aefa',1,'Herd::Physics::Constants']]],
-  ['s_5fsunluminosity_298',['s_SunLuminosity',['../namespaceHerd_1_1Physics_1_1Constants.html#ac4877d4da3b932c3a5ecbd84fd68361d',1,'Herd::Physics::Constants']]],
-  ['s_5fsunradius_299',['s_SunRadius',['../namespaceHerd_1_1Physics_1_1Constants.html#a684f6c5afad94ba00fdf5a912470b08b',1,'Herd::Physics::Constants']]],
-  ['s_5fsunsurfacetemperature_300',['s_SunSurfaceTemperature',['../namespaceHerd_1_1Physics_1_1Constants.html#a806a122f680b66817bfb45076869b367',1,'Herd::Physics::Constants']]],
-  ['s_5fsunsurfacetemperaturesse_301',['s_SunSurfaceTemperatureSSE',['../namespaceHerd_1_1SSE_1_1Constants.html#ac8e717dcf89467489a403001088ed087',1,'Herd::SSE::Constants']]],
-  ['s_5fzrange_302',['s_ZRange',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a1a56d0eccc74766a6fa55e85132dc703',1,'Herd::SSE::ZeroAgeMainSequenceSpecs']]]
+  ['m_5fage_312',['m_Age',['../structHerd_1_1SSE_1_1Star.html#a246bc88876f0fafd8540009c953b103f',1,'Herd::SSE::Star']]],
+  ['m_5fangularmomentum_313',['m_AngularMomentum',['../structHerd_1_1SSE_1_1Star.html#aa08fbcf7e8fe92e4394caf6f7036118c',1,'Herd::SSE::Star']]],
+  ['m_5fcoremass_314',['m_CoreMass',['../structHerd_1_1SSE_1_1Star.html#ad02a92b0f5a367f58d2bab2ce1bb105b',1,'Herd::SSE::Star']]],
+  ['m_5fenvelopemass_315',['m_EnvelopeMass',['../structHerd_1_1SSE_1_1Star.html#ac0689da1df37d8f06c46e94337ab51f2',1,'Herd::SSE::Star']]],
+  ['m_5finitialmass_316',['m_InitialMass',['../structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454',1,'Herd::SSE::EvolutionState']]],
+  ['m_5fluminosity_317',['m_Luminosity',['../structHerd_1_1SSE_1_1Star.html#a0fb45870abdf76f2f9b93cbcb5e1e126',1,'Herd::SSE::Star']]],
+  ['m_5fmass_318',['m_Mass',['../structHerd_1_1SSE_1_1Star.html#ac88209f747abb11cd46f93d09927fc11',1,'Herd::SSE::Star']]],
+  ['m_5fradius_319',['m_Radius',['../structHerd_1_1SSE_1_1Star.html#a6a4528bb3e7aa27fa8c82a0fad984a88',1,'Herd::SSE::Star']]],
+  ['m_5frange_320',['m_Range',['../classHerd_1_1Generic_1_1QuantityRange.html#aa3ce92f8cb248922b1707d7eb484da6f',1,'Herd::Generic::QuantityRange']]],
+  ['m_5frng_321',['m_Rng',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['m_5fseed_322',['m_Seed',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#ae740b56f21e5f5c09cc51bb12a73fcb7',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['m_5fstage_323',['m_Stage',['../structHerd_1_1SSE_1_1Star.html#a0ed1214700751faa9a01f14e885d84ea',1,'Herd::SSE::Star']]],
+  ['m_5fstar_324',['m_Star',['../structHerd_1_1SSE_1_1EvolutionState.html#a7d445234a7b691cf7cc17873a870e9bd',1,'Herd::SSE::EvolutionState']]],
+  ['m_5ftemperature_325',['m_Temperature',['../structHerd_1_1SSE_1_1Star.html#a33b534e12ccc3cb2a3a9b6648f83f0e7',1,'Herd::SSE::Star']]],
+  ['m_5fvalue_326',['m_Value',['../classHerd_1_1Generic_1_1Quantity.html#ae47fb81d835b7f8068bda8d426be48d1',1,'Herd::Generic::Quantity']]],
+  ['m_5fzo_327',['m_Zo',['../structHerd_1_1SSE_1_1Star.html#ae83a712c9396e516b70f42c7e00a9d38',1,'Herd::SSE::Star']]]
 ];

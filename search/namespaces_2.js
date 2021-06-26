@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['zamsdatageneratorsse_188',['ZAMSDataGeneratorSSE',['../namespaceZAMSDataGeneratorSSE.html',1,'']]],
-  ['zamsextractormist_189',['ZAMSExtractorMIST',['../namespaceZAMSExtractorMIST.html',1,'']]]
+  ['runsse_207',['RunSSE',['../namespaceRunSSE.html',1,'']]]
 ];
