@@ -1,5 +1,5 @@
 /**
- * @file SSEUnitTestHelper.cpp
+ * @file SSETestDataManager.cpp
  * @author Evren Imre
  * @date 26 Jun 2021	
  */
