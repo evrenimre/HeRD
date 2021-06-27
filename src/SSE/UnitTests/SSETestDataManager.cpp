@@ -93,7 +93,7 @@ void SSETestDataManager::PopulateTrackPoints( const std::optional< Herd::Generic
 
   // Using boost as view/range failed to compile in GitHub
   //@formatter:off
-  auto Filter = [ & ]( const auto& i_rNode ){ return i_rNode.first != s_TrackPointTag;};
+  auto Filter = [ & ]( const auto& i_rNode ){ return i_rNode.first == s_TrackPointTag;};
   boost::transform( m_Parent | boost::adaptors::filtered( Filter ), // @suppress("Invalid arguments")
       std::back_inserter( m_TrackPoints ),
       [ & ]( const auto& i_rNode ){ return MakeTrackPoint(i_rNode.second, i_rZo);});
