@@ -48,7 +48,7 @@ def generate_tracks_and_zams(sse_dir, output_dir, mass_range, z_range, age):
 
     uuid_string = str(uuid.uuid4())
     timestamp_string = datetime.datetime.now(
-        datetime.timezone.utc).strftime('%Y%m%d%H%M%SUTC')
+        datetime.timezone.utc).isoformat()
 
     zams_points = []   # Zero-age main sequence entries
 
