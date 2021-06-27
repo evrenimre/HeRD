@@ -10,19 +10,19 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+#include "SSETestDataManager.h"
+
 #include <cmath>
 #include <iterator>
 
 #include <boost/test/unit_test.hpp>
+#include <boost/range/adaptors.hpp>
+#include <boost/range/algorithm.hpp>
 #include <range/v3/algorithm.hpp>
 #include <range/v3/view.hpp>
 
-#include "SSETestDataManager.h"
-
 namespace Herd::SSE::UnitTests
 {
-
-
 
 /**
  * @param i_rParentToTrackPoints A node with track point nodes as its children
@@ -91,11 +91,13 @@ void SSETestDataManager::PopulateTrackPoints( const std::optional< Herd::Generic
   // If there are any non-track point nodes, MakeTrackPoint will fail
   m_TrackPoints.reserve( m_TrackPointCount );
 
-  auto trackPointsView = m_Parent | ranges::view::remove_if( [ & ]( const auto& i_rNode )
-  { return i_rNode.first != s_TrackPointTag;} );
-
-  ranges::cpp20::transform( trackPointsView, std::back_inserter( m_TrackPoints ), [ & ]( const auto& i_rNode )
-  { return MakeTrackPoint(i_rNode.second, i_rZo);} );
+  // Using boost as view/range failed to compile in GitHub
+  //@formatter:off
+  auto Filter = [ & ]( const auto& i_rNode ){ return i_rNode.first != s_TrackPointTag;};
+  boost::transform( m_Parent | boost::adaptors::filtered( Filter ), // @suppress("Invalid arguments")
+      std::back_inserter( m_TrackPoints ),
+      [ & ]( const auto& i_rNode ){ return MakeTrackPoint(i_rNode.second, i_rZo);});
+    //@formatter:on
 }
 
 /**
