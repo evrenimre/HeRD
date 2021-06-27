@@ -91,21 +91,35 @@ $(document).ready(function(){initNavTree('EvolutionStages_8h.html',''); initResi
 <div class="title">EvolutionStages.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;boost/bimap.hpp&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for EvolutionStages.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="EvolutionStages_8h__incl.png" border="0" usemap="#src_2SSE_2EvolutionStages_8h" alt=""/></div>
+<map name="src_2SSE_2EvolutionStages_8h" id="src_2SSE_2EvolutionStages_8h">
+<area shape="rect" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" title=" " alt="" coords="13,80,71,107"/>
+<area shape="rect" title=" " alt="" coords="95,80,226,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="EvolutionStages_8h__dep__incl.png" border="0" usemap="#src_2SSE_2EvolutionStages_8hdep" alt=""/></div>
 <map name="src_2SSE_2EvolutionStages_8hdep" id="src_2SSE_2EvolutionStages_8hdep">
-<area shape="rect" title=" " alt="" coords="331,5,521,32"/>
-<area shape="rect" href="EvolutionStages_8cpp.html" title=" " alt="" coords="137,80,342,107"/>
-<area shape="rect" href="EvolutionState_8h.html" title=" " alt="" coords="100,155,280,181"/>
-<area shape="rect" href="Star_8h.html" title=" " alt="" coords="417,80,528,107"/>
-<area shape="rect" href="StellarWindMassLoss_8cpp.html" title=" " alt="" coords="804,237,1043,263"/>
-<area shape="rect" href="ComputeZAMS_8cpp.html" title=" " alt="" coords="509,237,780,263"/>
-<area shape="rect" href="StellarWindMassLoss_8h.html" title=" " alt="" coords="664,155,887,181"/>
-<area shape="rect" href="ZeroAgeMainSequenceUnitTests_8cpp.html" title=" " alt="" coords="5,229,209,271"/>
-<area shape="rect" href="ZeroAgeMainSequence_8h.html" title=" " alt="" coords="355,155,590,181"/>
-<area shape="rect" href="ZeroAgeMainSequence_8cpp.html" title=" " alt="" coords="234,237,485,263"/>
+<area shape="rect" title=" " alt="" coords="532,5,723,32"/>
+<area shape="rect" href="EvolutionStages_8cpp.html" title=" " alt="" coords="271,80,477,107"/>
+<area shape="rect" href="EvolutionState_8h.html" title=" " alt="" coords="100,162,280,189"/>
+<area shape="rect" href="TrackPoint_8h.html" title=" " alt="" coords="551,80,703,107"/>
+<area shape="rect" href="StellarWindMassLoss_8cpp.html" title=" " alt="" coords="1016,251,1255,278"/>
+<area shape="rect" href="SSETestDataManager_8h.html" title=" " alt="" coords="665,155,851,196"/>
+<area shape="rect" href="ComputeZAMS_8cpp.html" title=" " alt="" coords="5,251,276,278"/>
+<area shape="rect" href="StellarWindMassLoss_8h.html" title=" " alt="" coords="876,162,1099,189"/>
+<area shape="rect" href="ZeroAgeMainSequenceUnitTests_8cpp.html" title=" " alt="" coords="576,244,780,285"/>
+<area shape="rect" href="ZeroAgeMainSequence_8h.html" title=" " alt="" coords="355,162,590,189"/>
+<area shape="rect" href="SSETestDataManager_8cpp.html" title=" " alt="" coords="805,244,991,285"/>
+<area shape="rect" href="ZeroAgeMainSequence_8cpp.html" title=" " alt="" coords="301,251,551,278"/>
 </map>
 </div>
 </div>
@@ -159,8 +173,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4b1c6b74f16e1e3affa1df36dca80b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is an AGB stage?  <a href="namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79">More...</a><br /></td></tr>
 <tr class="separator:a4b1c6b74f16e1e3affa1df36dca80b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e16e045b62428235960373056b9ebc6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6">Herd::SSE::IsHeStar</a> (EvolutionStage i_Stage)</td></tr>
-<tr class="memdesc:a5e16e045b62428235960373056b9ebc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a He <a class="el" href="structHerd_1_1SSE_1_1Star.html" title="Represents a star.">Star</a>?  <a href="namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6">More...</a><br /></td></tr>
+<tr class="memdesc:a5e16e045b62428235960373056b9ebc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a He Star?  <a href="namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6">More...</a><br /></td></tr>
 <tr class="separator:a5e16e045b62428235960373056b9ebc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7931a7caeeae1ce890f802e27dec5b7"><td class="memItemLeft" align="right" valign="top">boost::bimap&lt; EvolutionStage, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#ae7931a7caeeae1ce890f802e27dec5b7">Herd::SSE::MakeEvolutionStageAndStringBimap</a> ()</td></tr>
+<tr class="memdesc:ae7931a7caeeae1ce890f802e27dec5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a dictionary for conversions to and from string.  <a href="namespaceHerd_1_1SSE.html#ae7931a7caeeae1ce890f802e27dec5b7">More...</a><br /></td></tr>
+<tr class="separator:ae7931a7caeeae1ce890f802e27dec5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Evren Imre </dd></dl>

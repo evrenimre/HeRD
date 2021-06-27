@@ -7,12 +7,12 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "EvolutionState.h", "EvolutionState_8h.html", [
       [ "EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", "structHerd_1_1SSE_1_1EvolutionState" ]
     ] ],
-    [ "Star.h", "Star_8h.html", [
-      [ "Star", "structHerd_1_1SSE_1_1Star.html", "structHerd_1_1SSE_1_1Star" ]
-    ] ],
     [ "StellarWindMassLoss.cpp", "StellarWindMassLoss_8cpp.html", null ],
     [ "StellarWindMassLoss.h", "StellarWindMassLoss_8h.html", [
       [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ]
+    ] ],
+    [ "TrackPoint.h", "TrackPoint_8h.html", [
+      [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ]
     ] ],
     [ "ZeroAgeMainSequence.cpp", "ZeroAgeMainSequence_8cpp.html", null ],
     [ "ZeroAgeMainSequence.h", "ZeroAgeMainSequence_8h.html", [

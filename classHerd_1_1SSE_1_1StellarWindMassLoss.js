@@ -1,11 +1,11 @@
 var classHerd_1_1SSE_1_1StellarWindMassLoss =
 [
-    [ "Compute", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a754aea3dd0b358b349a0e0020d12e74d", null ],
-    [ "Compute", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a42a94f7c23d689f7861915eb2dd796a7", null ],
-    [ "ComputeLBVLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5357eec74d8a1463055f8785ee973932", null ],
-    [ "ComputeMassiveStarLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#ad6e707dd83466c5d231d0f3be30eaf11", null ],
-    [ "ComputePulsationLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a75f29c9a725561fd71edfc24f14c15c1", null ],
-    [ "ComputeReimersLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a06db2fa3d749da91992196061b761056", null ],
-    [ "ComputeWRLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5afbff57a1939d12c5dcf696e4ac3e82", null ],
-    [ "Validate", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a8c4bd09bf3e53c7ece1b3d5ff9bab380", null ]
+    [ "Compute", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#af5e53bd99d2b4fd5f2af01908f4a124b", null ],
+    [ "Compute", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#adb315d64cb8dc20c1d9616568bea1da6", null ],
+    [ "ComputeLBVLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#ae75b879bead64e960f35eeb7964016fe", null ],
+    [ "ComputeMassiveStarLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3788a91591df1030e63e73db17fc5bf2", null ],
+    [ "ComputePulsationLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a97dd12ae0b46df0508fb4612355b1b82", null ],
+    [ "ComputeReimersLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#aaab6bd069be9ecd4f2e7b3cc62d60d41", null ],
+    [ "ComputeWRLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a7a7c9e45660a4a96d1676897f7f50c4b", null ],
+    [ "Validate", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3a880f0fa1e89d1f284c882907012c27", null ]
 ];

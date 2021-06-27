@@ -59,7 +59,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ComputeZAMS_8cpp.html",
-"namespacemembers_func.html"
+"namespaceHerd.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -11,8 +11,9 @@ var hierarchy =
         [ "Herd::Exceptions::PreconditionError", "classHerd_1_1Exceptions_1_1PreconditionError.html", null ]
       ] ]
     ] ],
-    [ "Herd::SSE::Star", "structHerd_1_1SSE_1_1Star.html", null ],
+    [ "Herd::SSE::UnitTests::SSETestDataManager", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html", null ],
     [ "Herd::SSE::StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", null ],
+    [ "Herd::SSE::TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", null ]
 ];
