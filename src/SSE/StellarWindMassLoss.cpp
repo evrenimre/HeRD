@@ -92,7 +92,7 @@ void StellarWindMassLoss::Validate( const Herd::SSE::Star& i_rStar, double i_Net
   Herd::Generic::ThrowIfNotPositive( i_rStar.m_Mass, "m_Mass" );
   Herd::Generic::ThrowIfNegative( i_rStar.m_Luminosity, "m_Luminosity" );
   Herd::Generic::ThrowIfNegative( i_rStar.m_Radius, "m_Radius" );
-  Herd::Generic::ThrowIfNegative( i_rStar.m_Zo, "m_Z" );
+  Herd::Generic::ThrowIfNegative( i_rStar.m_InitialMetallicity, "m_Z" );
   Herd::Generic::ThrowIfNegative( i_rStar.m_CoreMass, "m_CoreMass" );
 
   if( i_rStar.m_Stage == Herd::SSE::EvolutionStage::e_Undefined )
@@ -181,7 +181,7 @@ double StellarWindMassLoss::ComputeMassiveStarLoss( const Herd::SSE::Star& i_rSt
   double r081 = std::pow( i_rStar.m_Radius, 0.81 );
   double l124 = std::pow( i_rStar.m_Luminosity, 1.24 );
   double m016 = std::pow( i_rStar.m_Mass, 0.16 );
-  double zos05 = std::sqrt( i_rStar.m_Zo / Herd::SSE::Constants::s_SolarMetallicityTout96 );
+  double zos05 = std::sqrt( i_rStar.m_InitialMetallicity / Herd::SSE::Constants::s_SolarMetallicityTout96 );
 
   return 9.6e-15 * x * r081 * l124 * m016 * zos05;
 }

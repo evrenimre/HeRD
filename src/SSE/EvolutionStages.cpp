@@ -50,5 +50,37 @@ bool IsHeStar( EvolutionStage i_Stage )
 {
   return i_Stage == EvolutionStage::e_CHeB || i_Stage == EvolutionStage::e_HeHG || i_Stage == EvolutionStage::e_HeGB;
 }
+
+/**
+ * @return A bimap for evolution stages and their corresponding strings
+ */
+boost::bimap< EvolutionStage, std::string > MakeEvolutionStageAndStringBimap()
+{
+  using Bimap = boost::bimap< EvolutionStage, std::string >;
+  using Record = Bimap::value_type;
+
+  Bimap dictionary;
+
+  dictionary.insert( Record( EvolutionStage::e_MSLM, "MSLM" ) );
+  dictionary.insert( Record( EvolutionStage::e_MS, "MS" ) );
+  dictionary.insert( Record( EvolutionStage::e_HG, "HG" ) );
+  dictionary.insert( Record( EvolutionStage::e_FGB, "FGB" ) );
+  dictionary.insert( Record( EvolutionStage::e_CHeB, "CHeB" ) );
+  dictionary.insert( Record( EvolutionStage::e_FAGB, "FAGB" ) );
+  dictionary.insert( Record( EvolutionStage::e_SAGB, "SAGB" ) );
+  dictionary.insert( Record( EvolutionStage::e_HeMS, "HeMS" ) );
+  dictionary.insert( Record( EvolutionStage::e_HeHG, "HeHG" ) );
+  dictionary.insert( Record( EvolutionStage::e_HeGB, "HeGB" ) );
+  dictionary.insert( Record( EvolutionStage::e_HeWD, "HeWD" ) );
+  dictionary.insert( Record( EvolutionStage::e_COWD, "COWD" ) );
+  dictionary.insert( Record( EvolutionStage::e_ONWD, "ONWD" ) );
+  dictionary.insert( Record( EvolutionStage::e_NS, "NS" ) );
+  dictionary.insert( Record( EvolutionStage::e_BH, "BH" ) );
+  dictionary.insert( Record( EvolutionStage::e_MSn, "MSn" ) );
+  dictionary.insert( Record( EvolutionStage::e_Undefined, "Undefined" ) );
+
+  return dictionary;
+}
+
 }
 

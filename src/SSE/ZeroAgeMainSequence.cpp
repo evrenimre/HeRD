@@ -86,7 +86,7 @@ Herd::SSE::Star ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::
   output.m_Luminosity = luminosity;
   output.m_Radius = radius;
   output.m_Mass = i_Mass;
-  output.m_Zo = i_Z;
+  output.m_InitialMetallicity = i_Z;
   output.m_Temperature.Set(
       Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius ) * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
 
