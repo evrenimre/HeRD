@@ -15,7 +15,7 @@
 
 #include <Generic/Quantities.h>
 #include <SSE/EvolutionStages.h>
-#include <SSE/Star.h>
+#include <SSE/TrackPoint.h>
 
 #include <cstddef>
 #include <optional>
@@ -54,20 +54,20 @@ public:
 
   void PopulateTrackPoints( const std::optional< Herd::Generic::Metallicity >& i_rZo = std::nullopt ); ///< Populates SSETestDataManager::m_TrackPoints
 
-  const std::vector< Herd::SSE::Star >& TrackPoints() const;  ///< Accessor for SSETestDataManager::m_TrackPoints
+  const std::vector< Herd::SSE::TrackPoint >& TrackPoints() const;  ///< Accessor for SSETestDataManager::m_TrackPoints
   std::size_t TrackPointCount() const; ///< Accessor for SSETestDataManager::m_TrackPointCount
 
-  Herd::SSE::Star MakeTrackPoint( std::size_t i_Index, const std::optional< Herd::Generic::Metallicity >& i_rZo = std::nullopt ) const; ///< Track point corresponding to the node at index
+  Herd::SSE::TrackPoint MakeTrackPoint( std::size_t i_Index, const std::optional< Herd::Generic::Metallicity >& i_rZo = std::nullopt ) const; ///< Track point corresponding to the node at index
 
 private:
 
-  Herd::SSE::Star MakeTrackPoint( const boost::property_tree::ptree& i_rNode, const std::optional< Herd::Generic::Metallicity >& i_rZo = std::nullopt ) const; ///< Makes a track point from a node
+  Herd::SSE::TrackPoint MakeTrackPoint( const boost::property_tree::ptree& i_rNode, const std::optional< Herd::Generic::Metallicity >& i_rZo = std::nullopt ) const; ///< Makes a track point from a node
 
   inline static const std::string s_TrackPointTag = "TrackPoint"; ///< XML tag for track points
 
   boost::property_tree::ptree m_Parent; ///< Parent of the track points
   std::size_t m_TrackPointCount = 0; ///< Number of track points for SSETestDataManager::m_Parent
-  std::vector< Herd::SSE::Star > m_TrackPoints; ///< Track points in the tree
+  std::vector< Herd::SSE::TrackPoint > m_TrackPoints; ///< Track points in the tree
 
   boost::bimap< Herd::SSE::EvolutionStage, std::string > m_StringAndStage;  ///< Evolution stages and their corresponding strings
 };

@@ -13,7 +13,7 @@
 #ifndef H5884ABA0_83BD_4120_AFD9_CDC95056180F
 #define H5884ABA0_83BD_4120_AFD9_CDC95056180F
 
-#include "Star.h"
+#include "TrackPoint.h"
 
 namespace Herd::SSE
 {
@@ -28,18 +28,18 @@ class StellarWindMassLoss
 {
 public:
 
-  static double Compute( const Herd::SSE::Star& i_rStar, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe );
-  static double Compute( const Herd::SSE::Star& i_rStar, double i_Neta );
+  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe );
+  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta );
 
 private:
 
-  static void Validate( const Herd::SSE::Star& i_rStar, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Validates the inputs
+  static void Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Validates the inputs
 
-  static double ComputeReimersLoss( const Herd::SSE::Star& i_rStar, double i_Neta, double i_BinaryWind, double i_RocheLobe ); ///< Computes the Reimers loss
-  static double ComputePulsationLoss( const Herd::SSE::Star& i_rStar );  ///< Computes the loss in AGB due to high pulsation periods
-  static double ComputeMassiveStarLoss( const Herd::SSE::Star& i_rStar ); ///< Computes the loss for massive stars
-  static double ComputeWRLikeLoss( const Herd::SSE::Star& i_rStar, double i_Mu ); ///< Computes the Wolf-Rayet-like loss for stars with a small He envelope
-  static double ComputeLBVLikeLoss( const Herd::SSE::Star& i_rStar ); ///< Computes the luminous blue variable-like loss for stars beyond the Humphreys-Davidson limit
+  static double ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_BinaryWind, double i_RocheLobe ); ///< Computes the Reimers loss
+  static double ComputePulsationLoss( const Herd::SSE::TrackPoint& i_rTrackPoint );  ///< Computes the loss in AGB due to high pulsation periods
+  static double ComputeMassiveStarLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the loss for massive stars
+  static double ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Mu ); ///< Computes the Wolf-Rayet-like loss for stars with a small He envelope
+  static double ComputeLBVLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the luminous blue variable-like loss for stars beyond the Humphreys-Davidson limit
 };
 }
 

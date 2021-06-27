@@ -67,12 +67,12 @@ void SSETestDataManager::CheckVersionInfo() const
 /**
  * @return Returns a constant reference to SSETestDataManager::m_TrackPoints
  */
-const std::vector< Herd::SSE::Star >& SSETestDataManager::TrackPoints() const
+const std::vector< Herd::SSE::TrackPoint >& SSETestDataManager::TrackPoints() const
 {
   return m_TrackPoints;
 }
 
-Herd::SSE::Star SSETestDataManager::MakeTrackPoint( std::size_t i_Index, const std::optional< Herd::Generic::Metallicity >& i_rZo ) const
+Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( std::size_t i_Index, const std::optional< Herd::Generic::Metallicity >& i_rZo ) const
 {
   BOOST_TEST_REQUIRE( i_Index < m_TrackPointCount );
 
@@ -111,10 +111,10 @@ std::size_t SSETestDataManager::TrackPointCount() const
  * @param i_rZo Initial metallicity. If unset, read from the node
  * @return Track point for the node
  */
-Herd::SSE::Star SSETestDataManager::MakeTrackPoint( const boost::property_tree::ptree& i_rNode,
+Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_tree::ptree& i_rNode,
     const std::optional< Herd::Generic::Metallicity >& i_rZo ) const
 {
-  Herd::SSE::Star trackPoint;
+  Herd::SSE::TrackPoint trackPoint;
 
   boost::property_tree::ptree rAttributes = i_rNode.get_child( "<xmlattr>" );
 

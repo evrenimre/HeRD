@@ -14,11 +14,10 @@
 #define H633A09E8_2301_41B3_8E30_CFE3C37DFCF3
 
 #include "EvolutionStages.h"
-#include "Star.h"
-
 #include <Generic/Quantities.h>
 
 #include <boost/container/flat_map.hpp>
+#include "TrackPoint.h"
 
 namespace Herd::SSE
 {
@@ -30,7 +29,7 @@ namespace Herd::SSE
  */
 struct EvolutionState
 {
-  Herd::SSE::Star m_Star; ///< Star
+  Herd::SSE::TrackPoint m_TrackPoint; ///< Track point
 
   Herd::Generic::Mass m_InitialMass;  ///< Mass at the beginning of evolution in \f$ M_{\odot}\f$
 };

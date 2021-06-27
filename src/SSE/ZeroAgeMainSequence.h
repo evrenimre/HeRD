@@ -13,18 +13,17 @@
 #ifndef HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 #define HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 
-#include "Star.h"
-
 #include "Generic/Quantities.h"
 #include "Generic/QuantityRange.h"
 
 #include "Eigen/Core"
+#include "TrackPoint.h"
 
 namespace Herd::SSE
 {
 
 /**
- * @brief Computes the star at ZAMS
+ * @brief Computes the track point at ZAMS
  * @cite Tout96
  * @remarks Only computes the luminosity, radius and temperature
  */
@@ -32,7 +31,7 @@ class ZeroAgeMainSequence
 {
 public:
 
-  static Herd::SSE::Star Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the star at ZAMS
+  static Herd::SSE::TrackPoint Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the track point at ZAMS
 
 private:
   static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input

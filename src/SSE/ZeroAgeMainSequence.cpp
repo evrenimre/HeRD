@@ -63,12 +63,12 @@ struct ZeroAgeMainSequenceAlgorithmSpecs;
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
  * @param i_Z Metallicity
- * @return Partially initialised star at ZAMS
+ * @return Partially initialised track point at ZAMS
  * @pre \c i_Mass is within \c s_MassRange
  * @pre \c i_Z is is within \c s_ZRange
  * @remarks Only luminosity, radius and temperature are computed
  */
-Herd::SSE::Star ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
   
@@ -81,7 +81,7 @@ Herd::SSE::Star ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::
   Herd::Generic::Luminosity luminosity = ComputeLuminosity( i_Mass, zVector );
   Herd::Generic::Radius radius = ComputeRadius( i_Mass, zVector );
 
-  Herd::SSE::Star output;
+  Herd::SSE::TrackPoint output;
   output.m_Age.Set( 0 );
   output.m_Luminosity = luminosity;
   output.m_Radius = radius;

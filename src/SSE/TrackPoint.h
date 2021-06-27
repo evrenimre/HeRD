@@ -1,5 +1,5 @@
 /**
- * @file Star.h
+ * @file TrackPoint.h
  * @author Evren Imre
  * @date 14 Jun 2021	
  */
@@ -20,9 +20,9 @@
 namespace Herd::SSE
 {
 /**
- * @brief Represents a star
+ * @brief Represents a track point in an evolutionary track
  */
-struct Star
+struct TrackPoint
 {
   Herd::Generic::Mass m_Mass;  ///< Mass in \f$ M_{\odot}\f$
   Herd::Generic::Metallicity m_InitialMetallicity; ///< Initial metallicity
