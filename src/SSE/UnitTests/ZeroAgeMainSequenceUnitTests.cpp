@@ -85,6 +85,11 @@ void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::TrackPoint& i_rAc
  */
 const std::vector< Herd::SSE::TrackPoint >& ZAMSTestFixture::GetTrackPoints()
 {
+  if( m_DataManager.TrackPointCount() == 0 )
+  {
+    LoadTestData();
+  }
+
   if( m_DataManager.TrackPoints().empty() )
   {
     m_DataManager.PopulateTrackPoints();
