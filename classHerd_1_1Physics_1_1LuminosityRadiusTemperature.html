@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -111,8 +118,8 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Relation between the electromagnetic radiation emitted by a blackbody, its temperature and radius. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>Expressions<ul>
-<li>The equation is <img class="formulaInl" alt="$ L = 4\pi\sigma_{SB}R^2T^4 $" src="form_4.png"/> where <img class="formulaInl" alt="$ \sigma_{SB} $" src="form_5.png"/> is the Stefan-Boltzmann constant</li>
-<li>Expressed in terms of solar units, it becomes <img class="formulaInl" alt="$ \frac{L}{L_{\odot}} = \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 $" src="form_6.png"/> </li>
+<li>The equation is \( L = 4\pi\sigma_{SB}R^2T^4 \) where \( \sigma_{SB} \) is the Stefan-Boltzmann constant</li>
+<li>Expressed in terms of solar units, it becomes \( \frac{L}{L_{\odot}} = \left( \frac{R}{R_{\odot}} \right)^2 \left( \frac{T}{T_{\odot}} \right)^4 \) </li>
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -153,12 +160,12 @@ Static Public Member Functions</h2></td></tr>
 <p>Computes luminosity from radius and temperature. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i_Radius</td><td>Radius in <img class="formulaInl" alt="$ R_{\odot} $" src="form_0.png"/> </td></tr>
-    <tr><td class="paramname">i_Temperature</td><td>Temperature in <img class="formulaInl" alt="$ T_{\odot} $" src="form_1.png"/> </td></tr>
+    <tr><td class="paramname">i_Radius</td><td>Radius in \( R_{\odot} \) </td></tr>
+    <tr><td class="paramname">i_Temperature</td><td>Temperature in \( T_{\odot} \) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Luminosity in <img class="formulaInl" alt="$ L_{\odot} $" src="form_2.png"/> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Luminosity in \( L_{\odot} \) </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd><code>i_Radius&gt;=0</code> </dd>
 <dd>
 <code>i_Temperature&gt;=0</code> </dd></dl>
@@ -208,12 +215,12 @@ Static Public Member Functions</h2></td></tr>
 <p>Computes radius from luminosity and temperature. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i_Luminosity</td><td>Luminosity in <img class="formulaInl" alt="$ L_{\odot}$" src="form_3.png"/> </td></tr>
-    <tr><td class="paramname">i_Temperature</td><td>Temperature in <img class="formulaInl" alt="$ T_{\odot} $" src="form_1.png"/> </td></tr>
+    <tr><td class="paramname">i_Luminosity</td><td>Luminosity in \( L_{\odot}\) </td></tr>
+    <tr><td class="paramname">i_Temperature</td><td>Temperature in \( T_{\odot} \) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Radius in <img class="formulaInl" alt="$ R_{\odot} $" src="form_0.png"/> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Radius in \( R_{\odot} \) </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd><code>i_Luminosity&gt;=0</code> </dd>
 <dd>
 <code>i_Temperature&gt;0</code> </dd></dl>
@@ -263,12 +270,12 @@ Static Public Member Functions</h2></td></tr>
 <p>Computes temperature from luminosity and radius. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i_Luminosity</td><td>Luminosity in <img class="formulaInl" alt="$ L_{\odot} $" src="form_2.png"/> </td></tr>
-    <tr><td class="paramname">i_Radius</td><td>Radius in <img class="formulaInl" alt="$ R_{\odot} $" src="form_0.png"/> </td></tr>
+    <tr><td class="paramname">i_Luminosity</td><td>Luminosity in \( L_{\odot} \) </td></tr>
+    <tr><td class="paramname">i_Radius</td><td>Radius in \( R_{\odot} \) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Temperature in <img class="formulaInl" alt="$ T_{\odot} $" src="form_1.png"/> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Temperature in \( T_{\odot} \) </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd><code>i_Luminosity&gt;=0</code> </dd>
 <dd>
 <code>i_Radius&gt;0</code> </dd></dl>
