@@ -13,7 +13,10 @@
 #ifndef HCCFFE697_C182_4118_946F_17FE9544A7BF
 #define HCCFFE697_C182_4118_946F_17FE9544A7BF
 
+#include <filesystem>
+#include <regex>
 #include <string>
+#include <unordered_map>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -22,16 +25,32 @@ namespace Herd::UnitTestUtils
 {
 /**
  * @brief Fixture for loading external test data
+ * @remarks Helpers for working with command line arguments
  */
 class DataLoaderFixture
 {
 public:
 
-  static boost::property_tree::ptree ReadXML();  ///< Reads an XML file into a property tree
+  DataLoaderFixture();  ///< Constructor
+
+  // File operations
+  boost::property_tree::ptree ReadAsXML() const; ///< Reads DataLoaderFixture::m_DataPath as an XML file into a property tree
+
+  // Directory operations
+  boost::property_tree::ptree ReadAsXML( const std::string& i_rRegex, std::size_t i_Index ); ///< Among the files in DataLoaderFixture::m_DataDir that satisfy the regex, reads the one indicated by the index into a property tree
+  std::unordered_map< std::string, boost::property_tree::ptree > ReadAsXML( const std::string i_rRegex ) const; ///< Reads each file in DataLoaderFixture::m_DataDir matching the regex into a property tree
+  unsigned int GetFileCount( const std::string& i_rRegex ) const; ///< Number of files in DataLoaderFixture::m_DataDir matching the regex
 
 private:
 
-  inline static const std::string s_DataArgumentName = "--data";  ///< Command line argument for the test data
+  static boost::property_tree::ptree ReadAsXML( const std::filesystem::path& i_Path );  ///< Reads an XML file to a property tree
+  static bool IsMatchingFile( const std::filesystem::directory_entry& i_rEntry, const std::regex& i_rRegex ); ///< Checks whether a path is a regular file with a name having a substring that matches the regex
+
+  std::filesystem::path m_DataPath; ///< Value of the command line argument DataLoaderFixture::s_DataArgumentName
+  std::filesystem::path m_DataDir; ///< Value of the command line argument DataLoaderFixture::s_DataDirArgumentName
+
+  inline static const std::string s_DataPathArgumentName = "--data-path";  ///< Command line argument for the test data file
+  inline static const std::string s_DataDirArgumentName = "--data-dir";  ///< Command line argument for the test data diir
 };
 }
 

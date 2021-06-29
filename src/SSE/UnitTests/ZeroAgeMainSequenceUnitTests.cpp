@@ -95,12 +95,14 @@ const std::vector< Herd::SSE::TrackPoint >& ZAMSTestFixture::GetTrackPoints()
     m_DataManager.PopulateTrackPoints();
   }
 
+  BOOST_TEST_REQUIRE( !m_DataManager.TrackPoints().empty() );
+
   return m_DataManager.TrackPoints();
 }
 
 void ZAMSTestFixture::LoadTestData()
 {
-  boost::property_tree::ptree document = ReadXML();
+  boost::property_tree::ptree document = ReadAsXML();
 
   BOOST_TEST_REQUIRE( !document.get_child( s_ParentTag ).empty() );
   m_DataManager.SetData( document.get_child( s_ParentTag ) ); // @suppress("Invalid arguments") // @suppress("Field cannot be resolved")
