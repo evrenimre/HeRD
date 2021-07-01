@@ -34,7 +34,7 @@
 namespace
 {
 /**
- * @brief Unit test fixture for \c ZeroAgeMainSequence
+ * @brief Unit test fixture for ZeroAgeMainSequence
  */
 class ZAMSTestFixture : public Herd::UnitTestUtils::RandomTestFixture, public Herd::UnitTestUtils::DataLoaderFixture, public Herd::SSE::ZeroAgeMainSequenceSpecs
 {

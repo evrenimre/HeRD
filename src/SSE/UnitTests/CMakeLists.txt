@@ -2,6 +2,7 @@ set(TEST_TARGET_NAME "Test${TARGET_NAME}")	# TARGET_NAME defined by parent
 
 set(SOURCE_LIST TestSSE.cpp
 								SSETestDataManager.cpp
+								StellarWindMassLossUnitTests.cpp
 							  ZeroAgeMainSequenceUnitTests.cpp
 )
 
@@ -17,4 +18,6 @@ herd_add_executable(TARGET ${TEST_TARGET_NAME} SOURCES ${SOURCE_LIST}
 )
 
 set(TEST_DATA_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Data/ZAMS.trackpoints.xml")
-add_test(NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} ${TEST_LABEL_ARG} -- --data-path=${TEST_DATA_PATH})
+set(TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Data/EvolutionaryTracks")
+
+add_test(NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} ${TEST_LABEL_ARG} -- --data-path=${TEST_DATA_PATH} --data-dir=${TEST_DATA_DIR})

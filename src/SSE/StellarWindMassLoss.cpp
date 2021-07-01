@@ -27,7 +27,7 @@ namespace Herd::SSE
 /**
  * @param i_rTrackPoint Track point. Luminosity and radius >=0, mass > 0
  * @param i_Neta Reimers mass loss efficiency.  >=0
- * @return Mass loss rate per year in \f$ M_{\odot}\f$
+ * @return Mass loss rate per year in \f$ M_{\odot}\f$. <=0
  * @remarks Single star case
  */
 double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta )
@@ -41,21 +41,12 @@ double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint,
  * @param i_HeWind Helium star mass loss factor. >=0
  * @param i_BinaryWind Mass loss factor for binary stars. >=0
  * @param i_RocheLobe Roche lobe factor for binary stars. >=0
- * @return Mass loss rate per year in \f$ M_{\odot}\f$
+ * @return Mass loss rate per year in \f$ M_{\odot}\f$. >=0
  * @remarks Binary star case
  */
 double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe )
 {
   Validate( i_rTrackPoint, i_Neta, i_HeWind, i_BinaryWind, i_RocheLobe );
-
-  double dMR = ComputeReimersLoss( i_rTrackPoint, i_Neta, i_BinaryWind, i_RocheLobe );
-
-  // He star loss
-  if( Herd::SSE::IsHeStar( i_rTrackPoint.m_Stage ) )
-  {
-    double dMWR = ComputeWRLikeLoss( i_rTrackPoint, 0. ) * i_HeWind;
-    return std::max( dMR, dMWR );
-  }
 
   double dMNJ = ComputeMassiveStarLoss( i_rTrackPoint );
 
@@ -65,13 +56,21 @@ double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint,
     return dMNJ;
   }
 
+  double dMR = ComputeReimersLoss( i_rTrackPoint, i_Neta, i_BinaryWind, i_RocheLobe );
+
+  // Naked He star loss
+  if( Herd::SSE::IsHeStar( i_rTrackPoint.m_Stage ) )
+  {
+    double dMWR = ComputeWRLikeLoss( i_rTrackPoint, 0. ) * i_HeWind;
+    return std::max( dMR, dMWR );
+  }
+
   // Between MS and He star
   
   double dMVW = ComputePulsationLoss( i_rTrackPoint );
  
   double envelopeRatio = ( i_rTrackPoint.m_Mass.Value() - i_rTrackPoint.m_CoreMass.Value() ) / i_rTrackPoint.m_Mass.Value();
-  double l0 = 7.0e4;
-  double mu = envelopeRatio * std::min( 5., std::max( 1.2, std::sqrt( l0 / i_rTrackPoint.m_Luminosity ) ) );  // Eq. 97
+  double mu = envelopeRatio * std::min( 5., std::max( 1.2, std::sqrt( 7.0e4 / i_rTrackPoint.m_Luminosity ) ) );  // Eq. 97
   double dMWR = ComputeWRLikeLoss( i_rTrackPoint, mu );
 
   double dMLBV = ComputeLBVLikeLoss( i_rTrackPoint );
@@ -131,7 +130,7 @@ void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, 
 double StellarWindMassLoss::ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_BinaryWind, double i_RocheLobe )
 {
   // Effective between HG until the end
-  if( Herd::SSE::IsRemnant( i_rTrackPoint.m_Stage ) || !Herd::SSE::IsMS( i_rTrackPoint.m_Stage ) )
+  if( Herd::SSE::IsRemnant( i_rTrackPoint.m_Stage ) || Herd::SSE::IsMS( i_rTrackPoint.m_Stage ) )
   {
     return 0.;
   }
@@ -171,7 +170,7 @@ double StellarWindMassLoss::ComputePulsationLoss( const Herd::SSE::TrackPoint& i
  */
 double StellarWindMassLoss::ComputeMassiveStarLoss( const Herd::SSE::TrackPoint& i_rTrackPoint )
 {
-  if( i_rTrackPoint.m_Luminosity < 4000. )
+  if( i_rTrackPoint.m_Luminosity <= 4000. )
   {
     return 0.;
   }
