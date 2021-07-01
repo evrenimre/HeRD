@@ -48,7 +48,7 @@ bool IsAGB( EvolutionStage i_Stage )
 
 bool IsHeStar( EvolutionStage i_Stage )
 {
-  return i_Stage == EvolutionStage::e_CHeB || i_Stage == EvolutionStage::e_HeHG || i_Stage == EvolutionStage::e_HeGB;
+  return i_Stage == EvolutionStage::e_HeMS || i_Stage == EvolutionStage::e_HeHG || i_Stage == EvolutionStage::e_HeGB;
 }
 
 /**
