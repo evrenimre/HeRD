@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['operator_20double_303',['operator double',['../classHerd_1_1Generic_1_1Quantity.html#adce932ee62a5006c15a8cdc7ec281ac5',1,'Herd::Generic::Quantity']]],
-  ['operator_3d_3d_304',['operator==',['../classHerd_1_1Generic_1_1Quantity.html#a3928a6057d76be30ca52514b3f011cc1',1,'Herd::Generic::Quantity']]]
+  ['main_309',['main',['../ComputeZAMS_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'ComputeZAMS.cpp']]],
+  ['makeevolutionstageandstringbimap_310',['MakeEvolutionStageAndStringBimap',['../namespaceHerd_1_1SSE.html#ae7931a7caeeae1ce890f802e27dec5b7',1,'Herd::SSE']]],
+  ['makerange_311',['MakeRange',['../namespaceHerd_1_1Generic_1_1Detail.html#a7e6d3fc48c22a8b391859c6de90cb1b6',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::OpenRange *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a0f5c65d5b94aeb7cc4c1275bdf33ba01',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::LeftOpenRange *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a93a692a174c952a370363fb2271fbb59',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::RightOpenRange *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#aeac371f3da3113a90fce24a8070449bc',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::ClosedRange *)']]],
+  ['maketrackpoint_312',['MakeTrackPoint',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#ac252a6d17bef266a618205db21657140',1,'Herd::SSE::UnitTests::SSETestDataManager::MakeTrackPoint(std::size_t i_Index, const std::optional&lt; Herd::Generic::Metallicity &gt; &amp;i_rZo=std::nullopt) const'],['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a17cd5d6a925357d33c9ed7c3eeac1e6f',1,'Herd::SSE::UnitTests::SSETestDataManager::MakeTrackPoint(const boost::property_tree::ptree &amp;i_rNode, const std::optional&lt; Herd::Generic::Metallicity &gt; &amp;i_rZo=std::nullopt) const']]]
 ];
