@@ -39,8 +39,9 @@ def run_sse(mass, z, age, sse_dir, output_dir):
     with open('evolve.in', 'w') as file:
         file.write("{} {} {}\n".format(mass, z, age))
 
-        # Defaults
-        file.write("0.5 0.0 0.5 190.0 \n")
+        # Defaults in the paper and SSE comments
+        # evolve.in bundled with the code sets hewind to 0.5
+        file.write("0.5 0.0 1.0 190.0 \n")
         file.write("0 1 0 1 3.0 999 \n")
         file.write("0.05 0.01 0.02 \n")
 
