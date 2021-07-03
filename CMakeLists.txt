@@ -42,7 +42,7 @@ set(CLANG_TIDY_NAME "clang-tidy" CACHE PATH "Name of the clang-tidy binary")
 include(HerdCreateTarget)	
 
 # Dependencies
-find_package(Boost 1.76.0 REQUIRED)
+find_package(Boost 1.71.0 REQUIRED)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(range-v3 REQUIRED)
 
