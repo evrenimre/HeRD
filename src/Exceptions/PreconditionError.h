@@ -18,7 +18,6 @@
 #include <string>
 #include <type_traits>
 
-#include <boost/format.hpp>
 #include <boost/stacktrace.hpp>
 
 namespace Herd::Exceptions
@@ -61,8 +60,7 @@ public:
    */
   template< class Arithmetic >
   PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, Arithmetic i_Actual ) :
-      Herd::Exceptions::RuntimeError(
-          ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) ) )
+      PreconditionError( i_rElement, i_rExpected, std::to_string( i_Actual ) )
   {
     static_assert( std::is_arithmetic< Arithmetic >::value, "Arihtmetic must be an arithmetic type");
   }
@@ -77,7 +75,7 @@ private:
    */
   static std::string ComposeMessage( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual )
   {
-    return boost::str( boost::format( "%s: Expected %s got %s\n" ) % i_rElement % i_rExpected % i_rActual );
+    return i_rElement + "Expected " + i_rExpected + " got " + i_rActual + "\n";
   }
 };
 
