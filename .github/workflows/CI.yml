@@ -22,11 +22,9 @@ jobs:
       # 20.04 uses boost 1.71 by default
       run: |
         sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-        sudo add-apt-repository ppa:mhier/libboost-latest
         sudo apt-get update
         sudo apt-get install g++-11 llvm-12-tools
-        sudo apt install libboost
-        sudo apt-get librange-v3-dev libeigen3-dev
+        sudo apt-get libboost-dev libboost-all-dev librange-v3-dev libeigen3-dev
         sudo apt-get install doxygen graphviz gsfonts biber
       
     - name: Configure CMake
