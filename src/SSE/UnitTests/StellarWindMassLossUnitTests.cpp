@@ -38,11 +38,12 @@ class StellarWindMassLossTestFixture : public Herd::UnitTestUtils::RandomTestFix
 {
 public:
 
-  static std::vector< Herd::SSE::TrackPoint > MakeTestCase( const boost::property_tree::ptree& i_rRoot ); ///< Makes a test case
+  static std::vector< Herd::SSE::TrackPoint > MakeTestCase( const boost::property_tree::ptree& i_rRoot ); ///< Makes a test case from a property tree
+  std::vector< Herd::SSE::TrackPoint > MakeTestCase(); ///< Makes a test case from a random file
 
   static void TestFidelity( const std::vector< Herd::SSE::TrackPoint >& i_rTrack, std::size_t i_Start = 0, double i_SampleSize = 1. ); ///< Compares the computed and the actual mass loss
 
-  const std::string& TrackRegex() const; ///< Returns a constant reference to StellarWindMassLossTestFixture::s_TrackRegex
+  static const std::string& TrackRegex(); ///< Returns a constant reference to StellarWindMassLossTestFixture::s_TrackRegex
 
 private:
 
@@ -119,10 +120,23 @@ void StellarWindMassLossTestFixture::TestFidelity( const std::vector< Herd::SSE:
   }
 }
 
+std::vector< Herd::SSE::TrackPoint > StellarWindMassLossTestFixture::MakeTestCase()
+{
+  // Pick a random file
+  std::size_t fileCount = GetFileCount( s_TrackRegex );
+  BOOST_TEST_REQUIRE( fileCount != 0 );
+  boost::property_tree::ptree data = ReadAsXML( s_TrackRegex, GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 ) );
+
+  std::vector< Herd::SSE::TrackPoint > track = MakeTestCase( data );
+  BOOST_TEST_REQUIRE( track.size() >= 2 );
+
+  return track;
+}
+
 /**
  * @return A constant reference to StellarWindMassLossTestFixture::s_TrackRegex
  */
-const std::string& StellarWindMassLossTestFixture::TrackRegex() const
+const std::string& StellarWindMassLossTestFixture::TrackRegex()
 {
   return s_TrackRegex;
 }
@@ -170,7 +184,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   // Check invalid track points
   //@formatter:off
   auto Caller = [ & ]( const auto& i_rPoint ){ Herd::SSE::StellarWindMassLoss::Compute( i_rPoint, neta, heWind, binaryWind, rocheLobe);};
-            //@formatter:on
+                //@formatter:on
 
   {
     Herd::SSE::TrackPoint invalid = validPoint;
@@ -209,22 +223,18 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   }
 }
 
-/// Test on a single track
-BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Compile )
+/// Test on random points a single track
+BOOST_AUTO_TEST_CASE( RandomReferenceTrackSampled, *Herd::UnitTestUtils::Labels::s_Compile )
 {
-  // Pick a random file
-  std::size_t fileCount = GetFileCount( TrackRegex() );
-  BOOST_TEST_REQUIRE( fileCount != 0 );
-  boost::property_tree::ptree data = ReadAsXML( TrackRegex(), GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 ) );
-
-  std::vector< Herd::SSE::TrackPoint > track = MakeTestCase( data );
-  BOOST_TEST_REQUIRE( track.size() >= 2 );
+  std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
   TestFidelity( track, GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ), 0.02 );
+}
 
-  /*  std::unordered_map< std::string, boost::property_tree::ptree > data = ReadAsXML( TrackRegex() );
-   std::vector< Herd::SSE::TrackPoint > track = MakeTestCase( data[ "8_0.01.track.xml" ] );
-   BOOST_TEST_REQUIRE( track.size() >= 2 );
-   TestFidelity( track, 269, 0.02 );*/
+/// Test on a random track
+BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Continuous)
+{
+  std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
+  TestFidelity( MakeTestCase(), GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ) );
 }
 
 /// Test over the entire dataset
