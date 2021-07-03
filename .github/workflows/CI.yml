@@ -25,7 +25,8 @@ jobs:
         sudo add-apt-repository ppa:mhier/libboost-latest
         sudo apt-get update
         sudo apt-get install g++-11 llvm-12-tools
-        sudo apt-get install libboost-dev libboost-all-dev librange-v3-dev libeigen3-dev
+        sudo apt-get install libboost
+        sudo apt-get librange-v3-dev libeigen3-dev
         sudo apt-get install doxygen graphviz gsfonts biber
       
     - name: Configure CMake
