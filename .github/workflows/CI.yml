@@ -18,18 +18,17 @@ jobs:
     
     - name: Install dependencies
       # CMake needs doxygen to build the docs target
-      # 20.04 uses g++ 9.3 and clang-tidy-10 by default
-      # 20.04 uses boost 1.71 by default
+      # 20.04 uses g++ 9.3, clang-tidy-10 and boost 1.71 by default
+      # Get the dependencies from the 21.04 repository
       run: |
         sudo add-apt-repository 'deb http://mirrors.kernel.org/ubuntu hirsute main universe'
-        sudo apt install build-essential software-properties-common
         sudo apt-get update
-        sudo apt-get install g++-11 llvm-12-tools
-        sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev
+        sudo apt-get install g++-11 
+        sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev llvm-12-tools lcov cmake
         sudo apt-get install doxygen graphviz gsfonts biber
         
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DCMAKE_CXX_COMPILER=g++-11 -DCLANG-TIDY-NAME=clang-tidy-12
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DCMAKE_CXX_COMPILER=g++-11 -DCLANG_TIDY_NAMEclang-tidy-12
       
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
