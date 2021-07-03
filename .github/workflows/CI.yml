@@ -24,7 +24,8 @@ jobs:
         sudo add-apt-repository 'deb http://mirrors.kernel.org/ubuntu hirsute main universe'
         sudo apt-get update
         sudo apt-get install g++-11 
-        sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev llvm-12-tools cmake  
+        sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev llvm-12-tools cmake
+        sudo apt-get install doxygen graphviz gsfonts biber
         
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DCMAKE_CXX_COMPILER=g++-11 -DCLANG_TIDY_NAME=clang-tidy-12
@@ -57,7 +58,6 @@ jobs:
         
     - name: Generate documentation
       run: |
-        sudo apt-get install doxygen graphviz gsfonts biber
         cmake --build ${{github.workspace}}/build --target docs
         
     - name: Deploy documentation
