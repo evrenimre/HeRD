@@ -6,7 +6,7 @@ var hierarchy =
     [ "Herd::Generic::Quantity< Tag >", "classHerd_1_1Generic_1_1Quantity.html", null ],
     [ "Herd::Generic::QuantityRange< BoundaryPolicy >", "classHerd_1_1Generic_1_1QuantityRange.html", null ],
     [ "Herd::UnitTestUtils::RandomTestFixture", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html", null ],
-    [ "runtime_error", null, [
+    [ "std::runtime_error", null, [
       [ "Herd::Exceptions::RuntimeError", "classHerd_1_1Exceptions_1_1RuntimeError.html", [
         [ "Herd::Exceptions::PreconditionError", "classHerd_1_1Exceptions_1_1PreconditionError.html", null ]
       ] ]
