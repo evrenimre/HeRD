@@ -4,9 +4,13 @@ if(NOT DEFINED CONFIG_DIR)
 	message(FATAL_ERROR "CONFIG_DIR not defined")
 endif()
 
+if(NOT DEFINED CLANG_TIDY_NAME)
+	message(FATAL_ERROR "CLANG_TIDY_NAME not defined")
+endif()
+
 set(CMAKE_LINK_WHAT_YOU_USE ON)
 
-find_program(CLANG_TIDY clang-tidy)
+find_program(CLANG_TIDY ${CLANG_TIDY_NAME})
 if(CLANG_TIDY)
 	set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY}; -checks=*,-modernize-use-trailing-return-type,-readability-named-parameter # All tests except
 																			    -line-filter=[{"name":".*\.UnitTests.cpp"}]	# Exclude unit tests
