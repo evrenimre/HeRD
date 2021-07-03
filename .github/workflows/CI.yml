@@ -24,13 +24,9 @@ jobs:
         sudo add-apt-repository ppa:ubuntu-toolchain-r/test
         sudo apt-get update
         sudo apt-get install g++-11 llvm-12-tools
-        sudo apt-get install librange-v3-dev libeigen3-dev
+        sudo apt-get install libboost-dev-all librange-v3-dev libeigen3-dev
         sudo apt-get install doxygen graphviz gsfonts biber
-        wget https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.gz
-        tar -zxvf boost_1_76_0.tar.gz
-        cd boost_1_76_0/
-        ./bootstrap.sh
-        ./b2 install
+        
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DCMAKE_CXX_COMPILER=g++-11 -DCLANG-TIDY-NAME=clang-tidy-12
       
