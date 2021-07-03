@@ -48,7 +48,7 @@ public:
    * @param i_pActual Actual value
    */
   PreconditionError( const char* i_pElement, const char* i_pExpected, const char* i_pActual ) :
-      Herd::Exceptions::RuntimeError( ComposeMessage( i_pElement, i_pExpected, i_pActual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) )
+      PreconditionError( std::string( i_pElement ), std::string( i_pExpected ), std::string( i_pActual ) )
   {
   }
 
