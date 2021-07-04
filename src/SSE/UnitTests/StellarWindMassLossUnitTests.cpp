@@ -238,7 +238,7 @@ BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Cont
 }
 
 /// Test over the entire dataset
-BOOST_AUTO_TEST_CASE( AllReferenceTracks, *Herd::UnitTestUtils::Labels::s_Continuous )
+BOOST_AUTO_TEST_CASE( AllReferenceTracks, *Herd::UnitTestUtils::Labels::s_Nightly )
 {
   // Read all files
   std::unordered_map< std::string, boost::property_tree::ptree > data = ReadAsXML( TrackRegex() );
