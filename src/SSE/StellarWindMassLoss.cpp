@@ -48,32 +48,27 @@ double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint,
 {
   Validate( i_rTrackPoint, i_Neta, i_HeWind, i_BinaryWind, i_RocheLobe );
 
-  double dMNJ = ComputeMassiveStarLoss( i_rTrackPoint );
-
-  // MS or remnant
+  // MS and remnant loss
   if( Herd::SSE::IsRemnant( i_rTrackPoint.m_Stage ) || Herd::SSE::IsMS( i_rTrackPoint.m_Stage ) )
   {
-    return dMNJ;
+    return ComputeMassiveStarLoss( i_rTrackPoint );
   }
 
+  // From HG to remnant
   double dMR = ComputeReimersLoss( i_rTrackPoint, i_Neta, i_BinaryWind, i_RocheLobe );
+  double dMWR = ComputeWRLikeLoss( i_rTrackPoint );
 
   // Naked He star loss
   if( Herd::SSE::IsHeStar( i_rTrackPoint.m_Stage ) )
   {
-    double dMWR = ComputeWRLikeLoss( i_rTrackPoint, 0. ) * i_HeWind;
-    return std::max( dMR, dMWR );
+    return std::max( dMR, dMWR * i_HeWind );
   }
 
-  // Between MS and He star
-  
-  double dMVW = ComputePulsationLoss( i_rTrackPoint );
- 
-  double envelopeRatio = ( i_rTrackPoint.m_Mass.Value() - i_rTrackPoint.m_CoreMass.Value() ) / i_rTrackPoint.m_Mass.Value();
-  double mu = envelopeRatio * std::min( 5., std::max( 1.2, std::sqrt( 7.0e4 / i_rTrackPoint.m_Luminosity ) ) );  // Eq. 97
-  double dMWR = ComputeWRLikeLoss( i_rTrackPoint, mu );
-
+  // From HG to He star
+  double dMNJ = ComputeMassiveStarLoss( i_rTrackPoint );
   double dMLBV = ComputeLBVLikeLoss( i_rTrackPoint );
+  double dMVW = Herd::SSE::IsAGB( i_rTrackPoint.m_Stage ) ? ComputePulsationLoss( i_rTrackPoint ) : 0.;
+
   return std::max( { dMR, dMVW, dMNJ, dMWR } ) + dMLBV;
 }
 
@@ -129,12 +124,6 @@ void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, 
  */
 double StellarWindMassLoss::ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_BinaryWind, double i_RocheLobe )
 {
-  // Effective between HG until the end
-  if( Herd::SSE::IsRemnant( i_rTrackPoint.m_Stage ) || Herd::SSE::IsMS( i_rTrackPoint.m_Stage ) )
-  {
-    return 0.;
-  }
-
   double lossRate = 4e-13 * i_Neta * i_rTrackPoint.m_Radius * i_rTrackPoint.m_Luminosity / i_rTrackPoint.m_Mass; // Eq. 106
 
   if( i_RocheLobe > 0 )
@@ -151,11 +140,6 @@ double StellarWindMassLoss::ComputeReimersLoss( const Herd::SSE::TrackPoint& i_r
  */
 double StellarWindMassLoss::ComputePulsationLoss( const Herd::SSE::TrackPoint& i_rTrackPoint )
 {
-  if( !Herd::SSE::IsAGB( i_rTrackPoint.m_Stage ) )
-  {
-    return 0.;
-  }
-
   // Mira pulsation period( std::pow( i_rTrackPoint.m_Luminosity, 1.24 ) )*(std::pow( i_rTrackPoint.m_Mass, 0.16);
   double logP0 = -2.07 - 0.9 * std::log10( i_rTrackPoint.m_Mass ) + 1.94 * std::log10( i_rTrackPoint.m_Radius );
   double p0 = std::min( 2000., std::pow( 10., logP0 ) );
@@ -187,17 +171,19 @@ double StellarWindMassLoss::ComputeMassiveStarLoss( const Herd::SSE::TrackPoint&
 
 /**
  * @param i_rTrackPoint Track point
- * @param i_Mu Hydrogen envelope mass factor,  Eq. 97
  * @return Loss rate
  */
-double StellarWindMassLoss::ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Mu )
+double StellarWindMassLoss::ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint )
 {
-  if( i_Mu >= 1. )
+  double mu = 0.;
+
+  if( !Herd::SSE::IsHeStar( i_rTrackPoint.m_Stage ) )
   {
-    return 0.;
+    double envelopeRatio = ( i_rTrackPoint.m_Mass.Value() - i_rTrackPoint.m_CoreMass.Value() ) / i_rTrackPoint.m_Mass.Value();
+    mu = envelopeRatio * std::min( 5., std::max( 1.2, std::sqrt( 7.0e4 / i_rTrackPoint.m_Luminosity ) ) );  // Eq. 97
   }
 
-  return 1e-13 * std::pow( i_rTrackPoint.m_Luminosity, 1.5 ) * ( 1. - i_Mu );
+  return mu > 1. ? 0. : 1e-13 * std::pow( i_rTrackPoint.m_Luminosity, 1.5 ) * ( 1. - mu );
 }
 
 /**
@@ -206,8 +192,13 @@ double StellarWindMassLoss::ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rT
  */
 double StellarWindMassLoss::ComputeLBVLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint )
 {
+  if( i_rTrackPoint.m_Luminosity <= 6.0e5 )
+  {
+    return 0.;
+  }
+
   double x = 1e-5 * i_rTrackPoint.m_Radius * std::sqrt( i_rTrackPoint.m_Luminosity.Value() );
-  if( x <= 1. || i_rTrackPoint.m_Luminosity <= 6.0e5 )
+  if( x <= 1. )
   {
     return 0.;
   }

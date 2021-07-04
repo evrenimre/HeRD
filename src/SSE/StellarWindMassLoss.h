@@ -38,7 +38,7 @@ private:
   static double ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_BinaryWind, double i_RocheLobe ); ///< Computes the Reimers loss
   static double ComputePulsationLoss( const Herd::SSE::TrackPoint& i_rTrackPoint );  ///< Computes the loss in AGB due to high pulsation periods
   static double ComputeMassiveStarLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the loss for massive stars
-  static double ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Mu ); ///< Computes the Wolf-Rayet-like loss for stars with a small He envelope
+  static double ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the Wolf-Rayet-like loss for stars with a small He envelope
   static double ComputeLBVLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the luminous blue variable-like loss for stars beyond the Humphreys-Davidson limit
 };
 }
