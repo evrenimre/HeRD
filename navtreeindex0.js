@@ -125,8 +125,9 @@ var NAVTREEINDEX0 =
 "SSE_2Constants_8h.html#ac8e717dcf89467489a403001088ed087":[3,0,0,4,1,1],
 "SSE_2Constants_8h_source.html":[3,0,0,4,1],
 "StellarWindMassLossUnitTests_8cpp.html":[3,0,0,4,0,3],
-"StellarWindMassLossUnitTests_8cpp.html#a11ce77939e8b5a899e104bef461fc5ac":[3,0,0,4,0,3,2],
-"StellarWindMassLossUnitTests_8cpp.html#a824d0314f21234755de07c3a0754f758":[3,0,0,4,0,3,0],
+"StellarWindMassLossUnitTests_8cpp.html#a295cbab1e97d41c6814977816eeec765":[3,0,0,4,0,3,2],
+"StellarWindMassLossUnitTests_8cpp.html#a4318243904a4eab2327787ea5605dea9":[3,0,0,4,0,3,0],
+"StellarWindMassLossUnitTests_8cpp.html#a99b6bc3c1865114e6ee9db8d660df7ec":[3,0,0,4,0,3,3],
 "StellarWindMassLossUnitTests_8cpp.html#ad9022a1a1c74c33c4171485f149fee46":[3,0,0,4,0,3,1],
 "StellarWindMassLoss_8cpp.html":[3,0,0,4,5],
 "StellarWindMassLoss_8h.html":[3,0,0,4,6],
@@ -192,7 +193,7 @@ var NAVTREEINDEX0 =
 "classHerd_1_1SSE_1_1StellarWindMassLoss.html":[2,0,0,3,2],
 "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3788a91591df1030e63e73db17fc5bf2":[2,0,0,3,2,3],
 "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3a880f0fa1e89d1f284c882907012c27":[2,0,0,3,2,7],
-"classHerd_1_1SSE_1_1StellarWindMassLoss.html#a7a7c9e45660a4a96d1676897f7f50c4b":[2,0,0,3,2,6],
+"classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac":[2,0,0,3,2,6],
 "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a97dd12ae0b46df0508fb4612355b1b82":[2,0,0,3,2,4],
 "classHerd_1_1SSE_1_1StellarWindMassLoss.html#aaab6bd069be9ecd4f2e7b3cc62d60d41":[2,0,0,3,2,5],
 "classHerd_1_1SSE_1_1StellarWindMassLoss.html#adb315d64cb8dc20c1d9616568bea1da6":[2,0,0,3,2,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "dir_6bd92bd93c0d5d9980919215b46f20a3.html":[3,0,0,1],
 "dir_9b0048d3176e15ec70c0572370a56736.html":[3,0,0,4,0],
 "dir_a7e8d45762b6eccc936283eff74a9bb5.html":[3,0,0,4],
-"dir_ab8a53883e24c3e4798b8a7ea6b57564.html":[3,0,0,2,0],
-"dir_b37d33ceb7f5c107fb027d4db224bc89.html":[3,0,0,2]
+"dir_ab8a53883e24c3e4798b8a7ea6b57564.html":[3,0,0,2,0]
 };

@@ -12,7 +12,7 @@ var searchData=
   ['computeradius_29',['ComputeRadius',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4f0216d22fad3167db85fd9e077450d1',1,'Herd::Physics::LuminosityRadiusTemperature::ComputeRadius()'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a422febde172bffcd21697b24f1697f3d',1,'Herd::SSE::ZeroAgeMainSequence::ComputeRadius()']]],
   ['computereimersloss_30',['ComputeReimersLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#aaab6bd069be9ecd4f2e7b3cc62d60d41',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computetemperature_31',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
-  ['computewrlikeloss_32',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a7a7c9e45660a4a96d1676897f7f50c4b',1,'Herd::SSE::StellarWindMassLoss']]],
+  ['computewrlikeloss_32',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computezams_2ecpp_33',['ComputeZAMS.cpp',['../ComputeZAMS_8cpp.html',1,'']]],
   ['constants_2eh_34',['Constants.h',['../SSE_2Constants_8h.html',1,'(Global Namespace)'],['../Physics_2Constants_8h.html',1,'(Global Namespace)']]],
   ['contains_35',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]]

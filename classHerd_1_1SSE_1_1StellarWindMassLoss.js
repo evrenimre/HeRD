@@ -6,6 +6,6 @@ var classHerd_1_1SSE_1_1StellarWindMassLoss =
     [ "ComputeMassiveStarLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3788a91591df1030e63e73db17fc5bf2", null ],
     [ "ComputePulsationLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a97dd12ae0b46df0508fb4612355b1b82", null ],
     [ "ComputeReimersLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#aaab6bd069be9ecd4f2e7b3cc62d60d41", null ],
-    [ "ComputeWRLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a7a7c9e45660a4a96d1676897f7f50c4b", null ],
+    [ "ComputeWRLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac", null ],
     [ "Validate", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3a880f0fa1e89d1f284c882907012c27", null ]
 ];
