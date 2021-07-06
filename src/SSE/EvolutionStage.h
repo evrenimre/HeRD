@@ -13,6 +13,7 @@
 #ifndef H808BBCA9_C3C4_4237_A17C_8721989DF8BE
 #define H808BBCA9_C3C4_4237_A17C_8721989DF8BE
 
+#include <array>
 #include <string>
 
 namespace Herd::SSE
@@ -51,6 +52,9 @@ bool IsHeStar( EvolutionStage i_Stage );  ///< Is a He Star?
 // Enum <-> String conversions
 EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString ); ///< Converts a string to an evolution stage
 std::string ConvertEvolutionStageToString( EvolutionStage i_Stage );  ///< Converts an evolution stage to a string
+
+std::array< EvolutionStage, 17 > EnumerateEvolutionStages();  ///< Returns a list of evolution stages
+
 
 }
 

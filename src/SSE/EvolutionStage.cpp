@@ -10,11 +10,13 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#include "EvolutionStages.h"
+#include "EvolutionStage.h"
 
 #include <Exceptions/PreconditionError.h>
 
 #include <boost/container/flat_map.hpp>
+#include <range/v3/algorithm.hpp>
+#include <range/v3/view.hpp>
 
 namespace
 {
@@ -122,6 +124,17 @@ EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString )
 std::string ConvertEvolutionStageToString( EvolutionStage i_Stage )
 {
   return s_StageToString[ i_Stage ];
+}
+
+/**
+ * @return A list of evolution stages in the same order as EvolutionStage
+ */
+std::array< EvolutionStage, 17 > EnumerateEvolutionStages()
+{
+  std::array< EvolutionStage, 17 > output;
+  ranges::cpp20::copy( s_StageToString | ranges::views::keys, output.begin() );
+
+  return output;
 }
 
 }

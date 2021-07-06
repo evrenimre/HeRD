@@ -13,10 +13,11 @@
 #ifndef H633A09E8_2301_41B3_8E30_CFE3C37DFCF3
 #define H633A09E8_2301_41B3_8E30_CFE3C37DFCF3
 
-#include "EvolutionStages.h"
 #include <Generic/Quantities.h>
 
 #include <boost/container/flat_map.hpp>
+
+#include "EvolutionStage.h"
 #include "TrackPoint.h"
 
 namespace Herd::SSE

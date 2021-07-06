@@ -15,7 +15,7 @@
 #include "SSETestDataManager.h"
 
 #include <Exceptions/PreconditionError.h>
-#include <SSE/EvolutionStages.h>
+#include <SSE/EvolutionStage.h>
 #include <SSE/StellarWindMassLoss.h>
 #include <SSE/TrackPoint.h>
 

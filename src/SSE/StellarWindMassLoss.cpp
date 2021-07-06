@@ -11,7 +11,8 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 #include "Constants.h"
-#include "EvolutionStages.h"
+#include "EvolutionStage.h"
+#include "StellarWindMassLoss.h"
 
 #include <Exceptions/PreconditionError.h>
 
@@ -19,7 +20,6 @@
 #include <cmath>
 
 #include <boost/math/special_functions/pow.hpp>
-#include "StellarWindMassLoss.h"
 
 namespace Herd::SSE
 {

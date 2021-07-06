@@ -1,13 +1,13 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(HEADER_LIST Constants.h
-								EvolutionStages.h
+								EvolutionStage.h
 								EvolutionState.h
 								StellarWindMassLoss.h
 								TrackPoint.h
 								ZeroAgeMainSequence.h 
 )
 
-set(SOURCE_LIST EvolutionStages.cpp
+set(SOURCE_LIST EvolutionStage.cpp
 								StellarWindMassLoss.cpp
 								ZeroAgeMainSequence.cpp
 )
