@@ -15,8 +15,6 @@
 
 #include <string>
 
-#include <boost/bimap.hpp>
-
 namespace Herd::SSE
 {
 /**
@@ -50,7 +48,9 @@ bool IsMS( EvolutionStage i_Stage );  ///< Is a MS stage?
 bool IsAGB( EvolutionStage i_Stage );  ///< Is an AGB stage?
 bool IsHeStar( EvolutionStage i_Stage );  ///< Is a He Star?
 
-boost::bimap< EvolutionStage, std::string > MakeEvolutionStageAndStringBimap();  ///< Makes a dictionary for conversions to and from string
+// Enum <-> String conversions
+EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString ); ///< Converts a string to an evolution stage
+std::string ConvertEvolutionStageToString( EvolutionStage i_Stage );  ///< Converts an evolution stage to a string
 
 }
 

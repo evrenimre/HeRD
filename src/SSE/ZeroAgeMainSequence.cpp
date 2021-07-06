@@ -68,7 +68,7 @@ struct ZeroAgeMainSequenceAlgorithmSpecs;
  * @pre \c i_Z is is within \c s_ZRange
  * @remarks Only luminosity, radius and temperature are computed
  */
-Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ) // @suppress("Member declaration not found")
 {
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
   
@@ -168,7 +168,6 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
 
   return Herd::Generic::Radius( num / den );
 }
-
 
 } // namespace Herd::SSE
 

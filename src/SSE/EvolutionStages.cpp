@@ -12,6 +12,51 @@
 
 #include "EvolutionStages.h"
 
+#include <Exceptions/PreconditionError.h>
+
+#include <boost/container/flat_map.hpp>
+
+namespace
+{
+//@formatter:off
+static inline boost::container::flat_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
+  { Herd::SSE::EvolutionStage::e_MS, "MS"},
+  { Herd::SSE::EvolutionStage::e_HG, "HG"},
+  { Herd::SSE::EvolutionStage::e_FGB, "FGB"},
+  { Herd::SSE::EvolutionStage::e_CHeB, "CHeB"},
+  { Herd::SSE::EvolutionStage::e_FAGB, "FAGB"},
+  { Herd::SSE::EvolutionStage::e_SAGB, "SAGB"},
+  { Herd::SSE::EvolutionStage::e_HeMS, "HeMS"},
+  { Herd::SSE::EvolutionStage::e_HeHG, "HeHG"},
+  { Herd::SSE::EvolutionStage::e_HeGB, "HeGB"},
+  { Herd::SSE::EvolutionStage::e_HeWD, "HeWD"},
+  { Herd::SSE::EvolutionStage::e_COWD, "COWD"},
+  { Herd::SSE::EvolutionStage::e_ONWD, "ONWD"},
+  { Herd::SSE::EvolutionStage::e_NS, "NS"},
+  { Herd::SSE::EvolutionStage::e_BH, "BH"},
+  { Herd::SSE::EvolutionStage::e_MSn, "MSn"},
+  { Herd::SSE::EvolutionStage::e_Undefined, "Undefined"}};
+
+static inline boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage{ { "MSLM", Herd::SSE::EvolutionStage::e_MSLM },
+  { "MS",Herd::SSE::EvolutionStage::e_MS},
+  { "HG", Herd::SSE::EvolutionStage::e_HG},
+  { "FGB", Herd::SSE::EvolutionStage::e_FGB },
+  { "CHeB", Herd::SSE::EvolutionStage::e_CHeB },
+  { "FAGB", Herd::SSE::EvolutionStage::e_FAGB },
+  { "SAGB", Herd::SSE::EvolutionStage::e_SAGB },
+  { "HeMS", Herd::SSE::EvolutionStage::e_HeMS },
+  { "HeHG", Herd::SSE::EvolutionStage::e_HeHG },
+  { "HeGB", Herd::SSE::EvolutionStage::e_HeGB },
+  { "HeWD", Herd::SSE::EvolutionStage::e_HeWD },
+  { "COWD", Herd::SSE::EvolutionStage::e_COWD },
+  { "ONWD", Herd::SSE::EvolutionStage::e_ONWD },
+  { "NS", Herd::SSE::EvolutionStage::e_NS },
+  { "BH", Herd::SSE::EvolutionStage::e_BH },
+  { "MSn", Herd::SSE::EvolutionStage::e_MSn },
+  { "Undefined", Herd::SSE::EvolutionStage::e_Undefined }};
+//@formatter:on
+}
+
 namespace Herd::SSE
 {
 /**
@@ -52,34 +97,31 @@ bool IsHeStar( EvolutionStage i_Stage )
 }
 
 /**
- * @return A bimap for evolution stages and their corresponding strings
+ * @param i_rString String
+ * @return Corresponding enum
+ * @pre \c i_rString has a corresponding enum
+ * @throws PreconditionError If \c i_rString does not have a corresponding enum
  */
-boost::bimap< EvolutionStage, std::string > MakeEvolutionStageAndStringBimap()
+EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString )
 {
-  using Bimap = boost::bimap< EvolutionStage, std::string >;
-  using Record = Bimap::value_type;
+  auto iQuery = s_StringToStage.find( i_rString );
+  //@formatter:off
+  if( iQuery == s_StringToStage.end() ) [[unlikely]]
+                                           //@formatter:on
+  {
+    throw( Herd::Exceptions::PreconditionError( "s_StringToStage", "a valid evolution stage", i_rString ));
+  }
 
-  Bimap dictionary;
+  return iQuery->second;
+}
 
-  dictionary.insert( Record( EvolutionStage::e_MSLM, "MSLM" ) );
-  dictionary.insert( Record( EvolutionStage::e_MS, "MS" ) );
-  dictionary.insert( Record( EvolutionStage::e_HG, "HG" ) );
-  dictionary.insert( Record( EvolutionStage::e_FGB, "FGB" ) );
-  dictionary.insert( Record( EvolutionStage::e_CHeB, "CHeB" ) );
-  dictionary.insert( Record( EvolutionStage::e_FAGB, "FAGB" ) );
-  dictionary.insert( Record( EvolutionStage::e_SAGB, "SAGB" ) );
-  dictionary.insert( Record( EvolutionStage::e_HeMS, "HeMS" ) );
-  dictionary.insert( Record( EvolutionStage::e_HeHG, "HeHG" ) );
-  dictionary.insert( Record( EvolutionStage::e_HeGB, "HeGB" ) );
-  dictionary.insert( Record( EvolutionStage::e_HeWD, "HeWD" ) );
-  dictionary.insert( Record( EvolutionStage::e_COWD, "COWD" ) );
-  dictionary.insert( Record( EvolutionStage::e_ONWD, "ONWD" ) );
-  dictionary.insert( Record( EvolutionStage::e_NS, "NS" ) );
-  dictionary.insert( Record( EvolutionStage::e_BH, "BH" ) );
-  dictionary.insert( Record( EvolutionStage::e_MSn, "MSn" ) );
-  dictionary.insert( Record( EvolutionStage::e_Undefined, "Undefined" ) );
-
-  return dictionary;
+/**
+ * @param i_Stage Evolution stage
+ * @return String corresponding to the evolution stage
+ */
+std::string ConvertEvolutionStageToString( EvolutionStage i_Stage )
+{
+  return s_StageToString[ i_Stage ];
 }
 
 }

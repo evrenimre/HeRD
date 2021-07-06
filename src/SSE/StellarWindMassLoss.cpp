@@ -140,7 +140,7 @@ double StellarWindMassLoss::ComputeReimersLoss( const Herd::SSE::TrackPoint& i_r
  */
 double StellarWindMassLoss::ComputePulsationLoss( const Herd::SSE::TrackPoint& i_rTrackPoint )
 {
-  // Mira pulsation period( std::pow( i_rTrackPoint.m_Luminosity, 1.24 ) )*(std::pow( i_rTrackPoint.m_Mass, 0.16);
+  // Mira pulsation period
   double logP0 = -2.07 - 0.9 * std::log10( i_rTrackPoint.m_Mass ) + 1.94 * std::log10( i_rTrackPoint.m_Radius );
   double p0 = std::min( 2000., std::pow( 10., logP0 ) );
 

@@ -34,7 +34,6 @@ void SSETestDataManager::SetData( const boost::property_tree::ptree& i_rParentTo
 
   m_TrackPointCount = ranges::cpp20::count_if( m_Parent, [ & ]( const auto& i_rNode )
   { return i_rNode.first == s_TrackPointTag;} );
-  m_StringAndStage = Herd::SSE::MakeEvolutionStageAndStringBimap();
 }
 
 /**
@@ -140,7 +139,7 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_
       trackPoint.m_InitialMetallicity.Set( *i_rZo );
     }
 
-    trackPoint.m_Stage = m_StringAndStage.right.at( rAttributes.get< std::string >( "Stage" ) );
+    trackPoint.m_Stage = Herd::SSE::ConvertStringToEvolutionStage( rAttributes.get< std::string >( "Stage" ) );
 
   } catch( ... )
   {

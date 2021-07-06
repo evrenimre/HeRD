@@ -22,7 +22,6 @@
 #include <string>
 #include <vector>
 
-#include <boost/bimap.hpp>
 #include <boost/property_tree/ptree.hpp>
 
 namespace Herd::SSE::UnitTests
@@ -69,7 +68,6 @@ private:
   std::size_t m_TrackPointCount = 0; ///< Number of track points for SSETestDataManager::m_Parent
   std::vector< Herd::SSE::TrackPoint > m_TrackPoints; ///< Track points in the tree
 
-  boost::bimap< Herd::SSE::EvolutionStage, std::string > m_StringAndStage;  ///< Evolution stages and their corresponding strings
 };
 
 }
