@@ -9,7 +9,6 @@ var classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager =
     [ "TrackPointCount", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#ab66c9448e590ec1334500d61bbd42f8f", null ],
     [ "TrackPoints", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a8ed56a274f0662426f14dbc3e2a7641a", null ],
     [ "m_Parent", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#aeb4c422b8888a15ccfa224d2083f6e54", null ],
-    [ "m_StringAndStage", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a522510cf1e4d93a7640ad741254ce584", null ],
     [ "m_TrackPointCount", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a536cd72a7934c4ca4e5e8e09b46b4c36", null ],
     [ "m_TrackPoints", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a79087c40aa5f0dfb8fa3a2e6b62bf4d9", null ],
     [ "s_TrackPointTag", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a7b54bbce74756b207ab3437ade3cbbb7", null ]
