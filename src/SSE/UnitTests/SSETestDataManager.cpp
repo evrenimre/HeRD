@@ -139,7 +139,7 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_
       trackPoint.m_InitialMetallicity.Set( *i_rZo );
     }
 
-    trackPoint.m_Stage = Herd::SSE::ConvertStringToEvolutionStage( rAttributes.get< std::string >( "Stage" ) );
+    trackPoint.m_Stage = Herd::SSE::StringToEvolutionStage( rAttributes.get< std::string >( "Stage" ) );
 
   } catch( ... )
   {

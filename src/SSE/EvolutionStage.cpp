@@ -38,25 +38,22 @@ const boost::container::flat_map< Herd::SSE::EvolutionStage, std::string > s_Sta
   { Herd::SSE::EvolutionStage::e_BH, "BH"},
   { Herd::SSE::EvolutionStage::e_MSn, "MSn"},
   { Herd::SSE::EvolutionStage::e_Undefined, "Undefined"}};
-
-const boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage{ { "MSLM", Herd::SSE::EvolutionStage::e_MSLM },
-  { "MS",Herd::SSE::EvolutionStage::e_MS},
-  { "HG", Herd::SSE::EvolutionStage::e_HG},
-  { "FGB", Herd::SSE::EvolutionStage::e_FGB },
-  { "CHeB", Herd::SSE::EvolutionStage::e_CHeB },
-  { "FAGB", Herd::SSE::EvolutionStage::e_FAGB },
-  { "SAGB", Herd::SSE::EvolutionStage::e_SAGB },
-  { "HeMS", Herd::SSE::EvolutionStage::e_HeMS },
-  { "HeHG", Herd::SSE::EvolutionStage::e_HeHG },
-  { "HeGB", Herd::SSE::EvolutionStage::e_HeGB },
-  { "HeWD", Herd::SSE::EvolutionStage::e_HeWD },
-  { "COWD", Herd::SSE::EvolutionStage::e_COWD },
-  { "ONWD", Herd::SSE::EvolutionStage::e_ONWD },
-  { "NS", Herd::SSE::EvolutionStage::e_NS },
-  { "BH", Herd::SSE::EvolutionStage::e_BH },
-  { "MSn", Herd::SSE::EvolutionStage::e_MSn },
-  { "Undefined", Herd::SSE::EvolutionStage::e_Undefined }};
 //@formatter:on
+
+/**
+ * @brief Makes a map from strings to evolution stages
+ * @return A map from strings to evolution stages
+ */
+boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > MakeStringToStage()
+{
+  boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > output;
+
+  //@formatter:off
+  ranges::cpp20::for_each( s_StageToString, [&]( const auto& i_rEntry ){ output.emplace( i_rEntry.second, i_rEntry.first);});
+    //@formatter:on
+
+  return output;
+}
 }
 
 namespace Herd::SSE
@@ -104,8 +101,11 @@ bool IsHeStar( EvolutionStage i_Stage )
  * @pre \c i_rString has a corresponding enum
  * @throws PreconditionError If \c i_rString does not have a corresponding enum
  */
-EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString )
+EvolutionStage StringToEvolutionStage( const std::string& i_rString )
 {
+  // This makes the converter map from s_StageToString. If a new type is added, it is automatically picked up
+  static const boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
+
   auto iQuery = s_StringToStage.find( i_rString );
   //@formatter:off
   if( iQuery == s_StringToStage.end() ) [[unlikely]]
@@ -121,7 +121,7 @@ EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString )
  * @param i_Stage Evolution stage
  * @return String corresponding to the evolution stage
  */
-std::string ConvertEvolutionStageToString( EvolutionStage i_Stage )
+std::string EvolutionStageToString( EvolutionStage i_Stage )
 {
   return s_StageToString.find( i_Stage )->second;
 }

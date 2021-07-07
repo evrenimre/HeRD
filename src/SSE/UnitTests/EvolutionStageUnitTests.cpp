@@ -37,14 +37,14 @@ BOOST_AUTO_TEST_CASE( StringAndStage, *Herd::UnitTestUtils::Labels::s_Compile )
   {
     BOOST_TEST_CONTEXT( current.index() ) // @suppress("Method cannot be resolved") // @suppress("Symbol is not resolved")
     {
-      std::string stageString = Herd::SSE::ConvertEvolutionStageToString( current.value() ); // @suppress("Method cannot be resolved") // @suppress("Invalid arguments")
-      Herd::SSE::EvolutionStage actual = Herd::SSE::ConvertStringToEvolutionStage( stageString );
+      std::string stageString = Herd::SSE::EvolutionStageToString( current.value() ); // @suppress("Method cannot be resolved") // @suppress("Invalid arguments")
+      Herd::SSE::EvolutionStage actual = Herd::SSE::StringToEvolutionStage( stageString );
       BOOST_TEST( ( actual == current.value() ) ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
     }
   }
 
   // Invalid string
-  BOOST_CHECK_THROW( Herd::SSE::ConvertStringToEvolutionStage( "Invalid" ), Herd::Exceptions::PreconditionError );
+  BOOST_CHECK_THROW( Herd::SSE::StringToEvolutionStage( "Invalid" ), Herd::Exceptions::PreconditionError );
 }
 
 BOOST_AUTO_TEST_SUITE_END( )
