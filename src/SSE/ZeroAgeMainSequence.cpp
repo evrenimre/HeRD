@@ -31,6 +31,7 @@
 
 namespace
 {
+// Declaring the coefficient arrays constant prevents mapping to an Eigen matrix object
 // @formatter:off
 double eq3Coefficients[] { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.7470851e-01, 9.011915e-02,
     8.527626e+00, -2.441225973e+01, 5.643597107e+01, 3.706152575e+01, 5.4562406e+00,
@@ -120,7 +121,7 @@ void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
  */
 Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
 {
-  Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( &eq3Coefficients[ 0 ] );
+  const Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( &eq3Coefficients[ 0 ] );
   Eigen::Matrix< double, 7, 1 > eq1Coeffs = coefficientMatrix * i_ZVector;  // Eq3
 
   // Powers of mass
@@ -148,7 +149,7 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
  */
 Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
 {
-  Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( &eq4Coefficients[ 0 ] );
+  const Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( &eq4Coefficients[ 0 ] );
   Eigen::Matrix< double, 9, 1 > eq2Coeffs = coefficientMatrix * i_ZVector;  // Eq4
 
   // Powers of mass

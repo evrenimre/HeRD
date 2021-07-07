@@ -21,7 +21,7 @@
 namespace
 {
 //@formatter:off
-static inline boost::container::flat_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
+const boost::container::flat_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
   { Herd::SSE::EvolutionStage::e_MS, "MS"},
   { Herd::SSE::EvolutionStage::e_HG, "HG"},
   { Herd::SSE::EvolutionStage::e_FGB, "FGB"},
@@ -39,7 +39,7 @@ static inline boost::container::flat_map< Herd::SSE::EvolutionStage, std::string
   { Herd::SSE::EvolutionStage::e_MSn, "MSn"},
   { Herd::SSE::EvolutionStage::e_Undefined, "Undefined"}};
 
-static inline boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage{ { "MSLM", Herd::SSE::EvolutionStage::e_MSLM },
+const boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage{ { "MSLM", Herd::SSE::EvolutionStage::e_MSLM },
   { "MS",Herd::SSE::EvolutionStage::e_MS},
   { "HG", Herd::SSE::EvolutionStage::e_HG},
   { "FGB", Herd::SSE::EvolutionStage::e_FGB },
@@ -123,7 +123,7 @@ EvolutionStage ConvertStringToEvolutionStage( const std::string& i_rString )
  */
 std::string ConvertEvolutionStageToString( EvolutionStage i_Stage )
 {
-  return s_StageToString[ i_Stage ];
+  return s_StageToString.find( i_Stage )->second;
 }
 
 /**
