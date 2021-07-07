@@ -30,6 +30,7 @@ set(INSTALL_CMAKE_DIR "${INSTALL_LIB_DIR}/CMake" CACHE PATH "Installation direct
 
 # Options
 option(ENABLE_CODE_COVERAGE "Enable coverage reporting" OFF)
+option(USE_SANITISER "Enable instrumentation for sanitisers" OFF)
 
 set(UNIT_TEST_LABELS "0_Compile" "1_Continuous" "2_Nightly" "ALL")
 list(GET UNIT_TEST_LABELS 0 DEFAULT_UNIT_TEST_LEVEL)
@@ -51,6 +52,7 @@ set(CONFIG_DIR "${PROJECT_SOURCE_DIR}/Config")
 include(HerdConfigureStaticCheckers)	# Static checkers
 include(HerdConfigureDoxygen)	# Documentation
 include(HerdConfigureCodeCoverage)	# Code coverage
+include(HerdConfigureInstrumentation)	# Instrumentation
 include(HerdConfigureUnitTests)	# Unit tests
 
 # Source files
