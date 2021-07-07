@@ -9,6 +9,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_BUILD_TYPE DEBUG)
 
+# Default compiler options
+set(CXX_WARNING_FLAGS "-Wall -Wextra --pedantic -Werror" )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX_WARNING_FLAGS}"  )
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # Disallow in-source builds

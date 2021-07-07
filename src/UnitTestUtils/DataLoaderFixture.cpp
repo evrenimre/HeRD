@@ -81,7 +81,7 @@ boost::property_tree::ptree DataLoaderFixture::ReadAsXML( const std::string& i_r
       | boost::adaptors::indexed())
       //@formatter:on
   {
-    if( current.index() == i_Index ) // @suppress("Method cannot be resolved")
+    if( static_cast< std::size_t >( current.index() ) == i_Index ) // @suppress("Method cannot be resolved")
     {
     filepath = current.value(); // @suppress("Method cannot be resolved")
       break;
