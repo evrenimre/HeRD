@@ -9,13 +9,11 @@ var searchData=
   ['computeluminosty_26',['ComputeLuminosty',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#af1c75bac618a43d4b9373260d6bf4672',1,'Herd::Physics::LuminosityRadiusTemperature']]],
   ['computemassivestarloss_27',['ComputeMassiveStarLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3788a91591df1030e63e73db17fc5bf2',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computepulsationloss_28',['ComputePulsationLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a97dd12ae0b46df0508fb4612355b1b82',1,'Herd::SSE::StellarWindMassLoss']]],
-  ['computeradius_29',['ComputeRadius',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a422febde172bffcd21697b24f1697f3d',1,'Herd::SSE::ZeroAgeMainSequence::ComputeRadius()'],['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4f0216d22fad3167db85fd9e077450d1',1,'Herd::Physics::LuminosityRadiusTemperature::ComputeRadius()']]],
+  ['computeradius_29',['ComputeRadius',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4f0216d22fad3167db85fd9e077450d1',1,'Herd::Physics::LuminosityRadiusTemperature::ComputeRadius()'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a422febde172bffcd21697b24f1697f3d',1,'Herd::SSE::ZeroAgeMainSequence::ComputeRadius()']]],
   ['computereimersloss_30',['ComputeReimersLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#aaab6bd069be9ecd4f2e7b3cc62d60d41',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computetemperature_31',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
   ['computewrlikeloss_32',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computezams_2ecpp_33',['ComputeZAMS.cpp',['../ComputeZAMS_8cpp.html',1,'']]],
-  ['constants_2eh_34',['Constants.h',['../Physics_2Constants_8h.html',1,'(Global Namespace)'],['../SSE_2Constants_8h.html',1,'(Global Namespace)']]],
-  ['contains_35',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]],
-  ['convertevolutionstagetostring_36',['ConvertEvolutionStageToString',['../namespaceHerd_1_1SSE.html#a241b3be67b5bdcb96c8f44f7b467aa8c',1,'Herd::SSE']]],
-  ['convertstringtoevolutionstage_37',['ConvertStringToEvolutionStage',['../namespaceHerd_1_1SSE.html#a197f81bebb25b26f129c69d22fb4e79d',1,'Herd::SSE']]]
+  ['constants_2eh_34',['Constants.h',['../SSE_2Constants_8h.html',1,'(Global Namespace)'],['../Physics_2Constants_8h.html',1,'(Global Namespace)']]],
+  ['contains_35',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]]
 ];

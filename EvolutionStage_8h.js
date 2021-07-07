@@ -19,11 +19,11 @@ var EvolutionStage_8h =
       [ "e_MSn", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aea435afc00b062b9e128ad7dc337ca775c", null ],
       [ "e_Undefined", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aeacb6f3fa57416b9f9569bcb73bbf2e4ed", null ]
     ] ],
-    [ "ConvertEvolutionStageToString", "EvolutionStage_8h.html#a241b3be67b5bdcb96c8f44f7b467aa8c", null ],
-    [ "ConvertStringToEvolutionStage", "EvolutionStage_8h.html#a197f81bebb25b26f129c69d22fb4e79d", null ],
     [ "EnumerateEvolutionStages", "EvolutionStage_8h.html#a2516aa1094ad7de074c6f23ec71c083f", null ],
+    [ "EvolutionStageToString", "EvolutionStage_8h.html#a90929104a2db17d25e2805a717372dbc", null ],
     [ "IsAGB", "EvolutionStage_8h.html#a4b1c6b74f16e1e3affa1df36dca80b79", null ],
     [ "IsHeStar", "EvolutionStage_8h.html#a5e16e045b62428235960373056b9ebc6", null ],
     [ "IsMS", "EvolutionStage_8h.html#a898168595caece7ff07acd89c110a3d1", null ],
-    [ "IsRemnant", "EvolutionStage_8h.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ]
+    [ "IsRemnant", "EvolutionStage_8h.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ],
+    [ "StringToEvolutionStage", "EvolutionStage_8h.html#a835bcc940a0d81431be1314348854fef", null ]
 ];

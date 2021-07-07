@@ -29,11 +29,11 @@ var namespaceHerd_1_1SSE =
       [ "e_MSn", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aea435afc00b062b9e128ad7dc337ca775c", null ],
       [ "e_Undefined", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aeacb6f3fa57416b9f9569bcb73bbf2e4ed", null ]
     ] ],
-    [ "ConvertEvolutionStageToString", "namespaceHerd_1_1SSE.html#a241b3be67b5bdcb96c8f44f7b467aa8c", null ],
-    [ "ConvertStringToEvolutionStage", "namespaceHerd_1_1SSE.html#a197f81bebb25b26f129c69d22fb4e79d", null ],
     [ "EnumerateEvolutionStages", "namespaceHerd_1_1SSE.html#a2516aa1094ad7de074c6f23ec71c083f", null ],
+    [ "EvolutionStageToString", "namespaceHerd_1_1SSE.html#a90929104a2db17d25e2805a717372dbc", null ],
     [ "IsAGB", "namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79", null ],
     [ "IsHeStar", "namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6", null ],
     [ "IsMS", "namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1", null ],
-    [ "IsRemnant", "namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ]
+    [ "IsRemnant", "namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ],
+    [ "StringToEvolutionStage", "namespaceHerd_1_1SSE.html#a835bcc940a0d81431be1314348854fef", null ]
 ];

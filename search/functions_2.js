@@ -12,7 +12,5 @@ var searchData=
   ['computereimersloss_293',['ComputeReimersLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#aaab6bd069be9ecd4f2e7b3cc62d60d41',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computetemperature_294',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
   ['computewrlikeloss_295',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
-  ['contains_296',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]],
-  ['convertevolutionstagetostring_297',['ConvertEvolutionStageToString',['../namespaceHerd_1_1SSE.html#a241b3be67b5bdcb96c8f44f7b467aa8c',1,'Herd::SSE']]],
-  ['convertstringtoevolutionstage_298',['ConvertStringToEvolutionStage',['../namespaceHerd_1_1SSE.html#a197f81bebb25b26f129c69d22fb4e79d',1,'Herd::SSE']]]
+  ['contains_296',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]]
 ];
