@@ -230,15 +230,17 @@ BOOST_AUTO_TEST_CASE( RandomReferenceTrackSampled, *Herd::UnitTestUtils::Labels:
   TestFidelity( track, GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ), 0.02 );
 }
 
+/*
 /// Test on a random track
 BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Continuous)
 {
   std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
   TestFidelity( MakeTestCase(), GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ) );
 }
+ */
 
 /// Test over the entire dataset
-BOOST_AUTO_TEST_CASE( AllReferenceTracks, *Herd::UnitTestUtils::Labels::s_Nightly )
+BOOST_AUTO_TEST_CASE( AllReferenceTracks, *Herd::UnitTestUtils::Labels::s_Continuous )
 {
   // Read all files
   std::unordered_map< std::string, boost::property_tree::ptree > data = ReadAsXML( TrackRegex() );
