@@ -11,7 +11,7 @@ set( INTERFACE_DEPS_LIST boost_stacktrace_backtrace
 herd_add_interface_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 																						 		 INTERFACE_DEPS ${INTERFACE_DEPS_LIST}
 																						 		 INSTALL
-																						 		 COVERAGE
+																						 		 INSTRUMENT
 )
 
 target_compile_definitions(${TARGET_NAME} INTERFACE BOOST_STACKTRACE_USE_BACKTRACE

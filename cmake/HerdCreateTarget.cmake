@@ -3,7 +3,7 @@
 # Adds a static library
 function(herd_add_static_library)
 	set(options INSTALL	# Creates an install target
-							COVERAGE	# Adds coverage instrumentation to library and its dependents
+							INSTRUMENT	# Adds instrumentation code  to library and its dependents
 	)
 	set(one_value_keywords TARGET	# Target name
 	)
@@ -28,8 +28,8 @@ function(herd_add_static_library)
 																		INTERFACE ${i_INTERFACE_DEPS}
 	)
 
-	if(i_COVERAGE)
-		target_link_libraries(${i_TARGET} PUBLIC ${COVERAGE_TARGET})
+	if(i_INSTRUMENT)
+		target_link_libraries(${i_TARGET} PUBLIC ${INSTRUMENTATION_TARGET})
 	endif()
 
 	if(i_INSTALL)
@@ -41,7 +41,7 @@ endfunction()
 # Adds an interface library
 function(herd_add_interface_library)
 	set(options INSTALL	# If true, creates an install target
-							COVERAGE	# Adds coverage instrumentation to library and its dependents
+							INSTRUMENT	# Adds instrumentation code to library and its dependents
 	)
 	set(one_value_keywords TARGET	# Target name
 	)
@@ -58,10 +58,10 @@ function(herd_add_interface_library)
 
 	target_link_libraries(${i_TARGET} INTERFACE ${i_INTERFACE_DEPS})
 	
-	if(i_COVERAGE)
-		target_link_libraries(${i_TARGET} INTERFACE ${COVERAGE_TARGET})
+	if(i_INSTRUMENT)
+		target_link_libraries(${i_TARGET} INTERFACE ${INSTRUMENTATION_TARGET})
 	endif()
-
+	
 	if(i_INSTALL)
 		herd_internal_add_install_target()
 	endif()

@@ -43,7 +43,7 @@ set(CLANG_TIDY_NAME "clang-tidy" CACHE PATH "Name of the clang-tidy binary")
 include(HerdCreateTarget)	
 
 # Dependencies
-find_package(Boost 1.71.0 REQUIRED)
+find_package(Boost 1.74.0 REQUIRED)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(range-v3 REQUIRED)
 
@@ -56,11 +56,10 @@ else()
 	message(WARNING "Could not find a file for compiler and linker flags. Features requiring specific flags may not work correctly")
 endif()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_CXX_WARNING_FLAGS}")	# Default compiler options
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_CXX_WARNING_FLAGS}")	# Default compiler flags
 
 include(HerdConfigureStaticCheckers)	# Static checkers
 include(HerdConfigureDoxygen)	# Documentation
-include(HerdConfigureCodeCoverage)	# Code coverage
 include(HerdConfigureInstrumentation)	# Instrumentation
 include(HerdConfigureUnitTests)	# Unit tests
 
