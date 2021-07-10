@@ -1,4 +1,9 @@
 # Configures instrumentation
+# Operation:
+# Create a new target for each enabled option
+# The instrumentation target depends on each enabled target
+# Targets requiring instrumentation introduce a dependency to the instrumentation target
+
 
 set(INSTRUMENTATION_DEPS)	# Each enabled instrumentation option is added to this list
 
