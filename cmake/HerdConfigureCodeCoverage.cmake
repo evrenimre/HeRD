@@ -7,12 +7,11 @@ endif()
 set(COVERAGE_TARGET CoverageTarget)
 herd_add_interface_library(TARGET ${COVERAGE_TARGET} INSTALL)
 
-if(ENABLE_CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-  # Add required flags (GCC & LLVM/Clang)
-  target_compile_options( ${COVERAGE_TARGET} INTERFACE
-    -O0        # no optimization
-    -g         # generate debug info
-    --coverage # sets all required flags
-  )
-  target_link_options(${COVERAGE_TARGET} INTERFACE --coverage)
+if(ENABLE_CODE_COVERAGE)
+	if(COMPILER_CXX_COVERAGE_FLAGS AND LINKER_CXX_COVERAGE_FLAGS)
+	  target_compile_options(${COVERAGE_TARGET} INTERFACE ${COMPILER_CXX_COVERAGE_FLAGS})
+	  target_link_options(${COVERAGE_TARGET} INTERFACE ${LINKER_CXX_COVERAGE_FLAGS})
+	else()
+		message(FATAL_ERROR "COMPILER_CXX_COVERAGE_FLAGS and/or LINKER_CXX_COVERAGE_FLAGS not defined")  
+	endif()
 endif()

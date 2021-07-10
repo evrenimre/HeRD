@@ -9,10 +9,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_BUILD_TYPE DEBUG)
 
-# Default compiler options
-set(CXX_WARNING_FLAGS "-Wall -Wextra --pedantic -Werror" )
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX_WARNING_FLAGS}"  )
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # Disallow in-source builds
@@ -53,6 +49,15 @@ find_package(range-v3 REQUIRED)
 
 # Configuration
 set(CONFIG_DIR "${PROJECT_SOURCE_DIR}/Config")
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+	include(HerdFlagsGNU)
+else()
+	message(WARNING "Could not find a file for compiler and linker flags. Features requiring specific flags may not work correctly")
+endif()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_CXX_WARNING_FLAGS}")	# Default compiler options
+
 include(HerdConfigureStaticCheckers)	# Static checkers
 include(HerdConfigureDoxygen)	# Documentation
 include(HerdConfigureCodeCoverage)	# Code coverage
