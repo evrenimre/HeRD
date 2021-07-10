@@ -91,27 +91,27 @@ void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, 
 
   if( i_rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_Undefined )
   {
-    throw( Herd::Exceptions::PreconditionError( "m_Stage", "valid stage", "e_Undefined" ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "m_Stage", "valid stage", "e_Undefined" ) );
   }
 
   if( i_Neta < 0 )
   {
-    throw( Herd::Exceptions::PreconditionError( "i_Neta", ">=0", i_Neta ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Neta", ">=0", i_Neta ) );
   }
 
   if( i_HeWind < 0 )
   {
-    throw( Herd::Exceptions::PreconditionError( "i_HeWind", ">=0", i_HeWind ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_HeWind", ">=0", i_HeWind ) );
   }
 
   if( i_BinaryWind < 0 )
   {
-    throw( Herd::Exceptions::PreconditionError( "i_BinaryWind", ">=0", i_BinaryWind ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_BinaryWind", ">=0", i_BinaryWind ) );
   }
 
   if( i_RocheLobe < 0 )
   {
-    throw( Herd::Exceptions::PreconditionError( "i_Neta", ">=0", i_RocheLobe ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Neta", ">=0", i_RocheLobe ) );
   }
 }
 

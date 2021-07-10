@@ -23,11 +23,10 @@
 #include <cstddef>
 #include <cmath>
 
-#include <range/v3/algorithm.hpp>
-#include <range/v3/view.hpp>
-
 #include <boost/math/special_functions/pow.hpp>
 #include <boost/math/special_functions/relative_difference.hpp>
+#include <range/v3/algorithm.hpp>
+#include <range/v3/view.hpp>
 
 namespace
 {
@@ -72,12 +71,12 @@ struct ZeroAgeMainSequenceAlgorithmSpecs;
 Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ) // @suppress("Member declaration not found")
 {
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
-  
+
   Eigen::Matrix< double, 5, 1 > zVector;
   zVector[ 0 ] = 1;
   zVector[ 1 ] = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
   ranges::cpp20::for_each( ranges::cpp20::views::iota( 2, 5 ), [ & ]( auto i_Index ) // @suppress("Function cannot be resolved")
-  { zVector[ i_Index ] = zVector[i_Index-1]*zVector[1];} );
+      { zVector[ i_Index ] = zVector[i_Index-1]*zVector[1];} );
 
   Herd::Generic::Luminosity luminosity = ComputeLuminosity( i_Mass, zVector );
   Herd::Generic::Radius radius = ComputeRadius( i_Mass, zVector );
@@ -104,13 +103,13 @@ void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
   // Mass is within the allowed range
   if( !ZeroAgeMainSequenceSpecs::s_MassRange.Contains( i_Mass ) )
   {
-    throw( Herd::Exceptions::PreconditionError( "i_Mass", ZeroAgeMainSequenceSpecs::s_MassRange.GetRangeString(), i_Mass.Value() ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Mass", ZeroAgeMainSequenceSpecs::s_MassRange.GetRangeString(), i_Mass.Value() ) );
   }
 
   // Metallicity is within the allowed range
   if( !ZeroAgeMainSequenceSpecs::s_ZRange.Contains( i_Z ) )
   {
-    throw( Herd::Exceptions::PreconditionError( "i_Z", ZeroAgeMainSequenceSpecs::s_ZRange.GetRangeString(), i_Z.Value() ) );
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Z", ZeroAgeMainSequenceSpecs::s_ZRange.GetRangeString(), i_Z.Value() ) );
   }
 }
 

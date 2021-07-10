@@ -113,7 +113,7 @@ void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string& i_rName )
 {
   if( i_Quantity < 0 )
   {
-    throw( Exceptions::PreconditionError( i_rName, ">=0", i_Quantity.Value() ) );
+    [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">=0", i_Quantity.Value() ) );
   }
 }
 
@@ -128,7 +128,7 @@ void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string& i_rName 
 {
   if( i_Quantity <= 0 )
   {
-    throw( Exceptions::PreconditionError( i_rName, ">0", i_Quantity.Value() ) );
+    [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">0", i_Quantity.Value() ) );
   }
 }
 

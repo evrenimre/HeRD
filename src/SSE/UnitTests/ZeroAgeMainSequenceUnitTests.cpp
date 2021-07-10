@@ -127,7 +127,7 @@ BOOST_FIXTURE_TEST_SUITE( ZAMS, ZAMSTestFixture )
 BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   auto [ mass, z ] = GenerateRandomInput();
-  Herd::SSE::TrackPoint trackPoint = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z );
+  Herd::SSE::TrackPoint trackPoint = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z ); // @suppress("Invalid arguments")
 
   BOOST_TEST( trackPoint.m_Age == 0 );
   BOOST_TEST( trackPoint.m_Luminosity > 0.0 );
@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
       BOOST_TEST_CONTEXT( "Mass " << mass << " Metallicity "<< z )
       {
         auto Actual = Herd::SSE::ZeroAgeMainSequence::Compute( mass, z );
-        IsWithinErrorTolerance( Actual, Expected );
+        IsWithinErrorTolerance( Actual, Expected ); // @suppress("Invalid arguments")
         bFound = true;
         break;
       }
@@ -187,7 +187,7 @@ BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous 
     BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_InitialMetallicity )
     {
       auto Actual = Herd::SSE::ZeroAgeMainSequence::Compute( Expected.m_Mass, Expected.m_InitialMetallicity );
-      IsWithinErrorTolerance( Actual, Expected );
+      IsWithinErrorTolerance( Actual, Expected ); // @suppress("Invalid arguments")
     }
   }
 }

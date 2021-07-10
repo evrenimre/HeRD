@@ -107,11 +107,9 @@ EvolutionStage StringToEvolutionStage( const std::string& i_rString )
   static const boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
 
   auto iQuery = s_StringToStage.find( i_rString );
-  //@formatter:off
-  if( iQuery == s_StringToStage.end() ) [[unlikely]]
-                                           //@formatter:on
+  if( iQuery == s_StringToStage.end() )
   {
-    throw( Herd::Exceptions::PreconditionError( "s_StringToStage", "a valid evolution stage", i_rString ));
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "s_StringToStage", "a valid evolution stage", i_rString ) );
   }
 
   return iQuery->second;

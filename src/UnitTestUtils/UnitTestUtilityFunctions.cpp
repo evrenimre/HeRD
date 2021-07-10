@@ -42,7 +42,7 @@ std::unordered_map< std::string, std::string > ParseCommandLineArguments()
 
     if( !( parsed.size() == 1 || parsed.size() == 2 ) )
     {
-      BOOST_TEST_REQUIRE( false, "Unable to parse argument " << boost::unit_test::framework::master_test_suite().argv[ c ] );
+[[unlikely]]         BOOST_TEST_REQUIRE( false, "Unable to parse argument " << boost::unit_test::framework::master_test_suite().argv[ c ] );
       // @formatter:off
       return {};
             // @formatter:on
@@ -50,7 +50,7 @@ std::unordered_map< std::string, std::string > ParseCommandLineArguments()
 
     if( s_RegisteredArguments.count( parsed[ 0 ] ) == 0 )
     {
-      BOOST_TEST_REQUIRE( false, "Unregistered argument " + parsed[ 0 ] );
+[[unlikely]]         BOOST_TEST_REQUIRE( false, "Unregistered argument " + parsed[ 0 ] );
       // @formatter:off
       return {};
             // @formatter:on
@@ -70,7 +70,7 @@ std::optional< std::string > GetCommandLineArgument( const std::string& i_rName 
 {
   if( s_RegisteredArguments.count( i_rName ) == 0 )
   {
-    BOOST_TEST_REQUIRE( false, "Requested unregistered argument " + i_rName );
+[[unlikely]]       BOOST_TEST_REQUIRE( false, "Requested unregistered argument " + i_rName );
     return std::nullopt;
   }
 

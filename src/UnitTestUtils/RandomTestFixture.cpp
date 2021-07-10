@@ -55,7 +55,7 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
   {
     if( unsigned int seed = 0; boost::conversion::try_lexical_convert( *seedString, seed ) )
     {
-      SetSeed( seed );
+      [[likely]] SetSeed( seed );
     } else
     {
       BOOST_TEST_REQUIRE( false, "Invalid seed value " + *seedString ); // Passing a string confuses the indexer
