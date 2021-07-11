@@ -38,12 +38,12 @@ int main( int argc, char* argv[] )
   boost::program_options::store( boost::program_options::command_line_parser( argc, argv ).options( description ).run(), argument_map );
   boost::program_options::notify( argument_map );
 
-  if( argument_map.count( "help" ) == 1 )
+  if( argument_map.contains( "help" ) )
   {
     std::cout << description;
   }
 
-  if( argument_map.count( "mass" ) == 1 && argument_map.count( "metallicity" ) == 1 )
+  if( argument_map.contains( "mass" ) && argument_map.contains( "metallicity" ) )
   {
     Herd::Generic::Mass mass( argument_map[ "mass" ].as< double >() );
     Herd::Generic::Metallicity metallicity( argument_map[ "metallicity" ].as< double >() );
