@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['zamsextractormist_205',['ZAMSExtractorMIST',['../namespaceZAMSExtractorMIST.html',1,'']]],
-  ['zamsextractormist_2epy_206',['ZAMSExtractorMIST.py',['../ZAMSExtractorMIST_8py.html',1,'']]],
-  ['zeroagemainsequence_207',['ZeroAgeMainSequence',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html',1,'Herd::SSE']]],
-  ['zeroagemainsequence_2ecpp_208',['ZeroAgeMainSequence.cpp',['../ZeroAgeMainSequence_8cpp.html',1,'']]],
-  ['zeroagemainsequence_2eh_209',['ZeroAgeMainSequence.h',['../ZeroAgeMainSequence_8h.html',1,'']]],
-  ['zeroagemainsequencespecs_210',['ZeroAgeMainSequenceSpecs',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html',1,'Herd::SSE']]],
-  ['zeroagemainsequenceunittests_2ecpp_211',['ZeroAgeMainSequenceUnitTests.cpp',['../ZeroAgeMainSequenceUnitTests_8cpp.html',1,'']]]
+  ['validate_211',['Validate',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3a880f0fa1e89d1f284c882907012c27',1,'Herd::SSE::StellarWindMassLoss::Validate()'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a43a8320e7b745c3238994481f43f1bdc',1,'Herd::SSE::ZeroAgeMainSequence::Validate()']]],
+  ['value_212',['Value',['../classHerd_1_1Generic_1_1Quantity.html#a1306a3c3738d022af2cb15ff284793ba',1,'Herd::Generic::Quantity']]]
 ];

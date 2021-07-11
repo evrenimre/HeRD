@@ -125,6 +125,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a723a2ef33dc039830e6c06c81f95d2d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1QuantityRange.html#a723a2ef33dc039830e6c06c81f95d2d0">GetRangeString</a> () const</td></tr>
 <tr class="memdesc:a723a2ef33dc039830e6c06c81f95d2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for printing range information.  <a href="classHerd_1_1Generic_1_1QuantityRange.html#a723a2ef33dc039830e6c06c81f95d2d0">More...</a><br /></td></tr>
 <tr class="separator:a723a2ef33dc039830e6c06c81f95d2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a597624b02b70184e860e592c425e1f25"><td class="memTemplParams" colspan="2">template&lt;class Tag &gt; </td></tr>
+<tr class="memitem:a597624b02b70184e860e592c425e1f25"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1QuantityRange.html#a597624b02b70184e860e592c425e1f25">ThrowIfNotInRange</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a>&lt; Tag &gt; i_Quantity, const std::string &amp;i_rName) const</td></tr>
+<tr class="memdesc:a597624b02b70184e860e592c425e1f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws if a quantity is not contained.  <a href="classHerd_1_1Generic_1_1QuantityRange.html#a597624b02b70184e860e592c425e1f25">More...</a><br /></td></tr>
+<tr class="separator:a597624b02b70184e860e592c425e1f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -274,6 +278,53 @@ template&lt;class BoundaryPolicy &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a constant reference to the underlying interval. </p>
+
+</div>
+</div>
+<a id="a597624b02b70184e860e592c425e1f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a597624b02b70184e860e592c425e1f25">&#9670;&nbsp;</a></span>ThrowIfNotInRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class BoundaryPolicy &gt; </div>
+<div class="memtemplate">
+template&lt;class Tag &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classHerd_1_1Generic_1_1QuantityRange.html">Herd::Generic::QuantityRange</a>&lt; BoundaryPolicy &gt;::ThrowIfNotInRange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a>&lt; Tag &gt;&#160;</td>
+          <td class="paramname"><em>i_Quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>i_rName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Throws if a quantity is not contained. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tag</td><td><a class="el" href="classHerd_1_1Generic_1_1Quantity.html" title="Quantity template.">Quantity</a> type indicator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_Quantity</td><td>Value to be tested </td></tr>
+    <tr><td class="paramname">i_rName</td><td>Name of the value under test </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

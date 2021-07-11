@@ -107,32 +107,28 @@ $(document).ready(function(){initNavTree('EvolutionState_8h_source.html',''); in
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Quantities_8h.html">Generic/Quantities.h</a>&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;boost/container/flat_map.hpp&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TrackPoint_8h.html">TrackPoint.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="EvolutionStage_8h.html">EvolutionStage.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TrackPoint_8h.html">TrackPoint.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceHerd_1_1SSE.html">Herd::SSE</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceHerd_1_1SSE.html">Herd::SSE</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structHerd_1_1SSE_1_1EvolutionState.html">   31</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438">   33</a></span>&#160;  <a class="code" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a> <a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438">m_TrackPoint</a>; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structHerd_1_1SSE_1_1EvolutionState.html">   28</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438">   30</a></span>&#160;  <a class="code" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a> <a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438">m_TrackPoint</a>; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454">   32</a></span>&#160;  <a class="code" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Mass</a> <a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454">m_InitialMass</a>;  </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454">   35</a></span>&#160;  <a class="code" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Mass</a> <a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454">m_InitialMass</a>;  </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* H633A09E8_2301_41B3_8E30_CFE3C37DFCF3 */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aEvolutionStage_8h_html"><div class="ttname"><a href="EvolutionStage_8h.html">EvolutionStage.h</a></div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* H633A09E8_2301_41B3_8E30_CFE3C37DFCF3 */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aQuantities_8h_html"><div class="ttname"><a href="Quantities_8h.html">Quantities.h</a></div></div>
 <div class="ttc" id="aTrackPoint_8h_html"><div class="ttname"><a href="TrackPoint_8h.html">TrackPoint.h</a></div></div>
 <div class="ttc" id="aclassHerd_1_1Generic_1_1Quantity_html"><div class="ttname"><a href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a></div><div class="ttdoc">Quantity template.</div><div class="ttdef"><b>Definition:</b> Quantities.h:29</div></div>
 <div class="ttc" id="anamespaceHerd_1_1SSE_html"><div class="ttname"><a href="namespaceHerd_1_1SSE.html">Herd::SSE</a></div><div class="ttdef"><b>Definition:</b> Constants.h:17</div></div>
-<div class="ttc" id="astructHerd_1_1SSE_1_1EvolutionState_html"><div class="ttname"><a href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a></div><div class="ttdoc">State of evolution.</div><div class="ttdef"><b>Definition:</b> EvolutionState.h:32</div></div>
-<div class="ttc" id="astructHerd_1_1SSE_1_1EvolutionState_html_a2e768b4ab174c59a4d0886d964758438"><div class="ttname"><a href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438">Herd::SSE::EvolutionState::m_TrackPoint</a></div><div class="ttdeci">Herd::SSE::TrackPoint m_TrackPoint</div><div class="ttdoc">Track point.</div><div class="ttdef"><b>Definition:</b> EvolutionState.h:33</div></div>
-<div class="ttc" id="astructHerd_1_1SSE_1_1EvolutionState_html_a31c26720cd9b25787b7c304a65ed8454"><div class="ttname"><a href="structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454">Herd::SSE::EvolutionState::m_InitialMass</a></div><div class="ttdeci">Herd::Generic::Mass m_InitialMass</div><div class="ttdoc">Mass at the beginning of evolution in .</div><div class="ttdef"><b>Definition:</b> EvolutionState.h:35</div></div>
+<div class="ttc" id="astructHerd_1_1SSE_1_1EvolutionState_html"><div class="ttname"><a href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a></div><div class="ttdoc">State of evolution.</div><div class="ttdef"><b>Definition:</b> EvolutionState.h:29</div></div>
+<div class="ttc" id="astructHerd_1_1SSE_1_1EvolutionState_html_a2e768b4ab174c59a4d0886d964758438"><div class="ttname"><a href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438">Herd::SSE::EvolutionState::m_TrackPoint</a></div><div class="ttdeci">Herd::SSE::TrackPoint m_TrackPoint</div><div class="ttdoc">Track point.</div><div class="ttdef"><b>Definition:</b> EvolutionState.h:30</div></div>
+<div class="ttc" id="astructHerd_1_1SSE_1_1EvolutionState_html_a31c26720cd9b25787b7c304a65ed8454"><div class="ttname"><a href="structHerd_1_1SSE_1_1EvolutionState.html#a31c26720cd9b25787b7c304a65ed8454">Herd::SSE::EvolutionState::m_InitialMass</a></div><div class="ttdeci">Herd::Generic::Mass m_InitialMass</div><div class="ttdoc">Mass at the beginning of evolution in .</div><div class="ttdef"><b>Definition:</b> EvolutionState.h:32</div></div>
 <div class="ttc" id="astructHerd_1_1SSE_1_1TrackPoint_html"><div class="ttname"><a href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a></div><div class="ttdoc">Represents a track point in an evolutionary track.</div><div class="ttdef"><b>Definition:</b> TrackPoint.h:26</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

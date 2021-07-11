@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['luminosityradiustemperature_214',['LuminosityRadiusTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html',1,'Herd::Physics']]]
+  ['luminosityradiustemperature_222',['LuminosityRadiusTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html',1,'Herd::Physics']]]
 ];
