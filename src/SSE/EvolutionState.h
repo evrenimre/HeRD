@@ -15,9 +15,6 @@
 
 #include <Generic/Quantities.h>
 
-#include <boost/container/flat_map.hpp>
-
-#include "EvolutionStage.h"
 #include "TrackPoint.h"
 
 namespace Herd::SSE

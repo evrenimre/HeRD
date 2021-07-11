@@ -14,14 +14,15 @@
 
 #include <Exceptions/PreconditionError.h>
 
-#include <boost/container/flat_map.hpp>
+#include <unordered_map>
+
 #include <range/v3/algorithm.hpp>
 #include <range/v3/view.hpp>
 
 namespace
 {
 //@formatter:off
-const boost::container::flat_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
+const std::unordered_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
   { Herd::SSE::EvolutionStage::e_MS, "MS"},
   { Herd::SSE::EvolutionStage::e_HG, "HG"},
   { Herd::SSE::EvolutionStage::e_FGB, "FGB"},
@@ -44,9 +45,9 @@ const boost::container::flat_map< Herd::SSE::EvolutionStage, std::string > s_Sta
  * @brief Makes a map from strings to evolution stages
  * @return A map from strings to evolution stages
  */
-boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > MakeStringToStage()
+std::unordered_map< std::string, Herd::SSE::EvolutionStage > MakeStringToStage()
 {
-  boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > output;
+  std::unordered_map< std::string, Herd::SSE::EvolutionStage > output;
 
   //@formatter:off
   ranges::cpp20::for_each( s_StageToString, [&]( const auto& i_rEntry ){ output.emplace( i_rEntry.second, i_rEntry.first);});
@@ -104,7 +105,7 @@ bool IsHeStar( EvolutionStage i_Stage )
 EvolutionStage StringToEvolutionStage( const std::string& i_rString )
 {
   // This makes the converter map from s_StageToString. If a new type is added, it is automatically picked up
-  static const boost::container::flat_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
+  static const std::unordered_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
 
   auto iQuery = s_StringToStage.find( i_rString );
   if( iQuery == s_StringToStage.end() )
