@@ -28,14 +28,14 @@ using Types = boost::mpl::list< float, double, long double, int, long int>;
 BOOST_AUTO_TEST_CASE_TEMPLATE( TestExceptionHelpers, T, Types )
 {
   {
-    double value = GenerateNumber( -10., 0. ); // @suppress("Invalid arguments")
+    double value = GenerateNumber( -10., -0.1 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Herd::Exceptions::PreconditionError::ThrowIfNegative( T( value ), "NegativeQuantity" ), Herd::Exceptions::PreconditionError );
     Herd::Exceptions::PreconditionError::ThrowIfNegative( T( 0 ), "ZeroValue" );
     Herd::Exceptions::PreconditionError::ThrowIfNegative( T( -value ), "PositiveValue" );
   }
 
   {
-    double value = GenerateNumber( -10., 0. ); // @suppress("Invalid arguments")
+    double value = GenerateNumber( -10., -0.1 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Herd::Exceptions::PreconditionError::ThrowIfNotPositive( T( value ), "NegativeValue" ), Herd::Exceptions::PreconditionError );
     BOOST_CHECK_THROW( Herd::Exceptions::PreconditionError::ThrowIfNotPositive( T( 0 ), "ZeroValue" ), Herd::Exceptions::PreconditionError );
     Herd::Exceptions::PreconditionError::ThrowIfNotPositive( T( -value ), "PositiveValue" );

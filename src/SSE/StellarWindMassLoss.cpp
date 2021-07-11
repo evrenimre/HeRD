@@ -94,25 +94,10 @@ void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, 
     [[unlikely]] throw( Herd::Exceptions::PreconditionError( "m_Stage", "valid stage", "e_Undefined" ) );
   }
 
-  if( i_Neta < 0 )
-  {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Neta", ">=0", i_Neta ) );
-  }
-
-  if( i_HeWind < 0 )
-  {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_HeWind", ">=0", i_HeWind ) );
-  }
-
-  if( i_BinaryWind < 0 )
-  {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_BinaryWind", ">=0", i_BinaryWind ) );
-  }
-
-  if( i_RocheLobe < 0 )
-  {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Neta", ">=0", i_RocheLobe ) );
-  }
+  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_Neta, "i_Neta" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_BinaryWind, "i_BinaryWind" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_HeWind, "i_HeWind" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_RocheLobe, "i_RocheLobe" ); // @suppress("Invalid arguments")
 }
 
 /**
