@@ -18,3 +18,5 @@ herd_add_interface_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 target_compile_definitions(${TARGET_NAME} INTERFACE BOOST_STACKTRACE_USE_BACKTRACE
 																										BOOST_STACKTRACE_LINK
 )
+
+add_subdirectory(UnitTests)

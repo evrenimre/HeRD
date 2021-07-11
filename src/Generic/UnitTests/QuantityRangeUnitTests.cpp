@@ -60,8 +60,8 @@ using QuantityRangeTypes = boost::mpl::list< Herd::Generic::OpenRange, Herd::Gen
 /// Quantity range construction and usage
 BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantityRangeTemplated, T, QuantityRangeTypes )
 {
-  double lower = GenerateNumber( 0., 10. );
-  double upper = GenerateNumber( lower, 10. ) + 1;
+  double lower = GenerateNumber( 0., 10. ); // @suppress("Invalid arguments")
+  double upper = GenerateNumber( lower, 10. ) + 1; // @suppress("Invalid arguments")
   T interval( lower, upper );
 
   BOOST_TEST( interval.Lower() == lower );

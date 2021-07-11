@@ -17,6 +17,7 @@
 
 #include <Concepts/GenericConcepts.h>
 
+#include <concepts>
 #include <string>
 
 #include <boost/format.hpp>
@@ -54,18 +55,56 @@ public:
   }
 
   /**
-   * @brief Constructor for arithmetic types
-   * @tparam T An arithmetic type
+   * @brief Constructor for numerical types
+   * @tparam T Satisfies Herd::Concepts::Number
    * @param i_rElement Element tested for precondition
    * @param i_rExpected Precondition
    * @param i_Actual Actual value
    */
-  template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+  template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
   PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, T i_Actual ) : // @suppress("Type cannot be resolved")
       Herd::Exceptions::RuntimeError( // @suppress("Symbol is not resolved")
           ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) ) ) // @suppress("Invalid arguments")
   {
   }
+
+  ///@name Helpers
+  ///@{
+
+  /**
+   * @brief Throws if value is not positive
+   * @tparam T Satisfies std::totally_ordered
+   * @param i_Value Value to be tested
+   * @param i_rName Name of the variable
+   * @throws PreconditionError If \c i_Value is not positive
+   */
+  template< typename T >
+  requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
+  static void ThrowIfNegative( T i_Value, const std::string& i_rName ) // @suppress("Type cannot be resolved")
+  {
+    if( i_Value < 0 )
+    {
+      [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">=0", i_Value ) ); // @suppress("Symbol is not resolved")
+    }
+  }
+
+  /**
+   * @brief Throws if value is negative
+   * @tparam T Satisfies std::totally_ordered
+   * @param i_Value Value to be tested
+   * @param i_rName Name of the variable
+   * @throws PreconditionError If \c i_Value is negative
+   */
+  template< typename T >
+  requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
+  static void ThrowIfNotPositive( T i_Value, const std::string& i_rName ) // @suppress("Type cannot be resolved")
+  {
+    if( i_Value <= 0 )
+    {
+      [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">0", i_Value ) ); // @suppress("Symbol is not resolved")
+    }
+  }
+  ///@}
 
 private:
   /**

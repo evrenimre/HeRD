@@ -33,7 +33,8 @@ endif()
 	
 # Unit test target list
 # Unit tests are automatically run after all targets in this list are built
-set(TEST_TARGETS TestGeneric
+set(TEST_TARGETS TestExceptions
+								 TestGeneric
 								 TestPhysics
 								 TestSSE 
 								 TestUnitTestUtils 														
