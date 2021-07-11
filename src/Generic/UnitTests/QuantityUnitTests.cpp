@@ -27,11 +27,11 @@ using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic
 /// Quantity construction and usage
 BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
 {
-  double value = GenerateNumber( 0., 10. );
+  double value = GenerateNumber( 0., 10. ); // @suppress("Invalid arguments")
   T quantity( value );
   BOOST_TEST( value == quantity.Value() );
 
-  double newValue = GenerateNumber( 0., 10. );
+  double newValue = GenerateNumber( 0., 10. ); // @suppress("Invalid arguments")
   quantity.Set( newValue );
   BOOST_TEST( newValue == quantity.Value() );
 
@@ -48,14 +48,14 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
 BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantityHelpers, T, QuantityTypes )
 {
   {
-    double value = GenerateNumber( -10., 0. );
+    double value = GenerateNumber( -10., 0. ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Herd::Generic::ThrowIfNegative( T( value ), "NegativeQuantity" ), Herd::Exceptions::PreconditionError );
     Herd::Generic::ThrowIfNegative( T( 0 ), "ZeroQuantity" );
     Herd::Generic::ThrowIfNegative( T( -value ), "PositiveQuantity" );
   }
 
   {
-    double value = GenerateNumber( -10., 0. );
+    double value = GenerateNumber( -10., 0. ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Herd::Generic::ThrowIfNotPositive( T( value ), "NegativeQuantity" ), Herd::Exceptions::PreconditionError );
     BOOST_CHECK_THROW( Herd::Generic::ThrowIfNotPositive( T( 0 ), "ZeroQuantity" ), Herd::Exceptions::PreconditionError );
     Herd::Generic::ThrowIfNotPositive( T( -value ), "PositiveQuantity" );

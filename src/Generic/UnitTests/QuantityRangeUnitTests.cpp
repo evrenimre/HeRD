@@ -26,8 +26,8 @@ BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture, *Herd
 /// Quantity range construction and usage
 BOOST_AUTO_TEST_CASE( TestQuantityRange )
 {
-  double lower = GenerateNumber( 0., 10. );
-  double upper = GenerateNumber( lower, 10. ) + 1;
+  double lower = GenerateNumber( 0., 10. ); // @suppress("Invalid arguments")
+  double upper = GenerateNumber( lower, 10. ) + 1; // @suppress("Invalid arguments")
 
   Herd::Generic::Mass minMass( lower );
   Herd::Generic::Mass maxMass( upper );

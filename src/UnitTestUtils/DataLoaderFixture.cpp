@@ -71,7 +71,7 @@ boost::property_tree::ptree DataLoaderFixture::ReadAsXML( const std::string& i_r
   std::regex filename_regex( i_rRegex );
   auto iBegin = begin( std::filesystem::directory_iterator( m_DataDir ) );
   auto iEnd = end( std::filesystem::directory_iterator( m_DataDir ) );
-  auto dir = boost::make_iterator_range( iBegin, iEnd );
+  auto dir = boost::make_iterator_range( iBegin, iEnd );  // std::span does not work with directory iterators
 
   boost::optional< std::filesystem::path > filepath;
 

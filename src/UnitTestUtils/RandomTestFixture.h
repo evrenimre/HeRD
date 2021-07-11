@@ -46,10 +46,10 @@ public:
 
   bool GenerateBool( double i_Probability = 0.5 );  ///< Generates a boolean
 
-  template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+  template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
   T GenerateNumber( T i_Min, T i_Max ); // @suppress("Type cannot be resolved")
 
-  template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+  template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
   T GenerateNumber(); // @suppress("Type cannot be resolved")
   ///@}
   
@@ -67,15 +67,15 @@ private:
 
 /**
  * @brief Generates a number
- * @tparam T An arithmetic type
+ * @tparam T Satisfies Herd::Concepts::Number
  * @param i_Min Minimum value
  * @param i_Max Maximum value
  * @return A random value
  * @pre <tt> i_Min < i_Max </tt>
- * @remarks For real distributions if <tt> i_Max - i_Min </tt> is bigger than the maximum for \c Arithmetic the bounds are halved and the output is doubled
+ * @remarks For real distributions if <tt> i_Max - i_Min </tt> is bigger than the maximum for \c T the bounds are halved and the output is doubled
  * This allows sampling over the entire range of a floating point type
  */
-template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
 T RandomTestFixture::GenerateNumber( T i_Min, T i_Max ) // @suppress("Type cannot be resolved")
 {
 
@@ -107,10 +107,10 @@ T RandomTestFixture::GenerateNumber( T i_Min, T i_Max ) // @suppress("Type canno
 
 /**
  * @brief Generates a number in the closed range
- * @tparam Arithmetic An arithmetic type
+ * @tparam T Satisfies Herd::Concepts::Number
  * @return A random value
  */
-template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
 T RandomTestFixture::GenerateNumber() // @suppress("Type cannot be resolved")
 {
   if constexpr ( std::is_floating_point< T >::value )
