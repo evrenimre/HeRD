@@ -15,8 +15,9 @@
 
 #include "RuntimeError.h"
 
+#include <Concepts/GenericConcepts.h>
+
 #include <string>
-#include <type_traits>
 
 #include <boost/format.hpp>
 #include <boost/stacktrace.hpp>
@@ -54,17 +55,16 @@ public:
 
   /**
    * @brief Constructor for arithmetic types
-   * @tparam Arithmetic An arithmetic type
+   * @tparam T An arithmetic type
    * @param i_rElement Element tested for precondition
    * @param i_rExpected Precondition
    * @param i_Actual Actual value
    */
-  template< class Arithmetic >
-  PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, Arithmetic i_Actual ) :
-      Herd::Exceptions::RuntimeError(
-          ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) ) )
+  template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+  PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, T i_Actual ) : // @suppress("Type cannot be resolved")
+      Herd::Exceptions::RuntimeError( // @suppress("Symbol is not resolved")
+          ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) ) ) // @suppress("Invalid arguments")
   {
-    static_assert( std::is_arithmetic< Arithmetic >::value, "Arihtmetic must be an arithmetic type");
   }
 
 private:
@@ -82,8 +82,5 @@ private:
 };
 
 }
-
-
-
 
 #endif /* H09964061_1CF4_4FC5_ADE4_FE0282B49412 */

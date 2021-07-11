@@ -10,7 +10,9 @@ set(SOURCE_LIST DataLoaderFixture.cpp
 
 set(PRIVATE_DEPS_LIST boost_unit_test_framework.a)
 
-set(PUBLIC_DEPS_LIST PUBLIC Boost::boost)
+set(PUBLIC_DEPS_LIST PUBLIC Concepts
+														Boost::boost
+)
 
 herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 												 											SOURCES ${SOURCE_LIST}

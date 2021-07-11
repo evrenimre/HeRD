@@ -13,6 +13,8 @@
 #ifndef H219F636B_7938_44D6_981D_D0D7FA5DAC8C
 #define H219F636B_7938_44D6_981D_D0D7FA5DAC8C
 
+#include <Concepts/GenericConcepts.h>
+
 #include <cmath>
 #include <cstdint>
 #include <limits>
@@ -44,11 +46,11 @@ public:
 
   bool GenerateBool( double i_Probability = 0.5 );  ///< Generates a boolean
 
-  template< class Arithmetic >
-  Arithmetic GenerateNumber( Arithmetic i_Min, Arithmetic i_Max );  ///< Generates a number in the closed range
+  template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+  T GenerateNumber( T i_Min, T i_Max ); // @suppress("Type cannot be resolved")
 
-  template< class Arithmetic >
-  Arithmetic GenerateNumber(); ///< Generates a number
+  template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+  T GenerateNumber(); // @suppress("Type cannot be resolved")
   ///@}
   
 
@@ -64,7 +66,8 @@ private:
 };
 
 /**
- * @tparam Arithmetic An arithmetic type
+ * @brief Generates a number
+ * @tparam T An arithmetic type
  * @param i_Min Minimum value
  * @param i_Max Maximum value
  * @return A random value
@@ -72,12 +75,11 @@ private:
  * @remarks For real distributions if <tt> i_Max - i_Min </tt> is bigger than the maximum for \c Arithmetic the bounds are halved and the output is doubled
  * This allows sampling over the entire range of a floating point type
  */
-template< class Arithmetic >
-Arithmetic RandomTestFixture::GenerateNumber( Arithmetic i_Min, Arithmetic i_Max )
+template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+T RandomTestFixture::GenerateNumber( T i_Min, T i_Max ) // @suppress("Type cannot be resolved")
 {
-  static_assert( std::is_arithmetic< Arithmetic >::value);
 
-  BOOST_TEST_REQUIRE( i_Min < i_Max );
+  BOOST_TEST_REQUIRE( i_Min < i_Max ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
 
   // Lazy initialisation. Avoids redundant construction if user sets a different seed before first call to the generator
   // mt19937 constructor is expensive.
@@ -86,37 +88,37 @@ Arithmetic RandomTestFixture::GenerateNumber( Arithmetic i_Min, Arithmetic i_Max
     m_Rng = std::mt19937( m_Seed );
   }
 
-  if constexpr ( std::is_floating_point< Arithmetic >::value )
+  if constexpr ( std::is_floating_point< T >::value )
   {
-    if( i_Max - i_Min == std::numeric_limits< Arithmetic >::infinity() )
+    if( i_Max - i_Min == std::numeric_limits< T >::infinity() )
     {
       i_Min /= 2;
       i_Max /= 2;
-      return 2 * std::uniform_real_distribution< Arithmetic >( i_Min, std::nextafter( i_Max, std::numeric_limits< Arithmetic >::max() ) )( *m_Rng ); // Closed range
+      return 2 * std::uniform_real_distribution< T >( i_Min, std::nextafter( i_Max, std::numeric_limits< T >::max() ) )( *m_Rng ); // Closed range
     } else
     {
-      return std::uniform_real_distribution< Arithmetic >( i_Min, std::nextafter( i_Max, std::numeric_limits< Arithmetic >::max() ) )( *m_Rng ); // Closed range
+      return std::uniform_real_distribution< T >( i_Min, std::nextafter( i_Max, std::numeric_limits< T >::max() ) )( *m_Rng ); // Closed range
     }
   } else
   {
-    return std::uniform_int_distribution< Arithmetic >( i_Min, i_Max )( *m_Rng ); // Closed range
+    return std::uniform_int_distribution< T >( i_Min, i_Max )( *m_Rng ); // Closed range
   }
 }
 
 /**
+ * @brief Generates a number in the closed range
  * @tparam Arithmetic An arithmetic type
  * @return A random value
  */
-template< class Arithmetic >
-Arithmetic RandomTestFixture::GenerateNumber()
+template< Herd::Concepts::Arithmetic T > // @suppress("Type cannot be resolved")
+T RandomTestFixture::GenerateNumber() // @suppress("Type cannot be resolved")
 {
-  if constexpr ( std::is_floating_point< Arithmetic >::value )
+  if constexpr ( std::is_floating_point< T >::value )
   {
-    return GenerateNumber( std::numeric_limits< Arithmetic >::lowest(),
-        std::nextafter( std::numeric_limits< Arithmetic >::max(), std::numeric_limits< Arithmetic >::lowest() ) ); // This ensures that the span of the range is still representable as an Arithmetic
+    return GenerateNumber( std::numeric_limits< T >::lowest(), std::nextafter( std::numeric_limits< T >::max(), std::numeric_limits< T >::lowest() ) ); // This ensures that the span of the range is still representable as an Arithmetic
   } else
   {
-    return GenerateNumber( std::numeric_limits< Arithmetic >::lowest(), std::numeric_limits< Arithmetic >::max() ); // It seems like internally integers are promoted to floating point numbers if the span > the maximum value of Arithmetic                                                                                                                  // uniform_int_distrubtion works over a closed range, unlike uniform_real_distribution
+    return GenerateNumber( std::numeric_limits< T >::lowest(), std::numeric_limits< T >::max() ); // It seems like internally integers are promoted to floating point numbers if the span > the maximum value of Arithmetic                                                                                                                  // uniform_int_distrubtion works over a closed range, unlike uniform_real_distribution
   }
 }
 } // namespace Herd::UnitTestUtils

@@ -4,7 +4,8 @@ set(HEADER_LIST PreconditionError.h
 								RuntimeError.h
 )
 
-set( INTERFACE_DEPS_LIST boost_stacktrace_backtrace
+set( INTERFACE_DEPS_LIST Concepts
+												 boost_stacktrace_backtrace
 												 Boost::boost
  )
 

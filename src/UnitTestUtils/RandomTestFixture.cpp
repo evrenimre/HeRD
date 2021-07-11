@@ -69,7 +69,7 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
  */
 bool RandomTestFixture::GenerateBool( double i_Probability )
 {
-  return GenerateNumber( 0., 1. ) < i_Probability;
+  return GenerateNumber( 0., 1. ) < i_Probability; // @suppress("Invalid arguments")
 }
 
 } // namespace Herd::UnitTestUtils
