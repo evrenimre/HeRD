@@ -15,6 +15,8 @@
 
 #include "Quantities.h"
 
+#include <Exceptions/PreconditionError.h>
+
 #include <sstream>
 #include <string>
 
@@ -59,6 +61,9 @@ public:
   const boost::icl::continuous_interval< double >& Range() const; ///< Returns a constant reference to the underlying interval
 
   std::string GetRangeString() const;  ///< Helper for printing range information
+
+  template< class Tag >
+  void ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string& i_rName ) const;  ///< Throws if a quantity is not contained
 
 private:
 
@@ -129,6 +134,21 @@ std::string QuantityRange< BoundaryPolicy >::GetRangeString() const
   std::stringstream Buffer;
   Buffer << m_Range;
   return Buffer.str();
+}
+
+/**
+ * @tparam Tag Quantity type indicator
+ * @param i_Quantity Value to be tested
+ * @param i_rName Name of the value under test
+ */
+template< class BoundaryPolicy >
+template< class Tag >
+void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string& i_rName ) const
+{
+  if( !Contains( i_Quantity ) )
+  {
+    [[unlikely]] throw( Herd::Exceptions::PreconditionError( i_rName, GetRangeString(), i_Quantity.Value() ) );
+  }
 }
 
 }

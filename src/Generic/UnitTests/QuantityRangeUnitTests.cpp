@@ -38,6 +38,7 @@ BOOST_AUTO_TEST_CASE( TestQuantityRange )
   BOOST_TEST( !openRange.Contains( maxMass ) );
   BOOST_TEST( openRange.Contains( midMass ) );
 
+
   Herd::Generic::LeftOpenRange leftOpenRange( lower, upper );
   BOOST_TEST( !leftOpenRange.Contains( minMass ) );
   BOOST_TEST( leftOpenRange.Contains( maxMass ) );
@@ -69,6 +70,18 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantityRangeTemplated, T, QuantityRangeTypes
 
   BOOST_TEST( boost::icl::lower( interval.Range() ) == lower );
   BOOST_TEST( boost::icl::upper( interval.Range() ) == upper );
+
+  {
+    Herd::Generic::Mass minMass( lower );
+    if( interval.Contains( minMass ) )
+    {
+      interval.ThrowIfNotInRange( minMass, "InRange" );
+    } else
+    {
+      BOOST_CHECK_THROW( interval.ThrowIfNotInRange( minMass, "OutOfRange" ), Herd::Exceptions::PreconditionError );
+    }
+  }
+
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

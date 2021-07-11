@@ -66,7 +66,7 @@ Herd::SSE::TrackPoint ZAMSTestFixture::GetRandomTrackPoint()
   }
 
   // Rationale: unit tests need only a small number of entries from the catalogue. Hence, on demand, rather than constructing track points for all entries
-  return m_DataManager.MakeTrackPoint( GenerateNumber( static_cast< std::size_t >( 0 ), m_DataManager.TrackPointCount() - 1 ) );
+  return m_DataManager.MakeTrackPoint( GenerateNumber( static_cast< std::size_t >( 0 ), m_DataManager.TrackPointCount() - 1 ) ); // @suppress("Invalid arguments")
 }
 
 /**
@@ -114,9 +114,11 @@ void ZAMSTestFixture::LoadTestData()
 
 std::pair< Herd::Generic::Mass, Herd::Generic::Metallicity > ZAMSTestFixture::GenerateRandomInput()
 {
-  return
-  { Herd::Generic::Mass( GenerateNumber( s_MassRange.Lower(), s_MassRange.Upper() ) ),
-    Herd::Generic::Metallicity( GenerateNumber( s_ZRange.Lower(), s_ZRange.Upper() ) )};
+  Herd::Generic::Mass mass( GenerateNumber( s_MassRange.Lower(), s_MassRange.Upper() ) ); // @suppress("Invalid arguments")
+  Herd::Generic::Metallicity z( GenerateNumber( s_ZRange.Lower(), s_ZRange.Upper() ) ); // @suppress("Invalid arguments")
+  //@formatter:off
+  return { mass, z };
+    //@formatter:on
 }
 
 }

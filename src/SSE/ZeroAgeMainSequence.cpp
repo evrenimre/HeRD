@@ -14,7 +14,6 @@
 
 #include "Constants.h"
 
-#include <Exceptions/PreconditionError.h>
 #include <Generic/Quantities.h>
 #include <Generic/QuantityRange.h>
 #include <Physics/LuminosityRadiusTemperature.h>
@@ -100,17 +99,8 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, 
  */
 void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
 {
-  // Mass is within the allowed range
-  if( !ZeroAgeMainSequenceSpecs::s_MassRange.Contains( i_Mass ) )
-  {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Mass", ZeroAgeMainSequenceSpecs::s_MassRange.GetRangeString(), i_Mass.Value() ) );
-  }
-
-  // Metallicity is within the allowed range
-  if( !ZeroAgeMainSequenceSpecs::s_ZRange.Contains( i_Z ) )
-  {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "i_Z", ZeroAgeMainSequenceSpecs::s_ZRange.GetRangeString(), i_Z.Value() ) );
-  }
+  ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
+  ZeroAgeMainSequenceSpecs::s_ZRange.ThrowIfNotInRange( i_Z, "i_Z" );  // Metallicity is within the allowed range
 }
 
 /**
