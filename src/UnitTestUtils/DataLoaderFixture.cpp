@@ -102,7 +102,7 @@ boost::property_tree::ptree DataLoaderFixture::ReadAsXML( const std::string& i_r
  * @return Property trees for the files
  * @remarks Substring match on filename
  */
-std::unordered_map< std::string, boost::property_tree::ptree > DataLoaderFixture::ReadAsXML( const std::string i_rRegex ) const
+std::unordered_map< std::string, boost::property_tree::ptree > DataLoaderFixture::ReadAsXML( const std::string& i_rRegex ) const
 {
   std::regex filename_regex( i_rRegex );
   auto iBegin = begin( std::filesystem::directory_iterator( m_DataDir ) );

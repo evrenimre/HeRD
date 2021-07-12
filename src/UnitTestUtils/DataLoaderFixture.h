@@ -38,7 +38,7 @@ public:
 
   // Directory operations
   boost::property_tree::ptree ReadAsXML( const std::string& i_rRegex, std::size_t i_Index ); ///< Among the files in DataLoaderFixture::m_DataDir that satisfy the regex, reads the one indicated by the index into a property tree
-  std::unordered_map< std::string, boost::property_tree::ptree > ReadAsXML( const std::string i_rRegex ) const; ///< Reads each file in DataLoaderFixture::m_DataDir matching the regex into a property tree
+  std::unordered_map< std::string, boost::property_tree::ptree > ReadAsXML( const std::string& i_rRegex ) const; ///< Reads each file in DataLoaderFixture::m_DataDir matching the regex into a property tree
   unsigned int GetFileCount( const std::string& i_rRegex ) const; ///< Number of files in DataLoaderFixture::m_DataDir matching the regex
 
 private:
