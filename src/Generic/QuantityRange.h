@@ -19,6 +19,7 @@
 
 #include <sstream>
 #include <string>
+#include <string_view>
 
 #include <boost/icl/concept/interval.hpp>
 #include <boost/icl/continuous_interval.hpp>
@@ -63,7 +64,7 @@ public:
   std::string GetRangeString() const;  ///< Helper for printing range information
 
   template< class Tag >
-  void ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string& i_rName ) const;  ///< Throws if a quantity is not contained
+  void ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string_view& i_rName ) const;  ///< Throws if a quantity is not contained
 
 private:
 
@@ -143,7 +144,7 @@ std::string QuantityRange< BoundaryPolicy >::GetRangeString() const
  */
 template< class BoundaryPolicy >
 template< class Tag >
-void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string& i_rName ) const
+void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string_view& i_rName ) const
 {
   if( !Contains( i_Quantity ) )
   {

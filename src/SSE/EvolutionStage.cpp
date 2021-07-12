@@ -45,9 +45,9 @@ const std::unordered_map< Herd::SSE::EvolutionStage, std::string > s_StageToStri
  * @brief Makes a map from strings to evolution stages
  * @return A map from strings to evolution stages
  */
-std::unordered_map< std::string, Herd::SSE::EvolutionStage > MakeStringToStage()
+std::unordered_map< std::string_view, Herd::SSE::EvolutionStage > MakeStringToStage()
 {
-  std::unordered_map< std::string, Herd::SSE::EvolutionStage > output;
+  std::unordered_map< std::string_view, Herd::SSE::EvolutionStage > output;
 
   //@formatter:off
   ranges::cpp20::for_each( s_StageToString, [&]( const auto& i_rEntry ){ output.emplace( i_rEntry.second, i_rEntry.first);});
@@ -102,10 +102,10 @@ bool IsHeStar( EvolutionStage i_Stage )
  * @pre \c i_rString has a corresponding enum
  * @throws PreconditionError If \c i_rString does not have a corresponding enum
  */
-EvolutionStage StringToEvolutionStage( const std::string& i_rString )
+EvolutionStage StringToEvolutionStage( const std::string_view& i_rString )
 {
   // This makes the converter map from s_StageToString. If a new type is added, it is automatically picked up
-  static const std::unordered_map< std::string, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
+  static const std::unordered_map< std::string_view, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
 
   auto iQuery = s_StringToStage.find( i_rString );
   if( iQuery == s_StringToStage.end() )
@@ -120,7 +120,7 @@ EvolutionStage StringToEvolutionStage( const std::string& i_rString )
  * @param i_Stage Evolution stage
  * @return String corresponding to the evolution stage
  */
-std::string EvolutionStageToString( EvolutionStage i_Stage )
+const std::string& EvolutionStageToString( EvolutionStage i_Stage )
 {
   return s_StageToString.find( i_Stage )->second;
 }

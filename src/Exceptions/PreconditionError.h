@@ -19,6 +19,7 @@
 
 #include <concepts>
 #include <string>
+#include <string_view>
 
 #include <boost/format.hpp>
 #include <boost/stacktrace.hpp>
@@ -38,19 +39,8 @@ public:
    * @param i_rExpected Precondition
    * @param i_rActual Actual value
    */
-  PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual ) :
+  PreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual ) :
       Herd::Exceptions::RuntimeError( ComposeMessage( i_rElement, i_rExpected, i_rActual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) )
-  {
-  }
-
-  /**
-   * @brief Constructor
-   * @param i_pElement Element tested for precondition, often a variable
-   * @param i_pExpected Precondition
-   * @param i_pActual Actual value
-   */
-  PreconditionError( const char* i_pElement, const char* i_pExpected, const char* i_pActual ) :
-      Herd::Exceptions::RuntimeError( ComposeMessage( i_pElement, i_pExpected, i_pActual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) )
   {
   }
 
@@ -62,7 +52,7 @@ public:
    * @param i_Actual Actual value
    */
   template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
-  PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, T i_Actual ) : // @suppress("Type cannot be resolved")
+  PreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, T i_Actual ) : // @suppress("Type cannot be resolved")
       Herd::Exceptions::RuntimeError( // @suppress("Symbol is not resolved")
           ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) + boost::stacktrace::to_string( boost::stacktrace::stacktrace() ) ) ) // @suppress("Invalid arguments")
   {
@@ -80,7 +70,7 @@ public:
    */
   template< typename T >
   requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
-  static void ThrowIfNegative( T i_Value, const std::string& i_rName ) // @suppress("Type cannot be resolved")
+  static void ThrowIfNegative( T i_Value, const std::string_view& i_rName ) // @suppress("Type cannot be resolved")
   {
     if( i_Value < 0 )
     {
@@ -97,7 +87,7 @@ public:
    */
   template< typename T >
   requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
-  static void ThrowIfNotPositive( T i_Value, const std::string& i_rName ) // @suppress("Type cannot be resolved")
+  static void ThrowIfNotPositive( T i_Value, const std::string_view& i_rName ) // @suppress("Type cannot be resolved")
   {
     if( i_Value <= 0 )
     {
@@ -114,7 +104,7 @@ private:
    * @param i_rActual Actual value
    * @return Error message
    */
-  static std::string ComposeMessage( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual )
+  static std::string ComposeMessage( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual )
   {
     return boost::str( boost::format( "%s: Expected %s got %s\n" ) % i_rElement % i_rExpected % i_rActual );
   }

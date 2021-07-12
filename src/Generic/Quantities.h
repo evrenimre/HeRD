@@ -15,7 +15,7 @@
 
 #include <Exceptions/PreconditionError.h>
 
-#include <string>
+#include <string_view>
 
 namespace Herd::Generic
 {
@@ -86,10 +86,10 @@ private:
 };
 
 template< typename Tag >
-void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string& i_rName );  ///< Throws a PreconditionError for a negative quantity
+void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string_view& i_rName );  ///< Throws a PreconditionError for a negative quantity
 
 template< typename Tag >
-void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string& i_rName );  ///< Throws a PreconditionError for a non-positive quantity
+void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string_view& i_rName );  ///< Throws a PreconditionError for a non-positive quantity
 
 // Physical quantities
 // @formatter:off
@@ -109,7 +109,7 @@ using AngularMomentum = Quantity< struct AngularVelocityTag >; ///< Angular velo
  * @throws PreconditionError If \c i_Quantity<0
  */
 template< typename Tag >
-void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string& i_rName )
+void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string_view& i_rName )
 {
   if( i_Quantity < 0 )
   {
@@ -124,7 +124,7 @@ void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string& i_rName )
  * @throws PreconditionError If \c i_Quantity<=0
  */
 template< typename Tag >
-void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string& i_rName )
+void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string_view& i_rName )
 {
   if( i_Quantity <= 0 )
   {
