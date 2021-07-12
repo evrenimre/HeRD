@@ -13,7 +13,7 @@
 #ifndef HD40F097B_D96C_4F59_9F6D_2FF6630B422A
 #define HD40F097B_D96C_4F59_9F6D_2FF6630B422A
 
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 
 namespace Herd::Physics
 {

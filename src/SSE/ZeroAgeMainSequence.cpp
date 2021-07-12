@@ -14,7 +14,7 @@
 
 #include "Constants.h"
 
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 

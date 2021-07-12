@@ -13,7 +13,7 @@
 #ifndef H4AB1AC39_1519_4C63_9784_D33A5B105D68
 #define H4AB1AC39_1519_4C63_9784_D33A5B105D68
 
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 #include <SSE/EvolutionStage.h>
 #include <SSE/TrackPoint.h>
 

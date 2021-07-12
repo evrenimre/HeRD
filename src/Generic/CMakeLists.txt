@@ -1,5 +1,5 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
-set(HEADER_LIST Quantities.h 
+set(HEADER_LIST Quantity.h 
 								QuantityRange.h
 )
 set(SOURCE_LIST QuantityRange.cpp)

@@ -14,12 +14,13 @@
 
 namespace Herd::Generic::Detail
 {
+
 /**
  * @param i_Min Lower bound
  * @param i_Max Upper bound
  * @return An open interval
  */
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::OpenRange* )
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::OpenRangeTag* )
 {
   return boost::icl::continuous_interval< double >::open( i_Min, i_Max );
 }
@@ -29,7 +30,7 @@ boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max,
  * @param i_Max Upper bound
  * @return A left-open interval
  */
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::LeftOpenRange* )
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::LeftOpenRangeTag* )
 {
   return boost::icl::continuous_interval< double >::left_open( i_Min, i_Max );
 }
@@ -39,7 +40,7 @@ boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max,
  * @param i_Max Upper bound
  * @return A right-open interval
  */
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::RightOpenRange* )
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::RightOpenRangeTag* )
 {
   return boost::icl::continuous_interval< double >::right_open( i_Min, i_Max );
 }
@@ -49,7 +50,7 @@ boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max,
  * @param i_Max Upper bound
  * @return A closed interval
  */
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::ClosedRange* )
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::ClosedRangeTag* )
 {
   return boost::icl::continuous_interval< double >::closed( i_Min, i_Max );
 }

@@ -15,7 +15,7 @@
 
 #include "EvolutionStage.h"
 
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 
 namespace Herd::SSE
 {

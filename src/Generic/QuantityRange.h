@@ -13,7 +13,7 @@
 #ifndef HAE817853_F0C3_44C9_92ED_19BA7C220E0E
 #define HAE817853_F0C3_44C9_92ED_19BA7C220E0E
 
-#include "Quantities.h"
+#include "Quantity.h"
 
 #include <Exceptions/PreconditionError.h>
 
@@ -30,16 +30,16 @@ namespace Herd::Generic
 namespace Detail
 {
 // Boundary policy types
-struct OpenRange;
-struct LeftOpenRange;
-struct RightOpenRange;
-struct ClosedRange;
+struct OpenRangeTag;
+struct LeftOpenRangeTag;
+struct RightOpenRangeTag;
+struct ClosedRangeTag;
 
 // Implemented as free functions to reduce the amount of templated code
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::OpenRange* );  ///< Makes an open interval
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::LeftOpenRange* );  ///< Makes a left-open interval
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::RightOpenRange* ); ///< Makes a right-open interval
-boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::ClosedRange* );  ///< Makes a closed interval
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::OpenRangeTag* );  ///< Makes an open interval
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::LeftOpenRangeTag* );  ///< Makes a left-open interval
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::RightOpenRangeTag* ); ///< Makes a right-open interval
+boost::icl::continuous_interval< double > MakeRange( double i_Min, double i_Max, Detail::ClosedRangeTag* );  ///< Makes a closed interval
 }
 
 /**
@@ -73,10 +73,10 @@ private:
 
 // Range types
 // @formatter:off
-using OpenRange = QuantityRange< Detail::OpenRange >; ///< Open interval
-using LeftOpenRange = QuantityRange< Detail::LeftOpenRange >; ///< Left-open interval
-using RightOpenRange = QuantityRange< Detail::RightOpenRange >; ///< Right-open interval
-using ClosedRange = QuantityRange< Detail::ClosedRange >; ///< Closed interval
+using OpenRange = QuantityRange< Detail::OpenRangeTag >; ///< Open interval
+using LeftOpenRange = QuantityRange< Detail::LeftOpenRangeTag >; ///< Left-open interval
+using RightOpenRange = QuantityRange< Detail::RightOpenRangeTag >; ///< Right-open interval
+using ClosedRange = QuantityRange< Detail::ClosedRangeTag >; ///< Closed interval
 // @formatter:on
 
 /**

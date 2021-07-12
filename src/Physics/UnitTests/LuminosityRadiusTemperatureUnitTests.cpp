@@ -16,7 +16,7 @@
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <Exceptions/PreconditionError.h>
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 #include <Physics/Constants.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 

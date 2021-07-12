@@ -15,7 +15,7 @@
 #include <UnitTestUtils/RandomTestFixture.h>
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
 
 #include <boost/mpl/list.hpp>

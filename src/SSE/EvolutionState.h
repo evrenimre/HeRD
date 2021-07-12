@@ -13,7 +13,7 @@
 #ifndef H633A09E8_2301_41B3_8E30_CFE3C37DFCF3
 #define H633A09E8_2301_41B3_8E30_CFE3C37DFCF3
 
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 
 #include "TrackPoint.h"
 

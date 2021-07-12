@@ -19,7 +19,7 @@
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <Exceptions/PreconditionError.h>
-#include <Generic/Quantities.h>
+#include <Generic/Quantity.h>
 #include <SSE/TrackPoint.h>
 #include <SSE/ZeroAgeMainSequence.h>
 

@@ -1,5 +1,5 @@
 /**
- * @file Quantities.h
+ * @file Quantity.h
  * @author Evren Imre
  * @date 8 Nov 2020	
  */

@@ -13,7 +13,7 @@
 #ifndef HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 #define HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 
-#include "Generic/Quantities.h"
+#include "Generic/Quantity.h"
 #include "Generic/QuantityRange.h"
 
 #include "Eigen/Core"
