@@ -102,6 +102,15 @@ using Age = Quantity< struct AgeTag >;  ///< Age
 using AngularMomentum = Quantity< struct AngularVelocityTag >; ///< Angular velocity
 // @formatter:on
 
+// Extern template declarations
+extern template class Quantity< struct LuminosityTag > ;
+extern template class Quantity< struct MassTag > ;
+extern template class Quantity< struct MetallicityTag > ;
+extern template class Quantity< struct RadiusTag > ;
+extern template class Quantity< struct TemperatureTag > ;
+extern template class Quantity< struct AgeTag > ;
+extern template class Quantity< struct AngularVelocityTag > ;
+
 /**
  * @tparam Tag Quantity tag
  * @param i_Quantity Quantity under test

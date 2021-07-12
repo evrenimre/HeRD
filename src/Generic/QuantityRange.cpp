@@ -12,6 +12,16 @@
 
 #include "QuantityRange.h"
 
+namespace Herd::Generic
+{
+// Explicit instantiations
+template class QuantityRange< Detail::OpenRangeTag > ;
+template class QuantityRange< Detail::LeftOpenRangeTag > ;
+template class QuantityRange< Detail::RightOpenRangeTag > ;
+template class QuantityRange< Detail::ClosedRangeTag > ;
+}
+
+
 namespace Herd::Generic::Detail
 {
 

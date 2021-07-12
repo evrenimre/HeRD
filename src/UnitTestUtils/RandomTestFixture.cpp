@@ -23,6 +23,11 @@
 namespace Herd::UnitTestUtils
 {
 
+// Explicit instatiations
+template double RandomTestFixture::GenerateNumber< double >( double, double );
+template double RandomTestFixture::GenerateNumber< double >();
+
+
 RandomTestFixture::RandomTestFixture() :
     m_Seed( std::time( nullptr ) )
 {

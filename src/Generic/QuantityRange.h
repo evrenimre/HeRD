@@ -79,6 +79,12 @@ using RightOpenRange = QuantityRange< Detail::RightOpenRangeTag >; ///< Right-op
 using ClosedRange = QuantityRange< Detail::ClosedRangeTag >; ///< Closed interval
 // @formatter:on
 
+// Extern template declarations
+extern template class QuantityRange< Detail::OpenRangeTag > ;
+extern template class QuantityRange< Detail::LeftOpenRangeTag > ;
+extern template class QuantityRange< Detail::RightOpenRangeTag > ;
+extern template class QuantityRange< Detail::ClosedRangeTag > ;
+
 /**
  * @param i_Min Lower bound
  * @param i_Max Upper bound

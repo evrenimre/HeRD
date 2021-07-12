@@ -65,6 +65,10 @@ private:
   inline static const std::string s_SeedParameterName = "--seed";  ///< Command line parameter name
 };
 
+// Extern template declarations
+extern template double RandomTestFixture::GenerateNumber< double >( double, double ); // @suppress("Member declaration not found")
+extern template double RandomTestFixture::GenerateNumber< double >(); // @suppress("Member declaration not found")
+
 /**
  * @brief Generates a number
  * @tparam T Satisfies Herd::Concepts::Number

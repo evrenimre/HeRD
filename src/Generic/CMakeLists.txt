@@ -2,7 +2,9 @@ get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(HEADER_LIST Quantity.h 
 								QuantityRange.h
 )
-set(SOURCE_LIST QuantityRange.cpp)
+set(SOURCE_LIST Quantity.cpp
+								QuantityRange.cpp
+)
 
 set(PUBLIC_DEPS_LIST PUBLIC Exceptions
 														Boost::boost
