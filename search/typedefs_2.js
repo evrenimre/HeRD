@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['leftopenrange_414',['LeftOpenRange',['../namespaceHerd_1_1Generic.html#ac6c2153ef0910fbf0bf3c6e54c0ee4ab',1,'Herd::Generic']]],
-  ['luminosity_415',['Luminosity',['../namespaceHerd_1_1Generic.html#abecdaf56d77f2384701b976f8c352a94',1,'Herd::Generic']]]
+  ['leftopenrange_416',['LeftOpenRange',['../namespaceHerd_1_1Generic.html#ac9bd8e87145b32495f57d80d684ab43e',1,'Herd::Generic']]],
+  ['luminosity_417',['Luminosity',['../namespaceHerd_1_1Generic.html#abecdaf56d77f2384701b976f8c352a94',1,'Herd::Generic']]]
 ];

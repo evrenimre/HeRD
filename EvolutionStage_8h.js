@@ -20,10 +20,10 @@ var EvolutionStage_8h =
       [ "e_Undefined", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aeacb6f3fa57416b9f9569bcb73bbf2e4ed", null ]
     ] ],
     [ "EnumerateEvolutionStages", "EvolutionStage_8h.html#a2516aa1094ad7de074c6f23ec71c083f", null ],
-    [ "EvolutionStageToString", "EvolutionStage_8h.html#a90929104a2db17d25e2805a717372dbc", null ],
+    [ "EvolutionStageToString", "EvolutionStage_8h.html#a94617e1f1d6473175b4a7d4f5d40e1ab", null ],
     [ "IsAGB", "EvolutionStage_8h.html#a4b1c6b74f16e1e3affa1df36dca80b79", null ],
     [ "IsHeStar", "EvolutionStage_8h.html#a5e16e045b62428235960373056b9ebc6", null ],
     [ "IsMS", "EvolutionStage_8h.html#a898168595caece7ff07acd89c110a3d1", null ],
     [ "IsRemnant", "EvolutionStage_8h.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ],
-    [ "StringToEvolutionStage", "EvolutionStage_8h.html#a835bcc940a0d81431be1314348854fef", null ]
+    [ "StringToEvolutionStage", "EvolutionStage_8h.html#ab296ee449e49d2defc572b4eea0c1938", null ]
 ];

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['checkversioninfo_21',['CheckVersionInfo',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a014fada08857261232c6985e8ede4f22',1,'Herd::SSE::UnitTests::SSETestDataManager::CheckVersionInfo(const std::string &amp;i_rUUIDExpected, const std::string &amp;i_rVersionExpected) const'],['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a4842c200475f396165fe3b28d4e4f65b',1,'Herd::SSE::UnitTests::SSETestDataManager::CheckVersionInfo() const']]],
-  ['closedrange_22',['ClosedRange',['../namespaceHerd_1_1Generic.html#ad589eacc3a40e9a063315897f51fff9d',1,'Herd::Generic']]],
-  ['composemessage_23',['ComposeMessage',['../classHerd_1_1Exceptions_1_1PreconditionError.html#aa6cbf3906306974a928065e11281ac0b',1,'Herd::Exceptions::PreconditionError']]],
+  ['closedrange_22',['ClosedRange',['../namespaceHerd_1_1Generic.html#ad3a6673567a2348a4298a1080fe905da',1,'Herd::Generic']]],
+  ['composemessage_23',['ComposeMessage',['../classHerd_1_1Exceptions_1_1PreconditionError.html#aae9aee47cad6f115bb6923c687963d83',1,'Herd::Exceptions::PreconditionError']]],
   ['compute_24',['Compute',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#adb315d64cb8dc20c1d9616568bea1da6',1,'Herd::SSE::StellarWindMassLoss::Compute(const Herd::SSE::TrackPoint &amp;i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe)'],['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#af5e53bd99d2b4fd5f2af01908f4a124b',1,'Herd::SSE::StellarWindMassLoss::Compute(const Herd::SSE::TrackPoint &amp;i_rTrackPoint, double i_Neta)'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a0491ed63f1977aa125a914dbe343e832',1,'Herd::SSE::ZeroAgeMainSequence::Compute()']]],
   ['computelbvlikeloss_25',['ComputeLBVLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#ae75b879bead64e960f35eeb7964016fe',1,'Herd::SSE::StellarWindMassLoss']]],
   ['computeluminosity_26',['ComputeLuminosity',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a6c80fe6b4fa55aef2f929dca4c9a1d50',1,'Herd::SSE::ZeroAgeMainSequence']]],
