@@ -35,7 +35,7 @@ option(USE_SANITISER "Enable instrumentation for sanitisers" OFF)
 set(UNIT_TEST_LABELS "0_Compile" "1_Continuous" "2_Nightly" "ALL")
 list(GET UNIT_TEST_LABELS 0 DEFAULT_UNIT_TEST_LEVEL)
 set(UNIT_TEST_LEVEL ${DEFAULT_UNIT_TEST_LEVEL} CACHE STRING "Unit test level")	# Unit tests
-set_property(CACHE UNIT_TEST_LEVEL PROPERTY STRINGS UNIT_TEST_LABELS )	# Numbers are introduced for correct lexicographical ordering, from simpler to more complex tests
+set_property(CACHE UNIT_TEST_LEVEL PROPERTY STRINGS ${UNIT_TEST_LABELS} )	# Numbers are introduced for correct lexicographical ordering, from simpler to more complex tests
 
 set(CLANG_TIDY_NAME "clang-tidy" CACHE PATH "Name of the clang-tidy binary")
 
