@@ -31,6 +31,7 @@ set(INSTALL_CMAKE_DIR "${INSTALL_LIB_DIR}/CMake" CACHE PATH "Installation direct
 # Options
 option(ENABLE_CODE_COVERAGE "Enable coverage reporting" OFF)
 option(USE_SANITISER "Enable instrumentation for sanitisers" OFF)
+option(CLANG_USE_LIBSTDC++ "Force using libstdc++ in Clang, as opposed to libc++" ON)
 
 set(UNIT_TEST_LABELS "0_Compile" "1_Continuous" "2_Nightly" "ALL")
 list(GET UNIT_TEST_LABELS 0 DEFAULT_UNIT_TEST_LEVEL)
@@ -52,11 +53,14 @@ set(CONFIG_DIR "${PROJECT_SOURCE_DIR}/Config")
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
 	include(HerdFlagsGNU)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+	include(HerdFlagsClang)
 else()
 	message(WARNING "Could not find a file for compiler and linker flags. Features requiring specific flags may not work correctly")
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_CXX_WARNING_FLAGS}")	# Default compiler flags
+set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINKER_CXX_DEFAULT_FLAGS}")	# Default linker flags
 
 include(HerdConfigureStaticCheckers)	# Static checkers
 include(HerdConfigureDoxygen)	# Documentation
