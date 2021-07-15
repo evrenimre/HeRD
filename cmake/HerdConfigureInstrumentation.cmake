@@ -23,6 +23,8 @@ if(USE_SANITISER)
 		target_link_options(${SANITISER_TARGET} INTERFACE ${LINKER_CXX_SANITISER_FLAGS})
 		
 		list(APPEND INSTRUMENTATION_DEPS ${SANITISER_TARGET})
+		
+			message(STATUS "sanitiser enabled")	
 	else()
 		 message(FATAL_ERROR "COMPILER_CXX_SANITISER_FLAGS not defined")
 	endif()
@@ -44,6 +46,8 @@ if(ENABLE_CODE_COVERAGE)
 	  target_link_options(${COVERAGE_TARGET} INTERFACE ${LINKER_CXX_COVERAGE_FLAGS})
 	  
 	  list(APPEND INSTRUMENTATION_DEPS ${COVERAGE_TARGET})
+	  
+	  	message(STATUS "Code coverage enabled")	
 	else()
 		message(FATAL_ERROR "COMPILER_CXX_COVERAGE_FLAGS and/or LINKER_CXX_COVERAGE_FLAGS not defined")  
 	endif()
