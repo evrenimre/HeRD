@@ -75,7 +75,7 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( std::size_t i_Index, c
 {
   BOOST_TEST_REQUIRE( i_Index < m_TrackPointCount );
 
-  auto trackPointsView = m_Parent | ranges::view::remove_if( [ & ]( const auto& i_rNode )
+  auto trackPointsView = m_Parent | ranges::views::remove_if( [ & ]( const auto& i_rNode )
   { return i_rNode.first != s_TrackPointTag;} );
   const boost::property_tree::ptree& rNode = std::next( ranges::cpp20::begin( trackPointsView ), i_Index )->second; // @suppress("Invalid arguments") // @suppress("Field cannot be resolved")
   return MakeTrackPoint( rNode, i_rZo );

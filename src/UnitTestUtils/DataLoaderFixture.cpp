@@ -91,7 +91,7 @@ boost::property_tree::ptree DataLoaderFixture::ReadAsXML( const std::string& i_r
   
   if( !filepath )
   {
-    BOOST_TEST_REQUIRE( false, "Index exceeds the number of eligible files. Value: " + i_Index );
+    BOOST_TEST_REQUIRE( false, "Index exceeds the number of eligible files. Value: " + std::to_string( i_Index ) );
   }
 
   return ReadAsXML( *filepath );
