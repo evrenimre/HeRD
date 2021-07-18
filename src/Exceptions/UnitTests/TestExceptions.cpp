@@ -11,6 +11,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 #define BOOST_TEST_MODULE Exceptions ///< Test module name
+#define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
 
 

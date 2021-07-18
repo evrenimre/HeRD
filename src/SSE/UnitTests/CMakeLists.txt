@@ -9,7 +9,7 @@ set(SOURCE_LIST TestSSE.cpp
 
 set(PRIVATE_DEPS_LIST SSE
 											UnitTestUtils
-											boost_unit_test_framework.a
+											boost_unit_test_framework
 											Boost::boost
 											range-v3::range-v3
 )

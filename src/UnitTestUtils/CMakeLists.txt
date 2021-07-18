@@ -8,7 +8,7 @@ set(SOURCE_LIST DataLoaderFixture.cpp
 	 							UnitTestUtilityFunctions.cpp
 )
 
-set(PRIVATE_DEPS_LIST boost_unit_test_framework.a)
+set(PRIVATE_DEPS_LIST boost_unit_test_framework)
 
 set(PUBLIC_DEPS_LIST PUBLIC Concepts
 														Boost::boost

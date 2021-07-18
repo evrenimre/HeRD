@@ -10,6 +10,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+#define BOOST_TEST_DYN_LINK
+
 #include <boost/test/unit_test.hpp>
 
 #include "SSETestDataManager.h"
@@ -125,7 +127,7 @@ std::vector< Herd::SSE::TrackPoint > StellarWindMassLossTestFixture::MakeTestCas
   // Pick a random file
   std::size_t fileCount = GetFileCount( s_TrackRegex );
   BOOST_TEST_REQUIRE( fileCount != 0 );
-  boost::property_tree::ptree data = ReadAsXML( s_TrackRegex, GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 ) );
+  boost::property_tree::ptree data = ReadAsXML( s_TrackRegex, GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 ) ); // @suppress("Invalid arguments")
 
   std::vector< Herd::SSE::TrackPoint > track = MakeTestCase( data );
   BOOST_TEST_REQUIRE( track.size() >= 2 );
@@ -160,24 +162,24 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   validPoint.m_Temperature.Set( 5754.399 );
   validPoint.m_Stage = Herd::SSE::EvolutionStage::e_MS;
 
-  double neta = GenerateNumber( 0., 1. );
-  double heWind = GenerateNumber( 0., 2. );
-  double binaryWind = GenerateNumber( 0., 2. );
-  double rocheLobe = GenerateNumber( 0., 2. );
+  double neta = GenerateNumber( 0., 1. ); // @suppress("Invalid arguments")
+  double heWind = GenerateNumber( 0., 2. ); // @suppress("Invalid arguments")
+  double binaryWind = GenerateNumber( 0., 2. ); // @suppress("Invalid arguments")
+  double rocheLobe = GenerateNumber( 0., 2. ); // @suppress("Invalid arguments")
 
   // Invalid parameters
   {
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ) ), Herd::Exceptions::PreconditionError );
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ), heWind, binaryWind, rocheLobe ),
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ) ), Herd::Exceptions::PreconditionError ); // @suppress("Invalid arguments")
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ), heWind, binaryWind, rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, GenerateNumber( -1., -0.1 ), binaryWind, rocheLobe ),
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, GenerateNumber( -1., -0.1 ), binaryWind, rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, heWind, GenerateNumber( -1., -0.1 ), rocheLobe ),
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, heWind, GenerateNumber( -1., -0.1 ), rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, heWind, binaryWind, GenerateNumber( -1., -0.1 ) ),
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, heWind, binaryWind, GenerateNumber( -1., -0.1 ) ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
   }
 
@@ -188,31 +190,31 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 
   {
     Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Mass.Set( GenerateBool() ? 0. : GenerateNumber( -1., 0. ) );
+    invalid.m_Mass.Set( GenerateBool() ? 0. : GenerateNumber( -1., 0. ) ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Luminosity.Set( GenerateNumber( -1., -0.1 ) );
+    invalid.m_Luminosity.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Radius.Set( GenerateNumber( -1., -0.1 ) );
+    invalid.m_Radius.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_InitialMetallicity.Set( GenerateNumber( -1., -0.1 ) );
+    invalid.m_InitialMetallicity.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_CoreMass.Set( GenerateNumber( -1., -0.1 ) );
+    invalid.m_CoreMass.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
   }
 
@@ -227,7 +229,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 BOOST_AUTO_TEST_CASE( RandomReferenceTrackSampled, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
-  TestFidelity( track, GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ), 0.02 );
+  TestFidelity( track, GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ), 0.02 ); // @suppress("Invalid arguments")
 }
 
 /*

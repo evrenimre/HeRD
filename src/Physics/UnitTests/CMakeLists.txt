@@ -6,7 +6,7 @@ set(SOURCE_LIST TestPhysics.cpp
 
 set(PRIVATE_DEPS_LIST Physics
 											UnitTestUtils
-											boost_unit_test_framework.a
+											boost_unit_test_framework
 											Boost::boost
 )
 

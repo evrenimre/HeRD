@@ -10,6 +10,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+#define BOOST_TEST_DYN_LINK
+
 #include "RandomTestFixture.h"
 
 #include "UnitTestUtilityFunctions.h"
@@ -24,8 +26,8 @@ namespace Herd::UnitTestUtils
 {
 
 // Explicit instatiations
-template double RandomTestFixture::GenerateNumber< double >( double, double );
-template double RandomTestFixture::GenerateNumber< double >();
+template double RandomTestFixture::GenerateNumber< double >( double, double ); // @suppress("Member declaration not found")
+template double RandomTestFixture::GenerateNumber< double >(); // @suppress("Member declaration not found")
 
 
 RandomTestFixture::RandomTestFixture() :

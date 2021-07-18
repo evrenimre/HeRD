@@ -10,6 +10,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+#define BOOST_TEST_DYN_LINK
+
 #include <boost/test/unit_test.hpp>
 
 #include <UnitTestUtils/RandomTestFixture.h>
@@ -34,12 +36,12 @@ public:
 
 void LRTTestFixture::TestConsistency()
 {
-  Herd::Generic::Radius rExpected( GenerateNumber( 0., 12. ) );
+  Herd::Generic::Radius rExpected( GenerateNumber( 0., 12. ) ); // @suppress("Invalid arguments")
 
   double lowerT = 2200. / Herd::Physics::Constants::s_SunSurfaceTemperature;
   double upperT = 50000. / Herd::Physics::Constants::s_SunSurfaceTemperature;
-  Herd::Generic::Temperature tExpected( GenerateNumber( lowerT, upperT ) );
-  Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000. ) );
+  Herd::Generic::Temperature tExpected( GenerateNumber( lowerT, upperT ) ); // @suppress("Invalid arguments")
+  Herd::Generic::Luminosity lExpected( GenerateNumber( 0.003, 800000. ) ); // @suppress("Invalid arguments")
 
   BOOST_TEST_CONTEXT( "Luminosity "<< lExpected.Value() <<" Radius "<< rExpected.Value()<<" Temperature "<<tExpected.Value() )
   {
@@ -100,9 +102,9 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTests, *boost::unit_test::toler
 
   BOOST_TEST_CONTEXT( "Invalid input" )
   {
-    Herd::Generic::Radius rInvalid( GenerateNumber( -1000.0, 0.0 ) );
-    Herd::Generic::Temperature tInvalid( GenerateNumber( -1000.0, 0.0 ) );
-    Herd::Generic::Luminosity lInvalid( GenerateNumber( -1000.0, 0.0 ) );
+    Herd::Generic::Radius rInvalid( GenerateNumber( -1000.0, 0.0 ) ); // @suppress("Invalid arguments")
+    Herd::Generic::Temperature tInvalid( GenerateNumber( -1000.0, 0.0 ) ); // @suppress("Invalid arguments")
+    Herd::Generic::Luminosity lInvalid( GenerateNumber( -1000.0, 0.0 ) ); // @suppress("Invalid arguments")
 
     BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeLuminosty( rInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
     BOOST_CHECK_THROW( Herd::Physics::LuminosityRadiusTemperature::ComputeRadius( lInvalid, tInvalid ), Herd::Exceptions::PreconditionError );
