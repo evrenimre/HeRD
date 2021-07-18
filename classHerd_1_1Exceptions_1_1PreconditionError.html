@@ -92,14 +92,13 @@ $(document).ready(function(){initNavTree('classHerd_1_1Exceptions_1_1Preconditio
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="classHerd_1_1Exceptions_1_1PreconditionError-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Herd::Exceptions::PreconditionError Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Exception class indicating that a precondition was not met.  
+<p><a class="el" href="classHerd_1_1Exceptions_1_1Exception.html" title="Base for the HeRD exception tree.">Exception</a> class indicating that a precondition was not met.  
  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PreconditionError_8h_source.html">PreconditionError.h</a>&gt;</code></p>
@@ -108,9 +107,10 @@ Inheritance diagram for Herd::Exceptions::PreconditionError:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHerd_1_1Exceptions_1_1PreconditionError__inherit__graph.png" border="0" usemap="#aHerd_1_1Exceptions_1_1PreconditionError_inherit__map" alt="Inheritance graph"/></div>
 <map name="aHerd_1_1Exceptions_1_1PreconditionError_inherit__map" id="aHerd_1_1Exceptions_1_1PreconditionError_inherit__map">
-<area shape="rect" title="Exception class indicating that a precondition was not met." alt="" coords="5,169,227,211"/>
-<area shape="rect" href="classHerd_1_1Exceptions_1_1RuntimeError.html" title="Exception class for generic runtime errors." alt="" coords="19,80,213,121"/>
-<area shape="rect" title=" " alt="" coords="47,5,185,32"/>
+<area shape="rect" title="Exception class indicating that a precondition was not met." alt="" coords="5,244,227,285"/>
+<area shape="rect" href="classHerd_1_1Exceptions_1_1RuntimeError.html" title="Exception class for generic runtime errors." alt="" coords="19,155,213,196"/>
+<area shape="rect" href="classHerd_1_1Exceptions_1_1Exception.html" title="Base for the HeRD exception tree." alt="" coords="14,80,218,107"/>
+<area shape="rect" title=" " alt="" coords="59,5,173,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -118,9 +118,10 @@ Collaboration diagram for Herd::Exceptions::PreconditionError:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHerd_1_1Exceptions_1_1PreconditionError__coll__graph.png" border="0" usemap="#aHerd_1_1Exceptions_1_1PreconditionError_coll__map" alt="Collaboration graph"/></div>
 <map name="aHerd_1_1Exceptions_1_1PreconditionError_coll__map" id="aHerd_1_1Exceptions_1_1PreconditionError_coll__map">
-<area shape="rect" title="Exception class indicating that a precondition was not met." alt="" coords="5,169,227,211"/>
-<area shape="rect" href="classHerd_1_1Exceptions_1_1RuntimeError.html" title="Exception class for generic runtime errors." alt="" coords="19,80,213,121"/>
-<area shape="rect" title=" " alt="" coords="47,5,185,32"/>
+<area shape="rect" title="Exception class indicating that a precondition was not met." alt="" coords="5,244,227,285"/>
+<area shape="rect" href="classHerd_1_1Exceptions_1_1RuntimeError.html" title="Exception class for generic runtime errors." alt="" coords="19,155,213,196"/>
+<area shape="rect" href="classHerd_1_1Exceptions_1_1Exception.html" title="Base for the HeRD exception tree." alt="" coords="14,80,218,107"/>
+<area shape="rect" title=" " alt="" coords="59,5,173,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -133,30 +134,48 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a633a21ca4ef1a3e7cc6573dba1ed73ce"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a633a21ca4ef1a3e7cc6573dba1ed73ce">PreconditionError</a> (const std::string_view &amp;i_rElement, const std::string_view &amp;i_rExpected, T i_Actual)</td></tr>
 <tr class="memdesc:a633a21ca4ef1a3e7cc6573dba1ed73ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for numerical types.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a633a21ca4ef1a3e7cc6573dba1ed73ce">More...</a><br /></td></tr>
 <tr class="separator:a633a21ca4ef1a3e7cc6573dba1ed73ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58886daea6f3f8cf5237912568e77143"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a58886daea6f3f8cf5237912568e77143">~PreconditionError</a> ()=default</td></tr>
+<tr class="memdesc:a58886daea6f3f8cf5237912568e77143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a58886daea6f3f8cf5237912568e77143">More...</a><br /></td></tr>
+<tr class="separator:a58886daea6f3f8cf5237912568e77143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab7de185e0022d771a0a0b5444424a91"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aab7de185e0022d771a0a0b5444424a91"><td class="memTemplItemLeft" align="right" valign="top">requires std::totally_ordered&lt; T &gt; void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#aab7de185e0022d771a0a0b5444424a91">ThrowIfNegative</a> (T i_Value, const std::string_view &amp;i_rName)</td></tr>
+<tr class="memdesc:aab7de185e0022d771a0a0b5444424a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws if value is not positive.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#aab7de185e0022d771a0a0b5444424a91">More...</a><br /></td></tr>
+<tr class="separator:aab7de185e0022d771a0a0b5444424a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792f8d36796961f630fc09a742ea7e01"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a792f8d36796961f630fc09a742ea7e01"><td class="memTemplItemLeft" align="right" valign="top">requires std::totally_ordered&lt; T &gt; void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a792f8d36796961f630fc09a742ea7e01">ThrowIfNotPositive</a> (T i_Value, const std::string_view &amp;i_rName)</td></tr>
+<tr class="memdesc:a792f8d36796961f630fc09a742ea7e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws if value is negative.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a792f8d36796961f630fc09a742ea7e01">More...</a><br /></td></tr>
+<tr class="separator:a792f8d36796961f630fc09a742ea7e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classHerd_1_1Exceptions_1_1RuntimeError')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classHerd_1_1Exceptions_1_1RuntimeError.html">Herd::Exceptions::RuntimeError</a></td></tr>
 <tr class="memitem:a1ae4b108480d00a95eb825dfb165c8e8 inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1RuntimeError.html#a1ae4b108480d00a95eb825dfb165c8e8">RuntimeError</a> (const std::string &amp;i_rMessage)</td></tr>
+<tr class="memdesc:a1ae4b108480d00a95eb825dfb165c8e8 inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classHerd_1_1Exceptions_1_1RuntimeError.html#a1ae4b108480d00a95eb825dfb165c8e8">More...</a><br /></td></tr>
 <tr class="separator:a1ae4b108480d00a95eb825dfb165c8e8 inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c87f9857d79bc5c6e5de9b3ccf0efae inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1RuntimeError.html#a0c87f9857d79bc5c6e5de9b3ccf0efae">~RuntimeError</a> ()=default</td></tr>
+<tr class="memdesc:a0c87f9857d79bc5c6e5de9b3ccf0efae inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classHerd_1_1Exceptions_1_1RuntimeError.html#a0c87f9857d79bc5c6e5de9b3ccf0efae">More...</a><br /></td></tr>
+<tr class="separator:a0c87f9857d79bc5c6e5de9b3ccf0efae inherit pub_methods_classHerd_1_1Exceptions_1_1RuntimeError"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classHerd_1_1Exceptions_1_1Exception"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classHerd_1_1Exceptions_1_1Exception')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classHerd_1_1Exceptions_1_1Exception.html">Herd::Exceptions::Exception</a></td></tr>
+<tr class="memitem:a58ce1ef812891726b0958ca0e8b4b2a5 inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1Exception.html#a58ce1ef812891726b0958ca0e8b4b2a5">Exception</a> (const std::string &amp;i_rMessage)</td></tr>
+<tr class="memdesc:a58ce1ef812891726b0958ca0e8b4b2a5 inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classHerd_1_1Exceptions_1_1Exception.html#a58ce1ef812891726b0958ca0e8b4b2a5">More...</a><br /></td></tr>
+<tr class="separator:a58ce1ef812891726b0958ca0e8b4b2a5 inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac250e117c51a24879cbe36c7118657ed inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1Exception.html#ac250e117c51a24879cbe36c7118657ed">~Exception</a> ()=default</td></tr>
+<tr class="memdesc:ac250e117c51a24879cbe36c7118657ed inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classHerd_1_1Exceptions_1_1Exception.html#ac250e117c51a24879cbe36c7118657ed">More...</a><br /></td></tr>
+<tr class="separator:ac250e117c51a24879cbe36c7118657ed inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9acf51007f84f83d960a8b6054e8b149 inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1Exception.html#a9acf51007f84f83d960a8b6054e8b149">what</a> () const noexcept override</td></tr>
+<tr class="memdesc:a9acf51007f84f83d960a8b6054e8b149 inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the contents of <a class="el" href="classHerd_1_1Exceptions_1_1Exception.html#a8f67d0e5a453652c50b092c96e0a4afd">Exception::m_Message</a>.  <a href="classHerd_1_1Exceptions_1_1Exception.html#a9acf51007f84f83d960a8b6054e8b149">More...</a><br /></td></tr>
+<tr class="separator:a9acf51007f84f83d960a8b6054e8b149 inherit pub_methods_classHerd_1_1Exceptions_1_1Exception"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Helpers</div></td></tr>
-<tr class="memitem:ad8ba55de8459f91e0eee396974ad6569"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad8ba55de8459f91e0eee396974ad6569"><td class="memTemplItemLeft" align="right" valign="top">requires static std::totally_ordered&lt; T &gt; void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#ad8ba55de8459f91e0eee396974ad6569">ThrowIfNegative</a> (T i_Value, const std::string_view &amp;i_rName)</td></tr>
-<tr class="memdesc:ad8ba55de8459f91e0eee396974ad6569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws if value is not positive.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#ad8ba55de8459f91e0eee396974ad6569">More...</a><br /></td></tr>
-<tr class="separator:ad8ba55de8459f91e0eee396974ad6569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a350c95d92ed588e92dc57c99e7cc4a01"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a350c95d92ed588e92dc57c99e7cc4a01"><td class="memTemplItemLeft" align="right" valign="top">requires static std::totally_ordered&lt; T &gt; void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a350c95d92ed588e92dc57c99e7cc4a01">ThrowIfNotPositive</a> (T i_Value, const std::string_view &amp;i_rName)</td></tr>
-<tr class="memdesc:a350c95d92ed588e92dc57c99e7cc4a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws if value is negative.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a350c95d92ed588e92dc57c99e7cc4a01">More...</a><br /></td></tr>
-<tr class="separator:a350c95d92ed588e92dc57c99e7cc4a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:aae9aee47cad6f115bb6923c687963d83"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#aae9aee47cad6f115bb6923c687963d83">ComposeMessage</a> (const std::string_view &amp;i_rElement, const std::string_view &amp;i_rExpected, const std::string_view &amp;i_rActual)</td></tr>
-<tr class="memdesc:aae9aee47cad6f115bb6923c687963d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes the error message for the exception.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#aae9aee47cad6f115bb6923c687963d83">More...</a><br /></td></tr>
-<tr class="separator:aae9aee47cad6f115bb6923c687963d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Helpers</h2></td></tr>
+<tr class="memitem:adc5f95bb61bfe52128fc4389d0523794"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adc5f95bb61bfe52128fc4389d0523794"><td class="memTemplItemLeft" align="right" valign="top">requires static std::totally_ordered&lt; T &gt; void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#adc5f95bb61bfe52128fc4389d0523794">ThrowIfNegative</a> (T i_Value, const std::string_view &amp;i_rName)</td></tr>
+<tr class="separator:adc5f95bb61bfe52128fc4389d0523794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7fefc87d5ba876b3698d110bb4c4e96"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab7fefc87d5ba876b3698d110bb4c4e96"><td class="memTemplItemLeft" align="right" valign="top">requires static std::totally_ordered&lt; T &gt; void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#ab7fefc87d5ba876b3698d110bb4c4e96">ThrowIfNotPositive</a> (T i_Value, const std::string_view &amp;i_rName)</td></tr>
+<tr class="separator:ab7fefc87d5ba876b3698d110bb4c4e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c87f01a16ebedc8ad2e6131b529dc34"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html#a3c87f01a16ebedc8ad2e6131b529dc34">ComposeMessage</a> (const std::string_view &amp;i_rElement, const std::string_view &amp;i_rExpected, const std::string_view &amp;i_rActual)</td></tr>
+<tr class="memdesc:a3c87f01a16ebedc8ad2e6131b529dc34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes the error message for the exception.  <a href="classHerd_1_1Exceptions_1_1PreconditionError.html#a3c87f01a16ebedc8ad2e6131b529dc34">More...</a><br /></td></tr>
+<tr class="separator:a3c87f01a16ebedc8ad2e6131b529dc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Exception class indicating that a precondition was not met. </p>
+<div class="textblock"><p><a class="el" href="classHerd_1_1Exceptions_1_1Exception.html" title="Base for the HeRD exception tree.">Exception</a> class indicating that a precondition was not met. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>Stacktrace is not called in <code>ComposeMessage</code> so that the frame does not unnecessarily include an implementation detail </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ace12334be4b55bd42d73fe7ae02a6a81"></a>
@@ -218,9 +237,6 @@ Static Private Member Functions</h2></td></tr>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Herd::Concepts::Number T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Herd::Exceptions::PreconditionError::PreconditionError </td>
@@ -246,11 +262,6 @@ template&lt;Herd::Concepts::Number T&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Constructor for numerical types. </p>
@@ -271,9 +282,8 @@ template&lt;Herd::Concepts::Number T&gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aae9aee47cad6f115bb6923c687963d83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae9aee47cad6f115bb6923c687963d83">&#9670;&nbsp;</a></span>ComposeMessage()</h2>
+<a id="a58886daea6f3f8cf5237912568e77143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58886daea6f3f8cf5237912568e77143">&#9670;&nbsp;</a></span>~PreconditionError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +292,35 @@ template&lt;Herd::Concepts::Number T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string Herd::Exceptions::PreconditionError::ComposeMessage </td>
+          <td class="memname">virtual Herd::Exceptions::PreconditionError::~PreconditionError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3c87f01a16ebedc8ad2e6131b529dc34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c87f01a16ebedc8ad2e6131b529dc34">&#9670;&nbsp;</a></span>ComposeMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Herd::Exceptions::PreconditionError::ComposeMessage </td>
           <td>(</td>
           <td class="paramtype">const std::string_view &amp;&#160;</td>
           <td class="paramname"><em>i_rElement</em>, </td>
@@ -307,7 +345,7 @@ template&lt;Herd::Concepts::Number T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -325,8 +363,8 @@ template&lt;Herd::Concepts::Number T&gt; </div>
 
 </div>
 </div>
-<a id="ad8ba55de8459f91e0eee396974ad6569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8ba55de8459f91e0eee396974ad6569">&#9670;&nbsp;</a></span>ThrowIfNegative()</h2>
+<a id="adc5f95bb61bfe52128fc4389d0523794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc5f95bb61bfe52128fc4389d0523794">&#9670;&nbsp;</a></span>ThrowIfNegative() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,7 +375,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">requires static std::totally_ordered&lt; T &gt; void Herd::Exceptions::PreconditionError::ThrowIfNegative </td>
+          <td class="memname">template void Herd::Exceptions::PreconditionError::ThrowIfNegative </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>i_Value</em>, </td>
@@ -356,9 +394,39 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab7de185e0022d771a0a0b5444424a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab7de185e0022d771a0a0b5444424a91">&#9670;&nbsp;</a></span>ThrowIfNegative() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">requires std::totally_ordered&lt; T &gt; void Herd::Exceptions::PreconditionError::ThrowIfNegative </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>i_Value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p>Throws if value is not positive. </p>
@@ -384,8 +452,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a350c95d92ed588e92dc57c99e7cc4a01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a350c95d92ed588e92dc57c99e7cc4a01">&#9670;&nbsp;</a></span>ThrowIfNotPositive()</h2>
+<a id="ab7fefc87d5ba876b3698d110bb4c4e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7fefc87d5ba876b3698d110bb4c4e96">&#9670;&nbsp;</a></span>ThrowIfNotPositive() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -396,7 +464,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">requires static std::totally_ordered&lt; T &gt; void Herd::Exceptions::PreconditionError::ThrowIfNotPositive </td>
+          <td class="memname">template void Herd::Exceptions::PreconditionError::ThrowIfNotPositive </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>i_Value</em>, </td>
@@ -415,9 +483,39 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a792f8d36796961f630fc09a742ea7e01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792f8d36796961f630fc09a742ea7e01">&#9670;&nbsp;</a></span>ThrowIfNotPositive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">requires std::totally_ordered&lt; T &gt; void Herd::Exceptions::PreconditionError::ThrowIfNotPositive </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>i_Value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p>Throws if value is negative. </p>
@@ -443,8 +541,9 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Exceptions/<a class="el" href="PreconditionError_8h_source.html">PreconditionError.h</a></li>
+<li>src/Exceptions/<a class="el" href="PreconditionError_8cpp.html">PreconditionError.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

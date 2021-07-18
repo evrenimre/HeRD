@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,13,144,39"/>
-<area shape="rect" id="node2" href="$classHerd_1_1Exceptions_1_1RuntimeError.html" title="Exception class for generic runtime errors." alt="" coords="192,5,387,47"/>
-<area shape="rect" id="node3" href="$classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met." alt="" coords="435,5,656,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,120,39"/>
+<area shape="rect" id="node2" href="$classHerd_1_1Exceptions_1_1Exception.html" title="Base for the HeRD exception tree." alt="" coords="168,13,372,39"/>
+<area shape="rect" id="node3" href="$classHerd_1_1Exceptions_1_1RuntimeError.html" title="Exception class for generic runtime errors." alt="" coords="420,5,615,47"/>
+<area shape="rect" id="node4" href="$classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met." alt="" coords="663,5,884,47"/>
 </map>

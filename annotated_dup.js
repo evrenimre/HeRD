@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "Herd", "namespaceHerd.html", [
       [ "Exceptions", "namespaceHerd_1_1Exceptions.html", [
+        [ "Exception", "classHerd_1_1Exceptions_1_1Exception.html", "classHerd_1_1Exceptions_1_1Exception" ],
         [ "PreconditionError", "classHerd_1_1Exceptions_1_1PreconditionError.html", "classHerd_1_1Exceptions_1_1PreconditionError" ],
         [ "RuntimeError", "classHerd_1_1Exceptions_1_1RuntimeError.html", "classHerd_1_1Exceptions_1_1RuntimeError" ]
       ] ],
