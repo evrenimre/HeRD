@@ -25,15 +25,16 @@ jobs:
         sudo add-apt-repository 'deb http://mirrors.kernel.org/ubuntu hirsute main universe'
         sudo apt-get update
         sudo apt-get install g++-11
-        sudo apt-get install clang 
+        sudo apt-get install clang
+        sudo apt-get install ninja
         sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev 
         sudo apt-get install cmake cppcheck iwyu
         sudo apt-get install doxygen graphviz gsfonts biber
         
     - name: Build with g++
       run: |
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=g++-11
-        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        cmake -GNinja -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=g++-11
+        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j2
 
     - name: Test the g++ build
       working-directory: ${{github.workspace}}/build
@@ -43,8 +44,8 @@ jobs:
 
     - name: Build with clang
       run: |
-        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++
-        cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}}
+        cmake -GNinja -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++
+        cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j2
 
     - name: Test the clang build
       working-directory: ${{github.workspace}}/clang/build
