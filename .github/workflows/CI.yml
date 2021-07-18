@@ -33,7 +33,6 @@ jobs:
         
     - name: Build with g++
       run: |
-        ls
         cmake -GNinja -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=g++-11
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j2
 
