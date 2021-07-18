@@ -24,7 +24,7 @@ if(USE_SANITISER)
 		
 		list(APPEND INSTRUMENTATION_DEPS ${SANITISER_TARGET})
 		
-			message(STATUS "sanitiser enabled")	
+			message(STATUS "Sanitiser enabled")	
 	else()
 		 message(FATAL_ERROR "COMPILER_CXX_SANITISER_FLAGS not defined")
 	endif()
