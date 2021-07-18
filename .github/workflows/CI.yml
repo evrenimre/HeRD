@@ -20,13 +20,14 @@ jobs:
       # CMake needs doxygen to build the docs target
       # 20.04 uses g++ 9.3, clang-tidy-10 and boost 1.71 by default
       # Get the dependencies from the 21.04 repository
+      # Unable to install clang-tidy. Broken dependency
       run: |
         sudo add-apt-repository 'deb http://mirrors.kernel.org/ubuntu hirsute main universe'
         sudo apt-get update
         sudo apt-get install g++-11
         sudo apt-get install clang 
         sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev 
-        sudo apt-get install cmake clang-tidy cppcheck iwyu llvm-12-tools clang-tools
+        sudo apt-get install cmake cppcheck iwyu
         sudo apt-get install doxygen graphviz gsfonts biber
         
     - name: Build with g++
