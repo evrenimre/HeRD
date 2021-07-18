@@ -5,19 +5,22 @@ set(HEADER_LIST Exception.h
 								RuntimeError.h
 )
 
-set( INTERFACE_DEPS_LIST Concepts
-												 boost_stacktrace_backtrace
-												 Boost::boost
- )
+set(SOURCE_LIST PreconditionError.cpp)
 
-herd_add_interface_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
-																						 		 INTERFACE_DEPS ${INTERFACE_DEPS_LIST}
-																						 		 INSTALL
-																						 		 INSTRUMENT
+set(PUBLIC_DEPS_LIST Concepts
+										 boost_stacktrace_backtrace
+										 Boost::boost
 )
 
-target_compile_definitions(${TARGET_NAME} INTERFACE BOOST_STACKTRACE_USE_BACKTRACE
-																										BOOST_STACKTRACE_LINK
+herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
+												 											SOURCES ${SOURCE_LIST}
+												 											PUBLIC_DEPS ${PUBLIC_DEPS_LIST}
+												 											INSTALL
+												 											INSTRUMENT
+)
+
+target_compile_definitions(${TARGET_NAME} PUBLIC BOOST_STACKTRACE_USE_BACKTRACE
+																								 BOOST_STACKTRACE_LINK
 )
 
 add_subdirectory(UnitTests)
