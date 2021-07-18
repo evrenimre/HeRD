@@ -32,24 +32,24 @@ jobs:
         
     - name: Build with g++
       run: |
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=g++-11 -DCLANG_TIDY_NAME=clang-tidy-12
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=g++-11
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Test the g++ build
       working-directory: ${{github.workspace}}/build
       run: |
-        cmake .. -DUNIT_TEST_LEVEL=1_Continuous
+        cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
         ctest -C ${{env.BUILD_TYPE}} -VV
 
     - name: Build with clang
       run: |
-        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++-12 -DCLANG_TIDY_NAME=clang-tidy-12
+        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++
         cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}}
 
     - name: Test the clang build
       working-directory: ${{github.workspace}}/clang/build
       run: |
-        cmake .. -DUNIT_TEST_LEVEL=1_Continuous
+        cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
         ctest -C ${{env.BUILD_TYPE}} -VV
       
     - name: lcov
