@@ -24,9 +24,9 @@ jobs:
         sudo add-apt-repository 'deb http://mirrors.kernel.org/ubuntu hirsute main universe'
         sudo apt-get update
         sudo apt-get install g++-11
-        sudo apt-get install clang-12
+        sudo apt-get install clang-12 
         sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev 
-        sudo apt-get install cmake clang-tidy-12 cppcheck iwyu
+        sudo apt-get install cmake clang-tidy-12 cppcheck iwyu libllvm12 clang-tools-12
         sudo apt-get install doxygen graphviz gsfonts biber
         
     - name: Build with g++
@@ -42,7 +42,7 @@ jobs:
 
     - name: Build with clang
       run: |
-        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++-12 -DCLANG_TIDY_NAME=clang-tidy-12
+        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++-12 -DCLANG_TIDY_NAME=clang-tidy-12
         cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}}
 
     - name: Test the clang build
