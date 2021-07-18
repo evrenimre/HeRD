@@ -58,6 +58,8 @@ public:
   {
   }
 
+  virtual ~PreconditionError() = default; ///< Default constructor
+
   ///@name Helpers
   ///@{
 

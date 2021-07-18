@@ -13,22 +13,28 @@
 #ifndef HBAFA1110_ABC4_4A22_889E_83AC9BA6E9D7
 #define HBAFA1110_ABC4_4A22_889E_83AC9BA6E9D7
 
-#include <stdexcept>
 #include <string>
+
+#include "Exception.h"
 
 namespace Herd::Exceptions
 {
 /**
  * @brief Exception class for generic runtime errors
- * @remarks Inherits \c what from \c std::runtime_error
  */
-class RuntimeError : public std::runtime_error
+class RuntimeError : public Herd::Exceptions::Exception
 {
 public:
+  /**
+   * @brief Constructor
+   * @param i_rMessage Exception message
+   */
   RuntimeError( const std::string& i_rMessage ) :
-      std::runtime_error( i_rMessage )
+      Herd::Exceptions::Exception( i_rMessage )
   {
   }
+
+  virtual ~RuntimeError() = default;  ///< Destructor
 };
 }
 

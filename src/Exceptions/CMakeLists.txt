@@ -1,6 +1,7 @@
 # Config
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
-set(HEADER_LIST PreconditionError.h
+set(HEADER_LIST Exception.h
+								PreconditionError.h
 								RuntimeError.h
 )
 
