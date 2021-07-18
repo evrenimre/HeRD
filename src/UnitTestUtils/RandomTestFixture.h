@@ -66,9 +66,11 @@ private:
 };
 
 // Extern template declarations
+///@cond
+// Suppress incorrect doxygen warnings
 extern template double RandomTestFixture::GenerateNumber< double >( double, double ); // @suppress("Member declaration not found")
 extern template double RandomTestFixture::GenerateNumber< double >(); // @suppress("Member declaration not found")
-
+///@endcond
 /**
  * @brief Generates a number
  * @tparam T Satisfies Herd::Concepts::Number

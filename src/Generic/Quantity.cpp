@@ -1,5 +1,5 @@
 /**
- * @file Quantites.cpp
+ * @file Quantity.cpp
  * @author Evren Imre
  * @date 12 Jul 2021	
  */

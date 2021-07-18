@@ -27,7 +27,7 @@ public:
 
   /**
    * @brief Constructor
-   * @param i_rException Exception message
+   * @param i_rMessage Exception message
    */
   Exception( const std::string& i_rMessage ) :
       m_Message( i_rMessage )
