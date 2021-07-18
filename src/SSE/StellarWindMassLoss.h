@@ -13,10 +13,11 @@
 #ifndef H5884ABA0_83BD_4120_AFD9_CDC95056180F
 #define H5884ABA0_83BD_4120_AFD9_CDC95056180F
 
-#include "TrackPoint.h"
-
 namespace Herd::SSE
 {
+
+// Forward declarations
+struct TrackPoint;
 
 /**
  * @brief Computes the mass loss rate due to stellar wind

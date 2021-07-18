@@ -13,6 +13,7 @@
 #include "Constants.h"
 #include "EvolutionStage.h"
 #include "StellarWindMassLoss.h"
+#include "TrackPoint.h"
 
 #include <Exceptions/PreconditionError.h>
 
