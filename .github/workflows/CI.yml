@@ -24,9 +24,9 @@ jobs:
         sudo add-apt-repository 'deb http://mirrors.kernel.org/ubuntu hirsute main universe'
         sudo apt-get update
         sudo apt-get install g++-11
-        sudo apt-get install clang-12 
+        sudo apt-get install clang 
         sudo apt-get install libboost-all-dev librange-v3-dev libeigen3-dev 
-        sudo apt-get install cmake clang-tidy-12 cppcheck iwyu llvm-12-tools libllvm12 clang-tools-12
+        sudo apt-get install cmake clang-tidy cppcheck iwyu llvm-12-tools clang-tools
         sudo apt-get install doxygen graphviz gsfonts biber
         
     - name: Build with g++
