@@ -28,8 +28,8 @@ namespace Herd::UnitTestUtils
 // Explicit instatiations
 ///@cond
 // Suppress incorrect doxygen warnings
-template double RandomTestFixture::GenerateNumber< double >( double, double ); // @suppress("Member declaration not found")
-template double RandomTestFixture::GenerateNumber< double >(); // @suppress("Member declaration not found")
+template double RandomTestFixture::GenerateNumber( double, double ); // @suppress("Member declaration not found")
+template double RandomTestFixture::GenerateNumber(); // @suppress("Member declaration not found")
 ///@endcond
 
 RandomTestFixture::RandomTestFixture() :
