@@ -1,6 +1,7 @@
 set(TEST_TARGET_NAME "Test${TARGET_NAME}")	# TARGET_NAME defined by parent
 
 set(SOURCE_LIST TestExceptions.cpp
+								ExceptionWrappersUnitTests.cpp
 								PreconditionErrorUnitTests.cpp
 )
 

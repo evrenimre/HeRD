@@ -15,7 +15,7 @@
 
 #include "Quantity.h"
 
-#include <Exceptions/PreconditionError.h>
+#include <Exceptions/ExceptionWrappers.h>
 
 #include <sstream>
 #include <string>
@@ -154,7 +154,7 @@ void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity
 {
   if( !Contains( i_Quantity ) )
   {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( i_rName, GetRangeString(), i_Quantity.Value() ) );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_rName, GetRangeString(), i_Quantity.Value() );
   }
 }
 

@@ -15,7 +15,7 @@
 #include "StellarWindMassLoss.h"
 #include "TrackPoint.h"
 
-#include <Exceptions/PreconditionError.h>
+#include <Exceptions/ExceptionWrappers.h>
 
 #include <algorithm>
 #include <cmath>
@@ -92,13 +92,13 @@ void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, 
 
   if( i_rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_Undefined )
   {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "m_Stage", "valid stage", "e_Undefined" ) );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "m_Stage", "valid stage", "e_Undefined" );
   }
 
-  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_Neta, "i_Neta" ); // @suppress("Invalid arguments")
-  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_BinaryWind, "i_BinaryWind" ); // @suppress("Invalid arguments")
-  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_HeWind, "i_HeWind" ); // @suppress("Invalid arguments")
-  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_RocheLobe, "i_RocheLobe" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_Neta, "i_Neta" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_BinaryWind, "i_BinaryWind" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_HeWind, "i_HeWind" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_RocheLobe, "i_RocheLobe" ); // @suppress("Invalid arguments")
 }
 
 /**

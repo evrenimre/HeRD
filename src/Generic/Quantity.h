@@ -13,7 +13,7 @@
 #ifndef HD075DEEE_908E_40CA_A6A7_83108CC172DD
 #define HD075DEEE_908E_40CA_A6A7_83108CC172DD
 
-#include <Exceptions/PreconditionError.h>
+#include <Exceptions/ExceptionWrappers.h>
 
 #include <string_view>
 
@@ -122,7 +122,7 @@ void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string_view& i_rNam
 {
   if( i_Quantity < 0 )
   {
-    [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">=0", i_Quantity.Value() ) );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_rName, ">=0", i_Quantity.Value() );
   }
 }
 
@@ -137,7 +137,7 @@ void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string_view& i_r
 {
   if( i_Quantity <= 0 )
   {
-    [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">0", i_Quantity.Value() ) );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_rName, ">0", i_Quantity.Value() );
   }
 }
 

@@ -1,11 +1,14 @@
 # Config
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(HEADER_LIST Exception.h
+								ExceptionWrappers.h
 								PreconditionError.h
 								RuntimeError.h
 )
 
-set(SOURCE_LIST PreconditionError.cpp)
+set(SOURCE_LIST ExceptionWrappers.cpp
+								PreconditionError.cpp
+)
 
 set(PUBLIC_DEPS_LIST Concepts
 										 boost_stacktrace_backtrace

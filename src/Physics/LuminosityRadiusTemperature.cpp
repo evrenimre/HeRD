@@ -12,8 +12,6 @@
 
 #include "LuminosityRadiusTemperature.h"
 
-#include <Exceptions/PreconditionError.h>
-
 #include <cmath>
 
 #include <boost/math/special_functions/pow.hpp>

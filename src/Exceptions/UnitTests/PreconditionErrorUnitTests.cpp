@@ -21,13 +21,13 @@
 
 #include <boost/mpl/list.hpp>
 
-BOOST_FIXTURE_TEST_SUITE( Exceptions, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
+BOOST_FIXTURE_TEST_SUITE( PreconditionErrorTestSuite, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
 /// Types under test
 using Types = boost::mpl::list< float, double, long double, int, long int>;
 
 /// Helpers
-BOOST_AUTO_TEST_CASE_TEMPLATE( TestExceptionHelpers, T, Types )
+BOOST_AUTO_TEST_CASE_TEMPLATE( TestPreconditionErrorHelpers, T, Types )
 {
   {
     double value = GenerateNumber( -10., -1. ); // @suppress("Invalid arguments")

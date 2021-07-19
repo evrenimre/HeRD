@@ -12,7 +12,7 @@
 
 #include "EvolutionStage.h"
 
-#include <Exceptions/PreconditionError.h>
+#include <Exceptions/ExceptionWrappers.h>
 
 #include <unordered_map>
 
@@ -110,7 +110,7 @@ EvolutionStage StringToEvolutionStage( const std::string_view& i_rString )
   auto iQuery = s_StringToStage.find( i_rString );
   if( iQuery == s_StringToStage.end() )
   {
-    [[unlikely]] throw( Herd::Exceptions::PreconditionError( "s_StringToStage", "a valid evolution stage", i_rString ) );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "s_StringToStage", "a valid evolution stage", i_rString );
   }
 
   return iQuery->second;
