@@ -98,7 +98,8 @@ $(document).ready(function(){initNavTree('EvolutionStage_8cpp.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="EvolutionStage_8h_source.html">EvolutionStage.h</a>&quot;</code><br />
-<code>#include &lt;<a class="el" href="PreconditionError_8h_source.html">Exceptions/PreconditionError.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="ExceptionWrappers_8h_source.html">Exceptions/ExceptionWrappers.h</a>&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;range/v3/algorithm.hpp&gt;</code><br />
 <code>#include &lt;range/v3/view.hpp&gt;</code><br />
@@ -107,21 +108,15 @@ Include dependency graph for EvolutionStage.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="EvolutionStage_8cpp__incl.png" border="0" usemap="#asrc_2SSE_2EvolutionStage_8cpp" alt=""/></div>
 <map name="asrc_2SSE_2EvolutionStage_8cpp" id="asrc_2SSE_2EvolutionStage_8cpp">
-<area shape="rect" title=" " alt="" coords="447,5,646,32"/>
-<area shape="rect" href="EvolutionStage_8h.html" title=" " alt="" coords="67,80,199,107"/>
-<area shape="rect" href="PreconditionError_8h.html" title=" " alt="" coords="241,80,461,107"/>
-<area shape="rect" title=" " alt="" coords="485,80,609,107"/>
-<area shape="rect" title=" " alt="" coords="633,80,807,107"/>
-<area shape="rect" title=" " alt="" coords="832,80,973,107"/>
-<area shape="rect" title=" " alt="" coords="5,155,61,181"/>
-<area shape="rect" title=" " alt="" coords="263,304,321,331"/>
-<area shape="rect" title=" " alt="" coords="137,155,234,181"/>
-<area shape="rect" href="RuntimeError_8h.html" title=" " alt="" coords="310,155,429,181"/>
-<area shape="rect" href="GenericConcepts_8h.html" title=" " alt="" coords="504,155,712,181"/>
-<area shape="rect" title=" " alt="" coords="483,229,563,256"/>
-<area shape="rect" href="Exception_8h.html" title=" " alt="" coords="360,229,459,256"/>
-<area shape="rect" title=" " alt="" coords="366,304,453,331"/>
-<area shape="rect" title=" " alt="" coords="587,229,679,256"/>
+<area shape="rect" title=" " alt="" coords="408,5,607,32"/>
+<area shape="rect" href="EvolutionStage_8h.html" title=" " alt="" coords="5,80,137,107"/>
+<area shape="rect" href="ExceptionWrappers_8h.html" title=" " alt="" coords="162,80,397,107"/>
+<area shape="rect" title=" " alt="" coords="421,80,479,107"/>
+<area shape="rect" title=" " alt="" coords="504,80,628,107"/>
+<area shape="rect" title=" " alt="" coords="652,80,827,107"/>
+<area shape="rect" title=" " alt="" coords="851,80,993,107"/>
+<area shape="rect" title=" " alt="" coords="43,155,99,181"/>
+<area shape="rect" title=" " alt="" coords="177,155,275,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -149,9 +144,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab296ee449e49d2defc572b4eea0c1938"><td class="memItemLeft" align="right" valign="top">EvolutionStage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#ab296ee449e49d2defc572b4eea0c1938">Herd::SSE::StringToEvolutionStage</a> (const std::string_view &amp;i_rString)</td></tr>
 <tr class="memdesc:ab296ee449e49d2defc572b4eea0c1938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an evolution stage.  <a href="namespaceHerd_1_1SSE.html#ab296ee449e49d2defc572b4eea0c1938">More...</a><br /></td></tr>
 <tr class="separator:ab296ee449e49d2defc572b4eea0c1938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94617e1f1d6473175b4a7d4f5d40e1ab"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a94617e1f1d6473175b4a7d4f5d40e1ab">Herd::SSE::EvolutionStageToString</a> (EvolutionStage i_Stage)</td></tr>
-<tr class="memdesc:a94617e1f1d6473175b4a7d4f5d40e1ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an evolution stage to a string.  <a href="namespaceHerd_1_1SSE.html#a94617e1f1d6473175b4a7d4f5d40e1ab">More...</a><br /></td></tr>
-<tr class="separator:a94617e1f1d6473175b4a7d4f5d40e1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec5493c7b50657ec0fbed2e13860307f"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#aec5493c7b50657ec0fbed2e13860307f">Herd::SSE::EvolutionStageToString</a> (EvolutionStage i_Stage)</td></tr>
+<tr class="memdesc:aec5493c7b50657ec0fbed2e13860307f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an evolution stage to a string.  <a href="namespaceHerd_1_1SSE.html#aec5493c7b50657ec0fbed2e13860307f">More...</a><br /></td></tr>
+<tr class="separator:aec5493c7b50657ec0fbed2e13860307f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2516aa1094ad7de074c6f23ec71c083f"><td class="memItemLeft" align="right" valign="top">std::array&lt; EvolutionStage, 17 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a2516aa1094ad7de074c6f23ec71c083f">Herd::SSE::EnumerateEvolutionStages</a> ()</td></tr>
 <tr class="memdesc:a2516aa1094ad7de074c6f23ec71c083f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of evolution stages.  <a href="namespaceHerd_1_1SSE.html#a2516aa1094ad7de074c6f23ec71c083f">More...</a><br /></td></tr>
 <tr class="separator:a2516aa1094ad7de074c6f23ec71c083f"><td class="memSeparator" colspan="2">&#160;</td></tr>

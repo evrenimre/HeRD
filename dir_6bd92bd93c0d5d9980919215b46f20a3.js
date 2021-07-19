@@ -4,6 +4,8 @@ var dir_6bd92bd93c0d5d9980919215b46f20a3 =
     [ "Exception.h", "Exception_8h.html", [
       [ "Exception", "classHerd_1_1Exceptions_1_1Exception.html", "classHerd_1_1Exceptions_1_1Exception" ]
     ] ],
+    [ "ExceptionWrappers.cpp", "ExceptionWrappers_8cpp.html", "ExceptionWrappers_8cpp" ],
+    [ "ExceptionWrappers.h", "ExceptionWrappers_8h.html", "ExceptionWrappers_8h" ],
     [ "PreconditionError.cpp", "PreconditionError_8cpp.html", null ],
     [ "PreconditionError.h", "PreconditionError_8h.html", [
       [ "PreconditionError", "classHerd_1_1Exceptions_1_1PreconditionError.html", "classHerd_1_1Exceptions_1_1PreconditionError" ]

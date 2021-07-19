@@ -21,10 +21,13 @@ var searchData=
   ['evolutionstage_61',['EvolutionStage',['../namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583ae',1,'Herd::SSE']]],
   ['evolutionstage_2ecpp_62',['EvolutionStage.cpp',['../EvolutionStage_8cpp.html',1,'']]],
   ['evolutionstage_2eh_63',['EvolutionStage.h',['../EvolutionStage_8h.html',1,'']]],
-  ['evolutionstagetostring_64',['EvolutionStageToString',['../namespaceHerd_1_1SSE.html#a94617e1f1d6473175b4a7d4f5d40e1ab',1,'Herd::SSE']]],
+  ['evolutionstagetostring_64',['EvolutionStageToString',['../namespaceHerd_1_1SSE.html#aec5493c7b50657ec0fbed2e13860307f',1,'Herd::SSE']]],
   ['evolutionstageunittests_2ecpp_65',['EvolutionStageUnitTests.cpp',['../EvolutionStageUnitTests_8cpp.html',1,'']]],
   ['evolutionstate_66',['EvolutionState',['../structHerd_1_1SSE_1_1EvolutionState.html',1,'Herd::SSE']]],
   ['evolutionstate_2eh_67',['EvolutionState.h',['../EvolutionState_8h.html',1,'']]],
   ['exception_68',['Exception',['../classHerd_1_1Exceptions_1_1Exception.html#a58ce1ef812891726b0958ca0e8b4b2a5',1,'Herd::Exceptions::Exception::Exception()'],['../classHerd_1_1Exceptions_1_1Exception.html',1,'Herd::Exceptions::Exception']]],
-  ['exception_2eh_69',['Exception.h',['../Exception_8h.html',1,'']]]
+  ['exception_2eh_69',['Exception.h',['../Exception_8h.html',1,'']]],
+  ['exceptionwrappers_2ecpp_70',['ExceptionWrappers.cpp',['../ExceptionWrappers_8cpp.html',1,'']]],
+  ['exceptionwrappers_2eh_71',['ExceptionWrappers.h',['../ExceptionWrappers_8h.html',1,'']]],
+  ['exceptionwrappersunittests_2ecpp_72',['ExceptionWrappersUnitTests.cpp',['../ExceptionWrappersUnitTests_8cpp.html',1,'']]]
 ];

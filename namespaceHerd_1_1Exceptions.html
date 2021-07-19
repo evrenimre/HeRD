@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('namespaceHerd_1_1Exceptions.html','');
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Herd::Exceptions Namespace Reference</div>  </div>
 </div><!--header-->
@@ -108,7 +109,198 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Exceptions_1_1RuntimeError.html">RuntimeError</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classHerd_1_1Exceptions_1_1Exception.html" title="Base for the HeRD exception tree.">Exception</a> class for generic runtime errors.  <a href="classHerd_1_1Exceptions_1_1RuntimeError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:af952e58bbc26d093fbcbf65bcca5a16e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Exceptions.html#af952e58bbc26d093fbcbf65bcca5a16e">ThrowPreconditionError</a> (const std::string_view &amp;i_rElement, const std::string_view &amp;i_rExpected, const std::string_view &amp;i_rActual)</td></tr>
+<tr class="memdesc:af952e58bbc26d093fbcbf65bcca5a16e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a>.  <a href="namespaceHerd_1_1Exceptions.html#af952e58bbc26d093fbcbf65bcca5a16e">More...</a><br /></td></tr>
+<tr class="separator:af952e58bbc26d093fbcbf65bcca5a16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a13d05e791a8046205986f4137d82cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Exceptions.html#a0a13d05e791a8046205986f4137d82cf">ThrowPreconditionError</a> (const std::string_view &amp;i_rElement, const std::string_view &amp;i_rExpected, double i_Actual)</td></tr>
+<tr class="memdesc:a0a13d05e791a8046205986f4137d82cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a>.  <a href="namespaceHerd_1_1Exceptions.html#a0a13d05e791a8046205986f4137d82cf">More...</a><br /></td></tr>
+<tr class="separator:a0a13d05e791a8046205986f4137d82cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909a08b272cb74c6956af0b5c627097c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Exceptions.html#a909a08b272cb74c6956af0b5c627097c">ThrowPreconditionErrorIfNegative</a> (double i_Value, const std::string_view &amp;i_rName)</td></tr>
+<tr class="memdesc:a909a08b272cb74c6956af0b5c627097c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws if value is negative.  <a href="namespaceHerd_1_1Exceptions.html#a909a08b272cb74c6956af0b5c627097c">More...</a><br /></td></tr>
+<tr class="separator:a909a08b272cb74c6956af0b5c627097c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7325ca9a33212596575e689058c234f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Exceptions.html#a7325ca9a33212596575e689058c234f3">ThrowPreconditionErrorIfNotPositive</a> (double i_Value, const std::string_view &amp;i_rName)</td></tr>
+<tr class="memdesc:a7325ca9a33212596575e689058c234f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for Precondition error with condition check.  <a href="namespaceHerd_1_1Exceptions.html#a7325ca9a33212596575e689058c234f3">More...</a><br /></td></tr>
+<tr class="separator:a7325ca9a33212596575e689058c234f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="af952e58bbc26d093fbcbf65bcca5a16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af952e58bbc26d093fbcbf65bcca5a16e">&#9670;&nbsp;</a></span>ThrowPreconditionError() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::Exceptions::ThrowPreconditionError </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rExpected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rActual</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper for <a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rElement</td><td>Entity under test </td></tr>
+    <tr><td class="paramname">i_rExpected</td><td>Precondition </td></tr>
+    <tr><td class="paramname">i_rActual</td><td>Actual value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a13d05e791a8046205986f4137d82cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a13d05e791a8046205986f4137d82cf">&#9670;&nbsp;</a></span>ThrowPreconditionError() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::Exceptions::ThrowPreconditionError </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rExpected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>i_Actual</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper for <a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rElement</td><td>Entity under test </td></tr>
+    <tr><td class="paramname">i_rExpected</td><td>Precondition </td></tr>
+    <tr><td class="paramname">i_Actual</td><td>Actual value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Not a template because the point of the wrappers is keeping the included headers to a minimum. Template would require either string.h or <a class="el" href="PreconditionError_8h.html">PreconditionError.h</a>. This wrapper covers the most common case. </dd></dl>
+
+</div>
+</div>
+<a id="a909a08b272cb74c6956af0b5c627097c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909a08b272cb74c6956af0b5c627097c">&#9670;&nbsp;</a></span>ThrowPreconditionErrorIfNegative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::Exceptions::ThrowPreconditionErrorIfNegative </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>i_Value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Throws if value is negative. </p>
+<p>Wrapper for Precondition error with condition check.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_Value</td><td>Value to be tested </td></tr>
+    <tr><td class="paramname">i_rName</td><td>Name of the variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classHerd_1_1Exceptions_1_1PreconditionError.html" title="Exception class indicating that a precondition was not met.">PreconditionError</a></td><td>If <code>i_Value</code> is negative </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7325ca9a33212596575e689058c234f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7325ca9a33212596575e689058c234f3">&#9670;&nbsp;</a></span>ThrowPreconditionErrorIfNotPositive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::Exceptions::ThrowPreconditionErrorIfNotPositive </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>i_Value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>i_rName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper for Precondition error with condition check. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

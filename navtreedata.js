@@ -61,7 +61,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ComputeZAMS_8cpp.html",
-"classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a7b54bbce74756b207ab3437ade3cbbb7"
+"classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3a880f0fa1e89d1f284c882907012c27"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
