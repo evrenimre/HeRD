@@ -14,6 +14,7 @@
 
 #include <Exceptions/ExceptionWrappers.h>
 
+#include <string>
 #include <unordered_map>
 
 #include <range/v3/algorithm.hpp>
@@ -120,7 +121,7 @@ EvolutionStage StringToEvolutionStage( const std::string_view& i_rString )
  * @param i_Stage Evolution stage
  * @return String corresponding to the evolution stage
  */
-const std::string& EvolutionStageToString( EvolutionStage i_Stage )
+std::string_view EvolutionStageToString( EvolutionStage i_Stage )
 {
   return s_StageToString.find( i_Stage )->second;
 }

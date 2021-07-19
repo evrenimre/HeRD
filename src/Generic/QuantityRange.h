@@ -21,7 +21,6 @@
 #include <string>
 #include <string_view>
 
-#include <boost/icl/concept/interval.hpp>
 #include <boost/icl/continuous_interval.hpp>
 
 namespace Herd::Generic

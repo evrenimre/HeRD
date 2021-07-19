@@ -17,7 +17,6 @@
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
 #include <array>
-#include <string>
 
 #include <boost/container/flat_set.hpp>
 #include <boost/range/adaptors.hpp>
@@ -37,7 +36,7 @@ BOOST_AUTO_TEST_CASE( StringAndStage, *Herd::UnitTestUtils::Labels::s_Compile )
   {
     BOOST_TEST_CONTEXT( current.index() ) // @suppress("Method cannot be resolved") // @suppress("Symbol is not resolved")
     {
-      std::string stageString = Herd::SSE::EvolutionStageToString( current.value() ); // @suppress("Method cannot be resolved") // @suppress("Invalid arguments")
+      std::string_view stageString = Herd::SSE::EvolutionStageToString( current.value() ); // @suppress("Method cannot be resolved") // @suppress("Invalid arguments")
       Herd::SSE::EvolutionStage actual = Herd::SSE::StringToEvolutionStage( stageString );
       BOOST_TEST( ( actual == current.value() ) ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
     }
