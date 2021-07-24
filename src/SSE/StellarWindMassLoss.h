@@ -29,8 +29,8 @@ class StellarWindMassLoss
 {
 public:
 
-  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe );
-  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta );
+  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Computes the mass loss per year
+  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta ); ///< Computes the mass loss per year
 
 private:
 
