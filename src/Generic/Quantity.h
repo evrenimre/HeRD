@@ -99,7 +99,8 @@ using Metallicity = Quantity< struct MetallicityTag >;  ///< Metallicity
 using Radius = Quantity< struct RadiusTag >;  ///< Radius
 using Temperature = Quantity< struct TemperatureTag >;  ///< Temperature
 using Age = Quantity< struct AgeTag >;  ///< Age
-using AngularMomentum = Quantity< struct AngularVelocityTag >; ///< Angular velocity
+using AngularMomentum = Quantity< struct AngularMomentumTag >;  ///< Angular momentum
+using AngularVelocity = Quantity< struct AngularVelocityTag >; ///< Angular velocity
 // @formatter:on
 
 // Extern template declarations
@@ -109,6 +110,7 @@ extern template class Quantity< struct MetallicityTag > ;
 extern template class Quantity< struct RadiusTag > ;
 extern template class Quantity< struct TemperatureTag > ;
 extern template class Quantity< struct AgeTag > ;
+extern template class Quantity< struct AngularMomentumTag > ;
 extern template class Quantity< struct AngularVelocityTag > ;
 
 /**

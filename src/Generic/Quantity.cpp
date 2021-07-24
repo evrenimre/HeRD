@@ -21,6 +21,7 @@ template class Quantity< struct MetallicityTag > ;
 template class Quantity< struct RadiusTag > ;
 template class Quantity< struct TemperatureTag > ;
 template class Quantity< struct AgeTag > ;
+template class Quantity< struct AngularMomentumTag > ;
 template class Quantity< struct AngularVelocityTag > ;
 }
 
