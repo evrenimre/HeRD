@@ -33,8 +33,8 @@ namespace Herd::SSE::UnitTests
  */
 namespace DefaultVersionInfo
 {
-inline static const std::string s_Version = "1.0";
-inline static const std::string s_UUID = "4c169925-474f-42c0-8bec-ff2cd2ab4e94";
+inline static const std::string s_Version = "1.01";
+inline static const std::string s_UUID = "a9d674f5-713f-4164-8e39-3a6c8131e253";
 }
 
 /**

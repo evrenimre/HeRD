@@ -57,6 +57,17 @@ def load_sse_track(dat_path):
         for line in lines[1:len(lines) - 1]:
             tokens = re.split(' +', line.lstrip().rstrip())
 
+            # Ensure that core mass + envelope mass do not exceed the mass
+            # This can happen due to inconsistencies in the number of
+            # significant digits
+            m = float(tokens[3])
+            mc = float(tokens[7])
+            menv = float(tokens[8])
+            delta = (mc + menv) - m
+            if delta > 0:
+                mc -= delta / 2
+                menv -= delta / 2
+
             track_points.append(
                 etree.Element(
                     _track_point_tag,
@@ -67,8 +78,8 @@ def load_sse_track(dat_path):
                     logL=tokens[4],
                     logR=tokens[5],
                     logT=tokens[6],
-                    Mc=tokens[7],
-                    Menv=tokens[8],
+                    Mc=str(mc),
+                    Menv=str(menv),
                     Epoch=tokens[9],
                     Spin=tokens[10]
                 ))

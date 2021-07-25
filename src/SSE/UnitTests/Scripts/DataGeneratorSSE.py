@@ -28,7 +28,7 @@ import RunSSE
 import SSEHelpers
 
 
-_version = '1.0'
+_version = '1.01'
 _version_attr = 'Version'
 _uuid_attr = 'UUID'
 _timestamp_attr = 'Timestamp'

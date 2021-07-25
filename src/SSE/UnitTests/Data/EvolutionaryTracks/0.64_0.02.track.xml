@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Track Version="1.0" UUID="4c169925-474f-42c0-8bec-ff2cd2ab4e94" Timestamp="2021-07-01T22:00:37.620051+00:00" Source="SSE">
-  <TrackPoint Age="0.0000" Stage="MSLM" M="0.6400" logL="-1.0595" logR="-0.2244" logT="3.6106" Mc="0.0000" Menv="8.4376E-02" Spin="3.7808E+02" Z="0.02"/>
-  <TrackPoint Age="3055.4458" Stage="MSLM" M="0.6400" logL="-1.0461" logR="-0.2206" logT="3.6121" Mc="0.0000" Menv="8.4376E-02" Spin="2.9515E+02" Z="?"/>
-  <TrackPoint Age="6110.8916" Stage="MSLM" M="0.6400" logL="-1.0311" logR="-0.2169" logT="3.6139" Mc="0.0000" Menv="8.4376E-02" Spin="2.5470E+02" Z="?"/>
-  <TrackPoint Age="9166.3369" Stage="MSLM" M="0.6400" logL="-1.0147" logR="-0.2130" logT="3.6161" Mc="0.0000" Menv="8.4377E-02" Spin="2.2803E+02" Z="?"/>
-  <TrackPoint Age="12221.7832" Stage="MSLM" M="0.6400" logL="-0.9967" logR="-0.2090" logT="3.6186" Mc="0.0000" Menv="8.4384E-02" Spin="2.0837E+02" Z="?"/>
-  <TrackPoint Age="13800.0000" Stage="MSLM" M="0.6400" logL="-0.9868" logR="-0.2068" logT="3.6200" Mc="0.0000" Menv="8.4392E-02" Spin="2.0040E+02" Z="?"/>
+<Track Version="1.01" UUID="a9d674f5-713f-4164-8e39-3a6c8131e253" Timestamp="2021-07-25T21:57:14.237976+00:00" Source="SSE">
+  <TrackPoint Age="0.0000" Stage="MSLM" M="0.6400" logL="-1.0595" logR="-0.2244" logT="3.6106" Mc="0.0" Menv="0.084376" Spin="3.7808E+02" Z="0.02"/>
+  <TrackPoint Age="3055.4458" Stage="MSLM" M="0.6400" logL="-1.0461" logR="-0.2206" logT="3.6121" Mc="0.0" Menv="0.084376" Spin="2.9515E+02" Z="?"/>
+  <TrackPoint Age="6110.8916" Stage="MSLM" M="0.6400" logL="-1.0311" logR="-0.2169" logT="3.6139" Mc="0.0" Menv="0.084376" Spin="2.5470E+02" Z="?"/>
+  <TrackPoint Age="9166.3369" Stage="MSLM" M="0.6400" logL="-1.0147" logR="-0.2130" logT="3.6161" Mc="0.0" Menv="0.084377" Spin="2.2803E+02" Z="?"/>
+  <TrackPoint Age="12221.7832" Stage="MSLM" M="0.6400" logL="-0.9967" logR="-0.2090" logT="3.6186" Mc="0.0" Menv="0.084384" Spin="2.0837E+02" Z="?"/>
+  <TrackPoint Age="13800.0000" Stage="MSLM" M="0.6400" logL="-0.9868" logR="-0.2068" logT="3.6200" Mc="0.0" Menv="0.084392" Spin="2.0040E+02" Z="?"/>
 </Track>
