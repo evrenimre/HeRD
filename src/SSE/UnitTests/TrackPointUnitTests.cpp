@@ -26,10 +26,10 @@
 BOOST_FIXTURE_TEST_SUITE( TrackPointUnitTests, Herd::UnitTestUtils::RandomTestFixture )
 
 /// Tests for the validator function
-BOOST_AUTO_TEST_CASE( ValidatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
+BOOST_AUTO_TEST_CASE( validatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
 {
-  Herd::SSE::TrackPoint Valid = Herd::SSE::UnitTests::GenerateRandomTrackPoint( Rng() );
-  BOOST_CHECK_NO_THROW( Herd::SSE::ValidateTrackPoint( Valid ) );
+  Herd::SSE::TrackPoint valid = Herd::SSE::UnitTests::GenerateRandomTrackPoint( Rng() );
+  BOOST_CHECK_NO_THROW( Herd::SSE::ValidateTrackPoint( valid ) );
 
   BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Herd::SSE::TrackPoint() ), Herd::Exceptions::PreconditionError );
 
@@ -38,69 +38,69 @@ BOOST_AUTO_TEST_CASE( ValidatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
     // @formatter:on
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_Mass );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_Mass );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_InitialMetallicity );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_InitialMetallicity );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_Radius );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_Radius );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_Luminosity );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_Luminosity );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_Temperature );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_Temperature );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_Age );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_Age );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalid.m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    invalid.m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_CoreMass );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_CoreMass );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
 
-    Invalid.m_CoreMass.Set( Valid.m_Mass + 0.1 );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    invalid.m_CoreMass.Set( valid.m_Mass + 0.1 );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_EnvelopeMass );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_EnvelopeMass );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
 
-    Invalid.m_EnvelopeMass.Set( Valid.m_Mass + 0.1 );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    invalid.m_EnvelopeMass.Set( valid.m_Mass + 0.1 );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
-    Herd::SSE::TrackPoint Invalid = Valid;
-    Invalidate( Invalid.m_AngularMomentum );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( Invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid = valid;
+    Invalidate( invalid.m_AngularMomentum );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 }
 
