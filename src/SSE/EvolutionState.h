@@ -30,8 +30,14 @@ struct EvolutionState
   Herd::SSE::TrackPoint m_TrackPoint; ///< Track point
 
   Herd::Generic::Mass m_InitialMass;  ///< Mass at the beginning of evolution in \f$ M_{\odot}\f$
+
+  Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
+
+  Herd::Generic::Mass m_MassLossRate;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
+  Herd::Generic::AngularMomentum m_AngularMomentumLossRate; ///< Angular momentum loss rate in \f$ M_{\odot}R_{\odot}^2 {year}^{-2}\f$
 };
 
+void ValidateEvolutionState( const EvolutionState& i_rState );  ///< Validates an evolution state
 }
 
 #endif /* H633A09E8_2301_41B3_8E30_CFE3C37DFCF3 */

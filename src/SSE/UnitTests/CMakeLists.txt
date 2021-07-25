@@ -2,9 +2,11 @@ set(TEST_TARGET_NAME "Test${TARGET_NAME}")	# TARGET_NAME defined by parent
 
 set(SOURCE_LIST TestSSE.cpp
 								EvolutionStageUnitTests.cpp
+								EvolutionStateUnitTests.cpp
 								SSETestDataManager.cpp
 								SSETestUtils.cpp
 								StellarWindMassLossUnitTests.cpp
+								TrackPointUnitTests.cpp
 							  ZeroAgeMainSequenceUnitTests.cpp
 )
 

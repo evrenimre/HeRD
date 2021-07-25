@@ -36,6 +36,8 @@ struct TrackPoint
   Herd::Generic::Mass m_EnvelopeMass; ///< Envelope mass in \f$ M_{\odot}\f$
   Herd::Generic::AngularMomentum m_AngularMomentum; ///< Angular momentum in \f$ M_{\odot}R_{\odot}^2 \; {year}^{-1}\f$
 };
+
+void ValidateTrackPoint( const TrackPoint& i_rTrackPoint ); ///< Validates a track point
 }
 
 #endif /* H8AB9F35C_A33A_4D5D_8F9A_CB81639D74B5 */
