@@ -83,17 +83,7 @@ double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint,
  */
 void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe )
 {
-
-  Herd::Generic::ThrowIfNotPositive( i_rTrackPoint.m_Mass, "m_Mass" );
-  Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_Luminosity, "m_Luminosity" );
-  Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_Radius, "m_Radius" );
-  Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_InitialMetallicity, "m_Z" );
-  Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_CoreMass, "m_CoreMass" );
-
-  if( i_rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_Undefined )
-  {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "m_Stage", "valid stage", "e_Undefined" );
-  }
+  Herd::SSE::ValidateTrackPoint( i_rTrackPoint );
 
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_Neta, "i_Neta" ); // @suppress("Invalid arguments")
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_BinaryWind, "i_BinaryWind" ); // @suppress("Invalid arguments")

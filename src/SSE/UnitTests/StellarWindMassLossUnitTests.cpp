@@ -20,7 +20,6 @@
 #include <SSE/EvolutionStage.h>
 #include <SSE/StellarWindMassLoss.h>
 #include <SSE/TrackPoint.h>
-
 #include <UnitTestUtils/DataLoaderFixture.h>
 #include <UnitTestUtils/RandomTestFixture.h>
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
@@ -184,45 +183,11 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   }
 
   // Check invalid track points
-  //@formatter:off
-  auto Caller = [ & ]( const auto& i_rPoint ){ Herd::SSE::StellarWindMassLoss::Compute( i_rPoint, neta, heWind, binaryWind, rocheLobe);};
-                //@formatter:on
-
   {
-    Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Mass.Set( GenerateBool() ? 0. : GenerateNumber( -1., 0. ) ); // @suppress("Invalid arguments")
-    BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
+    Herd::SSE::TrackPoint invalid;
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( invalid, neta, heWind, binaryWind, rocheLobe ), Herd::Exceptions::PreconditionError );
   }
 
-  {
-    Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Luminosity.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
-    BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Radius.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
-    BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_InitialMetallicity.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
-    BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_CoreMass.Set( GenerateNumber( -1., -0.1 ) ); // @suppress("Invalid arguments")
-    BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::TrackPoint invalid = validPoint;
-    invalid.m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
-    BOOST_CHECK_THROW( Caller( invalid ), Herd::Exceptions::PreconditionError );
-  }
 }
 
 /// Test on random points a single track
