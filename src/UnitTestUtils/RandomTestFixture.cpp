@@ -41,10 +41,24 @@ RandomTestFixture::RandomTestFixture() :
   boost::unit_test::framework::add_context( BOOST_TEST_LAZY_MSG( "Re-run the test with parameter --seed=" << m_Seed << " to reproduce" ), true );
 }
 
+/**
+ * @param i_Seed New seed
+ * @post RandomTestFixture::m_Rng is unset
+ */
 void RandomTestFixture::SetSeed( unsigned int i_Seed )
 {
   m_Seed = i_Seed;
   m_Rng.reset();
+}
+
+/**
+ * @return A reference to RandomTestFixture::m_Rng
+ */
+std::mt19937& RandomTestFixture::Rng()
+{
+
+  InitialiseLazy();
+  return *m_Rng;
 }
 
 /**
@@ -79,6 +93,20 @@ void RandomTestFixture::TrySetSeedFromCommandLine()
 bool RandomTestFixture::GenerateBool( double i_Probability )
 {
   return GenerateNumber( 0., 1. ) < i_Probability; // @suppress("Invalid arguments")
+}
+
+/**
+ * @post RandomTestFixture::m_Rng is initialised
+ */
+void RandomTestFixture::InitialiseLazy()
+{
+  // Lazy initialisation. Avoids redundant construction if user sets a different seed before first call to the generator
+  // mt19937 constructor is expensive.
+  if( !m_Rng )
+  {
+    m_Rng = std::mt19937( m_Seed );
+  }
+
 }
 
 } // namespace Herd::UnitTestUtils

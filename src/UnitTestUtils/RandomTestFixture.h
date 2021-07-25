@@ -40,6 +40,7 @@ public:
   RandomTestFixture();  ///< Constructor
   void SetSeed( unsigned int i_Seed ); ///< Reinitialises the random number generator with seed
   uint_fast32_t Seed(); ///< Returns the current seed
+  std::mt19937& Rng(); ///< Returns a reference to RandomTestFixture::m_Rng
 
   /// @name Random value generators
   ///@{
@@ -57,6 +58,7 @@ public:
 private:
 
   void TrySetSeedFromCommandLine(); ///< Attempts to read a seed value from the command line parameters
+  void InitialiseLazy(); ///< Performs lazy initialisation of RandomTestFixture::m_Rng
 
   uint_fast32_t m_Seed = 0; ///< Seed used for initialising the random number engine
                             // mt19937 seed type is uint_fast32_t
@@ -85,15 +87,9 @@ extern template double RandomTestFixture::GenerateNumber(); // @suppress("Member
 template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
 T RandomTestFixture::GenerateNumber( T i_Min, T i_Max ) // @suppress("Type cannot be resolved")
 {
-
   BOOST_TEST_REQUIRE( i_Min < i_Max ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
 
-  // Lazy initialisation. Avoids redundant construction if user sets a different seed before first call to the generator
-  // mt19937 constructor is expensive.
-  if( !m_Rng )
-  {
-    m_Rng = std::mt19937( m_Seed );
-  }
+  InitialiseLazy();
 
   if constexpr ( std::is_floating_point< T >::value )
   {
