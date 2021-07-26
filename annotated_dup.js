@@ -18,6 +18,7 @@ var annotated_dup =
           [ "SSETestDataManager", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager" ]
         ] ],
         [ "EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", "structHerd_1_1SSE_1_1EvolutionState" ],
+        [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],
         [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ],
         [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ],
         [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],

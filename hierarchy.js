@@ -14,6 +14,7 @@ var hierarchy =
     [ "Herd::Generic::QuantityRange< BoundaryPolicy >", "classHerd_1_1Generic_1_1QuantityRange.html", null ],
     [ "Herd::UnitTestUtils::RandomTestFixture", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html", null ],
     [ "Herd::SSE::UnitTests::SSETestDataManager", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html", null ],
+    [ "Herd::SSE::StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", null ],
     [ "Herd::SSE::StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", null ],
     [ "Herd::SSE::TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", null ],

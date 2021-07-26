@@ -6,6 +6,7 @@ var namespaceHerd_1_1SSE =
     ] ],
     [ "UnitTests", "namespaceHerd_1_1SSE_1_1UnitTests.html", "namespaceHerd_1_1SSE_1_1UnitTests" ],
     [ "EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", "structHerd_1_1SSE_1_1EvolutionState" ],
+    [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],
     [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ],
     [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ],
     [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
@@ -35,5 +36,7 @@ var namespaceHerd_1_1SSE =
     [ "IsHeStar", "namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6", null ],
     [ "IsMS", "namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1", null ],
     [ "IsRemnant", "namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ],
-    [ "StringToEvolutionStage", "namespaceHerd_1_1SSE.html#ab296ee449e49d2defc572b4eea0c1938", null ]
+    [ "StringToEvolutionStage", "namespaceHerd_1_1SSE.html#ab296ee449e49d2defc572b4eea0c1938", null ],
+    [ "ValidateEvolutionState", "namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb", null ],
+    [ "ValidateTrackPoint", "namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57", null ]
 ];

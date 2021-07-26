@@ -117,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c362850b5a5b35dc8c10d4ef8e64b38"><td class="memItemLeft" align="right" valign="top">uint_fast32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a7c362850b5a5b35dc8c10d4ef8e64b38">Seed</a> ()</td></tr>
 <tr class="memdesc:a7c362850b5a5b35dc8c10d4ef8e64b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current seed.  <a href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a7c362850b5a5b35dc8c10d4ef8e64b38">More...</a><br /></td></tr>
 <tr class="separator:a7c362850b5a5b35dc8c10d4ef8e64b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c0d8049a330a2f201ca79f866e1840"><td class="memItemLeft" align="right" valign="top">std::mt19937 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a71c0d8049a330a2f201ca79f866e1840">Rng</a> ()</td></tr>
+<tr class="memdesc:a71c0d8049a330a2f201ca79f866e1840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a>.  <a href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a71c0d8049a330a2f201ca79f866e1840">More...</a><br /></td></tr>
+<tr class="separator:a71c0d8049a330a2f201ca79f866e1840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Random value generators</div></td></tr>
 <tr class="memitem:a8d8d101c0250f27d59ecd7d1db850dd1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a8d8d101c0250f27d59ecd7d1db850dd1">GenerateBool</a> (double i_Probability=0.5)</td></tr>
 <tr class="memdesc:a8d8d101c0250f27d59ecd7d1db850dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a boolean.  <a href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a8d8d101c0250f27d59ecd7d1db850dd1">More...</a><br /></td></tr>
@@ -135,6 +138,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:af0e40b626f61efda0856a1bcd195a08a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#af0e40b626f61efda0856a1bcd195a08a">TrySetSeedFromCommandLine</a> ()</td></tr>
 <tr class="memdesc:af0e40b626f61efda0856a1bcd195a08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to read a seed value from the command line parameters.  <a href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#af0e40b626f61efda0856a1bcd195a08a">More...</a><br /></td></tr>
 <tr class="separator:af0e40b626f61efda0856a1bcd195a08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adad75810103b112834259fa709aba0a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5">InitialiseLazy</a> ()</td></tr>
+<tr class="memdesc:adad75810103b112834259fa709aba0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs lazy initialisation of <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a>.  <a href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5">More...</a><br /></td></tr>
+<tr class="separator:adad75810103b112834259fa709aba0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -276,6 +282,54 @@ template&lt;Herd::Concepts::Number T&gt; </div>
 
 </div>
 </div>
+<a id="adad75810103b112834259fa709aba0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adad75810103b112834259fa709aba0a5">&#9670;&nbsp;</a></span>InitialiseLazy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::UnitTestUtils::RandomTestFixture::InitialiseLazy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs lazy initialisation of <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a>. </p>
+<dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a> is initialised </dd></dl>
+
+</div>
+</div>
+<a id="a71c0d8049a330a2f201ca79f866e1840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c0d8049a330a2f201ca79f866e1840">&#9670;&nbsp;</a></span>Rng()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mt19937 &amp; Herd::UnitTestUtils::RandomTestFixture::Rng </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a reference to <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a> </dd></dl>
+
+</div>
+</div>
 <a id="a7c362850b5a5b35dc8c10d4ef8e64b38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c362850b5a5b35dc8c10d4ef8e64b38">&#9670;&nbsp;</a></span>Seed()</h2>
 
@@ -313,6 +367,13 @@ template&lt;Herd::Concepts::Number T&gt; </div>
 </div><div class="memdoc">
 
 <p>Reinitialises the random number generator with seed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_Seed</td><td>New seed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763" title="Random number generator.">RandomTestFixture::m_Rng</a> is unset </dd></dl>
 
 </div>
 </div>

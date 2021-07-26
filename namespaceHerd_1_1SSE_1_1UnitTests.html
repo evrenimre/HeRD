@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('namespaceHerd_1_1SSE_1_1UnitTests.html
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Herd::SSE::UnitTests Namespace Reference</div>  </div>
 </div><!--header-->
@@ -109,7 +110,75 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html">SSETestDataManager</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data manager for <a class="el" href="namespaceHerd_1_1SSE.html">SSE</a> unit tests.  <a href="classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a53655f40f7e72132c510060469f54619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE_1_1UnitTests.html#a53655f40f7e72132c510060469f54619">GenerateRandomTrackPoint</a> (std::mt19937 &amp;io_rRng)</td></tr>
+<tr class="memdesc:a53655f40f7e72132c510060469f54619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random track point.  <a href="namespaceHerd_1_1SSE_1_1UnitTests.html#a53655f40f7e72132c510060469f54619">More...</a><br /></td></tr>
+<tr class="separator:a53655f40f7e72132c510060469f54619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7059733b4313efea433626844cf6563e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE_1_1UnitTests.html#a7059733b4313efea433626844cf6563e">GenerateRandomEvolutionState</a> (std::mt19937 &amp;io_rRng)</td></tr>
+<tr class="memdesc:a7059733b4313efea433626844cf6563e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random evolution state.  <a href="namespaceHerd_1_1SSE_1_1UnitTests.html#a7059733b4313efea433626844cf6563e">More...</a><br /></td></tr>
+<tr class="separator:a7059733b4313efea433626844cf6563e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a7059733b4313efea433626844cf6563e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7059733b4313efea433626844cf6563e">&#9670;&nbsp;</a></span>GenerateRandomEvolutionState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> Herd::SSE::UnitTests::GenerateRandomEvolutionState </td>
+          <td>(</td>
+          <td class="paramtype">std::mt19937 &amp;&#160;</td>
+          <td class="paramname"><em>io_rRng</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random evolution state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">io_rRng</td><td>Random number generator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A random evolution state </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>The output satisfies algebraic preconditions, but does not necessarily a physically viable star </dd></dl>
+
+</div>
+</div>
+<a id="a53655f40f7e72132c510060469f54619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53655f40f7e72132c510060469f54619">&#9670;&nbsp;</a></span>GenerateRandomTrackPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a> Herd::SSE::UnitTests::GenerateRandomTrackPoint </td>
+          <td>(</td>
+          <td class="paramtype">std::mt19937 &amp;&#160;</td>
+          <td class="paramname"><em>io_rRng</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random track point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">io_rRng</td><td>Random number generator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A random track point </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>The track point satisfies algebraic preconditions, but does not necessarily a physically viable star </dd>
+<dd>
+<a href="https://en.wikipedia.org/wiki/List_of_star_extremes">https://en.wikipedia.org/wiki/List_of_star_extremes</a> </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

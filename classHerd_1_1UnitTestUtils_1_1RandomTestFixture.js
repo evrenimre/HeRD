@@ -4,6 +4,8 @@ var classHerd_1_1UnitTestUtils_1_1RandomTestFixture =
     [ "GenerateBool", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a8d8d101c0250f27d59ecd7d1db850dd1", null ],
     [ "GenerateNumber", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#ad3b7618dc859a6307b10d229b479ce69", null ],
     [ "GenerateNumber", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a9f9ebc498510d0eb2fdd2ba871059707", null ],
+    [ "InitialiseLazy", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5", null ],
+    [ "Rng", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a71c0d8049a330a2f201ca79f866e1840", null ],
     [ "Seed", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a7c362850b5a5b35dc8c10d4ef8e64b38", null ],
     [ "SetSeed", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a180efdafec5f3dd1b10c5cf9c745972d", null ],
     [ "TrySetSeedFromCommandLine", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#af0e40b626f61efda0856a1bcd195a08a", null ],

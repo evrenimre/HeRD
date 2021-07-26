@@ -1,6 +1,5 @@
 var classHerd_1_1SSE_1_1StellarWindMassLoss =
 [
-    [ "Compute", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#af5e53bd99d2b4fd5f2af01908f4a124b", null ],
     [ "Compute", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#adb315d64cb8dc20c1d9616568bea1da6", null ],
     [ "ComputeLBVLikeLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#ae75b879bead64e960f35eeb7964016fe", null ],
     [ "ComputeMassiveStarLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html#a3788a91591df1030e63e73db17fc5bf2", null ],

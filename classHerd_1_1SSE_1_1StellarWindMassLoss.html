@@ -107,9 +107,8 @@ $(document).ready(function(){initNavTree('classHerd_1_1SSE_1_1StellarWindMassLos
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:adb315d64cb8dc20c1d9616568bea1da6"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1StellarWindMassLoss.html#adb315d64cb8dc20c1d9616568bea1da6">Compute</a> (const <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a> &amp;i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe)</td></tr>
+<tr class="memdesc:adb315d64cb8dc20c1d9616568bea1da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the mass loss per year.  <a href="classHerd_1_1SSE_1_1StellarWindMassLoss.html#adb315d64cb8dc20c1d9616568bea1da6">More...</a><br /></td></tr>
 <tr class="separator:adb315d64cb8dc20c1d9616568bea1da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5e53bd99d2b4fd5f2af01908f4a124b"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1StellarWindMassLoss.html#af5e53bd99d2b4fd5f2af01908f4a124b">Compute</a> (const <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a> &amp;i_rTrackPoint, double i_Neta)</td></tr>
-<tr class="separator:af5e53bd99d2b4fd5f2af01908f4a124b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -136,53 +135,8 @@ Static Private Member Functions</h2></td></tr>
 <div class="textblock"><p>Computes the mass loss rate due to stellar wind <a class="el" href="citelist.html#CITEREF_Hurley00">[2]</a> <a class="el" href="citelist.html#CITEREF_AMUSE">[1]</a>. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>Reimplementation of mlwind in AMUSE.SSE </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af5e53bd99d2b4fd5f2af01908f4a124b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5e53bd99d2b4fd5f2af01908f4a124b">&#9670;&nbsp;</a></span>Compute() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Herd::SSE::StellarWindMassLoss::Compute </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">Herd::SSE::TrackPoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>i_rTrackPoint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>i_Neta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i_rTrackPoint</td><td>Track point. Luminosity and radius &gt;=0, mass &gt; 0 </td></tr>
-    <tr><td class="paramname">i_Neta</td><td>Reimers mass loss efficiency. &gt;=0 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Mass loss rate per year in \( M_{\odot}\). &lt;=0 </dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Single star case </dd></dl>
-
-</div>
-</div>
 <a id="adb315d64cb8dc20c1d9616568bea1da6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb315d64cb8dc20c1d9616568bea1da6">&#9670;&nbsp;</a></span>Compute() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adb315d64cb8dc20c1d9616568bea1da6">&#9670;&nbsp;</a></span>Compute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,6 +186,8 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Computes the mass loss per year. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i_rTrackPoint</td><td>Track point. Luminosity, radius and core mass &gt;=0, mass &gt; 0, stage not undefined </td></tr>

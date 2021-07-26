@@ -112,6 +112,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of evolution.  <a href="structHerd_1_1SSE_1_1EvolutionState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1StellarRotation.html">StellarRotation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stellar rotation computations <a class="el" href="citelist.html#CITEREF_Hurley00">[2]</a> <a class="el" href="citelist.html#CITEREF_AMUSE">[1]</a>.  <a href="classHerd_1_1SSE_1_1StellarRotation.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1StellarWindMassLoss.html">StellarWindMassLoss</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the mass loss rate due to stellar wind <a class="el" href="citelist.html#CITEREF_Hurley00">[2]</a> <a class="el" href="citelist.html#CITEREF_AMUSE">[1]</a>.  <a href="classHerd_1_1SSE_1_1StellarWindMassLoss.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +180,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a2516aa1094ad7de074c6f23ec71c083f"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583ae">EvolutionStage</a>, 17 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a2516aa1094ad7de074c6f23ec71c083f">EnumerateEvolutionStages</a> ()</td></tr>
 <tr class="memdesc:a2516aa1094ad7de074c6f23ec71c083f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of evolution stages.  <a href="namespaceHerd_1_1SSE.html#a2516aa1094ad7de074c6f23ec71c083f">More...</a><br /></td></tr>
 <tr class="separator:a2516aa1094ad7de074c6f23ec71c083f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af219527b0931e81376815a95f9e89ffb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb">ValidateEvolutionState</a> (const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a> &amp;i_rState)</td></tr>
+<tr class="memdesc:af219527b0931e81376815a95f9e89ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates an evolution state.  <a href="namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb">More...</a><br /></td></tr>
+<tr class="separator:af219527b0931e81376815a95f9e89ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee0ae21ef79bc2ddd789769bbea6b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57">ValidateTrackPoint</a> (const <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">TrackPoint</a> &amp;i_rTrackPoint)</td></tr>
+<tr class="memdesc:a9ee0ae21ef79bc2ddd789769bbea6b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a track point.  <a href="namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57">More...</a><br /></td></tr>
+<tr class="separator:a9ee0ae21ef79bc2ddd789769bbea6b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="abfff4cd44552d6fe8771676ee95583ae"></a>
@@ -240,6 +249,7 @@ Functions</h2></td></tr>
 
 <p>Returns a list of evolution stages. </p>
 <dl class="section return"><dt>Returns</dt><dd>A list of evolution stages in the same order as EvolutionStage </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The order is implementation defined </dd></dl>
 
 </div>
 </div>
@@ -402,6 +412,79 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af219527b0931e81376815a95f9e89ffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af219527b0931e81376815a95f9e89ffb">&#9670;&nbsp;</a></span>ValidateEvolutionState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::SSE::ValidateEvolutionState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a> &amp;&#160;</td>
+          <td class="paramname"><em>i_rState</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validates an evolution state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rState</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438" title="Track point.">EvolutionState::m_TrackPoint</a> is valid </dd>
+<dd>
+All numerical values are non-negative </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">PreconditionError</td><td>If any preconditions are violated </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ee0ae21ef79bc2ddd789769bbea6b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee0ae21ef79bc2ddd789769bbea6b57">&#9670;&nbsp;</a></span>ValidateTrackPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herd::SSE::ValidateTrackPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">TrackPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>i_rTrackPoint</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validates a track point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rTrackPoint</td><td>Track point to be validated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>All numerical members are non-negative </dd>
+<dd>
+The evolution stage is not undefined </dd>
+<dd>
+Sum of the core and the envelope masses does not exceed the total mass </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">PreconditionError</td><td>If any preconditions are violated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>The function does not test whether a track point belongs to a physically viable star </dd></dl>
 
 </div>
 </div>
