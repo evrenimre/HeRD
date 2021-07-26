@@ -42,9 +42,6 @@ void ValidateTrackPoint( const TrackPoint& i_rTrackPoint )
   // Core + Envelope mass can be smaller than the total mass. See the discussion in Sec 7.2
   if( i_rTrackPoint.m_CoreMass.Value() + i_rTrackPoint.m_EnvelopeMass.Value() > i_rTrackPoint.m_Mass.Value() )
   {
-
-    std::cout << i_rTrackPoint.m_CoreMass.Value() << " " << i_rTrackPoint.m_EnvelopeMass.Value() << " " << i_rTrackPoint.m_Mass.Value() << "\n";
-    
     [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "m_CoreMass + m_EnvelopeMass", "<=m_Mass",
         i_rTrackPoint.m_CoreMass.Value() + i_rTrackPoint.m_EnvelopeMass.Value() );
   }

@@ -128,6 +128,7 @@ std::string_view EvolutionStageToString( EvolutionStage i_Stage )
 
 /**
  * @return A list of evolution stages in the same order as EvolutionStage
+ * @warning The order is implementation defined
  */
 std::array< EvolutionStage, 17 > EnumerateEvolutionStages()
 {

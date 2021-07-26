@@ -44,8 +44,12 @@ Herd::SSE::TrackPoint GenerateRandomTrackPoint( std::mt19937& io_rRng )
 
   {
     static auto StageList = Herd::SSE::EnumerateEvolutionStages();
-    std::uniform_int_distribution< std::size_t > distribution( 0, StageList.size() - 2 ); // Closed range excluding the last element, which is not a valid stage
-    generated.m_Stage = StageList[ distribution( io_rRng ) ];
+    std::uniform_int_distribution< std::size_t > distribution( 0, StageList.size() - 1 ); // Closed range
+    while( generated.m_Stage == Herd::SSE::EvolutionStage::e_Undefined )
+    {
+      generated.m_Stage = StageList[ distribution( io_rRng ) ];
+    }
+
   }
 
   return generated;
