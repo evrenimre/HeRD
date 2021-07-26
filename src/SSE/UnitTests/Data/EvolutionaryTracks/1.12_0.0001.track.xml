@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Track Version="1.01" UUID="a9d674f5-713f-4164-8e39-3a6c8131e253" Timestamp="2021-07-25T21:57:14.237976+00:00" Source="SSE">
+<Track Version="1.0.1" UUID="b1c3dc41-f4f8-41b8-a8d2-9c8f103d53fe" Timestamp="2021-07-26T23:19:54.395604+00:00" Source="SSE">
   <TrackPoint Age="0.0000" Stage="MS" M="1.1200" logL="0.4206" logR="-0.0424" logT="3.8896" Mc="0.0" Menv="1e-10" Spin="1.4555E+03" Z="0.0001"/>
   <TrackPoint Age="200.8349" Stage="MS" M="1.1200" logL="0.4309" logR="-0.0389" logT="3.8904" Mc="0.0" Menv="1e-10" Spin="1.4501E+03" Z="?"/>
   <TrackPoint Age="401.6698" Stage="MS" M="1.1200" logL="0.4429" logR="-0.0353" logT="3.8916" Mc="0.0" Menv="1e-10" Spin="1.4446E+03" Z="?"/>
@@ -146,35 +146,35 @@
   <TrackPoint Age="4153.6792" Stage="FGB" M="1.1158" logL="1.7208" logR="0.9823" logT="3.7023" Mc="0.2777" Menv="0.83754" Spin="8.6510E+00" Z="?"/>
   <TrackPoint Age="4154.3457" Stage="FGB" M="1.1158" logL="1.7260" logR="0.9853" logT="3.7021" Mc="0.2783" Menv="0.83735" Spin="8.5395E+00" Z="?"/>
   <TrackPoint Age="4155.0054" Stage="FGB" M="1.1157" logL="1.7313" logR="0.9883" logT="3.7020" Mc="0.2788" Menv="0.83688" Spin="8.4295E+00" Z="?"/>
-  <TrackPoint Age="4155.6587" Stage="FGB" M="1.1156" logL="1.7365" logR="0.9913" logT="3.7018" Mc="0.2793699999999999" Menv="0.8362299999999999" Spin="8.3210E+00" Z="?"/>
+  <TrackPoint Age="4155.6587" Stage="FGB" M="1.1156" logL="1.7365" logR="0.9913" logT="3.7018" Mc="0.27938497391678463" Menv="0.8362150254774833" Spin="8.3210E+00" Z="?"/>
   <TrackPoint Age="4156.3052" Stage="FGB" M="1.1156" logL="1.7418" logR="0.9943" logT="3.7016" Mc="0.2799" Menv="0.83564" Spin="8.2139E+00" Z="?"/>
-  <TrackPoint Age="4156.9458" Stage="FGB" M="1.1155" logL="1.7470" logR="0.9973" logT="3.7014" Mc="0.280495" Menv="0.835005" Spin="8.1082E+00" Z="?"/>
+  <TrackPoint Age="4156.9458" Stage="FGB" M="1.1155" logL="1.7470" logR="0.9973" logT="3.7014" Mc="0.28049748545508335" Menv="0.8350025145280432" Spin="8.1082E+00" Z="?"/>
   <TrackPoint Age="4157.5796" Stage="FGB" M="1.1155" logL="1.7522" logR="1.0003" logT="3.7012" Mc="0.2811" Menv="0.83439" Spin="8.0040E+00" Z="?"/>
   <TrackPoint Age="4158.2070" Stage="FGB" M="1.1154" logL="1.7575" logR="1.0033" logT="3.7010" Mc="0.2816" Menv="0.83376" Spin="7.9011E+00" Z="?"/>
-  <TrackPoint Age="4158.8281" Stage="FGB" M="1.1153" logL="1.7627" logR="1.0064" logT="3.7008" Mc="0.2821849999999999" Menv="0.8331149999999999" Spin="7.7996E+00" Z="?"/>
+  <TrackPoint Age="4158.8281" Stage="FGB" M="1.1153" logL="1.7627" logR="1.0064" logT="3.7008" Mc="0.2821924094214268" Menv="0.8331075904260606" Spin="7.7996E+00" Z="?"/>
   <TrackPoint Age="4159.4434" Stage="FGB" M="1.1153" logL="1.7679" logR="1.0094" logT="3.7006" Mc="0.2828" Menv="0.83249" Spin="7.6995E+00" Z="?"/>
   <TrackPoint Age="4160.0518" Stage="FGB" M="1.1152" logL="1.7732" logR="1.0124" logT="3.7004" Mc="0.2833" Menv="0.83186" Spin="7.6006E+00" Z="?"/>
-  <TrackPoint Age="4160.6548" Stage="FGB" M="1.1151" logL="1.7784" logR="1.0154" logT="3.7002" Mc="0.28389000000000003" Menv="0.83121" Spin="7.5031E+00" Z="?"/>
+  <TrackPoint Age="4160.6548" Stage="FGB" M="1.1151" logL="1.7784" logR="1.0154" logT="3.7002" Mc="0.2838949081713179" Menv="0.8312050917606085" Spin="7.5031E+00" Z="?"/>
   <TrackPoint Age="4161.2515" Stage="FGB" M="1.1151" logL="1.7837" logR="1.0184" logT="3.7000" Mc="0.2845" Menv="0.83059" Spin="7.4069E+00" Z="?"/>
-  <TrackPoint Age="4161.8423" Stage="FGB" M="1.1150" logL="1.7889" logR="1.0214" logT="3.6998" Mc="0.28507499999999997" Menv="0.8299249999999999" Spin="7.3119E+00" Z="?"/>
+  <TrackPoint Age="4161.8423" Stage="FGB" M="1.1150" logL="1.7889" logR="1.0214" logT="3.6998" Mc="0.28508721581991836" Menv="0.8299127837533928" Spin="7.3119E+00" Z="?"/>
   <TrackPoint Age="4162.4272" Stage="FGB" M="1.1149" logL="1.7941" logR="1.0245" logT="3.6996" Mc="0.2856" Menv="0.8293" Spin="7.2182E+00" Z="?"/>
   <TrackPoint Age="4163.0063" Stage="FGB" M="1.1149" logL="1.7994" logR="1.0275" logT="3.6994" Mc="0.2862" Menv="0.82866" Spin="7.1258E+00" Z="?"/>
-  <TrackPoint Age="4163.5796" Stage="FGB" M="1.1148" logL="1.8046" logR="1.0305" logT="3.6992" Mc="0.28679000000000004" Menv="0.82801" Spin="7.0345E+00" Z="?"/>
-  <TrackPoint Age="4164.1470" Stage="FGB" M="1.1147" logL="1.8098" logR="1.0335" logT="3.6990" Mc="0.287365" Menv="0.827335" Spin="6.9445E+00" Z="?"/>
+  <TrackPoint Age="4163.5796" Stage="FGB" M="1.1148" logL="1.8046" logR="1.0305" logT="3.6992" Mc="0.28679485477476185" Menv="0.8280051451566787" Spin="7.0345E+00" Z="?"/>
+  <TrackPoint Age="4164.1470" Stage="FGB" M="1.1147" logL="1.8098" logR="1.0335" logT="3.6990" Mc="0.2873819532280201" Menv="0.8273180459309066" Spin="6.9445E+00" Z="?"/>
   <TrackPoint Age="4164.7085" Stage="FGB" M="1.1147" logL="1.8151" logR="1.0365" logT="3.6988" Mc="0.2879" Menv="0.82672" Spin="6.8557E+00" Z="?"/>
   <TrackPoint Age="4165.2646" Stage="FGB" M="1.1146" logL="1.8203" logR="1.0395" logT="3.6986" Mc="0.2885" Menv="0.82607" Spin="6.7680E+00" Z="?"/>
-  <TrackPoint Age="4165.8154" Stage="FGB" M="1.1145" logL="1.8256" logR="1.0426" logT="3.6984" Mc="0.28908999999999996" Menv="0.82541" Spin="6.6814E+00" Z="?"/>
-  <TrackPoint Age="4166.3608" Stage="FGB" M="1.1144" logL="1.8308" logR="1.0456" logT="3.6982" Mc="0.28967000000000004" Menv="0.8247300000000001" Spin="6.5960E+00" Z="?"/>
-  <TrackPoint Age="4166.9004" Stage="FGB" M="1.1144" logL="1.8360" logR="1.0486" logT="3.6980" Mc="0.2902950000000001" Menv="0.8241050000000001" Spin="6.5118E+00" Z="?"/>
+  <TrackPoint Age="4165.8154" Stage="FGB" M="1.1145" logL="1.8256" logR="1.0426" logT="3.6984" Mc="0.2890948121164268" Menv="0.8254051878146251" Spin="6.6814E+00" Z="?"/>
+  <TrackPoint Age="4166.3608" Stage="FGB" M="1.1144" logL="1.8308" logR="1.0456" logT="3.6982" Mc="0.2896844032087289" Menv="0.8247155961698427" Spin="6.5960E+00" Z="?"/>
+  <TrackPoint Age="4166.9004" Stage="FGB" M="1.1144" logL="1.8360" logR="1.0486" logT="3.6980" Mc="0.29029739503414365" Menv="0.8241026049485703" Spin="6.5118E+00" Z="?"/>
   <TrackPoint Age="4167.4346" Stage="FGB" M="1.1143" logL="1.8413" logR="1.0516" logT="3.6978" Mc="0.2908" Menv="0.82345" Spin="6.4286E+00" Z="?"/>
   <TrackPoint Age="4167.9634" Stage="FGB" M="1.1142" logL="1.8465" logR="1.0546" logT="3.6976" Mc="0.2914" Menv="0.82279" Spin="6.3465E+00" Z="?"/>
-  <TrackPoint Age="4168.4873" Stage="FGB" M="1.1141" logL="1.8518" logR="1.0577" logT="3.6974" Mc="0.291985" Menv="0.822115" Spin="6.2655E+00" Z="?"/>
+  <TrackPoint Age="4168.4873" Stage="FGB" M="1.1141" logL="1.8518" logR="1.0577" logT="3.6974" Mc="0.2919921373627853" Menv="0.8221078624809859" Spin="6.2655E+00" Z="?"/>
   <TrackPoint Age="4169.0059" Stage="FGB" M="1.1141" logL="1.8570" logR="1.0607" logT="3.6972" Mc="0.2926" Menv="0.82147" Spin="6.1855E+00" Z="?"/>
   <TrackPoint Age="4169.5190" Stage="FGB" M="1.1140" logL="1.8622" logR="1.0637" logT="3.6970" Mc="0.2932" Menv="0.8208" Spin="6.1066E+00" Z="?"/>
-  <TrackPoint Age="4170.0269" Stage="FGB" M="1.1139" logL="1.8675" logR="1.0667" logT="3.6968" Mc="0.29378" Menv="0.82012" Spin="6.0288E+00" Z="?"/>
-  <TrackPoint Age="4170.5298" Stage="FGB" M="1.1138" logL="1.8727" logR="1.0697" logT="3.6966" Mc="0.294365" Menv="0.819435" Spin="5.9519E+00" Z="?"/>
+  <TrackPoint Age="4170.0269" Stage="FGB" M="1.1139" logL="1.8675" logR="1.0667" logT="3.6968" Mc="0.29378945006014684" Menv="0.8201105496609339" Spin="6.0288E+00" Z="?"/>
+  <TrackPoint Age="4170.5298" Stage="FGB" M="1.1138" logL="1.8727" logR="1.0697" logT="3.6966" Mc="0.29438149873863195" Menv="0.8194185004059653" Spin="5.9519E+00" Z="?"/>
   <TrackPoint Age="4171.0278" Stage="FGB" M="1.1138" logL="1.8779" logR="1.0728" logT="3.6964" Mc="0.295" Menv="0.8188" Spin="5.8760E+00" Z="?"/>
-  <TrackPoint Age="4171.5210" Stage="FGB" M="1.1137" logL="1.8832" logR="1.0758" logT="3.6962" Mc="0.29559" Menv="0.81811" Spin="5.8012E+00" Z="?"/>
+  <TrackPoint Age="4171.5210" Stage="FGB" M="1.1137" logL="1.8832" logR="1.0758" logT="3.6962" Mc="0.295594691663973" Menv="0.8181053082660017" Spin="5.8012E+00" Z="?"/>
   <TrackPoint Age="4172.0093" Stage="FGB" M="1.1136" logL="1.8884" logR="1.0788" logT="3.6960" Mc="0.2961" Menv="0.81745" Spin="5.7273E+00" Z="?"/>
   <TrackPoint Age="4172.4922" Stage="FGB" M="1.1135" logL="1.8937" logR="1.0818" logT="3.6958" Mc="0.2967" Menv="0.81677" Spin="5.6543E+00" Z="?"/>
   <TrackPoint Age="4172.9707" Stage="FGB" M="1.1134" logL="1.8989" logR="1.0849" logT="3.6956" Mc="0.2973" Menv="0.8161" Spin="5.5823E+00" Z="?"/>
@@ -184,7 +184,7 @@
   <TrackPoint Age="4174.8369" Stage="FGB" M="1.1131" logL="1.9198" logR="1.0970" logT="3.6947" Mc="0.2997" Menv="0.81336" Spin="5.3036E+00" Z="?"/>
   <TrackPoint Age="4175.2915" Stage="FGB" M="1.1130" logL="1.9251" logR="1.1000" logT="3.6945" Mc="0.3003" Menv="0.81267" Spin="5.2361E+00" Z="?"/>
   <TrackPoint Age="4175.7422" Stage="FGB" M="1.1129" logL="1.9303" logR="1.1030" logT="3.6943" Mc="0.3009" Menv="0.81198" Spin="5.1695E+00" Z="?"/>
-  <TrackPoint Age="4176.1880" Stage="FGB" M="1.1128" logL="1.9356" logR="1.1060" logT="3.6941" Mc="0.301555" Menv="0.811245" Spin="5.1038E+00" Z="?"/>
+  <TrackPoint Age="4176.1880" Stage="FGB" M="1.1128" logL="1.9356" logR="1.1060" logT="3.6941" Mc="0.3015756094492717" Menv="0.8112243891127734" Spin="5.1038E+00" Z="?"/>
   <TrackPoint Age="4176.6294" Stage="FGB" M="1.1128" logL="1.9408" logR="1.1091" logT="3.6939" Mc="0.3022" Menv="0.8106" Spin="5.0389E+00" Z="?"/>
   <TrackPoint Age="4177.0664" Stage="FGB" M="1.1127" logL="1.9460" logR="1.1121" logT="3.6937" Mc="0.3028" Menv="0.8099" Spin="4.9749E+00" Z="?"/>
   <TrackPoint Age="4177.4990" Stage="FGB" M="1.1126" logL="1.9513" logR="1.1151" logT="3.6935" Mc="0.3034" Menv="0.8092" Spin="4.9117E+00" Z="?"/>
@@ -193,242 +193,242 @@
   <TrackPoint Age="4178.7710" Stage="FGB" M="1.1123" logL="1.9670" logR="1.1242" logT="3.6929" Mc="0.3052" Menv="0.8071" Spin="4.7269E+00" Z="?"/>
   <TrackPoint Age="4179.1865" Stage="FGB" M="1.1122" logL="1.9722" logR="1.1272" logT="3.6927" Mc="0.3058" Menv="0.80639" Spin="4.6669E+00" Z="?"/>
   <TrackPoint Age="4179.5981" Stage="FGB" M="1.1121" logL="1.9775" logR="1.1303" logT="3.6925" Mc="0.3064" Menv="0.80568" Spin="4.6076E+00" Z="?"/>
-  <TrackPoint Age="4180.0054" Stage="FGB" M="1.1120" logL="1.9827" logR="1.1333" logT="3.6923" Mc="0.3070650000000001" Menv="0.8049350000000001" Spin="4.5491E+00" Z="?"/>
-  <TrackPoint Age="4180.4087" Stage="FGB" M="1.1119" logL="1.9879" logR="1.1363" logT="3.6921" Mc="0.3076700000000001" Menv="0.8042300000000001" Spin="4.4914E+00" Z="?"/>
-  <TrackPoint Age="4180.8076" Stage="FGB" M="1.1118" logL="1.9932" logR="1.1394" logT="3.6919" Mc="0.30827499999999997" Menv="0.8035249999999999" Spin="4.4344E+00" Z="?"/>
-  <TrackPoint Age="4181.2031" Stage="FGB" M="1.1117" logL="1.9984" logR="1.1424" logT="3.6917" Mc="0.3088849999999999" Menv="0.802815" Spin="4.3781E+00" Z="?"/>
-  <TrackPoint Age="4181.5942" Stage="FGB" M="1.1116" logL="2.0036" logR="1.1454" logT="3.6915" Mc="0.30949499999999996" Menv="0.802105" Spin="4.3226E+00" Z="?"/>
-  <TrackPoint Age="4181.9814" Stage="FGB" M="1.1115" logL="2.0089" logR="1.1484" logT="3.6913" Mc="0.3101549999999999" Menv="0.801345" Spin="4.2677E+00" Z="?"/>
+  <TrackPoint Age="4180.0054" Stage="FGB" M="1.1120" logL="1.9827" logR="1.1333" logT="3.6923" Mc="0.3070806693823231" Menv="0.8049193297368984" Spin="4.5491E+00" Z="?"/>
+  <TrackPoint Age="4180.4087" Stage="FGB" M="1.1119" logL="1.9879" logR="1.1363" logT="3.6921" Mc="0.3076833968847801" Menv="0.8042166024672344" Spin="4.4914E+00" Z="?"/>
+  <TrackPoint Age="4180.8076" Stage="FGB" M="1.1118" logL="1.9932" logR="1.1394" logT="3.6919" Mc="0.30828613571974633" Menv="0.8035138638296514" Spin="4.4344E+00" Z="?"/>
+  <TrackPoint Age="4181.2031" Stage="FGB" M="1.1117" logL="1.9984" logR="1.1424" logT="3.6917" Mc="0.30889166434296095" Menv="0.8028083354946003" Spin="4.3781E+00" Z="?"/>
+  <TrackPoint Age="4181.5942" Stage="FGB" M="1.1116" logL="2.0036" logR="1.1454" logT="3.6915" Mc="0.3094972157501282" Menv="0.8021027842317984" Spin="4.3226E+00" Z="?"/>
+  <TrackPoint Age="4181.9814" Stage="FGB" M="1.1115" logL="2.0089" logR="1.1484" logT="3.6913" Mc="0.3101748846247267" Menv="0.8013251139092304" Spin="4.2677E+00" Z="?"/>
   <TrackPoint Age="4182.3652" Stage="FGB" M="1.1115" logL="2.0141" logR="1.1515" logT="3.6911" Mc="0.3108" Menv="0.80067" Spin="4.2136E+00" Z="?"/>
   <TrackPoint Age="4182.7446" Stage="FGB" M="1.1114" logL="2.0194" logR="1.1545" logT="3.6909" Mc="0.3114" Menv="0.79994" Spin="4.1602E+00" Z="?"/>
-  <TrackPoint Age="4183.1206" Stage="FGB" M="1.1112" logL="2.0246" logR="1.1575" logT="3.6906" Mc="0.31199499999999997" Menv="0.7992049999999999" Spin="4.1074E+00" Z="?"/>
-  <TrackPoint Age="4183.4927" Stage="FGB" M="1.1111" logL="2.0298" logR="1.1606" logT="3.6904" Mc="0.31265999999999994" Menv="0.7984399999999999" Spin="4.0553E+00" Z="?"/>
-  <TrackPoint Age="4183.8608" Stage="FGB" M="1.1110" logL="2.0351" logR="1.1636" logT="3.6902" Mc="0.31327499999999997" Menv="0.7977249999999999" Spin="4.0039E+00" Z="?"/>
-  <TrackPoint Age="4184.2256" Stage="FGB" M="1.1109" logL="2.0403" logR="1.1666" logT="3.6900" Mc="0.31389000000000006" Menv="0.79701" Spin="3.9531E+00" Z="?"/>
-  <TrackPoint Age="4184.5864" Stage="FGB" M="1.1108" logL="2.0455" logR="1.1697" logT="3.6898" Mc="0.31456000000000006" Menv="0.7962400000000001" Spin="3.9030E+00" Z="?"/>
-  <TrackPoint Age="4184.9438" Stage="FGB" M="1.1107" logL="2.0508" logR="1.1727" logT="3.6896" Mc="0.31517999999999996" Menv="0.79552" Spin="3.8535E+00" Z="?"/>
+  <TrackPoint Age="4183.1206" Stage="FGB" M="1.1112" logL="2.0246" logR="1.1575" logT="3.6906" Mc="0.31199719224988975" Menv="0.7992028077319371" Spin="4.1074E+00" Z="?"/>
+  <TrackPoint Age="4183.4927" Stage="FGB" M="1.1111" logL="2.0298" logR="1.1606" logT="3.6904" Mc="0.3126774869958062" Menv="0.7984225118394578" Spin="4.0553E+00" Z="?"/>
+  <TrackPoint Age="4183.8608" Stage="FGB" M="1.1110" logL="2.0351" logR="1.1636" logT="3.6902" Mc="0.3132859007245398" Menv="0.7977140988198724" Spin="4.0039E+00" Z="?"/>
+  <TrackPoint Age="4184.2256" Stage="FGB" M="1.1109" logL="2.0403" logR="1.1666" logT="3.6900" Mc="0.31389434882799844" Menv="0.7970056510990098" Spin="3.9531E+00" Z="?"/>
+  <TrackPoint Age="4184.5864" Stage="FGB" M="1.1108" logL="2.0455" logR="1.1697" logT="3.6898" Mc="0.31457734408757027" Menv="0.7962226547428984" Spin="3.9030E+00" Z="?"/>
+  <TrackPoint Age="4184.9438" Stage="FGB" M="1.1107" logL="2.0508" logR="1.1727" logT="3.6896" Mc="0.3151886490087689" Menv="0.7955113506984551" Spin="3.8535E+00" Z="?"/>
   <TrackPoint Age="4185.2979" Stage="FGB" M="1.1106" logL="2.0560" logR="1.1757" logT="3.6894" Mc="0.3158" Menv="0.7948" Spin="3.8046E+00" Z="?"/>
-  <TrackPoint Age="4185.6484" Stage="FGB" M="1.1105" logL="2.0613" logR="1.1788" logT="3.6892" Mc="0.31647000000000003" Menv="0.79403" Spin="3.7564E+00" Z="?"/>
-  <TrackPoint Age="4185.9951" Stage="FGB" M="1.1104" logL="2.0665" logR="1.1818" logT="3.6890" Mc="0.31709500000000007" Menv="0.793305" Spin="3.7087E+00" Z="?"/>
+  <TrackPoint Age="4185.6484" Stage="FGB" M="1.1105" logL="2.0613" logR="1.1788" logT="3.6892" Mc="0.3164829005186573" Menv="0.794017098820786" Spin="3.7564E+00" Z="?"/>
+  <TrackPoint Age="4185.9951" Stage="FGB" M="1.1104" logL="2.0665" logR="1.1818" logT="3.6890" Mc="0.31709714429805214" Menv="0.7933028556835746" Spin="3.7087E+00" Z="?"/>
   <TrackPoint Age="4186.3384" Stage="FGB" M="1.1103" logL="2.0717" logR="1.1848" logT="3.6888" Mc="0.3177" Menv="0.79257" Spin="3.6617E+00" Z="?"/>
-  <TrackPoint Age="4186.6782" Stage="FGB" M="1.1102" logL="2.0770" logR="1.1879" logT="3.6886" Mc="0.31839000000000006" Menv="0.79181" Spin="3.6153E+00" Z="?"/>
+  <TrackPoint Age="4186.6782" Stage="FGB" M="1.1102" logL="2.0770" logR="1.1879" logT="3.6886" Mc="0.31839426419988837" Menv="0.7918057357264173" Spin="3.6153E+00" Z="?"/>
   <TrackPoint Age="4187.0146" Stage="FGB" M="1.1101" logL="2.0822" logR="1.1909" logT="3.6884" Mc="0.319" Menv="0.79106" Spin="3.5694E+00" Z="?"/>
-  <TrackPoint Age="4187.3481" Stage="FGB" M="1.1100" logL="2.0874" logR="1.1940" logT="3.6882" Mc="0.31969500000000006" Menv="0.790305" Spin="3.5242E+00" Z="?"/>
+  <TrackPoint Age="4187.3481" Stage="FGB" M="1.1100" logL="2.0874" logR="1.1940" logT="3.6882" Mc="0.3196971198457672" Menv="0.7903028801357589" Spin="3.5242E+00" Z="?"/>
   <TrackPoint Age="4187.6777" Stage="FGB" M="1.1099" logL="2.0927" logR="1.1970" logT="3.6879" Mc="0.3203" Menv="0.78955" Spin="3.4795E+00" Z="?"/>
   <TrackPoint Age="4188.0044" Stage="FGB" M="1.1097" logL="2.0979" logR="1.2000" logT="3.6877" Mc="0.3209" Menv="0.78879" Spin="3.4354E+00" Z="?"/>
-  <TrackPoint Age="4188.3276" Stage="FGB" M="1.1096" logL="2.1032" logR="1.2031" logT="3.6875" Mc="0.3215849999999999" Menv="0.7880149999999999" Spin="3.3918E+00" Z="?"/>
+  <TrackPoint Age="4188.3276" Stage="FGB" M="1.1096" logL="2.1032" logR="1.2031" logT="3.6875" Mc="0.32159130520984464" Menv="0.7880086946232114" Spin="3.3918E+00" Z="?"/>
   <TrackPoint Age="4188.6475" Stage="FGB" M="1.1095" logL="2.1084" logR="1.2061" logT="3.6873" Mc="0.3222" Menv="0.78727" Spin="3.3488E+00" Z="?"/>
   <TrackPoint Age="4188.9644" Stage="FGB" M="1.1094" logL="2.1136" logR="1.2092" logT="3.6871" Mc="0.3229" Menv="0.7865" Spin="3.3063E+00" Z="?"/>
   <TrackPoint Age="4189.2778" Stage="FGB" M="1.1093" logL="2.1189" logR="1.2122" logT="3.6869" Mc="0.3235" Menv="0.78573" Spin="3.2644E+00" Z="?"/>
-  <TrackPoint Age="4189.5884" Stage="FGB" M="1.1091" logL="2.1241" logR="1.2152" logT="3.6867" Mc="0.32417" Menv="0.78493" Spin="3.2230E+00" Z="?"/>
+  <TrackPoint Age="4189.5884" Stage="FGB" M="1.1091" logL="2.1241" logR="1.2152" logT="3.6867" Mc="0.3241824624039814" Menv="0.7849175369246094" Spin="3.2230E+00" Z="?"/>
   <TrackPoint Age="4189.8960" Stage="FGB" M="1.1090" logL="2.1294" logR="1.2183" logT="3.6865" Mc="0.3248" Menv="0.78419" Spin="3.1821E+00" Z="?"/>
-  <TrackPoint Age="4190.2002" Stage="FGB" M="1.1089" logL="2.1346" logR="1.2213" logT="3.6863" Mc="0.325495" Menv="0.783405" Spin="3.1417E+00" Z="?"/>
+  <TrackPoint Age="4190.2002" Stage="FGB" M="1.1089" logL="2.1346" logR="1.2213" logT="3.6863" Mc="0.3254970646851413" Menv="0.7834029352961582" Spin="3.1417E+00" Z="?"/>
   <TrackPoint Age="4190.5015" Stage="FGB" M="1.1088" logL="2.1398" logR="1.2244" logT="3.6860" Mc="0.3261" Menv="0.78263" Spin="3.1019E+00" Z="?"/>
   <TrackPoint Age="4190.7998" Stage="FGB" M="1.1087" logL="2.1451" logR="1.2274" logT="3.6858" Mc="0.3268" Menv="0.78185" Spin="3.0625E+00" Z="?"/>
-  <TrackPoint Age="4191.0952" Stage="FGB" M="1.1085" logL="2.1503" logR="1.2304" logT="3.6856" Mc="0.327465" Menv="0.781035" Spin="3.0236E+00" Z="?"/>
+  <TrackPoint Age="4191.0952" Stage="FGB" M="1.1085" logL="2.1503" logR="1.2304" logT="3.6856" Mc="0.32747932020530957" Menv="0.7810206788746307" Spin="3.0236E+00" Z="?"/>
   <TrackPoint Age="4191.3872" Stage="FGB" M="1.1084" logL="2.1555" logR="1.2335" logT="3.6854" Mc="0.3281" Menv="0.78029" Spin="2.9853E+00" Z="?"/>
   <TrackPoint Age="4191.6768" Stage="FGB" M="1.1083" logL="2.1608" logR="1.2365" logT="3.6852" Mc="0.3288" Menv="0.7795" Spin="2.9474E+00" Z="?"/>
-  <TrackPoint Age="4191.9634" Stage="FGB" M="1.1081" logL="2.1660" logR="1.2396" logT="3.6850" Mc="0.3293950000000001" Menv="0.7787050000000001" Spin="2.9100E+00" Z="?"/>
-  <TrackPoint Age="4192.2471" Stage="FGB" M="1.1080" logL="2.1713" logR="1.2426" logT="3.6848" Mc="0.3300950000000001" Menv="0.7779050000000001" Spin="2.8730E+00" Z="?"/>
-  <TrackPoint Age="4192.5278" Stage="FGB" M="1.1079" logL="2.1765" logR="1.2457" logT="3.6846" Mc="0.33079000000000003" Menv="0.7771100000000001" Spin="2.8365E+00" Z="?"/>
+  <TrackPoint Age="4191.9634" Stage="FGB" M="1.1081" logL="2.1660" logR="1.2396" logT="3.6850" Mc="0.32939702737092896" Menv="0.7787029726102195" Spin="2.9100E+00" Z="?"/>
+  <TrackPoint Age="4192.2471" Stage="FGB" M="1.1080" logL="2.1713" logR="1.2426" logT="3.6848" Mc="0.330097020785011" Menv="0.7779029791961116" Spin="2.8730E+00" Z="?"/>
+  <TrackPoint Age="4192.5278" Stage="FGB" M="1.1079" logL="2.1765" logR="1.2457" logT="3.6846" Mc="0.33079402844970757" Menv="0.7771059714746805" Spin="2.8365E+00" Z="?"/>
   <TrackPoint Age="4192.8057" Stage="FGB" M="1.1078" logL="2.1817" logR="1.2487" logT="3.6844" Mc="0.3314" Menv="0.77632" Spin="2.8005E+00" Z="?"/>
-  <TrackPoint Age="4193.0811" Stage="FGB" M="1.1076" logL="2.1870" logR="1.2517" logT="3.6841" Mc="0.33208999999999994" Menv="0.7755099999999999" Spin="2.7649E+00" Z="?"/>
-  <TrackPoint Age="4193.3535" Stage="FGB" M="1.1075" logL="2.1922" logR="1.2548" logT="3.6839" Mc="0.3327899999999999" Menv="0.7747099999999999" Spin="2.7298E+00" Z="?"/>
-  <TrackPoint Age="4193.6230" Stage="FGB" M="1.1073" logL="2.1974" logR="1.2578" logT="3.6837" Mc="0.33339499999999994" Menv="0.773905" Spin="2.6951E+00" Z="?"/>
+  <TrackPoint Age="4193.0811" Stage="FGB" M="1.1076" logL="2.1870" logR="1.2517" logT="3.6841" Mc="0.33209400335855255" Menv="0.7755059965656329" Spin="2.7649E+00" Z="?"/>
+  <TrackPoint Age="4193.3535" Stage="FGB" M="1.1075" logL="2.1922" logR="1.2548" logT="3.6839" Mc="0.3327939901762496" Menv="0.7747060097478338" Spin="2.7298E+00" Z="?"/>
+  <TrackPoint Age="4193.6230" Stage="FGB" M="1.1073" logL="2.1974" logR="1.2578" logT="3.6837" Mc="0.33339698909971005" Menv="0.7739030108812857" Spin="2.6951E+00" Z="?"/>
   <TrackPoint Age="4193.8901" Stage="FGB" M="1.1072" logL="2.2027" logR="1.2609" logT="3.6835" Mc="0.3341" Menv="0.7731" Spin="2.6608E+00" Z="?"/>
   <TrackPoint Age="4194.1548" Stage="FGB" M="1.1071" logL="2.2079" logR="1.2639" logT="3.6833" Mc="0.3348" Menv="0.77229" Spin="2.6270E+00" Z="?"/>
-  <TrackPoint Age="4194.4165" Stage="FGB" M="1.1069" logL="2.2132" logR="1.2670" logT="3.6831" Mc="0.33546" Menv="0.77144" Spin="2.5936E+00" Z="?"/>
+  <TrackPoint Age="4194.4165" Stage="FGB" M="1.1069" logL="2.2132" logR="1.2670" logT="3.6831" Mc="0.3354757538528248" Menv="0.7714242449259736" Spin="2.5936E+00" Z="?"/>
   <TrackPoint Age="4194.6758" Stage="FGB" M="1.1068" logL="2.2184" logR="1.2700" logT="3.6829" Mc="0.3361" Menv="0.77066" Spin="2.5606E+00" Z="?"/>
-  <TrackPoint Age="4194.9321" Stage="FGB" M="1.1066" logL="2.2236" logR="1.2731" logT="3.6826" Mc="0.33677999999999997" Menv="0.76982" Spin="2.5280E+00" Z="?"/>
-  <TrackPoint Age="4195.1860" Stage="FGB" M="1.1065" logL="2.2289" logR="1.2761" logT="3.6824" Mc="0.33748999999999996" Menv="0.76901" Spin="2.4959E+00" Z="?"/>
+  <TrackPoint Age="4194.9321" Stage="FGB" M="1.1066" logL="2.2236" logR="1.2731" logT="3.6826" Mc="0.3367878262126798" Menv="0.7698121734812097" Spin="2.5280E+00" Z="?"/>
+  <TrackPoint Age="4195.1860" Stage="FGB" M="1.1065" logL="2.2289" logR="1.2761" logT="3.6824" Mc="0.33749389979394856" Menv="0.7690061001294218" Spin="2.4959E+00" Z="?"/>
   <TrackPoint Age="4195.4375" Stage="FGB" M="1.1064" logL="2.2341" logR="1.2792" logT="3.6822" Mc="0.3382" Menv="0.76819" Spin="2.4641E+00" Z="?"/>
   <TrackPoint Age="4195.6865" Stage="FGB" M="1.1062" logL="2.2393" logR="1.2822" logT="3.6820" Mc="0.3388" Menv="0.76737" Spin="2.4327E+00" Z="?"/>
   <TrackPoint Age="4195.9326" Stage="FGB" M="1.1061" logL="2.2446" logR="1.2853" logT="3.6818" Mc="0.3395" Menv="0.76654" Spin="2.4017E+00" Z="?"/>
   <TrackPoint Age="4196.1768" Stage="FGB" M="1.1059" logL="2.2498" logR="1.2883" logT="3.6816" Mc="0.3402" Menv="0.7657" Spin="2.3711E+00" Z="?"/>
   <TrackPoint Age="4196.4185" Stage="FGB" M="1.1058" logL="2.2551" logR="1.2914" logT="3.6814" Mc="0.3409" Menv="0.76487" Spin="2.3409E+00" Z="?"/>
-  <TrackPoint Age="4196.6572" Stage="FGB" M="1.1056" logL="2.2603" logR="1.2944" logT="3.6811" Mc="0.3415849999999999" Menv="0.7640149999999999" Spin="2.3111E+00" Z="?"/>
+  <TrackPoint Age="4196.6572" Stage="FGB" M="1.1056" logL="2.2603" logR="1.2944" logT="3.6811" Mc="0.3415907310763998" Menv="0.7640092687498019" Spin="2.3111E+00" Z="?"/>
   <TrackPoint Age="4196.8940" Stage="FGB" M="1.1055" logL="2.2655" logR="1.2975" logT="3.6809" Mc="0.3423" Menv="0.76319" Spin="2.2816E+00" Z="?"/>
-  <TrackPoint Age="4197.1284" Stage="FGB" M="1.1053" logL="2.2708" logR="1.3005" logT="3.6807" Mc="0.342975" Menv="0.7623249999999999" Spin="2.2525E+00" Z="?"/>
+  <TrackPoint Age="4197.1284" Stage="FGB" M="1.1053" logL="2.2708" logR="1.3005" logT="3.6807" Mc="0.3429844845524042" Menv="0.7623155149635401" Spin="2.2525E+00" Z="?"/>
   <TrackPoint Age="4197.3604" Stage="FGB" M="1.1051" logL="2.2760" logR="1.3036" logT="3.6805" Mc="0.3436" Menv="0.7615" Spin="2.2238E+00" Z="?"/>
   <TrackPoint Age="4197.5903" Stage="FGB" M="1.1050" logL="2.2812" logR="1.3066" logT="3.6803" Mc="0.3443" Menv="0.76065" Spin="2.1954E+00" Z="?"/>
   <TrackPoint Age="4197.8174" Stage="FGB" M="1.1048" logL="2.2865" logR="1.3097" logT="3.6801" Mc="0.345" Menv="0.7598" Spin="2.1673E+00" Z="?"/>
   <TrackPoint Age="4198.0425" Stage="FGB" M="1.1047" logL="2.2917" logR="1.3127" logT="3.6798" Mc="0.3457" Menv="0.75894" Spin="2.1397E+00" Z="?"/>
   <TrackPoint Age="4198.2656" Stage="FGB" M="1.1045" logL="2.2970" logR="1.3158" logT="3.6796" Mc="0.3464" Menv="0.75809" Spin="2.1123E+00" Z="?"/>
-  <TrackPoint Age="4198.4863" Stage="FGB" M="1.1043" logL="2.3022" logR="1.3188" logT="3.6794" Mc="0.34708500000000003" Menv="0.757215" Spin="2.0853E+00" Z="?"/>
+  <TrackPoint Age="4198.4863" Stage="FGB" M="1.1043" logL="2.3022" logR="1.3188" logT="3.6794" Mc="0.34709057075330746" Menv="0.757209429071049" Spin="2.0853E+00" Z="?"/>
   <TrackPoint Age="4198.7046" Stage="FGB" M="1.1042" logL="2.3074" logR="1.3219" logT="3.6792" Mc="0.3478" Menv="0.75636" Spin="2.0586E+00" Z="?"/>
   <TrackPoint Age="4198.9209" Stage="FGB" M="1.1040" logL="2.3127" logR="1.3249" logT="3.6790" Mc="0.3485" Menv="0.75549" Spin="2.0323E+00" Z="?"/>
-  <TrackPoint Age="4199.1348" Stage="FGB" M="1.1038" logL="2.3179" logR="1.3280" logT="3.6788" Mc="0.3491849999999999" Menv="0.7546149999999999" Spin="2.0063E+00" Z="?"/>
+  <TrackPoint Age="4199.1348" Stage="FGB" M="1.1038" logL="2.3179" logR="1.3280" logT="3.6788" Mc="0.34919050940815155" Menv="0.7546094904155094" Spin="2.0063E+00" Z="?"/>
   <TrackPoint Age="4199.3467" Stage="FGB" M="1.1037" logL="2.3231" logR="1.3311" logT="3.6785" Mc="0.3499" Menv="0.75375" Spin="1.9806E+00" Z="?"/>
   <TrackPoint Age="4199.5566" Stage="FGB" M="1.1035" logL="2.3284" logR="1.3341" logT="3.6783" Mc="0.3506" Menv="0.75288" Spin="1.9552E+00" Z="?"/>
   <TrackPoint Age="4199.7642" Stage="FGB" M="1.1033" logL="2.3336" logR="1.3372" logT="3.6781" Mc="0.3513" Menv="0.752" Spin="1.9302E+00" Z="?"/>
   <TrackPoint Age="4199.9702" Stage="FGB" M="1.1032" logL="2.3389" logR="1.3402" logT="3.6779" Mc="0.352" Menv="0.75112" Spin="1.9054E+00" Z="?"/>
   <TrackPoint Age="4200.1738" Stage="FGB" M="1.1030" logL="2.3441" logR="1.3433" logT="3.6777" Mc="0.3527" Menv="0.75023" Spin="1.8810E+00" Z="?"/>
-  <TrackPoint Age="4200.3750" Stage="FGB" M="1.1028" logL="2.3493" logR="1.3463" logT="3.6774" Mc="0.35347999999999996" Menv="0.74932" Spin="1.8568E+00" Z="?"/>
-  <TrackPoint Age="4200.5747" Stage="FGB" M="1.1026" logL="2.3546" logR="1.3494" logT="3.6772" Mc="0.3541750000000001" Menv="0.748425" Spin="1.8330E+00" Z="?"/>
-  <TrackPoint Age="4200.7725" Stage="FGB" M="1.1024" logL="2.3598" logR="1.3525" logT="3.6770" Mc="0.35487" Menv="0.74753" Spin="1.8094E+00" Z="?"/>
+  <TrackPoint Age="4200.3750" Stage="FGB" M="1.1028" logL="2.3493" logR="1.3463" logT="3.6774" Mc="0.3534871785571796" Menv="0.749312821126843" Spin="1.8568E+00" Z="?"/>
+  <TrackPoint Age="4200.5747" Stage="FGB" M="1.1026" logL="2.3546" logR="1.3494" logT="3.6772" Mc="0.3541839386931484" Menv="0.7484160608124902" Spin="1.8330E+00" Z="?"/>
+  <TrackPoint Age="4200.7725" Stage="FGB" M="1.1024" logL="2.3598" logR="1.3525" logT="3.6770" Mc="0.3548806850135152" Menv="0.747519314273675" Spin="1.8094E+00" Z="?"/>
   <TrackPoint Age="4200.9678" Stage="FGB" M="1.1023" logL="2.3651" logR="1.3555" logT="3.6768" Mc="0.3556" Menv="0.74666" Spin="1.7862E+00" Z="?"/>
   <TrackPoint Age="4201.1616" Stage="FGB" M="1.1021" logL="2.3703" logR="1.3586" logT="3.6766" Mc="0.3563" Menv="0.74576" Spin="1.7632E+00" Z="?"/>
   <TrackPoint Age="4201.3530" Stage="FGB" M="1.1019" logL="2.3755" logR="1.3616" logT="3.6763" Mc="0.357" Menv="0.74486" Spin="1.7405E+00" Z="?"/>
   <TrackPoint Age="4201.5430" Stage="FGB" M="1.1017" logL="2.3808" logR="1.3647" logT="3.6761" Mc="0.3577" Menv="0.74395" Spin="1.7181E+00" Z="?"/>
-  <TrackPoint Age="4201.7305" Stage="FGB" M="1.1015" logL="2.3860" logR="1.3678" logT="3.6759" Mc="0.35847999999999997" Menv="0.74302" Spin="1.6960E+00" Z="?"/>
-  <TrackPoint Age="4201.9165" Stage="FGB" M="1.1013" logL="2.3912" logR="1.3708" logT="3.6757" Mc="0.35918500000000003" Menv="0.742115" Spin="1.6741E+00" Z="?"/>
-  <TrackPoint Age="4202.1006" Stage="FGB" M="1.1011" logL="2.3965" logR="1.3739" logT="3.6755" Mc="0.35989000000000004" Menv="0.74121" Spin="1.6525E+00" Z="?"/>
+  <TrackPoint Age="4201.7305" Stage="FGB" M="1.1015" logL="2.3860" logR="1.3678" logT="3.6759" Mc="0.35848698186175715" Menv="0.743013017819364" Spin="1.6960E+00" Z="?"/>
+  <TrackPoint Age="4201.9165" Stage="FGB" M="1.1013" logL="2.3912" logR="1.3708" logT="3.6757" Mc="0.35919021546675384" Menv="0.7421097843536445" Spin="1.6741E+00" Z="?"/>
+  <TrackPoint Age="4202.1006" Stage="FGB" M="1.1011" logL="2.3965" logR="1.3739" logT="3.6755" Mc="0.3598934630194711" Menv="0.741206536900603" Spin="1.6525E+00" Z="?"/>
   <TrackPoint Age="4202.2832" Stage="FGB" M="1.1009" logL="2.4017" logR="1.3769" logT="3.6752" Mc="0.3606" Menv="0.7403" Spin="1.6312E+00" Z="?"/>
-  <TrackPoint Age="4202.4634" Stage="FGB" M="1.1007" logL="2.4070" logR="1.3800" logT="3.6750" Mc="0.361365" Menv="0.739335" Spin="1.6101E+00" Z="?"/>
-  <TrackPoint Age="4202.6421" Stage="FGB" M="1.1005" logL="2.4122" logR="1.3831" logT="3.6748" Mc="0.3620749999999999" Menv="0.738425" Spin="1.5893E+00" Z="?"/>
-  <TrackPoint Age="4202.8188" Stage="FGB" M="1.1003" logL="2.4174" logR="1.3861" logT="3.6746" Mc="0.36279000000000006" Menv="0.73751" Spin="1.5687E+00" Z="?"/>
+  <TrackPoint Age="4202.4634" Stage="FGB" M="1.1007" logL="2.4070" logR="1.3800" logT="3.6750" Mc="0.36137701790564786" Menv="0.7393229811126825" Spin="1.6101E+00" Z="?"/>
+  <TrackPoint Age="4202.6421" Stage="FGB" M="1.1005" logL="2.4122" logR="1.3831" logT="3.6748" Mc="0.36208354913452356" Menv="0.7384164503639812" Spin="1.5893E+00" Z="?"/>
+  <TrackPoint Age="4202.8188" Stage="FGB" M="1.1003" logL="2.4174" logR="1.3861" logT="3.6746" Mc="0.36279340555474776" Menv="0.7375065943649095" Spin="1.5687E+00" Z="?"/>
   <TrackPoint Age="4202.9941" Stage="FGB" M="1.1001" logL="2.4227" logR="1.3892" logT="3.6743" Mc="0.3635" Menv="0.73659" Spin="1.5484E+00" Z="?"/>
-  <TrackPoint Age="4203.1675" Stage="FGB" M="1.0999" logL="2.4279" logR="1.3923" logT="3.6741" Mc="0.36427500000000007" Menv="0.7356250000000001" Spin="1.5284E+00" Z="?"/>
-  <TrackPoint Age="4203.3389" Stage="FGB" M="1.0997" logL="2.4331" logR="1.3953" logT="3.6739" Mc="0.36499499999999996" Menv="0.7347049999999999" Spin="1.5086E+00" Z="?"/>
+  <TrackPoint Age="4203.1675" Stage="FGB" M="1.0999" logL="2.4279" logR="1.3923" logT="3.6741" Mc="0.3642834401563708" Menv="0.7356165593401773" Spin="1.5284E+00" Z="?"/>
+  <TrackPoint Age="4203.3389" Stage="FGB" M="1.0997" logL="2.4331" logR="1.3953" logT="3.6739" Mc="0.36499668094315774" Menv="0.7347033190366783" Spin="1.5086E+00" Z="?"/>
   <TrackPoint Age="4203.5088" Stage="FGB" M="1.0995" logL="2.4384" logR="1.3984" logT="3.6737" Mc="0.3657" Menv="0.73377" Spin="1.4890E+00" Z="?"/>
-  <TrackPoint Age="4203.6772" Stage="FGB" M="1.0993" logL="2.4436" logR="1.4015" logT="3.6734" Mc="0.3664899999999999" Menv="0.73281" Spin="1.4697E+00" Z="?"/>
+  <TrackPoint Age="4203.6772" Stage="FGB" M="1.0993" logL="2.4436" logR="1.4015" logT="3.6734" Mc="0.3664933322417494" Menv="0.7328066676773853" Spin="1.4697E+00" Z="?"/>
   <TrackPoint Age="4203.8438" Stage="FGB" M="1.0991" logL="2.4489" logR="1.4045" logT="3.6732" Mc="0.3672" Menv="0.73187" Spin="1.4506E+00" Z="?"/>
   <TrackPoint Age="4204.0088" Stage="FGB" M="1.0989" logL="2.4541" logR="1.4076" logT="3.6730" Mc="0.3679" Menv="0.73092" Spin="1.4317E+00" Z="?"/>
   <TrackPoint Age="4204.1719" Stage="FGB" M="1.0987" logL="2.4593" logR="1.4107" logT="3.6728" Mc="0.3687" Menv="0.72996" Spin="1.4131E+00" Z="?"/>
   <TrackPoint Age="4204.3335" Stage="FGB" M="1.0984" logL="2.4646" logR="1.4137" logT="3.6725" Mc="0.3694" Menv="0.729" Spin="1.3947E+00" Z="?"/>
-  <TrackPoint Age="4204.4932" Stage="FGB" M="1.0982" logL="2.4698" logR="1.4168" logT="3.6723" Mc="0.37017999999999995" Menv="0.72802" Spin="1.3765E+00" Z="?"/>
+  <TrackPoint Age="4204.4932" Stage="FGB" M="1.0982" logL="2.4698" logR="1.4168" logT="3.6723" Mc="0.3701865166083916" Menv="0.7280134830660527" Spin="1.3765E+00" Z="?"/>
   <TrackPoint Age="4204.6519" Stage="FGB" M="1.0980" logL="2.4750" logR="1.4199" logT="3.6721" Mc="0.3709" Menv="0.72707" Spin="1.3586E+00" Z="?"/>
   <TrackPoint Age="4204.8086" Stage="FGB" M="1.0978" logL="2.4803" logR="1.4229" logT="3.6719" Mc="0.3717" Menv="0.7261" Spin="1.3409E+00" Z="?"/>
-  <TrackPoint Age="4204.9634" Stage="FGB" M="1.0975" logL="2.4855" logR="1.4260" logT="3.6716" Mc="0.3723849999999999" Menv="0.725115" Spin="1.3233E+00" Z="?"/>
-  <TrackPoint Age="4205.1172" Stage="FGB" M="1.0973" logL="2.4908" logR="1.4291" logT="3.6714" Mc="0.3731749999999999" Menv="0.7241249999999999" Spin="1.3060E+00" Z="?"/>
+  <TrackPoint Age="4204.9634" Stage="FGB" M="1.0975" logL="2.4855" logR="1.4260" logT="3.6716" Mc="0.37238982077938637" Menv="0.7251101790367808" Spin="1.3233E+00" Z="?"/>
+  <TrackPoint Age="4205.1172" Stage="FGB" M="1.0973" logL="2.4908" logR="1.4291" logT="3.6714" Mc="0.3731829953980042" Menv="0.724117004090689" Spin="1.3060E+00" Z="?"/>
   <TrackPoint Age="4205.2695" Stage="FGB" M="1.0971" logL="2.4960" logR="1.4321" logT="3.6712" Mc="0.3739" Menv="0.72317" Spin="1.2889E+00" Z="?"/>
   <TrackPoint Age="4205.4199" Stage="FGB" M="1.0969" logL="2.5012" logR="1.4352" logT="3.6710" Mc="0.3747" Menv="0.72218" Spin="1.2721E+00" Z="?"/>
   <TrackPoint Age="4205.5688" Stage="FGB" M="1.0966" logL="2.5065" logR="1.4383" logT="3.6707" Mc="0.3754" Menv="0.7212" Spin="1.2554E+00" Z="?"/>
   <TrackPoint Age="4205.7168" Stage="FGB" M="1.0964" logL="2.5117" logR="1.4414" logT="3.6705" Mc="0.3762" Menv="0.7202" Spin="1.2389E+00" Z="?"/>
-  <TrackPoint Age="4205.8628" Stage="FGB" M="1.0961" logL="2.5169" logR="1.4444" logT="3.6703" Mc="0.3768950000000001" Menv="0.7192050000000001" Spin="1.2226E+00" Z="?"/>
-  <TrackPoint Age="4206.0073" Stage="FGB" M="1.0959" logL="2.5222" logR="1.4475" logT="3.6701" Mc="0.37769500000000006" Menv="0.7182050000000001" Spin="1.2066E+00" Z="?"/>
+  <TrackPoint Age="4205.8628" Stage="FGB" M="1.0961" logL="2.5169" logR="1.4444" logT="3.6703" Mc="0.3768965614764942" Menv="0.7192034385029223" Spin="1.2226E+00" Z="?"/>
+  <TrackPoint Age="4206.0073" Stage="FGB" M="1.0959" logL="2.5222" logR="1.4475" logT="3.6701" Mc="0.37769655354910536" Menv="0.718203446430285" Spin="1.2066E+00" Z="?"/>
   <TrackPoint Age="4206.1509" Stage="FGB" M="1.0957" logL="2.5274" logR="1.4506" logT="3.6698" Mc="0.3785" Menv="0.7172" Spin="1.1907E+00" Z="?"/>
   <TrackPoint Age="4206.2925" Stage="FGB" M="1.0954" logL="2.5327" logR="1.4537" logT="3.6696" Mc="0.3792" Menv="0.7162" Spin="1.1750E+00" Z="?"/>
   <TrackPoint Age="4206.4326" Stage="FGB" M="1.0952" logL="2.5379" logR="1.4567" logT="3.6694" Mc="0.38" Menv="0.71519" Spin="1.1595E+00" Z="?"/>
   <TrackPoint Age="4206.5718" Stage="FGB" M="1.0949" logL="2.5431" logR="1.4598" logT="3.6692" Mc="0.3807" Menv="0.71417" Spin="1.1442E+00" Z="?"/>
   <TrackPoint Age="4206.7095" Stage="FGB" M="1.0947" logL="2.5484" logR="1.4629" logT="3.6689" Mc="0.3815" Menv="0.71315" Spin="1.1291E+00" Z="?"/>
-  <TrackPoint Age="4206.8457" Stage="FGB" M="1.0944" logL="2.5536" logR="1.4660" logT="3.6687" Mc="0.382285" Menv="0.712115" Spin="1.1141E+00" Z="?"/>
+  <TrackPoint Age="4206.8457" Stage="FGB" M="1.0944" logL="2.5536" logR="1.4660" logT="3.6687" Mc="0.3822895205723527" Menv="0.7121104792407315" Spin="1.1141E+00" Z="?"/>
   <TrackPoint Age="4206.9805" Stage="FGB" M="1.0941" logL="2.5588" logR="1.4690" logT="3.6685" Mc="0.383" Menv="0.7111" Spin="1.0994E+00" Z="?"/>
   <TrackPoint Age="4207.1138" Stage="FGB" M="1.0939" logL="2.5641" logR="1.4721" logT="3.6682" Mc="0.3838" Menv="0.71007" Spin="1.0848E+00" Z="?"/>
-  <TrackPoint Age="4207.2461" Stage="FGB" M="1.0936" logL="2.5693" logR="1.4752" logT="3.6680" Mc="0.38458" Menv="0.70902" Spin="1.0704E+00" Z="?"/>
+  <TrackPoint Age="4207.2461" Stage="FGB" M="1.0936" logL="2.5693" logR="1.4752" logT="3.6680" Mc="0.38458593321385465" Menv="0.7090140664525788" Spin="1.0704E+00" Z="?"/>
   <TrackPoint Age="4207.3770" Stage="FGB" M="1.0934" logL="2.5746" logR="1.4783" logT="3.6678" Mc="0.3854" Menv="0.708" Spin="1.0562E+00" Z="?"/>
   <TrackPoint Age="4207.5063" Stage="FGB" M="1.0931" logL="2.5798" logR="1.4813" logT="3.6675" Mc="0.3861" Menv="0.70695" Spin="1.0421E+00" Z="?"/>
-  <TrackPoint Age="4207.6348" Stage="FGB" M="1.0928" logL="2.5850" logR="1.4844" logT="3.6673" Mc="0.386895" Menv="0.705905" Spin="1.0282E+00" Z="?"/>
-  <TrackPoint Age="4207.7617" Stage="FGB" M="1.0925" logL="2.5903" logR="1.4875" logT="3.6671" Mc="0.38767" Menv="0.7048300000000001" Spin="1.0145E+00" Z="?"/>
+  <TrackPoint Age="4207.6348" Stage="FGB" M="1.0928" logL="2.5850" logR="1.4844" logT="3.6673" Mc="0.38689645958583835" Menv="0.7059035403932342" Spin="1.0282E+00" Z="?"/>
+  <TrackPoint Age="4207.7617" Stage="FGB" M="1.0925" logL="2.5903" logR="1.4875" logT="3.6671" Mc="0.3876787087208025" Menv="0.7048212905248461" Spin="1.0145E+00" Z="?"/>
   <TrackPoint Age="4207.8872" Stage="FGB" M="1.0923" logL="2.5955" logR="1.4906" logT="3.6669" Mc="0.3885" Menv="0.7038" Spin="1.0010E+00" Z="?"/>
-  <TrackPoint Age="4208.0117" Stage="FGB" M="1.0920" logL="2.6008" logR="1.4937" logT="3.6666" Mc="0.38928000000000007" Menv="0.7027200000000001" Spin="9.8758E-01" Z="?"/>
+  <TrackPoint Age="4208.0117" Stage="FGB" M="1.0920" logL="2.6008" logR="1.4937" logT="3.6666" Mc="0.38928574044906783" Menv="0.7027142592148165" Spin="9.8758E-01" Z="?"/>
   <TrackPoint Age="4208.1348" Stage="FGB" M="1.0917" logL="2.6060" logR="1.4967" logT="3.6664" Mc="0.39" Menv="0.70168" Spin="9.7435E-01" Z="?"/>
-  <TrackPoint Age="4208.2568" Stage="FGB" M="1.0914" logL="2.6112" logR="1.4998" logT="3.6662" Mc="0.39079499999999995" Menv="0.7006049999999999" Spin="9.6128E-01" Z="?"/>
-  <TrackPoint Age="4208.3774" Stage="FGB" M="1.0911" logL="2.6165" logR="1.5029" logT="3.6659" Mc="0.39158" Menv="0.69952" Spin="9.4838E-01" Z="?"/>
+  <TrackPoint Age="4208.2568" Stage="FGB" M="1.0914" logL="2.6112" logR="1.4998" logT="3.6662" Mc="0.3907964193107997" Menv="0.7006035806681397" Spin="9.6128E-01" Z="?"/>
+  <TrackPoint Age="4208.3774" Stage="FGB" M="1.0911" logL="2.6165" logR="1.5029" logT="3.6659" Mc="0.39158564437194127" Menv="0.6995143552906631" Spin="9.4838E-01" Z="?"/>
   <TrackPoint Age="4208.4971" Stage="FGB" M="1.0909" logL="2.6217" logR="1.5060" logT="3.6657" Mc="0.3924" Menv="0.69846" Spin="9.3562E-01" Z="?"/>
   <TrackPoint Age="4208.6152" Stage="FGB" M="1.0906" logL="2.6269" logR="1.5091" logT="3.6655" Mc="0.3932" Menv="0.69738" Spin="9.2303E-01" Z="?"/>
   <TrackPoint Age="4208.7324" Stage="FGB" M="1.0903" logL="2.6322" logR="1.5122" logT="3.6652" Mc="0.394" Menv="0.6963" Spin="9.1058E-01" Z="?"/>
-  <TrackPoint Age="4208.8481" Stage="FGB" M="1.0900" logL="2.6374" logR="1.5152" logT="3.6650" Mc="0.39479500000000006" Menv="0.6952050000000001" Spin="8.9828E-01" Z="?"/>
-  <TrackPoint Age="4208.9634" Stage="FGB" M="1.0897" logL="2.6427" logR="1.5183" logT="3.6648" Mc="0.395595" Menv="0.694105" Spin="8.8614E-01" Z="?"/>
-  <TrackPoint Age="4209.0767" Stage="FGB" M="1.0894" logL="2.6479" logR="1.5214" logT="3.6645" Mc="0.39639499999999994" Menv="0.693005" Spin="8.7414E-01" Z="?"/>
-  <TrackPoint Age="4209.1895" Stage="FGB" M="1.0891" logL="2.6531" logR="1.5245" logT="3.6643" Mc="0.39719499999999996" Menv="0.691905" Spin="8.6228E-01" Z="?"/>
+  <TrackPoint Age="4208.8481" Stage="FGB" M="1.0900" logL="2.6374" logR="1.5152" logT="3.6650" Mc="0.39479637801488066" Menv="0.6952036219639259" Spin="8.9828E-01" Z="?"/>
+  <TrackPoint Age="4208.9634" Stage="FGB" M="1.0897" logL="2.6427" logR="1.5183" logT="3.6648" Mc="0.3955963696763359" Menv="0.6941036303024437" Spin="8.8614E-01" Z="?"/>
+  <TrackPoint Age="4209.0767" Stage="FGB" M="1.0894" logL="2.6479" logR="1.5214" logT="3.6645" Mc="0.39639636133319867" Menv="0.6930036386455541" Spin="8.7414E-01" Z="?"/>
+  <TrackPoint Age="4209.1895" Stage="FGB" M="1.0891" logL="2.6531" logR="1.5245" logT="3.6643" Mc="0.3971963529854652" Menv="0.691903646993261" Spin="8.6228E-01" Z="?"/>
   <TrackPoint Age="4209.3008" Stage="FGB" M="1.0888" logL="2.6584" logR="1.5276" logT="3.6641" Mc="0.398" Menv="0.6908" Spin="8.5056E-01" Z="?"/>
-  <TrackPoint Age="4209.4111" Stage="FGB" M="1.0884" logL="2.6636" logR="1.5307" logT="3.6638" Mc="0.398755" Menv="0.6896450000000001" Spin="8.3899E-01" Z="?"/>
-  <TrackPoint Age="4209.5200" Stage="FGB" M="1.0881" logL="2.6688" logR="1.5338" logT="3.6636" Mc="0.3995600000000001" Menv="0.68854" Spin="8.2756E-01" Z="?"/>
-  <TrackPoint Age="4209.6284" Stage="FGB" M="1.0878" logL="2.6741" logR="1.5368" logT="3.6634" Mc="0.40037" Menv="0.68743" Spin="8.1626E-01" Z="?"/>
-  <TrackPoint Age="4209.7354" Stage="FGB" M="1.0875" logL="2.6793" logR="1.5399" logT="3.6631" Mc="0.4011849999999999" Menv="0.6863149999999999" Spin="8.0510E-01" Z="?"/>
-  <TrackPoint Age="4209.8413" Stage="FGB" M="1.0872" logL="2.6846" logR="1.5430" logT="3.6629" Mc="0.4019999999999999" Menv="0.6851999999999999" Spin="7.9407E-01" Z="?"/>
+  <TrackPoint Age="4209.4111" Stage="FGB" M="1.0884" logL="2.6636" logR="1.5307" logT="3.6638" Mc="0.39876702587988866" Menv="0.6896329723925483" Spin="8.3899E-01" Z="?"/>
+  <TrackPoint Age="4209.5200" Stage="FGB" M="1.0881" logL="2.6688" logR="1.5338" logT="3.6636" Mc="0.39957062250730585" Menv="0.6885293761260063" Spin="8.2756E-01" Z="?"/>
+  <TrackPoint Age="4209.6284" Stage="FGB" M="1.0878" logL="2.6741" logR="1.5368" logT="3.6634" Mc="0.4003779162759914" Menv="0.6874220829542868" Spin="8.1626E-01" Z="?"/>
+  <TrackPoint Age="4209.7354" Stage="FGB" M="1.0875" logL="2.6793" logR="1.5399" logT="3.6631" Mc="0.40118893271909734" Menv="0.6863110670882311" Spin="8.0510E-01" Z="?"/>
+  <TrackPoint Age="4209.8413" Stage="FGB" M="1.0872" logL="2.6846" logR="1.5430" logT="3.6629" Mc="0.40199999999999997" Menv="0.6851999999999999" Spin="7.9407E-01" Z="?"/>
   <TrackPoint Age="4209.9463" Stage="FGB" M="1.0869" logL="2.6898" logR="1.5461" logT="3.6627" Mc="0.4028" Menv="0.68407" Spin="7.8318E-01" Z="?"/>
-  <TrackPoint Age="4210.0498" Stage="FGB" M="1.0865" logL="2.6950" logR="1.5492" logT="3.6624" Mc="0.403585" Menv="0.682915" Spin="7.7241E-01" Z="?"/>
+  <TrackPoint Age="4210.0498" Stage="FGB" M="1.0865" logL="2.6950" logR="1.5492" logT="3.6624" Mc="0.40358885626719926" Menv="0.6829111435394041" Spin="7.7241E-01" Z="?"/>
   <TrackPoint Age="4210.1528" Stage="FGB" M="1.0862" logL="2.7003" logR="1.5523" logT="3.6622" Mc="0.4044" Menv="0.68178" Spin="7.6178E-01" Z="?"/>
   <TrackPoint Age="4210.2544" Stage="FGB" M="1.0859" logL="2.7055" logR="1.5554" logT="3.6620" Mc="0.4052" Menv="0.68063" Spin="7.5127E-01" Z="?"/>
   <TrackPoint Age="4210.3550" Stage="FGB" M="1.0855" logL="2.7107" logR="1.5585" logT="3.6617" Mc="0.406" Menv="0.67948" Spin="7.4089E-01" Z="?"/>
-  <TrackPoint Age="4210.4551" Stage="FGB" M="1.0852" logL="2.7160" logR="1.5616" logT="3.6615" Mc="0.4068899999999999" Menv="0.67831" Spin="7.3064E-01" Z="?"/>
-  <TrackPoint Age="4210.5537" Stage="FGB" M="1.0848" logL="2.7212" logR="1.5647" logT="3.6612" Mc="0.40767000000000003" Menv="0.67713" Spin="7.2050E-01" Z="?"/>
+  <TrackPoint Age="4210.4551" Stage="FGB" M="1.0852" logL="2.7160" logR="1.5616" logT="3.6615" Mc="0.4068925010596929" Menv="0.6783074988539233" Spin="7.3064E-01" Z="?"/>
+  <TrackPoint Age="4210.5537" Stage="FGB" M="1.0848" logL="2.7212" logR="1.5647" logT="3.6612" Mc="0.40767745146839224" Menv="0.6771225477531726" Spin="7.2050E-01" Z="?"/>
   <TrackPoint Age="4210.6514" Stage="FGB" M="1.0845" logL="2.7265" logR="1.5678" logT="3.6610" Mc="0.4085" Menv="0.67599" Spin="7.1049E-01" Z="?"/>
-  <TrackPoint Age="4210.7480" Stage="FGB" M="1.0841" logL="2.7317" logR="1.5709" logT="3.6608" Mc="0.40929000000000004" Menv="0.67481" Spin="7.0060E-01" Z="?"/>
+  <TrackPoint Age="4210.7480" Stage="FGB" M="1.0841" logL="2.7317" logR="1.5709" logT="3.6608" Mc="0.40929244917536806" Menv="0.6748075507379236" Spin="7.0060E-01" Z="?"/>
   <TrackPoint Age="4210.8442" Stage="FGB" M="1.0838" logL="2.7369" logR="1.5739" logT="3.6605" Mc="0.4101" Menv="0.67364" Spin="6.9082E-01" Z="?"/>
-  <TrackPoint Age="4210.9390" Stage="FGB" M="1.0834" logL="2.7422" logR="1.5770" logT="3.6603" Mc="0.41097" Menv="0.67243" Spin="6.8117E-01" Z="?"/>
+  <TrackPoint Age="4210.9390" Stage="FGB" M="1.0834" logL="2.7422" logR="1.5770" logT="3.6603" Mc="0.4109772395842948" Menv="0.6724227596333909" Spin="6.8117E-01" Z="?"/>
   <TrackPoint Age="4211.0327" Stage="FGB" M="1.0831" logL="2.7474" logR="1.5801" logT="3.6601" Mc="0.4118" Menv="0.67127" Spin="6.7163E-01" Z="?"/>
   <TrackPoint Age="4211.1255" Stage="FGB" M="1.0827" logL="2.7526" logR="1.5832" logT="3.6598" Mc="0.4126" Menv="0.67007" Spin="6.6220E-01" Z="?"/>
   <TrackPoint Age="4211.2178" Stage="FGB" M="1.0823" logL="2.7579" logR="1.5863" logT="3.6596" Mc="0.4134" Menv="0.66887" Spin="6.5288E-01" Z="?"/>
   <TrackPoint Age="4211.3091" Stage="FGB" M="1.0820" logL="2.7631" logR="1.5894" logT="3.6593" Mc="0.4143" Menv="0.66767" Spin="6.4368E-01" Z="?"/>
   <TrackPoint Age="4211.3989" Stage="FGB" M="1.0816" logL="2.7684" logR="1.5925" logT="3.6591" Mc="0.4151" Menv="0.66646" Spin="6.3459E-01" Z="?"/>
   <TrackPoint Age="4211.4883" Stage="FGB" M="1.0812" logL="2.7736" logR="1.5956" logT="3.6589" Mc="0.4159" Menv="0.66525" Spin="6.2560E-01" Z="?"/>
-  <TrackPoint Age="4211.5767" Stage="FGB" M="1.0808" logL="2.7788" logR="1.5987" logT="3.6586" Mc="0.416785" Menv="0.664015" Spin="6.1672E-01" Z="?"/>
+  <TrackPoint Age="4211.5767" Stage="FGB" M="1.0808" logL="2.7788" logR="1.5987" logT="3.6586" Mc="0.416788431113126" Menv="0.6640115686895907" Spin="6.1672E-01" Z="?"/>
   <TrackPoint Age="4211.6641" Stage="FGB" M="1.0804" logL="2.7841" logR="1.6018" logT="3.6584" Mc="0.4176" Menv="0.6628" Spin="6.0795E-01" Z="?"/>
-  <TrackPoint Age="4211.7510" Stage="FGB" M="1.0800" logL="2.7893" logR="1.6049" logT="3.6581" Mc="0.418465" Menv="0.661535" Spin="5.9929E-01" Z="?"/>
-  <TrackPoint Age="4211.8369" Stage="FGB" M="1.0796" logL="2.7945" logR="1.6080" logT="3.6579" Mc="0.41928" Menv="0.66032" Spin="5.9072E-01" Z="?"/>
+  <TrackPoint Age="4211.7510" Stage="FGB" M="1.0800" logL="2.7893" logR="1.6049" logT="3.6581" Mc="0.4184728767579879" Menv="0.6615271221652431" Spin="5.9929E-01" Z="?"/>
+  <TrackPoint Age="4211.8369" Stage="FGB" M="1.0796" logL="2.7945" logR="1.6080" logT="3.6579" Mc="0.41928446519210105" Menv="0.6603155344558672" Spin="5.9072E-01" Z="?"/>
   <TrackPoint Age="4211.9214" Stage="FGB" M="1.0792" logL="2.7998" logR="1.6111" logT="3.6576" Mc="0.4201" Menv="0.6591" Spin="5.8226E-01" Z="?"/>
-  <TrackPoint Age="4212.0059" Stage="FGB" M="1.0788" logL="2.8050" logR="1.6142" logT="3.6574" Mc="0.42097499999999993" Menv="0.657825" Spin="5.7390E-01" Z="?"/>
+  <TrackPoint Age="4212.0059" Stage="FGB" M="1.0788" logL="2.8050" logR="1.6142" logT="3.6574" Mc="0.42098048848310693" Menv="0.6578195109654842" Spin="5.7390E-01" Z="?"/>
   <TrackPoint Age="4212.0889" Stage="FGB" M="1.0784" logL="2.8103" logR="1.6173" logT="3.6572" Mc="0.4218" Menv="0.6566" Spin="5.6564E-01" Z="?"/>
-  <TrackPoint Age="4212.1714" Stage="FGB" M="1.0780" logL="2.8155" logR="1.6204" logT="3.6569" Mc="0.42268" Menv="0.65532" Spin="5.5748E-01" Z="?"/>
+  <TrackPoint Age="4212.1714" Stage="FGB" M="1.0780" logL="2.8155" logR="1.6204" logT="3.6569" Mc="0.42268431598085415" Menv="0.6553156836653762" Spin="5.5748E-01" Z="?"/>
   <TrackPoint Age="4212.2529" Stage="FGB" M="1.0776" logL="2.8207" logR="1.6235" logT="3.6567" Mc="0.4235" Menv="0.65408" Spin="5.4941E-01" Z="?"/>
-  <TrackPoint Age="4212.3335" Stage="FGB" M="1.0772" logL="2.8260" logR="1.6267" logT="3.6564" Mc="0.42439499999999997" Menv="0.652805" Spin="5.4144E-01" Z="?"/>
+  <TrackPoint Age="4212.3335" Stage="FGB" M="1.0772" logL="2.8260" logR="1.6267" logT="3.6564" Mc="0.4243960601925344" Menv="0.6528039397853008" Spin="5.4144E-01" Z="?"/>
   <TrackPoint Age="4212.4136" Stage="FGB" M="1.0768" logL="2.8312" logR="1.6298" logT="3.6562" Mc="0.4252" Menv="0.65153" Spin="5.3357E-01" Z="?"/>
   <TrackPoint Age="4212.4927" Stage="FGB" M="1.0764" logL="2.8365" logR="1.6329" logT="3.6560" Mc="0.4261" Menv="0.65025" Spin="5.2579E-01" Z="?"/>
-  <TrackPoint Age="4212.5713" Stage="FGB" M="1.0759" logL="2.8417" logR="1.6360" logT="3.6557" Mc="0.42697" Menv="0.64893" Spin="5.1810E-01" Z="?"/>
+  <TrackPoint Age="4212.5713" Stage="FGB" M="1.0759" logL="2.8417" logR="1.6360" logT="3.6557" Mc="0.4269761887058999" Menv="0.6489238104932163" Spin="5.1810E-01" Z="?"/>
   <TrackPoint Age="4212.6489" Stage="FGB" M="1.0755" logL="2.8469" logR="1.6391" logT="3.6555" Mc="0.4278" Menv="0.64767" Spin="5.1050E-01" Z="?"/>
   <TrackPoint Age="4212.7256" Stage="FGB" M="1.0751" logL="2.8522" logR="1.6422" logT="3.6552" Mc="0.4287" Menv="0.64637" Spin="5.0300E-01" Z="?"/>
   <TrackPoint Age="4212.8018" Stage="FGB" M="1.0746" logL="2.8574" logR="1.6453" logT="3.6550" Mc="0.4295" Menv="0.64507" Spin="4.9558E-01" Z="?"/>
   <TrackPoint Age="4212.8770" Stage="FGB" M="1.0742" logL="2.8626" logR="1.6484" logT="3.6547" Mc="0.4304" Menv="0.64376" Spin="4.8825E-01" Z="?"/>
-  <TrackPoint Age="4212.9512" Stage="FGB" M="1.0737" logL="2.8679" logR="1.6515" logT="3.6545" Mc="0.4312800000000001" Menv="0.6424200000000001" Spin="4.8101E-01" Z="?"/>
+  <TrackPoint Age="4212.9512" Stage="FGB" M="1.0737" logL="2.8679" logR="1.6515" logT="3.6545" Mc="0.4312839327956489" Menv="0.6424160668462209" Spin="4.8101E-01" Z="?"/>
   <TrackPoint Age="4213.0249" Stage="FGB" M="1.0733" logL="2.8731" logR="1.6546" logT="3.6542" Mc="0.4321" Menv="0.64112" Spin="4.7385E-01" Z="?"/>
   <TrackPoint Age="4213.0981" Stage="FGB" M="1.0728" logL="2.8784" logR="1.6577" logT="3.6540" Mc="0.433" Menv="0.63979" Spin="4.6678E-01" Z="?"/>
-  <TrackPoint Age="4213.1704" Stage="FGB" M="1.0723" logL="2.8836" logR="1.6608" logT="3.6537" Mc="0.43387000000000003" Menv="0.63843" Spin="4.5980E-01" Z="?"/>
-  <TrackPoint Age="4213.2422" Stage="FGB" M="1.0719" logL="2.8888" logR="1.6640" logT="3.6535" Mc="0.43479000000000007" Menv="0.6371100000000001" Spin="4.5289E-01" Z="?"/>
+  <TrackPoint Age="4213.1704" Stage="FGB" M="1.0723" logL="2.8836" logR="1.6608" logT="3.6537" Mc="0.43387572270506175" Menv="0.6384242764861892" Spin="4.5980E-01" Z="?"/>
+  <TrackPoint Age="4213.2422" Stage="FGB" M="1.0719" logL="2.8888" logR="1.6640" logT="3.6535" Mc="0.4347918874542877" Menv="0.6371081124557447" Spin="4.5289E-01" Z="?"/>
   <TrackPoint Age="4213.3130" Stage="FGB" M="1.0714" logL="2.8941" logR="1.6671" logT="3.6532" Mc="0.4356" Menv="0.63577" Spin="4.4607E-01" Z="?"/>
-  <TrackPoint Age="4213.3828" Stage="FGB" M="1.0709" logL="2.8993" logR="1.6702" logT="3.6530" Mc="0.43648999999999993" Menv="0.6344099999999999" Spin="4.3933E-01" Z="?"/>
-  <TrackPoint Age="4213.4526" Stage="FGB" M="1.0704" logL="2.9045" logR="1.6733" logT="3.6528" Mc="0.43737000000000004" Menv="0.63303" Spin="4.3267E-01" Z="?"/>
+  <TrackPoint Age="4213.3828" Stage="FGB" M="1.0709" logL="2.8993" logR="1.6702" logT="3.6530" Mc="0.4364918481305793" Menv="0.6344081517792316" Spin="4.3933E-01" Z="?"/>
+  <TrackPoint Age="4213.4526" Stage="FGB" M="1.0704" logL="2.9045" logR="1.6733" logT="3.6528" Mc="0.4373754834370271" Menv="0.6330245157502832" Spin="4.3267E-01" Z="?"/>
   <TrackPoint Age="4213.5215" Stage="FGB" M="1.0700" logL="2.9098" logR="1.6764" logT="3.6525" Mc="0.4383" Menv="0.63169" Spin="4.2609E-01" Z="?"/>
   <TrackPoint Age="4213.5894" Stage="FGB" M="1.0695" logL="2.9150" logR="1.6795" logT="3.6523" Mc="0.4391" Menv="0.63032" Spin="4.1959E-01" Z="?"/>
   <TrackPoint Age="4213.6567" Stage="FGB" M="1.0690" logL="2.9203" logR="1.6826" logT="3.6520" Mc="0.44" Menv="0.62894" Spin="4.1316E-01" Z="?"/>
   <TrackPoint Age="4213.7236" Stage="FGB" M="1.0685" logL="2.9255" logR="1.6858" logT="3.6518" Mc="0.4409" Menv="0.62756" Spin="4.0681E-01" Z="?"/>
   <TrackPoint Age="4213.7896" Stage="FGB" M="1.0680" logL="2.9307" logR="1.6889" logT="3.6515" Mc="0.4418" Menv="0.62616" Spin="4.0054E-01" Z="?"/>
   <TrackPoint Age="4213.8550" Stage="FGB" M="1.0675" logL="2.9360" logR="1.6920" logT="3.6513" Mc="0.4427" Menv="0.62476" Spin="3.9434E-01" Z="?"/>
-  <TrackPoint Age="4213.9194" Stage="FGB" M="1.0669" logL="2.9412" logR="1.6951" logT="3.6510" Mc="0.44357" Menv="0.62333" Spin="3.8821E-01" Z="?"/>
-  <TrackPoint Age="4213.9839" Stage="FGB" M="1.0664" logL="2.9464" logR="1.6982" logT="3.6508" Mc="0.44447499999999995" Menv="0.621925" Spin="3.8216E-01" Z="?"/>
-  <TrackPoint Age="4214.0474" Stage="FGB" M="1.0659" logL="2.9517" logR="1.7014" logT="3.6505" Mc="0.44538500000000003" Menv="0.620515" Spin="3.7618E-01" Z="?"/>
+  <TrackPoint Age="4213.9194" Stage="FGB" M="1.0669" logL="2.9412" logR="1.6951" logT="3.6510" Mc="0.443575054360051" Menv="0.6233249448203552" Spin="3.8821E-01" Z="?"/>
+  <TrackPoint Age="4213.9839" Stage="FGB" M="1.0664" logL="2.9464" logR="1.6982" logT="3.6508" Mc="0.4444791598293403" Menv="0.6219208396008179" Spin="3.8216E-01" Z="?"/>
+  <TrackPoint Age="4214.0474" Stage="FGB" M="1.0659" logL="2.9517" logR="1.7014" logT="3.6505" Mc="0.445387464467648" Menv="0.6205125353269643" Spin="3.7618E-01" Z="?"/>
   <TrackPoint Age="4214.1099" Stage="FGB" M="1.0654" logL="2.9569" logR="1.7045" logT="3.6503" Mc="0.4463" Menv="0.6191" Spin="3.7027E-01" Z="?"/>
-  <TrackPoint Age="4214.1724" Stage="FGB" M="1.0648" logL="2.9622" logR="1.7076" logT="3.6500" Mc="0.447165" Menv="0.617635" Spin="3.6443E-01" Z="?"/>
-  <TrackPoint Age="4214.2339" Stage="FGB" M="1.0643" logL="2.9674" logR="1.7107" logT="3.6498" Mc="0.448085" Menv="0.6162150000000001" Spin="3.5866E-01" Z="?"/>
-  <TrackPoint Age="4214.2949" Stage="FGB" M="1.0637" logL="2.9726" logR="1.7139" logT="3.6495" Mc="0.4489600000000001" Menv="0.6147400000000001" Spin="3.5296E-01" Z="?"/>
-  <TrackPoint Age="4214.3550" Stage="FGB" M="1.0632" logL="2.9779" logR="1.7170" logT="3.6492" Mc="0.44988999999999996" Menv="0.6133099999999999" Spin="3.4733E-01" Z="?"/>
-  <TrackPoint Age="4214.4146" Stage="FGB" M="1.0626" logL="2.9831" logR="1.7201" logT="3.6490" Mc="0.45077" Menv="0.61183" Spin="3.4177E-01" Z="?"/>
+  <TrackPoint Age="4214.1724" Stage="FGB" M="1.0648" logL="2.9622" logR="1.7076" logT="3.6500" Mc="0.4471706029844018" Menv="0.6176293958946731" Spin="3.6443E-01" Z="?"/>
+  <TrackPoint Age="4214.2339" Stage="FGB" M="1.0643" logL="2.9674" logR="1.7107" logT="3.6498" Mc="0.44808736951885225" Menv="0.61621263027502" Spin="3.5866E-01" Z="?"/>
+  <TrackPoint Age="4214.2949" Stage="FGB" M="1.0637" logL="2.9726" logR="1.7139" logT="3.6495" Mc="0.4489662336197335" Menv="0.614733764912678" Spin="3.5296E-01" Z="?"/>
+  <TrackPoint Age="4214.3550" Stage="FGB" M="1.0632" logL="2.9779" logR="1.7170" logT="3.6492" Mc="0.449891537029025" Menv="0.6133084628791422" Spin="3.4733E-01" Z="?"/>
+  <TrackPoint Age="4214.4146" Stage="FGB" M="1.0626" logL="2.9831" logR="1.7201" logT="3.6490" Mc="0.45077454689176216" Menv="0.6118254522807418" Spin="3.4177E-01" Z="?"/>
   <TrackPoint Age="4214.4741" Stage="FGB" M="1.0621" logL="2.9883" logR="1.7232" logT="3.6487" Mc="0.4517" Menv="0.61039" Spin="3.3627E-01" Z="?"/>
-  <TrackPoint Age="4214.5322" Stage="FGB" M="1.0615" logL="2.9936" logR="1.7264" logT="3.6485" Mc="0.45259000000000005" Menv="0.6089100000000001" Spin="3.3084E-01" Z="?"/>
-  <TrackPoint Age="4214.5903" Stage="FGB" M="1.0609" logL="2.9988" logR="1.7295" logT="3.6482" Mc="0.453485" Menv="0.607415" Spin="3.2547E-01" Z="?"/>
+  <TrackPoint Age="4214.5322" Stage="FGB" M="1.0615" logL="2.9936" logR="1.7264" logT="3.6485" Mc="0.45259147260532073" Menv="0.608908527302517" Spin="3.3084E-01" Z="?"/>
+  <TrackPoint Age="4214.5903" Stage="FGB" M="1.0609" logL="2.9988" logR="1.7295" logT="3.6482" Mc="0.453487176345282" Menv="0.6074128234471019" Spin="3.2547E-01" Z="?"/>
   <TrackPoint Age="4214.6479" Stage="FGB" M="1.0604" logL="3.0041" logR="1.7326" logT="3.6480" Mc="0.4544" Menv="0.60594" Spin="3.2016E-01" Z="?"/>
   <TrackPoint Age="4214.7046" Stage="FGB" M="1.0598" logL="3.0093" logR="1.7357" logT="3.6477" Mc="0.4553" Menv="0.60444" Spin="3.1492E-01" Z="?"/>
   <TrackPoint Age="4214.7607" Stage="FGB" M="1.0592" logL="3.0145" logR="1.7389" logT="3.6475" Mc="0.4562" Menv="0.60294" Spin="3.0975E-01" Z="?"/>
-  <TrackPoint Age="4214.8164" Stage="FGB" M="1.0586" logL="3.0198" logR="1.7420" logT="3.6472" Mc="0.45719000000000004" Menv="0.60141" Spin="3.0463E-01" Z="?"/>
+  <TrackPoint Age="4214.8164" Stage="FGB" M="1.0586" logL="3.0198" logR="1.7420" logT="3.6472" Mc="0.45719136233964974" Menv="0.6014086375676401" Spin="3.0463E-01" Z="?"/>
   <TrackPoint Age="4214.8716" Stage="FGB" M="1.0580" logL="3.0250" logR="1.7451" logT="3.6470" Mc="0.4581" Menv="0.5999" Spin="2.9958E-01" Z="?"/>
   <TrackPoint Age="4214.9263" Stage="FGB" M="1.0574" logL="3.0302" logR="1.7483" logT="3.6467" Mc="0.459" Menv="0.59837" Spin="2.9458E-01" Z="?"/>
   <TrackPoint Age="4214.9805" Stage="FGB" M="1.0568" logL="3.0355" logR="1.7514" logT="3.6464" Mc="0.4599" Menv="0.59684" Spin="2.8965E-01" Z="?"/>
-  <TrackPoint Age="4215.0337" Stage="FGB" M="1.0561" logL="3.0407" logR="1.7545" logT="3.6462" Mc="0.460855" Menv="0.595245" Spin="2.8478E-01" Z="?"/>
-  <TrackPoint Age="4215.0869" Stage="FGB" M="1.0555" logL="3.0460" logR="1.7577" logT="3.6459" Mc="0.46177999999999997" Menv="0.59372" Spin="2.7996E-01" Z="?"/>
+  <TrackPoint Age="4215.0337" Stage="FGB" M="1.0561" logL="3.0407" logR="1.7545" logT="3.6462" Mc="0.46086072581637777" Menv="0.5952392722973243" Spin="2.8478E-01" Z="?"/>
+  <TrackPoint Age="4215.0869" Stage="FGB" M="1.0555" logL="3.0460" logR="1.7577" logT="3.6459" Mc="0.4617824999526309" Menv="0.593717499674331" Spin="2.7996E-01" Z="?"/>
   <TrackPoint Age="4215.1392" Stage="FGB" M="1.0549" logL="3.0512" logR="1.7608" logT="3.6457" Mc="0.4627" Menv="0.59218" Spin="2.7521E-01" Z="?"/>
-  <TrackPoint Age="4215.1909" Stage="FGB" M="1.0542" logL="3.0564" logR="1.7639" logT="3.6454" Mc="0.4635950000000001" Menv="0.590605" Spin="2.7051E-01" Z="?"/>
-  <TrackPoint Age="4215.2422" Stage="FGB" M="1.0536" logL="3.0617" logR="1.7671" logT="3.6452" Mc="0.464585" Menv="0.5890150000000001" Spin="2.6586E-01" Z="?"/>
+  <TrackPoint Age="4215.1909" Stage="FGB" M="1.0542" logL="3.0564" logR="1.7639" logT="3.6454" Mc="0.46359560239420994" Menv="0.5906043975824199" Spin="2.7051E-01" Z="?"/>
+  <TrackPoint Age="4215.2422" Stage="FGB" M="1.0536" logL="3.0617" logR="1.7671" logT="3.6452" Mc="0.4645867714472823" Menv="0.589013228342146" Spin="2.6586E-01" Z="?"/>
   <TrackPoint Age="4215.2935" Stage="FGB" M="1.0530" logL="3.0669" logR="1.7702" logT="3.6449" Mc="0.4655" Menv="0.58744" Spin="2.6128E-01" Z="?"/>
   <TrackPoint Age="4215.3438" Stage="FGB" M="1.0523" logL="3.0721" logR="1.7733" logT="3.6446" Mc="0.4664" Menv="0.58585" Spin="2.5675E-01" Z="?"/>
-  <TrackPoint Age="4215.3936" Stage="FGB" M="1.0516" logL="3.0774" logR="1.7765" logT="3.6444" Mc="0.46737500000000004" Menv="0.5842250000000001" Spin="2.5227E-01" Z="?"/>
+  <TrackPoint Age="4215.3936" Stage="FGB" M="1.0516" logL="3.0774" logR="1.7765" logT="3.6444" Mc="0.46737777777777784" Menv="0.5842222216352428" Spin="2.5227E-01" Z="?"/>
   <TrackPoint Age="4215.4429" Stage="FGB" M="1.0510" logL="3.0826" logR="1.7796" logT="3.6441" Mc="0.4683" Menv="0.58264" Spin="2.4785E-01" Z="?"/>
-  <TrackPoint Age="4215.4917" Stage="FGB" M="1.0503" logL="3.0879" logR="1.7827" logT="3.6439" Mc="0.46929000000000004" Menv="0.58101" Spin="2.4349E-01" Z="?"/>
+  <TrackPoint Age="4215.4917" Stage="FGB" M="1.0503" logL="3.0879" logR="1.7827" logT="3.6439" Mc="0.4692910636758322" Menv="0.5810089362300352" Spin="2.4349E-01" Z="?"/>
   <TrackPoint Age="4215.5400" Stage="FGB" M="1.0496" logL="3.0931" logR="1.7859" logT="3.6436" Mc="0.4702" Menv="0.57939" Spin="2.3917E-01" Z="?"/>
-  <TrackPoint Age="4215.5879" Stage="FGB" M="1.0489" logL="3.0983" logR="1.7890" logT="3.6433" Mc="0.47117499999999995" Menv="0.5777249999999999" Spin="2.3491E-01" Z="?"/>
-  <TrackPoint Age="4215.6353" Stage="FGB" M="1.0482" logL="3.1036" logR="1.7922" logT="3.6431" Mc="0.472095" Menv="0.576105" Spin="2.3071E-01" Z="?"/>
-  <TrackPoint Age="4215.6821" Stage="FGB" M="1.0475" logL="3.1088" logR="1.7953" logT="3.6428" Mc="0.4730750000000001" Menv="0.5744250000000001" Spin="2.2655E-01" Z="?"/>
+  <TrackPoint Age="4215.5879" Stage="FGB" M="1.0489" logL="3.0983" logR="1.7890" logT="3.6433" Mc="0.4711775394442061" Menv="0.5777224599660951" Spin="2.3491E-01" Z="?"/>
+  <TrackPoint Age="4215.6353" Stage="FGB" M="1.0482" logL="3.1036" logR="1.7922" logT="3.6431" Mc="0.47209549613150037" Menv="0.5761045038448841" Spin="2.3071E-01" Z="?"/>
+  <TrackPoint Age="4215.6821" Stage="FGB" M="1.0475" logL="3.1088" logR="1.7953" logT="3.6428" Mc="0.4730774187389624" Menv="0.5744225806699795" Spin="2.2655E-01" Z="?"/>
   <TrackPoint Age="4215.7285" Stage="FGB" M="1.0468" logL="3.1141" logR="1.7985" logT="3.6426" Mc="0.474" Menv="0.57279" Spin="2.2245E-01" Z="?"/>
-  <TrackPoint Age="4215.7749" Stage="FGB" M="1.0461" logL="3.1193" logR="1.8016" logT="3.6423" Mc="0.47499" Menv="0.57111" Spin="2.1839E-01" Z="?"/>
-  <TrackPoint Age="4215.8203" Stage="FGB" M="1.0453" logL="3.1245" logR="1.8048" logT="3.6420" Mc="0.47587999999999997" Menv="0.5694199999999999" Spin="2.1439E-01" Z="?"/>
-  <TrackPoint Age="4215.8652" Stage="FGB" M="1.0446" logL="3.1298" logR="1.8079" logT="3.6418" Mc="0.47687500000000005" Menv="0.567725" Spin="2.1044E-01" Z="?"/>
+  <TrackPoint Age="4215.7749" Stage="FGB" M="1.0461" logL="3.1193" logR="1.8016" logT="3.6423" Mc="0.4749909188238443" Menv="0.5711090810813706" Spin="2.1839E-01" Z="?"/>
+  <TrackPoint Age="4215.8203" Stage="FGB" M="1.0453" logL="3.1245" logR="1.8048" logT="3.6420" Mc="0.4758817896569537" Menv="0.5694182099634529" Spin="2.1439E-01" Z="?"/>
+  <TrackPoint Age="4215.8652" Stage="FGB" M="1.0446" logL="3.1298" logR="1.8079" logT="3.6418" Mc="0.4768771741731681" Menv="0.5677228252330575" Spin="2.1044E-01" Z="?"/>
   <TrackPoint Age="4215.9102" Stage="FGB" M="1.0439" logL="3.1350" logR="1.8110" logT="3.6415" Mc="0.4778" Menv="0.56605" Spin="2.0654E-01" Z="?"/>
-  <TrackPoint Age="4215.9541" Stage="FGB" M="1.0431" logL="3.1402" logR="1.8142" logT="3.6412" Mc="0.47878" Menv="0.5643199999999999" Spin="2.0268E-01" Z="?"/>
-  <TrackPoint Age="4215.9980" Stage="FGB" M="1.0424" logL="3.1455" logR="1.8173" logT="3.6410" Mc="0.47979000000000005" Menv="0.56261" Spin="1.9887E-01" Z="?"/>
+  <TrackPoint Age="4215.9541" Stage="FGB" M="1.0431" logL="3.1402" logR="1.8142" logT="3.6412" Mc="0.47878164004831564" Menv="0.5643183595707985" Spin="2.0268E-01" Z="?"/>
+  <TrackPoint Age="4215.9980" Stage="FGB" M="1.0424" logL="3.1455" logR="1.8173" logT="3.6410" Mc="0.4797907944974195" Menv="0.5626092054072547" Spin="1.9887E-01" Z="?"/>
   <TrackPoint Age="4216.0410" Stage="FGB" M="1.0416" logL="3.1507" logR="1.8205" logT="3.6407" Mc="0.4807" Menv="0.56089" Spin="1.9512E-01" Z="?"/>
-  <TrackPoint Age="4216.0840" Stage="FGB" M="1.0408" logL="3.1560" logR="1.8236" logT="3.6404" Mc="0.48167499999999996" Menv="0.559125" Spin="1.9141E-01" Z="?"/>
-  <TrackPoint Age="4216.1265" Stage="FGB" M="1.0401" logL="3.1612" logR="1.8268" logT="3.6402" Mc="0.4826950000000001" Menv="0.557405" Spin="1.8774E-01" Z="?"/>
+  <TrackPoint Age="4216.0840" Stage="FGB" M="1.0408" logL="3.1560" logR="1.8236" logT="3.6404" Mc="0.4816768602584426" Menv="0.559123139144398" Spin="1.9141E-01" Z="?"/>
+  <TrackPoint Age="4216.1265" Stage="FGB" M="1.0401" logL="3.1612" logR="1.8268" logT="3.6402" Mc="0.48269535914470596" Menv="0.5574046408313822" Spin="1.8774E-01" Z="?"/>
   <TrackPoint Age="4216.1685" Stage="FGB" M="1.0393" logL="3.1664" logR="1.8299" logT="3.6399" Mc="0.4836" Menv="0.55565" Spin="1.8413E-01" Z="?"/>
   <TrackPoint Age="4216.2100" Stage="FGB" M="1.0385" logL="3.1717" logR="1.8331" logT="3.6396" Mc="0.4846" Menv="0.55388" Spin="1.8056E-01" Z="?"/>
   <TrackPoint Age="4216.2515" Stage="FGB" M="1.0377" logL="3.1769" logR="1.8363" logT="3.6394" Mc="0.4856" Menv="0.5521" Spin="1.7703E-01" Z="?"/>
-  <TrackPoint Age="4216.2920" Stage="FGB" M="1.0369" logL="3.1821" logR="1.8394" logT="3.6391" Mc="0.4865899999999999" Menv="0.55031" Spin="1.7356E-01" Z="?"/>
+  <TrackPoint Age="4216.2920" Stage="FGB" M="1.0369" logL="3.1821" logR="1.8394" logT="3.6391" Mc="0.48659061451220914" Menv="0.5503093853917146" Spin="1.7356E-01" Z="?"/>
   <TrackPoint Age="4216.3325" Stage="FGB" M="1.0361" logL="3.1874" logR="1.8426" logT="3.6388" Mc="0.4875" Menv="0.54852" Spin="1.7012E-01" Z="?"/>
-  <TrackPoint Age="4216.3726" Stage="FGB" M="1.0352" logL="3.1926" logR="1.8457" logT="3.6386" Mc="0.48849499999999996" Menv="0.546705" Spin="1.6673E-01" Z="?"/>
+  <TrackPoint Age="4216.3726" Stage="FGB" M="1.0352" logL="3.1926" logR="1.8457" logT="3.6386" Mc="0.48849528115068436" Menv="0.5467047188252422" Spin="1.6673E-01" Z="?"/>
   <TrackPoint Age="4216.4121" Stage="FGB" M="1.0344" logL="3.1979" logR="1.8489" logT="3.6383" Mc="0.4895" Menv="0.54489" Spin="1.6339E-01" Z="?"/>
-  <TrackPoint Age="4216.4512" Stage="FGB" M="1.0335" logL="3.2031" logR="1.8520" logT="3.6380" Mc="0.490465" Menv="0.543035" Spin="1.6009E-01" Z="?"/>
-  <TrackPoint Age="4216.4897" Stage="FGB" M="1.0327" logL="3.2083" logR="1.8552" logT="3.6378" Mc="0.491485" Menv="0.541215" Spin="1.5683E-01" Z="?"/>
-  <TrackPoint Age="4216.5283" Stage="FGB" M="1.0318" logL="3.2136" logR="1.8584" logT="3.6375" Mc="0.49246000000000006" Menv="0.53934" Spin="1.5362E-01" Z="?"/>
+  <TrackPoint Age="4216.4512" Stage="FGB" M="1.0335" logL="3.2031" logR="1.8520" logT="3.6380" Mc="0.4904667801890535" Menv="0.5430332186287623" Spin="1.6009E-01" Z="?"/>
+  <TrackPoint Age="4216.4897" Stage="FGB" M="1.0327" logL="3.2083" logR="1.8552" logT="3.6378" Mc="0.4914857223088319" Menv="0.5412142774738011" Spin="1.5683E-01" Z="?"/>
+  <TrackPoint Age="4216.5283" Stage="FGB" M="1.0318" logL="3.2136" logR="1.8584" logT="3.6375" Mc="0.4924618172655736" Menv="0.5393381811870018" Spin="1.5362E-01" Z="?"/>
   <TrackPoint Age="4216.5664" Stage="FGB" M="1.0310" logL="3.2188" logR="1.8615" logT="3.6372" Mc="0.4934" Menv="0.53752" Spin="1.5045E-01" Z="?"/>
   <TrackPoint Age="4216.6040" Stage="FGB" M="1.0301" logL="3.2240" logR="1.8647" logT="3.6369" Mc="0.4944" Menv="0.53565" Spin="1.4733E-01" Z="?"/>
   <TrackPoint Age="4216.6411" Stage="FGB" M="1.0292" logL="3.2293" logR="1.8678" logT="3.6367" Mc="0.4954" Menv="0.53376" Spin="1.4424E-01" Z="?"/>
@@ -438,9 +438,9 @@
   <TrackPoint Age="4216.7866" Stage="FGB" M="1.0256" logL="3.2502" logR="1.8805" logT="3.6356" Mc="0.4994" Menv="0.52613" Spin="1.3232E-01" Z="?"/>
   <TrackPoint Age="4216.8218" Stage="FGB" M="1.0246" logL="3.2555" logR="1.8837" logT="3.6353" Mc="0.5004" Menv="0.52419" Spin="1.2944E-01" Z="?"/>
   <TrackPoint Age="4216.8569" Stage="FGB" M="1.0237" logL="3.2607" logR="1.8868" logT="3.6350" Mc="0.5014" Menv="0.52224" Spin="1.2661E-01" Z="?"/>
-  <TrackPoint Age="4216.8916" Stage="FGB" M="1.0227" logL="3.2659" logR="1.8900" logT="3.6347" Mc="0.5024599999999999" Menv="0.5202399999999999" Spin="1.2381E-01" Z="?"/>
+  <TrackPoint Age="4216.8916" Stage="FGB" M="1.0227" logL="3.2659" logR="1.8900" logT="3.6347" Mc="0.5024606953597058" Menv="0.5202393030763429" Spin="1.2381E-01" Z="?"/>
   <TrackPoint Age="4216.9263" Stage="FGB" M="1.0218" logL="3.2712" logR="1.8932" logT="3.6345" Mc="0.5035" Menv="0.5183" Spin="1.2106E-01" Z="?"/>
-  <TrackPoint Age="4216.9600" Stage="FGB" M="1.0208" logL="3.2764" logR="1.8964" logT="3.6342" Mc="0.5044899999999999" Menv="0.5163099999999999" Spin="1.1834E-01" Z="?"/>
+  <TrackPoint Age="4216.9600" Stage="FGB" M="1.0208" logL="3.2764" logR="1.8964" logT="3.6342" Mc="0.5044901157892674" Menv="0.5163098841127842" Spin="1.1834E-01" Z="?"/>
   <TrackPoint Age="4216.9688" Stage="CHeB" M="1.0206" logL="1.9100" logR="0.8811" logT="3.8002" Mc="0.5061" Menv="0.0013944" Spin="5.9254E+01" Z="?"/>
   <TrackPoint Age="4218.0889" Stage="CHeB" M="1.0204" logL="1.9114" logR="0.8810" logT="3.8006" Mc="0.5065" Menv="0.0012645" Spin="5.9809E+01" Z="?"/>
   <TrackPoint Age="4219.2090" Stage="CHeB" M="1.0203" logL="1.9131" logR="0.8810" logT="3.8011" Mc="0.5069" Menv="0.0011455" Spin="5.9925E+01" Z="?"/>
@@ -560,7 +560,7 @@
   <TrackPoint Age="4330.4121" Stage="FAGB" M="0.9938" logL="2.3786" logR="1.3586" logT="3.6786" Mc="0.5459" Menv="0.44786" Spin="4.0492E-01" Z="?"/>
   <TrackPoint Age="4330.4868" Stage="FAGB" M="0.9937" logL="2.3891" logR="1.3647" logT="3.6782" Mc="0.5459" Menv="0.44778" Spin="3.9429E-01" Z="?"/>
   <TrackPoint Age="4330.5601" Stage="FAGB" M="0.9936" logL="2.3997" logR="1.3709" logT="3.6777" Mc="0.5459" Menv="0.44769" Spin="3.8394E-01" Z="?"/>
-  <TrackPoint Age="4330.6318" Stage="FAGB" M="0.9935" logL="2.4102" logR="1.3770" logT="3.6773" Mc="0.545895" Menv="0.447605" Spin="3.7385E-01" Z="?"/>
+  <TrackPoint Age="4330.6318" Stage="FAGB" M="0.9935" logL="2.4102" logR="1.3770" logT="3.6773" Mc="0.5458945053396543" Menv="0.4476054946354285" Spin="3.7385E-01" Z="?"/>
   <TrackPoint Age="4330.7021" Stage="FAGB" M="0.9935" logL="2.4207" logR="1.3832" logT="3.6769" Mc="0.5459" Menv="0.44752" Spin="3.6402E-01" Z="?"/>
   <TrackPoint Age="4330.7710" Stage="FAGB" M="0.9934" logL="2.4312" logR="1.3893" logT="3.6764" Mc="0.5459" Menv="0.44743" Spin="3.5445E-01" Z="?"/>
   <TrackPoint Age="4330.8384" Stage="FAGB" M="0.9933" logL="2.4418" logR="1.3954" logT="3.6760" Mc="0.5459" Menv="0.44734" Spin="3.4512E-01" Z="?"/>
@@ -581,13 +581,13 @@
   <TrackPoint Age="4331.7041" Stage="FAGB" M="0.9917" logL="2.5997" logR="1.4878" logT="3.6693" Mc="0.5459" Menv="0.44578" Spin="2.3071E-01" Z="?"/>
   <TrackPoint Age="4331.7529" Stage="FAGB" M="0.9916" logL="2.6102" logR="1.4940" logT="3.6688" Mc="0.5459" Menv="0.44566" Spin="2.2455E-01" Z="?"/>
   <TrackPoint Age="4331.8008" Stage="FAGB" M="0.9915" logL="2.6208" logR="1.5001" logT="3.6684" Mc="0.5459" Menv="0.44553" Spin="2.1854E-01" Z="?"/>
-  <TrackPoint Age="4331.8477" Stage="FAGB" M="0.9913" logL="2.6313" logR="1.5063" logT="3.6679" Mc="0.545895" Menv="0.44540499999999994" Spin="2.1269E-01" Z="?"/>
+  <TrackPoint Age="4331.8477" Stage="FAGB" M="0.9913" logL="2.6313" logR="1.5063" logT="3.6679" Mc="0.5458944931454338" Menv="0.445405506829606" Spin="2.1269E-01" Z="?"/>
   <TrackPoint Age="4331.8940" Stage="FAGB" M="0.9912" logL="2.6418" logR="1.5125" logT="3.6675" Mc="0.5459" Menv="0.44528" Spin="2.0699E-01" Z="?"/>
   <TrackPoint Age="4331.9390" Stage="FAGB" M="0.9911" logL="2.6524" logR="1.5186" logT="3.6670" Mc="0.5459" Menv="0.44515" Spin="2.0143E-01" Z="?"/>
   <TrackPoint Age="4331.9834" Stage="FAGB" M="0.9910" logL="2.6629" logR="1.5248" logT="3.6666" Mc="0.5459" Menv="0.44502" Spin="1.9601E-01" Z="?"/>
   <TrackPoint Age="4332.0264" Stage="FAGB" M="0.9908" logL="2.6734" logR="1.5310" logT="3.6661" Mc="0.5459" Menv="0.44488" Spin="1.9074E-01" Z="?"/>
   <TrackPoint Age="4332.0688" Stage="FAGB" M="0.9907" logL="2.6839" logR="1.5372" logT="3.6657" Mc="0.5459" Menv="0.44475" Spin="1.8559E-01" Z="?"/>
-  <TrackPoint Age="4332.1104" Stage="FAGB" M="0.9905" logL="2.6945" logR="1.5434" logT="3.6652" Mc="0.545895" Menv="0.44460500000000003" Spin="1.8058E-01" Z="?"/>
+  <TrackPoint Age="4332.1104" Stage="FAGB" M="0.9905" logL="2.6945" logR="1.5434" logT="3.6652" Mc="0.5458944886977416" Menv="0.4446055112772827" Spin="1.8058E-01" Z="?"/>
   <TrackPoint Age="4332.1514" Stage="FAGB" M="0.9904" logL="2.7050" logR="1.5495" logT="3.6647" Mc="0.5459" Menv="0.44446" Spin="1.7569E-01" Z="?"/>
   <TrackPoint Age="4332.1914" Stage="FAGB" M="0.9903" logL="2.7155" logR="1.5557" logT="3.6643" Mc="0.5459" Menv="0.44432" Spin="1.7093E-01" Z="?"/>
   <TrackPoint Age="4332.2305" Stage="FAGB" M="0.9901" logL="2.7261" logR="1.5619" logT="3.6638" Mc="0.5459" Menv="0.44417" Spin="1.6629E-01" Z="?"/>
@@ -606,7 +606,7 @@
   <TrackPoint Age="4332.6738" Stage="FAGB" M="0.9879" logL="2.8629" logR="1.6425" logT="3.6578" Mc="0.5459" Menv="0.44198" Spin="1.1562E-01" Z="?"/>
   <TrackPoint Age="4332.7031" Stage="FAGB" M="0.9877" logL="2.8735" logR="1.6487" logT="3.6573" Mc="0.5459" Menv="0.44179" Spin="1.1238E-01" Z="?"/>
   <TrackPoint Age="4332.7319" Stage="FAGB" M="0.9875" logL="2.8840" logR="1.6549" logT="3.6568" Mc="0.5459" Menv="0.44159" Spin="1.0921E-01" Z="?"/>
-  <TrackPoint Age="4332.7603" Stage="FAGB" M="0.9873" logL="2.8945" logR="1.6611" logT="3.6563" Mc="0.5459" Menv="0.44139999999999996" Spin="1.0613E-01" Z="?"/>
+  <TrackPoint Age="4332.7603" Stage="FAGB" M="0.9873" logL="2.8945" logR="1.6611" logT="3.6563" Mc="0.5458999999999999" Menv="0.44139999999999996" Spin="1.0613E-01" Z="?"/>
   <TrackPoint Age="4332.7881" Stage="FAGB" M="0.9871" logL="2.9050" logR="1.6673" logT="3.6559" Mc="0.5459" Menv="0.44119" Spin="1.0312E-01" Z="?"/>
   <TrackPoint Age="4332.8154" Stage="FAGB" M="0.9869" logL="2.9156" logR="1.6736" logT="3.6554" Mc="0.5459" Menv="0.44099" Spin="1.0019E-01" Z="?"/>
   <TrackPoint Age="4332.8423" Stage="FAGB" M="0.9867" logL="2.9261" logR="1.6798" logT="3.6549" Mc="0.5459" Menv="0.44078" Spin="9.7330E-02" Z="?"/>
@@ -653,11 +653,11 @@
   <TrackPoint Age="4333.5781" Stage="FAGB" M="0.9737" logL="3.3578" logR="1.9363" logT="3.6346" Mc="0.5459" Menv="0.42772" Spin="2.5297E-02" Z="?"/>
   <TrackPoint Age="4333.5898" Stage="FAGB" M="0.9732" logL="3.3683" logR="1.9426" logT="3.6340" Mc="0.5459" Menv="0.42726" Spin="2.4326E-02" Z="?"/>
   <TrackPoint Age="4333.6006" Stage="FAGB" M="0.9727" logL="3.3788" logR="1.9489" logT="3.6335" Mc="0.5459" Menv="0.42679" Spin="2.3382E-02" Z="?"/>
-  <TrackPoint Age="4333.6118" Stage="FAGB" M="0.9722" logL="3.3894" logR="1.9552" logT="3.6330" Mc="0.545895" Menv="0.426305" Spin="2.2465E-02" Z="?"/>
+  <TrackPoint Age="4333.6118" Stage="FAGB" M="0.9722" logL="3.3894" logR="1.9552" logT="3.6330" Mc="0.5458943849579824" Menv="0.426305615016692" Spin="2.2465E-02" Z="?"/>
   <TrackPoint Age="4333.6226" Stage="FAGB" M="0.9718" logL="3.3999" logR="1.9615" logT="3.6325" Mc="0.5459" Menv="0.42582" Spin="2.1574E-02" Z="?"/>
   <TrackPoint Age="4333.6328" Stage="FAGB" M="0.9713" logL="3.4104" logR="1.9678" logT="3.6320" Mc="0.5459" Menv="0.42532" Spin="2.0709E-02" Z="?"/>
   <TrackPoint Age="4333.6436" Stage="FAGB" M="0.9708" logL="3.4209" logR="1.9741" logT="3.6314" Mc="0.5459" Menv="0.42481" Spin="1.9870E-02" Z="?"/>
-  <TrackPoint Age="4333.6533" Stage="FAGB" M="0.9702" logL="3.4315" logR="1.9804" logT="3.6309" Mc="0.5459" Menv="0.42429999999999995" Spin="1.9056E-02" Z="?"/>
+  <TrackPoint Age="4333.6533" Stage="FAGB" M="0.9702" logL="3.4315" logR="1.9804" logT="3.6309" Mc="0.5458999999999999" Menv="0.42429999999999995" Spin="1.9056E-02" Z="?"/>
   <TrackPoint Age="4333.6636" Stage="FAGB" M="0.9697" logL="3.4420" logR="1.9868" logT="3.6304" Mc="0.5459" Menv="0.42377" Spin="1.8266E-02" Z="?"/>
   <TrackPoint Age="4333.6733" Stage="FAGB" M="0.9692" logL="3.4525" logR="1.9931" logT="3.6299" Mc="0.5459" Menv="0.42323" Spin="1.7501E-02" Z="?"/>
   <TrackPoint Age="4333.6826" Stage="FAGB" M="0.9686" logL="3.4631" logR="1.9994" logT="3.6293" Mc="0.5459" Menv="0.42268" Spin="1.6760E-02" Z="?"/>
@@ -666,163 +666,163 @@
   <TrackPoint Age="4333.7046" Stage="SAGB" M="0.9673" logL="3.4832" logR="2.0115" logT="3.6283" Mc="0.5461" Menv="0.4212" Spin="1.5372E-02" Z="?"/>
   <TrackPoint Age="4333.7095" Stage="SAGB" M="0.9670" logL="3.4841" logR="2.0120" logT="3.6283" Mc="0.5462" Menv="0.42074" Spin="1.5272E-02" Z="?"/>
   <TrackPoint Age="4333.7144" Stage="SAGB" M="0.9666" logL="3.4850" logR="2.0126" logT="3.6282" Mc="0.5463" Menv="0.42028" Spin="1.5172E-02" Z="?"/>
-  <TrackPoint Age="4333.7197" Stage="SAGB" M="0.9663" logL="3.4859" logR="2.0131" logT="3.6282" Mc="0.5464899999999999" Menv="0.41981" Spin="1.5073E-02" Z="?"/>
+  <TrackPoint Age="4333.7197" Stage="SAGB" M="0.9663" logL="3.4859" logR="2.0131" logT="3.6282" Mc="0.5464886890471066" Menv="0.4198113108511854" Spin="1.5073E-02" Z="?"/>
   <TrackPoint Age="4333.7246" Stage="SAGB" M="0.9660" logL="3.4869" logR="2.0137" logT="3.6281" Mc="0.5466" Menv="0.41936" Spin="1.4974E-02" Z="?"/>
-  <TrackPoint Age="4333.7295" Stage="SAGB" M="0.9656" logL="3.4878" logR="2.0143" logT="3.6281" Mc="0.546755" Menv="0.418845" Spin="1.4876E-02" Z="?"/>
-  <TrackPoint Age="4333.7344" Stage="SAGB" M="0.9653" logL="3.4887" logR="2.0149" logT="3.6280" Mc="0.5468850000000001" Menv="0.41841500000000004" Spin="1.4778E-02" Z="?"/>
+  <TrackPoint Age="4333.7295" Stage="SAGB" M="0.9656" logL="3.4878" logR="2.0143" logT="3.6281" Mc="0.5467490395468525" Menv="0.4188509583928818" Spin="1.4876E-02" Z="?"/>
+  <TrackPoint Age="4333.7344" Stage="SAGB" M="0.9653" logL="3.4887" logR="2.0149" logT="3.6280" Mc="0.5468830037396538" Menv="0.4184169960313895" Spin="1.4778E-02" Z="?"/>
   <TrackPoint Age="4333.7393" Stage="SAGB" M="0.9650" logL="3.4896" logR="2.0154" logT="3.6280" Mc="0.547" Menv="0.41796" Spin="1.4680E-02" Z="?"/>
   <TrackPoint Age="4333.7446" Stage="SAGB" M="0.9647" logL="3.4906" logR="2.0160" logT="3.6279" Mc="0.5472" Menv="0.41749" Spin="1.4582E-02" Z="?"/>
-  <TrackPoint Age="4333.7495" Stage="SAGB" M="0.9643" logL="3.4915" logR="2.0166" logT="3.6279" Mc="0.54729" Menv="0.41701" Spin="1.4485E-02" Z="?"/>
+  <TrackPoint Age="4333.7495" Stage="SAGB" M="0.9643" logL="3.4915" logR="2.0166" logT="3.6279" Mc="0.5472886489961838" Menv="0.4170113509020077" Spin="1.4485E-02" Z="?"/>
   <TrackPoint Age="4333.7544" Stage="SAGB" M="0.9640" logL="3.4925" logR="2.0171" logT="3.6278" Mc="0.5474" Menv="0.41655" Spin="1.4388E-02" Z="?"/>
   <TrackPoint Age="4333.7593" Stage="SAGB" M="0.9637" logL="3.4934" logR="2.0177" logT="3.6278" Mc="0.5476" Menv="0.41608" Spin="1.4291E-02" Z="?"/>
   <TrackPoint Age="4333.7646" Stage="SAGB" M="0.9633" logL="3.4943" logR="2.0183" logT="3.6277" Mc="0.5477" Menv="0.4156" Spin="1.4194E-02" Z="?"/>
-  <TrackPoint Age="4333.7695" Stage="SAGB" M="0.9630" logL="3.4953" logR="2.0189" logT="3.6277" Mc="0.54789" Menv="0.41511" Spin="1.4098E-02" Z="?"/>
-  <TrackPoint Age="4333.7744" Stage="SAGB" M="0.9626" logL="3.4962" logR="2.0194" logT="3.6276" Mc="0.5479750000000001" Menv="0.414625" Spin="1.4003E-02" Z="?"/>
+  <TrackPoint Age="4333.7695" Stage="SAGB" M="0.9630" logL="3.4953" logR="2.0189" logT="3.6277" Mc="0.5478886212124359" Menv="0.415111378685697" Spin="1.4098E-02" Z="?"/>
+  <TrackPoint Age="4333.7744" Stage="SAGB" M="0.9626" logL="3.4962" logR="2.0194" logT="3.6276" Mc="0.5479715369033398" Menv="0.41462846245985036" Spin="1.4003E-02" Z="?"/>
   <TrackPoint Age="4333.7793" Stage="SAGB" M="0.9623" logL="3.4972" logR="2.0200" logT="3.6276" Mc="0.5481" Menv="0.41417" Spin="1.3907E-02" Z="?"/>
   <TrackPoint Age="4333.7847" Stage="SAGB" M="0.9620" logL="3.4981" logR="2.0206" logT="3.6275" Mc="0.5483" Menv="0.41368" Spin="1.3812E-02" Z="?"/>
   <TrackPoint Age="4333.7896" Stage="SAGB" M="0.9616" logL="3.4991" logR="2.0212" logT="3.6274" Mc="0.5484" Menv="0.4132" Spin="1.3717E-02" Z="?"/>
-  <TrackPoint Age="4333.7944" Stage="SAGB" M="0.9613" logL="3.5000" logR="2.0218" logT="3.6274" Mc="0.54859" Menv="0.41271" Spin="1.3623E-02" Z="?"/>
-  <TrackPoint Age="4333.7993" Stage="SAGB" M="0.9609" logL="3.5010" logR="2.0223" logT="3.6273" Mc="0.548685" Menv="0.412215" Spin="1.3528E-02" Z="?"/>
+  <TrackPoint Age="4333.7944" Stage="SAGB" M="0.9613" logL="3.5000" logR="2.0218" logT="3.6274" Mc="0.5485885865268589" Menv="0.41271141337119455" Spin="1.3623E-02" Z="?"/>
+  <TrackPoint Age="4333.7993" Stage="SAGB" M="0.9609" logL="3.5010" logR="2.0223" logT="3.6273" Mc="0.5486828697199587" Menv="0.41221713005061156" Spin="1.3528E-02" Z="?"/>
   <TrackPoint Age="4333.8047" Stage="SAGB" M="0.9606" logL="3.5019" logR="2.0229" logT="3.6273" Mc="0.5488" Menv="0.41174" Spin="1.3435E-02" Z="?"/>
-  <TrackPoint Age="4333.8096" Stage="SAGB" M="0.9602" logL="3.5029" logR="2.0235" logT="3.6272" Mc="0.548975" Menv="0.411225" Spin="1.3341E-02" Z="?"/>
+  <TrackPoint Age="4333.8096" Stage="SAGB" M="0.9602" logL="3.5029" logR="2.0235" logT="3.6272" Mc="0.5489714136943504" Menv="0.41122858566815246" Spin="1.3341E-02" Z="?"/>
   <TrackPoint Age="4333.8145" Stage="SAGB" M="0.9599" logL="3.5038" logR="2.0241" logT="3.6272" Mc="0.5491" Menv="0.41076" Spin="1.3248E-02" Z="?"/>
-  <TrackPoint Age="4333.8193" Stage="SAGB" M="0.9595" logL="3.5048" logR="2.0247" logT="3.6271" Mc="0.549265" Menv="0.410235" Spin="1.3155E-02" Z="?"/>
+  <TrackPoint Age="4333.8193" Stage="SAGB" M="0.9595" logL="3.5048" logR="2.0247" logT="3.6271" Mc="0.5492599289264983" Menv="0.4102400698236353" Spin="1.3155E-02" Z="?"/>
   <TrackPoint Age="4333.8247" Stage="SAGB" M="0.9592" logL="3.5058" logR="2.0253" logT="3.6271" Mc="0.5494" Menv="0.40977" Spin="1.3062E-02" Z="?"/>
   <TrackPoint Age="4333.8296" Stage="SAGB" M="0.9588" logL="3.5067" logR="2.0259" logT="3.6270" Mc="0.5495" Menv="0.40928" Spin="1.2970E-02" Z="?"/>
   <TrackPoint Age="4333.8345" Stage="SAGB" M="0.9585" logL="3.5077" logR="2.0265" logT="3.6270" Mc="0.5497" Menv="0.40878" Spin="1.2878E-02" Z="?"/>
   <TrackPoint Age="4333.8394" Stage="SAGB" M="0.9581" logL="3.5087" logR="2.0270" logT="3.6269" Mc="0.5498" Menv="0.40828" Spin="1.2786E-02" Z="?"/>
-  <TrackPoint Age="4333.8447" Stage="SAGB" M="0.9577" logL="3.5096" logR="2.0276" logT="3.6269" Mc="0.54996" Menv="0.40773999999999994" Spin="1.2695E-02" Z="?"/>
+  <TrackPoint Age="4333.8447" Stage="SAGB" M="0.9577" logL="3.5096" logR="2.0276" logT="3.6269" Mc="0.5499540604314143" Menv="0.40774593793481106" Spin="1.2695E-02" Z="?"/>
   <TrackPoint Age="4333.8496" Stage="SAGB" M="0.9574" logL="3.5106" logR="2.0282" logT="3.6268" Mc="0.5501" Menv="0.40727" Spin="1.2604E-02" Z="?"/>
-  <TrackPoint Age="4333.8545" Stage="SAGB" M="0.9570" logL="3.5116" logR="2.0288" logT="3.6267" Mc="0.550265" Menv="0.40673499999999996" Spin="1.2513E-02" Z="?"/>
+  <TrackPoint Age="4333.8545" Stage="SAGB" M="0.9570" logL="3.5116" logR="2.0288" logT="3.6267" Mc="0.5502597511153834" Menv="0.4067402476334024" Spin="1.2513E-02" Z="?"/>
   <TrackPoint Age="4333.8594" Stage="SAGB" M="0.9567" logL="3.5125" logR="2.0294" logT="3.6267" Mc="0.5504" Menv="0.40626" Spin="1.2423E-02" Z="?"/>
   <TrackPoint Age="4333.8643" Stage="SAGB" M="0.9563" logL="3.5135" logR="2.0300" logT="3.6266" Mc="0.5505" Menv="0.40575" Spin="1.2333E-02" Z="?"/>
-  <TrackPoint Age="4333.8696" Stage="SAGB" M="0.9559" logL="3.5145" logR="2.0306" logT="3.6266" Mc="0.55068" Menv="0.40521999999999997" Spin="1.2243E-02" Z="?"/>
+  <TrackPoint Age="4333.8696" Stage="SAGB" M="0.9559" logL="3.5145" logR="2.0306" logT="3.6266" Mc="0.5506769567127644" Menv="0.4052230428784779" Spin="1.2243E-02" Z="?"/>
   <TrackPoint Age="4333.8745" Stage="SAGB" M="0.9556" logL="3.5155" logR="2.0312" logT="3.6265" Mc="0.5508" Menv="0.40473" Spin="1.2154E-02" Z="?"/>
-  <TrackPoint Age="4333.8794" Stage="SAGB" M="0.9552" logL="3.5165" logR="2.0318" logT="3.6265" Mc="0.5509900000000001" Menv="0.40421" Spin="1.2065E-02" Z="?"/>
+  <TrackPoint Age="4333.8794" Stage="SAGB" M="0.9552" logL="3.5165" logR="2.0318" logT="3.6265" Mc="0.5509884633906326" Menv="0.4042115365071502" Spin="1.2065E-02" Z="?"/>
   <TrackPoint Age="4333.8843" Stage="SAGB" M="0.9548" logL="3.5174" logR="2.0324" logT="3.6264" Mc="0.5510999999999999" Menv="0.40369999999999995" Spin="1.1976E-02" Z="?"/>
   <TrackPoint Age="4333.8896" Stage="SAGB" M="0.9545" logL="3.5184" logR="2.0330" logT="3.6264" Mc="0.5513" Menv="0.40318" Spin="1.1888E-02" Z="?"/>
   <TrackPoint Age="4333.8945" Stage="SAGB" M="0.9541" logL="3.5194" logR="2.0336" logT="3.6263" Mc="0.5514" Menv="0.40266" Spin="1.1800E-02" Z="?"/>
-  <TrackPoint Age="4333.8994" Stage="SAGB" M="0.9537" logL="3.5204" logR="2.0342" logT="3.6263" Mc="0.55158" Menv="0.40212" Spin="1.1712E-02" Z="?"/>
-  <TrackPoint Age="4333.9043" Stage="SAGB" M="0.9533" logL="3.5214" logR="2.0348" logT="3.6262" Mc="0.55169" Menv="0.40161" Spin="1.1624E-02" Z="?"/>
+  <TrackPoint Age="4333.8994" Stage="SAGB" M="0.9537" logL="3.5204" logR="2.0342" logT="3.6263" Mc="0.5515768658124856" Menv="0.40212313377840253" Spin="1.1712E-02" Z="?"/>
+  <TrackPoint Age="4333.9043" Stage="SAGB" M="0.9533" logL="3.5214" logR="2.0348" logT="3.6262" Mc="0.5516884257122477" Menv="0.40161157418545423" Spin="1.1624E-02" Z="?"/>
   <TrackPoint Age="4333.9097" Stage="SAGB" M="0.9530" logL="3.5224" logR="2.0355" logT="3.6261" Mc="0.5519" Menv="0.40109" Spin="1.1537E-02" Z="?"/>
   <TrackPoint Age="4333.9146" Stage="SAGB" M="0.9526" logL="3.5234" logR="2.0361" logT="3.6261" Mc="0.552" Menv="0.40057" Spin="1.1451E-02" Z="?"/>
-  <TrackPoint Age="4333.9194" Stage="SAGB" M="0.9522" logL="3.5244" logR="2.0367" logT="3.6260" Mc="0.5521800000000001" Menv="0.40002000000000004" Spin="1.1364E-02" Z="?"/>
-  <TrackPoint Age="4333.9243" Stage="SAGB" M="0.9518" logL="3.5254" logR="2.0373" logT="3.6260" Mc="0.552295" Menv="0.39950499999999994" Spin="1.1278E-02" Z="?"/>
-  <TrackPoint Age="4333.9297" Stage="SAGB" M="0.9514" logL="3.5264" logR="2.0379" logT="3.6259" Mc="0.552465" Menv="0.398935" Spin="1.1192E-02" Z="?"/>
-  <TrackPoint Age="4333.9346" Stage="SAGB" M="0.9510" logL="3.5274" logR="2.0385" logT="3.6259" Mc="0.55258" Menv="0.39842" Spin="1.1107E-02" Z="?"/>
+  <TrackPoint Age="4333.9194" Stage="SAGB" M="0.9522" logL="3.5244" logR="2.0367" logT="3.6260" Mc="0.5521768041670168" Menv="0.4000231954236368" Spin="1.1364E-02" Z="?"/>
+  <TrackPoint Age="4333.9243" Stage="SAGB" M="0.9518" logL="3.5254" logR="2.0373" logT="3.6260" Mc="0.5522941973713241" Menv="0.39950580260308677" Spin="1.1278E-02" Z="?"/>
+  <TrackPoint Age="4333.9297" Stage="SAGB" M="0.9514" logL="3.5264" logR="2.0379" logT="3.6259" Mc="0.5524593523705424" Menv="0.3989406463754451" Spin="1.1192E-02" Z="?"/>
+  <TrackPoint Age="4333.9346" Stage="SAGB" M="0.9510" logL="3.5274" logR="2.0385" logT="3.6259" Mc="0.5525767580753701" Menv="0.3984232415150788" Spin="1.1107E-02" Z="?"/>
   <TrackPoint Age="4333.9395" Stage="SAGB" M="0.9507" logL="3.5284" logR="2.0391" logT="3.6258" Mc="0.5528" Menv="0.3979" Spin="1.1022E-02" Z="?"/>
   <TrackPoint Age="4333.9443" Stage="SAGB" M="0.9503" logL="3.5294" logR="2.0397" logT="3.6257" Mc="0.5529" Menv="0.39736" Spin="1.0937E-02" Z="?"/>
-  <TrackPoint Age="4333.9497" Stage="SAGB" M="0.9499" logL="3.5304" logR="2.0404" logT="3.6257" Mc="0.55309" Menv="0.39680999999999994" Spin="1.0853E-02" Z="?"/>
+  <TrackPoint Age="4333.9497" Stage="SAGB" M="0.9499" logL="3.5304" logR="2.0404" logT="3.6257" Mc="0.553088354808826" Menv="0.39681164508875" Spin="1.0853E-02" Z="?"/>
   <TrackPoint Age="4333.9546" Stage="SAGB" M="0.9495" logL="3.5314" logR="2.0410" logT="3.6256" Mc="0.5532" Menv="0.39628" Spin="1.0769E-02" Z="?"/>
-  <TrackPoint Age="4333.9595" Stage="SAGB" M="0.9491" logL="3.5324" logR="2.0416" logT="3.6256" Mc="0.55338" Menv="0.39572" Spin="1.0685E-02" Z="?"/>
+  <TrackPoint Age="4333.9595" Stage="SAGB" M="0.9491" logL="3.5324" logR="2.0416" logT="3.6256" Mc="0.5533766778346715" Menv="0.3957233217555126" Spin="1.0685E-02" Z="?"/>
   <TrackPoint Age="4333.9644" Stage="SAGB" M="0.9487" logL="3.5334" logR="2.0422" logT="3.6255" Mc="0.5535" Menv="0.39519" Spin="1.0602E-02" Z="?"/>
-  <TrackPoint Age="4333.9697" Stage="SAGB" M="0.9483" logL="3.5344" logR="2.0428" logT="3.6255" Mc="0.55368" Menv="0.39462" Spin="1.0519E-02" Z="?"/>
+  <TrackPoint Age="4333.9697" Stage="SAGB" M="0.9483" logL="3.5344" logR="2.0428" logT="3.6255" Mc="0.5536766455068858" Menv="0.39462335408318017" Spin="1.0519E-02" Z="?"/>
   <TrackPoint Age="4333.9746" Stage="SAGB" M="0.9479" logL="3.5355" logR="2.0435" logT="3.6254" Mc="0.5538" Menv="0.39409" Spin="1.0436E-02" Z="?"/>
-  <TrackPoint Age="4333.9795" Stage="SAGB" M="0.9475" logL="3.5365" logR="2.0441" logT="3.6253" Mc="0.55398" Menv="0.39352" Spin="1.0354E-02" Z="?"/>
+  <TrackPoint Age="4333.9795" Stage="SAGB" M="0.9475" logL="3.5365" logR="2.0441" logT="3.6253" Mc="0.553976613124512" Menv="0.3935233864654382" Spin="1.0354E-02" Z="?"/>
   <TrackPoint Age="4333.9844" Stage="SAGB" M="0.9471" logL="3.5375" logR="2.0447" logT="3.6253" Mc="0.5541" Menv="0.39298" Spin="1.0272E-02" Z="?"/>
-  <TrackPoint Age="4333.9893" Stage="SAGB" M="0.9467" logL="3.5385" logR="2.0454" logT="3.6252" Mc="0.5542849999999999" Menv="0.39241499999999996" Spin="1.0190E-02" Z="?"/>
+  <TrackPoint Age="4333.9893" Stage="SAGB" M="0.9467" logL="3.5385" logR="2.0454" logT="3.6252" Mc="0.5542824353300307" Menv="0.3924175644392524" Spin="1.0190E-02" Z="?"/>
   <TrackPoint Age="4333.9946" Stage="SAGB" M="0.9463" logL="3.5396" logR="2.0460" logT="3.6252" Mc="0.5544" Menv="0.39187" Spin="1.0109E-02" Z="?"/>
-  <TrackPoint Age="4333.9995" Stage="SAGB" M="0.9459" logL="3.5406" logR="2.0466" logT="3.6251" Mc="0.554595" Menv="0.39130499999999996" Spin="1.0028E-02" Z="?"/>
+  <TrackPoint Age="4333.9995" Stage="SAGB" M="0.9459" logL="3.5406" logR="2.0466" logT="3.6251" Mc="0.554594136862915" Menv="0.3913058631114428" Spin="1.0028E-02" Z="?"/>
   <TrackPoint Age="4334.0044" Stage="SAGB" M="0.9455" logL="3.5416" logR="2.0472" logT="3.6251" Mc="0.5547" Menv="0.39074" Spin="9.9472E-03" Z="?"/>
   <TrackPoint Age="4334.0093" Stage="SAGB" M="0.9451" logL="3.5426" logR="2.0479" logT="3.6250" Mc="0.5549" Menv="0.39018" Spin="9.8669E-03" Z="?"/>
   <TrackPoint Age="4334.0146" Stage="SAGB" M="0.9447" logL="3.5437" logR="2.0485" logT="3.6249" Mc="0.555" Menv="0.38961" Spin="9.7870E-03" Z="?"/>
-  <TrackPoint Age="4334.0195" Stage="SAGB" M="0.9442" logL="3.5447" logR="2.0491" logT="3.6249" Mc="0.55518" Menv="0.38902000000000003" Spin="9.7074E-03" Z="?"/>
-  <TrackPoint Age="4334.0244" Stage="SAGB" M="0.9438" logL="3.5458" logR="2.0498" logT="3.6248" Mc="0.555365" Menv="0.388435" Spin="9.6282E-03" Z="?"/>
+  <TrackPoint Age="4334.0195" Stage="SAGB" M="0.9442" logL="3.5447" logR="2.0491" logT="3.6249" Mc="0.5551764805557909" Menv="0.38902351903369575" Spin="9.7074E-03" Z="?"/>
+  <TrackPoint Age="4334.0244" Stage="SAGB" M="0.9438" logL="3.5458" logR="2.0498" logT="3.6248" Mc="0.5553588100056152" Menv="0.38844118873707634" Spin="9.6282E-03" Z="?"/>
   <TrackPoint Age="4334.0293" Stage="SAGB" M="0.9434" logL="3.5468" logR="2.0504" logT="3.6248" Mc="0.5555" Menv="0.3879" Spin="9.5493E-03" Z="?"/>
-  <TrackPoint Age="4334.0347" Stage="SAGB" M="0.9430" logL="3.5478" logR="2.0511" logT="3.6247" Mc="0.55569" Menv="0.38731" Spin="9.4708E-03" Z="?"/>
+  <TrackPoint Age="4334.0347" Stage="SAGB" M="0.9430" logL="3.5478" logR="2.0511" logT="3.6247" Mc="0.5556882144599266" Menv="0.38731178543741057" Spin="9.4708E-03" Z="?"/>
   <TrackPoint Age="4334.0396" Stage="SAGB" M="0.9426" logL="3.5489" logR="2.0517" logT="3.6246" Mc="0.5558" Menv="0.38674" Spin="9.3926E-03" Z="?"/>
-  <TrackPoint Age="4334.0444" Stage="SAGB" M="0.9421" logL="3.5499" logR="2.0523" logT="3.6246" Mc="0.5559700000000001" Menv="0.38613" Spin="9.3147E-03" Z="?"/>
+  <TrackPoint Age="4334.0444" Stage="SAGB" M="0.9421" logL="3.5499" logR="2.0523" logT="3.6246" Mc="0.5559645920013586" Menv="0.3861354070743968" Spin="9.3147E-03" Z="?"/>
   <TrackPoint Age="4334.0493" Stage="SAGB" M="0.9417" logL="3.5510" logR="2.0530" logT="3.6245" Mc="0.5561" Menv="0.38558" Spin="9.2372E-03" Z="?"/>
   <TrackPoint Age="4334.0547" Stage="SAGB" M="0.9413" logL="3.5520" logR="2.0536" logT="3.6245" Mc="0.5563" Menv="0.385" Spin="9.1601E-03" Z="?"/>
-  <TrackPoint Age="4334.0596" Stage="SAGB" M="0.9409" logL="3.5531" logR="2.0543" logT="3.6244" Mc="0.556495" Menv="0.384405" Spin="9.0833E-03" Z="?"/>
-  <TrackPoint Age="4334.0645" Stage="SAGB" M="0.9404" logL="3.5541" logR="2.0549" logT="3.6243" Mc="0.5565899999999999" Menv="0.38381" Spin="9.0068E-03" Z="?"/>
-  <TrackPoint Age="4334.0693" Stage="SAGB" M="0.9400" logL="3.5552" logR="2.0556" logT="3.6243" Mc="0.556785" Menv="0.38321500000000003" Spin="8.9307E-03" Z="?"/>
+  <TrackPoint Age="4334.0596" Stage="SAGB" M="0.9409" logL="3.5531" logR="2.0543" logT="3.6244" Mc="0.5564940855129609" Menv="0.38440591446135775" Spin="9.0833E-03" Z="?"/>
+  <TrackPoint Age="4334.0645" Stage="SAGB" M="0.9404" logL="3.5541" logR="2.0549" logT="3.6243" Mc="0.5565881627357989" Menv="0.38381183716145373" Spin="9.0068E-03" Z="?"/>
+  <TrackPoint Age="4334.0693" Stage="SAGB" M="0.9400" logL="3.5552" logR="2.0556" logT="3.6243" Mc="0.5567822303543504" Menv="0.3832177694144515" Spin="8.9307E-03" Z="?"/>
   <TrackPoint Age="4334.0747" Stage="SAGB" M="0.9396" logL="3.5563" logR="2.0562" logT="3.6242" Mc="0.5569" Menv="0.38264" Spin="8.8550E-03" Z="?"/>
-  <TrackPoint Age="4334.0796" Stage="SAGB" M="0.9391" logL="3.5573" logR="2.0569" logT="3.6242" Mc="0.55708" Menv="0.38201999999999997" Spin="8.7796E-03" Z="?"/>
-  <TrackPoint Age="4334.0845" Stage="SAGB" M="0.9387" logL="3.5584" logR="2.0575" logT="3.6241" Mc="0.55728" Menv="0.38142" Spin="8.7046E-03" Z="?"/>
+  <TrackPoint Age="4334.0796" Stage="SAGB" M="0.9391" logL="3.5573" logR="2.0569" logT="3.6242" Mc="0.5570762719083416" Menv="0.38202372768052567" Spin="8.7796E-03" Z="?"/>
+  <TrackPoint Age="4334.0845" Stage="SAGB" M="0.9387" logL="3.5584" logR="2.0575" logT="3.6241" Mc="0.5572762532756674" Menv="0.38142374631317316" Spin="8.7046E-03" Z="?"/>
   <TrackPoint Age="4334.0894" Stage="SAGB" M="0.9383" logL="3.5594" logR="2.0582" logT="3.6240" Mc="0.5574" Menv="0.38084" Spin="8.6299E-03" Z="?"/>
-  <TrackPoint Age="4334.0947" Stage="SAGB" M="0.9378" logL="3.5605" logR="2.0588" logT="3.6240" Mc="0.55758" Menv="0.38022" Spin="8.5556E-03" Z="?"/>
+  <TrackPoint Age="4334.0947" Stage="SAGB" M="0.9378" logL="3.5605" logR="2.0588" logT="3.6240" Mc="0.5575762176917171" Menv="0.3802237818970145" Spin="8.5556E-03" Z="?"/>
   <TrackPoint Age="4334.0996" Stage="SAGB" M="0.9374" logL="3.5616" logR="2.0595" logT="3.6239" Mc="0.5577" Menv="0.37963" Spin="8.4816E-03" Z="?"/>
-  <TrackPoint Age="4334.1045" Stage="SAGB" M="0.9369" logL="3.5627" logR="2.0602" logT="3.6239" Mc="0.55789" Menv="0.37901" Spin="8.4080E-03" Z="?"/>
-  <TrackPoint Age="4334.1094" Stage="SAGB" M="0.9365" logL="3.5637" logR="2.0608" logT="3.6238" Mc="0.558095" Menv="0.378405" Spin="8.3347E-03" Z="?"/>
+  <TrackPoint Age="4334.1045" Stage="SAGB" M="0.9369" logL="3.5627" logR="2.0602" logT="3.6239" Mc="0.5578880907654868" Menv="0.3790119091316697" Spin="8.4080E-03" Z="?"/>
+  <TrackPoint Age="4334.1094" Stage="SAGB" M="0.9365" logL="3.5637" logR="2.0608" logT="3.6238" Mc="0.5580940406402495" Menv="0.3784059593340383" Spin="8.3347E-03" Z="?"/>
   <TrackPoint Age="4334.1143" Stage="SAGB" M="0.9360" logL="3.5648" logR="2.0615" logT="3.6237" Mc="0.5582" Menv="0.3778" Spin="8.2618E-03" Z="?"/>
   <TrackPoint Age="4334.1196" Stage="SAGB" M="0.9356" logL="3.5659" logR="2.0621" logT="3.6237" Mc="0.5584" Menv="0.37719" Spin="8.1892E-03" Z="?"/>
-  <TrackPoint Age="4334.1245" Stage="SAGB" M="0.9351" logL="3.5670" logR="2.0628" logT="3.6236" Mc="0.558565" Menv="0.376535" Spin="8.1170E-03" Z="?"/>
+  <TrackPoint Age="4334.1245" Stage="SAGB" M="0.9351" logL="3.5670" logR="2.0628" logT="3.6236" Mc="0.5585581872814568" Menv="0.37654181145819526" Spin="8.1170E-03" Z="?"/>
   <TrackPoint Age="4334.1294" Stage="SAGB" M="0.9347" logL="3.5680" logR="2.0635" logT="3.6235" Mc="0.5587" Menv="0.37595" Spin="8.0452E-03" Z="?"/>
-  <TrackPoint Age="4334.1343" Stage="SAGB" M="0.9342" logL="3.5691" logR="2.0641" logT="3.6235" Mc="0.5588850000000001" Menv="0.37531500000000007" Spin="7.9737E-03" Z="?"/>
+  <TrackPoint Age="4334.1343" Stage="SAGB" M="0.9342" logL="3.5691" logR="2.0641" logT="3.6235" Mc="0.558882052599467" Menv="0.37531794716898736" Spin="7.9737E-03" Z="?"/>
   <TrackPoint Age="4334.1396" Stage="SAGB" M="0.9337" logL="3.5702" logR="2.0648" logT="3.6234" Mc="0.559" Menv="0.3747" Spin="7.9026E-03" Z="?"/>
   <TrackPoint Age="4334.1445" Stage="SAGB" M="0.9333" logL="3.5713" logR="2.0655" logT="3.6234" Mc="0.5592" Menv="0.37408" Spin="7.8318E-03" Z="?"/>
-  <TrackPoint Age="4334.1494" Stage="SAGB" M="0.9328" logL="3.5724" logR="2.0662" logT="3.6233" Mc="0.559375" Menv="0.373425" Spin="7.7614E-03" Z="?"/>
+  <TrackPoint Age="4334.1494" Stage="SAGB" M="0.9328" logL="3.5724" logR="2.0662" logT="3.6233" Mc="0.5593700166157475" Menv="0.37342998274086386" Spin="7.7614E-03" Z="?"/>
   <TrackPoint Age="4334.1543" Stage="SAGB" M="0.9324" logL="3.5735" logR="2.0668" logT="3.6232" Mc="0.5595" Menv="0.37281" Spin="7.6913E-03" Z="?"/>
   <TrackPoint Age="4334.1597" Stage="SAGB" M="0.9319" logL="3.5746" logR="2.0675" logT="3.6232" Mc="0.5597" Menv="0.37218" Spin="7.6216E-03" Z="?"/>
-  <TrackPoint Age="4334.1646" Stage="SAGB" M="0.9314" logL="3.5757" logR="2.0682" logT="3.6231" Mc="0.5598799999999999" Menv="0.37152" Spin="7.5523E-03" Z="?"/>
-  <TrackPoint Age="4334.1694" Stage="SAGB" M="0.9309" logL="3.5768" logR="2.0689" logT="3.6230" Mc="0.56" Menv="0.37089999999999995" Spin="7.4833E-03" Z="?"/>
+  <TrackPoint Age="4334.1646" Stage="SAGB" M="0.9314" logL="3.5757" logR="2.0682" logT="3.6231" Mc="0.5598759555097483" Menv="0.37152404407836037" Spin="7.5523E-03" Z="?"/>
+  <TrackPoint Age="4334.1694" Stage="SAGB" M="0.9309" logL="3.5768" logR="2.0689" logT="3.6230" Mc="0.5599999999999999" Menv="0.37089999999999995" Spin="7.4833E-03" Z="?"/>
   <TrackPoint Age="4334.1743" Stage="SAGB" M="0.9305" logL="3.5779" logR="2.0695" logT="3.6230" Mc="0.5602" Menv="0.37026" Spin="7.4147E-03" Z="?"/>
-  <TrackPoint Age="4334.1797" Stage="SAGB" M="0.9300" logL="3.5790" logR="2.0702" logT="3.6229" Mc="0.560395" Menv="0.369605" Spin="7.3464E-03" Z="?"/>
+  <TrackPoint Age="4334.1797" Stage="SAGB" M="0.9300" logL="3.5790" logR="2.0702" logT="3.6229" Mc="0.5603939742583414" Menv="0.36960602571590845" Spin="7.3464E-03" Z="?"/>
   <TrackPoint Age="4334.1846" Stage="SAGB" M="0.9295" logL="3.5801" logR="2.0709" logT="3.6228" Mc="0.5605" Menv="0.36896" Spin="7.2785E-03" Z="?"/>
-  <TrackPoint Age="4334.1895" Stage="SAGB" M="0.9290" logL="3.5812" logR="2.0716" logT="3.6228" Mc="0.5606949999999999" Menv="0.36830500000000005" Spin="7.2110E-03" Z="?"/>
-  <TrackPoint Age="4334.1943" Stage="SAGB" M="0.9285" logL="3.5823" logR="2.0723" logT="3.6227" Mc="0.56087" Menv="0.36763" Spin="7.1438E-03" Z="?"/>
+  <TrackPoint Age="4334.1895" Stage="SAGB" M="0.9290" logL="3.5812" logR="2.0716" logT="3.6228" Mc="0.5606939645429005" Menv="0.3683060354313431" Spin="7.2110E-03" Z="?"/>
+  <TrackPoint Age="4334.1943" Stage="SAGB" M="0.9285" logL="3.5823" logR="2.0723" logT="3.6227" Mc="0.5608637567846989" Menv="0.3676362422879988" Spin="7.1438E-03" Z="?"/>
   <TrackPoint Age="4334.1997" Stage="SAGB" M="0.9281" logL="3.5835" logR="2.0730" logT="3.6227" Mc="0.5611" Menv="0.367" Spin="7.0770E-03" Z="?"/>
   <TrackPoint Age="4334.2046" Stage="SAGB" M="0.9276" logL="3.5846" logR="2.0736" logT="3.6226" Mc="0.5612" Menv="0.36635" Spin="7.0105E-03" Z="?"/>
   <TrackPoint Age="4334.2095" Stage="SAGB" M="0.9271" logL="3.5857" logR="2.0743" logT="3.6225" Mc="0.5614" Menv="0.36568" Spin="6.9444E-03" Z="?"/>
-  <TrackPoint Age="4334.2144" Stage="SAGB" M="0.9266" logL="3.5868" logR="2.0750" logT="3.6225" Mc="0.56159" Menv="0.36501" Spin="6.8787E-03" Z="?"/>
+  <TrackPoint Age="4334.2144" Stage="SAGB" M="0.9266" logL="3.5868" logR="2.0750" logT="3.6225" Mc="0.5615878785262567" Menv="0.3650121213706799" Spin="6.8787E-03" Z="?"/>
   <TrackPoint Age="4334.2197" Stage="SAGB" M="0.9261" logL="3.5879" logR="2.0757" logT="3.6224" Mc="0.5617" Menv="0.36435" Spin="6.8133E-03" Z="?"/>
   <TrackPoint Age="4334.2246" Stage="SAGB" M="0.9256" logL="3.5891" logR="2.0764" logT="3.6223" Mc="0.5619" Menv="0.36368" Spin="6.7483E-03" Z="?"/>
-  <TrackPoint Age="4334.2295" Stage="SAGB" M="0.9251" logL="3.5902" logR="2.0771" logT="3.6223" Mc="0.562095" Menv="0.36300499999999997" Spin="6.6837E-03" Z="?"/>
-  <TrackPoint Age="4334.2344" Stage="SAGB" M="0.9246" logL="3.5913" logR="2.0778" logT="3.6222" Mc="0.5622849999999999" Menv="0.36231499999999994" Spin="6.6194E-03" Z="?"/>
+  <TrackPoint Age="4334.2295" Stage="SAGB" M="0.9251" logL="3.5902" logR="2.0771" logT="3.6223" Mc="0.5620939239657987" Menv="0.36300607600842894" Spin="6.6837E-03" Z="?"/>
+  <TrackPoint Age="4334.2344" Stage="SAGB" M="0.9246" logL="3.5913" logR="2.0778" logT="3.6222" Mc="0.5622817559456215" Menv="0.362318243822415" Spin="6.6194E-03" Z="?"/>
   <TrackPoint Age="4334.2393" Stage="SAGB" M="0.9241" logL="3.5925" logR="2.0785" logT="3.6221" Mc="0.5624" Menv="0.36166" Spin="6.5554E-03" Z="?"/>
   <TrackPoint Age="4334.2446" Stage="SAGB" M="0.9236" logL="3.5936" logR="2.0792" logT="3.6221" Mc="0.5626" Menv="0.36097" Spin="6.4919E-03" Z="?"/>
   <TrackPoint Age="4334.2495" Stage="SAGB" M="0.9231" logL="3.5948" logR="2.0799" logT="3.6220" Mc="0.5628" Menv="0.36029" Spin="6.4287E-03" Z="?"/>
   <TrackPoint Age="4334.2544" Stage="SAGB" M="0.9226" logL="3.5959" logR="2.0806" logT="3.6219" Mc="0.563" Menv="0.3596" Spin="6.3658E-03" Z="?"/>
-  <TrackPoint Age="4334.2593" Stage="SAGB" M="0.9220" logL="3.5970" logR="2.0813" logT="3.6219" Mc="0.5630950000000001" Menv="0.35890500000000003" Spin="6.3033E-03" Z="?"/>
-  <TrackPoint Age="4334.2646" Stage="SAGB" M="0.9215" logL="3.5982" logR="2.0820" logT="3.6218" Mc="0.5632900000000001" Menv="0.35821" Spin="6.2412E-03" Z="?"/>
-  <TrackPoint Age="4334.2695" Stage="SAGB" M="0.9210" logL="3.5993" logR="2.0827" logT="3.6217" Mc="0.563485" Menv="0.357515" Spin="6.1795E-03" Z="?"/>
-  <TrackPoint Age="4334.2744" Stage="SAGB" M="0.9205" logL="3.6005" logR="2.0835" logT="3.6217" Mc="0.563685" Menv="0.356815" Spin="6.1181E-03" Z="?"/>
+  <TrackPoint Age="4334.2593" Stage="SAGB" M="0.9220" logL="3.5970" logR="2.0813" logT="3.6219" Mc="0.5630938926909688" Menv="0.3589061072832464" Spin="6.3033E-03" Z="?"/>
+  <TrackPoint Age="4334.2646" Stage="SAGB" M="0.9215" logL="3.5982" logR="2.0820" logT="3.6218" Mc="0.5632877745464016" Menv="0.35821222535045505" Spin="6.2412E-03" Z="?"/>
+  <TrackPoint Age="4334.2695" Stage="SAGB" M="0.9210" logL="3.5993" logR="2.0827" logT="3.6217" Mc="0.5634816455490049" Menv="0.35751835421891587" Spin="6.1795E-03" Z="?"/>
+  <TrackPoint Age="4334.2744" Stage="SAGB" M="0.9205" logL="3.6005" logR="2.0835" logT="3.6217" Mc="0.5636816290615189" Menv="0.35681837070639627" Spin="6.1181E-03" Z="?"/>
   <TrackPoint Age="4334.2793" Stage="SAGB" M="0.9200" logL="3.6016" logR="2.0842" logT="3.6216" Mc="0.5638" Menv="0.35612" Spin="6.0571E-03" Z="?"/>
-  <TrackPoint Age="4334.2847" Stage="SAGB" M="0.9194" logL="3.6028" logR="2.0849" logT="3.6215" Mc="0.56399" Menv="0.35541000000000006" Spin="5.9964E-03" Z="?"/>
-  <TrackPoint Age="4334.2896" Stage="SAGB" M="0.9189" logL="3.6040" logR="2.0856" logT="3.6215" Mc="0.564195" Menv="0.354705" Spin="5.9361E-03" Z="?"/>
+  <TrackPoint Age="4334.2847" Stage="SAGB" M="0.9194" logL="3.6028" logR="2.0849" logT="3.6215" Mc="0.56398773139588" Menv="0.35541226850095203" Spin="5.9964E-03" Z="?"/>
+  <TrackPoint Age="4334.2896" Stage="SAGB" M="0.9189" logL="3.6040" logR="2.0856" logT="3.6215" Mc="0.5641938601168776" Menv="0.35470613985733007" Spin="5.9361E-03" Z="?"/>
   <TrackPoint Age="4334.2944" Stage="SAGB" M="0.9184" logL="3.6051" logR="2.0863" logT="3.6214" Mc="0.5644" Menv="0.354" Spin="5.8761E-03" Z="?"/>
   <TrackPoint Age="4334.2993" Stage="SAGB" M="0.9178" logL="3.6063" logR="2.0870" logT="3.6213" Mc="0.5645" Menv="0.35329" Spin="5.8166E-03" Z="?"/>
   <TrackPoint Age="4334.3047" Stage="SAGB" M="0.9173" logL="3.6075" logR="2.0878" logT="3.6213" Mc="0.5647" Menv="0.35257" Spin="5.7574E-03" Z="?"/>
   <TrackPoint Age="4334.3096" Stage="SAGB" M="0.9168" logL="3.6086" logR="2.0885" logT="3.6212" Mc="0.5649" Menv="0.35185" Spin="5.6985E-03" Z="?"/>
-  <TrackPoint Age="4334.3145" Stage="SAGB" M="0.9162" logL="3.6098" logR="2.0892" logT="3.6211" Mc="0.5650850000000001" Menv="0.35111499999999995" Spin="5.6400E-03" Z="?"/>
+  <TrackPoint Age="4334.3145" Stage="SAGB" M="0.9162" logL="3.6098" logR="2.0892" logT="3.6211" Mc="0.5650814970040273" Menv="0.35111850276378925" Spin="5.6400E-03" Z="?"/>
   <TrackPoint Age="4334.3193" Stage="SAGB" M="0.9157" logL="3.6110" logR="2.0899" logT="3.6211" Mc="0.5653" Menv="0.3504" Spin="5.5819E-03" Z="?"/>
   <TrackPoint Age="4334.3247" Stage="SAGB" M="0.9151" logL="3.6122" logR="2.0907" logT="3.6210" Mc="0.5654" Menv="0.34967" Spin="5.5241E-03" Z="?"/>
   <TrackPoint Age="4334.3296" Stage="SAGB" M="0.9146" logL="3.6133" logR="2.0914" logT="3.6209" Mc="0.5656" Menv="0.34894" Spin="5.4667E-03" Z="?"/>
   <TrackPoint Age="4334.3345" Stage="SAGB" M="0.9140" logL="3.6145" logR="2.0921" logT="3.6208" Mc="0.5658" Menv="0.3482" Spin="5.4097E-03" Z="?"/>
   <TrackPoint Age="4334.3394" Stage="SAGB" M="0.9135" logL="3.6157" logR="2.0928" logT="3.6208" Mc="0.566" Menv="0.34746" Spin="5.3530E-03" Z="?"/>
-  <TrackPoint Age="4334.3447" Stage="SAGB" M="0.9129" logL="3.6169" logR="2.0936" logT="3.6207" Mc="0.5661900000000001" Menv="0.34671" Spin="5.2967E-03" Z="?"/>
-  <TrackPoint Age="4334.3496" Stage="SAGB" M="0.9123" logL="3.6181" logR="2.0943" logT="3.6206" Mc="0.566365" Menv="0.345935" Spin="5.2407E-03" Z="?"/>
+  <TrackPoint Age="4334.3447" Stage="SAGB" M="0.9129" logL="3.6169" logR="2.0936" logT="3.6207" Mc="0.5661875958462955" Menv="0.34671240405049586" Spin="5.2967E-03" Z="?"/>
+  <TrackPoint Age="4334.3496" Stage="SAGB" M="0.9123" logL="3.6181" logR="2.0943" logT="3.6206" Mc="0.5663565439459868" Menv="0.34594345478966854" Spin="5.2407E-03" Z="?"/>
   <TrackPoint Age="4334.3545" Stage="SAGB" M="0.9118" logL="3.6193" logR="2.0951" logT="3.6206" Mc="0.5665" Menv="0.34522" Spin="5.1851E-03" Z="?"/>
   <TrackPoint Age="4334.3594" Stage="SAGB" M="0.9112" logL="3.6205" logR="2.0958" logT="3.6205" Mc="0.5667" Menv="0.34447" Spin="5.1299E-03" Z="?"/>
-  <TrackPoint Age="4334.3643" Stage="SAGB" M="0.9106" logL="3.6217" logR="2.0965" logT="3.6204" Mc="0.5668949999999999" Menv="0.34370500000000004" Spin="5.0750E-03" Z="?"/>
+  <TrackPoint Age="4334.3643" Stage="SAGB" M="0.9106" logL="3.6217" logR="2.0965" logT="3.6204" Mc="0.5668937745028058" Menv="0.3437062254713892" Spin="5.0750E-03" Z="?"/>
   <TrackPoint Age="4334.3696" Stage="SAGB" M="0.9101" logL="3.6229" logR="2.0973" logT="3.6204" Mc="0.5671" Menv="0.34295" Spin="5.0205E-03" Z="?"/>
   <TrackPoint Age="4334.3745" Stage="SAGB" M="0.9095" logL="3.6241" logR="2.0980" logT="3.6203" Mc="0.5673" Menv="0.34219" Spin="4.9664E-03" Z="?"/>
-  <TrackPoint Age="4334.3794" Stage="SAGB" M="0.9089" logL="3.6253" logR="2.0988" logT="3.6202" Mc="0.56749" Menv="0.34141000000000005" Spin="4.9126E-03" Z="?"/>
-  <TrackPoint Age="4334.3843" Stage="SAGB" M="0.9083" logL="3.6265" logR="2.0995" logT="3.6201" Mc="0.5676749999999999" Menv="0.340625" Spin="4.8592E-03" Z="?"/>
-  <TrackPoint Age="4334.3896" Stage="SAGB" M="0.9077" logL="3.6277" logR="2.1003" logT="3.6201" Mc="0.5678599999999999" Menv="0.33984" Spin="4.8061E-03" Z="?"/>
+  <TrackPoint Age="4334.3794" Stage="SAGB" M="0.9089" logL="3.6253" logR="2.0988" logT="3.6202" Mc="0.5674875126523787" Menv="0.34141248724440615" Spin="4.9126E-03" Z="?"/>
+  <TrackPoint Age="4334.3843" Stage="SAGB" M="0.9083" logL="3.6265" logR="2.0995" logT="3.6201" Mc="0.5676687510320911" Menv="0.3406312483228155" Spin="4.8592E-03" Z="?"/>
+  <TrackPoint Age="4334.3896" Stage="SAGB" M="0.9077" logL="3.6277" logR="2.1003" logT="3.6201" Mc="0.5678499526316948" Menv="0.3398500457168774" Spin="4.8061E-03" Z="?"/>
   <TrackPoint Age="4334.3945" Stage="SAGB" M="0.9071" logL="3.6290" logR="2.1010" logT="3.6200" Mc="0.568" Menv="0.3391" Spin="4.7534E-03" Z="?"/>
-  <TrackPoint Age="4334.3994" Stage="SAGB" M="0.9065" logL="3.6302" logR="2.1018" logT="3.6199" Mc="0.56819" Menv="0.33831" Spin="4.7010E-03" Z="?"/>
+  <TrackPoint Age="4334.3994" Stage="SAGB" M="0.9065" logL="3.6302" logR="2.1018" logT="3.6199" Mc="0.5681874641486123" Menv="0.338312535748168" Spin="4.7010E-03" Z="?"/>
   <TrackPoint Age="4334.4043" Stage="SAGB" M="0.9060" logL="3.6314" logR="2.1025" logT="3.6199" Mc="0.5684" Menv="0.33753" Spin="4.6490E-03" Z="?"/>
   <TrackPoint Age="4334.4097" Stage="SAGB" M="0.9054" logL="3.6326" logR="2.1033" logT="3.6198" Mc="0.5686" Menv="0.33674" Spin="4.5974E-03" Z="?"/>
   <TrackPoint Age="4334.4146" Stage="SAGB" M="0.9048" logL="3.6339" logR="2.1041" logT="3.6197" Mc="0.5688" Menv="0.33595" Spin="4.5461E-03" Z="?"/>
-  <TrackPoint Age="4334.4194" Stage="SAGB" M="0.9041" logL="3.6351" logR="2.1048" logT="3.6196" Mc="0.56897" Menv="0.33513000000000004" Spin="4.4952E-03" Z="?"/>
-  <TrackPoint Age="4334.4243" Stage="SAGB" M="0.9035" logL="3.6363" logR="2.1056" logT="3.6196" Mc="0.56917" Menv="0.33432999999999996" Spin="4.4447E-03" Z="?"/>
-  <TrackPoint Age="4334.4297" Stage="SAGB" M="0.9029" logL="3.6376" logR="2.1063" logT="3.6195" Mc="0.569375" Menv="0.333525" Spin="4.3945E-03" Z="?"/>
-  <TrackPoint Age="4334.4346" Stage="SAGB" M="0.9023" logL="3.6388" logR="2.1071" logT="3.6194" Mc="0.5695749999999999" Menv="0.332725" Spin="4.3446E-03" Z="?"/>
-  <TrackPoint Age="4334.4395" Stage="SAGB" M="0.9017" logL="3.6401" logR="2.1079" logT="3.6193" Mc="0.56978" Menv="0.33192" Spin="4.2951E-03" Z="?"/>
-  <TrackPoint Age="4334.4443" Stage="SAGB" M="0.9011" logL="3.6413" logR="2.1086" logT="3.6193" Mc="0.56999" Menv="0.33111000000000007" Spin="4.2460E-03" Z="?"/>
-  <TrackPoint Age="4334.4497" Stage="SAGB" M="0.9005" logL="3.6425" logR="2.1094" logT="3.6192" Mc="0.5702" Menv="0.3302999999999999" Spin="4.1972E-03" Z="?"/>
+  <TrackPoint Age="4334.4194" Stage="SAGB" M="0.9041" logL="3.6351" logR="2.1048" logT="3.6196" Mc="0.5689622411962484" Menv="0.3351377578748938" Spin="4.4952E-03" Z="?"/>
+  <TrackPoint Age="4334.4243" Stage="SAGB" M="0.9035" logL="3.6363" logR="2.1056" logT="3.6196" Mc="0.5691622028420913" Menv="0.3343377962290944" Spin="4.4447E-03" Z="?"/>
+  <TrackPoint Age="4334.4297" Stage="SAGB" M="0.9029" logL="3.6376" logR="2.1063" logT="3.6195" Mc="0.5693684700149511" Menv="0.33353152934007463" Spin="4.3945E-03" Z="?"/>
+  <TrackPoint Age="4334.4346" Stage="SAGB" M="0.9023" logL="3.6388" logR="2.1071" logT="3.6194" Mc="0.5695684379675292" Menv="0.33273156138753246" Spin="4.3446E-03" Z="?"/>
+  <TrackPoint Age="4334.4395" Stage="SAGB" M="0.9017" logL="3.6401" logR="2.1079" logT="3.6193" Mc="0.5697747244216737" Menv="0.3319252751655924" Spin="4.2951E-03" Z="?"/>
+  <TrackPoint Age="4334.4443" Stage="SAGB" M="0.9011" logL="3.6413" logR="2.1086" logT="3.6193" Mc="0.5699873490767046" Menv="0.3311126508201196" Spin="4.2460E-03" Z="?"/>
+  <TrackPoint Age="4334.4497" Stage="SAGB" M="0.9005" logL="3.6425" logR="2.1094" logT="3.6192" Mc="0.5701999999999999" Menv="0.3302999999999999" Spin="4.1972E-03" Z="?"/>
   <TrackPoint Age="4334.4546" Stage="SAGB" M="0.8998" logL="3.6438" logR="2.1102" logT="3.6191" Mc="0.5703" Menv="0.32948" Spin="4.1488E-03" Z="?"/>
   <TrackPoint Age="4334.4595" Stage="SAGB" M="0.8992" logL="3.6451" logR="2.1110" logT="3.6190" Mc="0.5705" Menv="0.32865" Spin="4.1007E-03" Z="?"/>
   <TrackPoint Age="4334.4644" Stage="SAGB" M="0.8986" logL="3.6463" logR="2.1118" logT="3.6190" Mc="0.5707" Menv="0.32782" Spin="4.0530E-03" Z="?"/>
   <TrackPoint Age="4334.4697" Stage="SAGB" M="0.8979" logL="3.6476" logR="2.1125" logT="3.6189" Mc="0.5709" Menv="0.32699" Spin="4.0057E-03" Z="?"/>
   <TrackPoint Age="4334.4746" Stage="SAGB" M="0.8973" logL="3.6488" logR="2.1133" logT="3.6188" Mc="0.5711" Menv="0.32615" Spin="3.9587E-03" Z="?"/>
-  <TrackPoint Age="4334.4795" Stage="SAGB" M="0.8966" logL="3.6501" logR="2.1141" logT="3.6187" Mc="0.571295" Menv="0.32530499999999996" Spin="3.9120E-03" Z="?"/>
+  <TrackPoint Age="4334.4795" Stage="SAGB" M="0.8966" logL="3.6501" logR="2.1141" logT="3.6187" Mc="0.5712936282218579" Menv="0.3253063717523579" Spin="3.9120E-03" Z="?"/>
   <TrackPoint Age="4334.4844" Stage="SAGB" M="0.8960" logL="3.6514" logR="2.1149" logT="3.6187" Mc="0.5715" Menv="0.32446" Spin="3.8657E-03" Z="?"/>
-  <TrackPoint Age="4334.4893" Stage="SAGB" M="0.8953" logL="3.6527" logR="2.1157" logT="3.6186" Mc="0.571695" Menv="0.323605" Spin="3.8197E-03" Z="?"/>
+  <TrackPoint Age="4334.4893" Stage="SAGB" M="0.8953" logL="3.6527" logR="2.1157" logT="3.6186" Mc="0.5716936145022394" Menv="0.3236063854719811" Spin="3.8197E-03" Z="?"/>
   <TrackPoint Age="4334.4946" Stage="SAGB" M="0.8947" logL="3.6539" logR="2.1165" logT="3.6185" Mc="0.5719" Menv="0.32276" Spin="3.7742E-03" Z="?"/>
-  <TrackPoint Age="4334.4995" Stage="SAGB" M="0.8940" logL="3.6552" logR="2.1173" logT="3.6184" Mc="0.5721" Menv="0.32189999999999996" Spin="3.7289E-03" Z="?"/>
+  <TrackPoint Age="4334.4995" Stage="SAGB" M="0.8940" logL="3.6552" logR="2.1173" logT="3.6184" Mc="0.5720999999999999" Menv="0.32189999999999996" Spin="3.7289E-03" Z="?"/>
   <TrackPoint Age="4334.5044" Stage="SAGB" M="0.8934" logL="3.6565" logR="2.1181" logT="3.6184" Mc="0.5723" Menv="0.32103" Spin="3.6840E-03" Z="?"/>
   <TrackPoint Age="4334.5093" Stage="SAGB" M="0.8927" logL="3.6578" logR="2.1189" logT="3.6183" Mc="0.5725" Menv="0.32017" Spin="3.6395E-03" Z="?"/>
   <TrackPoint Age="4334.5146" Stage="SAGB" M="0.8920" logL="3.6591" logR="2.1197" logT="3.6182" Mc="0.5727" Menv="0.31929" Spin="3.5952E-03" Z="?"/>
@@ -830,75 +830,75 @@
   <TrackPoint Age="4334.5244" Stage="SAGB" M="0.8907" logL="3.6617" logR="2.1213" logT="3.6181" Mc="0.5731" Menv="0.31754" Spin="3.5079E-03" Z="?"/>
   <TrackPoint Age="4334.5293" Stage="SAGB" M="0.8900" logL="3.6630" logR="2.1221" logT="3.6180" Mc="0.5733" Menv="0.31665" Spin="3.4647E-03" Z="?"/>
   <TrackPoint Age="4334.5347" Stage="SAGB" M="0.8893" logL="3.6643" logR="2.1229" logT="3.6179" Mc="0.5735" Menv="0.31576" Spin="3.4219E-03" Z="?"/>
-  <TrackPoint Age="4334.5396" Stage="SAGB" M="0.8886" logL="3.6656" logR="2.1237" logT="3.6178" Mc="0.573765" Menv="0.314835" Spin="3.3794E-03" Z="?"/>
-  <TrackPoint Age="4334.5444" Stage="SAGB" M="0.8879" logL="3.6669" logR="2.1245" logT="3.6177" Mc="0.5739650000000001" Menv="0.3139350000000001" Spin="3.3373E-03" Z="?"/>
-  <TrackPoint Age="4334.5493" Stage="SAGB" M="0.8872" logL="3.6682" logR="2.1253" logT="3.6177" Mc="0.574165" Menv="0.313035" Spin="3.2955E-03" Z="?"/>
-  <TrackPoint Age="4334.5547" Stage="SAGB" M="0.8865" logL="3.6695" logR="2.1261" logT="3.6176" Mc="0.57437" Menv="0.31212999999999996" Spin="3.2541E-03" Z="?"/>
-  <TrackPoint Age="4334.5596" Stage="SAGB" M="0.8858" logL="3.6708" logR="2.1269" logT="3.6175" Mc="0.5745750000000001" Menv="0.31122500000000003" Spin="3.2130E-03" Z="?"/>
-  <TrackPoint Age="4334.5645" Stage="SAGB" M="0.8851" logL="3.6722" logR="2.1278" logT="3.6174" Mc="0.574785" Menv="0.310315" Spin="3.1722E-03" Z="?"/>
-  <TrackPoint Age="4334.5693" Stage="SAGB" M="0.8844" logL="3.6735" logR="2.1286" logT="3.6173" Mc="0.5749949999999999" Menv="0.30940500000000004" Spin="3.1318E-03" Z="?"/>
+  <TrackPoint Age="4334.5396" Stage="SAGB" M="0.8886" logL="3.6656" logR="2.1237" logT="3.6178" Mc="0.5737548021200221" Menv="0.3148451966184745" Spin="3.3794E-03" Z="?"/>
+  <TrackPoint Age="4334.5444" Stage="SAGB" M="0.8879" logL="3.6669" logR="2.1245" logT="3.6177" Mc="0.5739547507235605" Menv="0.31394524801512513" Spin="3.3373E-03" Z="?"/>
+  <TrackPoint Age="4334.5493" Stage="SAGB" M="0.8872" logL="3.6682" logR="2.1253" logT="3.6177" Mc="0.5741546992460018" Menv="0.31304529949288085" Spin="3.2955E-03" Z="?"/>
+  <TrackPoint Age="4334.5547" Stage="SAGB" M="0.8865" logL="3.6695" logR="2.1261" logT="3.6176" Mc="0.5743611261505144" Menv="0.3121388729231063" Spin="3.2541E-03" Z="?"/>
+  <TrackPoint Age="4334.5596" Stage="SAGB" M="0.8858" logL="3.6708" logR="2.1269" logT="3.6175" Mc="0.5745675678726647" Menv="0.311232431484129" Spin="3.2130E-03" Z="?"/>
+  <TrackPoint Age="4334.5645" Stage="SAGB" M="0.8851" logL="3.6722" logR="2.1278" logT="3.6174" Mc="0.574780518115983" Menv="0.31031948165250617" Spin="3.1722E-03" Z="?"/>
+  <TrackPoint Age="4334.5693" Stage="SAGB" M="0.8844" logL="3.6735" logR="2.1286" logT="3.6173" Mc="0.5749934984905191" Menv="0.3094065014837625" Spin="3.1318E-03" Z="?"/>
   <TrackPoint Age="4334.5747" Stage="SAGB" M="0.8837" logL="3.6748" logR="2.1294" logT="3.6173" Mc="0.5752" Menv="0.30848" Spin="3.0917E-03" Z="?"/>
   <TrackPoint Age="4334.5796" Stage="SAGB" M="0.8830" logL="3.6761" logR="2.1302" logT="3.6172" Mc="0.5754" Menv="0.30755" Spin="3.0520E-03" Z="?"/>
-  <TrackPoint Age="4334.5845" Stage="SAGB" M="0.8822" logL="3.6775" logR="2.1311" logT="3.6171" Mc="0.5755950000000001" Menv="0.306605" Spin="3.0126E-03" Z="?"/>
+  <TrackPoint Age="4334.5845" Stage="SAGB" M="0.8822" logL="3.6775" logR="2.1311" logT="3.6171" Mc="0.5755934754763605" Menv="0.3066065244979359" Spin="3.0126E-03" Z="?"/>
   <TrackPoint Age="4334.5894" Stage="SAGB" M="0.8815" logL="3.6788" logR="2.1319" logT="3.6170" Mc="0.5758" Menv="0.30567" Spin="2.9735E-03" Z="?"/>
-  <TrackPoint Age="4334.5947" Stage="SAGB" M="0.8808" logL="3.6802" logR="2.1327" logT="3.6169" Mc="0.576085" Menv="0.304715" Spin="2.9347E-03" Z="?"/>
-  <TrackPoint Age="4334.5996" Stage="SAGB" M="0.8800" logL="3.6815" logR="2.1336" logT="3.6169" Mc="0.57626" Menv="0.30374" Spin="2.8963E-03" Z="?"/>
-  <TrackPoint Age="4334.6045" Stage="SAGB" M="0.8793" logL="3.6829" logR="2.1344" logT="3.6168" Mc="0.57649" Menv="0.30280999999999997" Spin="2.8583E-03" Z="?"/>
+  <TrackPoint Age="4334.5947" Stage="SAGB" M="0.8808" logL="3.6802" logR="2.1327" logT="3.6169" Mc="0.5760803787336943" Menv="0.304719621035105" Spin="2.9347E-03" Z="?"/>
+  <TrackPoint Age="4334.5996" Stage="SAGB" M="0.8800" logL="3.6815" logR="2.1336" logT="3.6169" Mc="0.5762476138532862" Menv="0.3037523845029208" Spin="2.8963E-03" Z="?"/>
+  <TrackPoint Age="4334.6045" Stage="SAGB" M="0.8793" logL="3.6829" logR="2.1344" logT="3.6168" Mc="0.5764868875949597" Menv="0.302813112302331" Spin="2.8583E-03" Z="?"/>
   <TrackPoint Age="4334.6094" Stage="SAGB" M="0.8786" logL="3.6842" logR="2.1353" logT="3.6167" Mc="0.5767" Menv="0.30186" Spin="2.8205E-03" Z="?"/>
   <TrackPoint Age="4334.6143" Stage="SAGB" M="0.8778" logL="3.6856" logR="2.1361" logT="3.6166" Mc="0.5769" Menv="0.30089" Spin="2.7831E-03" Z="?"/>
-  <TrackPoint Age="4334.6196" Stage="SAGB" M="0.8770" logL="3.6869" logR="2.1369" logT="3.6165" Mc="0.57709" Menv="0.29991000000000007" Spin="2.7461E-03" Z="?"/>
+  <TrackPoint Age="4334.6196" Stage="SAGB" M="0.8770" logL="3.6869" logR="2.1369" logT="3.6165" Mc="0.5770868395247543" Menv="0.299913160372611" Spin="2.7461E-03" Z="?"/>
   <TrackPoint Age="4334.6245" Stage="SAGB" M="0.8763" logL="3.6883" logR="2.1378" logT="3.6164" Mc="0.5773" Menv="0.29895" Spin="2.7093E-03" Z="?"/>
-  <TrackPoint Age="4334.6294" Stage="SAGB" M="0.8755" logL="3.6897" logR="2.1386" logT="3.6164" Mc="0.577565" Menv="0.297935" Spin="2.6729E-03" Z="?"/>
+  <TrackPoint Age="4334.6294" Stage="SAGB" M="0.8755" logL="3.6897" logR="2.1386" logT="3.6164" Mc="0.5775538220816154" Menv="0.29794617666193207" Spin="2.6729E-03" Z="?"/>
   <TrackPoint Age="4334.6343" Stage="SAGB" M="0.8748" logL="3.6910" logR="2.1395" logT="3.6163" Mc="0.5778" Menv="0.29698" Spin="2.6368E-03" Z="?"/>
   <TrackPoint Age="4334.6396" Stage="SAGB" M="0.8740" logL="3.6924" logR="2.1403" logT="3.6162" Mc="0.578" Menv="0.29599" Spin="2.6010E-03" Z="?"/>
   <TrackPoint Age="4334.6445" Stage="SAGB" M="0.8732" logL="3.6938" logR="2.1412" logT="3.6161" Mc="0.5782" Menv="0.29499" Spin="2.5656E-03" Z="?"/>
   <TrackPoint Age="4334.6494" Stage="SAGB" M="0.8724" logL="3.6952" logR="2.1421" logT="3.6160" Mc="0.5784" Menv="0.29399" Spin="2.5305E-03" Z="?"/>
-  <TrackPoint Age="4334.6543" Stage="SAGB" M="0.8716" logL="3.6966" logR="2.1429" logT="3.6159" Mc="0.57866" Menv="0.29294000000000003" Spin="2.4957E-03" Z="?"/>
-  <TrackPoint Age="4334.6597" Stage="SAGB" M="0.8708" logL="3.6980" logR="2.1438" logT="3.6159" Mc="0.57887" Menv="0.29193" Spin="2.4612E-03" Z="?"/>
-  <TrackPoint Age="4334.6646" Stage="SAGB" M="0.8700" logL="3.6993" logR="2.1447" logT="3.6158" Mc="0.579075" Menv="0.290925" Spin="2.4271E-03" Z="?"/>
-  <TrackPoint Age="4334.6694" Stage="SAGB" M="0.8692" logL="3.7007" logR="2.1455" logT="3.6157" Mc="0.57929" Menv="0.28990999999999995" Spin="2.3933E-03" Z="?"/>
+  <TrackPoint Age="4334.6543" Stage="SAGB" M="0.8716" logL="3.6966" logR="2.1429" logT="3.6159" Mc="0.5786468887665198" Menv="0.2929531095950549" Spin="2.4957E-03" Z="?"/>
+  <TrackPoint Age="4334.6597" Stage="SAGB" M="0.8708" logL="3.6980" logR="2.1438" logT="3.6159" Mc="0.5788601152883357" Menv="0.29193988379035757" Spin="2.4612E-03" Z="?"/>
+  <TrackPoint Age="4334.6646" Stage="SAGB" M="0.8700" logL="3.6993" logR="2.1447" logT="3.6158" Mc="0.5790667203034308" Menv="0.2909332790569876" Spin="2.4271E-03" Z="?"/>
+  <TrackPoint Age="4334.6694" Stage="SAGB" M="0.8692" logL="3.7007" logR="2.1455" logT="3.6157" Mc="0.5792866708083109" Menv="0.28991332908939293" Spin="2.3933E-03" Z="?"/>
   <TrackPoint Age="4334.6743" Stage="SAGB" M="0.8684" logL="3.7021" logR="2.1464" logT="3.6156" Mc="0.5795" Menv="0.28889" Spin="2.3598E-03" Z="?"/>
-  <TrackPoint Age="4334.6797" Stage="SAGB" M="0.8676" logL="3.7035" logR="2.1473" logT="3.6155" Mc="0.5797749999999999" Menv="0.287825" Spin="2.3266E-03" Z="?"/>
-  <TrackPoint Age="4334.6846" Stage="SAGB" M="0.8668" logL="3.7050" logR="2.1482" logT="3.6154" Mc="0.579995" Menv="0.28680500000000003" Spin="2.2937E-03" Z="?"/>
+  <TrackPoint Age="4334.6797" Stage="SAGB" M="0.8676" logL="3.7035" logR="2.1473" logT="3.6155" Mc="0.5797665879098715" Menv="0.28783341145132474" Spin="2.3266E-03" Z="?"/>
+  <TrackPoint Age="4334.6846" Stage="SAGB" M="0.8668" logL="3.7050" logR="2.1482" logT="3.6154" Mc="0.5799933087989294" Menv="0.28680669117552865" Spin="2.2937E-03" Z="?"/>
   <TrackPoint Age="4334.6895" Stage="SAGB" M="0.8660" logL="3.7064" logR="2.1490" logT="3.6153" Mc="0.5802" Menv="0.28576" Spin="2.2611E-03" Z="?"/>
-  <TrackPoint Age="4334.6943" Stage="SAGB" M="0.8651" logL="3.7078" logR="2.1499" logT="3.6153" Mc="0.580395" Menv="0.284705" Spin="2.2289E-03" Z="?"/>
-  <TrackPoint Age="4334.6997" Stage="SAGB" M="0.8643" logL="3.7092" logR="2.1508" logT="3.6152" Mc="0.580675" Menv="0.283625" Spin="2.1969E-03" Z="?"/>
+  <TrackPoint Age="4334.6943" Stage="SAGB" M="0.8651" logL="3.7078" logR="2.1499" logT="3.6153" Mc="0.5803932910265747" Menv="0.28470670894790306" Spin="2.2289E-03" Z="?"/>
+  <TrackPoint Age="4334.6997" Stage="SAGB" M="0.8643" logL="3.7092" logR="2.1508" logT="3.6152" Mc="0.5806664082836813" Menv="0.2836335910786096" Spin="2.1969E-03" Z="?"/>
   <TrackPoint Age="4334.7046" Stage="SAGB" M="0.8635" logL="3.7106" logR="2.1517" logT="3.6151" Mc="0.5809" Menv="0.28258" Spin="2.1653E-03" Z="?"/>
-  <TrackPoint Age="4334.7095" Stage="SAGB" M="0.8626" logL="3.7121" logR="2.1526" logT="3.6150" Mc="0.581095" Menv="0.28150500000000006" Spin="2.1340E-03" Z="?"/>
-  <TrackPoint Age="4334.7144" Stage="SAGB" M="0.8618" logL="3.7135" logR="2.1535" logT="3.6149" Mc="0.581385" Menv="0.28041499999999997" Spin="2.1030E-03" Z="?"/>
-  <TrackPoint Age="4334.7197" Stage="SAGB" M="0.8609" logL="3.7149" logR="2.1544" logT="3.6148" Mc="0.581575" Menv="0.279325" Spin="2.0723E-03" Z="?"/>
+  <TrackPoint Age="4334.7095" Stage="SAGB" M="0.8626" logL="3.7121" logR="2.1526" logT="3.6150" Mc="0.5810932634678476" Menv="0.2815067365066663" Spin="2.1340E-03" Z="?"/>
+  <TrackPoint Age="4334.7144" Stage="SAGB" M="0.8618" logL="3.7135" logR="2.1535" logT="3.6149" Mc="0.5813797616699349" Menv="0.28042023810082667" Spin="2.1030E-03" Z="?"/>
+  <TrackPoint Age="4334.7197" Stage="SAGB" M="0.8609" logL="3.7149" logR="2.1544" logT="3.6148" Mc="0.5815662233579186" Menv="0.27933377600558446" Spin="2.0723E-03" Z="?"/>
   <TrackPoint Age="4334.7246" Stage="SAGB" M="0.8601" logL="3.7164" logR="2.1553" logT="3.6147" Mc="0.5818" Menv="0.27826" Spin="2.0419E-03" Z="?"/>
   <TrackPoint Age="4334.7295" Stage="SAGB" M="0.8592" logL="3.7178" logR="2.1562" logT="3.6146" Mc="0.582" Menv="0.27716" Spin="2.0118E-03" Z="?"/>
-  <TrackPoint Age="4334.7344" Stage="SAGB" M="0.8583" logL="3.7193" logR="2.1571" logT="3.6146" Mc="0.5822700000000001" Menv="0.27603" Spin="1.9820E-03" Z="?"/>
+  <TrackPoint Age="4334.7344" Stage="SAGB" M="0.8583" logL="3.7193" logR="2.1571" logT="3.6146" Mc="0.582259296798546" Menv="0.2760407022863615" Spin="1.9820E-03" Z="?"/>
   <TrackPoint Age="4334.7393" Stage="SAGB" M="0.8575" logL="3.7207" logR="2.1580" logT="3.6145" Mc="0.5825" Menv="0.27495" Spin="1.9525E-03" Z="?"/>
   <TrackPoint Age="4334.7446" Stage="SAGB" M="0.8566" logL="3.7222" logR="2.1589" logT="3.6144" Mc="0.5827" Menv="0.27384" Spin="1.9233E-03" Z="?"/>
-  <TrackPoint Age="4334.7495" Stage="SAGB" M="0.8557" logL="3.7236" logR="2.1598" logT="3.6143" Mc="0.5829949999999999" Menv="0.27270500000000003" Spin="1.8945E-03" Z="?"/>
+  <TrackPoint Age="4334.7495" Stage="SAGB" M="0.8557" logL="3.7236" logR="2.1598" logT="3.6143" Mc="0.582993186944175" Menv="0.27270681303045075" Spin="1.8945E-03" Z="?"/>
   <TrackPoint Age="4334.7544" Stage="SAGB" M="0.8548" logL="3.7251" logR="2.1607" logT="3.6142" Mc="0.5832" Menv="0.27158" Spin="1.8659E-03" Z="?"/>
   <TrackPoint Age="4334.7593" Stage="SAGB" M="0.8539" logL="3.7266" logR="2.1616" logT="3.6141" Mc="0.5834" Menv="0.27045" Spin="1.8376E-03" Z="?"/>
-  <TrackPoint Age="4334.7646" Stage="SAGB" M="0.8530" logL="3.7280" logR="2.1625" logT="3.6140" Mc="0.583695" Menv="0.26930499999999996" Spin="1.8096E-03" Z="?"/>
+  <TrackPoint Age="4334.7646" Stage="SAGB" M="0.8530" logL="3.7280" logR="2.1625" logT="3.6140" Mc="0.583693157172835" Menv="0.269306842801838" Spin="1.8096E-03" Z="?"/>
   <TrackPoint Age="4334.7695" Stage="SAGB" M="0.8521" logL="3.7295" logR="2.1635" logT="3.6139" Mc="0.5839" Menv="0.26816" Spin="1.7819E-03" Z="?"/>
-  <TrackPoint Age="4334.7744" Stage="SAGB" M="0.8512" logL="3.7310" logR="2.1644" logT="3.6138" Mc="0.5842" Menv="0.26699999999999996" Spin="1.7545E-03" Z="?"/>
-  <TrackPoint Age="4334.7793" Stage="SAGB" M="0.8502" logL="3.7325" logR="2.1653" logT="3.6137" Mc="0.5843799999999999" Menv="0.26581999999999995" Spin="1.7273E-03" Z="?"/>
+  <TrackPoint Age="4334.7744" Stage="SAGB" M="0.8512" logL="3.7310" logR="2.1644" logT="3.6138" Mc="0.5841999999999999" Menv="0.26699999999999996" Spin="1.7545E-03" Z="?"/>
+  <TrackPoint Age="4334.7793" Stage="SAGB" M="0.8502" logL="3.7325" logR="2.1653" logT="3.6137" Mc="0.5843725065863755" Menv="0.2658274930091975" Spin="1.7273E-03" Z="?"/>
   <TrackPoint Age="4334.7847" Stage="SAGB" M="0.8493" logL="3.7340" logR="2.1662" logT="3.6136" Mc="0.5846" Menv="0.26467" Spin="1.7005E-03" Z="?"/>
   <TrackPoint Age="4334.7896" Stage="SAGB" M="0.8484" logL="3.7355" logR="2.1672" logT="3.6135" Mc="0.5849" Menv="0.26349" Spin="1.6740E-03" Z="?"/>
-  <TrackPoint Age="4334.7944" Stage="SAGB" M="0.8474" logL="3.7370" logR="2.1681" logT="3.6135" Mc="0.5850949999999999" Menv="0.262305" Spin="1.6477E-03" Z="?"/>
-  <TrackPoint Age="4334.7993" Stage="SAGB" M="0.8465" logL="3.7385" logR="2.1690" logT="3.6134" Mc="0.5853900000000001" Menv="0.26111" Spin="1.6217E-03" Z="?"/>
-  <TrackPoint Age="4334.8047" Stage="SAGB" M="0.8455" logL="3.7400" logR="2.1700" logT="3.6133" Mc="0.58559" Menv="0.25991" Spin="1.5960E-03" Z="?"/>
-  <TrackPoint Age="4334.8096" Stage="SAGB" M="0.8446" logL="3.7415" logR="2.1709" logT="3.6132" Mc="0.58589" Menv="0.25871000000000005" Spin="1.5706E-03" Z="?"/>
+  <TrackPoint Age="4334.7944" Stage="SAGB" M="0.8474" logL="3.7370" logR="2.1681" logT="3.6135" Mc="0.5850930954319633" Menv="0.2623069045428154" Spin="1.6477E-03" Z="?"/>
+  <TrackPoint Age="4334.7993" Stage="SAGB" M="0.8465" logL="3.7385" logR="2.1690" logT="3.6134" Mc="0.5853861692576667" Menv="0.26111383064153615" Spin="1.6217E-03" Z="?"/>
+  <TrackPoint Age="4334.8047" Stage="SAGB" M="0.8455" logL="3.7400" logR="2.1700" logT="3.6133" Mc="0.585586148169174" Menv="0.25991385173010123" Spin="1.5960E-03" Z="?"/>
+  <TrackPoint Age="4334.8096" Stage="SAGB" M="0.8446" logL="3.7415" logR="2.1709" logT="3.6132" Mc="0.5858861263053208" Menv="0.2587138735940472" Spin="1.5706E-03" Z="?"/>
   <TrackPoint Age="4334.8145" Stage="SAGB" M="0.8436" logL="3.7430" logR="2.1719" logT="3.6131" Mc="0.5861" Menv="0.2575" Spin="1.5455E-03" Z="?"/>
   <TrackPoint Age="4334.8193" Stage="SAGB" M="0.8426" logL="3.7445" logR="2.1728" logT="3.6130" Mc="0.5863" Menv="0.25628" Spin="1.5206E-03" Z="?"/>
-  <TrackPoint Age="4334.8247" Stage="SAGB" M="0.8416" logL="3.7460" logR="2.1738" logT="3.6129" Mc="0.5865750000000001" Menv="0.255025" Spin="1.4961E-03" Z="?"/>
+  <TrackPoint Age="4334.8247" Stage="SAGB" M="0.8416" logL="3.7460" logR="2.1738" logT="3.6129" Mc="0.5865651517851839" Menv="0.25503484758743594" Spin="1.4961E-03" Z="?"/>
   <TrackPoint Age="4334.8296" Stage="SAGB" M="0.8407" logL="3.7476" logR="2.1747" logT="3.6128" Mc="0.5868" Menv="0.25382" Spin="1.4718E-03" Z="?"/>
   <TrackPoint Age="4334.8345" Stage="SAGB" M="0.8397" logL="3.7491" logR="2.1757" logT="3.6127" Mc="0.5871" Menv="0.25258" Spin="1.4477E-03" Z="?"/>
   <TrackPoint Age="4334.8394" Stage="SAGB" M="0.8387" logL="3.7506" logR="2.1767" logT="3.6126" Mc="0.5873" Menv="0.25132" Spin="1.4240E-03" Z="?"/>
   <TrackPoint Age="4334.8447" Stage="SAGB" M="0.8377" logL="3.7522" logR="2.1776" logT="3.6125" Mc="0.5876" Menv="0.25007" Spin="1.4005E-03" Z="?"/>
   <TrackPoint Age="4334.8496" Stage="SAGB" M="0.8366" logL="3.7537" logR="2.1786" logT="3.6124" Mc="0.5878" Menv="0.2488" Spin="1.3773E-03" Z="?"/>
-  <TrackPoint Age="4334.8545" Stage="SAGB" M="0.8356" logL="3.7553" logR="2.1796" logT="3.6123" Mc="0.58809" Menv="0.24751000000000004" Spin="1.3543E-03" Z="?"/>
+  <TrackPoint Age="4334.8545" Stage="SAGB" M="0.8356" logL="3.7553" logR="2.1796" logT="3.6123" Mc="0.5880859242239296" Menv="0.24751407567627698" Spin="1.3543E-03" Z="?"/>
   <TrackPoint Age="4334.8594" Stage="SAGB" M="0.8346" logL="3.7568" logR="2.1805" logT="3.6122" Mc="0.5883" Menv="0.24624" Spin="1.3316E-03" Z="?"/>
-  <TrackPoint Age="4334.8643" Stage="SAGB" M="0.8335" logL="3.7584" logR="2.1815" logT="3.6121" Mc="0.5885750000000001" Menv="0.244925" Spin="1.3092E-03" Z="?"/>
-  <TrackPoint Age="4334.8696" Stage="SAGB" M="0.8325" logL="3.7600" logR="2.1825" logT="3.6120" Mc="0.588875" Menv="0.243625" Spin="1.2870E-03" Z="?"/>
-  <TrackPoint Age="4334.8745" Stage="SAGB" M="0.8314" logL="3.7615" logR="2.1835" logT="3.6119" Mc="0.58908" Menv="0.24232000000000004" Spin="1.2651E-03" Z="?"/>
-  <TrackPoint Age="4334.8794" Stage="SAGB" M="0.8304" logL="3.7631" logR="2.1845" logT="3.6118" Mc="0.589385" Menv="0.241015" Spin="1.2435E-03" Z="?"/>
+  <TrackPoint Age="4334.8643" Stage="SAGB" M="0.8335" logL="3.7584" logR="2.1815" logT="3.6121" Mc="0.5885646931797732" Menv="0.24493530619783885" Spin="1.3092E-03" Z="?"/>
+  <TrackPoint Age="4334.8696" Stage="SAGB" M="0.8325" logL="3.7600" logR="2.1825" logT="3.6120" Mc="0.5888646327547895" Menv="0.24363536662357552" Spin="1.2870E-03" Z="?"/>
+  <TrackPoint Age="4334.8745" Stage="SAGB" M="0.8314" logL="3.7615" logR="2.1835" logT="3.6119" Mc="0.5890716588088136" Menv="0.2423283407937605" Spin="1.2651E-03" Z="?"/>
+  <TrackPoint Age="4334.8794" Stage="SAGB" M="0.8304" logL="3.7631" logR="2.1845" logT="3.6118" Mc="0.5893787074166397" Menv="0.2410212923600928" Spin="1.2435E-03" Z="?"/>
   <TrackPoint Age="4334.8843" Stage="SAGB" M="0.8293" logL="3.7647" logR="2.1855" logT="3.6117" Mc="0.5896" Menv="0.2397" Spin="1.2221E-03" Z="?"/>
   <TrackPoint Age="4334.8896" Stage="SAGB" M="0.8282" logL="3.7663" logR="2.1863" logT="3.6117" Mc="0.5899" Menv="0.23772" Spin="1.2036E-03" Z="?"/>
   <TrackPoint Age="4334.8945" Stage="SAGB" M="0.8272" logL="3.7678" logR="2.1870" logT="3.6117" Mc="0.5901" Menv="0.23523" Spin="1.1874E-03" Z="?"/>
@@ -1078,28 +1078,28 @@
   <TrackPoint Age="4335.5571" Stage="SAGB" M="0.6356" logL="0.9343" logR="-1.8853" logT="4.9395" Mc="0.6346" Menv="1e-10" Spin="3.0754E-07" Z="?"/>
   <TrackPoint Age="4335.5620" Stage="SAGB" M="0.6356" logL="0.5527" logR="-1.9047" logT="4.8538" Mc="0.635" Menv="1e-10" Spin="4.9357E-07" Z="?"/>
   <TrackPoint Age="4335.5669" Stage="SAGB" M="0.6356" logL="0.4425" logR="-1.9096" logT="4.8287" Mc="0.6354" Menv="1e-10" Spin="1.3287E-06" Z="?"/>
-  <TrackPoint Age="4335.5688" Stage="ONWD" M="0.6356" logL="0.4394" logR="-1.9098" logT="4.8280" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="4335.6689" Stage="ONWD" M="0.6356" logL="0.0842" logR="-1.9098" logT="4.7392" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="4336.6689" Stage="ONWD" M="0.6356" logL="-0.8340" logR="-1.9098" logT="4.5097" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="4346.6689" Stage="ONWD" M="0.6356" logL="-1.9787" logR="-1.9098" logT="4.2235" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="4446.6689" Stage="ONWD" M="0.6356" logL="-3.1550" logR="-1.9098" logT="3.9294" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="4946.6689" Stage="ONWD" M="0.6356" logL="-4.0283" logR="-1.9098" logT="3.7111" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="5446.6689" Stage="ONWD" M="0.6356" logL="-4.3346" logR="-1.9098" logT="3.6345" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="5946.6689" Stage="ONWD" M="0.6356" logL="-4.5250" logR="-1.9098" logT="3.5869" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="6446.6689" Stage="ONWD" M="0.6356" logL="-4.6635" logR="-1.9098" logT="3.5523" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="6946.6689" Stage="ONWD" M="0.6356" logL="-4.7725" logR="-1.9098" logT="3.5251" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="7446.6689" Stage="ONWD" M="0.6356" logL="-4.8622" logR="-1.9098" logT="3.5026" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="7946.6689" Stage="ONWD" M="0.6356" logL="-4.9386" logR="-1.9098" logT="3.4835" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="8446.6689" Stage="ONWD" M="0.6356" logL="-5.0051" logR="-1.9098" logT="3.4669" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="8946.6689" Stage="ONWD" M="0.6356" logL="-5.0639" logR="-1.9098" logT="3.4522" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="9446.6689" Stage="ONWD" M="0.6356" logL="-5.1166" logR="-1.9098" logT="3.4390" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="9946.6689" Stage="ONWD" M="0.6356" logL="-5.1645" logR="-1.9098" logT="3.4271" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="10446.6689" Stage="ONWD" M="0.6356" logL="-5.2082" logR="-1.9098" logT="3.4161" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="10946.6689" Stage="ONWD" M="0.6356" logL="-5.2485" logR="-1.9098" logT="3.4061" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="11446.6689" Stage="ONWD" M="0.6356" logL="-5.2859" logR="-1.9098" logT="3.3967" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="11946.6689" Stage="ONWD" M="0.6356" logL="-5.3207" logR="-1.9098" logT="3.3880" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="12446.6689" Stage="ONWD" M="0.6356" logL="-5.3533" logR="-1.9098" logT="3.3799" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="12946.6689" Stage="ONWD" M="0.6356" logL="-5.3840" logR="-1.9098" logT="3.3722" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="13446.6689" Stage="ONWD" M="0.6356" logL="-5.4411" logR="-1.9098" logT="3.3579" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
-  <TrackPoint Age="13800.0000" Stage="ONWD" M="0.6356" logL="-5.5482" logR="-1.9098" logT="3.3311" Mc="0.63559999995" Menv="4.9999995862981454e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="4335.5688" Stage="ONWD" M="0.6356" logL="0.4394" logR="-1.9098" logT="4.8280" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="4335.6689" Stage="ONWD" M="0.6356" logL="0.0842" logR="-1.9098" logT="4.7392" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="4336.6689" Stage="ONWD" M="0.6356" logL="-0.8340" logR="-1.9098" logT="4.5097" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="4346.6689" Stage="ONWD" M="0.6356" logL="-1.9787" logR="-1.9098" logT="4.2235" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="4446.6689" Stage="ONWD" M="0.6356" logL="-3.1550" logR="-1.9098" logT="3.9294" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="4946.6689" Stage="ONWD" M="0.6356" logL="-4.0283" logR="-1.9098" logT="3.7111" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="5446.6689" Stage="ONWD" M="0.6356" logL="-4.3346" logR="-1.9098" logT="3.6345" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="5946.6689" Stage="ONWD" M="0.6356" logL="-4.5250" logR="-1.9098" logT="3.5869" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="6446.6689" Stage="ONWD" M="0.6356" logL="-4.6635" logR="-1.9098" logT="3.5523" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="6946.6689" Stage="ONWD" M="0.6356" logL="-4.7725" logR="-1.9098" logT="3.5251" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="7446.6689" Stage="ONWD" M="0.6356" logL="-4.8622" logR="-1.9098" logT="3.5026" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="7946.6689" Stage="ONWD" M="0.6356" logL="-4.9386" logR="-1.9098" logT="3.4835" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="8446.6689" Stage="ONWD" M="0.6356" logL="-5.0051" logR="-1.9098" logT="3.4669" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="8946.6689" Stage="ONWD" M="0.6356" logL="-5.0639" logR="-1.9098" logT="3.4522" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="9446.6689" Stage="ONWD" M="0.6356" logL="-5.1166" logR="-1.9098" logT="3.4390" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="9946.6689" Stage="ONWD" M="0.6356" logL="-5.1645" logR="-1.9098" logT="3.4271" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="10446.6689" Stage="ONWD" M="0.6356" logL="-5.2082" logR="-1.9098" logT="3.4161" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="10946.6689" Stage="ONWD" M="0.6356" logL="-5.2485" logR="-1.9098" logT="3.4061" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="11446.6689" Stage="ONWD" M="0.6356" logL="-5.2859" logR="-1.9098" logT="3.3967" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="11946.6689" Stage="ONWD" M="0.6356" logL="-5.3207" logR="-1.9098" logT="3.3880" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="12446.6689" Stage="ONWD" M="0.6356" logL="-5.3533" logR="-1.9098" logT="3.3799" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="12946.6689" Stage="ONWD" M="0.6356" logL="-5.3840" logR="-1.9098" logT="3.3722" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="13446.6689" Stage="ONWD" M="0.6356" logL="-5.4411" logR="-1.9098" logT="3.3579" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
+  <TrackPoint Age="13800.0000" Stage="ONWD" M="0.6356" logL="-5.5482" logR="-1.9098" logT="3.3311" Mc="0.6355999999" Menv="9.999999998426683e-11" Spin="4.9463E-06" Z="?"/>
 </Track>

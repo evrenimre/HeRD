@@ -65,8 +65,8 @@ def load_sse_track(dat_path):
             menv = float(tokens[8])
             delta = (mc + menv) - m
             if delta > 0:
-                mc -= delta / 2
-                menv -= delta / 2
+                mc = max(0, mc - (mc / (mc + menv)) * delta)
+                menv = max(0, menv - (menv / (mc + menv)) * delta)
 
             track_points.append(
                 etree.Element(
