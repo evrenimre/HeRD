@@ -54,7 +54,7 @@ void StellarRotation::InitialiseAtZAMS( Herd::SSE::EvolutionState& io_rState )
 void StellarRotation::InitialiseAtNSOrBH( Herd::SSE::EvolutionState& io_rState )
 {
   Herd::SSE::ValidateEvolutionState( io_rState );
-  if( io_rState.m_TrackPoint.m_Stage != Herd::SSE::EvolutionStage::e_BH || io_rState.m_TrackPoint.m_Stage != Herd::SSE::EvolutionStage::e_NS )
+  if( ( io_rState.m_TrackPoint.m_Stage != Herd::SSE::EvolutionStage::e_BH ) && ( io_rState.m_TrackPoint.m_Stage != Herd::SSE::EvolutionStage::e_NS ) )
   {
     Herd::Exceptions::ThrowPreconditionError( "m_Stage", "e_BH or e_NS", Herd::SSE::EvolutionStageToString( io_rState.m_TrackPoint.m_Stage ) );
   }

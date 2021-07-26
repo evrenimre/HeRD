@@ -18,8 +18,8 @@
 namespace Herd::SSE
 {
 // Forward declarations
-class EvolutionState;
-class TrackPoint;
+struct EvolutionState;
+struct TrackPoint;
 
 /**
  * @brief Stellar rotation computations
