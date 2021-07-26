@@ -26,17 +26,6 @@ namespace Herd::SSE
 {
 
 /**
- * @param i_rTrackPoint Track point. Luminosity and radius >=0, mass > 0
- * @param i_Neta Reimers mass loss efficiency.  >=0
- * @return Mass loss rate per year in \f$ M_{\odot}\f$. <=0
- * @remarks Single star case
- */
-double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta )
-{
-  return Compute( i_rTrackPoint, i_Neta, 0., 0., 0. );
-}
-
-/**
  * @param i_rTrackPoint Track point. Luminosity, radius and core mass >=0, mass > 0, stage not undefined
  * @param i_Neta Reimers mass loss efficiency.  >=0
  * @param i_HeWind Helium star mass loss factor. >=0

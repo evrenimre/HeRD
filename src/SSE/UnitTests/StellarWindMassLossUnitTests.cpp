@@ -168,7 +168,6 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 
   // Invalid parameters
   {
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ) ), Herd::Exceptions::PreconditionError ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ), heWind, binaryWind, rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
