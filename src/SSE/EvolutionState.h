@@ -33,8 +33,8 @@ struct EvolutionState
 
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
 
-  Herd::Generic::Mass m_MassLossRate;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
-  Herd::Generic::AngularMomentum m_AngularMomentumLossRate; ///< Angular momentum loss rate in \f$ M_{\odot}R_{\odot}^2 {year}^{-2}\f$
+  double m_MassLossRate;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
+  double m_AngularMomentumLossRate; ///< Angular momentum loss rate in \f$ M_{\odot}R_{\odot}^2 {year}^{-2}\f$
 };
 
 void ValidateEvolutionState( const EvolutionState& i_rState );  ///< Validates an evolution state

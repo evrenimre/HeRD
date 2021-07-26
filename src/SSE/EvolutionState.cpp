@@ -28,8 +28,8 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   Herd::SSE::ValidateTrackPoint( i_rState.m_TrackPoint );
   Herd::Generic::ThrowIfNegative( i_rState.m_InitialMass, "m_InitialMass" );  // Current mass can be higher than the initial mass due to mass gain in a binary
   Herd::Generic::ThrowIfNegative( i_rState.m_CoreRadius, "m_CoreRadius" );
-  Herd::Generic::ThrowIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
-  Herd::Generic::ThrowIfNegative( i_rState.m_AngularMomentumLossRate, "m_AngularMomentumLossRate" );
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_AngularMomentumLossRate, "m_AngularMomentumLossRate" );
 
   if( i_rState.m_CoreRadius.Value() > i_rState.m_TrackPoint.m_Radius.Value() )
   {

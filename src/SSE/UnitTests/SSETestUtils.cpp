@@ -70,8 +70,8 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
 
   generated.m_InitialMass.Set( Generator( 0.08, 216. ) ); // A star in a binary system can gain mass
   generated.m_CoreRadius.Set( Generator( 0., generated.m_TrackPoint.m_Radius.Value() ) );
-  generated.m_MassLossRate.Set( Generator( 0., 1e-4 ) );
-  generated.m_AngularMomentumLossRate.Set( Generator( 0., 715. ) );
+  generated.m_MassLossRate = Generator( 0., 1e-4 );
+  generated.m_AngularMomentumLossRate = Generator( 0., 715. );
 
   return generated;
 }
