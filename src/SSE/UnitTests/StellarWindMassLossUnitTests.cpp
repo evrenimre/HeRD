@@ -190,7 +190,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 
 }
 
-/// Test on random points a single track
+/// Test on random points of a single track
 BOOST_AUTO_TEST_CASE( RandomReferenceTrackSampled, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
