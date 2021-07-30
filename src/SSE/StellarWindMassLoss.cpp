@@ -144,7 +144,7 @@ double StellarWindMassLoss::ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rT
 
   if( !Herd::SSE::IsHeStar( i_rTrackPoint.m_Stage ) )
   {
-    double envelopeRatio = ( i_rTrackPoint.m_Mass.Value() - i_rTrackPoint.m_CoreMass.Value() ) / i_rTrackPoint.m_Mass.Value();
+    double envelopeRatio = ( i_rTrackPoint.m_Mass - i_rTrackPoint.m_CoreMass ) / i_rTrackPoint.m_Mass;
     mu = envelopeRatio * std::min( 5., std::max( 1.2, std::sqrt( 7.0e4 / i_rTrackPoint.m_Luminosity ) ) );  // Eq. 97
   }
 

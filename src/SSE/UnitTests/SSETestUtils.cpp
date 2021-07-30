@@ -39,7 +39,7 @@ Herd::SSE::TrackPoint GenerateRandomTrackPoint( std::mt19937& io_rRng )
   generated.m_Temperature.Set( Generator( 1800., 210000. ) );
   generated.m_Age.Set( Generator( 0., 13600. ) );
   generated.m_CoreMass.Set( Generator( 0., generated.m_Mass.Value() ) );
-  generated.m_EnvelopeMass.Set( Generator( 0., generated.m_Mass.Value() - generated.m_CoreMass.Value() ) );
+  generated.m_EnvelopeMass.Set( Generator( 0., ( generated.m_Mass - generated.m_CoreMass ).Value() ) );
   generated.m_AngularMomentum.Set( Generator( 0., 715. ) );
 
   {

@@ -100,7 +100,7 @@ void StellarWindMassLossTestFixture::TestFidelity( const std::vector< Herd::SSE:
       const auto& rNext = i_rTrack[ idx + 1 ];
 
       double massLossRate = Herd::SSE::StellarWindMassLoss::Compute( rCurrent, neta, heWind, binaryWind, rocheLobe ); // Per year
-      double deltaAge = ( rNext.m_Age.Value() - rCurrent.m_Age.Value() );  // In Myears
+      double deltaAge = ( rNext.m_Age - rCurrent.m_Age );  // In Myears
 
       // Reference data is float. For rapidly evolving stars and densely sampled stages, time elapsed between two consecutive track points can be erroneous
       if( deltaAge < 1e-2 )

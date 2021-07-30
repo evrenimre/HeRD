@@ -63,6 +63,17 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( ComparisonOperatorsTest, T, QuantityTypes )
   BOOST_TEST( greater >= smaller );
 }
 
+BOOST_AUTO_TEST_CASE_TEMPLATE( ArithmeticOperatorsTest, T, QuantityTypes )
+{
+  T left( GenerateNumber( 0.1, 10. ) ); // @suppress("Invalid arguments")
+  T right( GenerateNumber( 0.1, left * 0.99 ) );  // @suppress("Invalid arguments")
+
+  BOOST_TEST( left + right == left.Value() + right.Value() );
+  BOOST_TEST( left - right == left.Value() - right.Value() );
+  BOOST_TEST( left * right == left.Value() * right.Value() );
+  BOOST_TEST( left / right == left.Value() / right.Value() );
+}
+
 /// Helpers
 BOOST_AUTO_TEST_CASE_TEMPLATE( QuantityHelpersTest, T, QuantityTypes )
 {

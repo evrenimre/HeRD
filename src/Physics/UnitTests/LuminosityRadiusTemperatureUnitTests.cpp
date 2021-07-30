@@ -34,6 +34,9 @@ public:
   void TestConsistency(); ///< Tests whether one of L, R and T can be computed correctly when the other two are known
 };
 
+/**
+ * @remarks Equality operator for Quantity does not trigger a floating point comparison. So, need to call Quantity::Value
+ */
 void LRTTestFixture::TestConsistency()
 {
   Herd::Generic::Radius rExpected( GenerateNumber( 0., 12. ) ); // @suppress("Invalid arguments")

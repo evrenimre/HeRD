@@ -70,11 +70,63 @@ public:
     return m_Value;
   }
 
-  friend bool operator==( Quantity< Tag >, Quantity< Tag > ) = default; ///< Equality operator
-  friend auto operator<=>( Quantity< Tag >, Quantity< Tag > ) = default;///< Spaceship operator
-
 private:
 
+  // Hidden friends: only considered in ADL. Fewer overloads means faster compile
+  ///@name Comparison operators
+  ///@{
+  friend bool operator==( Quantity< Tag >, Quantity< Tag > ) = default; ///< Equality operator
+  friend auto operator<=>( Quantity< Tag >, Quantity< Tag > ) = default;///< Spaceship operator
+  ///@}
+
+  ///@name Arithmetic operators
+  ///@{
+  /**
+   * @brief Subtraction operator
+   * @param i_Left Minuend
+   * @param i_Right Subtrahend
+   * @return Difference
+   */
+  friend Quantity< Tag > operator-( Quantity< Tag > i_Left, Quantity< Tag > i_Right )
+  {
+    return Quantity< Tag >( i_Left.Value() - i_Right.Value() );
+  }
+
+  /**
+   * @brief Addition operator
+   * @param i_Left Addend
+   * @param i_Right Addend
+   * @return Sum
+   */
+  friend Quantity< Tag > operator+( Quantity< Tag > i_Left, Quantity< Tag > i_Right )
+  {
+    return Quantity< Tag >( i_Left.Value() + i_Right.Value() );
+  }
+
+  /**
+   * @brief Multiplication operator
+   * @param i_Left Factor
+   * @param i_Right Factor
+   * @return Product
+   */
+  friend Quantity< Tag > operator*( Quantity< Tag > i_Left, Quantity< Tag > i_Right )
+  {
+    return Quantity< Tag >( i_Left.Value() * i_Right.Value() );
+  }
+
+  /**
+   * @brief Division operator
+   * @param i_Left Dividend
+   * @param i_Right Divisor
+   * @return Quotient
+   */
+  friend Quantity< Tag > operator/( Quantity< Tag > i_Left, Quantity< Tag > i_Right )
+  {
+    return Quantity< Tag >( i_Left.Value() / i_Right.Value() );
+  }
+
+  ///@}
+  ///
   double m_Value = 0.0; ///< Value of the quantity
 };
 
