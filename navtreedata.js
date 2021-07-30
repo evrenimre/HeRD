@@ -43,7 +43,8 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -61,7 +62,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ComputeZAMS_8cpp.html",
-"classHerd_1_1Exceptions_1_1RuntimeError.html"
+"classHerd_1_1Exceptions_1_1PreconditionError.html#ace12334be4b55bd42d73fe7ae02a6a81"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

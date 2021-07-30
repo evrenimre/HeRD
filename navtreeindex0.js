@@ -122,9 +122,11 @@ var NAVTREEINDEX0 =
 "QuantityRange_8h_source.html":[3,0,0,3,4],
 "QuantityUnitTests_8cpp.html":[3,0,0,3,0,1],
 "QuantityUnitTests_8cpp.html#a139f00d2466d591f60b8d6a73c8273f1":[3,0,0,3,0,1,0],
+"QuantityUnitTests_8cpp.html#a2d9db55f44e9d3594af68a25b32e0d33":[3,0,0,3,0,1,2],
+"QuantityUnitTests_8cpp.html#a3947b27b2864a56a7d31f6dc38316680":[3,0,0,3,0,1,4],
 "QuantityUnitTests_8cpp.html#a57b09fec7d04262fd1f96afcd8fec7de":[3,0,0,3,0,1,1],
-"QuantityUnitTests_8cpp.html#aa8ae8a5361de6dd0df59f3656c621a55":[3,0,0,3,0,1,2],
-"QuantityUnitTests_8cpp.html#aacb98d1805903644080c4a5bcb1497aa":[3,0,0,3,0,1,3],
+"QuantityUnitTests_8cpp.html#a78d3a97295b033cd19bc53f8da61b34e":[3,0,0,3,0,1,5],
+"QuantityUnitTests_8cpp.html#ad82453f1dc910b51f481758b6e98ff4c":[3,0,0,3,0,1,3],
 "Quantity_8cpp.html":[3,0,0,3,1],
 "Quantity_8h.html":[3,0,0,3,2],
 "Quantity_8h.html#a11e95438a005a5c2e6345f5405a96133":[3,0,0,3,2,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "classHerd_1_1Exceptions_1_1PreconditionError.html#a633a21ca4ef1a3e7cc6573dba1ed73ce":[2,0,0,0,1,1],
 "classHerd_1_1Exceptions_1_1PreconditionError.html#a792f8d36796961f630fc09a742ea7e01":[2,0,0,0,1,7],
 "classHerd_1_1Exceptions_1_1PreconditionError.html#aab7de185e0022d771a0a0b5444424a91":[2,0,0,0,1,5],
-"classHerd_1_1Exceptions_1_1PreconditionError.html#ab7fefc87d5ba876b3698d110bb4c4e96":[2,0,0,0,1,6],
-"classHerd_1_1Exceptions_1_1PreconditionError.html#ace12334be4b55bd42d73fe7ae02a6a81":[2,0,0,0,1,0],
-"classHerd_1_1Exceptions_1_1PreconditionError.html#adc5f95bb61bfe52128fc4389d0523794":[2,0,0,0,1,4]
+"classHerd_1_1Exceptions_1_1PreconditionError.html#ab7fefc87d5ba876b3698d110bb4c4e96":[2,0,0,0,1,6]
 };
