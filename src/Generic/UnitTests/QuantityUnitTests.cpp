@@ -27,8 +27,8 @@ BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture, *Herd
 /// Quantity types under test
 using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic::Mass, Herd::Generic::Metallicity, Herd::Generic::Radius, Herd::Generic::Age, Herd::Generic::AngularMomentum, Herd::Generic::AngularVelocity >;
 
-/// Quantity construction and usage
-BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
+/// Quantity construction
+BOOST_AUTO_TEST_CASE_TEMPLATE( UsageTest, T, QuantityTypes )
 {
   double value = GenerateNumber( 0., 10. ); // @suppress("Invalid arguments")
   T quantity( value );
@@ -41,14 +41,30 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantity, T, QuantityTypes )
   // Conversion operator
   double converted = quantity;
   BOOST_TEST( converted == quantity.Value() );
+}
+
+BOOST_AUTO_TEST_CASE_TEMPLATE( ComparisonOperatorsTest, T, QuantityTypes )
+{
+  T greater( GenerateNumber( 0., 10. ) ); // @suppress("Invalid arguments")
+  T smaller( GenerateNumber( 0., greater * 0.99 ) );  // @suppress("Invalid arguments")
 
   // Equality operator
-  BOOST_TEST( quantity == quantity );
-  BOOST_TEST( !( quantity == T( quantity.Value() + 1 ) ) );
+  BOOST_TEST( greater == greater );
+  BOOST_TEST( greater != smaller );
+
+  // Comparison operators
+  BOOST_TEST( greater > smaller );
+  BOOST_TEST( smaller < greater );
+
+  BOOST_TEST( smaller <= greater );
+  BOOST_TEST( smaller <= smaller );
+
+  BOOST_TEST( greater >= greater );
+  BOOST_TEST( greater >= smaller );
 }
 
 /// Helpers
-BOOST_AUTO_TEST_CASE_TEMPLATE( TestQuantityHelpers, T, QuantityTypes )
+BOOST_AUTO_TEST_CASE_TEMPLATE( QuantityHelpersTest, T, QuantityTypes )
 {
   {
     double value = GenerateNumber( -10., 0. ); // @suppress("Invalid arguments")

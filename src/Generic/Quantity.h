@@ -70,15 +70,8 @@ public:
     return m_Value;
   }
 
-  /**
-   * @brief Equality operator
-   * @param i_Other Other value
-   * @return \c true if the contained values are equal
-   */
-  bool operator==( Quantity< Tag > i_Other ) const
-  {
-    return m_Value == i_Other.m_Value;
-  }
+  friend bool operator==( Quantity< Tag >, Quantity< Tag > ) = default; ///< Equality operator
+  friend auto operator<=>( Quantity< Tag >, Quantity< Tag > ) = default;///< Spaceship operator
 
 private:
 

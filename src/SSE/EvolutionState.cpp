@@ -31,7 +31,7 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_AngularMomentumLossRate, "m_AngularMomentumLossRate" );
 
-  if( i_rState.m_CoreRadius.Value() > i_rState.m_TrackPoint.m_Radius.Value() )
+  if( i_rState.m_CoreRadius > i_rState.m_TrackPoint.m_Radius )
   {
     Herd::Exceptions::ThrowPreconditionError( "m_CoreRadus", "<=m_Radius", i_rState.m_CoreRadius.Value() );
   }
