@@ -19,11 +19,11 @@
 #include <Physics/LuminosityRadiusTemperature.h>
 
 #include <algorithm>
-#include <cstddef>
 #include <cmath>
+#include <cstddef>
 
 #include <boost/math/special_functions/pow.hpp>
-#include <boost/math/special_functions/relative_difference.hpp>
+#include "Eigen/Core"
 #include <range/v3/algorithm.hpp>
 #include <range/v3/view.hpp>
 
@@ -31,7 +31,7 @@ namespace
 {
 // Declaring the coefficient arrays constant prevents mapping to an Eigen matrix object
 // @formatter:off
-double eq3Coefficients[] { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.7470851e-01, 9.011915e-02,
+std::array<double, 35 > s_LCoeff { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.7470851e-01, 9.011915e-02,
     8.527626e+00, -2.441225973e+01, 5.643597107e+01, 3.706152575e+01, 5.4562406e+00,
     2.5546e-04, -1.23461e-03, -2.3246e-04, 4.5519e-04, 1.6176e-04,
     5.432889e+00, -8.62157806e+00, 1.344202049e+01, 1.451584135e+01, 3.39793084e+00,
@@ -40,7 +40,7 @@ double eq3Coefficients[] { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.747085
     5.86685e-03, -1.704237e-02, 3.872348e-02, 2.570041e-02, 3.83376e-03
 };
 
-double eq4Coefficients[] { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996966e+00, -3.0631491e-01,
+std::array< double, 45 > s_RCoeff { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996966e+00, -3.0631491e-01,
     6.597788e+00, -4.2450044e-01, -1.213339427e+01, -1.073509484e+01, -2.51487077e+00,
     1.008855000e+01, -7.11727086e+00, -3.167119479e+01, -2.424848322e+01, -5.33608972e+00,
     1.012495e+00, 3.2699690e-01, -9.23418e-03, -3.876858e-02, -4.12750e-03,
@@ -71,7 +71,8 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, 
 {
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
 
-  Eigen::Matrix< double, 5, 1 > zVector;
+  std::array< double, 5 > zVector;
+
   zVector[ 0 ] = 1;
   zVector[ 1 ] = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
   ranges::cpp20::for_each( ranges::cpp20::views::iota( 2, 5 ), [ & ]( auto i_Index ) // @suppress("Function cannot be resolved")
@@ -105,17 +106,18 @@ void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
 
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_ZVector Powers of log metallicity
+ * @param i_ZVector Powers of log metallicity in \f$ Z_{\odot} \f$
  * @return Luminosity in \f$ L_{\odot} \f$
  */
-Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
+Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, std::array< double, 5 >& i_rZVector )
 {
-  const Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( &eq3Coefficients[ 0 ] );
-  Eigen::Matrix< double, 7, 1 > eq1Coeffs = coefficientMatrix * i_ZVector;  // Eq3
+  const Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( s_LCoeff.data() );
+  const Eigen::Map< Eigen::Matrix< double, 5, 1 > > zVector( i_rZVector.data() );
+  Eigen::Matrix< double, 7, 1 > eq1Coeffs = coefficientMatrix * zVector;  // Eq3
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );
-  double m20 = boost::math::pow< 2, double >( i_Mass.Value() );
+  double m20 = i_Mass * i_Mass;
   double m30 = m20 * i_Mass;
   double m50 = m30 * m20;
   double m55 = m50 * m05;
@@ -133,17 +135,18 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
 
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_ZVector Powers of log metallicity
+ * @param i_ZVector Powers of log metallicity in \f$ Z_{\odot} \f$
  * @return Radius in \f$ R_{\odot} \f$
  */
-Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector )
+Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, std::array< double, 5 >& i_rZVector )
 {
-  const Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( &eq4Coefficients[ 0 ] );
-  Eigen::Matrix< double, 9, 1 > eq2Coeffs = coefficientMatrix * i_ZVector;  // Eq4
+  const Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( s_RCoeff.data() );
+  const Eigen::Map< Eigen::Matrix< double, 5, 1 > > zVector( i_rZVector.data() );
+  Eigen::Matrix< double, 9, 1 > eq2Coeffs = coefficientMatrix * zVector;  // Eq4
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );
-  double m20 = boost::math::pow< 2, double >( i_Mass );
+  double m20 = i_Mass * i_Mass;
   double m25 = m20 * m05;
   double m65 = boost::math::pow< 3 >( m20 ) * m05;
   double m85 = m65 * m20;

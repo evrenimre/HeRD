@@ -13,11 +13,12 @@
 #ifndef HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 #define HD2D9C3D9_9FCD_46C9_ABA8_24F21756CD03
 
-#include "Generic/Quantity.h"
-#include "Generic/QuantityRange.h"
-
-#include "Eigen/Core"
 #include "TrackPoint.h"
+
+#include <Generic/Quantity.h>
+#include <Generic/QuantityRange.h>
+
+#include <array>
 
 namespace Herd::SSE
 {
@@ -36,8 +37,8 @@ public:
 private:
   static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input
 
-  static Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS luminosity
-  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass, const Eigen::Matrix< double, 5, 1 >& i_ZVector ); ///< Computes the ZAMS radius
+  static Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass, std::array< double, 5 >& i_rZVector ); ///< Computes the ZAMS luminosity
+  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass, std::array< double, 5 >& i_rZVector ); ///< Computes the ZAMS radius
 };
 
 /**
