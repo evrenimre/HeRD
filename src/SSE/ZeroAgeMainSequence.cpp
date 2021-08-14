@@ -13,6 +13,7 @@
 #include "ZeroAgeMainSequence.h"
 
 #include "Constants.h"
+#include "SSEHelpers.h"
 
 #include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
@@ -23,24 +24,20 @@
 #include <cstddef>
 
 #include <boost/math/special_functions/pow.hpp>
-#include "Eigen/Core"
-#include <range/v3/algorithm.hpp>
-#include <range/v3/view.hpp>
 
 namespace
 {
-// Declaring the coefficient arrays constant prevents mapping to an Eigen matrix object
 // @formatter:off
-std::array<double, 35 > s_LCoeff { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.7470851e-01, 9.011915e-02,
+const std::array<double, 35 > s_ZL { 3.970417e-01, -3.2913574e-01, 3.4776688e-01, 3.7470851e-01, 9.011915e-02,
     8.527626e+00, -2.441225973e+01, 5.643597107e+01, 3.706152575e+01, 5.4562406e+00,
     2.5546e-04, -1.23461e-03, -2.3246e-04, 4.5519e-04, 1.6176e-04,
     5.432889e+00, -8.62157806e+00, 1.344202049e+01, 1.451584135e+01, 3.39793084e+00,
     5.563579e+00, -1.032345224e+01, 1.944322980e+01, 1.897361347e+01, 4.16903097e+00,
     7.8866060e-01, -2.90870942e+00, 6.54713531e+00, 4.05606657e+00, 5.3287322e-01,
     5.86685e-03, -1.704237e-02, 3.872348e-02, 2.570041e-02, 3.83376e-03
-};
+};  ///< Coefficients for luminosity calculation
 
-std::array< double, 45 > s_RCoeff { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996966e+00, -3.0631491e-01,
+const std::array< double, 45 > s_ZR { 1.715359e+00, 6.2246212e-01, -9.2557761e-01, -1.16996966e+00, -3.0631491e-01,
     6.597788e+00, -4.2450044e-01, -1.213339427e+01, -1.073509484e+01, -2.51487077e+00,
     1.008855000e+01, -7.11727086e+00, -3.167119479e+01, -2.424848322e+01, -5.33608972e+00,
     1.012495e+00, 3.2699690e-01, -9.23418e-03, -3.876858e-02, -4.12750e-03,
@@ -49,7 +46,7 @@ std::array< double, 45 > s_RCoeff { 1.715359e+00, 6.2246212e-01, -9.2557761e-01,
     3.082234e+00, 9.447205e-01, -2.15200882e+00, -2.49219496e+00, -6.3848738e-01,
     1.784778e+01, -7.4534569e+00, -4.896066856e+01, -4.005386135e+01, -9.09331816e+00,
     2.2582e-04, -1.86899e-03, 3.88783e-03, 1.42402e-03, -7.671e-05
-};
+};  ///< Coefficients for radius calculation
 // @formatter:on
 
 }
@@ -72,11 +69,8 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, 
   Validate( i_Mass, i_Z );  // Throws is the input is invalid
 
   std::array< double, 5 > zVector;
-
-  zVector[ 0 ] = 1;
-  zVector[ 1 ] = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
-  ranges::cpp20::for_each( ranges::cpp20::views::iota( 2, 5 ), [ & ]( auto i_Index ) // @suppress("Function cannot be resolved")
-      { zVector[ i_Index ] = zVector[i_Index-1]*zVector[1];} );
+  double logZs = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
+  Herd::SSE::ComputePowers( zVector, logZs );
 
   Herd::Generic::Luminosity luminosity = ComputeLuminosity( i_Mass, zVector );
   Herd::Generic::Radius radius = ComputeRadius( i_Mass, zVector );
@@ -89,6 +83,7 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, 
   output.m_InitialMetallicity = i_Z;
   output.m_Temperature.Set(
       Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius ) * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
+  output.m_Stage = Herd::SSE::EvolutionStage::e_ZAMS;
 
   return output;
 }
@@ -106,14 +101,13 @@ void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::M
 
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_ZVector Powers of log metallicity in \f$ Z_{\odot} \f$
+ * @param i_rZPowers Powers of log metallicity in \f$ Z_{\odot} \f$
  * @return Luminosity in \f$ L_{\odot} \f$
  */
-Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, std::array< double, 5 >& i_rZVector )
+Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, const std::array< double, 5 >& i_rZPowers )
 {
-  const Eigen::Map< Eigen::Matrix< double, 7, 5, Eigen::RowMajor > > coefficientMatrix( s_LCoeff.data() );
-  const Eigen::Map< Eigen::Matrix< double, 5, 1 > > zVector( i_rZVector.data() );
-  Eigen::Matrix< double, 7, 1 > eq1Coeffs = coefficientMatrix * zVector;  // Eq3
+  std::array< double, 7 > eq1Coeffs;
+  Herd::SSE::MultiplyMatrixVector( eq1Coeffs, s_ZL, i_rZPowers );  //Eq3
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );
@@ -135,14 +129,13 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
 
 /**
  * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_ZVector Powers of log metallicity in \f$ Z_{\odot} \f$
+ * @param i_rZPowers Powers of log metallicity in \f$ Z_{\odot} \f$
  * @return Radius in \f$ R_{\odot} \f$
  */
-Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, std::array< double, 5 >& i_rZVector )
+Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, const std::array< double, 5 >& i_rZPowers )
 {
-  const Eigen::Map< Eigen::Matrix< double, 9, 5, Eigen::RowMajor > > coefficientMatrix( s_RCoeff.data() );
-  const Eigen::Map< Eigen::Matrix< double, 5, 1 > > zVector( i_rZVector.data() );
-  Eigen::Matrix< double, 9, 1 > eq2Coeffs = coefficientMatrix * zVector;  // Eq4
+  std::array< double, 9 > eq2Coeffs;
+  Herd::SSE::MultiplyMatrixVector( eq2Coeffs, s_ZR, i_rZPowers );  //Eq3
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );

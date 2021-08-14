@@ -33,9 +33,10 @@ namespace Herd::SSE
  */
 void StellarRotation::InitialiseAtZAMS( Herd::SSE::EvolutionState& io_rState )
 {
-  if( io_rState.m_TrackPoint.m_Age != 0. )
+  if( io_rState.m_TrackPoint.m_Stage != Herd::SSE::EvolutionStage::e_ZAMS )
   {
-    Herd::Exceptions::ThrowPreconditionError( "m_Age", "=0", io_rState.m_TrackPoint.m_Age );
+    Herd::Exceptions::ThrowPreconditionError( "m_Stage", Herd::SSE::EvolutionStageToString( Herd::SSE::EvolutionStage::e_ZAMS ),
+        Herd::SSE::EvolutionStageToString( io_rState.m_TrackPoint.m_Stage ) );
   }
 
   Herd::SSE::ValidateEvolutionState( io_rState );
