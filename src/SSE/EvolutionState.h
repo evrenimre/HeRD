@@ -29,8 +29,6 @@ struct EvolutionState
 {
   Herd::SSE::TrackPoint m_TrackPoint; ///< Track point
 
-  Herd::Generic::Mass m_InitialMass;  ///< Mass at the beginning of evolution in \f$ M_{\odot}\f$
-
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
 
   double m_MassLossRate;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
