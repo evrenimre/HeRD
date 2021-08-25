@@ -62,7 +62,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ComputeZAMS_8cpp.html",
-"classHerd_1_1Exceptions_1_1PreconditionError.html#ace12334be4b55bd42d73fe7ae02a6a81"
+"classHerd_1_1Exceptions_1_1PreconditionError.html#a3c87f01a16ebedc8ad2e6131b529dc34",
+"structHerd_1_1SSE_1_1TrackPoint.html#a881d4f777558658b471ffa4f36aa12d8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -6,6 +6,7 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "EvolutionStage.h", "EvolutionStage_8h.html", "EvolutionStage_8h" ],
     [ "EvolutionState.cpp", "EvolutionState_8cpp.html", "EvolutionState_8cpp" ],
     [ "EvolutionState.h", "EvolutionState_8h.html", "EvolutionState_8h" ],
+    [ "MathHelpers.h", "MathHelpers_8h.html", "MathHelpers_8h" ],
     [ "StellarRotation.cpp", "StellarRotation_8cpp.html", null ],
     [ "StellarRotation.h", "StellarRotation_8h.html", [
       [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ]

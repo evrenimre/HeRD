@@ -1,6 +1,7 @@
 var EvolutionStage_8h =
 [
     [ "EvolutionStage", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583ae", [
+      [ "e_ZAMS", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aeaf182f6e6f4198fbc8a7f5df468f62c17", null ],
       [ "e_MSLM", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aeabf9082c73339ab99e365d5f3cb7896fa", null ],
       [ "e_MS", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aeab7aa810934861fa6d70c01f8a4cb5fe9", null ],
       [ "e_HG", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aea23b412c3b20ab2387e32add2f78e7acc", null ],
@@ -19,7 +20,7 @@ var EvolutionStage_8h =
       [ "e_MSn", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aea435afc00b062b9e128ad7dc337ca775c", null ],
       [ "e_Undefined", "EvolutionStage_8h.html#abfff4cd44552d6fe8771676ee95583aeacb6f3fa57416b9f9569bcb73bbf2e4ed", null ]
     ] ],
-    [ "EnumerateEvolutionStages", "EvolutionStage_8h.html#a2516aa1094ad7de074c6f23ec71c083f", null ],
+    [ "EnumerateEvolutionStages", "EvolutionStage_8h.html#a8ae80efd2262b5e15cebbb73220ef51a", null ],
     [ "EvolutionStageToString", "EvolutionStage_8h.html#aec5493c7b50657ec0fbed2e13860307f", null ],
     [ "IsAGB", "EvolutionStage_8h.html#a4b1c6b74f16e1e3affa1df36dca80b79", null ],
     [ "IsHeStar", "EvolutionStage_8h.html#a5e16e045b62428235960373056b9ebc6", null ],

@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['testexceptions_2ecpp_344',['TestExceptions.cpp',['../TestExceptions_8cpp.html',1,'']]],
-  ['testgeneric_2ecpp_345',['TestGeneric.cpp',['../TestGeneric_8cpp.html',1,'']]],
-  ['testphysics_2ecpp_346',['TestPhysics.cpp',['../TestPhysics_8cpp.html',1,'']]],
-  ['testsse_2ecpp_347',['TestSSE.cpp',['../TestSSE_8cpp.html',1,'']]],
-  ['testunittestutils_2ecpp_348',['TestUnitTestUtils.cpp',['../TestUnitTestUtils_8cpp.html',1,'']]],
-  ['trackpoint_2ecpp_349',['TrackPoint.cpp',['../TrackPoint_8cpp.html',1,'']]],
-  ['trackpoint_2eh_350',['TrackPoint.h',['../TrackPoint_8h.html',1,'']]],
-  ['trackpointunittests_2ecpp_351',['TrackPointUnitTests.cpp',['../TrackPointUnitTests_8cpp.html',1,'']]]
+  ['ssehelpers_2epy_338',['SSEHelpers.py',['../SSEHelpers_8py.html',1,'']]],
+  ['ssetestdatamanager_2ecpp_339',['SSETestDataManager.cpp',['../SSETestDataManager_8cpp.html',1,'']]],
+  ['ssetestdatamanager_2eh_340',['SSETestDataManager.h',['../SSETestDataManager_8h.html',1,'']]],
+  ['ssetestutils_2ecpp_341',['SSETestUtils.cpp',['../SSETestUtils_8cpp.html',1,'']]],
+  ['ssetestutils_2eh_342',['SSETestUtils.h',['../SSETestUtils_8h.html',1,'']]],
+  ['stellarrotation_2ecpp_343',['StellarRotation.cpp',['../StellarRotation_8cpp.html',1,'']]],
+  ['stellarrotation_2eh_344',['StellarRotation.h',['../StellarRotation_8h.html',1,'']]],
+  ['stellarrotationunittests_2ecpp_345',['StellarRotationUnitTests.cpp',['../StellarRotationUnitTests_8cpp.html',1,'']]],
+  ['stellarwindmassloss_2ecpp_346',['StellarWindMassLoss.cpp',['../StellarWindMassLoss_8cpp.html',1,'']]],
+  ['stellarwindmassloss_2eh_347',['StellarWindMassLoss.h',['../StellarWindMassLoss_8h.html',1,'']]],
+  ['stellarwindmasslossunittests_2ecpp_348',['StellarWindMassLossUnitTests.cpp',['../StellarWindMassLossUnitTests_8cpp.html',1,'']]]
 ];
