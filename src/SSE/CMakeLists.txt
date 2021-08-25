@@ -4,6 +4,7 @@ set(HEADER_LIST Constants.h
 								EvolutionState.h
 								StellarRotation.h
 								StellarWindMassLoss.h
+								MathHelpers.h
 								TrackPoint.h
 								ZeroAgeMainSequence.h 
 )
