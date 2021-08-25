@@ -42,7 +42,7 @@ void ComputePowers( std::array< double, N >& o_Result, double i_Base ); ///< Fil
  * @pre \c Size=Matrix*Vector
  */
 template< std::size_t Size, std::size_t Row, std::size_t Column >
-void Herd::SSE::MultiplyMatrixVector( std::array< double, Row >& o_rResult, const std::array< double, Size >& i_rMatrix,
+void MultiplyMatrixVector( std::array< double, Row >& o_rResult, const std::array< double, Size >& i_rMatrix,
     const std::array< double, Column >& i_rVector )
 {
   static_assert( Size == Row * Column );
@@ -76,7 +76,7 @@ double ComputeInnerProduct( const std::array< double, N >& i_rLeft, const std::a
  * @pre \c N>1
  */
 template< std::size_t N >
-void Herd::SSE::ComputePowers( std::array< double, N >& o_Result, double i_Base )
+void ComputePowers( std::array< double, N >& o_Result, double i_Base )
 {
   static_assert( N > 0 );
 
