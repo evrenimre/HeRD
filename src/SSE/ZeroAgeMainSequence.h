@@ -32,13 +32,43 @@ class ZeroAgeMainSequence
 {
 public:
 
-  static Herd::SSE::TrackPoint Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Computes the track point at ZAMS
+  ZeroAgeMainSequence( Herd::Generic::Metallicity i_Metallicity );  ///< Constructor
+  Herd::SSE::TrackPoint Compute( Herd::Generic::Mass i_Mass ); ///< Computes the luminosity, radius and temperature at ZAMS
 
 private:
-  static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ); ///< Validates the input
 
-  static Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass, const std::array< double, 5 >& i_rZPowers ); ///< Computes the ZAMS luminosity
-  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass, const std::array< double, 5 >& i_rZPowers ); ///< Computes the ZAMS radius
+  void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Metallicity );  ///< Computes metallicity dependents
+
+  void ComputeMassDependents( Herd::Generic::Mass i_Mass );  ///< Computes mass dependents
+  Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{ZAMS} \f$
+  Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ R_{ZAMS} \f$
+
+  /**
+   * @brief Various quantities and values that depend on metallicity only
+   */
+  struct MetallicityDependents
+  {
+    Herd::Generic::Metallicity m_EvaluatedAt; ///< Dependents calculated at this value
+
+    std::array< double, 7 > m_LZAMS;  ///< Coefficients for \f$ L_{ZAMS}\f$
+    std::array< double, 9 > m_RZAMS;  ///< Coefficients for \f$ R_{ZAMS}\f$
+  };
+
+  MetallicityDependents m_ZDependents;  ///< Metallicity dependents
+
+  /**
+   * @brief Various quantities and values that depend on mass and metallicity
+   */
+  struct MassDependents
+  {
+    Herd::Generic::Mass m_EvaluatedAt;  ///< Dependents calculated at this value
+
+    Herd::Generic::Luminosity m_LZAMS; ///< \f$ L_{ZAMS}\f$
+    Herd::Generic::Radius m_RZAMS; ///< \f$ R_{ZAMS}\f$
+    Herd::Generic::Temperature m_TZAMS;  ///< \f$ T_{ZAMS}\f$
+  };
+
+  MassDependents m_MDependents; ///< Mass dependents
 };
 
 /**

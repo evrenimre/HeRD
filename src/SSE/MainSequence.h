@@ -19,11 +19,13 @@
 #include <Generic/Quantity.h>
 
 #include <array>
+#include <memory>
 #include <utility>
 
 namespace Herd::SSE
 {
 class EvolutionState;
+class ZeroAgeMainSequence;
 
 /**
  * @brief Main sequence evolution
@@ -55,7 +57,7 @@ private:
   double ComputeRHook( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \Delta_R\f$
 
   /**
-   * @brief Quantites that depend on metallicity
+   * @brief Various quantities and values that depend on metallicity only
    */
   struct MetallicityDependents
   {
@@ -80,12 +82,14 @@ private:
     std::array< double, 6 > m_BetaR;  ///< \f$ \beta_R \f$ calculations
     std::array< double, 7 > m_GammaR;  ///< \f$ \gamma_R \f$ calculations
     std::array< double, 7 > m_Rhook;  ///< \f$ \R_{hook} \f$ calculations
+
+    std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial  metallicity
 
   /**
-   * @brief Quantities that depend on mass
+   * @brief Various quantities and values that depend on mass
    * @remarks Note that these quantities also depend on metallicity via the equation coefficients
    */
   struct MassDependents

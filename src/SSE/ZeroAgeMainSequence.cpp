@@ -55,57 +55,78 @@ namespace Herd::SSE
 struct ZeroAgeMainSequenceAlgorithmSpecs;
 
 /**
- * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_Z Metallicity
- * @return Partially initialised track point at ZAMS
- * @pre \c i_Mass is within \c s_MassRange
- * @pre \c i_Z is is within \c s_ZRange
- * @remarks Only luminosity, radius and temperature are computed
+ * @param i_Metallicity Initial metallicity
+ * @pre \c i_Metallicity is within the permissible range
+ * @throws PreconditionError If the precondition is violated
  */
-Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z ) // @suppress("Member declaration not found")
+ZeroAgeMainSequence::ZeroAgeMainSequence( Herd::Generic::Metallicity i_Metallicity )
 {
-  Validate( i_Mass, i_Z );  // Throws is the input is invalid
+  ZeroAgeMainSequenceSpecs::s_ZRange.ThrowIfNotInRange( i_Metallicity, "i_Metallicity" );  // Metallicity is within the allowed range
+  ComputeMetallicityDependents( i_Metallicity );
+}
 
-  std::array< double, 5 > zVector;
-  double logZs = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
-  Herd::SSE::ComputePowers( zVector, logZs );
+/**
+ * @param i_Mass Mass
+ * @return Track point with radius, luminosity and temperature at ZAMS
+ * @pre \c i_Mass is within the permissible range
+ * @throws PreconditionError If the precondition is violated
+ */
+Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass )
+{
+  ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
 
-  Herd::Generic::Luminosity luminosity = ComputeLuminosity( i_Mass, zVector );
-  Herd::Generic::Radius radius = ComputeRadius( i_Mass, zVector );
+  if( i_Mass != m_MDependents.m_EvaluatedAt )
+  {
+    ComputeMassDependents( i_Mass );
+  }
 
   Herd::SSE::TrackPoint output;
   output.m_Age.Set( 0 );
-  output.m_Luminosity = luminosity;
-  output.m_Radius = radius;
+  output.m_Luminosity = m_MDependents.m_LZAMS;
+  output.m_Radius = m_MDependents.m_RZAMS;
   output.m_Mass = i_Mass;
-  output.m_InitialMetallicity = i_Z;
-  output.m_Temperature.Set(
-      Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius ) * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
+  output.m_InitialMetallicity = m_ZDependents.m_EvaluatedAt;
+  output.m_Temperature = m_MDependents.m_TZAMS;
   output.m_Stage = Herd::SSE::EvolutionStage::e_ZAMS;
 
   return output;
 }
 
 /**
- * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_Z Metallicity
- * @throws PreconditionError if preconditions are violated
+ * @param i_Metallicity Metallicity
  */
-void ZeroAgeMainSequence::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z )
+void ZeroAgeMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Metallicity )
 {
-  ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
-  ZeroAgeMainSequenceSpecs::s_ZRange.ThrowIfNotInRange( i_Z, "i_Z" );  // Metallicity is within the allowed range
+  m_ZDependents.m_EvaluatedAt = i_Metallicity;
+
+  std::array< double, 5 > zetaPowers;
+  double logZeta = log10( i_Metallicity / Herd::SSE::Constants::s_SolarMetallicityTout96 );
+  Herd::SSE::ComputePowers( zetaPowers, logZeta );
+
+  // Eq. 3
+  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LZAMS, s_ZL, zetaPowers );
+  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_RZAMS, s_ZR, zetaPowers );
 }
 
 /**
- * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_rZPowers Powers of log metallicity in \f$ Z_{\odot} \f$
- * @return Luminosity in \f$ L_{\odot} \f$
+ * @param i_Mass Mass
  */
-Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass, const std::array< double, 5 >& i_rZPowers )
+void ZeroAgeMainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
-  std::array< double, 7 > a;  // Coefficients
-  Herd::SSE::MultiplyMatrixVector( a, s_ZL, i_rZPowers );  //Eq. 3
+  m_MDependents.m_LZAMS = ComputeLuminosity( i_Mass );
+  m_MDependents.m_RZAMS = ComputeRadius( i_Mass );
+  m_MDependents.m_TZAMS.Set(
+      Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( m_MDependents.m_LZAMS, m_MDependents.m_RZAMS )
+          * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
+}
+
+/**
+ * @param i_Mass Mass
+ * @return \f$ L_{ZAMS} \f$
+ */
+Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass ) const
+{
+  auto& rA = m_ZDependents.m_LZAMS;
 
   // Powers of mass
   std::array< double, 6 > massPowers;
@@ -122,21 +143,19 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
   double m55 = massPowers[ 2 ] * m05; // m5.5
 
   // Eq. 1
-  double num = m55 * ( a[ 0 ] + m55 * a[ 1 ] );
-  double den = Herd::SSE::ComputeInnerProduct( { a[ 2 ], 1., a[ 3 ], a[ 4 ], a[ 5 ], a[ 6 ] }, massPowers );
+  double num = m55 * ( rA[ 0 ] + m55 * rA[ 1 ] );
+  double den = Herd::SSE::ComputeInnerProduct( { rA[ 2 ], 1., rA[ 3 ], rA[ 4 ], rA[ 5 ], rA[ 6 ] }, massPowers );
 
   return Herd::Generic::Luminosity( num / den );
 }
 
 /**
- * @param i_Mass Mass in \f$ M_{\odot} \f$
- * @param i_rZPowers Powers of log metallicity in \f$ Z_{\odot} \f$
- * @return Radius in \f$ R_{\odot} \f$
+ * @param i_Mass Mass
+ * @return \f$ R_{ZAMS}\f$
  */
-Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass, const std::array< double, 5 >& i_rZPowers )
+Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass ) const
 {
-  std::array< double, 9 > a;
-  Herd::SSE::MultiplyMatrixVector( a, s_ZR, i_rZPowers );  //Eq. 3
+  auto& rA = m_ZDependents.m_RZAMS;
 
   // Powers of mass
   double m05 = std::sqrt( i_Mass );
@@ -159,8 +178,8 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
   massPowersDen[ 4 ] = massPowersNum[ 4 ];  // m^19.5
 
   // Eq. 2
-  double num = Herd::SSE::ComputeInnerProduct( { a[ 0 ], a[ 1 ], a[ 2 ], a[ 3 ], a[ 4 ] }, massPowersNum );
-  double den = Herd::SSE::ComputeInnerProduct( { a[ 5 ], a[ 6 ], a[ 7 ], 1., a[ 8 ] }, massPowersDen );
+  double num = Herd::SSE::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ], rA[ 2 ], rA[ 3 ], rA[ 4 ] }, massPowersNum );
+  double den = Herd::SSE::ComputeInnerProduct( { rA[ 5 ], rA[ 6 ], rA[ 7 ], 1., rA[ 8 ] }, massPowersDen );
 
   return Herd::Generic::Radius( num / den );
 }

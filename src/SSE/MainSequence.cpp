@@ -18,7 +18,6 @@
 #include "StellarRotation.h"
 #include "ZeroAgeMainSequence.h"
 
-#include <Exceptions/ExceptionWrappers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
 #include <cmath>
@@ -190,7 +189,7 @@ namespace Herd::SSE
  */
 MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
 {
-  Herd::Generic::ThrowIfNotPositive( i_InitialMetallicity, "Metallicity" );
+  Herd::Generic::ThrowIfNotPositive( i_InitialMetallicity, "i_InitialMetallicity" );
 
   ComputeMetallicityDependents( i_InitialMetallicity );
 }
@@ -205,8 +204,8 @@ MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
 bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 {
   // Validation
-  Herd::Generic::ThrowIfNotPositive( io_rState.m_TrackPoint.m_Mass, "Mass" );
-  Herd::Generic::ThrowIfNegative( io_rState.m_TrackPoint.m_Age, "Age" );
+  Herd::Generic::ThrowIfNotPositive( io_rState.m_TrackPoint.m_Mass, "m_Mass" );
+  Herd::Generic::ThrowIfNegative( io_rState.m_TrackPoint.m_Age, "m_Age" );
   
   auto& rTrackPoint = io_rState.m_TrackPoint;
   auto mass = rTrackPoint.m_Mass;
@@ -422,6 +421,9 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
     double left = 0.95 - ( 10. / 3. ) * ( i_Z - 0.01 );
     m_ZDependents.m_X = std::max( { 0.95, left, extra } );
   }
+
+  // Initialise the ZAMS computer
+  m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
 }
 
 /**
@@ -476,7 +478,7 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
   // ZAMS
-  Herd::SSE::TrackPoint zams = Herd::SSE::ZeroAgeMainSequence::Compute( i_Mass, m_ZDependents.m_EvaluatedAt );
+  Herd::SSE::TrackPoint zams = m_ZDependents.m_pZAMSComputer->Compute( i_Mass );
   m_MDependents.m_LZAMS = zams.m_Luminosity;
   m_MDependents.m_RZAMS = zams.m_Radius;
 

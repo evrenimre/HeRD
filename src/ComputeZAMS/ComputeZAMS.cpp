@@ -48,7 +48,8 @@ int main( int argc, char* argv[] )
     Herd::Generic::Mass mass( argument_map[ "mass" ].as< double >() );
     Herd::Generic::Metallicity metallicity( argument_map[ "metallicity" ].as< double >() );
 
-    Herd::SSE::TrackPoint zamsPoint = Herd::SSE::ZeroAgeMainSequence::Compute( mass, metallicity ); // @suppress("Invalid arguments")
+    Herd::SSE::ZeroAgeMainSequence zams( metallicity );
+    Herd::SSE::TrackPoint zamsPoint = zams.Compute( mass ); // @suppress("Invalid arguments")
     std::cout << " Luminosity " << zamsPoint.m_Luminosity.Value() << " L_Sun \n";
     std::cout << " Radius " << zamsPoint.m_Radius.Value() << " R_Sun \n";
     std::cout << " Temperature " << zamsPoint.m_Temperature.Value() << " K \n";
