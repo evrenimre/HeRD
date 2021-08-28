@@ -15,7 +15,7 @@
 
 namespace Herd::SSE
 {
-class EvolutionState;
+struct EvolutionState;
 
 /**
  * @brief Interface class for updating the star state in an evolution phase

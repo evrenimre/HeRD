@@ -24,7 +24,7 @@
 
 namespace Herd::SSE
 {
-class EvolutionState;
+struct EvolutionState;
 class ZeroAgeMainSequence;
 
 /**

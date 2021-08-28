@@ -312,7 +312,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_TBGB, s_ZTBGB, zetaPowers3 );
 
   // ThookCoefficients
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Thook, s_ZTBGB, zetaPowers3 );
+  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Thook, s_ZThook, zetaPowers3 );
 
   // LTMS
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LTMS, s_ZLTMS, zetaPowers4 );
