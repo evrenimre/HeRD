@@ -15,6 +15,8 @@
 #include "Constants.h"
 #include "EvolutionState.h"
 #include "MathHelpers.h"
+#include "StellarRotation.h"
+#include "ZeroAgeMainSequence.h"
 
 #include <Exceptions/ExceptionWrappers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
@@ -182,24 +184,30 @@ namespace Herd::SSE
 {
 
 /**
- * @param i_rZAMS Star at ZAMS
- * @pre \c i_rZAMS is a track point at ZAMS
- * @throws PreconditionError If preconditions are not met
+ * @param i_InitialMetallicity Metallicity at ZAMS
+ * @pre \c i_InitialMetallicity is in (0,1]
+ * @throws PreconditionError If the precondition is violated
  */
-MainSequence::MainSequence( const Herd::SSE::TrackPoint& i_rZAMS ) :
-    m_ZAMS( i_rZAMS )
+MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
 {
-  if( i_rZAMS.m_Stage != Herd::SSE::EvolutionStage::e_ZAMS )
-  {
-    Exceptions::ThrowPreconditionError( "i_rZAMS", Herd::SSE::EvolutionStageToString( Herd::SSE::EvolutionStage::e_ZAMS ),
-        Herd::SSE::EvolutionStageToString( i_rZAMS.m_Stage ) );
-  }
+  Herd::Generic::ThrowIfNotPositive( i_InitialMetallicity, "Metallicity" );
 
-  ComputeMetallicityDependents();
+  ComputeMetallicityDependents( i_InitialMetallicity );
 }
 
+/**
+ * @param[in, out] io_rState Evolution state
+ * @return \c false if Star is not in the evolution stage
+ * @pre Mass in \c io_rState is positive
+ * @pre Age in \c io_rState is non-negative
+ * @throws PreconditionError If any preconditions are violated
+ */
 bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 {
+  // Validation
+  Herd::Generic::ThrowIfNotPositive( io_rState.m_TrackPoint.m_Mass, "Mass" );
+  Herd::Generic::ThrowIfNegative( io_rState.m_TrackPoint.m_Age, "Age" );
+  
   auto& rTrackPoint = io_rState.m_TrackPoint;
   auto mass = rTrackPoint.m_Mass;
 
@@ -240,9 +248,9 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   {
     double term1 = m_MDependents.m_AlphaL * tau;
     double term2 = BXhC( tau, m_MDependents.m_BetaL, m_MDependents.m_Eta );
-    double term3 = ( std::log10( m_MDependents.m_LTMS / m_ZAMS.m_Luminosity ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau * tau;
+    double term3 = ( std::log10( m_MDependents.m_LTMS / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau * tau;
     double term4 = m_MDependents.m_DeltaL * ( ( tau1 - tau2 ) * ( tau1 + tau2 ) );
-    luminosity.Set( boost::math::pow< 10 >( term1 + term2 + term3 - term4 ) * m_ZAMS.m_Luminosity );
+    luminosity.Set( boost::math::pow< 10 >( term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
   }
 
   Herd::Generic::Radius radius;
@@ -250,10 +258,10 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     double term1 = m_MDependents.m_AlphaR * tau;
     double term2 = m_MDependents.m_BetaR * boost::math::pow< 10 >( tau );
     double term3 = m_MDependents.m_GammaR * boost::math::pow< 40 >( tau );
-    double term4 = ( std::log10( m_MDependents.m_RTMS / m_ZAMS.m_Radius ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR - m_MDependents.m_GammaR )
+    double term4 = ( std::log10( m_MDependents.m_RTMS / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR - m_MDependents.m_GammaR )
         * boost::math::pow< 3 >( tau );
     double term5 = m_MDependents.m_DeltaR * ( boost::math::pow< 3 >( tau1 ) - boost::math::pow< 3 >( tau2 ) );
-    radius.Set( boost::math::pow< 10 >( term1 + term2 + term3 + term4 + term5 ) * m_ZAMS.m_Radius );
+    radius.Set( boost::math::pow< 10 >( term1 + term2 + term3 + term4 + term5 ) * m_MDependents.m_RZAMS );
   }
 
   // AMASS.SSE, special case handling for low mass stars
@@ -275,15 +283,20 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_Stage = rTrackPoint.m_Mass < 0.7 ? Herd::SSE::EvolutionStage::e_MSLM : Herd::SSE::EvolutionStage::e_MS;
   rTrackPoint.m_CoreMass.Set( 0. );
 
+  if( rTrackPoint.m_Age == 0 )
+  {
+    [[unlikely]] Herd::SSE::StellarRotation::InitialiseAtZAMS( io_rState );
+  }
+
   return true;
 }
 
-void MainSequence::ComputeMetallicityDependents()
+void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z )
 {
-  double z = m_ZAMS.m_InitialMetallicity;
+  m_ZDependents.m_EvaluatedAt = i_Z;
 
   std::array< double, 5 > zetaPowers4;
-  double zeta = std::log10( z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
+  double zeta = std::log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
   ComputePowers( zetaPowers4, zeta );
 
   std::array< double, 4 > zetaPowers3;
@@ -315,7 +328,7 @@ void MainSequence::ComputeMetallicityDependents()
     auto& rA = m_ZDependents.m_AlphaL;
     rA[ 4 ] = std::max( 0.9, tempAlphaL[ 7 ] );
     rA[ 5 ] = std::max( 1., tempAlphaL[ 8 ] );
-    if( z > 0.01 )
+    if( i_Z > 0.01 )
     {
       rA[ 4 ] = std::min( rA[ 4 ], 1. );
       rA[ 5 ] = std::min( rA[ 5 ], 1.1 );
@@ -344,7 +357,7 @@ void MainSequence::ComputeMetallicityDependents()
   m_ZDependents.m_RTMS[ 0 ] *= m_ZDependents.m_RTMS[ 2 ];
   m_ZDependents.m_RTMS[ 1 ] *= m_ZDependents.m_RTMS[ 2 ];
 
-  double sigma = log10( z );
+  double sigma = log10( i_Z );
   m_ZDependents.m_RTMS[ 10 ] = std::pow( 10., std::max( { 0.097 - 0.1072 * ( sigma + 3. ), 0.097, std::min( 0.1461, 0.1461 + 0.1237 * ( sigma + 2 ) ) } ) );
 
   {
@@ -365,7 +378,7 @@ void MainSequence::ComputeMetallicityDependents()
     rA[ 6 ] = std::max( 0.8, std::min( tempAlphaR[ 9 ], rA[ 6 ] ) );
     rA[ 7 ] = tempAlphaR[ 5 ];
     rA[ 8 ] = std::max( 0.065, tempAlphaR[ 10 ] );
-    rA[ 9 ] = z >= 0.004 ? tempAlphaR[ 11 ] : std::min( 0.055, tempAlphaR[ 11 ] );
+    rA[ 9 ] = i_Z >= 0.004 ? tempAlphaR[ 11 ] : std::min( 0.055, tempAlphaR[ 11 ] );
     rA[ 10 ] = std::clamp( tempAlphaR[ 12 ], 0.091, 0.121 );
     rA[ 11 ] = ComputeAlphaR( Herd::Generic::Mass( rA[ 6 ] ) );
     if( rA[ 5 ] > rA[ 6 ] )
@@ -377,7 +390,7 @@ void MainSequence::ComputeMetallicityDependents()
 
   // BetaR
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_BetaR, s_ZBetaR, zetaPowers3 );
-  m_ZDependents.m_BetaR[ 5 ] = z <= 0.01 ? m_ZDependents.m_BetaR[ 5 ] : std::max( 0.95, m_ZDependents.m_BetaR[ 5 ] );
+  m_ZDependents.m_BetaR[ 5 ] = i_Z <= 0.01 ? m_ZDependents.m_BetaR[ 5 ] : std::max( 0.95, m_ZDependents.m_BetaR[ 5 ] );
   m_ZDependents.m_BetaR[ 6 ] = std::clamp( m_ZDependents.m_BetaR[ 6 ], 1.4, 1.6 );
 
   // GammaR
@@ -401,12 +414,12 @@ void MainSequence::ComputeMetallicityDependents()
   m_ZDependents.m_Rhook[ 6 ] = std::clamp( m_ZDependents.m_Rhook[ 6 ], 0.45, 1.3 );
 
   // Maximum value of eta
-  m_ZDependents.m_MaxEta = z > 0.0009 ? 10. : 20.;
+  m_ZDependents.m_MaxEta = i_Z > 0.0009 ? 10. : 20.;
 
   // Eq. 6, but AMUSE.SSE adds an extra term
   {
-    double extra = std::min( 0.99, 0.98 - ( 100. / 7. ) * ( z - 0.001 ) );
-    double left = 0.95 - ( 10. / 3. ) * ( z - 0.01 );
+    double extra = std::min( 0.99, 0.98 - ( 100. / 7. ) * ( i_Z - 0.001 ) );
+    double left = 0.95 - ( 10. / 3. ) * ( i_Z - 0.01 );
     m_ZDependents.m_X = std::max( { 0.95, left, extra } );
   }
 }
@@ -462,6 +475,11 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
  */
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
+  // ZAMS
+  Herd::SSE::TrackPoint zams = Herd::SSE::ZeroAgeMainSequence::Compute( i_Mass, m_ZDependents.m_EvaluatedAt );
+  m_MDependents.m_LZAMS = zams.m_Luminosity;
+  m_MDependents.m_RZAMS = zams.m_Radius;
+
   // Luminosity
   m_MDependents.m_LTMS = ComputeLTMS( i_Mass );
 
@@ -598,7 +616,7 @@ Herd::Generic::Radius MainSequence::ComputeRTMS( Herd::Generic::Mass i_Mass ) co
     // Eq. 9a
     double num = ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
     double den = ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
-    return Herd::Generic::Radius( std::max( 1.5 * m_ZAMS.m_Radius, num / den ) ); // AMASS.SSE added a check to ensure that RTMS > RZAMS
+    return Herd::Generic::Radius( std::max( 1.5 * m_MDependents.m_RZAMS, num / den ) ); // AMASS.SSE added a check to ensure that RTMS > RZAMS
   }
 
   if( i_Mass >= rA[ 10 ] + 0.1 )

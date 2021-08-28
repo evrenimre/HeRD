@@ -32,12 +32,12 @@ class EvolutionState;
 class MainSequence : public Herd::SSE::IPhase
 {
 public:
-  MainSequence( const Herd::SSE::TrackPoint& i_rZAMS ); ///< Constructor
+  MainSequence( Herd::Generic::Metallicity i_InitialMetallicity ); ///< Constructor
   bool Evolve( Herd::SSE::EvolutionState& io_rState ) override; ///< Evolves the state
 
 private:
 
-  void ComputeMetallicityDependents(); ///< Computes various metallicity-dependent quantities
+  void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
 
   std::pair< Herd::Generic::Age, Herd::Generic::Age > ComputeTimescales( Herd::Generic::Mass i_Mass ) const; ///< Computes the relevant timescales
 
@@ -54,13 +54,13 @@ private:
   double ComputeGammaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_R\f$
   double ComputeRHook( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \Delta_R\f$
 
-  Herd::SSE::TrackPoint m_ZAMS; ///< Star at zero age main sequence
-
   /**
    * @brief Quantites that depend on metallicity
    */
   struct MetallicityDependents
   {
+    Herd::Generic::Metallicity m_EvaluatedAt; ///< Dependents calculated at this value
+
     Herd::Generic::Mass m_Mhook;  ///< Minimum initial mass for a hook
     Herd::Generic::Mass m_MHeF; ///< Maximum initial mass for a He flash
     Herd::Generic::Mass m_MFGB; ///< Maximum initial mass for He to ignite on the first giant branch
@@ -90,10 +90,13 @@ private:
    */
   struct MassDependents
   {
-    Herd::Generic::Mass m_EvaluatedAt; ///< Variables
+    Herd::Generic::Mass m_EvaluatedAt; ///< Dependents calculated at this value
 
     Herd::Generic::Age m_TMS; ///< MS duration
     Herd::Generic::Age m_Thook;  ///< Start of hook formation
+
+    Herd::Generic::Luminosity m_LZAMS;  ///< Luminosity at ZAMS
+    Herd::Generic::Radius m_RZAMS; ///< Radius at ZAMS
 
     Herd::Generic::Luminosity m_LTMS;  ///< Luminosity at TMS
     double m_AlphaL = 0;  ///< \f$ \alpha_L \f$
