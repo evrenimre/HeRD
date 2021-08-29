@@ -26,6 +26,7 @@ namespace Herd::SSE
 void ValidateEvolutionState( const EvolutionState& i_rState )
 {
   Herd::SSE::ValidateTrackPoint( i_rState.m_TrackPoint );
+  Herd::Generic::ThrowIfNegative( i_rState.m_EffectiveAge, "m_EffectiveAge" );
   Herd::Generic::ThrowIfNegative( i_rState.m_CoreRadius, "m_CoreRadius" );
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_AngularMomentumLossRate, "m_AngularMomentumLossRate" );

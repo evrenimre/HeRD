@@ -29,6 +29,8 @@ struct EvolutionState
 {
   Herd::SSE::TrackPoint m_TrackPoint; ///< Track point
 
+  Herd::Generic::Age m_EffectiveAge;  ///< Effective age to represent the ageing effect of mass loss
+
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
 
   double m_MassLossRate;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$

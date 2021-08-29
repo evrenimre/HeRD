@@ -203,7 +203,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 {
   // Validation
   Herd::Generic::ThrowIfNotPositive( io_rState.m_TrackPoint.m_Mass, "m_Mass" );
-  Herd::Generic::ThrowIfNegative( io_rState.m_TrackPoint.m_Age, "m_Age" );
+  Herd::Generic::ThrowIfNegative( io_rState.m_EffectiveAge, "m_EffectiveAge" );
   
   auto& rTrackPoint = io_rState.m_TrackPoint;
   auto mass = rTrackPoint.m_Mass;
@@ -221,7 +221,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   }
 
   // Not a MS star
-  if( rTrackPoint.m_Age >= tMS )
+  if( io_rState.m_EffectiveAge >= tMS )
   {
     return false;
   }
@@ -234,9 +234,9 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     ComputeMassDependents( mass );
   }
 
-  double tau = rTrackPoint.m_Age / tMS; // Eq. 11.  Progress in MS
+  double tau = io_rState.m_EffectiveAge / tMS; // Eq. 11.  Progress in MS
 
-  double tInthook = rTrackPoint.m_Age / thook;
+  double tInthook = io_rState.m_EffectiveAge / thook;
   double tau1 = std::min( 1., tInthook );  // Eq. 14. This term linearly ramps up until hook
   double tau2 = std::clamp( 0., 1., 100 * tInthook - 99. ); // Eq. 15. This term swings sharply from (0.99, 0.) to ( 1.0, 1.), i.e. right before the hook
 
@@ -485,7 +485,7 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_BetaL = ComputeBetaL( i_Mass );
   m_MDependents.m_DeltaL = ComputeLHook( i_Mass );
 
-  m_MDependents.m_Eta = std::clamp( 10., m_ZDependents.m_MaxEta, std::lerp( 10., 20., ( i_Mass - 1 ) / 0.1 ) ); // Eq. 18 and linear interpolation for Z <= 0.0009 . If Z> 0.0009, since m_MaxEta = 10, neta becomes 10
+  m_MDependents.m_Eta = std::clamp( 10., m_ZDependents.m_MaxEta, std::lerp( 10., 20., ( i_Mass - 1 ) / 0.1 ) ); // Eq. 18 and linear interpolation for Z <= 0.0009 . If Z> 0.0009, since m_MaxEta = 10, eta becomes 10
 
   // Radius
   m_MDependents.m_RTMS = ComputeRTMS( i_Mass );

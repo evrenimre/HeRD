@@ -58,7 +58,7 @@ Herd::SSE::TrackPoint GenerateRandomTrackPoint( std::mt19937& io_rRng )
 /**
  * @param io_rRng Random number generator
  * @return A random evolution state
- * @remarks The output satisfies algebraic preconditions, but does not necessarily a physically viable star
+ * @remarks The output satisfies algebraic preconditions, but is not necessarily a physically viable star
  */
 Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
 {
@@ -72,6 +72,7 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
     return distribution(io_rRng);
   };
 
+  generated.m_EffectiveAge.Set( Generator( generated.m_TrackPoint.m_Age, 1.5 * generated.m_TrackPoint.m_Age ) );
   generated.m_CoreRadius.Set( Generator( 0., generated.m_TrackPoint.m_Radius.Value() ) );
   generated.m_MassLossRate = Generator( 0., 1e-4 );
   generated.m_AngularMomentumLossRate = Generator( 0., 715. );
