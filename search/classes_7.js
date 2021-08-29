@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['trackpoint_285',['TrackPoint',['../structHerd_1_1SSE_1_1TrackPoint.html',1,'Herd::SSE']]]
+  ['randomtestfixture_333',['RandomTestFixture',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html',1,'Herd::UnitTestUtils']]],
+  ['runtimeerror_334',['RuntimeError',['../classHerd_1_1Exceptions_1_1RuntimeError.html',1,'Herd::Exceptions']]]
 ];

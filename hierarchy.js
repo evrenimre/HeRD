@@ -9,7 +9,14 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "Herd::SSE::IPhase", "classHerd_1_1SSE_1_1IPhase.html", [
+      [ "Herd::SSE::MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", null ]
+    ] ],
     [ "Herd::Physics::LuminosityRadiusTemperature", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html", null ],
+    [ "Herd::SSE::MainSequence::MassDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html", null ],
+    [ "Herd::SSE::ZeroAgeMainSequence::MassDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html", null ],
+    [ "Herd::SSE::MainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html", null ],
+    [ "Herd::SSE::ZeroAgeMainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html", null ],
     [ "Herd::Generic::Quantity< Tag >", "classHerd_1_1Generic_1_1Quantity.html", null ],
     [ "Herd::Generic::QuantityRange< BoundaryPolicy >", "classHerd_1_1Generic_1_1QuantityRange.html", null ],
     [ "Herd::UnitTestUtils::RandomTestFixture", "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html", null ],

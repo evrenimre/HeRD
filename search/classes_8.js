@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['zeroagemainsequence_286',['ZeroAgeMainSequence',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html',1,'Herd::SSE']]],
-  ['zeroagemainsequencespecs_287',['ZeroAgeMainSequenceSpecs',['../structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html',1,'Herd::SSE']]]
+  ['ssetestdatamanager_335',['SSETestDataManager',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html',1,'Herd::SSE::UnitTests']]],
+  ['stellarrotation_336',['StellarRotation',['../classHerd_1_1SSE_1_1StellarRotation.html',1,'Herd::SSE']]],
+  ['stellarwindmassloss_337',['StellarWindMassLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html',1,'Herd::SSE']]]
 ];
