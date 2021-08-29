@@ -55,14 +55,14 @@ namespace Herd::SSE
 struct ZeroAgeMainSequenceAlgorithmSpecs;
 
 /**
- * @param i_Metallicity Initial metallicity
- * @pre \c i_Metallicity is within the permissible range
+ * @param i_Z Initial metallicity
+ * @pre \c i_Z is within the permissible range
  * @throws PreconditionError If the precondition is violated
  */
-ZeroAgeMainSequence::ZeroAgeMainSequence( Herd::Generic::Metallicity i_Metallicity )
+ZeroAgeMainSequence::ZeroAgeMainSequence( Herd::Generic::Metallicity i_Z )
 {
-  ZeroAgeMainSequenceSpecs::s_ZRange.ThrowIfNotInRange( i_Metallicity, "i_Metallicity" );  // Metallicity is within the allowed range
-  ComputeMetallicityDependents( i_Metallicity );
+  ZeroAgeMainSequenceSpecs::s_ZRange.ThrowIfNotInRange( i_Z, "i_Z" );  // Metallicity is within the allowed range
+  ComputeMetallicityDependents( i_Z );
 }
 
 /**
@@ -93,14 +93,14 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass )
 }
 
 /**
- * @param i_Metallicity Metallicity
+ * @param i_Z Metallicity
  */
-void ZeroAgeMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Metallicity )
+void ZeroAgeMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z )
 {
-  m_ZDependents.m_EvaluatedAt = i_Metallicity;
+  m_ZDependents.m_EvaluatedAt = i_Z;
 
   std::array< double, 5 > zetaPowers;
-  double logZeta = log10( i_Metallicity / Herd::SSE::Constants::s_SolarMetallicityTout96 );
+  double logZeta = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
   Herd::SSE::ComputePowers( zetaPowers, logZeta );
 
   // Eq. 3

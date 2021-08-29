@@ -32,12 +32,12 @@ class ZeroAgeMainSequence
 {
 public:
 
-  ZeroAgeMainSequence( Herd::Generic::Metallicity i_Metallicity );  ///< Constructor
+  ZeroAgeMainSequence( Herd::Generic::Metallicity i_Z );  ///< Constructor
   Herd::SSE::TrackPoint Compute( Herd::Generic::Mass i_Mass ); ///< Computes the luminosity, radius and temperature at ZAMS
 
 private:
 
-  void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Metallicity );  ///< Computes metallicity dependents
+  void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z );  ///< Computes metallicity dependents
 
   void ComputeMassDependents( Herd::Generic::Mass i_Mass );  ///< Computes mass dependents
   Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{ZAMS} \f$

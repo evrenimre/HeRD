@@ -34,7 +34,7 @@ class ZeroAgeMainSequence;
 class MainSequence : public Herd::SSE::IPhase
 {
 public:
-  MainSequence( Herd::Generic::Metallicity i_InitialMetallicity ); ///< Constructor
+  MainSequence( Herd::Generic::Metallicity i_Z ); ///< Constructor
   bool Evolve( Herd::SSE::EvolutionState& io_rState ) override; ///< Evolves the state
 
 private:

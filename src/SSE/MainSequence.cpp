@@ -15,7 +15,6 @@
 #include "Constants.h"
 #include "EvolutionState.h"
 #include "MathHelpers.h"
-#include "StellarRotation.h"
 #include "ZeroAgeMainSequence.h"
 
 #include <Physics/LuminosityRadiusTemperature.h>
@@ -282,14 +281,12 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_Stage = rTrackPoint.m_Mass < 0.7 ? Herd::SSE::EvolutionStage::e_MSLM : Herd::SSE::EvolutionStage::e_MS;
   rTrackPoint.m_CoreMass.Set( 0. );
 
-  if( rTrackPoint.m_Age == 0 )
-  {
-    [[unlikely]] Herd::SSE::StellarRotation::InitialiseAtZAMS( io_rState );
-  }
-
   return true;
 }
 
+/**
+ * @param i_Z Metallicity
+ */
 void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z )
 {
   m_ZDependents.m_EvaluatedAt = i_Z;
