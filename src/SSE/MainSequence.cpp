@@ -15,7 +15,6 @@
 #include "Constants.h"
 #include "EvolutionState.h"
 #include "MathHelpers.h"
-#include "ZeroAgeMainSequence.h"
 
 #include <Physics/LuminosityRadiusTemperature.h>
 
@@ -420,7 +419,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   }
 
   // Initialise the ZAMS computer
-  m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
+  m_ZDependents.m_ZAMSComputer = std::make_optional< Herd::SSE::ZeroAgeMainSequence >( i_Z );
 }
 
 /**
@@ -475,7 +474,7 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
   // ZAMS
-  Herd::SSE::TrackPoint zams = m_ZDependents.m_pZAMSComputer->Compute( i_Mass );
+  Herd::SSE::TrackPoint zams = m_ZDependents.m_ZAMSComputer->Compute( i_Mass );
   m_MDependents.m_LZAMS = zams.m_Luminosity;
   m_MDependents.m_RZAMS = zams.m_Radius;
 

@@ -15,17 +15,17 @@
 
 #include "IPhase.h"
 #include "TrackPoint.h"
+#include "ZeroAgeMainSequence.h"
 
 #include <Generic/Quantity.h>
 
 #include <array>
-#include <memory>
+#include <optional>
 #include <utility>
 
 namespace Herd::SSE
 {
 struct EvolutionState;
-class ZeroAgeMainSequence;
 
 /**
  * @brief Main sequence evolution
@@ -83,7 +83,7 @@ private:
     std::array< double, 7 > m_GammaR;  ///< \f$ \gamma_R \f$ calculations
     std::array< double, 7 > m_Rhook;  ///< \f$ \R_{hook} \f$ calculations
 
-    std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
+    std::optional< Herd::SSE::ZeroAgeMainSequence > m_ZAMSComputer; ///< Computes the ZAMS parameters
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial  metallicity
