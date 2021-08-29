@@ -27,16 +27,16 @@ namespace Herd::SSE
 
 /**
  * @param i_rTrackPoint Track point. Luminosity, radius and core mass >=0, mass > 0, stage not undefined
- * @param i_Neta Reimers mass loss efficiency.  >=0
+ * @param i_Eta Reimers mass loss efficiency.  >=0
  * @param i_HeWind Helium star mass loss factor. >=0
  * @param i_BinaryWind Mass loss factor for binary stars. >=0
  * @param i_RocheLobe Roche lobe factor for binary stars. >=0
  * @return Mass loss rate per year in \f$ M_{\odot}\f$. >=0
  * @remarks Binary star case
  */
-double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe )
+double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Eta, double i_HeWind, double i_BinaryWind, double i_RocheLobe )
 {
-  Validate( i_rTrackPoint, i_Neta, i_HeWind, i_BinaryWind, i_RocheLobe );
+  Validate( i_rTrackPoint, i_Eta, i_HeWind, i_BinaryWind, i_RocheLobe );
 
   // MS and remnant loss
   if( Herd::SSE::IsRemnant( i_rTrackPoint.m_Stage ) || Herd::SSE::IsMS( i_rTrackPoint.m_Stage ) )
@@ -45,7 +45,7 @@ double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint,
   }
 
   // From HG to remnant
-  double dMR = ComputeReimersLoss( i_rTrackPoint, i_Neta, i_BinaryWind, i_RocheLobe );
+  double dMR = ComputeReimersLoss( i_rTrackPoint, i_Eta, i_BinaryWind, i_RocheLobe );
   double dMWR = ComputeWRLikeLoss( i_rTrackPoint );
 
   // Naked He star loss
@@ -64,17 +64,17 @@ double StellarWindMassLoss::Compute( const Herd::SSE::TrackPoint& i_rTrackPoint,
 
 /**
  * @param i_rTrackPoint Track point
- * @param i_Neta Reimers mass loss efficiency
+ * @param i_Eta Reimers mass loss efficiency
  * @param i_HeWind Helium star mass loss factor
  * @param i_BinaryWind Mass loss factor for binary stars
  * @param i_RocheLobe Roche lobe factor for binary stars
  * @throws PreconditionError if preconditions violated
  */
-void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe )
+void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Eta, double i_HeWind, double i_BinaryWind, double i_RocheLobe )
 {
   Herd::SSE::ValidateTrackPoint( i_rTrackPoint );
 
-  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_Neta, "i_Neta" ); // @suppress("Invalid arguments")
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_Eta, "i_Eta" ); // @suppress("Invalid arguments")
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_BinaryWind, "i_BinaryWind" ); // @suppress("Invalid arguments")
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_HeWind, "i_HeWind" ); // @suppress("Invalid arguments")
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_RocheLobe, "i_RocheLobe" ); // @suppress("Invalid arguments")
@@ -82,14 +82,14 @@ void StellarWindMassLoss::Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, 
 
 /**
  * @param i_rTrackPoint Track point
- * @param i_Neta Reimers mass loss efficiency
+ * @param i_Eta Reimers mass loss efficiency
  * @param i_BinaryWind Mass loss factor for binary stars
  * @param i_RocheLobe Roche lobe factor for binary stars
  * @return Loss rate
  */
-double StellarWindMassLoss::ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_BinaryWind, double i_RocheLobe )
+double StellarWindMassLoss::ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Eta, double i_BinaryWind, double i_RocheLobe )
 {
-  double lossRate = 4e-13 * i_Neta * i_rTrackPoint.m_Radius * i_rTrackPoint.m_Luminosity / i_rTrackPoint.m_Mass; // Eq. 106
+  double lossRate = 4e-13 * i_Eta * i_rTrackPoint.m_Radius * i_rTrackPoint.m_Luminosity / i_rTrackPoint.m_Mass; // Eq. 106
 
   if( i_RocheLobe > 0 )
   {

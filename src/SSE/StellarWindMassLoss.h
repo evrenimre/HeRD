@@ -29,13 +29,13 @@ class StellarWindMassLoss
 {
 public:
 
-  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Computes the mass loss per year
+  static double Compute( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Eta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Computes the mass loss per year
 
 private:
 
-  static void Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Validates the inputs
+  static void Validate( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Eta, double i_HeWind, double i_BinaryWind, double i_RocheLobe ); ///< Validates the inputs
 
-  static double ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Neta, double i_BinaryWind, double i_RocheLobe ); ///< Computes the Reimers loss
+  static double ComputeReimersLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, double i_Eta, double i_BinaryWind, double i_RocheLobe ); ///< Computes the Reimers loss
   static double ComputePulsationLoss( const Herd::SSE::TrackPoint& i_rTrackPoint );  ///< Computes the loss in AGB due to high pulsation periods
   static double ComputeMassiveStarLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the loss for massive stars
   static double ComputeWRLikeLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the Wolf-Rayet-like loss for stars with a small He envelope

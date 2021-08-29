@@ -79,7 +79,7 @@ std::vector< Herd::SSE::TrackPoint > StellarWindMassLossTestFixture::MakeTestCas
 void StellarWindMassLossTestFixture::TestFidelity( const std::vector< Herd::SSE::TrackPoint >& i_rTrack, std::size_t i_Start, double i_SampleSize )
 {
   // Default parameters
-  double neta = 0.5;
+  double eta = 0.5;
   double heWind = 1.;
   double binaryWind = 0.;
   double rocheLobe = 0.;
@@ -99,7 +99,7 @@ void StellarWindMassLossTestFixture::TestFidelity( const std::vector< Herd::SSE:
       const auto& rCurrent = i_rTrack[ idx ];
       const auto& rNext = i_rTrack[ idx + 1 ];
 
-      double massLossRate = Herd::SSE::StellarWindMassLoss::Compute( rCurrent, neta, heWind, binaryWind, rocheLobe ); // Per year
+      double massLossRate = Herd::SSE::StellarWindMassLoss::Compute( rCurrent, eta, heWind, binaryWind, rocheLobe ); // Per year
       double deltaAge = ( rNext.m_Age - rCurrent.m_Age );  // In Myears
 
       // Reference data is float. For rapidly evolving stars and densely sampled stages, time elapsed between two consecutive track points can be erroneous
@@ -161,7 +161,7 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   validPoint.m_Temperature.Set( 5754.399 );
   validPoint.m_Stage = Herd::SSE::EvolutionStage::e_MS;
 
-  double neta = GenerateNumber( 0., 1. ); // @suppress("Invalid arguments")
+  double eta = GenerateNumber( 0., 1. ); // @suppress("Invalid arguments")
   double heWind = GenerateNumber( 0., 2. ); // @suppress("Invalid arguments")
   double binaryWind = GenerateNumber( 0., 2. ); // @suppress("Invalid arguments")
   double rocheLobe = GenerateNumber( 0., 2. ); // @suppress("Invalid arguments")
@@ -171,20 +171,20 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
     BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, GenerateNumber( -1., -0.1 ), heWind, binaryWind, rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, GenerateNumber( -1., -0.1 ), binaryWind, rocheLobe ), // @suppress("Invalid arguments")
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, eta, GenerateNumber( -1., -0.1 ), binaryWind, rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, heWind, GenerateNumber( -1., -0.1 ), rocheLobe ), // @suppress("Invalid arguments")
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, eta, heWind, GenerateNumber( -1., -0.1 ), rocheLobe ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
 
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, neta, heWind, binaryWind, GenerateNumber( -1., -0.1 ) ), // @suppress("Invalid arguments")
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( validPoint, eta, heWind, binaryWind, GenerateNumber( -1., -0.1 ) ), // @suppress("Invalid arguments")
         Herd::Exceptions::PreconditionError );
   }
 
   // Check invalid track points
   {
     Herd::SSE::TrackPoint invalid;
-    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( invalid, neta, heWind, binaryWind, rocheLobe ), Herd::Exceptions::PreconditionError );
+    BOOST_CHECK_THROW( Herd::SSE::StellarWindMassLoss::Compute( invalid, eta, heWind, binaryWind, rocheLobe ), Herd::Exceptions::PreconditionError );
   }
 
 }
