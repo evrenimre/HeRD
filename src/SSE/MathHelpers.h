@@ -32,6 +32,8 @@ double ComputeInnerProduct( const std::array< double, N >& i_rLeft, const std::a
 template< std::size_t N >
 void ComputePowers( std::array< double, N >& o_Result, double i_Base ); ///< Fills an array with the consecutive integer powers of a number starting from 0th power
 
+double ComputeBlendWeight( double i_X, double i_A, double i_B );  ///< Computes \f$ \frac{ x-a }{b-a}\f$
+
 /**
  * @tparam Size Matrix size
  * @tparam Row Number of rows
@@ -87,7 +89,5 @@ void ComputePowers( std::array< double, N >& o_Result, double i_Base )
 }
 
 }
-
-
 
 #endif /* H9D0D6C28_5A38_47E7_BCEC_9B3FE9E2381F */

@@ -3,10 +3,11 @@ set(HEADER_LIST Constants.h
 								EvolutionStage.h
 								EvolutionState.h
 								IPhase.h
+							  MathHelpers.h
+							  MainSequence.h
+								#SingleStarEvolution.h
 								StellarRotation.h
 								StellarWindMassLoss.h
-								MainSequence.h
-								MathHelpers.h
 								TrackPoint.h
 								ZeroAgeMainSequence.h 
 )
@@ -14,6 +15,8 @@ set(HEADER_LIST Constants.h
 set(SOURCE_LIST EvolutionStage.cpp
 								EvolutionState.cpp
 								MainSequence.cpp
+								MathHelpers.cpp
+								#SingleStarEvolution.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
 								TrackPoint.cpp
