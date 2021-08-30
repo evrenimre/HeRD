@@ -23,8 +23,7 @@
 namespace
 {
 //@formatter:off
-const std::unordered_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ {Herd::SSE::EvolutionStage::e_ZAMS, "ZAMS"},
-  { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
+const std::unordered_map< Herd::SSE::EvolutionStage, std::string > s_StageToString{ { Herd::SSE::EvolutionStage::e_MSLM, "MSLM"},
   { Herd::SSE::EvolutionStage::e_MS, "MS"},
   { Herd::SSE::EvolutionStage::e_HG, "HG"},
   { Herd::SSE::EvolutionStage::e_FGB, "FGB"},
@@ -81,7 +80,19 @@ bool IsRemnant( EvolutionStage i_Stage )
    */
 bool IsMS( EvolutionStage i_Stage )
 {
-  return i_Stage == EvolutionStage::e_MSLM || i_Stage == EvolutionStage::e_MS;
+  // @formatter:off
+  return i_Stage == EvolutionStage::e_MSLM
+      || i_Stage == EvolutionStage::e_MS;
+    // @formatter:on
+}
+
+/**
+ * @param i_Stage Evolution stage
+ * @return \c true if MS or HG
+ */
+bool IsPreFGB( EvolutionStage i_Stage )
+{
+  return IsMS( i_Stage ) || i_Stage == EvolutionStage::e_HG;
 }
 
 /**
@@ -127,13 +138,14 @@ std::string_view EvolutionStageToString( EvolutionStage i_Stage )
   return s_StageToString.find( i_Stage )->second;
 }
 
+
 /**
  * @return A list of evolution stages in the same order as EvolutionStage
  * @warning The order is implementation defined
  */
-std::array< EvolutionStage, 18 > EnumerateEvolutionStages()
+std::array< EvolutionStage, 17 > EnumerateEvolutionStages()
 {
-  std::array< EvolutionStage, 18 > output;
+  std::array< EvolutionStage, 17 > output;
   ranges::cpp20::copy( s_StageToString | ranges::views::keys, output.begin() );
 
   return output;

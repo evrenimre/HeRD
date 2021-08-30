@@ -138,7 +138,7 @@ BOOST_AUTO_TEST_CASE( ZerAgeMainSequenceTest, *Herd::UnitTestUtils::Labels::s_Co
   BOOST_TEST( trackPoint.m_Radius > 0 );
   BOOST_TEST( trackPoint.m_Temperature > 0 );
   BOOST_TEST( trackPoint.m_InitialMetallicity == z );
-  BOOST_TEST( ( trackPoint.m_Stage == Herd::SSE::EvolutionStage::e_ZAMS ) );
+  BOOST_TEST( ( trackPoint.m_Stage == Herd::SSE::EvolutionStage::e_Undefined ) );
 }
 
 /// Tests for invalid cases

@@ -24,7 +24,6 @@ namespace Herd::SSE
  */
 enum class EvolutionStage
 {
-  e_ZAMS, // Zero-age main sequence
   e_MSLM,  // Deeply or fully convective low mass MS star
   e_MS,  // Main sequence star
   e_HG,  // Hertzsprung gap
@@ -47,6 +46,7 @@ enum class EvolutionStage
 // Helpers
 bool IsRemnant( EvolutionStage i_Stage ); ///< Is a remnant stage?
 bool IsMS( EvolutionStage i_Stage );  ///< Is a MS stage?
+bool IsPreFGB( EvolutionStage i_Stage ); ///< Is a pre-FGB stage?
 bool IsAGB( EvolutionStage i_Stage );  ///< Is an AGB stage?
 bool IsHeStar( EvolutionStage i_Stage );  ///< Is a He Star?
 
@@ -54,7 +54,7 @@ bool IsHeStar( EvolutionStage i_Stage );  ///< Is a He Star?
 EvolutionStage StringToEvolutionStage( const std::string_view& i_rString ); ///< Converts a string to an evolution stage
 std::string_view EvolutionStageToString( EvolutionStage i_Stage );  ///< Converts an evolution stage to a string
 
-std::array< EvolutionStage, 18 > EnumerateEvolutionStages();  ///< Returns a list of evolution stages
+std::array< EvolutionStage, 17 > EnumerateEvolutionStages();  ///< Returns a list of evolution stages
 
 
 }

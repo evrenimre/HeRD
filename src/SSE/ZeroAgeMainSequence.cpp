@@ -87,7 +87,7 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass )
   output.m_Mass = i_Mass;
   output.m_InitialMetallicity = m_ZDependents.m_EvaluatedAt;
   output.m_Temperature = m_MDependents.m_TZAMS;
-  output.m_Stage = Herd::SSE::EvolutionStage::e_ZAMS;
+  output.m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
 
   return output;
 }
