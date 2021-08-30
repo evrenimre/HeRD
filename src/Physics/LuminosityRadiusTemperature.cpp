@@ -12,6 +12,8 @@
 
 #include "LuminosityRadiusTemperature.h"
 
+#include "Constants.h"
+
 #include <cmath>
 
 #include <boost/math/special_functions/pow.hpp>
@@ -73,6 +75,17 @@ Herd::Generic::Temperature LuminosityRadiusTemperature::ComputeTemperature( Herd
 
   double r2 = boost::math::pow< 2, double >( i_Radius );
   return Herd::Generic::Temperature( std::pow( i_Luminosity / r2, 0.25 ) );
+}
+
+/**
+ * @param i_Luminosity Luminosity in \f$ L_{\odot} \f$
+ * @param i_Radius Radius in \f$ R_{\odot} \f$
+ * @return Temperature in K
+ */
+Herd::Generic::Temperature ComputeAbsoluteTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius )
+{
+  return Herd::Generic::Temperature(
+      LuminosityRadiusTemperature::ComputeTemperature( i_Luminosity, i_Radius ) * Herd::Physics::Constants::s_SunSurfaceTemperature );
 }
 
 }

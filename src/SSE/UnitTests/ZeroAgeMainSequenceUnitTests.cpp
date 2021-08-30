@@ -22,6 +22,8 @@
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantity.h>
+#include <Physics/Constants.h>
+#include <SSE/Constants.h>
 #include <SSE/TrackPoint.h>
 #include <SSE/ZeroAgeMainSequence.h>
 
@@ -77,8 +79,10 @@ Herd::SSE::TrackPoint ZAMSTestFixture::GetRandomTrackPoint()
  */
 void ZAMSTestFixture::IsWithinErrorTolerance( const Herd::SSE::TrackPoint& i_rActual, const Herd::SSE::TrackPoint& i_rExpected )
 {
+  double temperatureCorrectionFactor = Herd::SSE::Constants::s_SunSurfaceTemperatureSSE / Herd::Physics::Constants::s_SunSurfaceTemperature; //  AMUSE.SSE uses a slightly different value than IAU
+
   BOOST_TEST( i_rActual.m_Radius.Value() == i_rExpected.m_Radius.Value(), boost::test_tools::tolerance( 2e-4 ) );
-  BOOST_TEST( i_rActual.m_Temperature.Value() == i_rExpected.m_Temperature.Value(), boost::test_tools::tolerance( 2e-4 ) );
+  BOOST_TEST( i_rActual.m_Temperature.Value() * temperatureCorrectionFactor == i_rExpected.m_Temperature.Value(), boost::test_tools::tolerance( 2e-4 ) );
   BOOST_TEST( i_rActual.m_Luminosity.Value() == i_rExpected.m_Luminosity.Value(), boost::test_tools::tolerance( 2e-4 ) );
 }
 

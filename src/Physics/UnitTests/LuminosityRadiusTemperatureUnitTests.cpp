@@ -120,6 +120,17 @@ BOOST_AUTO_TEST_CASE( LuminosityRadiusTemperatureTests, *boost::unit_test::toler
   }
 }
 
+BOOST_AUTO_TEST_CASE( TestHelpers, *boost::unit_test::tolerance( 1e-8 ) *Herd::UnitTestUtils::Labels::s_Compile )
+{
+  Herd::Generic::Radius radius( GenerateNumber( 0., 12. ) ); // @suppress("Invalid arguments")
+  Herd::Generic::Luminosity luminosity( GenerateNumber( 0.003, 800000. ) ); // @suppress("Invalid arguments")
+
+  Herd::Generic::Temperature temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius );
+  Herd::Generic::Temperature temperatureInK = Herd::Physics::ComputeAbsoluteTemperature( luminosity, radius );
+
+  BOOST_TEST( (temperatureInK / temperature).Value() == Herd::Physics::Constants::s_SunSurfaceTemperature ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
+}
+
 /// LRT domain exploration test
 BOOST_AUTO_TEST_CASE( LRTDomainExploration, *boost::unit_test::tolerance( 1e-8 ) *Herd::UnitTestUtils::Labels::s_Nightly )
 {
@@ -133,5 +144,4 @@ BOOST_AUTO_TEST_CASE( LRTDomainExploration, *boost::unit_test::tolerance( 1e-8 )
 }
 
 BOOST_AUTO_TEST_SUITE_END( )
-
 

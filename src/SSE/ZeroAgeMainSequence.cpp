@@ -115,9 +115,7 @@ void ZeroAgeMainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
   m_MDependents.m_LZAMS = ComputeLuminosity( i_Mass );
   m_MDependents.m_RZAMS = ComputeRadius( i_Mass );
-  m_MDependents.m_TZAMS.Set(
-      Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( m_MDependents.m_LZAMS, m_MDependents.m_RZAMS )
-          * Herd::SSE::Constants::s_SunSurfaceTemperatureSSE );
+  m_MDependents.m_TZAMS = Herd::Physics::ComputeAbsoluteTemperature( m_MDependents.m_LZAMS, m_MDependents.m_RZAMS );
 }
 
 /**

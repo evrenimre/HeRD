@@ -27,10 +27,12 @@ class LuminosityRadiusTemperature
 {
 public:
 
-  static Herd::Generic::Luminosity ComputeLuminosty( Herd::Generic::Radius i_Radius, Herd::Generic::Temperature i_Temperature ); ///< Computes luminosity from radius and temperature
-  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Temperature i_Temperature ); ///< Computes radius from luminosity and temperature
-  static Herd::Generic::Temperature ComputeTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius ); ///< Computes temperature from luminosity and radius
+  static Herd::Generic::Luminosity ComputeLuminosty( Herd::Generic::Radius i_Radius, Herd::Generic::Temperature i_Temperature ); ///< Computes luminosity from radius and temperature in \f$ L_{\odot}\f$
+  static Herd::Generic::Radius ComputeRadius( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Temperature i_Temperature ); ///< Computes radius from luminosity and temperature in \f$ R_{\odot}\f$
+  static Herd::Generic::Temperature ComputeTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius ); ///< Computes temperature from luminosity and radius, in \f$ T_{\odot}\f$
 };
+
+Herd::Generic::Temperature ComputeAbsoluteTemperature( Herd::Generic::Luminosity i_Luminosity, Herd::Generic::Radius i_Radius ); ///< Computes temperature from luminosity and radius, in K
 }
 
 #endif /* HD40F097B_D96C_4F59_9F6D_2FF6630B422A */

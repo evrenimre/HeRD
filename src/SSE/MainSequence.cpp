@@ -139,7 +139,6 @@ const std::array< double, 28 > s_ZRhook { 7.330122e-01, 5.192827e-01, 2.316416e-
 
 double BXhC( double i_X, double i_B, double i_C );  ///< Computes \f$ bx^c \f$
 double ApBXhC( double i_X, double i_A, double i_B, double i_C );  ///< Computes \f$ a + bx^c \f$
-double ComputeBlendWeight( double i_X, double i_A, double i_B ); ///< Computes \f$ \frac{ x-a }{b-a}\f$
 
 /**
  * @param i_X Variable
@@ -164,21 +163,12 @@ double ApBXhC( double i_X, double i_A, double i_B, double i_C )
   return std::fma( i_B, std::pow( i_X, i_C ), i_A );
 }
 
-/**
- * @param i_X Variable
- * @param i_A a
- * @param i_B b
- * @return \f$ \frac{ x-a }{b-a}\f$
- */
-double ComputeBlendWeight( double i_X, double i_A, double i_B )
-{
-  return ( i_X - i_A ) / ( i_B - i_A );
-}
-
 }
 
 namespace Herd::SSE
 {
+
+using Herd::SSE::ComputeBlendWeight;
 
 /**
  * @param i_InitialMetallicity Metallicity at ZAMS
@@ -261,7 +251,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     radius.Set( boost::math::pow< 10 >( term1 + term2 + term3 + term4 + term5 ) * m_MDependents.m_RZAMS );
   }
 
-  // AMASS.SSE, special case handling for low mass stars
+  // AMUSE.SSE, special case handling for low mass stars
   if( rTrackPoint.m_Mass < m_ZDependents.m_Mhook - 0.3 )
   {
     rTrackPoint.m_Stage = Herd::SSE::EvolutionStage::e_MSLM;
@@ -276,9 +266,13 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 
   rTrackPoint.m_Luminosity = luminosity;
   rTrackPoint.m_Radius = radius;
-  rTrackPoint.m_Temperature = Herd::Physics::LuminosityRadiusTemperature::ComputeTemperature( luminosity, radius );
+  rTrackPoint.m_Temperature = Herd::Physics::ComputeAbsoluteTemperature( luminosity, radius );
   rTrackPoint.m_Stage = rTrackPoint.m_Mass < 0.7 ? Herd::SSE::EvolutionStage::e_MSLM : Herd::SSE::EvolutionStage::e_MS;
   rTrackPoint.m_CoreMass.Set( 0. );
+
+  io_rState.m_MFGB = m_ZDependents.m_MFGB;
+  io_rState.m_LTMS = m_MDependents.m_LTMS;
+  io_rState.m_RTMS = m_MDependents.m_RTMS;
 
   return true;
 }
@@ -614,7 +608,7 @@ Herd::Generic::Radius MainSequence::ComputeRTMS( Herd::Generic::Mass i_Mass ) co
     // Eq. 9a
     double num = ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
     double den = ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
-    return Herd::Generic::Radius( std::max( 1.5 * m_MDependents.m_RZAMS, num / den ) ); // AMASS.SSE added a check to ensure that RTMS > RZAMS
+    return Herd::Generic::Radius( std::max( 1.5 * m_MDependents.m_RZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
   }
 
   if( i_Mass >= rA[ 10 ] + 0.1 )
