@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ssetestdatamanager_335',['SSETestDataManager',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html',1,'Herd::SSE::UnitTests']]],
-  ['stellarrotation_336',['StellarRotation',['../classHerd_1_1SSE_1_1StellarRotation.html',1,'Herd::SSE']]],
-  ['stellarwindmassloss_337',['StellarWindMassLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html',1,'Herd::SSE']]]
+  ['randomtestfixture_366',['RandomTestFixture',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html',1,'Herd::UnitTestUtils']]],
+  ['runtimeerror_367',['RuntimeError',['../classHerd_1_1Exceptions_1_1RuntimeError.html',1,'Herd::Exceptions']]]
 ];

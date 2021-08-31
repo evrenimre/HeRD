@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['initialiseatnsorbh_120',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
-  ['initialiseatzams_121',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
-  ['initialiselazy_122',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
-  ['iphase_123',['IPhase',['../classHerd_1_1SSE_1_1IPhase.html',1,'Herd::SSE']]],
-  ['iphase_2eh_124',['IPhase.h',['../IPhase_8h.html',1,'']]],
-  ['isagb_125',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
-  ['ishestar_126',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
-  ['ismatchingfile_127',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
-  ['isms_128',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
-  ['isremnant_129',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
+  ['initialiseatnsorbh_131',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
+  ['initialiseatzams_132',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
+  ['initialiselazy_133',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['initialmassdependents_134',['InitialMassDependents',['../structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html',1,'Herd::SSE::ConvectiveEnvelope']]],
+  ['iphase_135',['IPhase',['../classHerd_1_1SSE_1_1IPhase.html',1,'Herd::SSE']]],
+  ['iphase_2eh_136',['IPhase.h',['../IPhase_8h.html',1,'']]],
+  ['isagb_137',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
+  ['ishestar_138',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
+  ['ismatchingfile_139',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
+  ['isms_140',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
+  ['isprefgb_141',['IsPreFGB',['../namespaceHerd_1_1SSE.html#a8da140201274ce0398b6174c56500ceb',1,'Herd::SSE']]],
+  ['isremnant_142',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
 ];

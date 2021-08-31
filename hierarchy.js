@@ -1,6 +1,8 @@
 var hierarchy =
 [
+    [ "Herd::SSE::ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", null ],
     [ "Herd::UnitTestUtils::DataLoaderFixture", "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html", null ],
+    [ "Herd::SSE::ConvectiveEnvelope::Envelope", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1Envelope.html", null ],
     [ "Herd::SSE::EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", null ],
     [ "std::exception", null, [
       [ "Herd::Exceptions::Exception", "classHerd_1_1Exceptions_1_1Exception.html", [
@@ -9,6 +11,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "Herd::SSE::ConvectiveEnvelope::InitialMassDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html", null ],
     [ "Herd::SSE::IPhase", "classHerd_1_1SSE_1_1IPhase.html", [
       [ "Herd::SSE::MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", null ]
     ] ],

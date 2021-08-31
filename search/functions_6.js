@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['initialiseatnsorbh_470',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
-  ['initialiseatzams_471',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
-  ['initialiselazy_472',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
-  ['isagb_473',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
-  ['ishestar_474',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
-  ['ismatchingfile_475',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
-  ['isms_476',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
-  ['isremnant_477',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
+  ['initialiseatnsorbh_514',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
+  ['initialiseatzams_515',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
+  ['initialiselazy_516',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['isagb_517',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
+  ['ishestar_518',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
+  ['ismatchingfile_519',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
+  ['isms_520',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
+  ['isprefgb_521',['IsPreFGB',['../namespaceHerd_1_1SSE.html#a8da140201274ce0398b6174c56500ceb',1,'Herd::SSE']]],
+  ['isremnant_522',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
 ];

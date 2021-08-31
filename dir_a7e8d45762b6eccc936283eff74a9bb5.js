@@ -2,6 +2,12 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
 [
     [ "UnitTests", "dir_9b0048d3176e15ec70c0572370a56736.html", "dir_9b0048d3176e15ec70c0572370a56736" ],
     [ "Constants.h", "SSE_2Constants_8h.html", "SSE_2Constants_8h" ],
+    [ "ConvectiveEnvelope.cpp", "ConvectiveEnvelope_8cpp.html", null ],
+    [ "ConvectiveEnvelope.h", "ConvectiveEnvelope_8h.html", [
+      [ "ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", "classHerd_1_1SSE_1_1ConvectiveEnvelope" ],
+      [ "Envelope", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1Envelope.html", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1Envelope" ],
+      [ "InitialMassDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents" ]
+    ] ],
     [ "EvolutionStage.cpp", "EvolutionStage_8cpp.html", "EvolutionStage_8cpp" ],
     [ "EvolutionStage.h", "EvolutionStage_8h.html", "EvolutionStage_8h" ],
     [ "EvolutionState.cpp", "EvolutionState_8cpp.html", "EvolutionState_8cpp" ],
@@ -15,6 +21,7 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
       [ "MetallicityDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents" ],
       [ "MassDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents" ]
     ] ],
+    [ "MathHelpers.cpp", "MathHelpers_8cpp.html", "MathHelpers_8cpp" ],
     [ "MathHelpers.h", "MathHelpers_8h.html", "MathHelpers_8h" ],
     [ "StellarRotation.cpp", "StellarRotation_8cpp.html", null ],
     [ "StellarRotation.h", "StellarRotation_8h.html", [

@@ -17,6 +17,7 @@ var annotated_dup =
         [ "UnitTests", "namespaceHerd_1_1SSE_1_1UnitTests.html", [
           [ "SSETestDataManager", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html", "classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager" ]
         ] ],
+        [ "ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", "classHerd_1_1SSE_1_1ConvectiveEnvelope" ],
         [ "EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", "structHerd_1_1SSE_1_1EvolutionState" ],
         [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ],
         [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],

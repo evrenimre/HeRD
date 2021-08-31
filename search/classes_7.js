@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['randomtestfixture_333',['RandomTestFixture',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html',1,'Herd::UnitTestUtils']]],
-  ['runtimeerror_334',['RuntimeError',['../classHerd_1_1Exceptions_1_1RuntimeError.html',1,'Herd::Exceptions']]]
+  ['quantity_364',['Quantity',['../classHerd_1_1Generic_1_1Quantity.html',1,'Herd::Generic']]],
+  ['quantityrange_365',['QuantityRange',['../classHerd_1_1Generic_1_1QuantityRange.html',1,'Herd::Generic']]]
 ];

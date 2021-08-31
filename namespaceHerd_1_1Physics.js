@@ -6,5 +6,6 @@ var namespaceHerd_1_1Physics =
       [ "s_SunRadius", "namespaceHerd_1_1Physics_1_1Constants.html#a684f6c5afad94ba00fdf5a912470b08b", null ],
       [ "s_SunSurfaceTemperature", "namespaceHerd_1_1Physics_1_1Constants.html#a806a122f680b66817bfb45076869b367", null ]
     ] ],
-    [ "LuminosityRadiusTemperature", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature" ]
+    [ "LuminosityRadiusTemperature", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature" ],
+    [ "ComputeAbsoluteTemperature", "namespaceHerd_1_1Physics.html#a0b7877f432895f71838e5ae75c045f6a", null ]
 ];
