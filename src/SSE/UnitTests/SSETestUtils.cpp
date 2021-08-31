@@ -35,7 +35,7 @@ Herd::SSE::TrackPoint GenerateRandomTrackPoint( std::mt19937& io_rRng )
   generated.m_Mass.Set( Generator( 0.08, 216. ) );
   generated.m_InitialMetallicity.Set( Generator( 0., 0.1 ) );
   generated.m_Radius.Set( Generator( 0.084, 2150. ) );
-  generated.m_Luminosity.Set( Generator( 0.000126, 6166000 ) );
+  generated.m_Luminosity.Set( Generator( 0.000126, 6166000. ) );
   generated.m_Temperature.Set( Generator( 1800., 210000. ) );
   generated.m_Age.Set( Generator( 0., 13600. ) );
   generated.m_CoreMass.Set( Generator( 0., generated.m_Mass.Value() ) );
@@ -76,6 +76,22 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
   generated.m_CoreRadius.Set( Generator( 0., generated.m_TrackPoint.m_Radius.Value() ) );
   generated.m_MassLossRate = Generator( 0., 1e-4 );
   generated.m_AngularMomentumLossRate = Generator( 0., 715. );
+
+  generated.m_MZAMS.Set( Generator( generated.m_TrackPoint.m_Mass, 216. ) );
+  generated.m_MZHe.Set( Generator( 0.08, generated.m_MZAMS ) );
+
+  generated.m_RZAMS.Set( Generator( 0.084, 2150. ) );
+
+  generated.m_MFGB.Set( Generator( 0.08, 216. ) );
+  generated.m_RTMS.Set( Generator( 0.084, 2150. ) );
+  generated.m_LTMS.Set( Generator( 0.000126, 6166000 ) );
+  generated.m_TMS.Set( Generator( 0., 13600. ) );
+
+  generated.m_Rg.Set( Generator( 0.084, 2150. ) );
+  generated.m_LBGB.Set( Generator( 0.000126, 6166000 ) );
+
+  generated.m_MCHeI.Set( Generator( 0.08, 216. ) );
+  generated.m_LHeI.Set( Generator( 0.000126, 6166000 ) );
 
   return generated;
 }

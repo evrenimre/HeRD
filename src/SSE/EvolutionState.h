@@ -30,11 +30,27 @@ struct EvolutionState
   Herd::SSE::TrackPoint m_TrackPoint; ///< Track point
 
   Herd::Generic::Age m_EffectiveAge;  ///< Effective age to represent the ageing effect of mass loss
-
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
 
   double m_MassLossRate;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
   double m_AngularMomentumLossRate; ///< Angular momentum loss rate in \f$ M_{\odot}R_{\odot}^2 {year}^{-2}\f$
+
+  Herd::Generic::Mass m_MZAMS; ///< Mass at ZAMS. Fixed
+  Herd::Generic::Mass m_MZHe; ///< Mass at zero-age He MS. Fixed
+
+  Herd::Generic::Radius m_RZAMS;  ///< \f$ R_{ZAMS}\f$. Radius at ZAMS. Updated as the mass changes
+
+  Herd::Generic::Mass m_MFGB;  ///< \f$ M_{FGB} \f$, Eq. 3. Maximum mass for a start to have a GB phase
+  Herd::Generic::Radius m_RTMS;  ///< \f$ R_{TMS} \f$, Eq. 9. Radius at terminal main sequence
+  Herd::Generic::Luminosity m_LTMS;  ///< \f$ R_{TMS} \f$, Eq. 8. Luminosity at terminal main sequence
+  Herd::Generic::Age m_TMS; ///< \f$ t_{TMS}\f$, Eq. 5. Main sequence duration
+
+  Herd::Generic::Radius m_Rg; ///< \f$ R_g \f$ required for convective envelope calculations
+  Herd::Generic::Luminosity m_LBGB; ///< \f$ L_{BGB} \f$, Eq. 10. Luminosity at the base of the giant branch
+
+  Herd::Generic::Mass m_MCHeI; ///< \f$ M_{c, HeI}\f$. Core mass at He ignition
+  Herd::Generic::Luminosity m_LHeI;  ///< \f$ L_{HeI}\f$, Eq. 49. Luminosity at He ignition
+
 };
 
 void ValidateEvolutionState( const EvolutionState& i_rState );  ///< Validates an evolution state

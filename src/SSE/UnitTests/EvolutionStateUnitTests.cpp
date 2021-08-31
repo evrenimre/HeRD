@@ -70,6 +70,73 @@ BOOST_AUTO_TEST_CASE( validatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
     invalid.m_AngularMomentumLossRate = -invalid.m_AngularMomentumLossRate - 0.1;
     BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
   }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_MZAMS );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_MZHe );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_RZAMS );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_MFGB );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_RTMS );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_LTMS );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_TMS );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_Rg );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_LBGB );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_MCHeI );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_LHeI );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+  
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

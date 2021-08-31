@@ -33,7 +33,7 @@ struct TrackPoint
   Herd::SSE::EvolutionStage m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
 
   Herd::Generic::Mass m_CoreMass; ///< Core mass in \f$ M_{\odot}\f$
-  Herd::Generic::Mass m_EnvelopeMass; ///< Envelope mass in \f$ M_{\odot}\f$
+  Herd::Generic::Mass m_EnvelopeMass; ///< Convective envelope mass in \f$ M_{\odot}\f$
   Herd::Generic::AngularMomentum m_AngularMomentum; ///< Angular momentum in \f$ M_{\odot}R_{\odot}^2 \; {year}^{-1}\f$
 };
 
