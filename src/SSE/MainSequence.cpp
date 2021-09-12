@@ -135,33 +135,24 @@ const std::array< double, 28 > s_ZRhook { 7.330122e-01, 5.192827e-01, 2.316416e-
   1.2e+00, 2.45e+00, 0., 0.
 }; ///< Coefficients for \f$ R_{hook}(z) \f$ calculations
 
+
+std::array< double, 24 > s_ZLBGB { 9.511033e+01, 6.819618e+01, -1.045625e+01, -1.474939e+01,
+  3.113458e+01, 1.012033e+01, -4.650511e+00, -2.463185e+00,
+    1.413057e+00, 4.578814e-01, -6.850581e-02, -5.588658e-02,
+    3.910862e+01, 5.196646e+01, 2.264970e+01, 2.873680e+00,
+    4.597479e+00, -2.855179e-01, 2.709724e-01, 0.,
+    6.682518e+00, 2.827718e-01, -7.294429e-02, 0.
+};
+
+std::array< double, 15 > s_ZLHeI { 2.751631e+03, 3.557098e+02, 0.,
+  -3.820831e-02, 5.872664e-02, 0.,
+  1.071738e+02, -8.970339e+01, -3.949739e+01,
+  7.348793e+02, -1.531020e+02, -3.793700e+01,
+  9.219293e+00, -2.005865e+00, -5.561309e-01
+};
+
 // @formatter:on
 
-double BXhC( double i_X, double i_B, double i_C );  ///< Computes \f$ bx^c \f$
-double ApBXhC( double i_X, double i_A, double i_B, double i_C );  ///< Computes \f$ a + bx^c \f$
-
-/**
- * @param i_X Variable
- * @param i_B Scale
- * @param i_C Exponent
- * @return \f$ bx^c \f$
- */
-double BXhC( double i_X, double i_B, double i_C )
-{
-  return i_B * std::pow( i_X, i_C );
-}
-
-/**
- * @param i_X Variable
- * @param i_A Addend
- * @param i_B Scale
- * @param i_C Exponent
- * @return \f$ a + bx^c \f$
- */
-double ApBXhC( double i_X, double i_A, double i_B, double i_C )
-{
-  return std::fma( i_B, std::pow( i_X, i_C ), i_A );
-}
 
 }
 
@@ -169,6 +160,8 @@ namespace Herd::SSE
 {
 
 using Herd::SSE::ComputeBlendWeight;
+using Herd::SSE::ApBXhC;
+using Herd::SSE::BXhC;
 
 /**
  * @param i_InitialMetallicity Metallicity at ZAMS
@@ -194,7 +187,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   // Validation
   Herd::Generic::ThrowIfNotPositive( io_rState.m_TrackPoint.m_Mass, "m_Mass" );
   Herd::Generic::ThrowIfNegative( io_rState.m_EffectiveAge, "m_EffectiveAge" );
-  
+
   auto& rTrackPoint = io_rState.m_TrackPoint;
   auto mass = rTrackPoint.m_Mass;
 
@@ -252,27 +245,33 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   }
 
   // AMUSE.SSE, special case handling for low mass stars
+  Herd::SSE::EvolutionStage stage;
   if( rTrackPoint.m_Mass < m_ZDependents.m_Mhook - 0.3 )
   {
-    rTrackPoint.m_Stage = Herd::SSE::EvolutionStage::e_MSLM;
+    stage = Herd::SSE::EvolutionStage::e_MSLM;
 
     double hPercentage = 0.76 - 3 * rTrackPoint.m_InitialMetallicity;
     double rDegenerate = 0.0258 * std::pow( 1. + hPercentage, 5. / 3. ) / std::cbrt( mass );
     radius.Set( std::max( radius.Value(), rDegenerate ) );
   } else
   {
-    rTrackPoint.m_Stage = Herd::SSE::EvolutionStage::e_MS;
+    stage = Herd::SSE::EvolutionStage::e_MS;
   }
 
   rTrackPoint.m_Luminosity = luminosity;
   rTrackPoint.m_Radius = radius;
   rTrackPoint.m_Temperature = Herd::Physics::ComputeAbsoluteTemperature( luminosity, radius );
-  rTrackPoint.m_Stage = rTrackPoint.m_Mass < 0.7 ? Herd::SSE::EvolutionStage::e_MSLM : Herd::SSE::EvolutionStage::e_MS;
+  rTrackPoint.m_Stage = stage;
   rTrackPoint.m_CoreMass.Set( 0. );
 
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
   io_rState.m_LTMS = m_MDependents.m_LTMS;
   io_rState.m_RTMS = m_MDependents.m_RTMS;
+  io_rState.m_RZAMS = m_MDependents.m_RZAMS;
+
+  io_rState.m_Rg = m_MDependents.m_RBGB;
+  io_rState.m_LBGB = m_MDependents.m_LBGB;
+  io_rState.m_LHeI = m_MDependents.m_LHeI;
 
   return true;
 }
@@ -286,7 +285,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
 
   std::array< double, 5 > zetaPowers4;
   double zeta = std::log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
-  ComputePowers( zetaPowers4, zeta );
+  Herd::SSE::ComputePowers( zetaPowers4, zeta );
 
   std::array< double, 4 > zetaPowers3;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 4, zetaPowers3.begin() );
@@ -412,8 +411,42 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
     m_ZDependents.m_X = std::max( { 0.95, left, extra } );
   }
 
+  // LBGB
+  std::array< double, 6 > tempLBGB;
+  Herd::SSE::MultiplyMatrixVector( tempLBGB, s_ZLBGB, zetaPowers3 );
+  ranges::cpp20::copy( tempLBGB, m_ZDependents.m_LBGB.begin() );
+
+  {
+    auto& rB = m_ZDependents.m_LBGB;
+    rB[ 2 ] = std::pow( rB[ 2 ], rB[ 5 ] );
+    rB[ 6 ] = 4.637345e+00;
+    rB[ 7 ] = 9.301992e+00;
+  }
+
+  // LHeI
+  std::array< double, 5 > tempLHeI;
+  Herd::SSE::MultiplyMatrixVector( tempLHeI, s_ZLHeI, zetaPowers2 );
+
+  {
+    auto& rB = m_ZDependents.m_LHeI;
+    rB[ 0 ] = tempLHeI[ 0 ];
+    rB[ 1 ] = tempLHeI[ 1 ];
+    rB[ 2 ] = 15.;
+
+    rB[ 3 ] = 0.; // This value is just an initialiser. The next call goes down a branch that does not use rB[3]
+    Herd::Generic::Luminosity lHeI = ComputeLHeI( m_ZDependents.m_MHeF );  // L_HeI at M_HeF
+    rB[ 3 ] = ( BXhC( m_ZDependents.m_MHeF, rB[ 0 ], rB[ 1 ] ) - lHeI ) / ( lHeI * std::exp( m_ZDependents.m_MHeF * rB[ 2 ] ) ); // AMASS.SSE implements this differently from the paper
+
+    rB[ 4 ] = tempLHeI[ 2 ];
+    rB[ 5 ] = tempLHeI[ 3 ] * tempLHeI[ 3 ];
+    rB[ 6 ] = tempLHeI[ 4 ] * tempLHeI[ 4 ];
+  }
+
   // Initialise the ZAMS computer
   m_ZDependents.m_ZAMSComputer = std::make_optional< Herd::SSE::ZeroAgeMainSequence >( i_Z );
+
+  // Initialise the RGB computer
+  m_ZDependents.m_RGBComputer = std::make_optional< Herd::SSE::GiantBranchRadius >( i_Z );
 }
 
 /**
@@ -487,6 +520,18 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_BetaR = ComputeBetaR( i_Mass );
   m_MDependents.m_GammaR = ComputeGammaR( i_Mass );
   m_MDependents.m_DeltaR = ComputeRHook( i_Mass );
+
+  //BGB
+
+  m_MDependents.m_LBGB = ComputeLBGB( i_Mass );
+
+  if( i_Mass < m_ZDependents.m_MFGB )
+  {
+    m_MDependents.m_RBGB = m_ZDependents.m_RGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );
+  }
+
+  // HeI
+  m_MDependents.m_LHeI = ComputeLHeI( i_Mass );
 }
 
 /**
@@ -778,6 +823,41 @@ double MainSequence::ComputeRHook( Herd::Generic::Mass i_Mass ) const
   double m30 = boost::math::pow< 3 >( i_Mass );
 
   return ( rA[ 0 ] + rA[ 1 ] * m30 * m05 ) / ( rA[ 2 ] * m30 + std::pow( i_Mass, rA[ 3 ] ) ) - 1.;
+}
+
+/**
+ * @param i_Mass Mass
+ * @return \f$ L_{BGB}\f$
+ */
+Herd::Generic::Luminosity MainSequence::ComputeLBGB( Herd::Generic::Mass i_Mass ) const
+{
+  auto& rB = m_ZDependents.m_LBGB;
+
+  // Eq. 10
+  double num = BXhC( i_Mass, rB[ 0 ], rB[ 4 ] ) + BXhC( i_Mass, rB[ 1 ], rB[ 7 ] );
+  double den = ApBXhC( i_Mass, rB[ 2 ], rB[ 3 ], rB[ 6 ] ) + std::pow( i_Mass, rB[ 5 ] );
+  return Herd::Generic::Luminosity( num / den );
+}
+
+/**
+ * @param i_Mass Mass
+ * @return \f$ L_{HeI} \f$
+ */
+Herd::Generic::Luminosity MainSequence::ComputeLHeI( Herd::Generic::Mass i_Mass ) const
+{
+  auto& rB = m_ZDependents.m_LHeI;
+
+  // Eq. 49
+  if( i_Mass < m_ZDependents.m_MHeF )
+  {
+    double num = BXhC( i_Mass, rB[ 0 ], rB[ 1 ] );
+    double den = 1. + rB[ 3 ] * std::exp( i_Mass * rB[ 2 ] ); // AMASS.SSE implementation: MHeF is not subtracted
+    return Herd::Generic::Luminosity( num / den );
+  }
+
+  double num = ApBXhC( i_Mass, rB[ 4 ], rB[ 5 ], 3.8 );
+  double den = rB[ 6 ] + i_Mass * i_Mass;
+  return Herd::Generic::Luminosity( num / den );
 }
 
 }

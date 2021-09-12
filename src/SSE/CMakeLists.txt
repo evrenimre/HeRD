@@ -3,6 +3,7 @@ set(HEADER_LIST Constants.h
 								ConvectiveEnvelope.h
 								EvolutionStage.h
 								EvolutionState.h
+								GiantBranchRadius.h
 								IPhase.h
 							  MathHelpers.h
 							  MainSequence.h
@@ -16,6 +17,7 @@ set(HEADER_LIST Constants.h
 set(SOURCE_LIST ConvectiveEnvelope.cpp
 								EvolutionStage.cpp
 								EvolutionState.cpp
+								GiantBranchRadius.cpp
 								MainSequence.cpp
 								MathHelpers.cpp
 								#SingleStarEvolution.cpp

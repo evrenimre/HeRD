@@ -34,6 +34,9 @@ void ComputePowers( std::array< double, N >& o_Result, double i_Base ); ///< Fil
 
 double ComputeBlendWeight( double i_X, double i_A, double i_B );  ///< Computes \f$ \frac{ x-a }{b-a}\f$
 
+double ApBXhC( double i_X, double i_A, double i_B, double i_C );  ///< Computes \f$ a + bx^c \f$
+double BXhC( double i_X, double i_B, double i_C );  ///< Computes \f$ bx^c \f$
+
 /**
  * @tparam Size Matrix size
  * @tparam Row Number of rows

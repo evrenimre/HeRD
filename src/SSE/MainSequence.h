@@ -13,6 +13,7 @@
 #ifndef H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 #define H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 
+#include "GiantBranchRadius.h"
 #include "IPhase.h"
 #include "TrackPoint.h"
 #include "ZeroAgeMainSequence.h"
@@ -56,6 +57,9 @@ private:
   double ComputeGammaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_R\f$
   double ComputeRHook( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \Delta_R\f$
 
+  Herd::Generic::Luminosity ComputeLBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes the luminosity at the base of the giant branch
+  Herd::Generic::Luminosity ComputeLHeI( Herd::Generic::Mass i_Mass ) const;  ///< Computes the luminosity at He ignition
+
   /**
    * @brief Various quantities and values that depend on metallicity only
    */
@@ -83,7 +87,11 @@ private:
     std::array< double, 7 > m_GammaR;  ///< \f$ \gamma_R \f$ calculations
     std::array< double, 7 > m_Rhook;  ///< \f$ \R_{hook} \f$ calculations
 
+    std::array< double, 8 > m_LBGB;  ///< \f$ L_{BGB} \f$ calculations
+    std::array< double, 7 > m_LHeI; ///< \f$ L_{HeI} \f$ calculations
+
     std::optional< Herd::SSE::ZeroAgeMainSequence > m_ZAMSComputer; ///< Computes the ZAMS parameters
+    std::optional< Herd::SSE::GiantBranchRadius > m_RGBComputer; ///< Computes the giant branch radius
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial  metallicity
@@ -114,6 +122,11 @@ private:
     double m_BetaR = 0;  ///< \f$ \beta_R \f$
     double m_GammaR = 0;  ///< \f$ \gamma_R \f$
     double m_DeltaR = 0;  ///< \f$ \Delta_R \f$
+
+    Herd::Generic::Luminosity m_LBGB; ///< Luminosity at BGB
+    Herd::Generic::Radius m_RBGB;  ///< Radius at BGB
+
+    Herd::Generic::Luminosity m_LHeI; ///< Luminosity at He ignition
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities evaluated at a certain value
