@@ -62,8 +62,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ComputeZAMS_8cpp.html",
-"ZeroAgeMainSequenceUnitTests_8cpp.html",
-"namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aea435afc00b062b9e128ad7dc337ca775c"
+"UnitTestUtilityFunctions_8h.html#a2d7d9c292699ee5009d9106dbc72156b",
+"namespaceHerd_1_1Physics_1_1Constants.html#ad881a114f1f44632d92ccca6adf8aefa"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

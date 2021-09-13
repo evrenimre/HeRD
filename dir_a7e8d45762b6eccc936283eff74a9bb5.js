@@ -12,6 +12,10 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "EvolutionStage.h", "EvolutionStage_8h.html", "EvolutionStage_8h" ],
     [ "EvolutionState.cpp", "EvolutionState_8cpp.html", "EvolutionState_8cpp" ],
     [ "EvolutionState.h", "EvolutionState_8h.html", "EvolutionState_8h" ],
+    [ "GiantBranchRadius.cpp", "GiantBranchRadius_8cpp.html", null ],
+    [ "GiantBranchRadius.h", "GiantBranchRadius_8h.html", [
+      [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ]
+    ] ],
     [ "IPhase.h", "IPhase_8h.html", [
       [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ]
     ] ],

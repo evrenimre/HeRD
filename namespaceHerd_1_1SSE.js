@@ -7,6 +7,7 @@ var namespaceHerd_1_1SSE =
     [ "UnitTests", "namespaceHerd_1_1SSE_1_1UnitTests.html", "namespaceHerd_1_1SSE_1_1UnitTests" ],
     [ "ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", "classHerd_1_1SSE_1_1ConvectiveEnvelope" ],
     [ "EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", "structHerd_1_1SSE_1_1EvolutionState" ],
+    [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ],
     [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ],
     [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],
     [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],
@@ -33,6 +34,8 @@ var namespaceHerd_1_1SSE =
       [ "e_MSn", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aea435afc00b062b9e128ad7dc337ca775c", null ],
       [ "e_Undefined", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aeacb6f3fa57416b9f9569bcb73bbf2e4ed", null ]
     ] ],
+    [ "ApBXhC", "namespaceHerd_1_1SSE.html#adb2d57367a5c3971150e6ae6adf1ea23", null ],
+    [ "BXhC", "namespaceHerd_1_1SSE.html#a137fe8358fb724780e904f761569b2d0", null ],
     [ "ComputeBlendWeight", "namespaceHerd_1_1SSE.html#aba1468701a793b737e4a2b31e94fcd1b", null ],
     [ "ComputeInnerProduct", "namespaceHerd_1_1SSE.html#ac9c5be5d42520d05ed5e6a0fecf9bee7", null ],
     [ "ComputePowers", "namespaceHerd_1_1SSE.html#aabfed8b93d0a5ba9e56467f1cbbefe96", null ],

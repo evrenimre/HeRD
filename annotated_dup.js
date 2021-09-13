@@ -19,6 +19,7 @@ var annotated_dup =
         ] ],
         [ "ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", "classHerd_1_1SSE_1_1ConvectiveEnvelope" ],
         [ "EvolutionState", "structHerd_1_1SSE_1_1EvolutionState.html", "structHerd_1_1SSE_1_1EvolutionState" ],
+        [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ],
         [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ],
         [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],
         [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],

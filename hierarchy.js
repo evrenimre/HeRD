@@ -11,6 +11,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "Herd::SSE::GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", null ],
     [ "Herd::SSE::ConvectiveEnvelope::InitialMassDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html", null ],
     [ "Herd::SSE::IPhase", "classHerd_1_1SSE_1_1IPhase.html", [
       [ "Herd::SSE::MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", null ]

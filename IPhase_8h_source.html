@@ -105,22 +105,26 @@ $(document).ready(function(){initNavTree('IPhase_8h_source.html',''); initResiza
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceHerd_1_1SSE.html">Herd::SSE</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">struct </span>EvolutionState;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classHerd_1_1SSE_1_1IPhase.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHerd_1_1SSE_1_1IPhase.html">IPhase</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba">   26</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba">Evolve</a>( <a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a>&amp; io_rState ) = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classHerd_1_1SSE_1_1IPhase.html#a1e1707786d02ab3f83151ec0998ac46e">   27</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classHerd_1_1SSE_1_1IPhase.html#a1e1707786d02ab3f83151ec0998ac46e">~IPhase</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassHerd_1_1SSE_1_1IPhase_html"><div class="ttname"><a href="classHerd_1_1SSE_1_1IPhase.html">Herd::SSE::IPhase</a></div><div class="ttdoc">Interface class for updating the star state in an evolution phase.</div><div class="ttdef"><b>Definition:</b> IPhase.h:24</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Quantity_8h.html">Generic/Quantity.h</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceHerd_1_1SSE.html">Herd::SSE</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">struct </span>EvolutionState;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classHerd_1_1SSE_1_1IPhase.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHerd_1_1SSE_1_1IPhase.html">IPhase</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba">   29</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba">Evolve</a>( <a class="code" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a>&amp; io_rState ) = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classHerd_1_1SSE_1_1IPhase.html#a1e1707786d02ab3f83151ec0998ac46e">   30</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classHerd_1_1SSE_1_1IPhase.html#a1e1707786d02ab3f83151ec0998ac46e">~IPhase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aQuantity_8h_html"><div class="ttname"><a href="Quantity_8h.html">Quantity.h</a></div></div>
+<div class="ttc" id="aclassHerd_1_1SSE_1_1IPhase_html"><div class="ttname"><a href="classHerd_1_1SSE_1_1IPhase.html">Herd::SSE::IPhase</a></div><div class="ttdoc">Interface class for updating the star state in an evolution phase.</div><div class="ttdef"><b>Definition:</b> IPhase.h:27</div></div>
 <div class="ttc" id="aclassHerd_1_1SSE_1_1IPhase_html_a1e1707786d02ab3f83151ec0998ac46e"><div class="ttname"><a href="classHerd_1_1SSE_1_1IPhase.html#a1e1707786d02ab3f83151ec0998ac46e">Herd::SSE::IPhase::~IPhase</a></div><div class="ttdeci">virtual ~IPhase()=default</div></div>
 <div class="ttc" id="aclassHerd_1_1SSE_1_1IPhase_html_ac9a9030f30000312b6dfc838578c5aba"><div class="ttname"><a href="classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba">Herd::SSE::IPhase::Evolve</a></div><div class="ttdeci">virtual bool Evolve(EvolutionState &amp;io_rState)=0</div></div>
 <div class="ttc" id="anamespaceHerd_1_1SSE_html"><div class="ttname"><a href="namespaceHerd_1_1SSE.html">Herd::SSE</a></div><div class="ttdef"><b>Definition:</b> Constants.h:17</div></div>
