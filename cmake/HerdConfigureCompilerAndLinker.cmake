@@ -10,6 +10,10 @@ endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_CXX_WARNING_FLAGS}")	# Default compiler flags
 set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINKER_CXX_LD_FLAGS}")	# Default linker flags
 
+# Utilities
+
+set(CMAKE_LINK_WHAT_YOU_USE ON)
+
 find_program(CCACHE ccache)
 if(CCACHE)
 	set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE})

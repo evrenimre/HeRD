@@ -40,7 +40,7 @@ set_property(CACHE UNIT_TEST_LEVEL PROPERTY STRINGS ${UNIT_TEST_LABELS} )	# Numb
 set(CLANG_TIDY_NAME "clang-tidy" CACHE PATH "Name of the clang-tidy binary")
 
 # Helper functions for creating targets. Used in configuration
-set(CMAKE_OPTIMIZE_DEPENDENCIES TRUE)
+set(CMAKE_OPTIMIZE_DEPENDENCIES ON)
 include(HerdCreateTarget)	
 
 # Dependencies
