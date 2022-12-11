@@ -54,7 +54,7 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: |
         sudo apt-get install lcov
-        lcov --directory . --capture --output-file coverage.lcov --gcov-tool gcov-11
+        lcov --directory . --capture --output-file coverage.lcov --gcov-tool gcov
         lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
         
     - name: Codecov
