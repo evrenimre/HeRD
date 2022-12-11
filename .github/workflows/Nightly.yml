@@ -20,11 +20,11 @@ jobs:
     
     - name: Install dependencies
       # CMake needs doxygen to build the docs target
-      run: >
+      run: |
         sudo apt-get update
-        sudo apt-get install g++ clang ninja-build
-                             libboost-all-dev librange-v3-dev libeigen3-dev 
-                             clang-tidy cmake cppcheck iwyu
+        sudo apt-get install g++ clang ninja-build \
+          libboost-all-dev librange-v3-dev libeigen3-dev \
+          clang-tidy cmake cppcheck iwyu
     
     - name: Build with g++
       run: |
