@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17) 
+cmake_minimum_required(VERSION 3.19) 
 project(HeRD VERSION 0.0.0 
              DESCRIPTION "Stellar evolution simulation"
              LANGUAGES CXX)
@@ -40,6 +40,7 @@ set_property(CACHE UNIT_TEST_LEVEL PROPERTY STRINGS ${UNIT_TEST_LABELS} )	# Numb
 set(CLANG_TIDY_NAME "clang-tidy" CACHE PATH "Name of the clang-tidy binary")
 
 # Helper functions for creating targets. Used in configuration
+set(CMAKE_OPTIMIZE_DEPENDENCIES TRUE)
 include(HerdCreateTarget)	
 
 # Dependencies
