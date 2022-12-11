@@ -23,7 +23,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install g++ clang ninja-build \
           libboost-all-dev librange-v3-dev libeigen3-dev \
-          clang-tidy cmake cppcheck iwyu
+          clang-tidy cmake cppcheck iwyu \
+          doxygen graphviz gsfonts biber
         
     - name: Build with g++
       run: |
