@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16) 
+cmake_minimum_required(VERSION 3.17) 
 project(HeRD VERSION 0.0.0 
              DESCRIPTION "Stellar evolution simulation"
              LANGUAGES CXX)
@@ -64,9 +64,12 @@ add_subdirectory(src)
 add_custom_target(UnitTests ALL
                   DEPENDS ${TEST_TARGETS}	# Set in HerdConfigureUnitTests
 )
+
+set(CMAKE_CTEST_ARGUMENTS --output-on-failure)
 add_custom_command(TARGET UnitTests
-                   COMMENT "Run tests"
-                   POST_BUILD COMMAND ${CMAKE_CTEST_COMMAND} ARGS --output-on-failure
+                   COMMENT "Run tests" 
+                   POST_BUILD COMMAND ${CMAKE_MAKE_PROGRAM} ARGS test
                    WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
+
 
