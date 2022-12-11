@@ -21,7 +21,7 @@ jobs:
       # Unable to install clang-tidy. Broken dependency
       run: |
         sudo apt-get update
-        sudo apt-get install g++ clang ninja-build \
+        sudo apt-get install g++ clang lld ninja-build \
           libboost-all-dev librange-v3-dev libeigen3-dev \
           clang-tidy cmake cppcheck iwyu \
           doxygen graphviz gsfonts biber
