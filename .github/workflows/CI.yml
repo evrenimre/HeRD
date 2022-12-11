@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: Install dependencies
       # CMake needs doxygen to build the docs target
@@ -59,7 +59,7 @@ jobs:
         
     - name: Codecov
       # Sends the coverage report to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3
       with:
         files: ./build/coverage.lcov
         flags: unittests
@@ -71,7 +71,7 @@ jobs:
         
     - name: Deploy documentation
       # Deploys the documentation to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3.7.3
+      uses: peaceiris/actions-gh-pages@v3.9.0
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/html
