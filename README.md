@@ -55,3 +55,7 @@ Purely personal: the project is a focusing device for experimenting with new lan
 
 ### Name
 For Hertzsprung-Russell Diagram. The project is a child of the COVID pandemic.
+
+## Development
+
+[Coverage reports](https://app.codecov.io/gh/evrenimre/herd)
