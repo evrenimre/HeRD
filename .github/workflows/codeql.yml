@@ -11,6 +11,9 @@
 #
 name: "CodeQL"
 
+env:
+  BUILD_TYPE: Debug
+
 on:
   push:
     branches: [ "main" ]
