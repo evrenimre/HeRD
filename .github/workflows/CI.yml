@@ -15,9 +15,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      # Required by CodeQL
-      security-events: write
 
     steps:
     - uses: actions/checkout@v3
