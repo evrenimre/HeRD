@@ -36,7 +36,7 @@ jobs:
         cmake -G Ninja -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=g++
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Test the g++ build
+    - name: Run the unit tests (g++)
       working-directory: ${{github.workspace}}/build
       run: |
         cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
@@ -48,13 +48,13 @@ jobs:
         cmake -B ${{github.workspace}}/clang/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=clang++
         cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j2
 
-    - name: Test the clang build
+    - name: Run the unit tests (clang)
       working-directory: ${{github.workspace}}/clang/build
       run: |
         cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=1_Continuous
         ctest -C ${{env.BUILD_TYPE}} -VV
       
-    - name: lcov
+    - name: Generate coverage report
       # Coverage report
       # gcov version must match that of g++
       working-directory: ${{github.workspace}}/build
@@ -63,7 +63,7 @@ jobs:
         lcov --directory . --capture --output-file coverage.lcov --gcov-tool gcov
         lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
         
-    - name: Codecov
+    - name: Upload coverage report to Codecov
       # Sends the coverage report to Codecov
       uses: codecov/codecov-action@v3
       with:
