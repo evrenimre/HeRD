@@ -15,8 +15,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-     permissions:
+    permissions:
       # Required by CodeQL
       security-events: write
 
