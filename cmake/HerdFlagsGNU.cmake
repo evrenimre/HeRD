@@ -14,13 +14,5 @@ find_program(LLD lld)
 if(LLD)
 	set(LINKER_CXX_LD_FLAGS -fuse-ld=lld)
 	message(STATUS "Using ${LLD}")
-else()
-	#Try Gold. Faster than ld but dated
-	find_program(GOLD gold)
-	if(GOLD)
-		set(LINKER_CXX_LD_FLAGS -fuse-ld=gold)
-		message(STATUS "Using ${GOLD}")
-	endif()
 endif()
-
 # g++ links libstdc++ and libm by default. No need to explicitly link against them 
