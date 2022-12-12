@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    
+  # Manual trigger
+  workflow_dispatch:  
 
 env:
   BUILD_TYPE: Debug
@@ -18,7 +21,6 @@ jobs:
     
     - name: Install dependencies
       # CMake needs doxygen to build the docs target
-      # Unable to install clang-tidy. Broken dependency
       run: |
         sudo apt-get update
         sudo apt-get install g++ clang lld ninja-build \
@@ -28,7 +30,7 @@ jobs:
         
     - name: Build with g++
       run: |
-        cmake -GNinja -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DENABLE_CODE_COVERAGE=ON -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=g++
+        cmake -G Ninja -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=g++
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Test the g++ build
@@ -38,14 +40,15 @@ jobs:
         ctest -C ${{env.BUILD_TYPE}} -VV
 
     - name: Build with clang
+      # Uses the platform default as the build system 
       run: |
-        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_SANITISER=ON -DCMAKE_CXX_COMPILER=clang++
+        cmake -B ${{github.workspace}}/clang/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=clang++
         cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} 
 
     - name: Test the clang build
       working-directory: ${{github.workspace}}/clang/build
       run: |
-        cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
+        cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=1_Continuous
         ctest -C ${{env.BUILD_TYPE}} -VV
       
     - name: lcov
