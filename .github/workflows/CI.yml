@@ -15,6 +15,10 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+     permissions:
+      # Required by CodeQL
+      security-events: write
 
     steps:
     - uses: actions/checkout@v3
@@ -43,7 +47,7 @@ jobs:
       # Uses the platform default as the build system 
       run: |
         cmake -B ${{github.workspace}}/clang/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=clang++
-        cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j 2
+        cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j2
 
     - name: Test the clang build
       working-directory: ${{github.workspace}}/clang/build
@@ -78,4 +82,13 @@ jobs:
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/html
+        
+    # CodeQL
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: cpp, python
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
           
