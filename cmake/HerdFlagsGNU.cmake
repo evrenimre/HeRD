@@ -6,7 +6,7 @@ set(COMPILER_CXX_COVERAGE_FLAGS -O0 -g --coverage)	# Code coverage
 set(LINKER_CXX_COVERAGE_FLAGS --coverage)
 
 set(COMPILER_CXX_SANITISER_FLAGS -O0 -g -fno-omit-frame-pointer -fsanitize=address -fsanitize=undefined)	# Sanitiser
-set(LINKER_CXX_SANITISER_FLAGS -fsanitize=address -fsanitize=undefined)	# Sanitiser
+set(LINKER_CXX_SANITISER_FLAGS -fsanitize=address -fsanitize=undefined -static-libasan)	# Sanitiser
 
 #Linker
 #Try LLD. It is faster and actively developed
