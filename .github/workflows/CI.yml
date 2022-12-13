@@ -39,14 +39,14 @@ jobs:
         cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=g++
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-
     - name: Run the unit tests (g++)
       working-directory: ${{github.workspace}}/build
       run: |
         cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
-        ctest -C ${{env.BUILD_TYPE}} -VV
+        ctest -C ${{env.BUILD_TYPE}} -VV    
+    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
 
     - name: Build with clang
       # Uses the platform default as the build system 
