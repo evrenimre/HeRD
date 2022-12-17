@@ -20,11 +20,11 @@ jobs:
     
     - uses: actions/install-ubuntu-packages@main
       with:
-        - with_ninja: ${{ true }}
-        - with_clang: ${{ true }}
-        - with_llvm_linker: ${{ true }}
-        - with_doxygen: ${{ false }}
-        - with_lcov: ${{ false }}
+        with_ninja: ${{ true }}
+        with_clang: ${{ true }}
+        with_llvm_linker: ${{ true }}
+        with_doxygen: ${{ false }}
+        with_lcov: ${{ false }}
         
     - name: Build with g++
       run: |
