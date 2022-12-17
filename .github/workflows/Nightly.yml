@@ -18,13 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install g++ clang lld ninja-build \
-          libboost-all-dev librange-v3-dev libeigen3-dev \
-          clang-tidy cmake cppcheck iwyu
-    
+    - uses: actions/install-ubuntu-packages
+      with:
+        - with_ninja: ${{ true }}
+        - with_clang: ${{ true }}
+        - with_llvm_linker: ${{ true }}
+        - with_doxygen: ${{ false }}
+        - with_lcov: ${{ false }}
+        
     - name: Build with g++
       run: |
         cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=g++
