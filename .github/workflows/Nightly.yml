@@ -12,7 +12,7 @@ env:
   BUILD_TYPE: Debug
 
 jobs:
-  build-gpp:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,29 +35,16 @@ jobs:
       run: |
         cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=2_Nightly
         ctest -C ${{env.BUILD_TYPE}} -VV
-        
-  build-clang:
-    runs-on: ubuntu-latest  
-    
-    steps:
-      - uses: actions/checkout@v3
-    
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install g++ clang lld ninja-build \
-            libboost-all-dev librange-v3-dev libeigen3-dev \
-            clang-tidy cmake cppcheck iwyu
-            
-      - name: Build with clang
-        # Uses the platform default as the build system 
-        run: |
-          cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=clang++
-          cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j2
 
-      - name: Run the unit tests (clang)
-        working-directory: ${{github.workspace}}/clang/build
-        run: |
-          cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=2_Nightly
-          ctest -C ${{env.BUILD_TYPE}} -VV    
+    - name: Build with clang
+      # Uses the platform default as the build system 
+      run: |
+        cmake -B ${{github.workspace}}/clang/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=clang++
+        cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j2
+
+    - name: Run the unit tests (clang)
+      working-directory: ${{github.workspace}}/clang/build
+      run: |
+        cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=2_Nightly
+        ctest -C ${{env.BUILD_TYPE}} -VV    
 
