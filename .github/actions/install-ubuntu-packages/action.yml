@@ -31,33 +31,40 @@ runs:
   steps:
     - name: Add the fundamentals
       run: echo "PACKAGE_LIST=g++ cmake clang-tidy cmake cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
+      shell: bash
     - name: Add ninja
-        if: inputs.with_ninja
-        env:
-          PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'ninja-build ' }}
-        run: echo "${{ PACKAGE_LIST }}"
+      if: inputs.with_ninja
+      env:
+        PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'ninja-build ' }}
+      run: echo "${{ PACKAGE_LIST }}"
+      shell: bash
     - name: Add clang
       if: inputs.with_clang
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'clang ' }}
       run: echo package-list >> $GITHUB_ENV
+      shell: bash
     - name: Add llvm
       if: inputs.with_llvm_linker
       env: 
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'lld ' }}
       run: echo "${{ PACKAGE_LIST }}"
+      shell: bash
     - name: Add doxygen
       if: inputs.with_doxygen
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'doxygen graphviz gsfonts biber ' }}
       run: echo "${{ PACKAGE_LIST }}"
+      shell: bash
     - name: Add lcov
       if: inputs.with_lcov
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'lcov ' }}
       run: echo "${{ PACKAGE_LIST }}"
+      shell: bash
     - name: Install
       run: |
         sudo apt update
         sudo apt install ${{ package-list }}
+      shell: bash
 
