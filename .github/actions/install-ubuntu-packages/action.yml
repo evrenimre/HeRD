@@ -36,7 +36,7 @@ runs:
       if: inputs.with_ninja
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'ninja-build ' }}
-      run: echo "${{ PACKAGE_LIST }}"
+      run: echo "${{ env.PACKAGE_LIST }}"
       shell: bash
     - name: Add clang
       if: inputs.with_clang
@@ -48,23 +48,23 @@ runs:
       if: inputs.with_llvm_linker
       env: 
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'lld ' }}
-      run: echo "${{ PACKAGE_LIST }}"
+      run: echo "${{ env.PACKAGE_LIST }}"
       shell: bash
     - name: Add doxygen
       if: inputs.with_doxygen
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'doxygen graphviz gsfonts biber ' }}
-      run: echo "${{ PACKAGE_LIST }}"
+      run: echo "${{ env.PACKAGE_LIST }}"
       shell: bash
     - name: Add lcov
       if: inputs.with_lcov
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'lcov ' }}
-      run: echo "${{ PACKAGE_LIST }}"
+      run: echo "${{ env.PACKAGE_LIST }}"
       shell: bash
     - name: Install
       run: |
         sudo apt update
-        sudo apt install ${{ package-list }}
+        sudo apt install ${{ env.PACKAGE_LIST }}
       shell: bash
 
