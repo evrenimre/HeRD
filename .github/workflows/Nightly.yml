@@ -10,7 +10,8 @@ on:
 
 env:
   BUILD_TYPE: Debug
-
+  BUILD_SYSTEM_ARG: ''
+  
 jobs:
   nightly:
     runs-on: ubuntu-latest
@@ -23,15 +24,18 @@ jobs:
     
     - uses: ./.github/actions/install-ubuntu-packages
       with:
-        with_ninja: ${{ true }}
+        with_ninja: ${{ matrix.compiler == 'g++' }}
         with_clang: ${{ matrix.compiler == 'clang' }}
         with_llvm_linker: ${{ true }}
         with_doxygen: ${{ false }}
         with_lcov: ${{ false }}
         
+    - name: Set build system
+      if: with_ninja
+      run: echo "BUILD_SYSTEM_ARG=-G Ninja" >> $GITHUB_ENV
     - name: Build
       run: |
-        cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
+        cmake ${{ $BUILD_SYSYEM_ARG }} -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Run the unit tests
