@@ -30,7 +30,7 @@ runs:
   using: "composite"
   steps:
     - name: Add the fundamentals
-      run: echo "PACKAGE_LIST: g++ cmake clang-tidy cmake cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
+      run: echo "PACKAGE_LIST=g++ cmake clang-tidy cmake cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
     - name: Add ninja
         if: inputs.with_ninja
         env:
