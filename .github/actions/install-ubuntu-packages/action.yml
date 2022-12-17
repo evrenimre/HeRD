@@ -41,30 +41,30 @@ runs:
     - name: Add clang
       if: inputs.with_clang
       env:
-        PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'clang ' }}
-      run: echo "${{ env.PACKAGE_LIST }}"
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang' }}
+      run: env
       shell: bash
     - name: Add llvm
       if: inputs.with_llvm_linker
       env: 
-        PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'lld ' }}
-      run: echo "${{ env.PACKAGE_LIST }}"
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld' }}
+      run: env
       shell: bash
     - name: Add doxygen
       if: inputs.with_doxygen
       env:
-        PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'doxygen graphviz gsfonts biber ' }}
-      run: echo "${{ env.PACKAGE_LIST }}"
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber' }}
+      run: env
       shell: bash
     - name: Add lcov
       if: inputs.with_lcov
       env:
-        PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'lcov ' }}
-      run: echo "${{ env.PACKAGE_LIST }}"
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov' }}
+      run: env
       shell: bash
     - name: Install
       run: |
-        sudo apt update
-        sudo apt install ${{ env.PACKAGE_LIST }}
+        sudo apt-get update
+        sudo apt-get install ${{ env.PACKAGE_LIST }}  --no-install-recommends
       shell: bash
 
