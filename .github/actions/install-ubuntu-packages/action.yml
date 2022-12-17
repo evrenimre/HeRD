@@ -42,7 +42,7 @@ runs:
       if: inputs.with_clang
       env:
         PACKAGE_LIST: ${{ env.PACKAGE_LIST || 'clang ' }}
-      run: echo package-list >> $GITHUB_ENV
+      run: echo "${{ env.PACKAGE_LIST }}"
       shell: bash
     - name: Add llvm
       if: inputs.with_llvm_linker
