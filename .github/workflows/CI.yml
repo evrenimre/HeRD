@@ -3,6 +3,9 @@ name: CI
 on:
   push:
     branches: [ main ]
+    path-ignore:
+      - '**.md'
+      - '**.yml'
   pull_request:
     branches: [ main ]
     
