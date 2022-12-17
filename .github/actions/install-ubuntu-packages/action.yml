@@ -30,7 +30,7 @@ runs:
   using: "composite"
   steps:
     - name: Add the fundamentals
-      run: echo "PACKAGE_LIST=g++ cmake clang-tidy cmake cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
+      run: echo "PACKAGE_LIST=g++ cmake clang-tidy cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
       shell: bash
     - name: Add ninja
       if: inputs.with_ninja
@@ -38,27 +38,19 @@ runs:
       shell: bash
     - name: Add clang
       if: inputs.with_clang
-      env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang') }}
-      run: env
+      run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add llvm
       if: inputs.with_llvm_linker
-      env: 
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld') }}
-      run: env
+      run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add doxygen
       if: inputs.with_doxygen
-      env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber') }}
-      run: env
+      run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add lcov
       if: inputs.with_lcov
-      env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov') }}
-      run: env
+      run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov') }}" >> $GITHUB_ENV
       shell: bash
     - name: Install
       run: |
