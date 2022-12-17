@@ -41,25 +41,25 @@ runs:
     - name: Add clang
       if: inputs.with_clang
       env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang' }}
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang') }}
       run: env
       shell: bash
     - name: Add llvm
       if: inputs.with_llvm_linker
       env: 
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld' }}
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld') }}
       run: env
       shell: bash
     - name: Add doxygen
       if: inputs.with_doxygen
       env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber' }}
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber') }}
       run: env
       shell: bash
     - name: Add lcov
       if: inputs.with_lcov
       env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov' }}
+        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov') }}
       run: env
       shell: bash
     - name: Install
