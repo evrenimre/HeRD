@@ -32,10 +32,10 @@ jobs:
         
     - name: Set build system
       if: with_ninja
-      run: echo "BUILD_SYSTEM_ARG=-G Ninja" >> $GITHUB_ENV
+      run: echo "env.BUILD_SYSTEM_ARG=-G Ninja" >> $GITHUB_ENV
     - name: Build
       run: |
-        cmake ${{ $BUILD_SYSYEM_ARG }} -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
+        cmake ${{ env.BUILD_SYSYEM_ARG }} -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Run the unit tests
