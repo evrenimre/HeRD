@@ -16,63 +16,60 @@ env:
   BUILD_TYPE: Debug
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        compiler: ['g++', 'clang++']
+    env: 
+      WITH_GNU: ${{ matrix.compiler == 'g++' }}
+    
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Install dependencies
-      # CMake needs doxygen to build the docs target
-      run: |
-        sudo apt-get update
-        sudo apt-get install g++ clang lld ninja-build \
-          libboost-all-dev librange-v3-dev libeigen3-dev \
-          clang-tidy cmake cppcheck iwyu \
-          doxygen graphviz gsfonts biber
-        
+
+    - uses: ./.github/actions/install-ubuntu-packages
+      with:
+        with_ninja: ${{ true }}
+        with_clang: ${{ matrix.compiler == 'clang++' }}
+        with_llvm_linker: ${{ true }}
+        with_doxygen: ${{ WITH_GNU }}
+        with_lcov: ${{ WITH_GNU }}
+            
     # CodeQL needs to observe the build
     - name: Initialize CodeQL
+      id: setup-codeql
+      if: WITH_GNU
       uses: github/codeql-action/init@v2
       with:
         languages: cpp, python    
         
-    - name: Build with g++
+    - name: Build
       run: |
-        cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=g++
+        cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Perform CodeQL Analysis
+      if: steps.setup-codeql.outcome == 'success'
       uses: github/codeql-action/analyze@v2
 
-    - name: Run the unit tests (g++)
+    - name: Run the unit tests
       working-directory: ${{github.workspace}}/build
       run: |
         cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
         ctest -C ${{env.BUILD_TYPE}} -VV    
-
-    - name: Build with clang
-      # Uses the platform default as the build system 
-      run: |
-        cmake -B ${{github.workspace}}/clang/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=clang++
-        cmake --build ${{github.workspace}}/clang/build --config ${{env.BUILD_TYPE}} -j2
-
-    - name: Run the unit tests (clang)
-      working-directory: ${{github.workspace}}/clang/build
-      run: |
-        cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=1_Continuous
-        ctest -C ${{env.BUILD_TYPE}} -VV
       
     - name: Generate coverage report
+      id: generate-coverage-report
+      if: WITH_GNU
       # Coverage report
       # gcov version must match that of g++
       working-directory: ${{github.workspace}}/build
       run: |
-        sudo apt-get install lcov
         lcov --directory . --capture --output-file coverage.lcov --gcov-tool gcov
         lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
         
     - name: Upload coverage report to Codecov
+      if: steps.generate-coverage-report.outcome == 'success'
       # Sends the coverage report to Codecov
       uses: codecov/codecov-action@v3
       with:
@@ -81,10 +78,13 @@ jobs:
         fail_ci_if_error: true
         
     - name: Generate documentation
+      id: generate-documentation
+      if: WITH_GNU
       run: |
         cmake --build ${{github.workspace}}/build --target docs
         
     - name: Deploy documentation
+      if: steps.generate-documentation.outcome == 'success'
       # Deploys the documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.0
       with:
