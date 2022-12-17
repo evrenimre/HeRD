@@ -35,8 +35,8 @@ runs:
     - name: Add ninja
       if: inputs.with_ninja
       env:
-        PACKAGE_LIST: ${{ env.PACKAGE_LIST || ${{ 'ninja-build ' }} }}
-      run: echo "${{ env.PACKAGE_LIST }}"
+        PACKAGE_LIST: ${{ format('{0} {1}',env.PACKAGE_LIST, 'ninja-build ' }}
+      run: env
       shell: bash
     - name: Add clang
       if: inputs.with_clang
