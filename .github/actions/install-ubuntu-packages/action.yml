@@ -30,28 +30,28 @@ runs:
   using: "composite"
   steps:
     - name: Add the fundamentals
-      run: echo "package-list = 'g++ cmake clang-tidy cmake cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev ' " >> $GITHUB_ENV
-      shell: bash
+      env: 
+        package-list: 'g++ cmake clang-tidy cmake cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev '
     - name: Add ninja
-      if: inputs.with_ninja
-      run: package-list: ${{ package-list }}:${{ 'ninja-build ' }}
-      shell: bash
+        if: inputs.with_ninja
+        env:
+          package-list: ${{ package-list }}:${{ 'ninja-build ' }}
     - name: Add clang
       if: inputs.with_clang
-      run: package-list: ${{ package-list }}:${{ 'clang ' }}
-      shell: bash
+      env:
+        package-list: ${{ package-list }}:${{ 'clang ' }}
     - name: Add llvm
       if: inputs.with_llvm_linker
-      run: package-list: ${{ package-list }}:${{ 'lld ' }}
-      shell: bash
+      env: 
+        package-list: ${{ package-list }}:${{ 'lld ' }}
     - name: Add doxygen
       if: inputs.with_doxygen
-      run: package-list: ${{ package-list }}:${{ 'doxygen graphviz gsfonts biber ' }}
-      shell: bash
+      env:
+        package-list: ${{ package-list }}:${{ 'doxygen graphviz gsfonts biber ' }}
     - name: Add lcov
       if: inputs.with_lcov
-      run: package-list: ${{ package-list }}:${{ 'lcov ' }
-      shell: bash
+      env:
+        package-list: ${{ package-list }}:${{ 'lcov ' }
     - name: Install
       run: |
         sudo apt update
