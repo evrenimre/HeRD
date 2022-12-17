@@ -34,9 +34,7 @@ runs:
       shell: bash
     - name: Add ninja
       if: inputs.with_ninja
-      env:
-        PACKAGE_LIST: ${{ format('{0} {1} ',env.PACKAGE_LIST, 'ninja-build') }}
-      run: env
+      run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'ninja-build') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add clang
       if: inputs.with_clang
