@@ -52,9 +52,9 @@ runs:
       if: inputs.with_lcov == 'true'
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov') }}" >> $GITHUB_ENV
       shell: bash
-   # - name: Install
-   #   run: |
-   #     sudo apt-get update
-   #     sudo apt-get install ${{ env.PACKAGE_LIST }}  --no-install-recommends
-   #   shell: bash
+    - name: Install
+      run: |
+        sudo apt-get update
+        sudo apt-get install ${{ env.PACKAGE_LIST }}  --no-install-recommends
+      shell: bash
 
