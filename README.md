@@ -34,7 +34,7 @@ The code is developed with standard C++ without any compiler-specific extensions
 *	Eigen
 * Range-v3
 
-Please see `CI.yml` for an up-to-date list.
+Please see `CI.yml` and the action 'install-ubuntu-dependencies' for an up-to-date list.
 
 ### Building
 From your build directory 
