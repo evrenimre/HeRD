@@ -33,7 +33,7 @@ public:
   Quantity() :
       m_Value( 0 )
   {
-  }
+  } // cppcheck-suppress missingReturn
 
   /**
    * @brief Constructor
