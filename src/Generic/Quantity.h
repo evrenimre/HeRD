@@ -70,15 +70,17 @@ public:
     return m_Value;
   }
 
+  ///@name Comparison operators
+  ///@{
+  // Default member operators only work with const&
+  bool operator==( const Quantity< Tag >& ) const = default; ///< Equality operator
+  auto operator<=>( const Quantity< Tag >& ) const = default;///< Spaceship operator
+  ///@}
+
 private:
 
   // Hidden friends: only considered in ADL. Fewer overloads means faster compile
-  ///@name Comparison operators
-  ///@{
-  friend bool operator==( Quantity< Tag >, Quantity< Tag > ) = default; ///< Equality operator
-  friend auto operator<=>( Quantity< Tag >, Quantity< Tag > ) = default;///< Spaceship operator
-  ///@}
-
+  // This is not needed for == and <=>: as of c++20 they are reversible
   ///@name Arithmetic operators
   ///@{
   /**
