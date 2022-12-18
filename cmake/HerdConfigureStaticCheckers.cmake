@@ -18,9 +18,13 @@ endif()
 
 find_program(CPPCHECK cppcheck)
 if(CPPCHECK)
+	set(CPPCHECK_BUILD_DIR ${CMAKE_BINARY_DIR}/cppcheck)
+	make_directory(${CPPCHECK_BUILD_DIR})
 	set(CMAKE_CXX_CPPCHECK ${CPPCHECK}; --std=c++${CMAKE_CXX_STANDARD} 
+																			-i ${CMAKE_BINARY_DIR}	# Exclude the binary dir
 																			--inline-suppr .
 																			--suppress-xml=${CONFIG_DIR}/cppcheckSuppress.xml . 
+																			--cppcheck-build-dir=${CPPCHECK_BUILD_DIR}
 	)
 	message(STATUS "Using ${CPPCHECK}")
 endif()
