@@ -39,7 +39,7 @@ jobs:
         cmake --build ${{ env.BUILD_DIR }}
 
     - name: Run the unit tests
-      working-directory: env.BUILD_DIR
+      working-directory: ${{ env.BUILD_DIR }}
       run: |
         cmake ${{ github.workspace }} -D UNIT_TEST_LEVEL=2_Nightly
         ctest -VV
