@@ -18,24 +18,28 @@ jobs:
       matrix:
         compiler: ['g++', 'clang++']
         
+    env:
+      BUILD_DIR: ${{github.workspace}}/build
+        
     steps:
     - uses: actions/checkout@v3
     
     - uses: ./.github/actions/install-ubuntu-packages
       with:
-        with_ninja: ${{ true }}
+        with_ninja: true
         with_clang: ${{ matrix.compiler == 'clang++' }}
-        with_llvm_linker: ${{ true }}
-        with_doxygen: ${{ false }}
-        with_lcov: ${{ false }}
+        with_llvm_linker: true
+        with_doxygen: false
+        with_lcov: false
       
     - name: Build
+      working-directory: ${{ env.BUILD_DIR }}
       run: |
-        cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
-        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        cmake . -G Ninja -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
+        cmake --build .
 
     - name: Run the unit tests
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{ env.BUILD_DIR }}
       run: |
-        cmake ${{github.workspace}} -D UNIT_TEST_LEVEL=2_Nightly
-        ctest -C ${{env.BUILD_TYPE}} -VV
+        cmake ${{ github.workspace }} -D UNIT_TEST_LEVEL=2_Nightly
+        ctest -VV
