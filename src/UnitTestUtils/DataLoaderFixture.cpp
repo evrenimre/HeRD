@@ -17,6 +17,7 @@
 #include "UnitTestUtilityFunctions.h"
 
 #include <algorithm>
+#include <optional>
 
 #include <boost/range/adaptors.hpp>
 #include <boost/range/algorithm.hpp>
@@ -75,7 +76,7 @@ boost::property_tree::ptree DataLoaderFixture::ReadAsXML( const std::string& i_r
   auto iEnd = end( std::filesystem::directory_iterator( m_DataDir ) );
   auto dir = boost::make_iterator_range( iBegin, iEnd );  // std::span does not work with directory iterators
 
-  boost::optional< std::filesystem::path > filepath;
+  std::optional< std::filesystem::path > filepath;
 
   //@formatter:off
   for( const auto& current : dir
