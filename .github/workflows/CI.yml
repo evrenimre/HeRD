@@ -32,10 +32,10 @@ jobs:
     - uses: ./.github/actions/install-ubuntu-packages
       with:
         with_ninja: true
-        with_clang: env.WITH_CLANG
+        with_clang: ${{ env.WITH_CLANG }}
         with_llvm_linker: true
-        with_doxygen: env.WITH_GNU
-        with_lcov: env.WITH_GNU
+        with_doxygen: ${{ env.WITH_GNU }}
+        with_lcov: ${{ env.WITH_GNU }}
             
     # CodeQL needs to observe the build
     - name: Initialize CodeQL
