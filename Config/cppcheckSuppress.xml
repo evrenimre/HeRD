@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<suppressions>
+  <suppress>
+    <id>unknownMacro</id>
+    <fileName>*UnitTests.cpp</fileName>
+    <!--BOOST_FIXTURE_TEST_SUITE spuriously flagged up as a missing macro. Comment, as symbolName did not work-->
+</suppress>
+</suppressions> 

@@ -1,5 +1,5 @@
 /**
- * @file RandomTestFixtureTests.cpp
+ * @file RandomTestFixtureUnitTests.cpp
  * @author Evren Imre
  * @date 8 May 2021	
  */

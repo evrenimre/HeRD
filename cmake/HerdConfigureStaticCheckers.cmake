@@ -18,7 +18,10 @@ endif()
 
 find_program(CPPCHECK cppcheck)
 if(CPPCHECK)
-	set(CMAKE_CXX_CPPCHECK ${CPPCHECK}; --std=c++${CMAKE_CXX_STANDARD} --inline-suppr *.*)
+	set(CMAKE_CXX_CPPCHECK ${CPPCHECK}; --std=c++${CMAKE_CXX_STANDARD} 
+																			--inline-suppr .
+																			--suppress-xml=${CONFIG_DIR}/cppcheckSuppress.xml . 
+	)
 	message(STATUS "Using ${CPPCHECK}")
 endif()
 

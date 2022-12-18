@@ -1,7 +1,7 @@
 set(TEST_TARGET_NAME "Test${TARGET_NAME}")	# TARGET_NAME defined by parent
 
 set(SOURCE_LIST TestUnitTestUtils.cpp
-								RandomTestFixtureTests.cpp
+								RandomTestFixtureUnitTests.cpp
 )
 
 set(PRIVATE_DEPS_LIST UnitTestUtils																									 
