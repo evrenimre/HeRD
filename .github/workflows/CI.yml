@@ -23,71 +23,73 @@ jobs:
         compiler: ['g++', 'clang++']
     env: 
       WITH_GNU: ${{ matrix.compiler == 'g++' }}
-    
+      WITH_CLANG: ${{ matrix.compiler == 'clang++' }}
+      BUILD_DIR: ${{ github.workspace }}/build
+      
     steps:
     - uses: actions/checkout@v3
 
     - uses: ./.github/actions/install-ubuntu-packages
       with:
-        with_ninja: ${{ true }}
-        with_clang: ${{ matrix.compiler == 'clang++' }}
-        with_llvm_linker: ${{ true }}
-        with_doxygen: ${{ env.WITH_GNU }}
-        with_lcov: ${{ env.WITH_GNU }}
+        with_ninja: true
+        with_clang: env.WITH_CLANG
+        with_llvm_linker: true
+        with_doxygen: env.WITH_GNU
+        with_lcov: env.WITH_GNU
             
     # CodeQL needs to observe the build
     - name: Initialize CodeQL
       id: setup-codeql
-      if: ${{ env.WITH_GNU }}
+      if: env.WITH_GNU == 'true'
       uses: github/codeql-action/init@v2
       with:
         languages: cpp, python    
         
     - name: Build
       run: |
-        cmake -G Ninja -B ${{github.workspace}}/build -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
-        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        cmake -G Ninja -B ${{ env.BUILD_DIR }} -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -D ENABLE_CODE_COVERAGE=ON -D USE_SANITISER=ON -D CMAKE_CXX_COMPILER=${{ matrix.compiler }}
+        cmake --build ${{ env.BUILD_DIR }} 
 
     - name: Perform CodeQL Analysis
-      if: ${{ steps.setup-codeql.outcome != 'skipped' }}
+      if: steps.setup-codeql.outcome != 'skipped'
       uses: github/codeql-action/analyze@v2
 
     - name: Run the unit tests
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{ env.BUILD_DIR }}
       run: |
         cmake ${{github.workspace}} -DUNIT_TEST_LEVEL=1_Continuous
-        ctest -C ${{env.BUILD_TYPE}} -VV    
+        ctest -VV    
       
     - name: Generate coverage report
       id: generate-coverage-report
-      if: ${{ env.WITH_GNU }}
+      if: env.WITH_GNU == 'true'
       # Coverage report
       # gcov version must match that of g++
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{ env.BUILD_DIR }}
       run: |
         lcov --directory . --capture --output-file coverage.lcov --gcov-tool gcov
         lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
         
     - name: Upload coverage report to Codecov
-      if: ${{ steps.generate-coverage-report.outcome != 'skipped' }}
+      if: steps.generate-coverage-report.outcome != 'skipped'
       # Sends the coverage report to Codecov
       uses: codecov/codecov-action@v3
       with:
-        files: ./build/coverage.lcov
+        files: ${{ env.BUILD_DIR }}/coverage.lcov
         flags: unittests
         fail_ci_if_error: true
         
     - name: Generate documentation
       id: generate-documentation
-      if: ${{ env.WITH_GNU }}
+      if: env.WITH_GNU == 'true'
       run: |
-        cmake --build ${{github.workspace}}/build --target docs
+        cmake --build ${{ env.BUILD_DIR }} --target docs
         
     - name: Deploy documentation
-      if: ${{ steps.generate-documentation.outcome != 'skipped' }}
+      if: steps.generate-documentation.outcome != 'skipped'
       # Deploys the documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.0
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/html
+          publish_dir: ${{ env.BUILD_DIR }}/html
           
