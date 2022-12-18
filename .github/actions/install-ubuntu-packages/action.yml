@@ -8,23 +8,23 @@ inputs:
   with_ninja:
     description: If set, adds the ninja packages
     required: false
-    default: true
+    default: ${{ true }}
   with_clang:
     description: If set, adds the clang packages
     required: false
-    default: false
+    default: ${{ false }}
   with_llvm_linker:
     description: If set, adds the llvm packages
     required: false
-    default: true
+    default: ${{ true }}
   with_doxygen:
     description: If set to, adds the doxygen packages
     required: false
-    default: false
+    default: ${{ false }}
   with_lcov:
     description: If set, adds the packages for code coverage analysis
     required: false
-    default: false
+    default: ${{ false }}
     
 runs:
   using: "composite"
@@ -33,23 +33,23 @@ runs:
       run: echo "PACKAGE_LIST=g++ cmake clang-tidy cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
       shell: bash
     - name: Add ninja
-      if: inputs.with_ninja == 'true'
+      if: inputs.with_ninja
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'ninja-build') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add clang
-      if: inputs.with_clang == 'true'
+      if: inputs.with_clang
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add llvm
-      if: inputs.with_llvm_linker == 'true'
+      if: inputs.with_llvm_linker
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add doxygen
-      if: inputs.with_doxygen == 'true'
+      if: inputs.with_doxygen
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add lcov
-      if: inputs.with_lcov == 'true'
+      if: inputs.with_lcov
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov') }}" >> $GITHUB_ENV
       shell: bash
    # - name: Install
