@@ -13,8 +13,8 @@ jobs:
     
     - uses: ./.github/actions/install-ubuntu-packages
       with:
-        with_ninja: ${{ true }}
-        with_clang: ${{ false }}
-        with_llvm_linker: ${{ true }}
-        with_doxygen: ${{ false }}
-        with_lcov: ${{ false }}
+        with_ninja: true
+        with_clang: false
+        with_llvm_linker: true
+        with_doxygen: false
+        with_lcov: false
