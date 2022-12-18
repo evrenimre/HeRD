@@ -33,23 +33,23 @@ runs:
       run: echo "PACKAGE_LIST=g++ cmake clang-tidy cppcheck iwyu libboost-all-dev librange-v3-dev libeigen3-dev " >> $GITHUB_ENV
       shell: bash
     - name: Add ninja
-      if: inputs.with_ninja
+      if: ${{ inputs.with_ninja }}
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'ninja-build') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add clang
-      if: inputs.with_clang
+      if: ${{ inputs.with_clang }}
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add llvm
-      if: inputs.with_llvm_linker
+      if: ${{ inputs.with_llvm_linker }}
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lld') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add doxygen
-      if: inputs.with_doxygen
+      if: ${{ inputs.with_doxygen }}
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'doxygen graphviz gsfonts biber') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add lcov
-      if: inputs.with_lcov
+      if: ${{ inputs.with_lcov }}
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'lcov') }}" >> $GITHUB_ENV
       shell: bash
     - name: Install
