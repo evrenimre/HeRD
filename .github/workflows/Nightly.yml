@@ -3,7 +3,7 @@ name: Nightly
 on:
   # Nightly trigger
   schedule:
-    - cron:  '41 12 * * *'
+    - cron:  '41 22 * * *'
 
   # Manual trigger
   workflow_dispatch:  
