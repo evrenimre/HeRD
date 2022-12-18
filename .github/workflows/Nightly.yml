@@ -28,7 +28,7 @@ jobs:
     - uses: ./.github/actions/install-ubuntu-packages
       with:
         with_ninja: true
-        with_clang: env.WITH_CLANG
+        with_clang: ${{ env.WITH_CLANG }}
         with_llvm_linker: true
         with_doxygen: false
         with_lcov: false
