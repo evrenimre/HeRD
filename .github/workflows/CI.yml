@@ -38,7 +38,7 @@ jobs:
     # CodeQL needs to observe the build
     - name: Initialize CodeQL
       id: setup-codeql
-      if: env.WITH_GNU
+      if: ${{ env.WITH_GNU }}
       uses: github/codeql-action/init@v2
       with:
         languages: cpp, python    
@@ -49,7 +49,7 @@ jobs:
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Perform CodeQL Analysis
-      if: steps.setup-codeql.outcome != 'skipped'
+      if: ${{ steps.setup-codeql.outcome != 'skipped' }}
       uses: github/codeql-action/analyze@v2
 
     - name: Run the unit tests
@@ -60,7 +60,7 @@ jobs:
       
     - name: Generate coverage report
       id: generate-coverage-report
-      if: env.WITH_GNU
+      if: ${{ env.WITH_GNU }}
       # Coverage report
       # gcov version must match that of g++
       working-directory: ${{github.workspace}}/build
@@ -69,7 +69,7 @@ jobs:
         lcov --remove coverage.lcov '/usr/*' "${HOME}"'/.cache/*' --output-file coverage.lcov
         
     - name: Upload coverage report to Codecov
-      if: steps.generate-coverage-report.outcome != 'skipped'
+      if: ${{ steps.generate-coverage-report.outcome != 'skipped' }}
       # Sends the coverage report to Codecov
       uses: codecov/codecov-action@v3
       with:
@@ -79,12 +79,12 @@ jobs:
         
     - name: Generate documentation
       id: generate-documentation
-      if: env.WITH_GNU
+      if: ${{ env.WITH_GNU }}
       run: |
         cmake --build ${{github.workspace}}/build --target docs
         
     - name: Deploy documentation
-      if: steps.generate-documentation.outcome != 'skipped'
+      if: ${{ steps.generate-documentation.outcome != 'skipped' }}
       # Deploys the documentation to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.0
       with:
