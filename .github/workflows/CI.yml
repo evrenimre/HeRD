@@ -32,13 +32,13 @@ jobs:
         with_ninja: ${{ true }}
         with_clang: ${{ matrix.compiler == 'clang++' }}
         with_llvm_linker: ${{ true }}
-        with_doxygen: ${{ WITH_GNU }}
-        with_lcov: ${{ WITH_GNU }}
+        with_doxygen: ${{ env.WITH_GNU }}
+        with_lcov: ${{ env.WITH_GNU }}
             
     # CodeQL needs to observe the build
     - name: Initialize CodeQL
       id: setup-codeql
-      if: WITH_GNU
+      if: env.WITH_GNU
       uses: github/codeql-action/init@v2
       with:
         languages: cpp, python    
@@ -60,7 +60,7 @@ jobs:
       
     - name: Generate coverage report
       id: generate-coverage-report
-      if: WITH_GNU
+      if: env.WITH_GNU
       # Coverage report
       # gcov version must match that of g++
       working-directory: ${{github.workspace}}/build
@@ -79,7 +79,7 @@ jobs:
         
     - name: Generate documentation
       id: generate-documentation
-      if: WITH_GNU
+      if: env.WITH_GNU
       run: |
         cmake --build ${{github.workspace}}/build --target docs
         
