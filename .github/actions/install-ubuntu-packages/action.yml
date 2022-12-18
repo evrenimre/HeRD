@@ -38,7 +38,6 @@ runs:
       shell: bash
     - name: Add clang
       if: inputs.with_clang
-      if: ${{ false }}
       run: echo "PACKAGE_LIST=${{ format('{0} {1} ',env.PACKAGE_LIST, 'clang') }}" >> $GITHUB_ENV
       shell: bash
     - name: Add llvm
