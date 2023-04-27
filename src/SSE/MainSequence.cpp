@@ -181,6 +181,7 @@ MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
  * @pre Mass in \c io_rState is positive
  * @pre Age in \c io_rState is non-negative
  * @throws PreconditionError If any preconditions are violated
+ * @remarks Call at age=0 returns the ZAMS state
  */
 bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 {
@@ -223,17 +224,23 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   double tau1 = std::min( 1., tInthook );  // Eq. 14. This term linearly ramps up until hook
   double tau2 = std::clamp( 0., 1., 100 * tInthook - 99. ); // Eq. 15. This term swings sharply from (0.99, 0.) to ( 1.0, 1.), i.e. right before the hook
 
+
   // Eq. 12
   Herd::Generic::Luminosity luminosity;
+  if( tau > 0 )
   {
     double term1 = m_MDependents.m_AlphaL * tau;
     double term2 = BXhC( tau, m_MDependents.m_BetaL, m_MDependents.m_Eta );
     double term3 = ( std::log10( m_MDependents.m_LTMS / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau * tau;
     double term4 = m_MDependents.m_DeltaL * ( ( tau1 - tau2 ) * ( tau1 + tau2 ) );
     luminosity.Set( boost::math::pow< 10 >( term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
+  } else
+  {
+    [[unlikely]] luminosity.Set( m_MDependents.m_LZAMS );
   }
 
   Herd::Generic::Radius radius;
+  if( tau > 0 )
   {
     double term1 = m_MDependents.m_AlphaR * tau;
     double term2 = m_MDependents.m_BetaR * boost::math::pow< 10 >( tau );
@@ -242,6 +249,9 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
         * boost::math::pow< 3 >( tau );
     double term5 = m_MDependents.m_DeltaR * ( boost::math::pow< 3 >( tau1 ) - boost::math::pow< 3 >( tau2 ) );
     radius.Set( boost::math::pow< 10 >( term1 + term2 + term3 + term4 + term5 ) * m_MDependents.m_RZAMS );
+  } else
+  {
+    [[unlikely]] radius.Set( m_MDependents.m_RZAMS );
   }
 
   // AMUSE.SSE, special case handling for low mass stars
