@@ -443,10 +443,10 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   }
 
   // Initialise the ZAMS computer
-  m_ZDependents.m_ZAMSComputer = std::make_optional< Herd::SSE::ZeroAgeMainSequence >( i_Z );
+  m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
 
   // Initialise the RGB computer
-  m_ZDependents.m_RGBComputer = std::make_optional< Herd::SSE::GiantBranchRadius >( i_Z );
+  m_ZDependents.m_pRGBComputer = std::make_unique< Herd::SSE::GiantBranchRadius >( i_Z );
 }
 
 /**
@@ -501,7 +501,7 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
   // ZAMS
-  Herd::SSE::TrackPoint zams = m_ZDependents.m_ZAMSComputer->Compute( i_Mass );
+  Herd::SSE::TrackPoint zams = m_ZDependents.m_pZAMSComputer->Compute( i_Mass );
   m_MDependents.m_LZAMS = zams.m_Luminosity;
   m_MDependents.m_RZAMS = zams.m_Radius;
 
@@ -527,7 +527,7 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 
   if( i_Mass < m_ZDependents.m_MFGB )
   {
-    m_MDependents.m_RBGB = m_ZDependents.m_RGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );
+    m_MDependents.m_RBGB = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );
   }
 
   // HeI

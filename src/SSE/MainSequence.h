@@ -21,7 +21,7 @@
 #include <Generic/Quantity.h>
 
 #include <array>
-#include <optional>
+#include <memory>
 #include <utility>
 
 namespace Herd::SSE
@@ -90,8 +90,9 @@ private:
     std::array< double, 8 > m_LBGB;  ///< \f$ L_{BGB} \f$ calculations
     std::array< double, 7 > m_LHeI; ///< \f$ L_{HeI} \f$ calculations
 
-    std::optional< Herd::SSE::ZeroAgeMainSequence > m_ZAMSComputer; ///< Computes the ZAMS parameters
-    std::optional< Herd::SSE::GiantBranchRadius > m_RGBComputer; ///< Computes the giant branch radius
+    // No default constructor, so needs to be a pointer
+    std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
+    std::unique_ptr< Herd::SSE::GiantBranchRadius > m_pRGBComputer; ///< Computes the giant branch radius
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial  metallicity
