@@ -14,11 +14,11 @@ var structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents =
     [ "m_MFGB", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6ff2fbe8547eeda8577834da833db5c0", null ],
     [ "m_MHeF", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a540294ecb13fca93fd0685a2b87316ab", null ],
     [ "m_Mhook", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#aa95d2a1a1988704b7ec13f5f282ac9df", null ],
-    [ "m_RGBComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a4ecaeebc106fe99bbd714974457b6ee3", null ],
+    [ "m_pRGBComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a0068dcdd9afa72005f6c7fb015de3c35", null ],
+    [ "m_pZAMSComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6a03e0a898bebe7c6b0e4202ba1b2b68", null ],
     [ "m_Rhook", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a75ebb7987b0381353ba07590364124f9", null ],
     [ "m_RTMS", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a82d070d72c95724fbef7704c7b8f7ab6", null ],
     [ "m_TBGB", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a32191a69b0302c6f00a2d941c189f93c", null ],
     [ "m_Thook", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a4af98e1e2d3eac43a9e6d81aeb0ca67f", null ],
-    [ "m_X", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#add7422c6f0e5abba0b02b85762221883", null ],
-    [ "m_ZAMSComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a18d7f97569c999752e042f7d27e639ed", null ]
+    [ "m_X", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#add7422c6f0e5abba0b02b85762221883", null ]
 ];

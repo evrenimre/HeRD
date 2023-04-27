@@ -160,12 +160,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:af656af6bf8408304d1ff4d7902d55594"><td class="memItemLeft" align="right" valign="top">std::array&lt; double, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#af656af6bf8408304d1ff4d7902d55594">m_LHeI</a></td></tr>
 <tr class="memdesc:af656af6bf8408304d1ff4d7902d55594"><td class="mdescLeft">&#160;</td><td class="mdescRight">\( L_{HeI} \) calculations  <a href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#af656af6bf8408304d1ff4d7902d55594">More...</a><br /></td></tr>
 <tr class="separator:af656af6bf8408304d1ff4d7902d55594"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d7f97569c999752e042f7d27e639ed"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html">Herd::SSE::ZeroAgeMainSequence</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a18d7f97569c999752e042f7d27e639ed">m_ZAMSComputer</a></td></tr>
-<tr class="memdesc:a18d7f97569c999752e042f7d27e639ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the ZAMS parameters.  <a href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a18d7f97569c999752e042f7d27e639ed">More...</a><br /></td></tr>
-<tr class="separator:a18d7f97569c999752e042f7d27e639ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ecaeebc106fe99bbd714974457b6ee3"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classHerd_1_1SSE_1_1GiantBranchRadius.html">Herd::SSE::GiantBranchRadius</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a4ecaeebc106fe99bbd714974457b6ee3">m_RGBComputer</a></td></tr>
-<tr class="memdesc:a4ecaeebc106fe99bbd714974457b6ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the giant branch radius.  <a href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a4ecaeebc106fe99bbd714974457b6ee3">More...</a><br /></td></tr>
-<tr class="separator:a4ecaeebc106fe99bbd714974457b6ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a03e0a898bebe7c6b0e4202ba1b2b68"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html">Herd::SSE::ZeroAgeMainSequence</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6a03e0a898bebe7c6b0e4202ba1b2b68">m_pZAMSComputer</a></td></tr>
+<tr class="memdesc:a6a03e0a898bebe7c6b0e4202ba1b2b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the ZAMS parameters.  <a href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6a03e0a898bebe7c6b0e4202ba1b2b68">More...</a><br /></td></tr>
+<tr class="separator:a6a03e0a898bebe7c6b0e4202ba1b2b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0068dcdd9afa72005f6c7fb015de3c35"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classHerd_1_1SSE_1_1GiantBranchRadius.html">Herd::SSE::GiantBranchRadius</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a0068dcdd9afa72005f6c7fb015de3c35">m_pRGBComputer</a></td></tr>
+<tr class="memdesc:a0068dcdd9afa72005f6c7fb015de3c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the giant branch radius.  <a href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a0068dcdd9afa72005f6c7fb015de3c35">More...</a><br /></td></tr>
+<tr class="separator:a0068dcdd9afa72005f6c7fb015de3c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Various quantities and values that depend on metallicity only. </p>
@@ -394,19 +394,35 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4ecaeebc106fe99bbd714974457b6ee3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ecaeebc106fe99bbd714974457b6ee3">&#9670;&nbsp;</a></span>m_RGBComputer</h2>
+<a id="a0068dcdd9afa72005f6c7fb015de3c35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0068dcdd9afa72005f6c7fb015de3c35">&#9670;&nbsp;</a></span>m_pRGBComputer</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="classHerd_1_1SSE_1_1GiantBranchRadius.html">Herd::SSE::GiantBranchRadius</a> &gt; Herd::SSE::MainSequence::MetallicityDependents::m_RGBComputer</td>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classHerd_1_1SSE_1_1GiantBranchRadius.html">Herd::SSE::GiantBranchRadius</a> &gt; Herd::SSE::MainSequence::MetallicityDependents::m_pRGBComputer</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Computes the giant branch radius. </p>
+
+</div>
+</div>
+<a id="a6a03e0a898bebe7c6b0e4202ba1b2b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a03e0a898bebe7c6b0e4202ba1b2b68">&#9670;&nbsp;</a></span>m_pZAMSComputer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html">Herd::SSE::ZeroAgeMainSequence</a> &gt; Herd::SSE::MainSequence::MetallicityDependents::m_pZAMSComputer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the ZAMS parameters. </p>
 
 </div>
 </div>
@@ -487,22 +503,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>\( x \) in Eq. 6 </p>
-
-</div>
-</div>
-<a id="a18d7f97569c999752e042f7d27e639ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18d7f97569c999752e042f7d27e639ed">&#9670;&nbsp;</a></span>m_ZAMSComputer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html">Herd::SSE::ZeroAgeMainSequence</a> &gt; Herd::SSE::MainSequence::MetallicityDependents::m_ZAMSComputer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Computes the ZAMS parameters. </p>
 
 </div>
 </div>
