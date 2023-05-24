@@ -15,7 +15,6 @@
 
 #include <Generic/Quantity.h>
 
-
 namespace Herd::SSE
 {
 struct EvolutionState;

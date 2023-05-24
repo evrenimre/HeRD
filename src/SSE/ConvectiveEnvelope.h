@@ -72,9 +72,6 @@ private:
 
   Herd::Generic::Radius ComputeRadiusOfGyration( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv ); ///< Computes the radius of gyration
   std::pair< double, double > ComputeMassAndRadius( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv ); ///< Computes the mass and the radius of the convective envelope in terms of the entire envelope
-
-
-
 };
 }
 
