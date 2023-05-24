@@ -15,6 +15,7 @@
 #include <cmath>
 #include <iterator>
 
+#include <boost/optional.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/range/adaptors.hpp>
 #include <boost/range/algorithm.hpp>
@@ -83,7 +84,7 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( std::size_t i_Index, c
 
 
 /**
- * @param i_rZo Initial value of the metallicity. If unset, read from the Z attribute
+ * @param i_rZo Initial value of the metallicity. If unset, set as the first element in the track file (as the metallicity evolution is not computed)
  */
 void SSETestDataManager::PopulateTrackPoints( const std::optional< Herd::Generic::Metallicity >& i_rZo )
 {
@@ -109,7 +110,7 @@ std::size_t SSETestDataManager::TrackPointCount() const
 
 /**
  * @param i_rNode Node for the track point
- * @param i_rZo Initial metallicity. If unset, read from the node
+ * @param i_rZo Initial metallicity. If unset, set as the first element in the track file (as the metallicity evolution is not computed)
  * @return Track point for the node
  */
 Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_tree::ptree& i_rNode,
@@ -132,7 +133,13 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_
 
     if( !i_rZo )
     {
-      trackPoint.m_InitialMetallicity.Set( rAttributes.get< double >( "Z" ) );
+      if( !m_TrackPoints.empty() )
+      {
+        trackPoint.m_InitialMetallicity.Set( m_TrackPoints[ 0 ].m_InitialMetallicity );
+      } else
+      {
+        trackPoint.m_InitialMetallicity.Set( rAttributes.get< double >( "Z" ) ); // If attempted on any element except for the first, this will throw: Z attributes are set as "?"
+      }
     } else
     {
       // Z ignored as metallicity evolution is not computed
