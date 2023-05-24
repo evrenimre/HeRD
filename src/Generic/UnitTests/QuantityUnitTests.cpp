@@ -72,6 +72,30 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( ArithmeticOperatorsTest, T, QuantityTypes )
   BOOST_TEST( left - right == left.Value() - right.Value() );
   BOOST_TEST( left * right == left.Value() * right.Value() );
   BOOST_TEST( left / right == left.Value() / right.Value() );
+
+  {
+    T updated = left;
+    updated += right;
+    BOOST_TEST( updated == left + right );
+  }
+
+  {
+    T updated = left;
+    updated -= right;
+    BOOST_TEST( updated == left - right );
+  }
+
+  {
+    T updated = left;
+    updated *= right;
+    BOOST_TEST( updated == left * right );
+  }
+
+  {
+    T updated = left;
+    updated /= right;
+    BOOST_TEST( updated == left / right );
+  }
 }
 
 /// Helpers

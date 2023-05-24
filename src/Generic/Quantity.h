@@ -77,6 +77,46 @@ public:
   auto operator<=>( const Quantity< Tag >& ) const = default;///< Spaceship operator
   ///@}
 
+  ///@name Arithmetic assignment operators
+  ///@{
+
+  /**
+   * @brief Add-assign operator
+   * @param i_rOther Addend
+   */
+  void operator+=( Quantity< Tag > i_rOther )
+  {
+    m_Value += i_rOther.m_Value;
+  }
+
+  /**
+   * @brief Subtract-assign operator
+   * @param i_rOther Subrrahend
+   */
+  void operator-=( Quantity< Tag > i_rOther )
+  {
+    m_Value -= i_rOther.m_Value;
+  }
+
+  /**
+   * @brief Multiply-assign operator
+   * @param i_rOther Multiplier
+   */
+  void operator*=( Quantity< Tag > i_rOther )
+  {
+    m_Value *= i_rOther.m_Value;
+  }
+
+  /**
+   * @brief Divide-assign operator
+   * @param i_rOther Divisor
+   */
+  void operator/=( Quantity< Tag > i_rOther )
+  {
+    m_Value /= i_rOther.m_Value;
+  }
+  ///@}
+
 private:
 
   // Hidden friends: only considered in ADL. Fewer overloads means faster compile
@@ -107,8 +147,8 @@ private:
 
   /**
    * @brief Multiplication operator
-   * @param i_Left Factor
-   * @param i_Right Factor
+   * @param i_Left Multiplier
+   * @param i_Right Multiplicand
    * @return Product
    */
   friend Quantity< Tag > operator*( Quantity< Tag > i_Left, Quantity< Tag > i_Right )
