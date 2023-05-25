@@ -133,12 +133,15 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_
 
     if( !i_rZo )
     {
-      if( !m_TrackPoints.empty() )
+      // Attempt to read from the node
+      boost::optional< double > metallicity = rAttributes.get_optional< double >( "Z" );
+      if( metallicity )
       {
-        trackPoint.m_InitialMetallicity.Set( m_TrackPoints[ 0 ].m_InitialMetallicity );
+        trackPoint.m_InitialMetallicity.Set( *metallicity );  // ZAMS data
       } else
       {
-        trackPoint.m_InitialMetallicity.Set( rAttributes.get< double >( "Z" ) ); // If attempted on any element except for the first, this will throw: Z attributes are set as "?"
+        BOOST_TEST_REQUIRE( !m_TrackPoints.empty() );
+        trackPoint.m_InitialMetallicity.Set( m_TrackPoints[ 0 ].m_InitialMetallicity ); // This is a typical AMUSE.SSE track. Metallicity is not tracked, so it is set as "?" for all nodes but the first one
       }
     } else
     {
