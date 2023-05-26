@@ -128,6 +128,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab47021408279a726d5bf304abc28397b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html#ab47021408279a726d5bf304abc28397b">operator&lt;=&gt;</a> (const <a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; &amp;) const =default</td></tr>
 <tr class="memdesc:ab47021408279a726d5bf304abc28397b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spaceship operator.  <a href="classHerd_1_1Generic_1_1Quantity.html#ab47021408279a726d5bf304abc28397b">More...</a><br /></td></tr>
 <tr class="separator:ab47021408279a726d5bf304abc28397b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Arithmetic assignment operators</div></td></tr>
+<tr class="memitem:a820e201c377dbbb35693ac0bc55c5327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html#a820e201c377dbbb35693ac0bc55c5327">operator+=</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_rOther)</td></tr>
+<tr class="memdesc:a820e201c377dbbb35693ac0bc55c5327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add-assign operator.  <a href="classHerd_1_1Generic_1_1Quantity.html#a820e201c377dbbb35693ac0bc55c5327">More...</a><br /></td></tr>
+<tr class="separator:a820e201c377dbbb35693ac0bc55c5327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13da026aa492fab7c751c1f53447c03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html#a13da026aa492fab7c751c1f53447c03a">operator-=</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_rOther)</td></tr>
+<tr class="memdesc:a13da026aa492fab7c751c1f53447c03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract-assign operator.  <a href="classHerd_1_1Generic_1_1Quantity.html#a13da026aa492fab7c751c1f53447c03a">More...</a><br /></td></tr>
+<tr class="separator:a13da026aa492fab7c751c1f53447c03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9c07d4f2a4543edbc702d5dc8405bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html#ace9c07d4f2a4543edbc702d5dc8405bd">operator*=</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_rOther)</td></tr>
+<tr class="memdesc:ace9c07d4f2a4543edbc702d5dc8405bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply-assign operator.  <a href="classHerd_1_1Generic_1_1Quantity.html#ace9c07d4f2a4543edbc702d5dc8405bd">More...</a><br /></td></tr>
+<tr class="separator:ace9c07d4f2a4543edbc702d5dc8405bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f48a0865ed83c5f7c1b4eba94df83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html#ad9f48a0865ed83c5f7c1b4eba94df83c">operator/=</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_rOther)</td></tr>
+<tr class="memdesc:ad9f48a0865ed83c5f7c1b4eba94df83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide-assign operator.  <a href="classHerd_1_1Generic_1_1Quantity.html#ad9f48a0865ed83c5f7c1b4eba94df83c">More...</a><br /></td></tr>
+<tr class="separator:ad9f48a0865ed83c5f7c1b4eba94df83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -255,6 +268,150 @@ template&lt;typename Tag &gt; </div>
 </div><div class="memdoc">
 
 <p>Implicit conversion operator. </p>
+
+</div>
+</div>
+<a id="ace9c07d4f2a4543edbc702d5dc8405bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace9c07d4f2a4543edbc702d5dc8405bd">&#9670;&nbsp;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tag &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a>&lt; Tag &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt;&#160;</td>
+          <td class="paramname"><em>i_rOther</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Multiply-assign operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rOther</td><td>Multiplier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a820e201c377dbbb35693ac0bc55c5327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820e201c377dbbb35693ac0bc55c5327">&#9670;&nbsp;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tag &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a>&lt; Tag &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt;&#160;</td>
+          <td class="paramname"><em>i_rOther</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add-assign operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rOther</td><td>Addend </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a13da026aa492fab7c751c1f53447c03a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13da026aa492fab7c751c1f53447c03a">&#9670;&nbsp;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tag &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a>&lt; Tag &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt;&#160;</td>
+          <td class="paramname"><em>i_rOther</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subtract-assign operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rOther</td><td>Subrrahend </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9f48a0865ed83c5f7c1b4eba94df83c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f48a0865ed83c5f7c1b4eba94df83c">&#9670;&nbsp;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tag &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Herd::Generic::Quantity</a>&lt; Tag &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt;&#160;</td>
+          <td class="paramname"><em>i_rOther</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Divide-assign operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rOther</td><td>Divisor </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -424,8 +581,8 @@ template&lt;typename Tag &gt; </div>
 <p>Multiplication operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i_Left</td><td>Factor </td></tr>
-    <tr><td class="paramname">i_Right</td><td>Factor </td></tr>
+    <tr><td class="paramname">i_Left</td><td>Multiplier </td></tr>
+    <tr><td class="paramname">i_Right</td><td>Multiplicand </td></tr>
   </table>
   </dd>
 </dl>
