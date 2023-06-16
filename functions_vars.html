@@ -100,6 +100,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_Age
 : <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#a4981d25feae6fe0cae58d94cb6375a47">Herd::SSE::TrackPoint</a>
 </li>
+<li>m_AllowVelocityKickForBlackHoles
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a583a268d257a89ec9dff40c6f2429ed9">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_AlphaL
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a213f72f77f1f79cc369e7bc725dc4956">Herd::SSE::MainSequence::MassDependents</a>
 , <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a02e70038ef4a6b6cdd84fff301ec55fb">Herd::SSE::MainSequence::MetallicityDependents</a>
@@ -110,9 +113,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </li>
 <li>m_AngularMomentum
 : <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#a24d370dd24e092def5b4b3afcc09919c">Herd::SSE::TrackPoint</a>
-</li>
-<li>m_AngularMomentumLossRate
-: <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a7e9188deff9308d2a4df28e2b0d6a7c7">Herd::SSE::EvolutionState</a>
 </li>
 <li>m_B
 : <a class="el" href="classHerd_1_1SSE_1_1GiantBranchRadius.html#a2fdb259449902ff4bc052e5ceefc60cf">Herd::SSE::GiantBranchRadius</a>
@@ -125,8 +125,14 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a042b1b33ac11f240c60ec10e4b9f2e08">Herd::SSE::MainSequence::MassDependents</a>
 , <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#acc915f470e1fc4769e787c6f0e6f9fc6">Herd::SSE::MainSequence::MetallicityDependents</a>
 </li>
+<li>m_BinaryWind
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#ae017181055df00695b77d0565a2a8e05">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_C
 : <a class="el" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a071e8579023e8af70021a37b82dbcd97">Herd::SSE::ConvectiveEnvelope::InitialMassDependents</a>
+</li>
+<li>m_ConvectiveEnvelopeComputer
+: <a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a4b0033bda54c847ec3f8e7dd97a9b221">Herd::SSE::MainSequence</a>
 </li>
 <li>m_CoreMass
 : <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#a60a3d00822186c7c8980a6b5c3b5f0d8">Herd::SSE::TrackPoint</a>
@@ -140,11 +146,17 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_DataPath
 : <a class="el" href="classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a5700e98e81f99390495d9d7cf0b0aee1">Herd::UnitTestUtils::DataLoaderFixture</a>
 </li>
+<li>m_DefaultTimestep
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a65011b18f5ec0f69c533ef787b2a71ac">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_DeltaL
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a7c211243ab00999482fbffafd17c4dc5">Herd::SSE::MainSequence::MassDependents</a>
 </li>
 <li>m_DeltaR
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a2ab1fd97519ffef283db5ff38f2957ce">Herd::SSE::MainSequence::MassDependents</a>
+</li>
+<li>m_DeltaT
+: <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a1e39e2df2440d1a5c06672a78127b33d">Herd::SSE::EvolutionState</a>
 </li>
 <li>m_EffectiveAge
 : <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a938904eb0fdacd801c49442b69d970cc">Herd::SSE::EvolutionState</a>
@@ -152,8 +164,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_EnvelopeMass
 : <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#aa597d0ed06a9d4c2eb3bfec362aea4cf">Herd::SSE::TrackPoint</a>
 </li>
+<li>m_EnvelopeRadius
+: <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a2cc2c6332e6ffbebf715beab06f5e923">Herd::SSE::EvolutionState</a>
+</li>
 <li>m_Eta
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ae7fc8b99eba02c8792c72e6174cbd264">Herd::SSE::MainSequence::MassDependents</a>
+, <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aee99056381de01c73416fc7178b82efd">Herd::SSE::SingleStarEvolutuion::Parameters</a>
 </li>
 <li>m_EvaluatedAt
 : <a class="el" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ad3cdb83fb360166c0dd5ed2718125735">Herd::SSE::ConvectiveEnvelope::InitialMassDependents</a>
@@ -166,8 +182,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ad6d4bcc65d9ac80cef29e16c2b6c4e0a">Herd::SSE::MainSequence::MassDependents</a>
 , <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a024e39ac96d4a78449fdaf07cd7b17ae">Herd::SSE::MainSequence::MetallicityDependents</a>
 </li>
+<li>m_HeWind
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aeaab84f3c1a16c14237f64330de7e336">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_InitialMetallicity
-: <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#a2feaf227526309a66928cc8f8a25e994">Herd::SSE::TrackPoint</a>
+: <a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a9ce0d4a4a6ea51782ab39289477d00bf">Herd::SSE::MainSequence</a>
+, <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#a2feaf227526309a66928cc8f8a25e994">Herd::SSE::TrackPoint</a>
 </li>
 <li>m_LBGB
 : <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a1b924908d44830a62248f25537d9e17e">Herd::SSE::EvolutionState</a>
@@ -211,6 +231,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_MaxEta
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a8eafa1493bd1a1acfb326260b85a0141">Herd::SSE::MainSequence::MetallicityDependents</a>
 </li>
+<li>m_MaxNSMass
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a821881ca3f2509b8df1965c84ed4481a">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_MCEZAMS
 : <a class="el" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ad6b2a59f85f7112a19aa8e32ea2b81b4">Herd::SSE::ConvectiveEnvelope::InitialMassDependents</a>
 </li>
@@ -233,6 +256,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </li>
 <li>m_Mhook
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#aa95d2a1a1988704b7ec13f5f282ac9df">Herd::SSE::MainSequence::MetallicityDependents</a>
+</li>
+<li>m_MinRemnantTimestep
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aefc39af92c7ebfdba0cef5177389b582">Herd::SSE::SingleStarEvolutuion::Parameters</a>
 </li>
 <li>m_MZAMS
 : <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a610bbe56fb9aa52c632a94385dec3596">Herd::SSE::EvolutionState</a>
@@ -265,8 +291,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_RCEZAMS
 : <a class="el" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#af821fd34f2a7d47fe479254d68fd1c8e">Herd::SSE::ConvectiveEnvelope::InitialMassDependents</a>
 </li>
+<li>m_RelativeTimeStepSizes
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a7aa16d05021717aa42d5ea77ab7ea112">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_Rg
 : <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#aef8a97b34271ec3fa0a5ed6d4dc1ec74">Herd::SSE::EvolutionState</a>
+, <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a3116fc73f49ad2dfe63c3d027e08ae88">Herd::SSE::MainSequence::MassDependents</a>
 </li>
 <li>m_RGBGB
 : <a class="el" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ae966ef1f529602765fdc42e8cd5bed73">Herd::SSE::ConvectiveEnvelope::InitialMassDependents</a>
@@ -280,6 +310,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_Rng
 : <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa6b86a33b3f3d87b93b4fb9dca752763">Herd::UnitTestUtils::RandomTestFixture</a>
 </li>
+<li>m_RocheLobe
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#ac404eb999477c51d04f981a4c2fa6407">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
 <li>m_RTMS
 : <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html#a7ea68b6ebd5af611da762166311382a8">Herd::SSE::EvolutionState</a>
 , <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ad9861970edd05016e13bc19d8c9c21ab">Herd::SSE::MainSequence::MassDependents</a>
@@ -292,10 +325,14 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 , <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html#a0988d5c4d99a56c7a91b000c9f4f9870">Herd::SSE::ZeroAgeMainSequence::MetallicityDependents</a>
 </li>
 <li>m_Seed
-: <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#ae740b56f21e5f5c09cc51bb12a73fcb7">Herd::UnitTestUtils::RandomTestFixture</a>
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a69c79fedcf14cbc7eed82cb0a4b1fc6e">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+, <a class="el" href="classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#ae740b56f21e5f5c09cc51bb12a73fcb7">Herd::UnitTestUtils::RandomTestFixture</a>
 </li>
 <li>m_Stage
 : <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html#a52fdc4bc72d43bf37afee8f2f288458e">Herd::SSE::TrackPoint</a>
+</li>
+<li>m_SupernovaKickDispersion
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a46070ea7f68c368aa5c13b2a65387b73">Herd::SSE::SingleStarEvolutuion::Parameters</a>
 </li>
 <li>m_TBGB
 : <a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a32191a69b0302c6f00a2d941c189f93c">Herd::SSE::MainSequence::MetallicityDependents</a>
@@ -320,8 +357,20 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>m_TrackPoints
 : <a class="el" href="classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a79087c40aa5f0dfb8fa3a2e6b62bf4d9">Herd::SSE::UnitTests::SSETestDataManager</a>
 </li>
+<li>m_Trajectory
+: <a class="el" href="classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a2c6793d3d690a13b4d08e07c4b56817f">Herd::SSE::SingleStarEvolutuion</a>
+</li>
 <li>m_TZAMS
 : <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html#aa21ca4bc63165bd8e187b6f15b35af7a">Herd::SSE::ZeroAgeMainSequence::MassDependents</a>
+</li>
+<li>m_UseBelczynskiMass
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#af03a0cbb7276bbe3ca16cc483be13d2a">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
+<li>m_UseHanIFMR
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a89dd2715c1cc3ec3e072ee45cd71beba">Herd::SSE::SingleStarEvolutuion::Parameters</a>
+</li>
+<li>m_UseModifiedMestel
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#abb7a9a29236fd1f417b259714bb04cf8">Herd::SSE::SingleStarEvolutuion::Parameters</a>
 </li>
 <li>m_Value
 : <a class="el" href="classHerd_1_1Generic_1_1Quantity.html#ae47fb81d835b7f8068bda8d426be48d1">Herd::Generic::Quantity&lt; Tag &gt;</a>
@@ -347,7 +396,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#af1338acc65d1c58714af022ec854b567">Herd::UnitTestUtils::DataLoaderFixture</a>
 </li>
 <li>s_MassRange
-: <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a07c9ea8dffc168ab4f63bca9ccc715b4">Herd::SSE::ZeroAgeMainSequenceSpecs</a>
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html#ad186e62b5c875bc4ebb1bfd4d99afbd6">Herd::SSE::SingleStarEvolutuionSpecs</a>
+, <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a07c9ea8dffc168ab4f63bca9ccc715b4">Herd::SSE::ZeroAgeMainSequenceSpecs</a>
 </li>
 <li>s_MaxLuminosityError
 : <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a0659b3b8402c18b2c479ae9f23d77021">Herd::SSE::ZeroAgeMainSequenceSpecs</a>
@@ -365,7 +415,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a7b54bbce74756b207ab3437ade3cbbb7">Herd::SSE::UnitTests::SSETestDataManager</a>
 </li>
 <li>s_ZRange
-: <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a1a56d0eccc74766a6fa55e85132dc703">Herd::SSE::ZeroAgeMainSequenceSpecs</a>
+: <a class="el" href="structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html#ad968bcb08bfcd56ad496fbff8fce6cca">Herd::SSE::SingleStarEvolutuionSpecs</a>
+, <a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a1a56d0eccc74766a6fa55e85132dc703">Herd::SSE::ZeroAgeMainSequenceSpecs</a>
 </li>
 </ul>
 </div><!-- contents -->

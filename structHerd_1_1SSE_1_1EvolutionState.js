@@ -1,8 +1,9 @@
 var structHerd_1_1SSE_1_1EvolutionState =
 [
-    [ "m_AngularMomentumLossRate", "structHerd_1_1SSE_1_1EvolutionState.html#a7e9188deff9308d2a4df28e2b0d6a7c7", null ],
     [ "m_CoreRadius", "structHerd_1_1SSE_1_1EvolutionState.html#a2232b552b025802cd2532c75103ff3de", null ],
+    [ "m_DeltaT", "structHerd_1_1SSE_1_1EvolutionState.html#a1e39e2df2440d1a5c06672a78127b33d", null ],
     [ "m_EffectiveAge", "structHerd_1_1SSE_1_1EvolutionState.html#a938904eb0fdacd801c49442b69d970cc", null ],
+    [ "m_EnvelopeRadius", "structHerd_1_1SSE_1_1EvolutionState.html#a2cc2c6332e6ffbebf715beab06f5e923", null ],
     [ "m_LBGB", "structHerd_1_1SSE_1_1EvolutionState.html#a1b924908d44830a62248f25537d9e17e", null ],
     [ "m_LHeI", "structHerd_1_1SSE_1_1EvolutionState.html#ac72b9add47dece82a404aa34c506ea63", null ],
     [ "m_LTMS", "structHerd_1_1SSE_1_1EvolutionState.html#aab7c942c0225fe03cee4d5c9e602cbf8", null ],

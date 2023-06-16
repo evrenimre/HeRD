@@ -119,10 +119,12 @@ Collaboration diagram for Herd::SSE::MainSequence:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHerd_1_1SSE_1_1MainSequence__coll__graph.png" border="0" usemap="#aHerd_1_1SSE_1_1MainSequence_coll__map" alt="Collaboration graph"/></div>
 <map name="aHerd_1_1SSE_1_1MainSequence_coll__map" id="aHerd_1_1SSE_1_1MainSequence_coll__map">
-<area shape="rect" title="Main sequence evolution ." alt="" coords="356,64,544,91"/>
-<area shape="rect" href="classHerd_1_1SSE_1_1IPhase.html" title="Interface class for updating the star state in an evolution phase." alt="" coords="31,5,167,32"/>
-<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html" title="Various quantities and values that depend on metallicity only." alt="" coords="5,57,193,98"/>
-<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html" title="Various quantities and values that depend on mass." alt="" coords="5,122,193,163"/>
+<area shape="rect" title="Main sequence evolution ." alt="" coords="899,97,1087,124"/>
+<area shape="rect" href="classHerd_1_1SSE_1_1IPhase.html" title="Interface class for updating the star state in an evolution phase." alt="" coords="448,5,584,32"/>
+<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html" title="Various quantities and values that depend on metallicity only." alt="" coords="422,57,610,98"/>
+<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html" title="Various quantities and values that depend on mass." alt="" coords="422,122,610,163"/>
+<area shape="rect" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html" title="Computation of convective envelope properties." alt="" coords="403,188,629,215"/>
+<area shape="rect" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html" title="Quantities depending on initial mass." alt="" coords="5,181,232,222"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -200,6 +202,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a9854b808522367be3471985c1175b674"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html">MassDependents</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a9854b808522367be3471985c1175b674">m_MDependents</a></td></tr>
 <tr class="memdesc:a9854b808522367be3471985c1175b674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mass-dependent quantities evaluated at a certain value.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a9854b808522367be3471985c1175b674">More...</a><br /></td></tr>
 <tr class="separator:a9854b808522367be3471985c1175b674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce0d4a4a6ea51782ab39289477d00bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceHerd_1_1Generic.html#aa2075b7c166c73710f4d34eca13966cf">Herd::Generic::Metallicity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a9ce0d4a4a6ea51782ab39289477d00bf">m_InitialMetallicity</a></td></tr>
+<tr class="memdesc:a9ce0d4a4a6ea51782ab39289477d00bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial value of the metallicity. Used to initialise the track points.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a9ce0d4a4a6ea51782ab39289477d00bf">More...</a><br /></td></tr>
+<tr class="separator:a9ce0d4a4a6ea51782ab39289477d00bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b0033bda54c847ec3f8e7dd97a9b221"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html">Herd::SSE::ConvectiveEnvelope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a4b0033bda54c847ec3f8e7dd97a9b221">m_ConvectiveEnvelopeComputer</a></td></tr>
+<tr class="memdesc:a4b0033bda54c847ec3f8e7dd97a9b221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the properties of the convective envelope.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a4b0033bda54c847ec3f8e7dd97a9b221">More...</a><br /></td></tr>
+<tr class="separator:a4b0033bda54c847ec3f8e7dd97a9b221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main sequence evolution <b>[Hurley00]</b>. </p>
@@ -758,7 +766,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>false</code> if Star is not in the evolution stage </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>false</code> if star is not in this evolution stage </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Mass in <code>io_rState</code> is positive </dd>
 <dd>
 Age in <code>io_rState</code> is non-negative </dd></dl>
@@ -775,6 +783,54 @@ Age in <code>io_rState</code> is non-negative </dd></dl>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4b0033bda54c847ec3f8e7dd97a9b221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b0033bda54c847ec3f8e7dd97a9b221">&#9670;&nbsp;</a></span>m_ConvectiveEnvelopeComputer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html">Herd::SSE::ConvectiveEnvelope</a> Herd::SSE::MainSequence::m_ConvectiveEnvelopeComputer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the properties of the convective envelope. </p>
+
+</div>
+</div>
+<a id="a9ce0d4a4a6ea51782ab39289477d00bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce0d4a4a6ea51782ab39289477d00bf">&#9670;&nbsp;</a></span>m_InitialMetallicity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceHerd_1_1Generic.html#aa2075b7c166c73710f4d34eca13966cf">Herd::Generic::Metallicity</a> Herd::SSE::MainSequence::m_InitialMetallicity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initial value of the metallicity. Used to initialise the track points. </p>
+
+</div>
+</div>
 <a id="a9854b808522367be3471985c1175b674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9854b808522367be3471985c1175b674">&#9670;&nbsp;</a></span>m_MDependents</h2>
 

@@ -18,6 +18,8 @@ var classHerd_1_1SSE_1_1MainSequence =
     [ "ComputeRTMS", "classHerd_1_1SSE_1_1MainSequence.html#a69f421e98a6cd6d26c4da368a6919255", null ],
     [ "ComputeTimescales", "classHerd_1_1SSE_1_1MainSequence.html#ac1d85d35758230e9e8ee26a3de166812", null ],
     [ "Evolve", "classHerd_1_1SSE_1_1MainSequence.html#aad0decc162bd15f0fa4eb62e2e1e5c54", null ],
+    [ "m_ConvectiveEnvelopeComputer", "classHerd_1_1SSE_1_1MainSequence.html#a4b0033bda54c847ec3f8e7dd97a9b221", null ],
+    [ "m_InitialMetallicity", "classHerd_1_1SSE_1_1MainSequence.html#a9ce0d4a4a6ea51782ab39289477d00bf", null ],
     [ "m_MDependents", "classHerd_1_1SSE_1_1MainSequence.html#a9854b808522367be3471985c1175b674", null ],
     [ "m_ZDependents", "classHerd_1_1SSE_1_1MainSequence.html#ab83dfda90b9d43babea5592e0e5fc05a", null ]
 ];

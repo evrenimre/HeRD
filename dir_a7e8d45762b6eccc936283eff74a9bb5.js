@@ -27,6 +27,12 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     ] ],
     [ "MathHelpers.cpp", "MathHelpers_8cpp.html", "MathHelpers_8cpp" ],
     [ "MathHelpers.h", "MathHelpers_8h.html", "MathHelpers_8h" ],
+    [ "SingleStarEvolution.cpp", "SingleStarEvolution_8cpp.html", null ],
+    [ "SingleStarEvolution.h", "SingleStarEvolution_8h.html", [
+      [ "SingleStarEvolutuion", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html", "classHerd_1_1SSE_1_1SingleStarEvolutuion" ],
+      [ "Parameters", "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html", "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters" ],
+      [ "SingleStarEvolutuionSpecs", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs" ]
+    ] ],
     [ "StellarRotation.cpp", "StellarRotation_8cpp.html", null ],
     [ "StellarRotation.h", "StellarRotation_8h.html", [
       [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ]

@@ -10,6 +10,8 @@ var namespaceHerd_1_1SSE =
     [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ],
     [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ],
     [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],
+    [ "SingleStarEvolutuion", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html", "classHerd_1_1SSE_1_1SingleStarEvolutuion" ],
+    [ "SingleStarEvolutuionSpecs", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs" ],
     [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],
     [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ],
     [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ],

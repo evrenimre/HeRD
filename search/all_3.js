@@ -40,12 +40,13 @@ var searchData=
   ['computestellarwindloss_62',['ComputeStellarWindLoss',['../classHerd_1_1SSE_1_1StellarRotation.html#a050ac61e7b614fed3e2b25ad6d6170e6',1,'Herd::SSE::StellarRotation']]],
   ['computetemperature_63',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
   ['computetimescales_64',['ComputeTimescales',['../classHerd_1_1SSE_1_1MainSequence.html#ac1d85d35758230e9e8ee26a3de166812',1,'Herd::SSE::MainSequence']]],
-  ['computewrlikeloss_65',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
-  ['computezams_2ecpp_66',['ComputeZAMS.cpp',['../ComputeZAMS_8cpp.html',1,'']]],
-  ['constants_2eh_67',['Constants.h',['../Physics_2Constants_8h.html',1,'(Global Namespace)'],['../SSE_2Constants_8h.html',1,'(Global Namespace)']]],
-  ['contains_68',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]],
-  ['convectiveenvelope_69',['ConvectiveEnvelope',['../classHerd_1_1SSE_1_1ConvectiveEnvelope.html',1,'Herd::SSE']]],
-  ['convectiveenvelope_2ecpp_70',['ConvectiveEnvelope.cpp',['../ConvectiveEnvelope_8cpp.html',1,'']]],
-  ['convectiveenvelope_2eh_71',['ConvectiveEnvelope.h',['../ConvectiveEnvelope_8h.html',1,'']]],
-  ['convectiveenvelopeunittests_2ecpp_72',['ConvectiveEnvelopeUnitTests.cpp',['../ConvectiveEnvelopeUnitTests_8cpp.html',1,'']]]
+  ['computetimestep_65',['ComputeTimestep',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a11a2801e053a2a1249fded4639e6f618',1,'Herd::SSE::SingleStarEvolutuion']]],
+  ['computewrlikeloss_66',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
+  ['computezams_2ecpp_67',['ComputeZAMS.cpp',['../ComputeZAMS_8cpp.html',1,'']]],
+  ['constants_2eh_68',['Constants.h',['../Physics_2Constants_8h.html',1,'(Global Namespace)'],['../SSE_2Constants_8h.html',1,'(Global Namespace)']]],
+  ['contains_69',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]],
+  ['convectiveenvelope_70',['ConvectiveEnvelope',['../classHerd_1_1SSE_1_1ConvectiveEnvelope.html',1,'Herd::SSE']]],
+  ['convectiveenvelope_2ecpp_71',['ConvectiveEnvelope.cpp',['../ConvectiveEnvelope_8cpp.html',1,'']]],
+  ['convectiveenvelope_2eh_72',['ConvectiveEnvelope.h',['../ConvectiveEnvelope_8h.html',1,'']]],
+  ['convectiveenvelopeunittests_2ecpp_73',['ConvectiveEnvelopeUnitTests.cpp',['../ConvectiveEnvelopeUnitTests_8cpp.html',1,'']]]
 ];
