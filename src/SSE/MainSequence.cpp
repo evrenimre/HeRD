@@ -524,7 +524,7 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_BetaL = ComputeBetaL( i_Mass );
   m_MDependents.m_DeltaL = ComputeLHook( i_Mass );
 
-  m_MDependents.m_Eta = std::clamp( 10., m_ZDependents.m_MaxEta, std::lerp( 10., 20., ( i_Mass - 1 ) / 0.1 ) ); // Eq. 18 and linear interpolation for Z <= 0.0009 . If Z> 0.0009, since m_MaxEta = 10, eta becomes 10
+  m_MDependents.m_Eta = std::clamp( std::lerp( 10., 20., ( i_Mass - 1 ) / 0.1 ), 10., m_ZDependents.m_MaxEta ); // Eq. 18 and linear interpolation for Z <= 0.0009 . If Z> 0.0009, since m_MaxEta = 10, eta becomes 10
 
   // Radius
   m_MDependents.m_RTMS = ComputeRTMS( i_Mass );
@@ -534,12 +534,11 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_DeltaR = ComputeRHook( i_Mass );
 
   //BGB
-
   m_MDependents.m_LBGB = ComputeLBGB( i_Mass );
-
+  Herd::Generic::Radius rBGB = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );   // Also used to set m_Rg
   if( i_Mass < m_ZDependents.m_MFGB )
   {
-    m_MDependents.m_RBGB = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );
+    m_MDependents.m_RBGB = rBGB;
   }
 
   // HeI
