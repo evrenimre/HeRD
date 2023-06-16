@@ -4,6 +4,7 @@ set(SOURCE_LIST TestSSE.cpp
 								ConvectiveEnvelopeUnitTests.cpp
 								EvolutionStageUnitTests.cpp
 								EvolutionStateUnitTests.cpp
+								SingleStarEvolutionUnitTests.cpp
 								SSETestDataManager.cpp
 								SSETestUtils.cpp
 								StellarWindMassLossUnitTests.cpp

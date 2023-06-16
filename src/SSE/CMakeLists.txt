@@ -7,7 +7,7 @@ set(HEADER_LIST Constants.h
 								IPhase.h
 							  MathHelpers.h
 							  MainSequence.h
-								#SingleStarEvolution.h
+								SingleStarEvolution.h
 								StellarRotation.h
 								StellarWindMassLoss.h
 								TrackPoint.h
@@ -20,7 +20,7 @@ set(SOURCE_LIST ConvectiveEnvelope.cpp
 								GiantBranchRadius.cpp
 								MainSequence.cpp
 								MathHelpers.cpp
-								#SingleStarEvolution.cpp
+								SingleStarEvolution.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
 								TrackPoint.cpp
