@@ -178,7 +178,7 @@ MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity ) :
 
 /**
  * @param[in, out] io_rState Evolution state
- * @return \c false if Star is not in the evolution stage
+ * @return \c false if star is not in this evolution stage
  * @pre Mass in \c io_rState is positive
  * @pre Age in \c io_rState is non-negative
  * @throws PreconditionError If any preconditions are violated

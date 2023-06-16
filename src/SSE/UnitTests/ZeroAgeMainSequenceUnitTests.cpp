@@ -164,9 +164,9 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
   bool bFound = false;
   for( int c = 0; c < 5; ++c )
   {
-    Herd::SSE::TrackPoint Expected = GetRandomTrackPoint();
-    Herd::Generic::Mass mass = Expected.m_Mass;
-    Herd::Generic::Metallicity z = Expected.m_InitialMetallicity;
+    Herd::SSE::TrackPoint expected = GetRandomTrackPoint();
+    Herd::Generic::Mass mass = expected.m_Mass;
+    Herd::Generic::Metallicity z = expected.m_InitialMetallicity;
 
     if( s_MassRange.Contains( mass ) && s_ZRange.Contains( z ) )
     {
@@ -174,8 +174,8 @@ BOOST_AUTO_TEST_CASE( ReferenceData, *Herd::UnitTestUtils::Labels::s_Compile )
       {
 
         Herd::SSE::ZeroAgeMainSequence zams( z );
-        auto Actual = zams.Compute( mass );
-        IsWithinErrorTolerance( Actual, Expected ); // @suppress("Invalid arguments")
+        auto actual = zams.Compute( mass );
+        IsWithinErrorTolerance( actual, expected ); // @suppress("Invalid arguments")
         bFound = true;
         break;
       }
@@ -191,16 +191,16 @@ BOOST_AUTO_TEST_CASE( CatalogueTest, *Herd::UnitTestUtils::Labels::s_Continuous 
   auto Filter = [ & ]( const auto& i_TrackPoint )
   { return s_MassRange.Contains( i_TrackPoint.value().m_Mass) && s_ZRange.Contains( i_TrackPoint.value().m_InitialMetallicity );};
 
-  for( const auto& Current : GetTrackPoints() | boost::adaptors::indexed() | boost::adaptors::filtered( Filter ) )
+  for( const auto& current : GetTrackPoints() | boost::adaptors::indexed() | boost::adaptors::filtered( Filter ) )
   {
-    const Herd::SSE::TrackPoint& Expected = Current.value(); // @suppress("Method cannot be resolved")
-    std::size_t Idx = Current.index(); // @suppress("Method cannot be resolved")
-    BOOST_TEST_CONTEXT( "Index "<< Idx << " Mass " << Expected.m_Mass << " Metallicity "<< Expected.m_InitialMetallicity )
+    const Herd::SSE::TrackPoint& expected = current.value(); // @suppress("Method cannot be resolved")
+    std::size_t idx = current.index(); // @suppress("Method cannot be resolved")
+    BOOST_TEST_CONTEXT( "Index "<< idx << " Mass " << expected.m_Mass << " Metallicity "<< expected.m_InitialMetallicity )
     {
 
-      Herd::SSE::ZeroAgeMainSequence zams( Expected.m_InitialMetallicity );
-      auto Actual = zams.Compute( Expected.m_Mass );
-      IsWithinErrorTolerance( Actual, Expected ); // @suppress("Invalid arguments")
+      Herd::SSE::ZeroAgeMainSequence zams( expected.m_InitialMetallicity );
+      auto actual = zams.Compute( expected.m_Mass );
+      IsWithinErrorTolerance( actual, expected ); // @suppress("Invalid arguments")
     }
   }
 }
