@@ -61,10 +61,12 @@ GiantBranchRadius::GiantBranchRadius( Herd::Generic::Metallicity i_Z )
 
   double logZ = std::log10( i_Z );
   m_B[ 0 ] = std::max( std::pow( 10., -4.6739 - 0.9394 * logZ ), -0.04167 + 55.67 * i_Z );
+  m_B[ 0 ] = std::min( m_B[ 0 ], 0.4771 - BXhC( i_Z, 9329.21, 2.94 ) );
+
   m_B[ 1 ] = std::min( 0.54, Herd::SSE::ComputeInnerProduct( { 0.397, 0.28826, 0.5293 }, zetaPowers2 ) );
 
   {
-    m_B[ 2 ] = std::pow( 10., std::max( -0.1451, -2.2794 - 1.5175 * logZ + 0.254 * logZ * logZ ) );
+    m_B[ 2 ] = std::pow( 10., std::max( -0.1451, -2.2794 - 1.5175 * logZ - 0.254 * logZ * logZ ) );
     if( i_Z > 0.004 )
     {
       m_B[ 2 ] = std::max( m_B[ 2 ], ApBXhC( i_Z, 0.7307, 14265.1, 3.395 ) );
@@ -92,10 +94,10 @@ Herd::Generic::Radius GiantBranchRadius::Compute( Herd::Generic::Mass i_Mass, He
   if( i_Mass != m_A.first )
   {
     m_A.first = i_Mass;
-    m_A.second = std::min( BXhC( i_Mass, m_B[ 3 ], m_B[ 4 ] ), BXhC( i_Mass, m_B[ 5 ], m_B[ 6 ] ) );
+    m_A.second = std::min( BXhC( i_Mass, m_B[ 3 ], -m_B[ 4 ] ), BXhC( i_Mass, m_B[ 5 ], -m_B[ 6 ] ) );
   }
 
-  return Herd::Generic::Radius( m_A.second * ( std::pow( i_Luminosity, m_B[ 1 ] ) + BXhC( i_Mass, m_B[ 0 ], m_B[ 2 ] ) ) );
+  return Herd::Generic::Radius( m_A.second * ( std::pow( i_Luminosity, m_B[ 1 ] ) + BXhC( i_Luminosity, m_B[ 0 ], m_B[ 2 ] ) ) );
 }
 
 }
