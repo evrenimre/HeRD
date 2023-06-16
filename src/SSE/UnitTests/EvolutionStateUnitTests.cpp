@@ -145,6 +145,13 @@ BOOST_AUTO_TEST_CASE( validatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
     InvalidateQuantity( invalid.m_MZHe );
     BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
   }
+
+  {
+    Herd::SSE::EvolutionState invalid = valid;
+    InvalidateQuantity( invalid.m_DeltaT );
+    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
+  }
+
 }
 
 BOOST_AUTO_TEST_SUITE_END( )

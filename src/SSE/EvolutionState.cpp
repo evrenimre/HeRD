@@ -53,6 +53,9 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   Herd::Generic::ThrowIfNotPositive( i_rState.m_LBGB, "m_LBGB" );
 
   Herd::Generic::ThrowIfNotPositive( i_rState.m_LHeI, "m_LHeI" );
+
+  Herd::Generic::ThrowIfNegative( i_rState.m_DeltaT, "m_DeltaT" );
+
   if( i_rState.m_TrackPoint.m_Stage >= Herd::SSE::EvolutionStage::e_HG )
   {
     Herd::Generic::ThrowIfNotPositive( i_rState.m_MCHeI, "m_MCHeI" );

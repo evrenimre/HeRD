@@ -205,12 +205,27 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     thook = m_MDependents.m_Thook;
   }
 
+  // Change in mass changes the effective age of the star
+  Herd::Generic::Age tMSOld = ( rTrackPoint.m_Mass == io_rState.m_MZAMS ) ? tMS : io_rState.m_TMS;
+
+  // Handling the no tMS change separately is numerically more stable. Otherwise, at the end of the stage, effectiveAge can fall just short of tMS, causing insertion of an extra track point
+  Herd::Generic::Age effectiveAge = io_rState.m_EffectiveAge;
+  if( tMS == tMSOld )
+  {
+    effectiveAge += io_rState.m_DeltaT;
+  } else
+  {
+    effectiveAge.Set( std::fma( effectiveAge, tMS / tMSOld, io_rState.m_DeltaT ) );
+  }
+
   // Not a MS star
-  if( io_rState.m_EffectiveAge >= tMS )
+  if( effectiveAge >= tMS )
   {
     return false;
   }
 
+  // Modify io_rState only after this point, as the call cannot fail
+  
   // Need to update the mass dependents?
   if( mass != m_MDependents.m_EvaluatedAt )
   {
@@ -218,13 +233,12 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     m_MDependents.m_Thook = thook;
     ComputeMassDependents( mass );
   }
-
-  double tau = io_rState.m_EffectiveAge / tMS; // Eq. 11.  Progress in MS
-
-  double tInthook = io_rState.m_EffectiveAge / thook;
+  
+  double tInthook = effectiveAge / thook;
   double tau1 = std::min( 1., tInthook );  // Eq. 14. This term linearly ramps up until hook
-  double tau2 = std::clamp( 0., 1., 100 * tInthook - 99. ); // Eq. 15. This term swings sharply from (0.99, 0.) to ( 1.0, 1.), i.e. right before the hook
+  double tau2 = std::clamp( 100. * tInthook - 99., 0., 1. ); // Eq. 15. This term swings sharply from (0.99, 0.) to ( 1.0, 1.), i.e. right before the hook
 
+  double tau = effectiveAge / tMS; // Eq. 11.  Progress in MS
 
   // Eq. 12
   Herd::Generic::Luminosity luminosity;
@@ -277,6 +291,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_CoreMass.Set( 0. );
   io_rState.m_CoreRadius.Set( 0. );
 
+  io_rState.m_TMS = m_MDependents.m_TMS;
+
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
   io_rState.m_LTMS = m_MDependents.m_LTMS;
   io_rState.m_RTMS = m_MDependents.m_RTMS;
@@ -284,6 +300,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 
   io_rState.m_LBGB = m_MDependents.m_LBGB;
   io_rState.m_LHeI = m_MDependents.m_LHeI;
+
+  io_rState.m_EffectiveAge = effectiveAge;
 
   // Convective envelope
 

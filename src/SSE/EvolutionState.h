@@ -51,6 +51,8 @@ struct EvolutionState
   Herd::Generic::Mass m_MCHeI; ///< \f$ M_{c, HeI}\f$. Core mass at He ignition
   Herd::Generic::Luminosity m_LHeI;  ///< \f$ L_{HeI}\f$, Eq. 49. Luminosity at He ignition
 
+  Herd::Generic::Age m_DeltaT; ///<  Timestep
+
 };
 
 void ValidateEvolutionState( const EvolutionState& i_rState );  ///< Validates an evolution state
