@@ -512,6 +512,8 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
  */
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
+  m_MDependents.m_EvaluatedAt = i_Mass;
+
   // ZAMS
   Herd::SSE::TrackPoint zams = m_ZDependents.m_pZAMSComputer->Compute( i_Mass );
   m_MDependents.m_LZAMS = zams.m_Luminosity;
