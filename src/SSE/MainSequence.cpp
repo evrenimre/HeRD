@@ -706,12 +706,13 @@ double MainSequence::ComputeAlphaR( Herd::Generic::Mass i_Mass ) const
     return std::lerp( rA[ 9 ], rA[ 10 ], ComputeBlendWeight( i_Mass, 0.65, rA[ 5 ] ) );
   }
 
+  // This function is used in the computation of rA[11]. So we need a < instead of a <=. The next if clause does not need rA[11]
   if( i_Mass > rA[ 5 ] && i_Mass < rA[ 6 ] )
   {
     return std::lerp( rA[ 10 ], rA[ 11 ], ComputeBlendWeight( i_Mass, rA[ 5 ], rA[ 6 ] ) );
   }
 
-  if( i_Mass > rA[ 6 ] && i_Mass < rA[ 7 ] )
+  if( i_Mass >= rA[ 6 ] && i_Mass <= rA[ 7 ] )
   {
     return BXhC( i_Mass, rA[ 0 ], rA[ 2 ] ) / ApBXhC( i_Mass, rA[ 1 ], 1., rA[ 3 ] );
   }
@@ -737,7 +738,7 @@ double MainSequence::ComputeBetaR( Herd::Generic::Mass i_Mass ) const
     betaR = 1.06;
   }
 
-  if( i_Mass < 1. && i_Mass <= rA[ 5 ] )
+  if( i_Mass > 1. && i_Mass <= rA[ 5 ] )
   {
     betaR = std::lerp( 1.06, rA[ 4 ], ComputeBlendWeight( i_Mass, 1., rA[ 5 ] ) );
   }
