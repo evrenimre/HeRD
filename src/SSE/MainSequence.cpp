@@ -293,19 +293,21 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
 {
   m_ZDependents.m_EvaluatedAt = i_Z;
 
+  Herd::Generic::Metallicity relativeZ( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 ); // Metallicity relative to sun
+
   std::array< double, 5 > zetaPowers4;
-  double zeta = std::log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
+  double zeta = std::log10( relativeZ );
   Herd::SSE::ComputePowers( zetaPowers4, zeta );
 
   std::array< double, 4 > zetaPowers3;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 4, zetaPowers3.begin() );
 
   std::array< double, 3 > zetaPowers2;
-  ranges::cpp20::copy_n( zetaPowers4.begin(), 3, zetaPowers3.begin() );
+  ranges::cpp20::copy_n( zetaPowers4.begin(), 3, zetaPowers2.begin() );
 
   m_ZDependents.m_Mhook.Set( Herd::SSE::ComputeInnerProduct( { 1.0185, 0.16015, 0.0892 }, zetaPowers2 ) );  // Eq. 1
   m_ZDependents.m_MHeF.Set( Herd::SSE::ComputeInnerProduct( { 1.995, 0.25, 0.087 }, zetaPowers2 ) );  // Eq. 2
-  m_ZDependents.m_MFGB.Set( BXhC( zeta, 13.048, 0.06 ) / ApBXhC( zeta, 1., 1e-4, -1.27 ) );  // Eq. 3, but 0.0012 replaced by 1e-4 in AMUSE.SSE
+  m_ZDependents.m_MFGB.Set( BXhC( relativeZ, 13.048, 0.06 ) / ApBXhC( relativeZ, 1., 1e-4, -1.27 ) );  // Eq. 3, but 0.0012 replaced by 1e-4 in AMUSE.SSE
 
   // TBGB
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_TBGB, s_ZTBGB, zetaPowers3 );
@@ -361,7 +363,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   {
     auto& rA = m_ZDependents.m_RTMS;
     rA[ 11 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] ) ); // Eq. 9a, evaluated at a17
-    rA[ 12 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] + 1 ) );  //Eq. 9b, evaluated at Mstar
+    rA[ 12 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] + 0.1 ) );  //Eq. 9b, evaluated at Mstar
   }
 
   // AlphaR
@@ -378,7 +380,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
     rA[ 8 ] = std::max( 0.065, tempAlphaR[ 10 ] );
     rA[ 9 ] = i_Z >= 0.004 ? tempAlphaR[ 11 ] : std::min( 0.055, tempAlphaR[ 11 ] );
     rA[ 10 ] = std::clamp( tempAlphaR[ 12 ], 0.091, 0.121 );
-    rA[ 11 ] = ComputeAlphaR( Herd::Generic::Mass( rA[ 6 ] ) );
+    rA[ 11 ] = BXhC( rA[ 6 ], rA[ 0 ], rA[ 2 ] ) / ApBXhC( rA[ 6 ], rA[ 1 ], 1., rA[ 3 ] ); // AMUSE.SSE. Paper uses alpha_R at rA[6], but this does not work correctly if rA[5] > rA[6]
     if( rA[ 5 ] > rA[ 6 ] )
     {
       rA[ 5 ] = rA[ 6 ];
@@ -388,8 +390,8 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
 
   // BetaR
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_BetaR, s_ZBetaR, zetaPowers3 );
-  m_ZDependents.m_BetaR[ 5 ] = i_Z <= 0.01 ? m_ZDependents.m_BetaR[ 5 ] : std::max( 0.95, m_ZDependents.m_BetaR[ 5 ] );
-  m_ZDependents.m_BetaR[ 6 ] = std::clamp( m_ZDependents.m_BetaR[ 6 ], 1.4, 1.6 );
+  m_ZDependents.m_BetaR[ 4 ] = i_Z <= 0.01 ? m_ZDependents.m_BetaR[ 4 ] : std::max( 0.95, m_ZDependents.m_BetaR[ 4 ] );
+  m_ZDependents.m_BetaR[ 5 ] = std::clamp( m_ZDependents.m_BetaR[ 5 ], 1.4, 1.6 );
 
   // GammaR
   std::array< double, 12 > tempGammaR;
@@ -443,13 +445,13 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
     rB[ 1 ] = tempLHeI[ 1 ];
     rB[ 2 ] = 15.;
 
-    rB[ 3 ] = 0.; // This value is just an initialiser. The next call goes down a branch that does not use rB[3]
-    Herd::Generic::Luminosity lHeI = ComputeLHeI( m_ZDependents.m_MHeF );  // L_HeI at M_HeF
-    rB[ 3 ] = ( BXhC( m_ZDependents.m_MHeF, rB[ 0 ], rB[ 1 ] ) - lHeI ) / ( lHeI * std::exp( m_ZDependents.m_MHeF * rB[ 2 ] ) ); // AMASS.SSE implements this differently from the paper
-
     rB[ 4 ] = tempLHeI[ 2 ];
     rB[ 5 ] = tempLHeI[ 3 ] * tempLHeI[ 3 ];
     rB[ 6 ] = tempLHeI[ 4 ] * tempLHeI[ 4 ];
+
+    rB[ 3 ] = 0.; // This value is just an initialiser. The next call goes down a branch that does not use rB[3]
+    Herd::Generic::Luminosity lHeI = ComputeLHeI( m_ZDependents.m_MHeF );  // L_HeI at M_HeF
+    rB[ 3 ] = ( BXhC( m_ZDependents.m_MHeF, rB[ 0 ], rB[ 1 ] ) - lHeI ) / ( lHeI * std::exp( m_ZDependents.m_MHeF * rB[ 2 ] ) ); // AMASS.SSE implements this differently from the paper
   }
 
   // Initialise the ZAMS computer
@@ -477,7 +479,7 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
     std::array< double, 4 > massPowersNum;
     massPowersNum[ 0 ] = 1;
     massPowersNum[ 1 ] = m20 * m20; // m^4
-    massPowersNum[ 2 ] = m50 * m05; // m^5.5  state.m_TrackPoint.m_Stage = i_Mass < 0.7 ? Herd::SSE::EvolutionStage::e_MSLM : Herd::SSE::EvolutionStage::e_MS;
+    massPowersNum[ 2 ] = m50 * m05; // m^5.5
     massPowersNum[ 3 ] = m50 * m20;  // m^7
 
     std::array< double, 4 > massPowersDen;
