@@ -27,18 +27,21 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
 {
   Herd::SSE::ValidateTrackPoint( i_rState.m_TrackPoint );
   Herd::Generic::ThrowIfNegative( i_rState.m_EffectiveAge, "m_EffectiveAge" );
-  Herd::Generic::ThrowIfNegative( i_rState.m_CoreRadius, "m_CoreRadius" );
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
-  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_AngularMomentumLossRate, "m_AngularMomentumLossRate" );
 
+  Herd::Generic::ThrowIfNegative( i_rState.m_CoreRadius, "m_CoreRadius" );
   if( i_rState.m_CoreRadius > i_rState.m_TrackPoint.m_Radius )
   {
     Herd::Exceptions::ThrowPreconditionError( "m_CoreRadus", "<=m_Radius", i_rState.m_CoreRadius.Value() );
   }
 
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_MZAMS, "m_MZAMS" );
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_MZHe, "m_MZHe" );
+  Herd::Generic::ThrowIfNegative( i_rState.m_EnvelopeRadius, "m_EnvelopeRadius" );
+  if( i_rState.m_EnvelopeRadius > i_rState.m_TrackPoint.m_Radius )
+  {
+    Herd::Exceptions::ThrowPreconditionError( "m_EnvelopeRadius", "<=m_Radius", i_rState.m_EnvelopeRadius.Value() );
+  }
 
+  Herd::Generic::ThrowIfNotPositive( i_rState.m_MZAMS, "m_MZAMS" );
   Herd::Generic::ThrowIfNotPositive( i_rState.m_RZAMS, "m_RZAMS" );
 
   Herd::Generic::ThrowIfNotPositive( i_rState.m_MFGB, "m_MFGB" );
@@ -49,8 +52,16 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   Herd::Generic::ThrowIfNotPositive( i_rState.m_Rg, "m_Rg" );
   Herd::Generic::ThrowIfNotPositive( i_rState.m_LBGB, "m_LBGB" );
 
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_MCHeI, "m_MCHeI" );
   Herd::Generic::ThrowIfNotPositive( i_rState.m_LHeI, "m_LHeI" );
+  if( i_rState.m_TrackPoint.m_Stage >= Herd::SSE::EvolutionStage::e_HG )
+  {
+    Herd::Generic::ThrowIfNotPositive( i_rState.m_MCHeI, "m_MCHeI" );
+  }
+
+  if( i_rState.m_TrackPoint.m_Stage >= Herd::SSE::EvolutionStage::e_HeMS )
+  {
+    Herd::Generic::ThrowIfNotPositive( i_rState.m_MZHe, "m_MZHe" );
+  }
 }
 
 }

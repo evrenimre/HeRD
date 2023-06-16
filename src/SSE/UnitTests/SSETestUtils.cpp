@@ -74,8 +74,8 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
 
   generated.m_EffectiveAge.Set( Generator( generated.m_TrackPoint.m_Age, 1.5 * generated.m_TrackPoint.m_Age ) );
   generated.m_CoreRadius.Set( Generator( 0., generated.m_TrackPoint.m_Radius.Value() ) );
+  generated.m_EnvelopeRadius.Set( generated.m_TrackPoint.m_Radius - generated.m_CoreRadius );
   generated.m_MassLossRate = Generator( 0., 1e-4 );
-  generated.m_AngularMomentumLossRate = Generator( 0., 715. );
 
   generated.m_MZAMS.Set( Generator( generated.m_TrackPoint.m_Mass, 216. ) );
   generated.m_MZHe.Set( Generator( 0.08, generated.m_MZAMS ) );

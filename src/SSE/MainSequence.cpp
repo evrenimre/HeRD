@@ -275,15 +275,27 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_Temperature = Herd::Physics::ComputeAbsoluteTemperature( luminosity, radius );
   rTrackPoint.m_Stage = stage;
   rTrackPoint.m_CoreMass.Set( 0. );
+  io_rState.m_CoreRadius.Set( 0. );
 
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
   io_rState.m_LTMS = m_MDependents.m_LTMS;
   io_rState.m_RTMS = m_MDependents.m_RTMS;
   io_rState.m_RZAMS = m_MDependents.m_RZAMS;
 
-  io_rState.m_Rg = m_MDependents.m_RBGB;
   io_rState.m_LBGB = m_MDependents.m_LBGB;
   io_rState.m_LHeI = m_MDependents.m_LHeI;
+
+  // Convective envelope
+
+  // Reset the convective envelope properties. At this point they are outdated and can trigger a validation failure
+  rTrackPoint.m_EnvelopeMass.Set( 0. );
+  io_rState.m_EnvelopeRadius.Set( 0. );
+
+  io_rState.m_Rg = m_MDependents.m_Rg;
+
+  auto convectiveEnvelope = m_ConvectiveEnvelopeComputer.Compute( io_rState );
+  rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;
+  io_rState.m_EnvelopeRadius = convectiveEnvelope.m_Radius;
 
   return true;
 }
@@ -547,6 +559,9 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 
   // HeI
   m_MDependents.m_LHeI = ComputeLHeI( i_Mass );
+
+  // Rg
+  m_MDependents.m_Rg = rBGB;
 }
 
 /**

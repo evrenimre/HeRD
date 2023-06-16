@@ -13,6 +13,7 @@
 #ifndef H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 #define H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 
+#include "ConvectiveEnvelope.h"
 #include "GiantBranchRadius.h"
 #include "IPhase.h"
 #include "TrackPoint.h"
@@ -128,10 +129,15 @@ private:
     Herd::Generic::Radius m_RBGB;  ///< Radius at BGB
 
     Herd::Generic::Luminosity m_LHeI; ///< Luminosity at He ignition
+
+    Herd::Generic::Radius m_Rg; ///< \f$ R_g \f$ required for convective envelope calculations
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities evaluated at a certain value
+
   Herd::Generic::Metallicity m_InitialMetallicity;  ///< Initial value of the metallicity. Used to initialise the track points
+
+  Herd::SSE::ConvectiveEnvelope m_ConvectiveEnvelopeComputer; ///< Computes the properties of the convective envelope
 };
 }
 

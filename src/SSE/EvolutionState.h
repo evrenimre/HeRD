@@ -31,9 +31,9 @@ struct EvolutionState
 
   Herd::Generic::Age m_EffectiveAge;  ///< Effective age to represent the ageing effect of mass loss
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
+  Herd::Generic::Radius m_EnvelopeRadius; ///< Radius of the convective envelope in \f$ R_{\odot} \f$
 
   double m_MassLossRate = 0;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
-  double m_AngularMomentumLossRate = 0; ///< Angular momentum loss rate in \f$ M_{\odot}R_{\odot}^2 {year}^{-2}\f$
 
   Herd::Generic::Mass m_MZAMS; ///< Mass at ZAMS. Fixed
   Herd::Generic::Mass m_MZHe; ///< Mass at zero-age He MS. Fixed
