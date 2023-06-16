@@ -248,7 +248,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     double term4 = ( std::log10( m_MDependents.m_RTMS / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR - m_MDependents.m_GammaR )
         * boost::math::pow< 3 >( tau );
     double term5 = m_MDependents.m_DeltaR * ( boost::math::pow< 3 >( tau1 ) - boost::math::pow< 3 >( tau2 ) );
-    radius.Set( boost::math::pow< 10 >( term1 + term2 + term3 + term4 + term5 ) * m_MDependents.m_RZAMS );
+    radius.Set( std::pow( 10., term1 + term2 + term3 + term4 - term5 ) * m_MDependents.m_RZAMS );
   } else
   {
     [[unlikely]] radius.Set( m_MDependents.m_RZAMS );
