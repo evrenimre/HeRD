@@ -66,6 +66,11 @@ ConvectiveEnvelope::Envelope ConvectiveEnvelope::Compute( const Herd::SSE::Evolu
  */
 void ConvectiveEnvelope::ComputeInitialMassDependents( Herd::Generic::Mass i_Mass )
 {
+  if( i_Mass == m_M0Dependents.m_EvaluatedAt )
+  {
+    return;
+  }
+
   m_M0Dependents.m_EvaluatedAt = i_Mass;
 
   double logM = std::log10( i_Mass );
@@ -258,7 +263,7 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
   auto MassRelation = [ & ]( auto i_Tau )
   { return mCEG * boost::math::pow<5>( i_Tau);};
   auto RadiusRelation = [ & ]( auto i_Tau )
-  { return mCEG * i_Tau * std::pow( i_Tau, 0.25);};
+  { return rCEG * i_Tau * std::pow( i_Tau, 0.25);};
   
   // Stars not on the Hayashi track
   if( rTrackPoint.m_Radius < i_rState.m_Rg )
@@ -284,6 +289,11 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
           double tauhy = std::pow( i_rState.m_EffectiveAge / i_rState.m_TMS, m_M0Dependents.m_Y );
           mCE = m_M0Dependents.m_MCEZAMS + tauhy * mCE * ( 1. - m_M0Dependents.m_MCEZAMS / mCEHG );
           rCE = m_M0Dependents.m_RCEZAMS + tauhy * rCE * ( 1. - m_M0Dependents.m_RCEZAMS / rCEHG );
+        }
+        else
+        {
+          mCE = 0.;
+          rCE = 0;
         }
       }
     } else
