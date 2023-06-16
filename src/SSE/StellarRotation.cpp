@@ -115,7 +115,7 @@ double StellarRotation::ComputeMomentOfInertia( const Herd::SSE::EvolutionState&
   double r2 = boost::math::pow< 2, double >( rTrackPoint.m_Radius );
   double rc2 = boost::math::pow< 2, double >( i_rState.m_CoreRadius );
 
-  return 0.15 * r2 * rTrackPoint.m_EnvelopeMass + 0.21 * rc2 * rTrackPoint.m_CoreMass;  // Eq. 109. k2 is 0.1 in the paper, but 0.15 in AMUSE.SSE
+  return 0.15 * r2 * ( rTrackPoint.m_Mass - rTrackPoint.m_CoreMass ) + 0.21 * rc2 * ( rTrackPoint.m_CoreMass ); // Eq. 109. k2 is 0.1 in the paper, but 0.15 in AMUSE.SSE
 }
 
 /**
