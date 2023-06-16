@@ -233,7 +233,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     double term2 = BXhC( tau, m_MDependents.m_BetaL, m_MDependents.m_Eta );
     double term3 = ( std::log10( m_MDependents.m_LTMS / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau * tau;
     double term4 = m_MDependents.m_DeltaL * ( ( tau1 - tau2 ) * ( tau1 + tau2 ) );
-    luminosity.Set( boost::math::pow< 10 >( term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
+    luminosity.Set( std::pow( 10., term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
   } else
   {
     [[unlikely]] luminosity.Set( m_MDependents.m_LZAMS );
