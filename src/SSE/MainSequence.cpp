@@ -168,7 +168,8 @@ using Herd::SSE::BXhC;
  * @pre \c i_InitialMetallicity is in (0,1]
  * @throws PreconditionError If the precondition is violated
  */
-MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
+MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity ) :
+    m_InitialMetallicity( i_InitialMetallicity )
 {
   Herd::Generic::ThrowIfNotPositive( i_InitialMetallicity, "i_InitialMetallicity" );
 
@@ -268,6 +269,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     stage = Herd::SSE::EvolutionStage::e_MS;
   }
 
+  rTrackPoint.m_InitialMetallicity = m_InitialMetallicity;
   rTrackPoint.m_Luminosity = luminosity;
   rTrackPoint.m_Radius = radius;
   rTrackPoint.m_Temperature = Herd::Physics::ComputeAbsoluteTemperature( luminosity, radius );

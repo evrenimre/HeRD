@@ -131,6 +131,7 @@ private:
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities evaluated at a certain value
+  Herd::Generic::Metallicity m_InitialMetallicity;  ///< Initial value of the metallicity. Used to initialise the track points
 };
 }
 
