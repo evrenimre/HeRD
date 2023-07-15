@@ -151,7 +151,6 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 {
   Herd::SSE::TrackPoint validPoint;
   validPoint.m_Age.Set( 4401 );
-  validPoint.m_AngularMomentum.Set( 566.2 );
   validPoint.m_CoreMass.Set( 0. );
   validPoint.m_EnvelopeMass.Set( 3.341e-2 );
   validPoint.m_InitialMetallicity.Set( 0.02 );
@@ -195,15 +194,6 @@ BOOST_AUTO_TEST_CASE( RandomReferenceTrackSampled, *Herd::UnitTestUtils::Labels:
   std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
   TestFidelity( track, GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ), 0.02 ); // @suppress("Invalid arguments")
 }
-
-/*
-/// Test on a random track
-BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Continuous)
-{
-  std::vector< Herd::SSE::TrackPoint > track = MakeTestCase();
-  TestFidelity( MakeTestCase(), GenerateNumber( static_cast< std::size_t >( 0 ), track.size() - 2 ) );
-}
- */
 
 /// Test over the entire dataset
 BOOST_AUTO_TEST_CASE( AllReferenceTracks, *Herd::UnitTestUtils::Labels::s_Continuous )

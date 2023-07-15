@@ -71,7 +71,7 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     // Mass and angular momentum loss rate between the previous step and the current step
     state.m_MassLossRate = Herd::SSE::StellarWindMassLoss::Compute( rTrackPoint, i_rParameters.m_Eta, i_rParameters.m_HeWind, i_rParameters.m_BinaryWind,
         i_rParameters.m_RocheLobe );
-    double angularMomentumLossRate = Herd::SSE::StellarRotation::ComputeAngularMomentumLossRate( state );
+    double angularMomentumLossRate = Herd::SSE::StellarRotation::ComputeAngularMomentumLossRate( state ); // Momentum loss from the angular velocity at the previous time point
 
     // Compute the size of the time step
     Herd::Generic::Age DeltaT = ComputeTimestep( ms, state, i_rParameters, i_EvolveUntil );
@@ -79,7 +79,8 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     state.m_DeltaT = DeltaT;
     rTrackPoint.m_Age += DeltaT;
     rTrackPoint.m_Mass -= Herd::Generic::Mass( ( state.m_MassLossRate * 1.0e6 ) * DeltaT ); // 1e6 to convert loss in year to Myr
-    rTrackPoint.m_AngularMomentum -= Herd::Generic::AngularMomentum( ( angularMomentumLossRate * 1.0e6 ) * DeltaT );
+    state.m_AngularMomentum -= Herd::Generic::AngularMomentum( ( angularMomentumLossRate * 1.0e6 ) * DeltaT );
+    rTrackPoint.m_AngularVelocity = Herd::SSE::StellarRotation::ComputeAngularVelocity( state );
 
     // Run the evolution step
     // TODO Stage transition to be implemented

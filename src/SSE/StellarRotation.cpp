@@ -41,8 +41,10 @@ void StellarRotation::InitialiseAtZAMS( Herd::SSE::EvolutionState& io_rState )
   Herd::SSE::ValidateEvolutionState( io_rState );
 
   Herd::Generic::AngularVelocity angularVelocity = ComputeInitialAngularVelocity( io_rState.m_TrackPoint );
+  io_rState.m_TrackPoint.m_AngularVelocity = angularVelocity;
+
   double momentOfInertia = ComputeMomentOfInertia( io_rState );
-  io_rState.m_TrackPoint.m_AngularMomentum.Set( momentOfInertia * angularVelocity ); // Eq. 109
+  io_rState.m_AngularMomentum.Set( momentOfInertia * angularVelocity ); // Eq. 109
 }
 
 /**
@@ -60,8 +62,10 @@ void StellarRotation::InitialiseAtNSOrBH( Herd::SSE::EvolutionState& io_rState )
   }
 
   Herd::Generic::AngularVelocity angularVelocity( 2e8 );
+  io_rState.m_TrackPoint.m_AngularVelocity = angularVelocity;
+
   double momentOfInertia = ComputeMomentOfInertia( io_rState );
-  io_rState.m_TrackPoint.m_AngularMomentum.Set( momentOfInertia * angularVelocity );
+  io_rState.m_AngularMomentum.Set( momentOfInertia * angularVelocity );
 }
 
 /**
@@ -72,9 +76,8 @@ double StellarRotation::ComputeAngularMomentumLossRate( const Herd::SSE::Evoluti
 {
   Herd::SSE::ValidateEvolutionState( i_rState );
 
-  Herd::Generic::AngularVelocity angularVelocity = ComputeAngularVelocity( i_rState );
-  double dJwind = ComputeStellarWindLoss( i_rState, angularVelocity );
-  double dJmb = ComputeMagneticBrakingLoss( i_rState.m_TrackPoint, angularVelocity );
+  double dJwind = ComputeStellarWindLoss( i_rState );
+  double dJmb = ComputeMagneticBrakingLoss( i_rState.m_TrackPoint );
 
   return dJwind + dJmb;
 }
@@ -99,8 +102,10 @@ Herd::Generic::AngularVelocity StellarRotation::ComputeInitialAngularVelocity( c
  */
 Herd::Generic::AngularVelocity StellarRotation::ComputeAngularVelocity( const Herd::SSE::EvolutionState& i_rState )
 {
+  Herd::SSE::ValidateEvolutionState( i_rState );
+
   double momentOfIntertia = ComputeMomentOfInertia( i_rState );
-  double angularVelocity = i_rState.m_TrackPoint.m_AngularMomentum / momentOfIntertia;
+  double angularVelocity = i_rState.m_AngularMomentum / momentOfIntertia;
   return Herd::Generic::AngularVelocity( angularVelocity );
 }
 
@@ -115,28 +120,26 @@ double StellarRotation::ComputeMomentOfInertia( const Herd::SSE::EvolutionState&
   double r2 = boost::math::pow< 2, double >( rTrackPoint.m_Radius );
   double rc2 = boost::math::pow< 2, double >( i_rState.m_CoreRadius );
 
-  return 0.15 * r2 * ( rTrackPoint.m_Mass - rTrackPoint.m_CoreMass ) + 0.21 * rc2 * ( rTrackPoint.m_CoreMass ); // Eq. 109. k2 is 0.1 in the paper, but 0.15 in AMUSE.SSE
+  return i_rState.m_K2 * r2 * ( rTrackPoint.m_Mass - rTrackPoint.m_CoreMass ) + 0.21 * rc2 * ( rTrackPoint.m_CoreMass ); // Eq. 109. k2 is 0.1 in the paper, but 0.15 in AMUSE.SSE
 }
 
 /**
  * @param i_rState State
- * @param i_AngularVelocity Angular velocity
  * @return Momentum loss rate due to mass loss
  */
-double StellarRotation::ComputeStellarWindLoss( const Herd::SSE::EvolutionState& i_rState, Herd::Generic::AngularVelocity i_AngularVelocity )
+double StellarRotation::ComputeStellarWindLoss( const Herd::SSE::EvolutionState& i_rState )
 {
   auto& rTrackPoint = i_rState.m_TrackPoint;
 
   double r2 = boost::math::pow< 2, double >( rTrackPoint.m_Radius );
-  return ( 2. / 3. ) * i_rState.m_MassLossRate * r2 * i_AngularVelocity;  // Eq. 110
+  return ( 2. / 3. ) * i_rState.m_MassLossRate * r2 * rTrackPoint.m_AngularVelocity;  // Eq. 110
 }
 
 /**
  * @param i_rTrackPoint Track point
- * @param i_AngularVelocity Angular velocity
  * @return Momentum loss rate due to magnetic braking
  */
-double StellarRotation::ComputeMagneticBrakingLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, Herd::Generic::AngularVelocity i_AngularVelocity )
+double StellarRotation::ComputeMagneticBrakingLoss( const Herd::SSE::TrackPoint& i_rTrackPoint )
 {
 
   if( Herd::SSE::IsRemnant( i_rTrackPoint.m_Stage ) || i_rTrackPoint.m_Mass <= 0.35 )
@@ -144,7 +147,7 @@ double StellarRotation::ComputeMagneticBrakingLoss( const Herd::SSE::TrackPoint&
     [[unlikely]] return 0;
   }
 
-  double rw3 = boost::math::pow< 3 >( i_rTrackPoint.m_Radius.Value() * i_AngularVelocity.Value() );
+  double rw3 = boost::math::pow< 3 >( i_rTrackPoint.m_Radius.Value() * i_rTrackPoint.m_AngularVelocity.Value() );
   return 5.83e-16 * ( i_rTrackPoint.m_EnvelopeMass / i_rTrackPoint.m_Mass ) * rw3;  // Eq. 111
 }
 

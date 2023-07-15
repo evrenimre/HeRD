@@ -40,7 +40,7 @@ Herd::SSE::TrackPoint GenerateRandomTrackPoint( std::mt19937& io_rRng )
   generated.m_Age.Set( Generator( 0., 13600. ) );
   generated.m_CoreMass.Set( Generator( 0., generated.m_Mass.Value() ) );
   generated.m_EnvelopeMass.Set( Generator( 0., ( generated.m_Mass - generated.m_CoreMass ).Value() ) );
-  generated.m_AngularMomentum.Set( Generator( 0., 715. ) );
+  generated.m_AngularVelocity.Set( Generator( 0., 2e8 ) );
 
   {
     static auto StageList = Herd::SSE::EnumerateEvolutionStages();
@@ -76,6 +76,7 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
   generated.m_CoreRadius.Set( Generator( 0., generated.m_TrackPoint.m_Radius.Value() ) );
   generated.m_EnvelopeRadius.Set( generated.m_TrackPoint.m_Radius - generated.m_CoreRadius );
   generated.m_MassLossRate = Generator( 0., 1e-4 );
+  generated.m_AngularMomentum.Set( Generator( 0., 715. ) );
 
   generated.m_MZAMS.Set( Generator( generated.m_TrackPoint.m_Mass, 216. ) );
   generated.m_MZHe.Set( Generator( 0.08, generated.m_MZAMS ) );

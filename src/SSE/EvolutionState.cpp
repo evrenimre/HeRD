@@ -29,6 +29,7 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   Herd::Generic::ThrowIfNegative( i_rState.m_EffectiveAge, "m_EffectiveAge" );
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
 
+  Herd::Generic::ThrowIfNegative( i_rState.m_AngularMomentum, "m_AngularMomentum" );
   Herd::Generic::ThrowIfNegative( i_rState.m_CoreRadius, "m_CoreRadius" );
   if( i_rState.m_CoreRadius > i_rState.m_TrackPoint.m_Radius )
   {

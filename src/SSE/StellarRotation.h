@@ -34,13 +34,14 @@ public:
   static void InitialiseAtNSOrBH( Herd::SSE::EvolutionState& io_rState );  ///< Computes the angular momentum for a new neutron star or black hole
   static double ComputeAngularMomentumLossRate( const Herd::SSE::EvolutionState& i_rState );  ///< Computes the angular momentum loss per year
 
+  static Herd::Generic::AngularVelocity ComputeAngularVelocity( const Herd::SSE::EvolutionState& i_rState ); ///< Computes the angular velocity
+
 private:
 
   static Herd::Generic::AngularVelocity ComputeInitialAngularVelocity( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the initial angular velocity
-  static Herd::Generic::AngularVelocity ComputeAngularVelocity( const Herd::SSE::EvolutionState& i_rState ); ///< Computes the angular velocity
   static double ComputeMomentOfInertia( const Herd::SSE::EvolutionState& i_rState ); ///< Computes the moment of inertia
-  static double ComputeStellarWindLoss( const Herd::SSE::EvolutionState& i_rState, Herd::Generic::AngularVelocity i_AngularVelocity ); ///< Computes the momentum loss due to mass loss
-  static double ComputeMagneticBrakingLoss( const Herd::SSE::TrackPoint& i_rTrackPoint, Herd::Generic::AngularVelocity i_AngularVelocity ); ///< Computes the momentum loss due to magnetic braking
+  static double ComputeStellarWindLoss( const Herd::SSE::EvolutionState& i_rState ); ///< Computes the momentum loss due to mass loss
+  static double ComputeMagneticBrakingLoss( const Herd::SSE::TrackPoint& i_rTrackPoint ); ///< Computes the momentum loss due to magnetic braking
 };
 }
 

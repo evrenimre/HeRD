@@ -99,7 +99,7 @@ BOOST_AUTO_TEST_CASE( validatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
 
   {
     Herd::SSE::TrackPoint invalid = valid;
-    Invalidate( invalid.m_AngularMomentum );
+    Invalidate( invalid.m_AngularVelocity );
     BOOST_CHECK_THROW( Herd::SSE::ValidateTrackPoint( invalid ), Herd::Exceptions::PreconditionError );
   }
 }

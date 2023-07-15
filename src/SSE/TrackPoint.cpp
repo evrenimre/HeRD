@@ -37,7 +37,7 @@ void ValidateTrackPoint( const TrackPoint& i_rTrackPoint )
   Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_Age, "m_Age" );
   Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_CoreMass, "m_CoreMass" );
   Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_EnvelopeMass, "m_EnvelopeMass" );
-  Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_AngularMomentum, "m_AngularMomentum" );
+  Herd::Generic::ThrowIfNegative( i_rTrackPoint.m_AngularVelocity, "m_AngularVelocity" );
 
   // Core + Envelope mass can be smaller than the total mass. See the discussion in Sec 7.2
   if( i_rTrackPoint.m_CoreMass + i_rTrackPoint.m_EnvelopeMass > i_rTrackPoint.m_Mass )

@@ -36,6 +36,9 @@ BOOST_AUTO_TEST_CASE( InvalidParametersTest, *Herd::UnitTestUtils::Labels::s_Com
   Herd::SSE::EvolutionState valid = Herd::SSE::UnitTests::GenerateRandomEvolutionState( Rng() );
 
   {
+    BOOST_CHECK_NO_THROW( Herd::SSE::StellarRotation::ComputeAngularVelocity( valid ) );
+    BOOST_CHECK_THROW( Herd::SSE::StellarRotation::ComputeAngularVelocity( Herd::SSE::EvolutionState() ), Herd::Exceptions::PreconditionError );
+
     BOOST_CHECK_NO_THROW( Herd::SSE::StellarRotation::ComputeAngularMomentumLossRate( valid ) );
     BOOST_CHECK_THROW( Herd::SSE::StellarRotation::ComputeAngularMomentumLossRate( Herd::SSE::EvolutionState() ), Herd::Exceptions::PreconditionError );
   }

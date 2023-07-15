@@ -129,7 +129,7 @@ Herd::SSE::TrackPoint SSETestDataManager::MakeTrackPoint( const boost::property_
     trackPoint.m_Luminosity.Set( std::pow( 10., rAttributes.get< double >( "logL" ) ) );
     trackPoint.m_Radius.Set( std::pow( 10., rAttributes.get< double >( "logR" ) ) );
     trackPoint.m_Temperature.Set( std::pow( 10., rAttributes.get< double >( "logT" ) ) );
-    trackPoint.m_AngularMomentum.Set( rAttributes.get< double >( "Spin" ) );
+    trackPoint.m_AngularVelocity.Set( rAttributes.get< double >( "Spin" ) );
 
     if( !i_rZo )
     {
