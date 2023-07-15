@@ -135,8 +135,7 @@ void SSETestFixture::TestTrackPoint( const Herd::SSE::TrackPoint& i_rActual, con
 
   BOOST_TEST( i_rActual.m_CoreMass.Value() == i_rExpected.m_CoreMass.Value(), boost::test_tools::tolerance( 1e-12 ) );
 
-  // TODO Angular momentum -> Angular speed
-  //BOOST_TEST( i_rActual.m_AngularMomentum.Value() == i_rExpected.m_AngularMomentum.Value(), boost::test_tools::tolerance( 1e-12 ) );
+  BOOST_TEST( i_rActual.m_AngularVelocity.Value() == i_rExpected.m_AngularVelocity.Value(), boost::test_tools::tolerance( 1e-4 ) );
 }
 
 }
@@ -221,7 +220,6 @@ BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Comp
   std::size_t fileCount = GetFileCount( s_TrackRegex );
   BOOST_TEST_REQUIRE( fileCount != 0 );
   std::size_t fileIndex = GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 );
-
   TestFidelity( MakeTestCase( fileIndex ) );
 }
 
