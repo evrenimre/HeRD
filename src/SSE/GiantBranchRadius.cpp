@@ -12,9 +12,9 @@
 
 #include "GiantBranchRadius.h"
 
-#include "Constants.h"
-#include "MathHelpers.h"
+#include <Generic/MathHelpers.h>
 
+#include "Constants.h"
 #include <algorithm>
 #include <cmath>
 #include <iterator>

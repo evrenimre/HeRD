@@ -14,8 +14,8 @@
 
 #include "Constants.h"
 #include "EvolutionState.h"
-#include "MathHelpers.h"
 
+#include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
 #include <cmath>

@@ -14,9 +14,9 @@
 
 #include "EvolutionStage.h"
 #include "EvolutionState.h"
-#include "MathHelpers.h"
 #include "TrackPoint.h"
 
+#include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 
 #include <algorithm>

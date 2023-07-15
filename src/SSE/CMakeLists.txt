@@ -5,7 +5,6 @@ set(HEADER_LIST Constants.h
 								EvolutionState.h
 								GiantBranchRadius.h
 								IPhase.h
-							  MathHelpers.h
 							  MainSequence.h
 								SingleStarEvolution.h
 								StellarRotation.h
@@ -19,7 +18,6 @@ set(SOURCE_LIST ConvectiveEnvelope.cpp
 								EvolutionState.cpp
 								GiantBranchRadius.cpp
 								MainSequence.cpp
-								MathHelpers.cpp
 								SingleStarEvolution.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
@@ -33,8 +31,6 @@ set(PRIVATE_DEPS_LIST Exceptions
 											Boost::boost
 											range-v3::range-v3
 )
-
-set(PUBLIC_DEPS_LIST PUBLIC Eigen3::Eigen)
 
 herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 												 											SOURCES ${SOURCE_LIST}
