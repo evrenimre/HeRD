@@ -1,40 +1,44 @@
 <map id="src/SSE/UnitTests/SingleStarEvolutionUnitTests.cpp" name="src/SSE/UnitTests/SingleStarEvolutionUnitTests.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2027,5,2223,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="1201,191,1377,218"/>
-<area shape="rect" id="node3" href="$SSETestDataManager_8h.html" title=" " alt="" coords="729,102,900,129"/>
-<area shape="rect" id="node7" href="$EvolutionStage_8h.html" title=" " alt="" coords="2796,363,2956,389"/>
-<area shape="rect" id="node9" href="$TrackPoint_8h.html" title=" " alt="" coords="2250,281,2379,307"/>
-<area shape="rect" id="node10" title=" " alt="" coords="605,191,675,218"/>
-<area shape="rect" id="node15" href="$DataLoaderFixture_8h.html" title=" " alt="" coords="300,95,484,136"/>
-<area shape="rect" id="node20" href="$RandomTestFixture_8h.html" title=" " alt="" coords="1636,95,1825,136"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1914,191,1977,218"/>
-<area shape="rect" id="node28" href="$UnitTestUtilityFunctions_8h.html" title=" " alt="" coords="1063,95,1265,136"/>
-<area shape="rect" id="node29" href="$SSE_2Constants_8h.html" title=" " alt="" coords="2587,102,2714,129"/>
-<area shape="rect" id="node30" href="$SingleStarEvolution_8h.html" title=" " alt="" coords="2148,102,2337,129"/>
-<area shape="rect" id="node36" href="$Physics_2Constants_8h.html" title=" " alt="" coords="2860,102,3012,129"/>
-<area shape="rect" id="node37" title=" " alt="" coords="3037,102,3091,129"/>
-<area shape="rect" id="node38" title=" " alt="" coords="3115,95,3263,136"/>
-<area shape="rect" id="node4" href="$Quantity_8h.html" title=" " alt="" coords="2243,363,2386,389"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1052,191,1127,218"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1135,281,1193,307"/>
-<area shape="rect" id="node13" title=" " alt="" coords="2001,191,2063,218"/>
-<area shape="rect" id="node14" title=" " alt="" coords="430,184,581,225"/>
-<area shape="rect" id="node5" href="$ExceptionWrappers_8h.html" title=" " alt="" coords="2505,437,2740,464"/>
-<area shape="rect" id="node6" title=" " alt="" coords="2497,512,2594,539"/>
-<area shape="rect" id="node8" title=" " alt="" coords="2783,437,2839,464"/>
-<area shape="rect" id="node16" title=" " alt="" coords="5,191,96,218"/>
-<area shape="rect" id="node17" title=" " alt="" coords="120,191,179,218"/>
-<area shape="rect" id="node18" title=" " alt="" coords="903,191,1027,218"/>
-<area shape="rect" id="node19" title=" " alt="" coords="203,184,354,225"/>
-<area shape="rect" id="node21" href="$GenericConcepts_8h.html" title=" " alt="" coords="1452,191,1660,218"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1635,281,1727,307"/>
-<area shape="rect" id="node25" title=" " alt="" coords="2088,191,2155,218"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1735,191,1793,218"/>
-<area shape="rect" id="node27" title=" " alt="" coords="1817,191,1889,218"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1516,281,1596,307"/>
-<area shape="rect" id="node31" href="$EvolutionState_8h.html" title=" " alt="" coords="2230,191,2359,218"/>
-<area shape="rect" id="node32" href="$QuantityRange_8h.html" title=" " alt="" coords="2587,191,2773,218"/>
-<area shape="rect" id="node35" title=" " alt="" coords="2435,191,2512,218"/>
-<area shape="rect" id="node33" title=" " alt="" coords="2505,281,2580,307"/>
-<area shape="rect" id="node34" title=" " alt="" coords="2604,273,2756,315"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1687,5,1883,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="1490,191,1666,218"/>
+<area shape="rect" id="node3" href="$SSETestDataManager_8h.html" title=" " alt="" coords="709,102,879,129"/>
+<area shape="rect" id="node7" href="$EvolutionStage_8h.html" title=" " alt="" coords="654,355,814,382"/>
+<area shape="rect" id="node9" href="$TrackPoint_8h.html" title=" " alt="" coords="121,273,251,300"/>
+<area shape="rect" id="node10" title=" " alt="" coords="832,191,903,218"/>
+<area shape="rect" id="node15" href="$DataLoaderFixture_8h.html" title=" " alt="" coords="1693,95,1877,136"/>
+<area shape="rect" id="node20" href="$RandomTestFixture_8h.html" title=" " alt="" coords="2310,95,2499,136"/>
+<area shape="rect" id="node24" title=" " alt="" coords="2923,191,2985,218"/>
+<area shape="rect" id="node28" href="$UnitTestUtilityFunctions_8h.html" title=" " alt="" coords="1327,95,1530,136"/>
+<area shape="rect" id="node29" href="$SSE_2Constants_8h.html" title=" " alt="" coords="2575,102,2701,129"/>
+<area shape="rect" id="node30" href="$SingleStarEvolution_8h.html" title=" " alt="" coords="333,102,522,129"/>
+<area shape="rect" id="node36" href="$PreconditionError_8h.html" title=" " alt="" coords="2065,102,2285,129"/>
+<area shape="rect" id="node40" href="$Physics_2Constants_8h.html" title=" " alt="" coords="2726,102,2878,129"/>
+<area shape="rect" id="node41" title=" " alt="" coords="2903,102,2957,129"/>
+<area shape="rect" id="node42" title=" " alt="" coords="2981,95,3129,136"/>
+<area shape="rect" id="node4" href="$Quantity_8h.html" title=" " alt="" coords="111,355,253,382"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1391,191,1466,218"/>
+<area shape="rect" id="node12" title=" " alt="" coords="2073,355,2131,382"/>
+<area shape="rect" id="node13" title=" " alt="" coords="491,191,553,218"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1075,184,1225,225"/>
+<area shape="rect" id="node5" href="$ExceptionWrappers_8h.html" title=" " alt="" coords="219,437,454,464"/>
+<area shape="rect" id="node6" title=" " alt="" coords="568,512,665,539"/>
+<area shape="rect" id="node8" title=" " alt="" coords="654,437,710,464"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1690,191,1781,218"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1805,191,1863,218"/>
+<area shape="rect" id="node18" title=" " alt="" coords="927,191,1051,218"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1888,184,2039,225"/>
+<area shape="rect" id="node21" href="$GenericConcepts_8h.html" title=" " alt="" coords="2410,191,2618,218"/>
+<area shape="rect" id="node23" title=" " alt="" coords="2517,273,2609,300"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1250,191,1317,218"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2693,191,2751,218"/>
+<area shape="rect" id="node27" title=" " alt="" coords="2826,191,2898,218"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2397,273,2477,300"/>
+<area shape="rect" id="node31" href="$EvolutionState_8h.html" title=" " alt="" coords="32,191,161,218"/>
+<area shape="rect" id="node32" href="$QuantityRange_8h.html" title=" " alt="" coords="327,273,512,300"/>
+<area shape="rect" id="node35" title=" " alt="" coords="287,191,365,218"/>
+<area shape="rect" id="node33" title=" " alt="" coords="329,355,403,382"/>
+<area shape="rect" id="node34" title=" " alt="" coords="427,348,579,389"/>
+<area shape="rect" id="node37" href="$RuntimeError_8h.html" title=" " alt="" coords="2165,191,2284,218"/>
+<area shape="rect" id="node38" href="$Exception_8h.html" title=" " alt="" coords="2215,273,2314,300"/>
+<area shape="rect" id="node39" title=" " alt="" coords="2221,355,2308,382"/>
 </map>
