@@ -77,6 +77,7 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
   generated.m_EnvelopeRadius.Set( generated.m_TrackPoint.m_Radius - generated.m_CoreRadius );
   generated.m_MassLossRate = Generator( 0., 1e-4 );
   generated.m_AngularMomentum.Set( Generator( 0., 715. ) );
+  generated.m_K2 = Generator( 0., 1. );
 
   generated.m_MZAMS.Set( Generator( generated.m_TrackPoint.m_Mass, 216. ) );
   generated.m_MZHe.Set( Generator( 0.08, generated.m_MZAMS ) );
@@ -96,6 +97,8 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
 
   generated.m_DeltaT.Set( Generator( 0., 1.0e-1 ) );
   
+  generated.m_THeMS.Set( Generator( generated.m_TMS, 13600. ) );
+
   return generated;
 }
 

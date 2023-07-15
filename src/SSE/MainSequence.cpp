@@ -314,6 +314,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   auto convectiveEnvelope = m_ConvectiveEnvelopeComputer.Compute( io_rState );
   rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;
   io_rState.m_EnvelopeRadius = convectiveEnvelope.m_Radius;
+  io_rState.m_K2 = convectiveEnvelope.m_K2;
 
   return true;
 }

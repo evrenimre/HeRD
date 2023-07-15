@@ -80,7 +80,6 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     rTrackPoint.m_Age += DeltaT;
     rTrackPoint.m_Mass -= Herd::Generic::Mass( ( state.m_MassLossRate * 1.0e6 ) * DeltaT ); // 1e6 to convert loss in year to Myr
     state.m_AngularMomentum -= Herd::Generic::AngularMomentum( ( angularMomentumLossRate * 1.0e6 ) * DeltaT );
-    rTrackPoint.m_AngularVelocity = Herd::SSE::StellarRotation::ComputeAngularVelocity( state );
 
     // Run the evolution step
     // TODO Stage transition to be implemented
@@ -89,6 +88,8 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     {
       break;
     }
+
+    rTrackPoint.m_AngularVelocity = Herd::SSE::StellarRotation::ComputeAngularVelocity( state );
 
     m_Trajectory.push_back( rTrackPoint );
   }

@@ -36,6 +36,8 @@ struct EvolutionState
   double m_MassLossRate = 0;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
 
   Herd::Generic::AngularMomentum m_AngularMomentum; ///< Angular momentum in \f$ M_{\odot}R_{\odot}^2 \; {year}^{-1}\f$
+  double m_K2 = 0.15; ///< Constant used for computing the angular momentum due to the envelope
+
   Herd::Generic::Mass m_MZAMS; ///< Mass at ZAMS. Fixed
   Herd::Generic::Mass m_MZHe; ///< Mass at zero-age He MS. Fixed
 
@@ -53,6 +55,8 @@ struct EvolutionState
   Herd::Generic::Luminosity m_LHeI;  ///< \f$ L_{HeI}\f$, Eq. 49. Luminosity at He ignition
 
   Herd::Generic::Age m_DeltaT; ///<  Timestep
+
+  Herd::Generic::Age m_THeMS; ///< Naked He main sequence duration
 
 };
 

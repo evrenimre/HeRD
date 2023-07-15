@@ -30,6 +30,8 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_MassLossRate, "m_MassLossRate" );
 
   Herd::Generic::ThrowIfNegative( i_rState.m_AngularMomentum, "m_AngularMomentum" );
+  Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rState.m_K2, "m_K2" );
+
   Herd::Generic::ThrowIfNegative( i_rState.m_CoreRadius, "m_CoreRadius" );
   if( i_rState.m_CoreRadius > i_rState.m_TrackPoint.m_Radius )
   {
@@ -65,6 +67,12 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   if( i_rState.m_TrackPoint.m_Stage >= Herd::SSE::EvolutionStage::e_HeMS )
   {
     Herd::Generic::ThrowIfNotPositive( i_rState.m_MZHe, "m_MZHe" );
+  }
+
+  if( Herd::SSE::IsHeStar( i_rState.m_TrackPoint.m_Stage ) )
+  {
+    Herd::Generic::ThrowIfNotPositive( i_rState.m_THeMS, "m_THeMS" );
+
   }
 }
 

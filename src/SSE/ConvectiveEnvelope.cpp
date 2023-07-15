@@ -58,6 +58,8 @@ ConvectiveEnvelope::Envelope ConvectiveEnvelope::Compute( const Herd::SSE::Evolu
 
   Output.m_RadiusOfGyration = ComputeRadiusOfGyration( i_rState, tauEnv );
 
+  Output.m_K2 = ComputeK2( i_rState, tauEnv );
+
   return Output;
 }
 
@@ -82,19 +84,27 @@ void ConvectiveEnvelope::ComputeInitialMassDependents( Herd::Generic::Mass i_Mas
   {
     double x = std::clamp( ( 0.1 - logM ) / 0.55, 0., 1. );
     double x5 = boost::math::pow< 5 >( x );
-    m_M0Dependents.m_MCEZAMS = 0.18 * x + 0.82 * x5;
-    m_M0Dependents.m_RCEZAMS = 0.4 * std::pow( x, 0.25 ) + 0.6 * x5 * x5;
+    m_M0Dependents.m_MCEZAMS.Set( 0.18 * x + 0.82 * x5 );
+    m_M0Dependents.m_RCEZAMS.Set( 0.4 * std::pow( x, 0.25 ) + 0.6 * x5 * x5 );
 
     m_M0Dependents.m_Y = 2. + 8. * x;
   }
 
-  m_M0Dependents.m_RGZAMS = std::min( 0.21, std::max( 0.09 - 0.27 * logM, 0.037 + 0.033 * logM ) );
+  m_M0Dependents.m_RGZAMS.Set( std::min( 0.21, std::max( 0.09 - 0.27 * logM, 0.037 + 0.033 * logM ) ) );
   if( logM >= 1.3 )
   {
-    m_M0Dependents.m_RGZAMS -= 0.055 * boost::math::pow< 2 >( logM - 1.3 );
+    m_M0Dependents.m_RGZAMS -= Herd::Generic::Radius( 0.055 * boost::math::pow< 2 >( logM - 1.3 ) );
   }
 
-  m_M0Dependents.m_RGBGB = std::min( { 0.15, 0.147 + 0.03 * logM, 0.162 - 0.04 * logM } );
+  m_M0Dependents.m_RGBGB.Set( std::min( { 0.15, 0.147 + 0.03 * logM, 0.162 - 0.04 * logM } ) );
+
+  m_M0Dependents.m_K2ZAMS = std::min( 0.21, std::max( 0.09 - 0.27 * logM, 0.037 + 0.033 * logM ) );
+  if( logM > 1.3 )
+  {
+    m_M0Dependents.m_K2ZAMS -= 0.055 * boost::math::pow< 2 >( logM - 1.3 );
+  }
+
+  m_M0Dependents.m_K2BGB = std::min( { 0.15, 0.147 + 0.03 * logM, 0.162 - 0.04 * logM } );
 }
 
 /**
@@ -304,7 +314,77 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
   }
 
   return std::pair( mCE, rCE ); // @suppress("Ambiguous problem")
+}
 
+double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv )
+{
+  // Compute k2g
+  const auto& rTrackPoint = i_rState.m_TrackPoint;
+  double k2g = m_M0Dependents.m_K2BGB;
+  double m15 = std::sqrt( boost::math::pow< 3 >( rTrackPoint.m_Mass ) );
+  double logM = std::log10( rTrackPoint.m_Mass );
+  
+  if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_CHeB || rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_FGB
+      || Herd::SSE::IsAGB( rTrackPoint.m_Stage ) )
+  {
+    double b = ( 1e4 * m15 ) / ( 1 + 0.1 * m15 );
+    double x = boost::math::pow< 2 >( ( rTrackPoint.m_Luminosity - i_rState.m_LBGB ) / b );
+
+    double f = 0.208 + 0.125 * logM - 0.035 * boost::math::pow< 2 >( logM );
+    double y = ( f - 0.33 * log10( i_rState.m_LBGB ) + 0.4 * x ) / m_M0Dependents.m_K2BGB - 1.0;
+
+    k2g = ( f - 0.33 * log10( rTrackPoint.m_Luminosity ) + 0.4 * x ) / ( 1.0 + y * ( i_rState.m_LBGB / rTrackPoint.m_Luminosity ) + x );
+  }
+
+  if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeGB )
+  {
+    double b = 3e4 * m15;
+    double x = boost::math::pow< 2 >( std::max( 0.0, rTrackPoint.m_Luminosity / ( b - 0.5 ) ) );
+    k2g = ( m_M0Dependents.m_K2BGB + 0.4 * x ) / ( 1.0 + 0.4 * x );
+  }
+
+
+  // Compute k2
+  double k2 = k2g;
+  if( rTrackPoint.m_Radius < i_rState.m_Rg )
+  {
+    // AGB or earlier
+    if( !Herd::SSE::IsHeStar( rTrackPoint.m_Stage ) || !Herd::SSE::IsRemnant( rTrackPoint.m_Stage ) )
+    {
+      double relativeR = rTrackPoint.m_Radius / i_rState.m_RZAMS;
+      double term1 = Herd::SSE::BXhC( relativeR, m_M0Dependents.m_K2ZAMS - 0.025, m_M0Dependents.m_C );
+      double term2 = Herd::SSE::BXhC( relativeR, 0.025, -0.1 );
+      k2 = term1 + term2;
+    }
+
+    if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeMS )
+    {
+      double tau = i_rState.m_EffectiveAge / i_rState.m_THeMS;
+      k2 = 0.08 - 0.03 * tau;
+    }
+
+    if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeHG || rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeGB )
+    {
+      k2 = 0.08 * i_rState.m_RZAMS / rTrackPoint.m_Radius;
+    }
+
+    if( i_TauEnv > 0.0 )
+    {
+      if( Herd::SSE::IsMS( rTrackPoint.m_Stage ) )
+      {
+        double tau = i_rState.m_EffectiveAge / i_rState.m_TMS;
+        double x = std::clamp( ( 0.1 - logM ) / 0.55, 0., 1. );
+        double y = 2.0 + 8.0 * x;
+        k2 += std::pow( tau, y ) * boost::math::pow< 3 >( i_TauEnv ) * ( k2g - k2 );
+      }
+      else
+      {
+        k2 += boost::math::pow< 3 >( i_TauEnv ) * ( k2g - k2 );
+      }
+    }
+  }
+
+  return k2;
 }
 
 }

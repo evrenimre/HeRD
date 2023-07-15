@@ -39,6 +39,7 @@ public:
     Herd::Generic::Mass m_Mass; ///< Envelope mass
     Herd::Generic::Radius m_Radius; ///< Envelope radius
     Herd::Generic::Radius m_RadiusOfGyration;  ///< Radius of gyration for the envelope, in \f$ R_{\odot}\f$
+    double m_K2; ///< Constant for computing the contribution of the envelope to the angular momentum
   };
 
   Envelope Compute( const Herd::SSE::EvolutionState& i_rState );
@@ -55,12 +56,15 @@ private:
     double m_A = 0; ///< A
     double m_C = 0; ///< C
     double m_LogM0 = 0;  ///< \f$ log_{10}M_0 \f$
-    double m_MCEZAMS = 0; ///< Mass of the convective envelope at ZAMS, in terms of the total envelope mass
-    double m_RCEZAMS = 0;  ///< Radius of the convective envelope at ZAMS, in terms of the total envelope radius
+    Herd::Generic::Mass m_MCEZAMS; ///< Mass of the convective envelope at ZAMS, in terms of the total envelope mass
+    Herd::Generic::Radius m_RCEZAMS;  ///< Radius of the convective envelope at ZAMS, in terms of the total envelope radius
     double m_Y = 0;  ///< Used for computing envelope properties in non-Hayashi stars
 
-    double m_RGZAMS = 0;  ///< Radius of gyration at ZAMS
-    double m_RGBGB = 0;  ///< Radius of gyration at base of the giant branch
+    Herd::Generic::Radius m_RGZAMS;  ///< Radius of gyration at ZAMS
+    Herd::Generic::Radius m_RGBGB;  ///< Radius of gyration at base of the giant branch
+
+    double m_K2ZAMS = 0;  ///< Constant for computing the angular momentum of the envelope at ZAMS
+    double m_K2BGB = 0; ///< Constant for computing the angular momentum of the envelope at BGB
   };
 
   InitialMassDependents m_M0Dependents;
@@ -72,6 +76,7 @@ private:
 
   Herd::Generic::Radius ComputeRadiusOfGyration( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv ); ///< Computes the radius of gyration
   std::pair< double, double > ComputeMassAndRadius( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv ); ///< Computes the mass and the radius of the convective envelope in terms of the entire envelope
+  double ComputeK2( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv );  ///< Computes the K2 coefficient
 };
 }
 
