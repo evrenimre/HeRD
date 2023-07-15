@@ -8,7 +8,6 @@ var namespaceHerd_1_1Generic =
     ] ],
     [ "Quantity", "classHerd_1_1Generic_1_1Quantity.html", "classHerd_1_1Generic_1_1Quantity" ],
     [ "QuantityRange", "classHerd_1_1Generic_1_1QuantityRange.html", "classHerd_1_1Generic_1_1QuantityRange" ],
-    [ "Age", "namespaceHerd_1_1Generic.html#a647bc89a7eec897942b3b239bf4df04b", null ],
     [ "AngularMomentum", "namespaceHerd_1_1Generic.html#af0f24568f5c986e0418cc7502610181f", null ],
     [ "AngularVelocity", "namespaceHerd_1_1Generic.html#a7a0e6eea6c1472d1b893eee0e8d90b63", null ],
     [ "ClosedRange", "namespaceHerd_1_1Generic.html#ad3a6673567a2348a4298a1080fe905da", null ],
@@ -20,6 +19,7 @@ var namespaceHerd_1_1Generic =
     [ "Radius", "namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0", null ],
     [ "RightOpenRange", "namespaceHerd_1_1Generic.html#aa9557d098cb0af55e8b1e40227ad4097", null ],
     [ "Temperature", "namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986", null ],
+    [ "Time", "namespaceHerd_1_1Generic.html#a7e8695656e6be46cabb452340bd2cc37", null ],
     [ "ThrowIfNegative", "namespaceHerd_1_1Generic.html#a18dabb6077f55779ff343f06b07f51aa", null ],
     [ "ThrowIfNotPositive", "namespaceHerd_1_1Generic.html#a11e95438a005a5c2e6345f5405a96133", null ]
 ];

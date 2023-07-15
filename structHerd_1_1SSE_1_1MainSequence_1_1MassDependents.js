@@ -17,6 +17,6 @@ var structHerd_1_1SSE_1_1MainSequence_1_1MassDependents =
     [ "m_Rg", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a3116fc73f49ad2dfe63c3d027e08ae88", null ],
     [ "m_RTMS", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ad9861970edd05016e13bc19d8c9c21ab", null ],
     [ "m_RZAMS", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ab1ef12b241fdef72944ddbf9ac751579", null ],
-    [ "m_Thook", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a7430d20c77e57c04fa72a9b773f2bf9d", null ],
-    [ "m_TMS", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a47b5c20ecceefe595de5b87eee59dca0", null ]
+    [ "m_Thook", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ab63d174ed15ad9f490b3379ad2eb4061", null ],
+    [ "m_TMS", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a0cba20affda8ee28dd82a5163cbbfa1b", null ]
 ];

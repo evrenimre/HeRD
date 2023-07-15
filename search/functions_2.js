@@ -39,8 +39,8 @@ var searchData=
   ['computertms_552',['ComputeRTMS',['../classHerd_1_1SSE_1_1MainSequence.html#a69f421e98a6cd6d26c4da368a6919255',1,'Herd::SSE::MainSequence']]],
   ['computestellarwindloss_553',['ComputeStellarWindLoss',['../classHerd_1_1SSE_1_1StellarRotation.html#ae8c37a4c762ad8063317fdbb6dbcdcef',1,'Herd::SSE::StellarRotation']]],
   ['computetemperature_554',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
-  ['computetimescales_555',['ComputeTimescales',['../classHerd_1_1SSE_1_1MainSequence.html#ac1d85d35758230e9e8ee26a3de166812',1,'Herd::SSE::MainSequence']]],
-  ['computetimestep_556',['ComputeTimestep',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a11a2801e053a2a1249fded4639e6f618',1,'Herd::SSE::SingleStarEvolutuion']]],
+  ['computetimescales_555',['ComputeTimescales',['../classHerd_1_1SSE_1_1MainSequence.html#a71cbac7a2f916b7ce94aa59191967e6a',1,'Herd::SSE::MainSequence']]],
+  ['computetimestep_556',['ComputeTimestep',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a2b8c383c56f33389c543550647a8718e',1,'Herd::SSE::SingleStarEvolutuion']]],
   ['computewrlikeloss_557',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
   ['contains_558',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]]
 ];
