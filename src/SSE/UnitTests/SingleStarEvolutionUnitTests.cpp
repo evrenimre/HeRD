@@ -25,6 +25,7 @@
 #include <SSE/SingleStarEvolution.h>
 #include <SSE/TrackPoint.h>
 
+#include <Exceptions/PreconditionError.h>
 #include <Physics/Constants.h>
 
 #include <cmath>
@@ -144,6 +145,74 @@ BOOST_FIXTURE_TEST_SUITE(SSETests, SSETestFixture )
 
 BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile )
 {
+  Herd::SSE::SingleStarEvolutuion::Parameters defaultParameters;
+
+  Herd::Generic::Mass initialMass(
+      GenerateNumber( Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Lower(), Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Upper() ) );
+
+  Herd::Generic::Metallicity initialMetallicity(
+      GenerateNumber( Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Lower(), Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Upper() ) );
+
+  Herd::Generic::Age evolveUntil( GenerateNumber( 0., 13800. ) );
+
+  Herd::SSE::SingleStarEvolutuion simulator;
+
+  {
+    Herd::Generic::Mass excessiveMass( initialMass + Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Upper() );
+    BOOST_CHECK_THROW( simulator.Evolve( excessiveMass, initialMetallicity, evolveUntil, defaultParameters ), Herd::Exceptions::PreconditionError );
+
+    Herd::Generic::Mass negativeMass( initialMass - Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Upper() );
+    BOOST_CHECK_THROW( simulator.Evolve( negativeMass, initialMetallicity, evolveUntil, defaultParameters ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::Generic::Metallicity excessiveMetallicity( initialMetallicity + Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Upper() );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, excessiveMetallicity, evolveUntil, defaultParameters ), Herd::Exceptions::PreconditionError );
+
+    Herd::Generic::Metallicity negativeMetallicity( initialMetallicity - Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Upper() );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, negativeMetallicity, evolveUntil, defaultParameters ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::Generic::Age invalidAge( -evolveUntil );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, invalidAge, defaultParameters ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
+    invalid.m_HeWind = GenerateNumber( -1.0, -0.1 );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
+    invalid.m_BinaryWind = GenerateNumber( -1.0, -0.1 );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
+    invalid.m_RocheLobe = GenerateNumber( -1.0, -0.1 );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
+    invalid.m_SupernovaKickDispersion = GenerateNumber( -1.0, -0.1 );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
+    invalid.m_DefaultTimestep = GenerateNumber( -1.0, 0.0 );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
+  }
+
+  {
+    Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
+    invalid.m_MinRemnantTimestep = GenerateNumber( -1.0, 0.0 );
+    BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
+  }
 }
 
 /// Test single star evolution on a random track

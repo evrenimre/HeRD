@@ -48,6 +48,15 @@ public:
    */
   struct Parameters
   {
+
+    /**
+     * @brief Maximum neutron star mass. If Parameters::m_UseBelczynskiMass is \c false, 1.8
+     */
+    double GetMaxNSMass()
+    {
+      return m_UseBelczynskiMass ? 3.0 : 1.8;
+    }
+
     double m_Eta = 0.5; ///< Reimers mass loss efficiency. >=0
     double m_HeWind = 1.;  ///< Helium star mass loss factor. >=0
     double m_BinaryWind = 0;  ///< Mass loss parameter in binary stars. >=0
@@ -60,7 +69,6 @@ public:
     bool m_UseModifiedMestel = true;  ///< If \c true uses modified Mestel cooling for white dwarves
     bool m_AllowVelocityKickForBlackHoles = false;  ///< If \c true, velocity kick for black holes
     bool m_UseBelczynskiMass = true;  ///< Compute neutron star and black hole masses by Belczynski02
-    double m_MaxNSMass = 3.;  ///< Maximum neutron star mass. If Parameters::m_UseBelczynskiMass is \c false, 1.8
 
     //@formatter:off
       std::unordered_map< Herd::SSE::EvolutionStage, double > m_RelativeTimeStepSizes {
@@ -104,7 +112,7 @@ struct SingleStarEvolutuionSpecs
 {
   // Domain
   inline static const Herd::Generic::ClosedRange s_MassRange = Herd::Generic::ClosedRange( 0.1, 100. ); ///< Valid mass range
-  inline static const Herd::Generic::ClosedRange s_ZRange = Herd::Generic::ClosedRange( 1e-4, 0.03 ); ///< Valid metallicity range
+  inline static const Herd::Generic::ClosedRange s_MetallicityRange = Herd::Generic::ClosedRange( 1e-4, 0.03 ); ///< Valid metallicity range
 };
 }
 

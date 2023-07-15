@@ -38,7 +38,7 @@ namespace Herd::SSE
  * @param i_rParameters %Parameters
  * @pre \c i_rParameters is valid
  * @pre \c i_Mass within SingleStarEvolutuionSpecs::s_MassRange
- * @pre \c i_Z within SingleStarEvolutuionSpecs::s_ZRange
+ * @pre \c i_Z within SingleStarEvolutuionSpecs::s_MetallicityRange
  * @pre \c i_EvolveUntil >= 0
  */
 void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Age i_EvolveUntil,
@@ -123,16 +123,6 @@ void SingleStarEvolutuion::Validate( const Parameters& i_rParameters )
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rParameters.m_RocheLobe, "m_RocheLobe" ); // @suppress("Invalid arguments")
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_rParameters.m_SupernovaKickDispersion, "m_SupernovaKickDispersion" ); // @suppress("Invalid arguments")
 
-  if( i_rParameters.m_UseBelczynskiMass && i_rParameters.m_MaxNSMass != 3. )
-  {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "m_MaxNSMass", "=3.0", i_rParameters.m_MaxNSMass );
-  }
-
-  if( !i_rParameters.m_UseBelczynskiMass && i_rParameters.m_MaxNSMass != 1.8 )
-  {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "m_MaxNSMass", "=1.8", i_rParameters.m_MaxNSMass );
-  }
-
   if( ranges::cpp20::any_of( i_rParameters.m_RelativeTimeStepSizes | ranges::cpp20::views::values,
       std::bind( std::less_equal< double >(), std::placeholders::_1, 0. ) ) )
   {
@@ -151,7 +141,7 @@ void SingleStarEvolutuion::Validate( const Parameters& i_rParameters )
 void SingleStarEvolutuion::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Age i_EvolveUntil )
 {
   SingleStarEvolutuionSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
-  SingleStarEvolutuionSpecs::s_ZRange.ThrowIfNotInRange( i_Z, "i_Z" );  // Metallicity is within the allowed range
+  SingleStarEvolutuionSpecs::s_MetallicityRange.ThrowIfNotInRange( i_Z, "i_Z" );  // Metallicity is within the allowed range
 
   Herd::Exceptions::ThrowPreconditionErrorIfNegative( i_EvolveUntil, "i_EvolveUntil" ); // @suppress("Invalid arguments")
 }
