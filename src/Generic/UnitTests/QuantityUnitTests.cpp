@@ -25,7 +25,7 @@
 BOOST_FIXTURE_TEST_SUITE( Generic, Herd::UnitTestUtils::RandomTestFixture, *Herd::UnitTestUtils::Labels::s_Compile )
 
 /// Quantity types under test
-using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic::Mass, Herd::Generic::Metallicity, Herd::Generic::Radius, Herd::Generic::Age, Herd::Generic::AngularMomentum, Herd::Generic::AngularVelocity >;
+using QuantityTypes = boost::mpl::list< Herd::Generic::Luminosity, Herd::Generic::Mass, Herd::Generic::Metallicity, Herd::Generic::Radius, Herd::Generic::Time, Herd::Generic::AngularMomentum, Herd::Generic::AngularVelocity >;
 
 /// Quantity construction
 BOOST_AUTO_TEST_CASE_TEMPLATE( UsageTest, T, QuantityTypes )

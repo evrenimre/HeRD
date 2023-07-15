@@ -88,18 +88,18 @@ public:
     double m_MinRemnantTimestep = 0.1; ///< Minimum timestep for evolution of a remnant, in Myr. >0
   };
 
-  void Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Age i_EvolveUntil, const Parameters& i_rParameters ); ///< Evolves a star
+  void Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Time i_EvolveUntil, const Parameters& i_rParameters ); ///< Evolves a star
 
   const std::vector< Herd::SSE::TrackPoint >& Trajectory() const;  ///< Accessor for SingleStarEvolutuion::m_Trajectory
 
 private:
 
   static void Validate( const Parameters& i_rParameters ); ///< Validates parameters
-  static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Age i_EvolveUntil );  ///< Validates the input arguments
+  static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Time i_EvolveUntil );  ///< Validates the input arguments
 
   unsigned int EstimateTrajectoryLength( const Parameters& i_rParameters ); ///< Estimates the total number of timesteps
-  static Herd::Generic::Age ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState i_rState,
-      const Parameters& i_rParameters, Herd::Generic::Age i_EvolveUntil ); ///< Computes the size of the timestep
+  static Herd::Generic::Time ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState i_rState,
+      const Parameters& i_rParameters, Herd::Generic::Time i_EvolveUntil ); ///< Computes the size of the timestep
 
   std::vector< Herd::SSE::TrackPoint > m_Trajectory; ///< Evolution trajectory
 };

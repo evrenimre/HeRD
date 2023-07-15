@@ -43,7 +43,7 @@ private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
 
-  std::pair< Herd::Generic::Age, Herd::Generic::Age > ComputeTimescales( Herd::Generic::Mass i_Mass ) const; ///< Computes the relevant timescales
+  std::pair< Herd::Generic::Time, Herd::Generic::Time > ComputeTimescales( Herd::Generic::Mass i_Mass ) const; ///< Computes the relevant timescales
 
   void ComputeMassDependents( Herd::Generic::Mass i_Mass ); ///< Computes various mass-dependent quantities
 
@@ -106,8 +106,8 @@ private:
   {
     Herd::Generic::Mass m_EvaluatedAt; ///< Dependents calculated at this value
 
-    Herd::Generic::Age m_TMS; ///< MS duration
-    Herd::Generic::Age m_Thook;  ///< Start of hook formation
+    Herd::Generic::Time m_TMS; ///< MS duration
+    Herd::Generic::Time m_Thook;  ///< Start of hook formation
 
     Herd::Generic::Luminosity m_LZAMS;  ///< Luminosity at ZAMS
     Herd::Generic::Radius m_RZAMS; ///< Radius at ZAMS

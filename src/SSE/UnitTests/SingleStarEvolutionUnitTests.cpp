@@ -90,7 +90,7 @@ void SSETestFixture::TestFidelity( const std::vector< Herd::SSE::TrackPoint >& i
   Herd::Generic::Metallicity initialMetallicity = i_rTrack[ 0 ].m_InitialMetallicity;
 
   // Evolve until the end of the track
-  Herd::Generic::Age evolveUntil = i_rTrack.rbegin()->m_Age;
+  Herd::Generic::Time evolveUntil = i_rTrack.rbegin()->m_Age; // @suppress("Invalid arguments") // @suppress("Field cannot be resolved")
 
   // Evolve the star
 
@@ -146,13 +146,13 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
 {
   Herd::SSE::SingleStarEvolutuion::Parameters defaultParameters;
 
-  Herd::Generic::Mass initialMass(
-      GenerateNumber( Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Lower(), Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Upper() ) );
+  Herd::Generic::Mass initialMass( // @suppress("Invalid arguments")
+      GenerateNumber( Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Lower(), Herd::SSE::SingleStarEvolutuionSpecs::s_MassRange.Upper() ) ); // @suppress("Invalid arguments")
 
-  Herd::Generic::Metallicity initialMetallicity(
-      GenerateNumber( Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Lower(), Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Upper() ) );
+  Herd::Generic::Metallicity initialMetallicity( // @suppress("Invalid arguments")
+      GenerateNumber( Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Lower(), Herd::SSE::SingleStarEvolutuionSpecs::s_MetallicityRange.Upper() ) ); // @suppress("Invalid arguments")
 
-  Herd::Generic::Age evolveUntil( GenerateNumber( 0., 13800. ) );
+  Herd::Generic::Time evolveUntil( GenerateNumber( 0., 13800. ) ); // @suppress("Invalid arguments")
 
   Herd::SSE::SingleStarEvolutuion simulator;
 
@@ -173,43 +173,43 @@ BOOST_AUTO_TEST_CASE( InvalidParameters, *Herd::UnitTestUtils::Labels::s_Compile
   }
 
   {
-    Herd::Generic::Age invalidAge( -evolveUntil );
+    Herd::Generic::Time invalidAge( -evolveUntil );
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, invalidAge, defaultParameters ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
-    invalid.m_HeWind = GenerateNumber( -1.0, -0.1 );
+    invalid.m_HeWind = GenerateNumber( -1.0, -0.1 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
-    invalid.m_BinaryWind = GenerateNumber( -1.0, -0.1 );
+    invalid.m_BinaryWind = GenerateNumber( -1.0, -0.1 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
-    invalid.m_RocheLobe = GenerateNumber( -1.0, -0.1 );
+    invalid.m_RocheLobe = GenerateNumber( -1.0, -0.1 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
-    invalid.m_SupernovaKickDispersion = GenerateNumber( -1.0, -0.1 );
+    invalid.m_SupernovaKickDispersion = GenerateNumber( -1.0, -0.1 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
-    invalid.m_DefaultTimestep = GenerateNumber( -1.0, 0.0 );
+    invalid.m_DefaultTimestep = GenerateNumber( -1.0, 0.0 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
   }
 
   {
     Herd::SSE::SingleStarEvolutuion::Parameters invalid = defaultParameters;
-    invalid.m_MinRemnantTimestep = GenerateNumber( -1.0, 0.0 );
+    invalid.m_MinRemnantTimestep = GenerateNumber( -1.0, 0.0 ); // @suppress("Invalid arguments")
     BOOST_CHECK_THROW( simulator.Evolve( initialMass, initialMetallicity, evolveUntil, invalid ), Herd::Exceptions::PreconditionError );
   }
 }
@@ -219,7 +219,7 @@ BOOST_AUTO_TEST_CASE( RandomReferenceTrack, *Herd::UnitTestUtils::Labels::s_Comp
 {
   std::size_t fileCount = GetFileCount( s_TrackRegex );
   BOOST_TEST_REQUIRE( fileCount != 0 );
-  std::size_t fileIndex = GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 );
+  std::size_t fileIndex = GenerateNumber( static_cast< std::size_t >( 0 ), fileCount - 1 ); // @suppress("Invalid arguments")
   TestFidelity( MakeTestCase( fileIndex ) );
 }
 

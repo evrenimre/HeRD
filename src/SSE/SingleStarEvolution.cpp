@@ -41,7 +41,7 @@ namespace Herd::SSE
  * @pre \c i_Z within SingleStarEvolutuionSpecs::s_MetallicityRange
  * @pre \c i_EvolveUntil >= 0
  */
-void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Age i_EvolveUntil,
+void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Time i_EvolveUntil,
     const Parameters& i_rParameters )
 {
   Validate( i_rParameters );
@@ -62,7 +62,7 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
 
   while( rTrackPoint.m_Age < i_EvolveUntil )
   {
-    Herd::Generic::Age TerminateAt = state.m_TMS; // This is a temporary variable, set at the end of the most advanced stage implemented so far
+    Herd::Generic::Time TerminateAt = state.m_TMS; // This is a temporary variable, set at the end of the most advanced stage implemented so far
     if( rTrackPoint.m_Age >= TerminateAt )
     {
       break;
@@ -74,7 +74,7 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     double angularMomentumLossRate = Herd::SSE::StellarRotation::ComputeAngularMomentumLossRate( state ); // Momentum loss from the angular velocity at the previous time point
 
     // Compute the size of the time step
-    Herd::Generic::Age DeltaT = ComputeTimestep( ms, state, i_rParameters, i_EvolveUntil );
+    Herd::Generic::Time DeltaT = ComputeTimestep( ms, state, i_rParameters, i_EvolveUntil );
 
     state.m_DeltaT = DeltaT;
     rTrackPoint.m_Age += DeltaT;
@@ -94,8 +94,7 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     m_Trajectory.push_back( rTrackPoint );
   }
 
-  // TODO
-  // Correct the temperature: AMUSE.SSE and IAU use slightly different values. But do this only when all computations are finished. menv uses temperature ratios, so it is not affected
+  // TODO Correct the temperature: AMUSE.SSE and IAU use slightly different values. But do this only when all computations are finished. menv uses temperature ratios, so it is not affected
 
   // Loop
   // Compute the new mass
@@ -140,7 +139,7 @@ void SingleStarEvolutuion::Validate( const Parameters& i_rParameters )
  * @param i_Z Metallicity
  * @param i_EvolveUntil Evolution cut-off
  */
-void SingleStarEvolutuion::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Age i_EvolveUntil )
+void SingleStarEvolutuion::Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Time i_EvolveUntil )
 {
   SingleStarEvolutuionSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
   SingleStarEvolutuionSpecs::s_MetallicityRange.ThrowIfNotInRange( i_Z, "i_Z" );  // Metallicity is within the allowed range
@@ -163,9 +162,9 @@ unsigned int SingleStarEvolutuion::EstimateTrajectoryLength( const Parameters& i
  * @param i_rEvolveUntil Evolution cut-off
  * @return Timestep in Myr
  */
-Herd::Generic::Age SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_rPhase, const Herd::SSE::EvolutionState i_rState,
+Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_rPhase, const Herd::SSE::EvolutionState i_rState,
     const Parameters& i_rParameters,
-    Herd::Generic::Age i_EvolveUntil )
+    Herd::Generic::Time i_EvolveUntil )
 {
   // Absolute timestep size from the relative size
   const auto& rTrackPoint = i_rState.m_TrackPoint;
@@ -173,8 +172,8 @@ Herd::Generic::Age SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_r
   const auto itQuery = i_rParameters.m_RelativeTimeStepSizes.find( rTrackPoint.m_Stage );
   double deltaPercentage = ( itQuery == i_rParameters.m_RelativeTimeStepSizes.end() ) ? 0. : itQuery->second;
 
-  Herd::Generic::Age deltaT;
-  Herd::Generic::Age endOfPhase;
+  Herd::Generic::Time deltaT;
+  Herd::Generic::Time endOfPhase;
   switch( rTrackPoint.m_Stage )
   {
     case Herd::SSE::EvolutionStage::e_MSLM:
@@ -191,12 +190,12 @@ Herd::Generic::Age SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_r
       break;
   }
 
-  Herd::Generic::Age remainingTime = endOfPhase - i_rState.m_EffectiveAge;  // Remaining time in the current phase
+  Herd::Generic::Time remainingTime = endOfPhase - i_rState.m_EffectiveAge;  // Remaining time in the current phase
 
   // Limit the radius change to 10%
   // Compute the state at the next time point and limit the jump
   // Even with the mass loss, this is done at the current mass
-  // When there is no mass loss, this computation is repeated redundantly in the main loop TODO Make a ticket
+  // When there is no mass loss, this computation is repeated redundantly in the main loop
   unsigned int iterationCount = 0;
   while( true )
   {
@@ -227,7 +226,7 @@ Herd::Generic::Age SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_r
         deltaT.Set( remainingTime - i_rState.m_EffectiveAge * 1e-6 );
       }
 
-      deltaT *= Herd::Generic::Age( 0.09 * std::max( NewRadius, OldRadius ) / AbsDeltaRadius );
+      deltaT *= Herd::Generic::Time( 0.09 * std::max( NewRadius, OldRadius ) / AbsDeltaRadius );
 
       if( !bEndOfPhase && iterationCount >= 20 )
       {
@@ -266,7 +265,7 @@ Herd::Generic::Age SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_r
     deltaT.Set( deltaT.Value() * ( 0.01 / relativeMassChange ) );
   }
 
-  Herd::Generic::Age minStepSize( 1e-7 * i_rState.m_EffectiveAge ); // Minimum timestep prevents tiny updates due to incremental changes to tMS due to mass loss
+  Herd::Generic::Time minStepSize( 1e-7 * i_rState.m_EffectiveAge ); // Minimum timestep prevents tiny updates due to incremental changes to tMS due to mass loss
   deltaT.Set( std::max( minStepSize, deltaT ) );
   deltaT.Set( std::min( deltaT, i_EvolveUntil - i_rState.m_TrackPoint.m_Age ) );
 

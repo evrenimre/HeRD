@@ -29,7 +29,7 @@ struct TrackPoint
   Herd::Generic::Radius m_Radius; ///< Radius in \f$ R_{\odot}\f$
   Herd::Generic::Luminosity m_Luminosity;  ///< Luminosity in \f$ L_{\odot}\f$
   Herd::Generic::Temperature m_Temperature; ///< Effective surface temperature in K
-  Herd::Generic::Age m_Age; ///< Age from ZAMS, in million years
+  Herd::Generic::Time m_Age; ///< Age from ZAMS, in million years
   Herd::SSE::EvolutionStage m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
 
   Herd::Generic::Mass m_CoreMass; ///< Core mass in \f$ M_{\odot}\f$

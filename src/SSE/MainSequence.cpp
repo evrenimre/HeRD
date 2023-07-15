@@ -194,8 +194,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   auto mass = rTrackPoint.m_Mass;
 
   // Still MS?
-  Herd::Generic::Age tMS;
-  Herd::Generic::Age thook;
+  Herd::Generic::Time tMS;
+  Herd::Generic::Time thook;
   if( mass != m_MDependents.m_EvaluatedAt )
   {
     std::tie( tMS, thook ) = ComputeTimescales( mass );
@@ -206,10 +206,10 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   }
 
   // Change in mass changes the effective age of the star
-  Herd::Generic::Age tMSOld = ( rTrackPoint.m_Mass == io_rState.m_MZAMS ) ? tMS : io_rState.m_TMS;
+  Herd::Generic::Time tMSOld = ( rTrackPoint.m_Mass == io_rState.m_MZAMS ) ? tMS : io_rState.m_TMS;
 
   // Handling the no tMS change separately is numerically more stable. Otherwise, at the end of the stage, effectiveAge can fall just short of tMS, causing insertion of an extra track point
-  Herd::Generic::Age effectiveAge = io_rState.m_EffectiveAge;
+  Herd::Generic::Time effectiveAge = io_rState.m_EffectiveAge;
   if( tMS == tMSOld )
   {
     effectiveAge += io_rState.m_DeltaT;
@@ -498,7 +498,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
  * @param i_Mass Mass
  * @return Main sequence duration; start of hook
  */
-std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimescales( Herd::Generic::Mass i_Mass ) const
+std::pair< Herd::Generic::Time, Herd::Generic::Time > MainSequence::ComputeTimescales( Herd::Generic::Mass i_Mass ) const
 {
   // Eq. 4
   double tBGB = 0;
@@ -536,7 +536,7 @@ std::pair< Herd::Generic::Age, Herd::Generic::Age > MainSequence::ComputeTimesca
 
   double thook = mu * tBGB;
 
-  return std::pair( Herd::Generic::Age( std::max( m_ZDependents.m_X * tBGB, thook ) ), Herd::Generic::Age( thook ) ); // Eq. 5 // @suppress("Ambiguous problem")
+  return std::pair( Herd::Generic::Time( std::max( m_ZDependents.m_X * tBGB, thook ) ), Herd::Generic::Time( thook ) ); // Eq. 5 // @suppress("Ambiguous problem")
 }
 
 /**

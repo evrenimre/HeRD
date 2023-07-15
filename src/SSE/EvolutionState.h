@@ -29,7 +29,7 @@ struct EvolutionState
 {
   Herd::SSE::TrackPoint m_TrackPoint; ///< Track point
 
-  Herd::Generic::Age m_EffectiveAge;  ///< Effective age to represent the ageing effect of mass loss
+  Herd::Generic::Time m_EffectiveAge;  ///< Effective age to represent the ageing effect of mass loss
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
   Herd::Generic::Radius m_EnvelopeRadius; ///< Radius of the convective envelope in \f$ R_{\odot} \f$
 
@@ -46,7 +46,7 @@ struct EvolutionState
   Herd::Generic::Mass m_MFGB;  ///< \f$ M_{FGB} \f$, Eq. 3. Maximum mass for a start to have a GB phase
   Herd::Generic::Radius m_RTMS;  ///< \f$ R_{TMS} \f$, Eq. 9. Radius at terminal main sequence
   Herd::Generic::Luminosity m_LTMS;  ///< \f$ R_{TMS} \f$, Eq. 8. Luminosity at terminal main sequence
-  Herd::Generic::Age m_TMS; ///< \f$ t_{TMS}\f$, Eq. 5. Main sequence duration
+  Herd::Generic::Time m_TMS; ///< \f$ t_{TMS}\f$, Eq. 5. Main sequence duration
 
   Herd::Generic::Radius m_Rg; ///< \f$ R_g \f$ required for convective envelope calculations
   Herd::Generic::Luminosity m_LBGB; ///< \f$ L_{BGB} \f$, Eq. 10. Luminosity at the base of the giant branch
@@ -54,9 +54,9 @@ struct EvolutionState
   Herd::Generic::Mass m_MCHeI; ///< \f$ M_{c, HeI}\f$. Core mass at He ignition
   Herd::Generic::Luminosity m_LHeI;  ///< \f$ L_{HeI}\f$, Eq. 49. Luminosity at He ignition
 
-  Herd::Generic::Age m_DeltaT; ///<  Timestep
+  Herd::Generic::Time m_DeltaT; ///<  Timestep
 
-  Herd::Generic::Age m_THeMS; ///< Naked He main sequence duration
+  Herd::Generic::Time m_THeMS; ///< Naked He main sequence duration
 
 };
 
