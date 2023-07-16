@@ -22,6 +22,8 @@ namespace Herd::Exceptions
 
 [[noreturn]] void ThrowPreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual ); ///< Wrapper for PreconditionError
 [[noreturn]] void ThrowPreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, double i_Actual ); ///< Wrapper for PreconditionError
+
+// gcc warning for [[noreturn]], the functions appear to return
 void ThrowPreconditionErrorIfNegative( double i_Value, const std::string_view& i_rName );  ///< Wrapper for Precondition error with condition check
 void ThrowPreconditionErrorIfNotPositive( double i_Value, const std::string_view& i_rName ); ///< Wrapper for Precondition error with condition check
 

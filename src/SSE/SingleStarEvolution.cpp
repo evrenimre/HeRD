@@ -159,10 +159,10 @@ unsigned int SingleStarEvolutuion::EstimateTrajectoryLength( const Parameters& i
  * @param[in, out] io_rPhase PEvolution phase simulator
  * @param i_rState Evolution state
  * @param i_rParameters Parameters
- * @param i_rEvolveUntil Evolution cut-off
+ * @param i_EvolveUntil Evolution cut-off
  * @return Timestep in Myr
  */
-Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_rPhase, const Herd::SSE::EvolutionState i_rState,
+Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState i_rState,
     const Parameters& i_rParameters,
     Herd::Generic::Time i_EvolveUntil )
 {
@@ -214,7 +214,7 @@ Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& i_
     }
     ClonedState.m_TrackPoint.m_Age += ClonedState.m_DeltaT;
 
-    i_rPhase.Evolve( ClonedState );
+    io_rPhase.Evolve( ClonedState );
 
     Herd::Generic::Radius NewRadius = ClonedState.m_TrackPoint.m_Radius;
     Herd::Generic::Radius OldRadius = i_rState.m_TrackPoint.m_Radius;

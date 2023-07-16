@@ -48,8 +48,6 @@ public:
 
   ///@name Helpers
   ///@{
-
-
   template< typename T >
   requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
   static void ThrowIfNegative( T i_Value, const std::string_view& i_rName ); // @suppress("Type cannot be resolved")
@@ -57,7 +55,7 @@ public:
   template< typename T >
   requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
   static void ThrowIfNotPositive( T i_Value, const std::string_view& i_rName ); // @suppress("Type cannot be resolved")
-
+  ///@}
 private:
 
   static std::string ComposeMessage( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual ); ///< Composes the error message for the exception

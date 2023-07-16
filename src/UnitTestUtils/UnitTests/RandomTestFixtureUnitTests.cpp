@@ -25,7 +25,7 @@
 
 #include <range/v3/algorithm.hpp>
 
-///< Numeric types under test
+/// Numeric types under test
 using TestTypes = boost::mpl::list< double, int, unsigned int >;
 
 BOOST_AUTO_TEST_SUITE( UnitTestUtils, *Herd::UnitTestUtils::Labels::s_Compile )
@@ -68,7 +68,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE( Generators, T, TestTypes )
   }
 }
 
-///< Rest of the interface
+/// Rest of the interface
 BOOST_AUTO_TEST_CASE( RandomTestFixtureInterface )
 {
   Herd::UnitTestUtils::RandomTestFixture Fixture;

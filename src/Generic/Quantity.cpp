@@ -20,7 +20,7 @@ template class Quantity< struct MassTag > ;
 template class Quantity< struct MetallicityTag > ;
 template class Quantity< struct RadiusTag > ;
 template class Quantity< struct TemperatureTag > ;
-template class Quantity< struct DurationTag > ;
+template class Quantity< struct TimeTag > ;
 template class Quantity< struct AngularMomentumTag > ;
 template class Quantity< struct AngularVelocityTag > ;
 }

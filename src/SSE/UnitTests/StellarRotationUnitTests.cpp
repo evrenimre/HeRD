@@ -1,5 +1,5 @@
 /**
- * @file StellarRotationUnitTests.c[[
+ * @file StellarRotationUnitTests.cpp
  * @author Evren Imre
  * @date 25 Jul 2021	
  */

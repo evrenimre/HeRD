@@ -498,7 +498,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
  * @param i_Mass Mass
  * @return Main sequence duration; start of hook
  */
-std::pair< Herd::Generic::Time, Herd::Generic::Time > MainSequence::ComputeTimescales( Herd::Generic::Mass i_Mass ) const
+std::pair< Herd::Generic::Time, Herd::Generic::Time > MainSequence::ComputeTimescales( Herd::Generic::Mass i_Mass ) const // @suppress("Member declaration not found")
 {
   // Eq. 4
   double tBGB = 0;
@@ -909,6 +909,4 @@ Herd::Generic::Luminosity MainSequence::ComputeLHeI( Herd::Generic::Mass i_Mass 
   double den = rB[ 6 ] + i_Mass * i_Mass;
   return Herd::Generic::Luminosity( num / den );
 }
-
 }
-

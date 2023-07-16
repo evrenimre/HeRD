@@ -34,7 +34,7 @@ struct TrackPoint
 
   Herd::Generic::Mass m_CoreMass; ///< Core mass in \f$ M_{\odot}\f$
   Herd::Generic::Mass m_EnvelopeMass; ///< Convective envelope mass in \f$ M_{\odot}\f$
-  Herd::Generic::AngularVelocity m_AngularVelocity; ///< Angular velocity in \f$ radians \; {year}^{-1}\f$
+  Herd::Generic::AngularVelocity m_AngularVelocity; ///< Angular velocity in \f$ radians \; {MYear}^{-1}\f$
 };
 
 void ValidateTrackPoint( const TrackPoint& i_rTrackPoint ); ///< Validates a track point

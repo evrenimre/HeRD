@@ -50,7 +50,7 @@ private:
   std::filesystem::path m_DataDir; ///< Value of the command line argument DataLoaderFixture::s_DataDirArgumentName
 
   inline static const std::string s_DataPathArgumentName = "--data-path";  ///< Command line argument for the test data file
-  inline static const std::string s_DataDirArgumentName = "--data-dir";  ///< Command line argument for the test data diir
+  inline static const std::string s_DataDirArgumentName = "--data-dir";  ///< Command line argument for the test data dir
 };
 }
 

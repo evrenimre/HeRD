@@ -32,8 +32,8 @@ public:
 
   static void InitialiseAtZAMS( Herd::SSE::EvolutionState& io_rState ); ///< Computes the angular momentum at ZAMS
   static void InitialiseAtNSOrBH( Herd::SSE::EvolutionState& io_rState );  ///< Computes the angular momentum for a new neutron star or black hole
-  static double ComputeAngularMomentumLossRate( const Herd::SSE::EvolutionState& i_rState );  ///< Computes the angular momentum loss per year
 
+  static double ComputeAngularMomentumLossRate( const Herd::SSE::EvolutionState& i_rState );  ///< Computes the angular momentum loss per year
   static Herd::Generic::AngularVelocity ComputeAngularVelocity( const Herd::SSE::EvolutionState& i_rState ); ///< Computes the angular velocity
 
 private:

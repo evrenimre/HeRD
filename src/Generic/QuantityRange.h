@@ -159,6 +159,4 @@ void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity
 
 }
 
-
-
 #endif /* HAE817853_F0C3_44C9_92ED_19BA7C220E0E */
