@@ -8,7 +8,7 @@ var Quantity_8h =
     [ "Metallicity", "Quantity_8h.html#aa2075b7c166c73710f4d34eca13966cf", null ],
     [ "Radius", "Quantity_8h.html#a33b96d55db92d8bd536426a933eb3fc0", null ],
     [ "Temperature", "Quantity_8h.html#a5dae631b17703ec1b877b7254134a986", null ],
-    [ "Time", "Quantity_8h.html#a7e8695656e6be46cabb452340bd2cc37", null ],
+    [ "Time", "Quantity_8h.html#a665291a797ffe29280791178cec26bbd", null ],
     [ "ThrowIfNegative", "Quantity_8h.html#a18dabb6077f55779ff343f06b07f51aa", null ],
     [ "ThrowIfNotPositive", "Quantity_8h.html#a11e95438a005a5c2e6345f5405a96133", null ]
 ];

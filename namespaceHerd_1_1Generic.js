@@ -19,7 +19,7 @@ var namespaceHerd_1_1Generic =
     [ "Radius", "namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0", null ],
     [ "RightOpenRange", "namespaceHerd_1_1Generic.html#aa9557d098cb0af55e8b1e40227ad4097", null ],
     [ "Temperature", "namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986", null ],
-    [ "Time", "namespaceHerd_1_1Generic.html#a7e8695656e6be46cabb452340bd2cc37", null ],
+    [ "Time", "namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd", null ],
     [ "ThrowIfNegative", "namespaceHerd_1_1Generic.html#a18dabb6077f55779ff343f06b07f51aa", null ],
     [ "ThrowIfNotPositive", "namespaceHerd_1_1Generic.html#a11e95438a005a5c2e6345f5405a96133", null ]
 ];
