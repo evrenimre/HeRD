@@ -19,7 +19,6 @@
 
 #include <sstream>
 #include <string>
-#include <string_view>
 
 #include <boost/icl/continuous_interval.hpp>
 
@@ -63,7 +62,7 @@ public:
   std::string GetRangeString() const;  ///< Helper for printing range information
 
   template< class Tag >
-  void ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string_view& i_rName ) const;  ///< Throws if a quantity is not contained
+  void ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const char* i_pName ) const;  ///< Throws if a quantity is not contained
 
 private:
 
@@ -149,11 +148,11 @@ std::string QuantityRange< BoundaryPolicy >::GetRangeString() const
  */
 template< class BoundaryPolicy >
 template< class Tag >
-void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const std::string_view& i_rName ) const
+void QuantityRange< BoundaryPolicy >::ThrowIfNotInRange( Herd::Generic::Quantity< Tag > i_Quantity, const char* i_pName ) const
 {
   if( !Contains( i_Quantity ) )
   {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_rName, GetRangeString(), i_Quantity.Value() );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_pName, GetRangeString().c_str(), i_Quantity.Value() );
   }
 }
 

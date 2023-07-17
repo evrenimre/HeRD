@@ -51,7 +51,7 @@ bool IsAGB( EvolutionStage i_Stage );  ///< Is an AGB stage?
 bool IsHeStar( EvolutionStage i_Stage );  ///< Is a He Star?
 
 // Enum <-> String conversions
-EvolutionStage StringToEvolutionStage( const std::string_view& i_rString ); ///< Converts a string to an evolution stage
+EvolutionStage StringToEvolutionStage( const std::string& i_rString ); ///< Converts a string to an evolution stage
 std::string_view EvolutionStageToString( EvolutionStage i_Stage );  ///< Converts an evolution stage to a string
 
 std::array< EvolutionStage, 17 > EnumerateEvolutionStages();  ///< Returns a list of evolution stages

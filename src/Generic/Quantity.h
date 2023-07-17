@@ -13,9 +13,9 @@
 #ifndef HD075DEEE_908E_40CA_A6A7_83108CC172DD
 #define HD075DEEE_908E_40CA_A6A7_83108CC172DD
 
-#include <Exceptions/ExceptionWrappers.h>
+#include <compare>
 
-#include <string_view>
+#include <Exceptions/ExceptionWrappers.h>
 
 namespace Herd::Generic
 {
@@ -173,10 +173,10 @@ private:
 };
 
 template< typename Tag >
-void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string_view& i_rName );  ///< Throws a PreconditionError for a negative quantity
+void ThrowIfNegative( Quantity< Tag > i_Quantity, const char* i_pName );  ///< Throws a PreconditionError for a negative quantity
 
 template< typename Tag >
-void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string_view& i_rName );  ///< Throws a PreconditionError for a non-positive quantity
+void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const char* i_pName );  ///< Throws a PreconditionError for a non-positive quantity
 
 // Physical quantities
 // @formatter:off
@@ -203,15 +203,15 @@ extern template class Quantity< struct AngularVelocityTag > ;
 /**
  * @tparam Tag Quantity tag
  * @param i_Quantity Quantity under test
- * @param i_rName Name of the quantity, for the exception message
+ * @param i_pName Name of the quantity, for the exception message
  * @throws PreconditionError If \c i_Quantity<0
  */
 template< typename Tag >
-void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string_view& i_rName )
+void ThrowIfNegative( Quantity< Tag > i_Quantity, const char* i_pName )
 {
-  if( i_Quantity < 0 )
+  if( i_Quantity.Value() < 0.0 )
   {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_rName, ">=0", i_Quantity.Value() );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_pName, ">=0", i_Quantity.Value() );
   }
 }
 
@@ -222,11 +222,11 @@ void ThrowIfNegative( Quantity< Tag > i_Quantity, const std::string_view& i_rNam
  * @throws PreconditionError If \c i_Quantity<=0
  */
 template< typename Tag >
-void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const std::string_view& i_rName )
+void ThrowIfNotPositive( Quantity< Tag > i_Quantity, const char* i_pName )
 {
-  if( i_Quantity <= 0 )
+  if( i_Quantity <= 0.0 )
   {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_rName, ">0", i_Quantity.Value() );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( i_pName, ">0", i_Quantity.Value() );
   }
 }
 

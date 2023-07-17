@@ -36,13 +36,13 @@ public:
    * @param i_rExpected Precondition
    * @param i_rActual Actual value
    */
-  PreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual ) :
+  PreconditionError( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual ) :
       Herd::Exceptions::RuntimeError( ComposeMessage( i_rElement, i_rExpected, i_rActual ) )
   {
   }
 
   template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
-  PreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, T i_Actual ); // @suppress("Type cannot be resolved")
+  PreconditionError( const char* i_pElement, const char* i_pExpected, T i_Actual ); // @suppress("Type cannot be resolved")
 
   virtual ~PreconditionError() = default; ///< Default constructor
 
@@ -50,24 +50,24 @@ public:
   ///@{
   template< typename T >
   requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
-  static void ThrowIfNegative( T i_Value, const std::string_view& i_rName ); // @suppress("Type cannot be resolved")
+  static void ThrowIfNegative( T i_Value, const char* i_pName ); // @suppress("Type cannot be resolved")
 
   template< typename T >
   requires std::totally_ordered< T > // @suppress("Type cannot be resolved") // @suppress("Invalid template argument")
-  static void ThrowIfNotPositive( T i_Value, const std::string_view& i_rName ); // @suppress("Type cannot be resolved")
+  static void ThrowIfNotPositive( T i_Value, const char* i_pName ); // @suppress("Type cannot be resolved")
   ///@}
 private:
 
-  static std::string ComposeMessage( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual ); ///< Composes the error message for the exception
+  static std::string ComposeMessage( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual ); ///< Composes the error message for the exception
 };
 
 // Extern declarations
 ///@cond
 // Suppress doxygen warnings
-extern template PreconditionError::PreconditionError( const std::string_view&, const std::string_view&, double ); // @suppress("Member declaration not found")
+extern template PreconditionError::PreconditionError( const char*, const char*, double ); // @suppress("Member declaration not found")
 ///@endcond
-extern template void PreconditionError::ThrowIfNegative( double, const std::string_view& ); // @suppress("Member declaration not found")
-extern template void PreconditionError::ThrowIfNotPositive( double, const std::string_view& ); // @suppress("Member declaration not found")
+extern template void PreconditionError::ThrowIfNegative( double, const char* ); // @suppress("Member declaration not found")
+extern template void PreconditionError::ThrowIfNotPositive( double, const char* ); // @suppress("Member declaration not found")
 
 /**
  * @brief Constructor for numerical types
@@ -77,9 +77,9 @@ extern template void PreconditionError::ThrowIfNotPositive( double, const std::s
  * @param i_Actual Actual value
  */
 template< Herd::Concepts::Number T > // @suppress("Type cannot be resolved")
-PreconditionError::PreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, T i_Actual ) : // @suppress("Type cannot be resolved")
+PreconditionError::PreconditionError( const char* i_pElement, const char* i_pExpected, T i_Actual ) : // @suppress("Type cannot be resolved")
 Herd::Exceptions::RuntimeError(// @suppress("Symbol is not resolved")
-    ComposeMessage( i_rElement, i_rExpected, std::to_string( i_Actual ) ) )// @suppress("Invalid arguments")
+        ComposeMessage( i_pElement, i_pExpected, std::to_string( i_Actual ) ) ) // @suppress("Invalid arguments")
 {
 }
 
@@ -94,11 +94,11 @@ Herd::Exceptions::RuntimeError(// @suppress("Symbol is not resolved")
 template< typename T >
 requires std::totally_ordered< T > // @suppress("Invalid template argument") // @suppress("Type cannot be resolved")
 //@formatter:on
-void PreconditionError::ThrowIfNegative( T i_Value, const std::string_view& i_rName ) // @suppress("Type cannot be resolved")
+void PreconditionError::ThrowIfNegative( T i_Value, const char* i_pName ) // @suppress("Type cannot be resolved")
 {
   if( i_Value < 0 )
   {
-    [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">=0", i_Value ) ); // @suppress("Symbol is not resolved")
+    [[unlikely]] throw( Exceptions::PreconditionError( i_pName, ">=0", i_Value ) ); // @suppress("Symbol is not resolved")
   }
 }
 
@@ -113,11 +113,11 @@ void PreconditionError::ThrowIfNegative( T i_Value, const std::string_view& i_rN
 template< typename T >
 requires std::totally_ordered< T > // @suppress("Invalid template argument") // @suppress("Type cannot be resolved")
 //@formatter:on
-void PreconditionError::ThrowIfNotPositive( T i_Value, const std::string_view& i_rName ) // @suppress("Type cannot be resolved")
+void PreconditionError::ThrowIfNotPositive( T i_Value, const char* i_pName ) // @suppress("Type cannot be resolved")
 {
   if( i_Value <= 0 )
   {
-    [[unlikely]] throw( Exceptions::PreconditionError( i_rName, ">0", i_Value ) ); // @suppress("Symbol is not resolved")
+    [[unlikely]] throw( Exceptions::PreconditionError( i_pName, ">0", i_Value ) ); // @suppress("Symbol is not resolved")
   }
 }
 

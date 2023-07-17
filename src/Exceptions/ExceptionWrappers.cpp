@@ -18,42 +18,42 @@ namespace Herd::Exceptions
 {
 
 /**
- * @param i_rElement Entity under test
- * @param i_rExpected Precondition
- * @param i_rActual Actual value
+ * @param i_pElement Entity under test
+ * @param i_pExpected Precondition
+ * @param i_pActual Actual value
  * @throws PreconditionError
  */
-void ThrowPreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual )
+void ThrowPreconditionError( const char* i_pElement, const char* i_pExpected, const char* i_pActual )
 {
-  throw( Herd::Exceptions::PreconditionError( i_rElement, i_rExpected, i_rActual ) );
+  throw( Herd::Exceptions::PreconditionError( i_pElement, i_pExpected, i_pActual ) );
 }
 
 /**
- * @param i_rElement Entity under test
- * @param i_rExpected Precondition
+ * @param i_pElement Entity under test
+ * @param i_pExpected Precondition
  * @param i_Actual Actual value
  * @throws PreconditionError
  * @remarks Not a template because the point of the wrappers is keeping the included headers to a minimum. Template would require either string.h or PreconditionError.h. This wrapper covers the most common case.
  */
-void ThrowPreconditionError( const std::string_view& i_rElement, const std::string_view& i_rExpected, double i_Actual )
+void ThrowPreconditionError( const char* i_pElement, const char* i_pExpected, double i_Actual )
 {
-  throw( Herd::Exceptions::PreconditionError( i_rElement, i_rExpected, i_Actual ) ); // @suppress("Symbol is not resolved")
+  throw( Herd::Exceptions::PreconditionError( i_pElement, i_pExpected, i_Actual ) ); // @suppress("Symbol is not resolved")
 }
 
 /**
  * @brief Throws if value is negative
  * @param i_Value Value to be tested
- * @param i_rName Name of the variable
+ * @param i_pName Name of the variable
  * @throws PreconditionError If \c i_Value is negative
  */
-void ThrowPreconditionErrorIfNegative( double i_Value, const std::string_view& i_rName )
+void ThrowPreconditionErrorIfNegative( double i_Value, const char* i_pName )
 {
-  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_Value, i_rName ); // @suppress("Invalid arguments")
+  Herd::Exceptions::PreconditionError::ThrowIfNegative( i_Value, i_pName ); // @suppress("Invalid arguments")
 }
 
-void ThrowPreconditionErrorIfNotPositive( double i_Value, const std::string_view& i_rName )
+void ThrowPreconditionErrorIfNotPositive( double i_Value, const char* i_pName )
 {
-  Herd::Exceptions::PreconditionError::ThrowIfNotPositive( i_Value, i_rName ); // @suppress("Invalid arguments")
+  Herd::Exceptions::PreconditionError::ThrowIfNotPositive( i_Value, i_pName ); // @suppress("Invalid arguments")
 }
 
 }

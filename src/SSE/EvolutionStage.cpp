@@ -115,7 +115,7 @@ bool IsHeStar( EvolutionStage i_Stage )
  * @pre \c i_rString has a corresponding enum
  * @throws PreconditionError If \c i_rString does not have a corresponding enum
  */
-EvolutionStage StringToEvolutionStage( const std::string_view& i_rString )
+EvolutionStage StringToEvolutionStage( const std::string& i_rString )
 {
   // This makes the converter map from s_StageToString. If a new type is added, it is automatically picked up
   static const std::unordered_map< std::string_view, Herd::SSE::EvolutionStage > s_StringToStage = MakeStringToStage();
@@ -123,7 +123,7 @@ EvolutionStage StringToEvolutionStage( const std::string_view& i_rString )
   auto iQuery = s_StringToStage.find( i_rString );
   if( iQuery == s_StringToStage.end() )
   {
-    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "s_StringToStage", "a valid evolution stage", i_rString );
+    [[unlikely]] Herd::Exceptions::ThrowPreconditionError( "s_StringToStage", "a valid evolution stage", i_rString.c_str() );
   }
 
   return iQuery->second;

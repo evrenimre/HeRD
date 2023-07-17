@@ -21,10 +21,10 @@ namespace Herd::Exceptions
 // Explicit instantiations
 ///@cond
 // Suppress doxygen warnings
-template PreconditionError::PreconditionError( const std::string_view&, const std::string_view&, double ); // @suppress("Member declaration not found")
+template PreconditionError::PreconditionError( const char*, const char*, double ); // @suppress("Member declaration not found")
 ///@endcond
-template void PreconditionError::ThrowIfNegative( double, const std::string_view& ); // @suppress("Member declaration not found")
-template void PreconditionError::ThrowIfNotPositive( double, const std::string_view& ); // @suppress("Member declaration not found")
+template void PreconditionError::ThrowIfNegative( double, const char* ); // @suppress("Member declaration not found")
+template void PreconditionError::ThrowIfNotPositive( double, const char* ); // @suppress("Member declaration not found")
 
 /**
  * @param i_rElement Element being tested
@@ -32,7 +32,7 @@ template void PreconditionError::ThrowIfNotPositive( double, const std::string_v
  * @param i_rActual Actual value
  * @return Error message
  */
-std::string PreconditionError::ComposeMessage( const std::string_view& i_rElement, const std::string_view& i_rExpected, const std::string_view& i_rActual )
+std::string PreconditionError::ComposeMessage( const std::string& i_rElement, const std::string& i_rExpected, const std::string& i_rActual )
 {
   return boost::str( boost::format( "%s: Expected %s got %s\n" ) % i_rElement % i_rExpected % i_rActual )
       + boost::stacktrace::to_string( boost::stacktrace::stacktrace() );
