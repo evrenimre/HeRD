@@ -42,14 +42,14 @@ var namespaceHerd_1_1SSE =
     [ "ComputeInnerProduct", "namespaceHerd_1_1SSE.html#ac9c5be5d42520d05ed5e6a0fecf9bee7", null ],
     [ "ComputePowers", "namespaceHerd_1_1SSE.html#aabfed8b93d0a5ba9e56467f1cbbefe96", null ],
     [ "EnumerateEvolutionStages", "namespaceHerd_1_1SSE.html#a2516aa1094ad7de074c6f23ec71c083f", null ],
-    [ "EvolutionStageToString", "namespaceHerd_1_1SSE.html#aec5493c7b50657ec0fbed2e13860307f", null ],
+    [ "EvolutionStageToString", "namespaceHerd_1_1SSE.html#a94617e1f1d6473175b4a7d4f5d40e1ab", null ],
     [ "IsAGB", "namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79", null ],
     [ "IsHeStar", "namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6", null ],
     [ "IsMS", "namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1", null ],
     [ "IsPreFGB", "namespaceHerd_1_1SSE.html#a8da140201274ce0398b6174c56500ceb", null ],
     [ "IsRemnant", "namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ],
     [ "MultiplyMatrixVector", "namespaceHerd_1_1SSE.html#ae008f591df2b91795c1df6b4f8928aca", null ],
-    [ "StringToEvolutionStage", "namespaceHerd_1_1SSE.html#ab296ee449e49d2defc572b4eea0c1938", null ],
+    [ "StringToEvolutionStage", "namespaceHerd_1_1SSE.html#a835bcc940a0d81431be1314348854fef", null ],
     [ "ValidateEvolutionState", "namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb", null ],
     [ "ValidateTrackPoint", "namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57", null ]
 ];

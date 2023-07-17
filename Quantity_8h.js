@@ -9,6 +9,6 @@ var Quantity_8h =
     [ "Radius", "Quantity_8h.html#a33b96d55db92d8bd536426a933eb3fc0", null ],
     [ "Temperature", "Quantity_8h.html#a5dae631b17703ec1b877b7254134a986", null ],
     [ "Time", "Quantity_8h.html#a665291a797ffe29280791178cec26bbd", null ],
-    [ "ThrowIfNegative", "Quantity_8h.html#a18dabb6077f55779ff343f06b07f51aa", null ],
-    [ "ThrowIfNotPositive", "Quantity_8h.html#a11e95438a005a5c2e6345f5405a96133", null ]
+    [ "ThrowIfNegative", "Quantity_8h.html#a6f17f1c241557febe8c702f442108af3", null ],
+    [ "ThrowIfNotPositive", "Quantity_8h.html#ad65c02efb3c5fa89eda8e451537c4843", null ]
 ];

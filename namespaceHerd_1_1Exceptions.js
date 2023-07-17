@@ -3,8 +3,8 @@ var namespaceHerd_1_1Exceptions =
     [ "Exception", "classHerd_1_1Exceptions_1_1Exception.html", "classHerd_1_1Exceptions_1_1Exception" ],
     [ "PreconditionError", "classHerd_1_1Exceptions_1_1PreconditionError.html", "classHerd_1_1Exceptions_1_1PreconditionError" ],
     [ "RuntimeError", "classHerd_1_1Exceptions_1_1RuntimeError.html", "classHerd_1_1Exceptions_1_1RuntimeError" ],
-    [ "ThrowPreconditionError", "namespaceHerd_1_1Exceptions.html#af952e58bbc26d093fbcbf65bcca5a16e", null ],
-    [ "ThrowPreconditionError", "namespaceHerd_1_1Exceptions.html#a0a13d05e791a8046205986f4137d82cf", null ],
-    [ "ThrowPreconditionErrorIfNegative", "namespaceHerd_1_1Exceptions.html#a909a08b272cb74c6956af0b5c627097c", null ],
-    [ "ThrowPreconditionErrorIfNotPositive", "namespaceHerd_1_1Exceptions.html#a7325ca9a33212596575e689058c234f3", null ]
+    [ "ThrowPreconditionError", "namespaceHerd_1_1Exceptions.html#a462a04ae3d2b3d64ab0d89c6675efedb", null ],
+    [ "ThrowPreconditionError", "namespaceHerd_1_1Exceptions.html#a3407fc40fd945e586f053f2a531ffb1f", null ],
+    [ "ThrowPreconditionErrorIfNegative", "namespaceHerd_1_1Exceptions.html#af7290fc0f33dfd3a7282f9b64ee4cac2", null ],
+    [ "ThrowPreconditionErrorIfNotPositive", "namespaceHerd_1_1Exceptions.html#aad58c799948b15003a541267ac32cf1c", null ]
 ];

@@ -155,14 +155,14 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a18dabb6077f55779ff343f06b07f51aa"><td class="memTemplParams" colspan="2">template&lt;typename Tag &gt; </td></tr>
-<tr class="memitem:a18dabb6077f55779ff343f06b07f51aa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#a18dabb6077f55779ff343f06b07f51aa">ThrowIfNegative</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_Quantity, const std::string_view &amp;i_rName)</td></tr>
-<tr class="memdesc:a18dabb6077f55779ff343f06b07f51aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws a PreconditionError for a negative quantity.  <a href="namespaceHerd_1_1Generic.html#a18dabb6077f55779ff343f06b07f51aa">More...</a><br /></td></tr>
-<tr class="separator:a18dabb6077f55779ff343f06b07f51aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11e95438a005a5c2e6345f5405a96133"><td class="memTemplParams" colspan="2">template&lt;typename Tag &gt; </td></tr>
-<tr class="memitem:a11e95438a005a5c2e6345f5405a96133"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#a11e95438a005a5c2e6345f5405a96133">ThrowIfNotPositive</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_Quantity, const std::string_view &amp;i_rName)</td></tr>
-<tr class="memdesc:a11e95438a005a5c2e6345f5405a96133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws a PreconditionError for a non-positive quantity.  <a href="namespaceHerd_1_1Generic.html#a11e95438a005a5c2e6345f5405a96133">More...</a><br /></td></tr>
-<tr class="separator:a11e95438a005a5c2e6345f5405a96133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f17f1c241557febe8c702f442108af3"><td class="memTemplParams" colspan="2">template&lt;typename Tag &gt; </td></tr>
+<tr class="memitem:a6f17f1c241557febe8c702f442108af3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#a6f17f1c241557febe8c702f442108af3">ThrowIfNegative</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_Quantity, const char *i_pName)</td></tr>
+<tr class="memdesc:a6f17f1c241557febe8c702f442108af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws a PreconditionError for a negative quantity.  <a href="namespaceHerd_1_1Generic.html#a6f17f1c241557febe8c702f442108af3">More...</a><br /></td></tr>
+<tr class="separator:a6f17f1c241557febe8c702f442108af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad65c02efb3c5fa89eda8e451537c4843"><td class="memTemplParams" colspan="2">template&lt;typename Tag &gt; </td></tr>
+<tr class="memitem:ad65c02efb3c5fa89eda8e451537c4843"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1Generic.html#ad65c02efb3c5fa89eda8e451537c4843">ThrowIfNotPositive</a> (<a class="el" href="classHerd_1_1Generic_1_1Quantity.html">Quantity</a>&lt; Tag &gt; i_Quantity, const char *i_pName)</td></tr>
+<tr class="memdesc:ad65c02efb3c5fa89eda8e451537c4843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws a PreconditionError for a non-positive quantity.  <a href="namespaceHerd_1_1Generic.html#ad65c02efb3c5fa89eda8e451537c4843">More...</a><br /></td></tr>
+<tr class="separator:ad65c02efb3c5fa89eda8e451537c4843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="af0f24568f5c986e0418cc7502610181f"></a>
@@ -358,8 +358,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a18dabb6077f55779ff343f06b07f51aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18dabb6077f55779ff343f06b07f51aa">&#9670;&nbsp;</a></span>ThrowIfNegative()</h2>
+<a id="a6f17f1c241557febe8c702f442108af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f17f1c241557febe8c702f442108af3">&#9670;&nbsp;</a></span>ThrowIfNegative()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,8 +375,8 @@ template&lt;typename Tag &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string_view &amp;&#160;</td>
-          <td class="paramname"><em>i_rName</em>&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>i_pName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -396,7 +396,7 @@ template&lt;typename Tag &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i_Quantity</td><td><a class="el" href="classHerd_1_1Generic_1_1Quantity.html" title="Quantity template.">Quantity</a> under test </td></tr>
-    <tr><td class="paramname">i_rName</td><td>Name of the quantity, for the exception message </td></tr>
+    <tr><td class="paramname">i_pName</td><td>Name of the quantity, for the exception message </td></tr>
   </table>
   </dd>
 </dl>
@@ -409,8 +409,8 @@ template&lt;typename Tag &gt; </div>
 
 </div>
 </div>
-<a id="a11e95438a005a5c2e6345f5405a96133"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11e95438a005a5c2e6345f5405a96133">&#9670;&nbsp;</a></span>ThrowIfNotPositive()</h2>
+<a id="ad65c02efb3c5fa89eda8e451537c4843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad65c02efb3c5fa89eda8e451537c4843">&#9670;&nbsp;</a></span>ThrowIfNotPositive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -426,8 +426,8 @@ template&lt;typename Tag &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string_view &amp;&#160;</td>
-          <td class="paramname"><em>i_rName</em>&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>i_pName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

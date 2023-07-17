@@ -20,6 +20,6 @@ var namespaceHerd_1_1Generic =
     [ "RightOpenRange", "namespaceHerd_1_1Generic.html#aa9557d098cb0af55e8b1e40227ad4097", null ],
     [ "Temperature", "namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986", null ],
     [ "Time", "namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd", null ],
-    [ "ThrowIfNegative", "namespaceHerd_1_1Generic.html#a18dabb6077f55779ff343f06b07f51aa", null ],
-    [ "ThrowIfNotPositive", "namespaceHerd_1_1Generic.html#a11e95438a005a5c2e6345f5405a96133", null ]
+    [ "ThrowIfNegative", "namespaceHerd_1_1Generic.html#a6f17f1c241557febe8c702f442108af3", null ],
+    [ "ThrowIfNotPositive", "namespaceHerd_1_1Generic.html#ad65c02efb3c5fa89eda8e451537c4843", null ]
 ];
