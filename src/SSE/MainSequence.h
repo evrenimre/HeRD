@@ -14,10 +14,8 @@
 #define H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 
 #include "ConvectiveEnvelope.h"
-#include "GiantBranchRadius.h"
 #include "IPhase.h"
 #include "TrackPoint.h"
-#include "ZeroAgeMainSequence.h"
 
 #include <Generic/Quantity.h>
 
@@ -29,6 +27,10 @@ namespace Herd::SSE
 {
 struct EvolutionState;
 
+class BaseOfGiantBranch;
+class GiantBranchRadius;
+class ZeroAgeMainSequence;
+
 /**
  * @brief Main sequence evolution
  * @cite Hurley00
@@ -36,7 +38,10 @@ struct EvolutionState;
 class MainSequence : public Herd::SSE::IPhase
 {
 public:
+
   MainSequence( Herd::Generic::Metallicity i_Z ); ///< Constructor
+  ~MainSequence(); ///< Destructor
+
   bool Evolve( Herd::SSE::EvolutionState& io_rState ) override; ///< Evolves the state
 
 private:
@@ -58,7 +63,6 @@ private:
   double ComputeGammaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_R\f$
   double ComputeRHook( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \Delta_R\f$
 
-  Herd::Generic::Luminosity ComputeLBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes the luminosity at the base of the giant branch
   Herd::Generic::Luminosity ComputeLHeI( Herd::Generic::Mass i_Mass ) const;  ///< Computes the luminosity at He ignition
 
   /**
@@ -76,7 +80,6 @@ private:
     double m_MaxEta = 0.;  ///< \f$ \eta \f$ in Eq. 18
 
     // Equation coefficients
-    std::array< double, 5 > m_TBGB; ///< \f$ T_{BGB} \f$ calculations
     std::array< double, 5 > m_Thook;  ///< \f$ T_{hook} \f$ calculations
     std::array< double, 6 > m_LTMS; ///< \f$ L_{TMS} \f$ calculations
     std::array< double, 10 > m_AlphaL;  ///< \f$ \alpha_L \f$ calculations
@@ -88,15 +91,15 @@ private:
     std::array< double, 7 > m_GammaR;  ///< \f$ \gamma_R \f$ calculations
     std::array< double, 7 > m_Rhook;  ///< \f$ \R_{hook} \f$ calculations
 
-    std::array< double, 8 > m_LBGB;  ///< \f$ L_{BGB} \f$ calculations
     std::array< double, 7 > m_LHeI; ///< \f$ L_{HeI} \f$ calculations
 
     // No default constructor, so needs to be a pointer
     std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
     std::unique_ptr< Herd::SSE::GiantBranchRadius > m_pRGBComputer; ///< Computes the giant branch radius
+    std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< Computes the characteristic values at BGB
   };
 
-  MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial  metallicity
+  MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial metallicity
 
   /**
    * @brief Various quantities and values that depend on mass
@@ -124,9 +127,6 @@ private:
     double m_BetaR = 0;  ///< \f$ \beta_R \f$
     double m_GammaR = 0;  ///< \f$ \gamma_R \f$
     double m_DeltaR = 0;  ///< \f$ \Delta_R \f$
-
-    Herd::Generic::Luminosity m_LBGB; ///< Luminosity at BGB
-    Herd::Generic::Radius m_RBGB;  ///< Radius at BGB
 
     Herd::Generic::Luminosity m_LHeI; ///< Luminosity at He ignition
 
