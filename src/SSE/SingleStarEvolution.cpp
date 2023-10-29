@@ -199,34 +199,34 @@ Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& io
   unsigned int iterationCount = 0;
   while( true )
   {
-    Herd::SSE::EvolutionState ClonedState = i_rState;  // We want to preserve the original state
+    Herd::SSE::EvolutionState clonedState = i_rState;  // We want to preserve the original state
 
     bool bEndOfPhase = remainingTime - deltaT < 1e-10;
     if( bEndOfPhase )
     {
       // This is only for testing the radius condition without triggering a phase change. If the radius does not grow beyond 10% at this point, deltaT is set to remainingTime
-      ClonedState.m_DeltaT.Set(
+      clonedState.m_DeltaT.Set(
           std::max( i_rState.m_EffectiveAge.Value(), i_rState.m_EffectiveAge * ( 1.0 - 1e-6 ) + remainingTime ) - i_rState.m_EffectiveAge );
     }
     else
     {
-      ClonedState.m_DeltaT = deltaT;
+      clonedState.m_DeltaT = deltaT;
     }
-    ClonedState.m_TrackPoint.m_Age += ClonedState.m_DeltaT;
+    clonedState.m_TrackPoint.m_Age += clonedState.m_DeltaT;
 
-    io_rPhase.Evolve( ClonedState );
+    io_rPhase.Evolve( clonedState );
 
-    Herd::Generic::Radius NewRadius = ClonedState.m_TrackPoint.m_Radius;
-    Herd::Generic::Radius OldRadius = i_rState.m_TrackPoint.m_Radius;
-    Herd::Generic::Radius AbsDeltaRadius( std::abs( NewRadius - OldRadius ) );
-    if( AbsDeltaRadius / OldRadius > 0.1 )
+    Herd::Generic::Radius newRadius = clonedState.m_TrackPoint.m_Radius;
+    Herd::Generic::Radius oldRadius = i_rState.m_TrackPoint.m_Radius;
+    Herd::Generic::Radius absDeltaRadius( std::abs( newRadius - oldRadius ) );
+    if( absDeltaRadius / oldRadius > 0.1 )
     {
       if( bEndOfPhase )
       {
         deltaT.Set( remainingTime - i_rState.m_EffectiveAge * 1e-6 );
       }
 
-      deltaT *= Herd::Generic::Time( 0.09 * std::max( NewRadius, OldRadius ) / AbsDeltaRadius );
+      deltaT *= Herd::Generic::Time( 0.09 * std::max( newRadius, oldRadius ) / absDeltaRadius );
 
       if( !bEndOfPhase && iterationCount >= 20 )
       {

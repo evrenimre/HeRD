@@ -20,6 +20,10 @@
 
 namespace Herd::SSE
 {
+/**
+ * @brief Giant branch radius computations
+ * @cite Hurley00
+ */
 class GiantBranchRadius
 {
 public:

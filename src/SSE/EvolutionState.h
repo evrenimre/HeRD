@@ -43,7 +43,7 @@ struct EvolutionState
 
   Herd::Generic::Radius m_RZAMS;  ///< \f$ R_{ZAMS}\f$. Radius at ZAMS. Updated as the mass changes
 
-  Herd::Generic::Mass m_MFGB;  ///< \f$ M_{FGB} \f$, Eq. 3. Maximum mass for a start to have a GB phase
+  Herd::Generic::Mass m_MFGB;  ///< \f$ M_{FGB} \f$, Eq. 3. Maximum mass for a star to have a GB phase
   Herd::Generic::Radius m_RTMS;  ///< \f$ R_{TMS} \f$, Eq. 9. Radius at terminal main sequence
   Herd::Generic::Luminosity m_LTMS;  ///< \f$ R_{TMS} \f$, Eq. 8. Luminosity at terminal main sequence
   Herd::Generic::Time m_TMS; ///< \f$ t_{TMS}\f$, Eq. 5. Main sequence duration
