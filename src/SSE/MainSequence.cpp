@@ -153,8 +153,7 @@ using Herd::SSE::BXhC;
  * @pre \c i_InitialMetallicity is in (0,1]
  * @throws PreconditionError If the precondition is violated
  */
-MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity ) :
-    m_InitialMetallicity( i_InitialMetallicity )
+MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
 {
   Herd::Generic::ThrowIfNotPositive( i_InitialMetallicity, "i_InitialMetallicity" );
 
@@ -523,7 +522,7 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_LHeI = ComputeLHeI( i_Mass );
 
   // Rg
-  m_MDependents.m_Rg = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_ZDependents.m_pBGBComputer->LBGB() );
+  m_MDependents.m_Rg = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_ZDependents.m_pBGBComputer->Luminosity() );
 }
 
 /**
