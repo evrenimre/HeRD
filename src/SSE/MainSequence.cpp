@@ -15,7 +15,6 @@
 #include "BaseOfGiantBranch.h"
 #include "Constants.h"
 #include "EvolutionState.h"
-#include "GiantBranchRadius.h"
 #include "ZeroAgeMainSequence.h"
 
 #include <Generic/MathHelpers.h>
@@ -268,7 +267,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     stage = Herd::SSE::EvolutionStage::e_MS;
   }
 
-  rTrackPoint.m_InitialMetallicity = m_InitialMetallicity;
+  rTrackPoint.m_InitialMetallicity = m_ZDependents.m_EvaluatedAt;
   rTrackPoint.m_Luminosity = luminosity;
   rTrackPoint.m_Radius = radius;
   rTrackPoint.m_Temperature = Herd::Physics::ComputeAbsoluteTemperature( luminosity, radius );
@@ -283,7 +282,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   io_rState.m_RTMS = m_MDependents.m_RTMS;
   io_rState.m_RZAMS = m_MDependents.m_RZAMS;
 
-  io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->LBGB();
+  io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity();
   io_rState.m_LHeI = m_MDependents.m_LHeI;
 
   io_rState.m_EffectiveAge = effectiveAge;
@@ -460,9 +459,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   // Initialise the ZAMS computer
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
 
-  // Initialise the RGB computer
-  m_ZDependents.m_pRGBComputer = std::make_unique< Herd::SSE::GiantBranchRadius >( i_Z );
-
   // Initialise the BGB computer
   m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
 }
@@ -473,7 +469,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
  */
 std::pair< Herd::Generic::Time, Herd::Generic::Time > MainSequence::ComputeTimescales( Herd::Generic::Mass i_Mass ) const // @suppress("Member declaration not found")
 {
-  double tBGB = m_ZDependents.m_pBGBComputer->TBGB();
+  double tBGB = m_ZDependents.m_pBGBComputer->Age();
 
   // Eq. 7
   double mu = 0;
@@ -522,7 +518,7 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_LHeI = ComputeLHeI( i_Mass );
 
   // Rg
-  m_MDependents.m_Rg = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_ZDependents.m_pBGBComputer->Luminosity() );
+  m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius();
 }
 
 /**

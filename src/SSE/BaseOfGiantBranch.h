@@ -14,10 +14,15 @@
 #define H0A6D735C_7542_4D2B_9796_8E32EEB127F1
 
 #include <Generic/Quantity.h>
+
 #include <array>
+#include <memory>
 
 namespace Herd::SSE
 {
+
+class GiantBranchRadius;
+
 /**
  * @brief Computations for characteristic properties at the base of the giant branch
  * @cite Hurley00
@@ -27,10 +32,14 @@ class BaseOfGiantBranch
 public:
 
   BaseOfGiantBranch( Herd::Generic::Metallicity i_Z ); ///< Constructor
+  ~BaseOfGiantBranch(); ///< Destructor
+
   void Compute( Herd::Generic::Mass i_Mass ); ///< Computes the characteristic properties
 
-  Herd::Generic::Time TBGB() const;  ///< Returns the age at BGB
-  Herd::Generic::Luminosity LBGB() const;  ///< Returns the luminosity at BGB
+  // Accessors
+  Herd::Generic::Time Age() const;  ///< Returns \f$ t_{BGB} \f$
+  Herd::Generic::Luminosity Luminosity() const;  ///< Returns \f$ L_{BGB} \f$
+  Herd::Generic::Radius Radius() const;  ///< Returns \f$ R_{BGB} \f$
 
 private:
 
@@ -47,6 +56,8 @@ private:
   {
     std::array< double, 5 > m_TBGB; ///< \f$ T_{BGB} \f$ calculations
     std::array< double, 8 > m_LBGB;  ///< \f$ L_{BGB} \f$ calculations
+
+    std::unique_ptr< Herd::SSE::GiantBranchRadius > m_pRGBComputer; ///< Computes the giant branch radius
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities
@@ -61,6 +72,7 @@ private:
 
     Herd::Generic::Time m_TBGB; ///< Age at BGB
     Herd::Generic::Luminosity m_LBGB; ///< Luminosity at BGB
+    Herd::Generic::Radius m_RBGB;  ///< Radius at BGB
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities

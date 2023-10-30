@@ -13,9 +13,12 @@
 #include "BaseOfGiantBranch.h"
 
 #include "Constants.h"
+#include "GiantBranchRadius.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
+
+#include <cmath>
 
 #include <range/v3/algorithm.hpp>
 
@@ -60,6 +63,13 @@ BaseOfGiantBranch::BaseOfGiantBranch( Herd::Generic::Metallicity i_Z )
 }
 
 /**
+ * @remarks Without a user-defined destructor forward declaration and unique_ptr do not work together
+ */
+BaseOfGiantBranch::~BaseOfGiantBranch()
+{
+}
+
+/**
  * @param i_Mass Mass
  * @pre \c i_Mass is positive
  * @throws PreconditionError If the precondition is violated
@@ -90,18 +100,19 @@ void BaseOfGiantBranch::ComputeMetallicityDependents( Herd::Generic::Metallicity
   Herd::SSE::MultiplyMatrixVector( tempLBGB, s_ZLBGB, zetaPowers3 );
   ranges::cpp20::copy( tempLBGB, m_ZDependents.m_LBGB.begin() );
 
-  {
-    auto& rB = m_ZDependents.m_LBGB;
-    rB[ 2 ] = std::pow( rB[ 2 ], rB[ 5 ] );
-    rB[ 6 ] = 4.637345e+00;
-    rB[ 7 ] = 9.301992e+00;
-  }
+  auto& rB = m_ZDependents.m_LBGB;
+  rB[ 2 ] = std::pow( rB[ 2 ], rB[ 5 ] );
+  rB[ 6 ] = 4.637345e+00;
+  rB[ 7 ] = 9.301992e+00;
+
+  // RBGB
+  m_ZDependents.m_pRGBComputer = std::make_unique< Herd::SSE::GiantBranchRadius >( i_Z );
 }
 
 /**
  * @return Age at BGB
  */
-Herd::Generic::Time BaseOfGiantBranch::TBGB() const
+Herd::Generic::Time BaseOfGiantBranch::Age() const
 {
   return m_MDependents.m_TBGB;
 }
@@ -109,9 +120,17 @@ Herd::Generic::Time BaseOfGiantBranch::TBGB() const
 /**
  * @return Luminosity at BGB
  */
-Herd::Generic::Luminosity BaseOfGiantBranch::LBGB() const
+Herd::Generic::Luminosity BaseOfGiantBranch::Luminosity() const
 {
   return m_MDependents.m_LBGB;
+}
+
+/**
+ * @return Radius at BGB
+ */
+Herd::Generic::Radius BaseOfGiantBranch::Radius() const
+{
+  return m_MDependents.m_RBGB;
 }
 
 /**
@@ -124,6 +143,7 @@ void BaseOfGiantBranch::ComputeMassDependents( Herd::Generic::Mass i_Mass )
     m_MDependents.m_EvaluatedAt = i_Mass;
     m_MDependents.m_TBGB = ComputeTBGB( i_Mass );
     m_MDependents.m_LBGB = ComputeLBGB( i_Mass );
+    m_MDependents.m_RBGB = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );
   }
 }
 

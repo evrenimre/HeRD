@@ -28,7 +28,6 @@ namespace Herd::SSE
 struct EvolutionState;
 
 class BaseOfGiantBranch;
-class GiantBranchRadius;
 class ZeroAgeMainSequence;
 
 /**
@@ -95,7 +94,6 @@ private:
 
     // No default constructor, so needs to be a pointer
     std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
-    std::unique_ptr< Herd::SSE::GiantBranchRadius > m_pRGBComputer; ///< Computes the giant branch radius
     std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< Computes the characteristic values at BGB
   };
 
