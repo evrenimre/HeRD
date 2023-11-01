@@ -15,6 +15,7 @@
 #include "BaseOfGiantBranch.h"
 #include "Constants.h"
 #include "EvolutionState.h"
+#include "TerminalMainSequence.h"
 #include "ZeroAgeMainSequence.h"
 
 #include <Generic/MathHelpers.h>
@@ -31,20 +32,6 @@ namespace
 {
 
 // @formatter:off
-const std::array< double, 20 > s_ZThook { 1.949814e+01, 1.758178e+00, -6.008212e+00, -4.470533e+00,
-  4.903830e+00, 0., 0., 0.,
-  5.212154e-02, 3.166411e-02, -2.750074e-03, -2.271549e-03,
-  1.312179e+00, -3.294936e-01, 9.231860e-02, 2.610989e-02,
-  8.073972e-01, 0., 0., 0.
-};  ///< Coefficients for \f$ T_{hook}(z) \f$ calculations
-
-const std::array< double, 30 > s_ZLTMS { 1.031538e+00, -2.434480e-01, 7.732821e+00, 6.460705e+00, 1.374484e+00,
-  1.043715e+00, -1.577474e+00, -5.168234e+00, -5.596506e+00, -1.299394e+00,
-  7.859573e+02, -8.542048e+00, -2.642511e+01, -9.585707e+00, 0.,
-  3.858911e+03, 2.459681e+03, -7.630093e+01, -3.486057e+02, -4.861703e+01,
-  2.888720e+02, 2.952979e+02, 1.850341e+02, 3.797254e+01, 0.,
-  7.196580e+00, 5.613746e-01, 3.805871e-01, 8.398728e-02, 0.
-};  ///< Coefficients for \f$ L_{TMS}(z) \f$ calculations
 
 const std::array< double, 44 > s_ZAlphaL { 2.321400e-01, 1.828075e-03, -2.232007e-02, -3.378734e-03,
   1.163659e-02, 3.427682e-03, 1.421393e-03, -3.710666e-03,
@@ -71,18 +58,6 @@ std::array<double, 20 > s_ZLhook{1.910302e-01, 1.158624e-01, 3.348990e-02, 2.599
   5.990212e-01, 5.570264e-02, 6.207626e-02, 1.777283e-02,
   1.5135e+00, 0.3769e+00, 0., 0.
 };  ///< Coefficients for \f$ L_{hook}(z) \f$
-
-const std::array< double, 50 > s_ZRTMS { 2.187715e-01, -2.154437e+00, -3.768678e+00, -1.975518e+00, -3.021475e-01,
-  1.466440e+00, 1.839725e+00, 6.442199e+00, 4.023635e+00, 6.957529e-01,
-  2.652091e+01, 8.178458e+01, 1.156058e+02, 7.633811e+01, 1.950698e+01,
-  1.472103e+00, -2.947609e+00, -3.312828e+00, -9.945065e-01, 0.,
-  3.071048e+00, -5.679941e+00, -9.745523e+00, -3.594543e+00, 0.,
-  -8.672073e-02, 0., 0., 0., 0.,
-  2.617890e+00, 1.019135e+00, -3.292551e-02, -7.445123e-02, 0.,
-  1.075567e-02, 1.773287e-02, 9.610479e-03, 1.732469e-03, 0.,
-  1.476246e+00, 1.899331e+00, 1.195010e+00, 3.035051e-01, 0.,
-  5.502535e+00, -6.601663e-02, 9.968707e-02, 3.599801e-02, 0.
-};  ///< Coefficients for \f$ R_{TMS}(z) \f$ calculations
 
 const std::array< double, 65 > s_ZAlphaR { 4.907546e-01, -1.683928e-01, -3.108742e-01, -7.202918e-02, 0.,
   4.537070e+00, -4.465455e+00, -1.612690e+00, -1.623246e+00, 0.,
@@ -160,6 +135,11 @@ MainSequence::MainSequence( Herd::Generic::Metallicity i_InitialMetallicity )
 }
 
 /**
+ * @remarks Destructor is needed to be able to use forward declarations in with std::unique_ptr. See https://ortogonal.github.io/cpp/forward-declaration-and-smart-pointers/
+ */
+MainSequence::~MainSequence() = default;
+
+/**
  * @param[in, out] io_rState Evolution state
  * @return \c false if star is not in this evolution stage
  * @pre Mass in \c io_rState is positive
@@ -177,17 +157,12 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   auto mass = rTrackPoint.m_Mass;
 
   // Still MS?
-  Herd::Generic::Time tMS;
-  Herd::Generic::Time thook;
-  if( mass != m_MDependents.m_EvaluatedAt )
-  {
-    m_ZDependents.m_pBGBComputer->Compute( mass );  // Computed here instead of ComputeMassDependents because we need the TBGB for the timescales
-    std::tie( tMS, thook ) = ComputeTimescales( mass );
-  } else
-  {
-    tMS = m_MDependents.m_TMS;
-    thook = m_MDependents.m_Thook;
-  }
+  m_ZDependents.m_pBGBComputer->Compute( mass );  // Computed here instead of ComputeMassDependents because we need the TBGB for the timescales
+
+  Herd::Generic::Radius rZAMS = m_MDependents.m_RZAMS == 0 ? Herd::Generic::Radius( 1.0 ) : m_MDependents.m_RZAMS; // FIXME Computing at incorrect RZAMS just to get the tMS at ZAMS. At the first call, we have no RZAMS
+  m_ZDependents.m_pTMSComputer->Compute( mass, rZAMS, m_ZDependents.m_pBGBComputer->Age() );
+  Herd::Generic::Time tMS = m_ZDependents.m_pTMSComputer->Age();
+  Herd::Generic::Time thook = m_ZDependents.m_pTMSComputer->THook();
 
   // Change in mass changes the effective age of the star
   Herd::Generic::Time tMSOld = ( rTrackPoint.m_Mass == io_rState.m_MZAMS ) ? tMS : io_rState.m_TMS;
@@ -213,11 +188,10 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   // Need to update the mass dependents?
   if( mass != m_MDependents.m_EvaluatedAt )
   {
-    m_MDependents.m_TMS = tMS;
-    m_MDependents.m_Thook = thook;
     ComputeMassDependents( mass );
+    m_ZDependents.m_pTMSComputer->Compute( mass, m_MDependents.m_RZAMS, m_ZDependents.m_pBGBComputer->Age() );  // Recomputing at correct mass
   }
-  
+
   double tInthook = effectiveAge / thook;
   double tau1 = std::min( 1., tInthook );  // Eq. 14. This term linearly ramps up until hook
   double tau2 = std::clamp( 100. * tInthook - 99., 0., 1. ); // Eq. 15. This term swings sharply from (0.99, 0.) to ( 1.0, 1.), i.e. right before the hook
@@ -230,7 +204,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   {
     double term1 = m_MDependents.m_AlphaL * tau;
     double term2 = BXhC( tau, m_MDependents.m_BetaL, m_MDependents.m_Eta );
-    double term3 = ( std::log10( m_MDependents.m_LTMS / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau * tau;
+    double term3 = ( std::log10( m_ZDependents.m_pTMSComputer->Luminosity() / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau
+        * tau;
     double term4 = m_MDependents.m_DeltaL * ( ( tau1 - tau2 ) * ( tau1 + tau2 ) );
     luminosity.Set( std::pow( 10., term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
   } else
@@ -244,7 +219,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     double term1 = m_MDependents.m_AlphaR * tau;
     double term2 = m_MDependents.m_BetaR * boost::math::pow< 10 >( tau );
     double term3 = m_MDependents.m_GammaR * boost::math::pow< 40 >( tau );
-    double term4 = ( std::log10( m_MDependents.m_RTMS / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR - m_MDependents.m_GammaR )
+    double term4 = ( std::log10( m_ZDependents.m_pTMSComputer->Radius() / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR
+        - m_MDependents.m_GammaR )
         * boost::math::pow< 3 >( tau );
     double term5 = m_MDependents.m_DeltaR * ( boost::math::pow< 3 >( tau1 ) - boost::math::pow< 3 >( tau2 ) );
     radius.Set( std::pow( 10., term1 + term2 + term3 + term4 - term5 ) * m_MDependents.m_RZAMS );
@@ -275,11 +251,11 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_CoreMass.Set( 0. );
   io_rState.m_CoreRadius.Set( 0. );
 
-  io_rState.m_TMS = m_MDependents.m_TMS;
+  io_rState.m_TMS = m_ZDependents.m_pTMSComputer->Age();
 
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
-  io_rState.m_LTMS = m_MDependents.m_LTMS;
-  io_rState.m_RTMS = m_MDependents.m_RTMS;
+  io_rState.m_LTMS = m_ZDependents.m_pTMSComputer->Luminosity();
+  io_rState.m_RTMS = m_ZDependents.m_pTMSComputer->Radius();
   io_rState.m_RZAMS = m_MDependents.m_RZAMS;
 
   io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity();
@@ -326,14 +302,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   m_ZDependents.m_MHeF.Set( Herd::SSE::ComputeInnerProduct( { 1.995, 0.25, 0.087 }, zetaPowers2 ) );  // Eq. 2
   m_ZDependents.m_MFGB.Set( BXhC( relativeZ, 13.048, 0.06 ) / ApBXhC( relativeZ, 1., 1e-4, -1.27 ) );  // Eq. 3, but 0.0012 replaced by 1e-4 in AMUSE.SSE
 
-  // ThookCoefficients
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Thook, s_ZThook, zetaPowers3 );
-
-  // LTMS
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LTMS, s_ZLTMS, zetaPowers4 );
-  m_ZDependents.m_LTMS[ 0 ] *= m_ZDependents.m_LTMS[ 3 ];
-  m_ZDependents.m_LTMS[ 1 ] *= m_ZDependents.m_LTMS[ 3 ];
-
   // AlphaL
   std::array< double, 11 > tempAlphaL;
   Herd::SSE::MultiplyMatrixVector( tempAlphaL, s_ZAlphaL, zetaPowers3 );
@@ -363,22 +331,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Lhook, s_ZLhook, zetaPowers3 );
   m_ZDependents.m_Lhook[ 4 ] = std::min( 1.4, m_ZDependents.m_Lhook[ 4 ] );
   m_ZDependents.m_Lhook[ 4 ] = std::max( { 0.6355e+00 - 0.4192e+00 * zeta, 1.25, m_ZDependents.m_Lhook[ 4 ] } );
-
-  // RTMS
-  std::array< double, 10 > tempRTMS;
-  Herd::SSE::MultiplyMatrixVector( tempRTMS, s_ZRTMS, zetaPowers4 );
-  ranges::cpp20::copy( tempRTMS, m_ZDependents.m_RTMS.begin() );
-  m_ZDependents.m_RTMS[ 0 ] *= m_ZDependents.m_RTMS[ 2 ];
-  m_ZDependents.m_RTMS[ 1 ] *= m_ZDependents.m_RTMS[ 2 ];
-
-  double sigma = log10( i_Z );
-  m_ZDependents.m_RTMS[ 10 ] = std::pow( 10., std::max( { 0.097 - 0.1072 * ( sigma + 3. ), 0.097, std::min( 0.1461, 0.1461 + 0.1237 * ( sigma + 2 ) ) } ) );
-
-  {
-    auto& rA = m_ZDependents.m_RTMS;
-    rA[ 11 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] ) ); // Eq. 9a, evaluated at a17
-    rA[ 12 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] + 0.1 ) );  //Eq. 9b, evaluated at Mstar
-  }
 
   // AlphaR
   std::array< double, 13 > tempAlphaR;
@@ -430,12 +382,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   // Maximum value of eta
   m_ZDependents.m_MaxEta = i_Z > 0.0009 ? 10. : 20.;
 
-  // Eq. 6, but AMUSE.SSE adds an extra term
-  {
-    double extra = std::min( 0.99, 0.98 - ( 100. / 7. ) * ( i_Z - 0.001 ) );
-    double left = 0.95 - ( 10. / 3. ) * ( i_Z - 0.01 );
-    m_ZDependents.m_X = std::max( { 0.95, left, extra } );
-  }
 
   // LHeI
   std::array< double, 5 > tempLHeI;
@@ -459,35 +405,15 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   // Initialise the ZAMS computer
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
 
+  // Initialise the TMS computer
+  m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
+
   // Initialise the BGB computer
   m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
 }
 
 /**
  * @param i_Mass Mass
- * @return Main sequence duration; start of hook
- */
-std::pair< Herd::Generic::Time, Herd::Generic::Time > MainSequence::ComputeTimescales( Herd::Generic::Mass i_Mass ) const // @suppress("Member declaration not found")
-{
-  double tBGB = m_ZDependents.m_pBGBComputer->Age();
-
-  // Eq. 7
-  double mu = 0;
-  {
-    const auto& rA = m_ZDependents.m_Thook;
-    double left = BXhC( i_Mass, rA[ 0 ], -rA[ 1 ] );
-    double right = ApBXhC( i_Mass, rA[ 2 ], rA[ 3 ], -rA[ 4 ] );
-    mu = std::max( 0.5, 1. - 0.01 * std::max( left, right ) );
-  }
-
-  double thook = mu * tBGB;
-
-  return std::pair( Herd::Generic::Time( std::max( m_ZDependents.m_X * tBGB, thook ) ), Herd::Generic::Time( thook ) ); // Eq. 5 // @suppress("Ambiguous problem")
-}
-
-/**
- * @param i_Mass Mass
- * @remarks Does not compute the timescales
  */
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
@@ -499,8 +425,6 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_RZAMS = zams.m_Radius;
 
   // Luminosity
-  m_MDependents.m_LTMS = ComputeLTMS( i_Mass );
-
   m_MDependents.m_AlphaL = ComputeAlphaL( i_Mass );
   m_MDependents.m_BetaL = ComputeBetaL( i_Mass );
   m_MDependents.m_DeltaL = ComputeLHook( i_Mass );
@@ -508,7 +432,6 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_Eta = std::clamp( std::lerp( 10., 20., ( i_Mass - 1 ) / 0.1 ), 10., m_ZDependents.m_MaxEta ); // Eq. 18 and linear interpolation for Z <= 0.0009 . If Z> 0.0009, since m_MaxEta = 10, eta becomes 10
 
   // Radius
-  m_MDependents.m_RTMS = ComputeRTMS( i_Mass );
   m_MDependents.m_AlphaR = ComputeAlphaR( i_Mass );
   m_MDependents.m_BetaR = ComputeBetaR( i_Mass );
   m_MDependents.m_GammaR = ComputeGammaR( i_Mass );
@@ -519,26 +442,6 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 
   // Rg
   m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius();
-}
-
-/**
- * @param i_Mass Mass
- * @return Luminosity at TMS
- */
-Herd::Generic::Luminosity MainSequence::ComputeLTMS( Herd::Generic::Mass i_Mass ) const
-{
-  // Eq. 8
-  auto& rA = m_ZDependents.m_LTMS;
-
-  double m20 = i_Mass * i_Mass;
-  double m30 = m20 * i_Mass;
-  double m40 = m20 * m20;
-  double m50 = m40 * i_Mass;
-
-  double num = Herd::SSE::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ] }, std::array< double, 2 > { m30, m40 } ) + rA[ 2 ] * std::pow( i_Mass, rA[ 5 ] + 1.8 );
-  double den = Herd::SSE::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, std::array< double, 2 > { 1., m50 } ) + std::pow( i_Mass, rA[ 5 ] ); // @suppress("Invalid arguments")
-
-  return Herd::Generic::Luminosity( num / den );
 }
 
 /**
@@ -627,36 +530,6 @@ double MainSequence::ComputeLHook( Herd::Generic::Mass i_Mass ) const
   return BXhC( ComputeBlendWeight( i_Mass, m_ZDependents.m_Mhook, rA[ 4 ] ), b, 0.4 );
 }
 
-/**
- * @param i_Mass Mass
- * @return Radius at TMS
- */
-Herd::Generic::Radius MainSequence::ComputeRTMS( Herd::Generic::Mass i_Mass ) const
-{
-  auto& rA = m_ZDependents.m_RTMS;
-
-  if( i_Mass <= rA[ 10 ] )
-  {
-    // Eq. 9a
-    double num = ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
-    double den = ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
-    return Herd::Generic::Radius( std::max( 1.5 * m_MDependents.m_RZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
-  }
-
-  if( i_Mass >= rA[ 10 ] + 0.1 )
-  {
-    double m15 = i_Mass * std::sqrt( i_Mass );
-    double m20 = i_Mass * i_Mass;
-    double m30 = m20 * i_Mass;
-    double m50 = m20 * m30;
-
-    double num = rA[ 5 ] * m30 + std::pow( i_Mass, rA[ 9 ] ) * ( rA[ 6 ] + rA[ 7 ] * m15 );
-    return Herd::Generic::Radius( num / ( rA[ 8 ] + m50 ) );
-  }
-
-  // Between rA[10] and rA[10] + 0.1, interpolate
-  return Herd::Generic::Radius( std::lerp( rA[ 11 ], rA[ 12 ], ComputeBlendWeight( i_Mass, rA[ 10 ], rA[ 10 ] + 0.1 ) ) );
-}
 
 /**
  * @param i_Mass Mass
@@ -811,13 +684,6 @@ double MainSequence::ComputeRHook( Herd::Generic::Mass i_Mass ) const
   double m30 = boost::math::pow< 3 >( i_Mass );
 
   return ( rA[ 0 ] + rA[ 1 ] * m30 * m05 ) / ( rA[ 2 ] * m30 + std::pow( i_Mass, rA[ 3 ] ) ) - 1.;
-}
-
-/**
- * @remarks Destructor is needed to be able to use forward declarations in with std::unique_ptr. See https://ortogonal.github.io/cpp/forward-declaration-and-smart-pointers/
- */
-MainSequence::~MainSequence()
-{
 }
 
 /**

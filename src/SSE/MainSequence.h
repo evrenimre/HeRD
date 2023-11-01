@@ -21,13 +21,13 @@
 
 #include <array>
 #include <memory>
-#include <utility>
 
 namespace Herd::SSE
 {
 struct EvolutionState;
 
 class BaseOfGiantBranch;
+class TerminalMainSequence;
 class ZeroAgeMainSequence;
 
 /**
@@ -47,16 +47,12 @@ private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
 
-  std::pair< Herd::Generic::Time, Herd::Generic::Time > ComputeTimescales( Herd::Generic::Mass i_Mass ) const; ///< Computes the relevant timescales
-
   void ComputeMassDependents( Herd::Generic::Mass i_Mass ); ///< Computes various mass-dependent quantities
 
-  Herd::Generic::Luminosity ComputeLTMS( Herd::Generic::Mass i_Mass ) const;  ///< Computes the terminal main sequence luminosity
   double ComputeAlphaL( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \alpha_L\f$
   double ComputeBetaL( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_L\f$
   double ComputeLHook( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \Delta_L\f$
 
-  Herd::Generic::Radius ComputeRTMS( Herd::Generic::Mass i_Mass ) const;  ///< Computes the terminal main sequence radius
   double ComputeAlphaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \alpha_R\f$
   double ComputeBetaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_R\f$
   double ComputeGammaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_R\f$
@@ -75,16 +71,12 @@ private:
     Herd::Generic::Mass m_MHeF; ///< Maximum initial mass for a He flash
     Herd::Generic::Mass m_MFGB; ///< Maximum initial mass for He to ignite on the first giant branch
 
-    double m_X = 0;  ///< \f$ x \f$ in Eq. 6
     double m_MaxEta = 0.;  ///< \f$ \eta \f$ in Eq. 18
 
     // Equation coefficients
-    std::array< double, 5 > m_Thook;  ///< \f$ T_{hook} \f$ calculations
-    std::array< double, 6 > m_LTMS; ///< \f$ L_{TMS} \f$ calculations
     std::array< double, 10 > m_AlphaL;  ///< \f$ \alpha_L \f$ calculations
     std::array< double, 4 > m_BetaL;  ///< \f$ \beta_L \f$ calculations
     std::array< double, 5 > m_Lhook;  ///< \f$ L_{hook} \f$ calculations
-    std::array< double, 13 > m_RTMS; ///< \f$ R_{TMS} \f$ calculations
     std::array< double, 12 > m_AlphaR;  ///< \f$ \alpha_R \f$ calculations
     std::array< double, 6 > m_BetaR;  ///< \f$ \beta_R \f$ calculations
     std::array< double, 7 > m_GammaR;  ///< \f$ \gamma_R \f$ calculations
@@ -94,6 +86,7 @@ private:
 
     // No default constructor, so needs to be a pointer
     std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
+    std::unique_ptr< Herd::SSE::TerminalMainSequence > m_pTMSComputer; ///< Computes the characteristic values at TMS
     std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< Computes the characteristic values at BGB
   };
 
@@ -107,20 +100,15 @@ private:
   {
     Herd::Generic::Mass m_EvaluatedAt; ///< Dependents calculated at this value
 
-    Herd::Generic::Time m_TMS; ///< MS duration
-    Herd::Generic::Time m_Thook;  ///< Start of hook formation
-
     Herd::Generic::Luminosity m_LZAMS;  ///< Luminosity at ZAMS
     Herd::Generic::Radius m_RZAMS; ///< Radius at ZAMS
 
-    Herd::Generic::Luminosity m_LTMS;  ///< Luminosity at TMS
     double m_AlphaL = 0;  ///< \f$ \alpha_L \f$
     double m_BetaL = 0;  ///< \f$ \beta_L \f$
     double m_DeltaL = 0;  ///< \f$ \Delta_L \f$
 
     double m_Eta = 0;  ///< \f$ \eta \f$
 
-    Herd::Generic::Radius m_RTMS; ///< Radius at TMS
     double m_AlphaR = 0;  ///< \f$ \alpha_R \f$
     double m_BetaR = 0;  ///< \f$ \beta_R \f$
     double m_GammaR = 0;  ///< \f$ \gamma_R \f$

@@ -10,6 +10,7 @@ set(HEADER_LIST BaseOfGiantBranch.h
 								SingleStarEvolution.h
 								StellarRotation.h
 								StellarWindMassLoss.h
+								TerminalMainSequence.h
 								TrackPoint.h
 								ZeroAgeMainSequence.h 
 )
@@ -23,6 +24,7 @@ set(SOURCE_LIST BaseOfGiantBranch.cpp
 								SingleStarEvolution.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
+								TerminalMainSequence.cpp
 								TrackPoint.cpp
 								ZeroAgeMainSequence.cpp
 )
