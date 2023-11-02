@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['envelope_399',['Envelope',['../structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1Envelope.html',1,'Herd::SSE::ConvectiveEnvelope']]],
-  ['evolutionstate_400',['EvolutionState',['../structHerd_1_1SSE_1_1EvolutionState.html',1,'Herd::SSE']]],
-  ['exception_401',['Exception',['../classHerd_1_1Exceptions_1_1Exception.html',1,'Herd::Exceptions']]]
+  ['dataloaderfixture_414',['DataLoaderFixture',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html',1,'Herd::UnitTestUtils']]]
 ];

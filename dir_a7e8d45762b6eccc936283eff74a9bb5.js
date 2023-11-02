@@ -1,6 +1,12 @@
 var dir_a7e8d45762b6eccc936283eff74a9bb5 =
 [
     [ "UnitTests", "dir_9b0048d3176e15ec70c0572370a56736.html", "dir_9b0048d3176e15ec70c0572370a56736" ],
+    [ "BaseOfGiantBranch.cpp", "BaseOfGiantBranch_8cpp.html", null ],
+    [ "BaseOfGiantBranch.h", "BaseOfGiantBranch_8h.html", [
+      [ "BaseOfGiantBranch", "classHerd_1_1SSE_1_1BaseOfGiantBranch.html", "classHerd_1_1SSE_1_1BaseOfGiantBranch" ],
+      [ "MetallicityDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents" ],
+      [ "MassDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents" ]
+    ] ],
     [ "Constants.h", "SSE_2Constants_8h.html", "SSE_2Constants_8h" ],
     [ "ConvectiveEnvelope.cpp", "ConvectiveEnvelope_8cpp.html", null ],
     [ "ConvectiveEnvelope.h", "ConvectiveEnvelope_8h.html", [
@@ -38,6 +44,12 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "StellarWindMassLoss.cpp", "StellarWindMassLoss_8cpp.html", null ],
     [ "StellarWindMassLoss.h", "StellarWindMassLoss_8h.html", [
       [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ]
+    ] ],
+    [ "TerminalMainSequence.cpp", "TerminalMainSequence_8cpp.html", null ],
+    [ "TerminalMainSequence.h", "TerminalMainSequence_8h.html", [
+      [ "TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", "classHerd_1_1SSE_1_1TerminalMainSequence" ],
+      [ "MetallicityDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents" ],
+      [ "MassDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents" ]
     ] ],
     [ "TrackPoint.cpp", "TrackPoint_8cpp.html", "TrackPoint_8cpp" ],
     [ "TrackPoint.h", "TrackPoint_8h.html", "TrackPoint_8h" ],
