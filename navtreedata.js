@@ -44,6 +44,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -64,7 +65,7 @@ var NAVTREEINDEX =
 "BaseOfGiantBranch_8cpp.html",
 "TestUnitTestUtils_8cpp.html#a6b2a3852db8bb19ab6909bac01859985",
 "functions_w.html",
-"structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html"
+"structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a3a645c7bed307843a9105299bdb0580a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
