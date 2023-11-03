@@ -43,12 +43,36 @@ const std::array< double, 24 > s_ZLBGB { 9.511033e+01, 6.819618e+01, -1.045625e+
 };  ///< Coefficients for \f${ L_{BGB}(z) \f$ calculations
 
 // @formatter:on
+
+/**
+ * @brief Updates a cache entry
+ * @tparam TValue Type of the quantity being computed
+ * @tparam TCallable Computing function
+ * @param[in, out] i_rCache Current cached value. Updated
+ * @param i_Mass Mass
+ * @param i_Computer Computing function. Passed by reference as it carries captured data
+ * @return Computed value
+ * @pre \c TCallable can be called with an argument of type \c Mass and return a value
+ */
+template< class TValue, class TCallable >
+auto UpdateCache( std::pair< std::optional< Herd::Generic::Mass >, TValue >& io_rCache, Herd::Generic::Mass i_Mass, const TCallable& i_Computer )
+{
+  static_assert( std::is_invocable_v< TCallable, Herd::Generic::Mass >);
+  static_assert( !std::is_same_v< std::invoke_result<TCallable, Herd::Generic::Mass>, void> );
+  
+  auto& [ rKey, rValue ] = io_rCache;
+
+  if( !rKey || *rKey != i_Mass )
+  {
+    rKey = i_Mass;
+    rValue = i_Computer( i_Mass );
+  }
+
+  return rValue;
+}
 }
 namespace Herd::SSE
 {
-
-using Herd::SSE::ApBXhC;
-using Herd::SSE::BXhC;
 
 /**
  * @param i_Z Metallicity
@@ -65,20 +89,51 @@ BaseOfGiantBranch::BaseOfGiantBranch( Herd::Generic::Metallicity i_Z )
 /**
  * @remarks Without a user-defined destructor forward declaration and unique_ptr do not work together
  */
-BaseOfGiantBranch::~BaseOfGiantBranch()
+BaseOfGiantBranch::~BaseOfGiantBranch() = default;
+
+/**
+ * @param i_Mass Mass
+ * @returns \f$ t_{BGB}\f$
+ * @pre \c i_Mass is positive
+ * @throws PreconditionError If the precondition is violated
+ */
+Herd::Generic::Time BaseOfGiantBranch::Age( Herd::Generic::Mass i_Mass )
 {
+  Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
+
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_TBGB, i_Mass, [ & ]( auto i_Mass ){ return ComputeTBGB(i_Mass);} ); // @suppress("Invalid arguments")
+    // @formatter:on
 }
 
 /**
  * @param i_Mass Mass
+ * @returns \f$ L_{BGB}\f$
  * @pre \c i_Mass is positive
  * @throws PreconditionError If the precondition is violated
  */
-void BaseOfGiantBranch::Compute( Herd::Generic::Mass i_Mass )
+Herd::Generic::Luminosity BaseOfGiantBranch::Luminosity( Herd::Generic::Mass i_Mass )
 {
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
-  ComputeMassDependents( i_Mass );
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_LBGB, i_Mass, [ & ]( auto i_Mass ){ return ComputeLBGB(i_Mass);} ); // @suppress("Invalid arguments")
+      // @formatter:on
+}
+
+/**
+ * @param i_Mass Mass
+ * @returns \f$ R_{BGB}\f$
+ * @pre \c i_Mass is positive
+ * @throws PreconditionError If the precondition is violated
+ */
+Herd::Generic::Radius BaseOfGiantBranch::Radius( Herd::Generic::Mass i_Mass )
+{
+  Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
+
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_RBGB, i_Mass, [ & ]( auto i_Mass ){ return ComputeRBGB( i_Mass); } ); // @suppress("Invalid arguments")
+      // @formatter:on
 }
 
 /**
@@ -110,58 +165,6 @@ void BaseOfGiantBranch::ComputeMetallicityDependents( Herd::Generic::Metallicity
 }
 
 /**
- * @return Age at BGB
- */
-Herd::Generic::Time BaseOfGiantBranch::Age() const
-{
-  return m_MDependents.m_TBGB;
-}
-
-/**
- * @return Luminosity at BGB
- */
-Herd::Generic::Luminosity BaseOfGiantBranch::Luminosity() const
-{
-  return m_MDependents.m_LBGB;
-}
-
-/**
- * @return Radius at BGB
- */
-Herd::Generic::Radius BaseOfGiantBranch::Radius() const
-{
-  return m_MDependents.m_RBGB;
-}
-
-/**
- * @param i_Mass Mass
- */
-void BaseOfGiantBranch::ComputeMassDependents( Herd::Generic::Mass i_Mass )
-{
-  if( i_Mass != m_MDependents.m_EvaluatedAt )
-  {
-    m_MDependents.m_EvaluatedAt = i_Mass;
-    m_MDependents.m_TBGB = ComputeTBGB( i_Mass );
-    m_MDependents.m_LBGB = ComputeLBGB( i_Mass );
-    m_MDependents.m_RBGB = m_ZDependents.m_pRGBComputer->Compute( i_Mass, m_MDependents.m_LBGB );
-  }
-}
-
-/**
- * @param i_Mass Mass
- * @return \f$ L_{BGB}\f$
- */
-Herd::Generic::Luminosity BaseOfGiantBranch::ComputeLBGB( Herd::Generic::Mass i_Mass ) const
-{
-  auto& rB = m_ZDependents.m_LBGB;
-
-  // Eq. 10
-  double num = BXhC( i_Mass, rB[ 0 ], rB[ 4 ] ) + BXhC( i_Mass, rB[ 1 ], rB[ 7 ] );
-  double den = ApBXhC( i_Mass, rB[ 2 ], rB[ 3 ], rB[ 6 ] ) + std::pow( i_Mass, rB[ 5 ] );
-  return Herd::Generic::Luminosity( num / den );
-}
-
-/**
  * @param i_Mass Mass
  * @return Age at BGB
  */
@@ -188,6 +191,29 @@ Herd::Generic::Time BaseOfGiantBranch::ComputeTBGB( Herd::Generic::Mass i_Mass )
   double den = Herd::SSE::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, massPowersDen );
 
   return Herd::Generic::Time( num / den );
+}
+
+/**
+ * @param i_Mass Mass
+ * @return \f$ L_{BGB}\f$
+ */
+Herd::Generic::Luminosity BaseOfGiantBranch::ComputeLBGB( Herd::Generic::Mass i_Mass ) const
+{
+  auto& rB = m_ZDependents.m_LBGB;
+
+  // Eq. 10
+  double num = Herd::SSE::BXhC( i_Mass, rB[ 0 ], rB[ 4 ] ) + BXhC( i_Mass, rB[ 1 ], rB[ 7 ] );
+  double den = Herd::SSE::ApBXhC( i_Mass, rB[ 2 ], rB[ 3 ], rB[ 6 ] ) + std::pow( i_Mass, rB[ 5 ] );
+  return Herd::Generic::Luminosity( num / den );
+}
+
+/**
+ * @param i_Mass Mass
+ * @return \f$ R_{BGB}\f$
+ */
+Herd::Generic::Radius BaseOfGiantBranch::ComputeRBGB( Herd::Generic::Mass i_Mass ) const
+{
+  return m_ZDependents.m_pRGBComputer->Compute( i_Mass, ComputeLBGB( i_Mass ) );
 }
 
 }

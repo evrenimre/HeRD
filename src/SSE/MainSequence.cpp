@@ -157,10 +157,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   auto mass = rTrackPoint.m_Mass;
 
   // Still MS?
-  m_ZDependents.m_pBGBComputer->Compute( mass );  // Computed here instead of ComputeMassDependents because we need the TBGB for the timescales
-
   Herd::Generic::Radius rZAMS = m_MDependents.m_RZAMS == 0 ? Herd::Generic::Radius( 1.0 ) : m_MDependents.m_RZAMS; // FIXME Computing at incorrect RZAMS just to get the tMS at ZAMS. At the first call, we have no RZAMS
-  m_ZDependents.m_pTMSComputer->Compute( mass, rZAMS, m_ZDependents.m_pBGBComputer->Age() );
+  m_ZDependents.m_pTMSComputer->Compute( mass, rZAMS, m_ZDependents.m_pBGBComputer->Age( mass ) );
   Herd::Generic::Time tMS = m_ZDependents.m_pTMSComputer->Age();
   Herd::Generic::Time thook = m_ZDependents.m_pTMSComputer->THook();
 
@@ -189,7 +187,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   if( mass != m_MDependents.m_EvaluatedAt )
   {
     ComputeMassDependents( mass );
-    m_ZDependents.m_pTMSComputer->Compute( mass, m_MDependents.m_RZAMS, m_ZDependents.m_pBGBComputer->Age() );  // Recomputing at correct mass
+    m_ZDependents.m_pTMSComputer->Compute( mass, m_MDependents.m_RZAMS, m_ZDependents.m_pBGBComputer->Age( mass ) );  // Recomputing at correct mass
   }
 
   double tInthook = effectiveAge / thook;
@@ -258,7 +256,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   io_rState.m_RTMS = m_ZDependents.m_pTMSComputer->Radius();
   io_rState.m_RZAMS = m_MDependents.m_RZAMS;
 
-  io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity();
+  io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity( mass );
   io_rState.m_LHeI = m_MDependents.m_LHeI;
 
   io_rState.m_EffectiveAge = effectiveAge;
@@ -441,7 +439,7 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_LHeI = ComputeLHeI( i_Mass );
 
   // Rg
-  m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius();
+  m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius( i_Mass );
 }
 
 /**

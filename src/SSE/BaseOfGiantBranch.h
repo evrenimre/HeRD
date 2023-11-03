@@ -17,6 +17,8 @@
 
 #include <array>
 #include <memory>
+#include <optional>
+#include <utility>
 
 namespace Herd::SSE
 {
@@ -24,7 +26,7 @@ namespace Herd::SSE
 class GiantBranchRadius;
 
 /**
- * @brief Computations for characteristic properties at the base of the giant branch
+ * @brief Computations for characteristic properties at BGB
  * @cite Hurley00
  */
 class BaseOfGiantBranch
@@ -34,20 +36,17 @@ public:
   BaseOfGiantBranch( Herd::Generic::Metallicity i_Z ); ///< Constructor
   ~BaseOfGiantBranch(); ///< Destructor
 
-  void Compute( Herd::Generic::Mass i_Mass ); ///< Computes the characteristic properties
-
-  // Accessors
-  Herd::Generic::Time Age() const;  ///< Returns \f$ t_{BGB} \f$
-  Herd::Generic::Luminosity Luminosity() const;  ///< Returns \f$ L_{BGB} \f$
-  Herd::Generic::Radius Radius() const;  ///< Returns \f$ R_{BGB} \f$
+  Herd::Generic::Time Age( Herd::Generic::Mass i_Mass );  ///< Returns \f$ t_{BGB} \f$
+  Herd::Generic::Luminosity Luminosity( Herd::Generic::Mass i_Mass );  ///< Returns \f$ L_{BGB} \f$
+  Herd::Generic::Radius Radius( Herd::Generic::Mass i_Mass );  ///< Returns \f$ R_{BGB} \f$
 
 private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
-  void ComputeMassDependents( Herd::Generic::Mass i_Mass ); ///< Computes various mass-dependent quantities
 
-  Herd::Generic::Luminosity ComputeLBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes the luminosity at the base of the giant branch
-  Herd::Generic::Time ComputeTBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes the age at the base of the giant branch
+  Herd::Generic::Time ComputeTBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ T_{BGB}\f$
+  Herd::Generic::Luminosity ComputeLBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{BGB} \f$
+  Herd::Generic::Radius ComputeRBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ R_{BGB} \f$
 
   /**
    * @brief Various quantities and values that depend on metallicity only
@@ -68,11 +67,11 @@ private:
    */
   struct MassDependents
   {
-    Herd::Generic::Mass m_EvaluatedAt; ///< Dependents calculated at this value
+    using TKey = std::optional< Herd::Generic::Mass >;
 
-    Herd::Generic::Time m_TBGB; ///< Age at BGB
-    Herd::Generic::Luminosity m_LBGB; ///< Luminosity at BGB
-    Herd::Generic::Radius m_RBGB;  ///< Radius at BGB
+    std::pair< TKey, Herd::Generic::Time > m_TBGB; ///< \f$ t_{BGB} \f$
+    std::pair< TKey, Herd::Generic::Luminosity > m_LBGB; ///< \f$ L_{ BGB}\f$
+    std::pair< TKey, Herd::Generic::Radius > m_RBGB;  ///< \f$ R_{BGB} \f$
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities
