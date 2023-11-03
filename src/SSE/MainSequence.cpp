@@ -157,8 +157,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   auto mass = rTrackPoint.m_Mass;
 
   // Still MS?
-  Herd::Generic::Radius rZAMS = m_MDependents.m_RZAMS == 0 ? Herd::Generic::Radius( 1.0 ) : m_MDependents.m_RZAMS; // FIXME Computing at incorrect RZAMS just to get the tMS at ZAMS. At the first call, we have no RZAMS
-  m_ZDependents.m_pTMSComputer->Compute( mass, rZAMS, m_ZDependents.m_pBGBComputer->Age( mass ) );
+  m_ZDependents.m_pTMSComputer->Compute( mass );
   Herd::Generic::Time tMS = m_ZDependents.m_pTMSComputer->Age();
   Herd::Generic::Time thook = m_ZDependents.m_pTMSComputer->THook();
 
@@ -187,7 +186,6 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   if( mass != m_MDependents.m_EvaluatedAt )
   {
     ComputeMassDependents( mass );
-    m_ZDependents.m_pTMSComputer->Compute( mass, m_MDependents.m_RZAMS, m_ZDependents.m_pBGBComputer->Age( mass ) );  // Recomputing at correct mass
   }
 
   double tInthook = effectiveAge / thook;

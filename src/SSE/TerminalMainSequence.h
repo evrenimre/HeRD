@@ -16,10 +16,14 @@
 #include <Generic/Quantity.h>
 
 #include <array>
+#include <memory>
 #include <utility>
 
 namespace Herd::SSE
 {
+
+class BaseOfGiantBranch;
+class ZeroAgeMainSequence;
 
 /**
  * @brief Computes the characteristic values at terminal main sequence
@@ -31,7 +35,7 @@ public:
   
   TerminalMainSequence( Herd::Generic::Metallicity i_Z ); ///< Constructor
 
-  void Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Radius i_RZAMS, Herd::Generic::Time i_TBGB ); ///< Computes the characteristic properties
+  void Compute( Herd::Generic::Mass i_Mass ); ///< Computes the characteristic properties
 
   // Accessors
   Herd::Generic::Time Age() const;  ///< Returns \f$ t_{TMS} \f$
@@ -42,12 +46,12 @@ public:
 private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
-  void ComputeMassDependents( Herd::Generic::Mass i_Mass, Herd::Generic::Radius i_RZAMS, Herd::Generic::Time i_TBGB ); ///< Computes various mass-dependent quantities
+  void ComputeMassDependents( Herd::Generic::Mass i_Mass ); ///< Computes various mass-dependent quantities
 
-  Herd::Generic::Time ComputeTMS( Herd::Generic::Time i_TBGB, Herd::Generic::Time i_THook ) const; ///< Computes the age at terminal main sequence
+  Herd::Generic::Time ComputeTMS( Herd::Generic::Mass i_Mass, Herd::Generic::Time i_THook ) const; ///< Computes the age at terminal main sequence
   Herd::Generic::Luminosity ComputeLTMS( Herd::Generic::Mass i_Mass ) const;  ///< Computes the terminal main sequence luminosity
-  Herd::Generic::Radius ComputeRTMS( Herd::Generic::Mass i_Mass, Herd::Generic::Radius i_RZAMS ) const;  ///< Computes the terminal main sequence radius
-  Herd::Generic::Time ComputeTHook( Herd::Generic::Mass i_Mass, Herd::Generic::Time i_TBGB ); ///< Age at the appearance of the hook
+  Herd::Generic::Radius ComputeRTMS( Herd::Generic::Mass i_Mass ) const;  ///< Computes the terminal main sequence radius
+  Herd::Generic::Time ComputeTHook( Herd::Generic::Mass i_Mass ); ///< Age at the appearance of the hook
 
   /**
    * @brief Various quantities and values that depend on metallicity only
@@ -58,6 +62,9 @@ private:
     std::array< double, 6 > m_LTMS; ///< \f$ L_{TMS} \f$ calculations
     double m_X = 0;  ///< \f$ x \f$ in Eq. 6
     std::array< double, 5 > m_Thook;  ///< \f$ T_{hook} \f$ calculations
+
+    std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< ZAMS computations
+    std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< BGB computations
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities
@@ -68,7 +75,7 @@ private:
    */
   struct MassDependents
   {
-    std::pair< Herd::Generic::Mass, Herd::Generic::Radius > m_EvaluatedAt; ///< Dependents calculated at this value
+    Herd::Generic::Mass m_EvaluatedAt; ///< Dependents calculated at this value
 
     Herd::Generic::Time m_TMS; ///< Age at TMS
     Herd::Generic::Luminosity m_LTMS; ///< Luminosity at TMS

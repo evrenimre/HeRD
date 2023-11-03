@@ -12,7 +12,9 @@
 
 #include "TerminalMainSequence.h"
 
+#include "BaseOfGiantBranch.h"
 #include "Constants.h"
+#include "ZeroAgeMainSequence.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
@@ -80,19 +82,14 @@ TerminalMainSequence::TerminalMainSequence( Herd::Generic::Metallicity i_Z )
 /**
  * @param i_Mass Mass
  * @param i_RZAMS Zero-age radius evaluated at \c i_Mass
- * @param i_TBGB Age at the base of the giant branch evaluated at \c i_Mass
  * @pre \c i_Mass is positive
- * @pre \c i_RZAMS is positive
- * @pre \c i_TBGB is positive
  * @throws PreconditionError If the precondition is violated
  */
-void TerminalMainSequence::Compute( Herd::Generic::Mass i_Mass, Herd::Generic::Radius i_RZAMS, Herd::Generic::Time i_TBGB )
+void TerminalMainSequence::Compute( Herd::Generic::Mass i_Mass )
 {
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
-  Herd::Generic::ThrowIfNotPositive( i_RZAMS, "i_RZAMS" );
-  Herd::Generic::ThrowIfNotPositive( i_TBGB, "i_TBGB" );
 
-  ComputeMassDependents( i_Mass, i_RZAMS, i_TBGB );
+  ComputeMassDependents( i_Mass );
 }
 
 /**
@@ -141,6 +138,10 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
   std::array< double, 4 > zetaPowers3;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 4, zetaPowers3.begin() );
 
+  // Landmarks
+  m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
+  m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
+
   // LTMS
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LTMS, s_ZLTMS, zetaPowers4 );
   m_ZDependents.m_LTMS[ 0 ] *= m_ZDependents.m_LTMS[ 3 ];
@@ -158,14 +159,15 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
 
   auto& rA = m_ZDependents.m_RTMS;
   // Evaluated at RZAMS = 0. At this point we do not know RZAMS, but it is only used if the mass < rA[10]
-  rA[ 11 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] ), Herd::Generic::Radius( 0. ) ); // Eq. 9a, evaluated at a17
-  rA[ 12 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] + 0.1 ), Herd::Generic::Radius( 0. ) );  //Eq. 9b, evaluated at Mstar
+  rA[ 11 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] ) ); // Eq. 9a, evaluated at a17
+  rA[ 12 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] + 0.1 ) );  //Eq. 9b, evaluated at Mstar
 
   // Eq. 6, but AMUSE.SSE adds an extra term
   {
     double extra = std::min( 0.99, 0.98 - ( 100. / 7. ) * ( i_Z - 0.001 ) );
     double left = 0.95 - ( 10. / 3. ) * ( i_Z - 0.01 );
     m_ZDependents.m_X = std::max( { 0.95, left, extra } );
+
   }
 
   // ThookCoefficients
@@ -174,29 +176,28 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
 
 /**
  * @param i_Mass Mass
- * @param i_RZAMS Radius at ZAMS
- * @param i_TBGB Age at BGB
  */
-void TerminalMainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass, Herd::Generic::Radius i_RZAMS, Herd::Generic::Time i_TBGB )
+void TerminalMainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
-  if( i_Mass != std::get< Herd::Generic::Mass >( m_MDependents.m_EvaluatedAt ) || i_RZAMS != std::get< Herd::Generic::Radius >( m_MDependents.m_EvaluatedAt ) )
+  if( i_Mass != m_MDependents.m_EvaluatedAt )
   {
-    m_MDependents.m_EvaluatedAt = std::make_pair( i_Mass, i_RZAMS );
-    m_MDependents.m_THook = ComputeTHook( i_Mass, i_TBGB );
-    m_MDependents.m_TMS = ComputeTMS( i_TBGB, m_MDependents.m_THook );
+    m_MDependents.m_EvaluatedAt = i_Mass;
+    m_MDependents.m_THook = ComputeTHook( i_Mass );
+    m_MDependents.m_TMS = ComputeTMS( i_Mass, m_MDependents.m_THook );
     m_MDependents.m_LTMS = ComputeLTMS( i_Mass );
-    m_MDependents.m_RTMS = ComputeRTMS( i_Mass, i_RZAMS );
+    m_MDependents.m_RTMS = ComputeRTMS( i_Mass );
   }
 }
 
 /**
- * @param i_TBGB Age at BGB, computed at \c i_Mass
+ * @param i_Mass Mass
  * @param i_THook Age at the hook, computed at \c i_Mass
  * @return Age at TMS
  */
-Herd::Generic::Time TerminalMainSequence::ComputeTMS( Herd::Generic::Time i_TBGB, Herd::Generic::Time i_THook ) const
+Herd::Generic::Time TerminalMainSequence::ComputeTMS( Herd::Generic::Mass i_Mass, Herd::Generic::Time i_THook ) const
 {
-  return std::max( Herd::Generic::Time( m_ZDependents.m_X * i_TBGB ), i_THook ); // Eq. 5 // @suppress("Ambiguous problem")
+  Herd::Generic::Time tBGB = m_ZDependents.m_pBGBComputer->Age( i_Mass );
+  return std::max( Herd::Generic::Time( m_ZDependents.m_X * tBGB ), i_THook );
 }
 
 /**
@@ -221,10 +222,9 @@ Herd::Generic::Luminosity TerminalMainSequence::ComputeLTMS( Herd::Generic::Mass
 
 /**
  * @param i_Mass Mass
- * @param i_RZAMS Radius at ZAMS
  * @return Radius at TMS
  */
-Herd::Generic::Radius TerminalMainSequence::ComputeRTMS( Herd::Generic::Mass i_Mass, Herd::Generic::Radius i_RZAMS ) const
+Herd::Generic::Radius TerminalMainSequence::ComputeRTMS( Herd::Generic::Mass i_Mass ) const
 {
   auto& rA = m_ZDependents.m_RTMS;
 
@@ -233,7 +233,8 @@ Herd::Generic::Radius TerminalMainSequence::ComputeRTMS( Herd::Generic::Mass i_M
     // Eq. 9a
     double num = ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
     double den = ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
-    return Herd::Generic::Radius( std::max( 1.5 * i_RZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
+    Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Compute( i_Mass ).m_Radius;
+    return Herd::Generic::Radius( std::max( 1.5 * rZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
   }
 
   if( i_Mass >= rA[ 10 ] + 0.1 )
@@ -253,10 +254,9 @@ Herd::Generic::Radius TerminalMainSequence::ComputeRTMS( Herd::Generic::Mass i_M
 
 /**
  * @param i_Mass Mass
- * @param i_TBGB Age at the base of giant branch, evaluated at \c i_Mass
  * @return Age at the hook
  */
-Herd::Generic::Time TerminalMainSequence::ComputeTHook( Herd::Generic::Mass i_Mass, Herd::Generic::Time i_TBGB )
+Herd::Generic::Time TerminalMainSequence::ComputeTHook( Herd::Generic::Mass i_Mass )
 {
   // Eq. 7
   double mu = 0;
@@ -265,7 +265,9 @@ Herd::Generic::Time TerminalMainSequence::ComputeTHook( Herd::Generic::Mass i_Ma
   double right = ApBXhC( i_Mass, rA[ 2 ], rA[ 3 ], -rA[ 4 ] );
   mu = std::max( 0.5, 1. - 0.01 * std::max( left, right ) );
 
-  return Herd::Generic::Time( mu * i_TBGB );
+  Herd::Generic::Time tBGB = m_ZDependents.m_pBGBComputer->Age( i_Mass );
+
+  return Herd::Generic::Time( mu * tBGB );
 }
 
 }
