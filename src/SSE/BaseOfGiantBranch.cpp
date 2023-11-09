@@ -19,6 +19,7 @@
 #include <Generic/MathHelpers.h>
 
 #include <cmath>
+#include <type_traits>
 
 #include <range/v3/algorithm.hpp>
 
@@ -71,6 +72,7 @@ auto UpdateCache( std::pair< std::optional< Herd::Generic::Mass >, TValue >& io_
   return rValue;
 }
 }
+
 namespace Herd::SSE
 {
 
@@ -102,7 +104,7 @@ Herd::Generic::Time BaseOfGiantBranch::Age( Herd::Generic::Mass i_Mass )
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_TBGB, i_Mass, [ & ]( auto i_Mass ){ return ComputeTBGB(i_Mass);} ); // @suppress("Invalid arguments")
+  return UpdateCache( m_MDependents.m_Age, i_Mass, [ & ]( auto i_Mass ){ return ComputeAge(i_Mass);} ); // @suppress("Invalid arguments")
     // @formatter:on
 }
 
@@ -117,7 +119,7 @@ Herd::Generic::Luminosity BaseOfGiantBranch::Luminosity( Herd::Generic::Mass i_M
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_LBGB, i_Mass, [ & ]( auto i_Mass ){ return ComputeLBGB(i_Mass);} ); // @suppress("Invalid arguments")
+  return UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
       // @formatter:on
 }
 
@@ -132,7 +134,7 @@ Herd::Generic::Radius BaseOfGiantBranch::Radius( Herd::Generic::Mass i_Mass )
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_RBGB, i_Mass, [ & ]( auto i_Mass ){ return ComputeRBGB( i_Mass); } ); // @suppress("Invalid arguments")
+  return UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
       // @formatter:on
 }
 
@@ -168,7 +170,7 @@ void BaseOfGiantBranch::ComputeMetallicityDependents( Herd::Generic::Metallicity
  * @param i_Mass Mass
  * @return Age at BGB
  */
-Herd::Generic::Time BaseOfGiantBranch::ComputeTBGB( Herd::Generic::Mass i_Mass ) const
+Herd::Generic::Time BaseOfGiantBranch::ComputeAge( Herd::Generic::Mass i_Mass ) const
 {
   // Eq. 4
   const auto& rA = m_ZDependents.m_TBGB;
@@ -197,7 +199,7 @@ Herd::Generic::Time BaseOfGiantBranch::ComputeTBGB( Herd::Generic::Mass i_Mass )
  * @param i_Mass Mass
  * @return \f$ L_{BGB}\f$
  */
-Herd::Generic::Luminosity BaseOfGiantBranch::ComputeLBGB( Herd::Generic::Mass i_Mass ) const
+Herd::Generic::Luminosity BaseOfGiantBranch::ComputeLuminosity( Herd::Generic::Mass i_Mass ) const
 {
   auto& rB = m_ZDependents.m_LBGB;
 
@@ -211,9 +213,9 @@ Herd::Generic::Luminosity BaseOfGiantBranch::ComputeLBGB( Herd::Generic::Mass i_
  * @param i_Mass Mass
  * @return \f$ R_{BGB}\f$
  */
-Herd::Generic::Radius BaseOfGiantBranch::ComputeRBGB( Herd::Generic::Mass i_Mass ) const
+Herd::Generic::Radius BaseOfGiantBranch::ComputeRadius( Herd::Generic::Mass i_Mass ) const
 {
-  return m_ZDependents.m_pRGBComputer->Compute( i_Mass, ComputeLBGB( i_Mass ) );
+  return m_ZDependents.m_pRGBComputer->Compute( i_Mass, ComputeLuminosity( i_Mass ) );
 }
 
 }

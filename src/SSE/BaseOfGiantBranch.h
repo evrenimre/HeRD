@@ -44,9 +44,9 @@ private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
 
-  Herd::Generic::Time ComputeTBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ T_{BGB}\f$
-  Herd::Generic::Luminosity ComputeLBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{BGB} \f$
-  Herd::Generic::Radius ComputeRBGB( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ R_{BGB} \f$
+  Herd::Generic::Time ComputeAge( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ T_{BGB}\f$
+  Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{BGB} \f$
+  Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ R_{BGB} \f$
 
   /**
    * @brief Various quantities and values that depend on metallicity only
@@ -69,9 +69,9 @@ private:
   {
     using TKey = std::optional< Herd::Generic::Mass >;
 
-    std::pair< TKey, Herd::Generic::Time > m_TBGB; ///< \f$ t_{BGB} \f$
-    std::pair< TKey, Herd::Generic::Luminosity > m_LBGB; ///< \f$ L_{ BGB}\f$
-    std::pair< TKey, Herd::Generic::Radius > m_RBGB;  ///< \f$ R_{BGB} \f$
+    std::pair< TKey, Herd::Generic::Time > m_Age; ///< \f$ t_{BGB} \f$
+    std::pair< TKey, Herd::Generic::Luminosity > m_Luminosity; ///< \f$ L_{BGB}\f$
+    std::pair< TKey, Herd::Generic::Radius > m_Radius;  ///< \f$ R_{BGB} \f$
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities
