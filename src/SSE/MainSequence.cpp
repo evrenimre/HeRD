@@ -157,9 +157,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   auto mass = rTrackPoint.m_Mass;
 
   // Still MS?
-  m_ZDependents.m_pTMSComputer->Compute( mass );
-  Herd::Generic::Time tMS = m_ZDependents.m_pTMSComputer->Age();
-  Herd::Generic::Time thook = m_ZDependents.m_pTMSComputer->THook();
+  Herd::Generic::Time tMS = m_ZDependents.m_pTMSComputer->Age( mass );
+  Herd::Generic::Time thook = m_ZDependents.m_pTMSComputer->THook( mass );
 
   // Change in mass changes the effective age of the star
   Herd::Generic::Time tMSOld = ( rTrackPoint.m_Mass == io_rState.m_MZAMS ) ? tMS : io_rState.m_TMS;
@@ -200,7 +199,8 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   {
     double term1 = m_MDependents.m_AlphaL * tau;
     double term2 = BXhC( tau, m_MDependents.m_BetaL, m_MDependents.m_Eta );
-    double term3 = ( std::log10( m_ZDependents.m_pTMSComputer->Luminosity() / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL ) * tau
+    double term3 = ( std::log10( m_ZDependents.m_pTMSComputer->Luminosity( mass ) / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL )
+        * tau
         * tau;
     double term4 = m_MDependents.m_DeltaL * ( ( tau1 - tau2 ) * ( tau1 + tau2 ) );
     luminosity.Set( std::pow( 10., term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
@@ -215,7 +215,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
     double term1 = m_MDependents.m_AlphaR * tau;
     double term2 = m_MDependents.m_BetaR * boost::math::pow< 10 >( tau );
     double term3 = m_MDependents.m_GammaR * boost::math::pow< 40 >( tau );
-    double term4 = ( std::log10( m_ZDependents.m_pTMSComputer->Radius() / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR
+    double term4 = ( std::log10( m_ZDependents.m_pTMSComputer->Radius( mass ) / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR
         - m_MDependents.m_GammaR )
         * boost::math::pow< 3 >( tau );
     double term5 = m_MDependents.m_DeltaR * ( boost::math::pow< 3 >( tau1 ) - boost::math::pow< 3 >( tau2 ) );
@@ -247,11 +247,11 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_CoreMass.Set( 0. );
   io_rState.m_CoreRadius.Set( 0. );
 
-  io_rState.m_TMS = m_ZDependents.m_pTMSComputer->Age();
+  io_rState.m_TMS = m_ZDependents.m_pTMSComputer->Age( mass );
 
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
-  io_rState.m_LTMS = m_ZDependents.m_pTMSComputer->Luminosity();
-  io_rState.m_RTMS = m_ZDependents.m_pTMSComputer->Radius();
+  io_rState.m_LTMS = m_ZDependents.m_pTMSComputer->Luminosity( mass );
+  io_rState.m_RTMS = m_ZDependents.m_pTMSComputer->Radius( mass );
   io_rState.m_RZAMS = m_MDependents.m_RZAMS;
 
   io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity( mass );

@@ -32,7 +32,7 @@ const std::array< double, 20 > s_ZTBGB { 1.593890e+03, 2.053038e+03, 1.231226e+0
   1.466143e+02, -1.048442e+02, -6.795374e+01, -1.391127e+01,
   4.141960e-02, 4.564888e-02, 2.958542e-02, 5.571483e-03,
   3.426349e-01, 0., 0., 0.
-};  ///< Coefficients for \f${ T_{BGB}(z) \f$ calculations
+};  ///< Coefficients for \f${ t_{BGB}(z) \f$ calculations
 
 
 const std::array< double, 24 > s_ZLBGB { 9.511033e+01, 6.819618e+01, -1.045625e+01, -1.474939e+01,

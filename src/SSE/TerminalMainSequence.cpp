@@ -21,6 +21,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <type_traits>
 
 #include <range/v3/algorithm.hpp>
 
@@ -55,17 +56,40 @@ const std::array< double, 20 > s_ZThook { 1.949814e+01, 1.758178e+00, -6.008212e
   5.212154e-02, 3.166411e-02, -2.750074e-03, -2.271549e-03,
   1.312179e+00, -3.294936e-01, 9.231860e-02, 2.610989e-02,
   8.073972e-01, 0., 0., 0.
-};  ///< Coefficients for \f$ T_{hook}(z) \f$ calculations
+};  ///< Coefficients for \f$ t_{hook}(z) \f$ calculations
 
 // @formatter:on
+
+/**
+ * @brief Updates a cache entry
+ * @tparam TValue Type of the quantity being computed
+ * @tparam TCallable Computing function
+ * @param[in, out] i_rCache Current cached value. Updated
+ * @param i_Mass Mass
+ * @param i_Computer Computing function. Passed by reference as it carries captured data
+ * @return Computed value
+ * @pre \c TCallable can be called with an argument of type \c Mass and return a value
+ */
+template< class TValue, class TCallable >
+auto UpdateCache( std::pair< std::optional< Herd::Generic::Mass >, TValue >& io_rCache, Herd::Generic::Mass i_Mass, const TCallable& i_Computer )
+{
+  static_assert( std::is_invocable_v< TCallable, Herd::Generic::Mass >);
+  static_assert( !std::is_same_v< std::invoke_result<TCallable, Herd::Generic::Mass>, void> );
+
+  auto& [ rKey, rValue ] = io_rCache;
+
+  if( !rKey || *rKey != i_Mass )
+  {
+    rKey = i_Mass;
+    rValue = i_Computer( i_Mass );
+  }
+
+  return rValue;
+}
 }
 
 namespace Herd::SSE
 {
-
-using Herd::SSE::ApBXhC;
-using Herd::SSE::BXhC;
-using Herd::SSE::ComputeBlendWeight;
 
 /**
  * @param i_Z Metallicity
@@ -81,47 +105,62 @@ TerminalMainSequence::TerminalMainSequence( Herd::Generic::Metallicity i_Z )
 
 /**
  * @param i_Mass Mass
- * @param i_RZAMS Zero-age radius evaluated at \c i_Mass
+ * @returns \f$ t_{MS}\f$
  * @pre \c i_Mass is positive
  * @throws PreconditionError If the precondition is violated
  */
-void TerminalMainSequence::Compute( Herd::Generic::Mass i_Mass )
+Herd::Generic::Time TerminalMainSequence::Age( Herd::Generic::Mass i_Mass )
 {
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
-  ComputeMassDependents( i_Mass );
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_Age, i_Mass, [ & ]( auto i_Mass ){ return ComputeAge(i_Mass);} ); // @suppress("Invalid arguments")
+      // @formatter:on
 }
 
 /**
- * @return Age at TMS
+   * @param i_Mass Mass
+   * @returns \f$ L_{TMS}\f$
+   * @pre \c i_Mass is positive
+   * @throws PreconditionError If the precondition is violated
  */
-Herd::Generic::Time TerminalMainSequence::Age() const
+Herd::Generic::Luminosity TerminalMainSequence::Luminosity( Herd::Generic::Mass i_Mass )
 {
-  return m_MDependents.m_TMS;
+  Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
+
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
+        // @formatter:on
 }
 
 /**
- * @return Luminosity at TMS
+   * @param i_Mass Mass
+   * @returns \f$ R_{TMS}\f$
+   * @pre \c i_Mass is positive
+   * @throws PreconditionError If the precondition is violated
  */
-Herd::Generic::Luminosity TerminalMainSequence::Luminosity() const
+Herd::Generic::Radius TerminalMainSequence::Radius( Herd::Generic::Mass i_Mass )
 {
-  return m_MDependents.m_LTMS;
+  Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
+
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
+        // @formatter:on
 }
 
 /**
- * @return Radius at TMS
+   * @param i_Mass Mass
+   * @returns \f$ t_{hook}\f$
+   * @pre \c i_Mass is positive
+   * @throws PreconditionError If the precondition is violated
  */
-Herd::Generic::Radius TerminalMainSequence::Radius() const
+Herd::Generic::Time TerminalMainSequence::THook( Herd::Generic::Mass i_Mass )
 {
-  return m_MDependents.m_RTMS;
-}
+  Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
-/**
- * @return Age at the appearance of the hook
- */
-Herd::Generic::Time TerminalMainSequence::THook() const
-{
-  return m_MDependents.m_THook;
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_THook, i_Mass, [ & ]( auto i_Mass ){ return ComputeTHook( i_Mass); } ); // @suppress("Invalid arguments")
+        // @formatter:on
 }
 
 /**
@@ -159,8 +198,8 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
 
   auto& rA = m_ZDependents.m_RTMS;
   // Evaluated at RZAMS = 0. At this point we do not know RZAMS, but it is only used if the mass < rA[10]
-  rA[ 11 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] ) ); // Eq. 9a, evaluated at a17
-  rA[ 12 ] = ComputeRTMS( Herd::Generic::Mass( rA[ 10 ] + 0.1 ) );  //Eq. 9b, evaluated at Mstar
+  rA[ 11 ] = ComputeRadius( Herd::Generic::Mass( rA[ 10 ] ) ); // Eq. 9a, evaluated at a17
+  rA[ 12 ] = ComputeRadius( Herd::Generic::Mass( rA[ 10 ] + 0.1 ) );  //Eq. 9b, evaluated at Mstar
 
   // Eq. 6, but AMUSE.SSE adds an extra term
   {
@@ -173,38 +212,22 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
   // ThookCoefficients
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Thook, s_ZThook, zetaPowers3 );
 }
-
 /**
  * @param i_Mass Mass
+ * @return \f$ t_{MS} \f$
  */
-void TerminalMainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
+Herd::Generic::Time TerminalMainSequence::ComputeAge( Herd::Generic::Mass i_Mass ) const
 {
-  if( i_Mass != m_MDependents.m_EvaluatedAt )
-  {
-    m_MDependents.m_EvaluatedAt = i_Mass;
-    m_MDependents.m_THook = ComputeTHook( i_Mass );
-    m_MDependents.m_TMS = ComputeTMS( i_Mass, m_MDependents.m_THook );
-    m_MDependents.m_LTMS = ComputeLTMS( i_Mass );
-    m_MDependents.m_RTMS = ComputeRTMS( i_Mass );
-  }
-}
-
-/**
- * @param i_Mass Mass
- * @param i_THook Age at the hook, computed at \c i_Mass
- * @return Age at TMS
- */
-Herd::Generic::Time TerminalMainSequence::ComputeTMS( Herd::Generic::Mass i_Mass, Herd::Generic::Time i_THook ) const
-{
+  Herd::Generic::Time tHook = ComputeTHook( i_Mass );
   Herd::Generic::Time tBGB = m_ZDependents.m_pBGBComputer->Age( i_Mass );
-  return std::max( Herd::Generic::Time( m_ZDependents.m_X * tBGB ), i_THook );
+  return std::max( Herd::Generic::Time( m_ZDependents.m_X * tBGB ), tHook );
 }
 
 /**
  * @param i_Mass Mass
- * @return Luminosity at TMS
+ * @return \f L_{TMS}\f$
  */
-Herd::Generic::Luminosity TerminalMainSequence::ComputeLTMS( Herd::Generic::Mass i_Mass ) const
+Herd::Generic::Luminosity TerminalMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass ) const
 {
   // Eq. 8
   auto& rA = m_ZDependents.m_LTMS;
@@ -222,17 +245,17 @@ Herd::Generic::Luminosity TerminalMainSequence::ComputeLTMS( Herd::Generic::Mass
 
 /**
  * @param i_Mass Mass
- * @return Radius at TMS
+ * @return \f R_{TMS}\f$
  */
-Herd::Generic::Radius TerminalMainSequence::ComputeRTMS( Herd::Generic::Mass i_Mass ) const
+Herd::Generic::Radius TerminalMainSequence::ComputeRadius( Herd::Generic::Mass i_Mass ) const
 {
   auto& rA = m_ZDependents.m_RTMS;
 
   if( i_Mass <= rA[ 10 ] )
   {
     // Eq. 9a
-    double num = ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
-    double den = ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
+    double num = Herd::SSE::ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
+    double den = Herd::SSE::ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
     Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Compute( i_Mass ).m_Radius;
     return Herd::Generic::Radius( std::max( 1.5 * rZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
   }
@@ -249,20 +272,20 @@ Herd::Generic::Radius TerminalMainSequence::ComputeRTMS( Herd::Generic::Mass i_M
   }
 
   // Between rA[10] and rA[10] + 0.1, interpolate
-  return Herd::Generic::Radius( std::lerp( rA[ 11 ], rA[ 12 ], ComputeBlendWeight( i_Mass, rA[ 10 ], rA[ 10 ] + 0.1 ) ) );
+  return Herd::Generic::Radius( std::lerp( rA[ 11 ], rA[ 12 ], Herd::SSE::ComputeBlendWeight( i_Mass, rA[ 10 ], rA[ 10 ] + 0.1 ) ) );
 }
 
 /**
  * @param i_Mass Mass
- * @return Age at the hook
+ * @return \f$ t_{hook}\f$
  */
-Herd::Generic::Time TerminalMainSequence::ComputeTHook( Herd::Generic::Mass i_Mass )
+Herd::Generic::Time TerminalMainSequence::ComputeTHook( Herd::Generic::Mass i_Mass ) const
 {
   // Eq. 7
   double mu = 0;
   const auto& rA = m_ZDependents.m_Thook;
-  double left = BXhC( i_Mass, rA[ 0 ], -rA[ 1 ] );
-  double right = ApBXhC( i_Mass, rA[ 2 ], rA[ 3 ], -rA[ 4 ] );
+  double left = Herd::SSE::BXhC( i_Mass, rA[ 0 ], -rA[ 1 ] );
+  double right = Herd::SSE::ApBXhC( i_Mass, rA[ 2 ], rA[ 3 ], -rA[ 4 ] );
   mu = std::max( 0.5, 1. - 0.01 * std::max( left, right ) );
 
   Herd::Generic::Time tBGB = m_ZDependents.m_pBGBComputer->Age( i_Mass );

@@ -44,7 +44,7 @@ private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
 
-  Herd::Generic::Time ComputeAge( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ T_{BGB}\f$
+  Herd::Generic::Time ComputeAge( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ t_{BGB}\f$
   Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{BGB} \f$
   Herd::Generic::Radius ComputeRadius( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ R_{BGB} \f$
 
@@ -53,7 +53,7 @@ private:
    */
   struct MetallicityDependents
   {
-    std::array< double, 5 > m_TBGB; ///< \f$ T_{BGB} \f$ calculations
+    std::array< double, 5 > m_TBGB; ///< \f$ t_{BGB} \f$ calculations
     std::array< double, 8 > m_LBGB;  ///< \f$ L_{BGB} \f$ calculations
 
     std::unique_ptr< Herd::SSE::GiantBranchRadius > m_pRGBComputer; ///< Computes the giant branch radius
