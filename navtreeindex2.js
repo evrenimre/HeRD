@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"functions_w.html":[2,3,0,17],
 "functions_z.html":[2,3,0,18],
 "functions_~.html":[2,3,0,19],
 "globals.html":[3,1,0],
@@ -127,10 +126,10 @@ var NAVTREEINDEX2 =
 "namespaces.html":[1,0],
 "pages.html":[],
 "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html":[2,0,0,3,1,0],
-"structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#a11875df92672664ba3728ccc4228766f":[2,0,0,3,1,0,1],
-"structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#a132e3e7fa7d1a82d58468fc6b2c700d1":[2,0,0,3,1,0,2],
+"structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#a31df7df3e5d7d21fa153b6f3525faff7":[2,0,0,3,1,0,2],
+"structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#a31f7878bee30cec68b8a05d4951a6461":[2,0,0,3,1,0,3],
+"structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#a85ea75e1b8f6c4cccc8fb8a2c332f339":[2,0,0,3,1,0,1],
 "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#aa2806a82e9df910f4cd8232a74cf6adb":[2,0,0,3,1,0,0],
-"structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html#ac3678b0cf94fd020540290329a47ab52":[2,0,0,3,1,0,3],
 "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html":[2,0,0,3,1,1],
 "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html#a1f0f38301a9370fbd3c34127e697e5bb":[2,0,0,3,1,1,2],
 "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html#a5ad939ef1c89a64fa3fbdeecdd6d11d9":[2,0,0,3,1,1,0],
@@ -223,11 +222,11 @@ var NAVTREEINDEX2 =
 "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aefc39af92c7ebfdba0cef5177389b582":[2,0,0,3,7,0,6],
 "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#af03a0cbb7276bbe3ca16cc483be13d2a":[2,0,0,3,7,0,11],
 "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html":[2,0,0,3,11,0],
-"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#a0d0feec82e0a6cfd5e32cc0a76291e23":[2,0,0,3,11,0,2],
-"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#a1c63ce78463e5d8fc429d89df78a166d":[2,0,0,3,11,0,3],
-"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#a7f1823c6b2402e8b223a170acb2fa60f":[2,0,0,3,11,0,0],
-"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#a8509bc56c99a51660ffd42f705a6fef7":[2,0,0,3,11,0,1],
-"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#acc41e71c0d76bbcb9d1adae836939ce4":[2,0,0,3,11,0,4],
+"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#a37b90d87ffd98b60aa2aa3e76060fabb":[2,0,0,3,11,0,3],
+"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#a79f1db8e4c02b7bd0a4fe14341851107":[2,0,0,3,11,0,4],
+"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#ac9d5054023c73264d1020bfee68682ac":[2,0,0,3,11,0,1],
+"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#ad8373ac92596ffa5874fcc96e3c20141":[2,0,0,3,11,0,0],
+"structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html#adc6e1cb8d3985e646aa9985c194dff72":[2,0,0,3,11,0,2],
 "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html":[2,0,0,3,11,1],
 "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html#a71fdfa91ffd2aa0ea14a71ac136f244a":[2,0,0,3,11,1,5],
 "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html#a818f85b9550d545806ed1bbc6e214bd4":[2,0,0,3,11,1,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html":[2,0,0,3,14],
 "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a0659b3b8402c18b2c479ae9f23d77021":[2,0,0,3,14,1],
 "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a07c9ea8dffc168ab4f63bca9ccc715b4":[2,0,0,3,14,0],
-"structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a1a56d0eccc74766a6fa55e85132dc703":[2,0,0,3,14,4]
+"structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a1a56d0eccc74766a6fa55e85132dc703":[2,0,0,3,14,4],
+"structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a3a645c7bed307843a9105299bdb0580a":[2,0,0,3,14,2]
 };

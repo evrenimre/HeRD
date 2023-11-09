@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a3a645c7bed307843a9105299bdb0580a":[2,0,0,3,14,2],
 "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#a6cfba80fb75775db0404194b7d59b562":[2,0,0,3,14,3],
 "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html":[2,0,0,3,13,0],
 "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html#a3d49f3322d7c75dc08d0aa91bf0de75e":[2,0,0,3,13,0,1],
