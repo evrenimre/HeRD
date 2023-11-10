@@ -13,6 +13,8 @@
 #ifndef H0A6D735C_7542_4D2B_9796_8E32EEB127F1
 #define H0A6D735C_7542_4D2B_9796_8E32EEB127F1
 
+#include "ILandmark.h"
+
 #include <Generic/Quantity.h>
 
 #include <array>
@@ -29,7 +31,7 @@ class GiantBranchRadius;
  * @brief Computations for characteristic properties at BGB
  * @cite Hurley00
  */
-class BaseOfGiantBranch
+class BaseOfGiantBranch : public Herd::SSE::ILandmark
 {
 public:
 

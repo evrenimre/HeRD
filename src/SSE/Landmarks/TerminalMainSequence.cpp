@@ -13,11 +13,11 @@
 #include "TerminalMainSequence.h"
 
 #include "BaseOfGiantBranch.h"
-#include "Constants.h"
-#include "ZeroAgeMainSequence.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
+#include <SSE/Constants.h>
+#include <SSE/ZeroAgeMainSequence.h>
 
 #include <algorithm>
 #include <cmath>
@@ -102,6 +102,11 @@ TerminalMainSequence::TerminalMainSequence( Herd::Generic::Metallicity i_Z )
 
   ComputeMetallicityDependents( i_Z );
 }
+
+/**
+ * @remarks Without a user-defined destructor forward declaration and unique_ptr do not work together
+ */
+TerminalMainSequence::~TerminalMainSequence() = default;
 
 /**
  * @param i_Mass Mass

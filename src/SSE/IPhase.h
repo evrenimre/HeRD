@@ -13,8 +13,6 @@
 #ifndef H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC
 #define H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC
 
-#include <Generic/Quantity.h>
-
 namespace Herd::SSE
 {
 struct EvolutionState;
@@ -29,7 +27,5 @@ public:
   virtual ~IPhase() = default;
 };
 }
-
-
 
 #endif /* H99A0DCEA_0F0C_4875_BF2A_E2F9CA5E4BAC */

@@ -1,6 +1,5 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
-set(HEADER_LIST BaseOfGiantBranch.h
-								Constants.h
+set(HEADER_LIST Constants.h
 								ConvectiveEnvelope.h
 								EvolutionStage.h
 								EvolutionState.h
@@ -10,13 +9,11 @@ set(HEADER_LIST BaseOfGiantBranch.h
 								SingleStarEvolution.h
 								StellarRotation.h
 								StellarWindMassLoss.h
-								TerminalMainSequence.h
 								TrackPoint.h
 								ZeroAgeMainSequence.h 
 )
 
-set(SOURCE_LIST BaseOfGiantBranch.cpp
-								ConvectiveEnvelope.cpp
+set(SOURCE_LIST ConvectiveEnvelope.cpp
 								EvolutionStage.cpp
 								EvolutionState.cpp
 								GiantBranchRadius.cpp
@@ -24,13 +21,13 @@ set(SOURCE_LIST BaseOfGiantBranch.cpp
 								SingleStarEvolution.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
-								TerminalMainSequence.cpp
 								TrackPoint.cpp
 								ZeroAgeMainSequence.cpp
 )
 
 set(PRIVATE_DEPS_LIST Exceptions
 											Generic
+											Landmarks
 											Physics
 											Boost::boost
 											range-v3::range-v3
@@ -46,3 +43,6 @@ herd_add_static_library(TARGET ${TARGET_NAME} HEADERS ${HEADER_LIST}
 
 # Unit tests
 add_subdirectory(UnitTests)
+
+# Sub-libraries
+add_subdirectory(Landmarks)

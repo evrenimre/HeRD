@@ -12,14 +12,14 @@
 
 #include "MainSequence.h"
 
-#include "BaseOfGiantBranch.h"
 #include "Constants.h"
 #include "EvolutionState.h"
-#include "TerminalMainSequence.h"
 #include "ZeroAgeMainSequence.h"
 
 #include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
+#include <SSE/Landmarks/BaseOfGiantBranch.h>
+#include <SSE/Landmarks/TerminalMainSequence.h>
 
 #include <cmath>
 #include <iterator>

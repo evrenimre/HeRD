@@ -13,6 +13,8 @@
 #ifndef H003D4153_CA63_4833_B8C8_CD0D78C0D419
 #define H003D4153_CA63_4833_B8C8_CD0D78C0D419
 
+#include "ILandmark.h"
+
 #include <Generic/Quantity.h>
 
 #include <array>
@@ -31,11 +33,12 @@ class ZeroAgeMainSequence;
  * @remarks \f$ t_{hook} \f$ is not a characteristic value of TMS, but needed for \f$ t_{MS}\f$ calculations in Hertzsprung gap
  * @cite Hurley00
  */
-class TerminalMainSequence
+class TerminalMainSequence : public Herd::SSE::ILandmark
 {
 public:
   
   TerminalMainSequence( Herd::Generic::Metallicity i_Z ); ///< Constructor
+  ~TerminalMainSequence();
 
   Herd::Generic::Time Age( Herd::Generic::Mass i_Mass );  ///< Returns \f$ t_{TMS} \f$
   Herd::Generic::Luminosity Luminosity( Herd::Generic::Mass i_Mass );  ///< Returns \f$ L_{TMS} \f$
