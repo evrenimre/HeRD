@@ -3,6 +3,7 @@ var classHerd_1_1SSE_1_1TerminalMainSequence =
     [ "MassDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents" ],
     [ "MetallicityDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents" ],
     [ "TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html#a26971b6b00ea409b2dbfaf396f69f009", null ],
+    [ "~TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html#a924e35d3138111f48ece5afa3c731ae2", null ],
     [ "Age", "classHerd_1_1SSE_1_1TerminalMainSequence.html#a1f74c9dfe6ff2c8bd46c219ea5754e39", null ],
     [ "ComputeAge", "classHerd_1_1SSE_1_1TerminalMainSequence.html#ac47004fc63642e9fc113f146747f85d5", null ],
     [ "ComputeLuminosity", "classHerd_1_1SSE_1_1TerminalMainSequence.html#ae67a2083f3e880fa700815c7245f931e", null ],
