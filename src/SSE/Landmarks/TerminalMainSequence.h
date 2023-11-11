@@ -40,16 +40,15 @@ public:
   TerminalMainSequence( Herd::Generic::Metallicity i_Z ); ///< Constructor
   ~TerminalMainSequence();
 
-  Herd::Generic::Time Age( Herd::Generic::Mass i_Mass );  ///< Returns \f$ t_{TMS} \f$
-  Herd::Generic::Luminosity Luminosity( Herd::Generic::Mass i_Mass );  ///< Returns \f$ L_{TMS} \f$
-  Herd::Generic::Radius Radius( Herd::Generic::Mass i_Mass );  ///< Returns \f$ R_{TMS} \f$
+  Herd::Generic::Time Age( Herd::Generic::Mass i_Mass ) override;  ///< Returns \f$ t_{TMS} \f$
+  Herd::Generic::Luminosity Luminosity( Herd::Generic::Mass i_Mass ) override;  ///< Returns \f$ L_{TMS} \f$
+  Herd::Generic::Radius Radius( Herd::Generic::Mass i_Mass ) override;  ///< Returns \f$ R_{TMS} \f$
 
   Herd::Generic::Time THook( Herd::Generic::Mass i_Mass );  ///< Returns \f$ t_{hook] \f$
 
 private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
-  void ComputeMassDependents( Herd::Generic::Mass i_Mass ); ///< Computes various mass-dependent quantities
 
   Herd::Generic::Time ComputeAge( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ t_{MS} \f$
   Herd::Generic::Luminosity ComputeLuminosity( Herd::Generic::Mass i_Mass ) const;  ///< Computes \f$ L_{TMS} \f$

@@ -38,9 +38,9 @@ public:
   BaseOfGiantBranch( Herd::Generic::Metallicity i_Z ); ///< Constructor
   ~BaseOfGiantBranch(); ///< Destructor
 
-  Herd::Generic::Time Age( Herd::Generic::Mass i_Mass );  ///< Returns \f$ t_{BGB} \f$
-  Herd::Generic::Luminosity Luminosity( Herd::Generic::Mass i_Mass );  ///< Returns \f$ L_{BGB} \f$
-  Herd::Generic::Radius Radius( Herd::Generic::Mass i_Mass );  ///< Returns \f$ R_{BGB} \f$
+  Herd::Generic::Time Age( Herd::Generic::Mass i_Mass ) override;  ///< Returns \f$ t_{BGB} \f$
+  Herd::Generic::Luminosity Luminosity( Herd::Generic::Mass i_Mass ) override;  ///< Returns \f$ L_{BGB} \f$
+  Herd::Generic::Radius Radius( Herd::Generic::Mass i_Mass ) override;  ///< Returns \f$ R_{BGB} \f$
 
 private:
 
