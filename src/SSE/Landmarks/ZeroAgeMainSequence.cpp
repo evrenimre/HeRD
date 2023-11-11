@@ -12,6 +12,8 @@
 
 #include "ZeroAgeMainSequence.h"
 
+#include "Utilities.h"
+
 #include <Generic/MathHelpers.h>
 #include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
@@ -19,7 +21,6 @@
 #include <SSE/Constants.h>
 
 #include <cmath>
-#include <type_traits>
 
 namespace
 {
@@ -44,34 +45,6 @@ const std::array< double, 45 > s_ZR { 1.715359e+00, 6.2246212e-01, -9.2557761e-0
     2.2582e-04, -1.86899e-03, 3.88783e-03, 1.42402e-03, -7.671e-05
 };  ///< Coefficients for \f$ R_{ZAMS}(z) \f$
 // @formatter:on
-
-/**
- * @brief Updates a cache entry
- * @tparam TValue Type of the quantity being computed
- * @tparam TCallable Computing function
- * @param[in, out] i_rCache Current cached value. Updated
- * @param i_Mass Mass
- * @param i_Computer Computing function. Passed by reference as it carries captured data
- * @return Computed value
- * @pre \c TCallable can be called with an argument of type \c Mass and return a value
- */
-template< class TValue, class TCallable >
-auto UpdateCache( std::pair< std::optional< Herd::Generic::Mass >, TValue >& io_rCache, Herd::Generic::Mass i_Mass, const TCallable& i_Computer )
-{
-  static_assert( std::is_invocable_v< TCallable, Herd::Generic::Mass >);
-  static_assert( !std::is_same_v< std::invoke_result<TCallable, Herd::Generic::Mass>, void> );
-
-  auto& [ rKey, rValue ] = io_rCache;
-
-  if( !rKey || *rKey != i_Mass )
-  {
-    rKey = i_Mass;
-    rValue = i_Computer( i_Mass );
-  }
-
-  return rValue;
-}
-
 }
 
 namespace Herd::SSE
@@ -115,7 +88,7 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::Luminosity( Herd::Generic::Mass i
   ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
+  return Herd::SSE::UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
     // @formatter:on
 }
   /**
@@ -129,7 +102,7 @@ Herd::Generic::Radius ZeroAgeMainSequence::Radius( Herd::Generic::Mass i_Mass )
   ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
+  return Herd::SSE::UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
     // @formatter:on
 }
 

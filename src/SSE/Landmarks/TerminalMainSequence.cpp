@@ -13,6 +13,7 @@
 #include "TerminalMainSequence.h"
 
 #include "BaseOfGiantBranch.h"
+#include "Utilities.h"
 #include "ZeroAgeMainSequence.h"
 
 #include <Exceptions/PreconditionError.h>
@@ -21,7 +22,6 @@
 
 #include <algorithm>
 #include <cmath>
-#include <type_traits>
 
 #include <range/v3/algorithm.hpp>
 
@@ -59,33 +59,6 @@ const std::array< double, 20 > s_ZThook { 1.949814e+01, 1.758178e+00, -6.008212e
 };  ///< Coefficients for \f$ t_{hook}(z) \f$ calculations
 
 // @formatter:on
-
-/**
- * @brief Updates a cache entry
- * @tparam TValue Type of the quantity being computed
- * @tparam TCallable Computing function
- * @param[in, out] i_rCache Current cached value. Updated
- * @param i_Mass Mass
- * @param i_Computer Computing function. Passed by reference as it carries captured data
- * @return Computed value
- * @pre \c TCallable can be called with an argument of type \c Mass and return a value
- */
-template< class TValue, class TCallable >
-auto UpdateCache( std::pair< std::optional< Herd::Generic::Mass >, TValue >& io_rCache, Herd::Generic::Mass i_Mass, const TCallable& i_Computer )
-{
-  static_assert( std::is_invocable_v< TCallable, Herd::Generic::Mass >);
-  static_assert( !std::is_same_v< std::invoke_result<TCallable, Herd::Generic::Mass>, void> );
-
-  auto& [ rKey, rValue ] = io_rCache;
-
-  if( !rKey || *rKey != i_Mass )
-  {
-    rKey = i_Mass;
-    rValue = i_Computer( i_Mass );
-  }
-
-  return rValue;
-}
 }
 
 namespace Herd::SSE
@@ -119,7 +92,7 @@ Herd::Generic::Time TerminalMainSequence::Age( Herd::Generic::Mass i_Mass )
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_Age, i_Mass, [ & ]( auto i_Mass ){ return ComputeAge(i_Mass);} ); // @suppress("Invalid arguments")
+  return Herd::SSE::UpdateCache( m_MDependents.m_Age, i_Mass, [ & ]( auto i_Mass ){ return ComputeAge(i_Mass);} ); // @suppress("Invalid arguments")
       // @formatter:on
 }
 
@@ -134,7 +107,7 @@ Herd::Generic::Luminosity TerminalMainSequence::Luminosity( Herd::Generic::Mass 
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
+  return Herd::SSE::UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
         // @formatter:on
 }
 
@@ -149,7 +122,7 @@ Herd::Generic::Radius TerminalMainSequence::Radius( Herd::Generic::Mass i_Mass )
   Herd::Generic::ThrowIfNotPositive( i_Mass, "i_Mass" );
 
   // @formatter:off
-  return UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
+  return Herd::SSE::UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
         // @formatter:on
 }
 
