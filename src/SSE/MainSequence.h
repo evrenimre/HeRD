@@ -100,9 +100,6 @@ private:
   {
     Herd::Generic::Mass m_EvaluatedAt; ///< Dependents calculated at this value
 
-    Herd::Generic::Luminosity m_LZAMS;  ///< Luminosity at ZAMS
-    Herd::Generic::Radius m_RZAMS; ///< Radius at ZAMS
-
     double m_AlphaL = 0;  ///< \f$ \alpha_L \f$
     double m_BetaL = 0;  ///< \f$ \beta_L \f$
     double m_DeltaL = 0;  ///< \f$ \Delta_L \f$

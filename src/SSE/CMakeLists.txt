@@ -10,7 +10,6 @@ set(HEADER_LIST Constants.h
 								StellarRotation.h
 								StellarWindMassLoss.h
 								TrackPoint.h
-								ZeroAgeMainSequence.h 
 )
 
 set(SOURCE_LIST ConvectiveEnvelope.cpp
@@ -22,7 +21,6 @@ set(SOURCE_LIST ConvectiveEnvelope.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
 								TrackPoint.cpp
-								ZeroAgeMainSequence.cpp
 )
 
 set(PRIVATE_DEPS_LIST Exceptions

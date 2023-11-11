@@ -13,11 +13,11 @@
 #include "TerminalMainSequence.h"
 
 #include "BaseOfGiantBranch.h"
+#include "ZeroAgeMainSequence.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
 #include <SSE/Constants.h>
-#include <SSE/ZeroAgeMainSequence.h>
 
 #include <algorithm>
 #include <cmath>
@@ -261,7 +261,7 @@ Herd::Generic::Radius TerminalMainSequence::ComputeRadius( Herd::Generic::Mass i
     // Eq. 9a
     double num = Herd::SSE::ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
     double den = Herd::SSE::ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
-    Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Compute( i_Mass ).m_Radius;
+    Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( i_Mass );
     return Herd::Generic::Radius( std::max( 1.5 * rZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
   }
 

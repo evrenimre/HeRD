@@ -19,6 +19,7 @@
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
 #include <SSE/Landmarks/ILandmark.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
+#include <SSE/Landmarks/ZeroAgeMainSequence.h>
 #include <UnitTestUtils/RandomTestFixture.h>
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
@@ -33,6 +34,7 @@ namespace
  */
 enum class ELandmarkType
 {
+  e_ZAMS,
   e_TMS,
   e_BGB,
 };
@@ -53,12 +55,15 @@ BOOST_AUTO_TEST_CASE( ValidationTest, *Herd::UnitTestUtils::Labels::s_Compile )
   std::map< ELandmarkType, std::unique_ptr< Herd::SSE::ILandmark > > Landmarks;
 
   // Invalid construction
+  BOOST_CHECK_THROW( Landmarks.emplace( ELandmarkType::e_ZAMS, std::make_unique< Herd::SSE::ZeroAgeMainSequence >( invalidMetallicity ) ),
+      Herd::Exceptions::PreconditionError );
   BOOST_CHECK_THROW( Landmarks.emplace( ELandmarkType::e_TMS, std::make_unique< Herd::SSE::TerminalMainSequence >( invalidMetallicity ) ),
       Herd::Exceptions::PreconditionError );
   BOOST_CHECK_THROW( Landmarks.emplace( ELandmarkType::e_BGB, std::make_unique< Herd::SSE::BaseOfGiantBranch >( invalidMetallicity ) ),
       Herd::Exceptions::PreconditionError );
 
   // Valid construction
+  BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_ZAMS, std::make_unique< Herd::SSE::ZeroAgeMainSequence >( validMetallicity ) ) );
   BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_TMS, std::make_unique< Herd::SSE::TerminalMainSequence >( validMetallicity ) ) );
   BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_BGB, std::make_unique< Herd::SSE::BaseOfGiantBranch >( validMetallicity ) ) );
 

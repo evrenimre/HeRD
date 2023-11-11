@@ -14,18 +14,19 @@
 
 #include "Constants.h"
 #include "EvolutionState.h"
-#include "ZeroAgeMainSequence.h"
 
 #include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
+#include <SSE/Landmarks/ZeroAgeMainSequence.h>
 
 #include <cmath>
 #include <iterator>
 
 #include <boost/math/constants/constants.hpp>
 #include <boost/math/special_functions/pow.hpp>
+
 #include <range/v3/algorithm.hpp>
 
 namespace
@@ -193,36 +194,43 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 
   double tau = effectiveAge / tMS; // Eq. 11.  Progress in MS
 
+  // Luminosity
+
   // Eq. 12
+  Herd::Generic::Luminosity lZAMS = m_ZDependents.m_pZAMSComputer->Luminosity( mass );
   Herd::Generic::Luminosity luminosity;
   if( tau > 0 )
   {
     double term1 = m_MDependents.m_AlphaL * tau;
     double term2 = BXhC( tau, m_MDependents.m_BetaL, m_MDependents.m_Eta );
-    double term3 = ( std::log10( m_ZDependents.m_pTMSComputer->Luminosity( mass ) / m_MDependents.m_LZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL )
+    double term3 = ( std::log10( m_ZDependents.m_pTMSComputer->Luminosity( mass ) / lZAMS ) - m_MDependents.m_AlphaL - m_MDependents.m_BetaL )
         * tau
         * tau;
     double term4 = m_MDependents.m_DeltaL * ( ( tau1 - tau2 ) * ( tau1 + tau2 ) );
-    luminosity.Set( std::pow( 10., term1 + term2 + term3 - term4 ) * m_MDependents.m_LZAMS );
+    luminosity.Set( std::pow( 10., term1 + term2 + term3 - term4 ) * lZAMS );
   } else
   {
-    [[unlikely]] luminosity.Set( m_MDependents.m_LZAMS );
+    [[unlikely]] luminosity.Set( lZAMS );
   }
 
+  // Radius
+
+  // Eq. 13
+  Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( mass );
   Herd::Generic::Radius radius;
   if( tau > 0 )
   {
     double term1 = m_MDependents.m_AlphaR * tau;
     double term2 = m_MDependents.m_BetaR * boost::math::pow< 10 >( tau );
     double term3 = m_MDependents.m_GammaR * boost::math::pow< 40 >( tau );
-    double term4 = ( std::log10( m_ZDependents.m_pTMSComputer->Radius( mass ) / m_MDependents.m_RZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR
+    double term4 = ( std::log10( m_ZDependents.m_pTMSComputer->Radius( mass ) / rZAMS ) - m_MDependents.m_AlphaR - m_MDependents.m_BetaR
         - m_MDependents.m_GammaR )
         * boost::math::pow< 3 >( tau );
     double term5 = m_MDependents.m_DeltaR * ( boost::math::pow< 3 >( tau1 ) - boost::math::pow< 3 >( tau2 ) );
-    radius.Set( std::pow( 10., term1 + term2 + term3 + term4 - term5 ) * m_MDependents.m_RZAMS );
+    radius.Set( std::pow( 10., term1 + term2 + term3 + term4 - term5 ) * rZAMS );
   } else
   {
-    [[unlikely]] radius.Set( m_MDependents.m_RZAMS );
+    [[unlikely]] radius.Set( rZAMS );
   }
 
   // AMUSE.SSE, special case handling for low mass stars
@@ -252,7 +260,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
   io_rState.m_LTMS = m_ZDependents.m_pTMSComputer->Luminosity( mass );
   io_rState.m_RTMS = m_ZDependents.m_pTMSComputer->Radius( mass );
-  io_rState.m_RZAMS = m_MDependents.m_RZAMS;
+  io_rState.m_RZAMS = rZAMS;
 
   io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity( mass );
   io_rState.m_LHeI = m_MDependents.m_LHeI;
@@ -414,11 +422,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
 void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 {
   m_MDependents.m_EvaluatedAt = i_Mass;
-
-  // ZAMS
-  Herd::SSE::TrackPoint zams = m_ZDependents.m_pZAMSComputer->Compute( i_Mass );
-  m_MDependents.m_LZAMS = zams.m_Luminosity;
-  m_MDependents.m_RZAMS = zams.m_Radius;
 
   // Luminosity
   m_MDependents.m_AlphaL = ComputeAlphaL( i_Mass );

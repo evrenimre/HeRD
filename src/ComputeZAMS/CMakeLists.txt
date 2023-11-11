@@ -3,7 +3,8 @@ get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(SOURCE_LIST ComputeZAMS.cpp)
 
 set(PRIVATE_DEPS_LIST Generic
-											SSE
+											Landmarks
+											Physics
 											Boost::boost
 											boost_program_options
 )

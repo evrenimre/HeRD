@@ -11,8 +11,8 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 #include <Generic/Quantity.h>
-#include <SSE/TrackPoint.h>
-#include <SSE/ZeroAgeMainSequence.h>
+#include <Physics/LuminosityRadiusTemperature.h>
+#include <SSE/Landmarks/ZeroAgeMainSequence.h>
 
 #include <iostream>
 
@@ -49,10 +49,9 @@ int main( int argc, char* argv[] )
     Herd::Generic::Metallicity metallicity( argument_map[ "metallicity" ].as< double >() );
 
     Herd::SSE::ZeroAgeMainSequence zams( metallicity );
-    Herd::SSE::TrackPoint zamsPoint = zams.Compute( mass ); // @suppress("Invalid arguments")
-    std::cout << " Luminosity " << zamsPoint.m_Luminosity.Value() << " L_Sun \n";
-    std::cout << " Radius " << zamsPoint.m_Radius.Value() << " R_Sun \n";
-    std::cout << " Temperature " << zamsPoint.m_Temperature.Value() << " K \n";
+    std::cout << " Luminosity " << zams.Luminosity( mass ) << " L_Sun \n";
+    std::cout << " Radius " << zams.Radius( mass ) << " R_Sun \n";
+    std::cout << " Temperature " << Herd::Physics::ComputeAbsoluteTemperature( zams.Luminosity( mass ), zams.Radius( mass ) ) << " K \n";
   }
 
   return 0;

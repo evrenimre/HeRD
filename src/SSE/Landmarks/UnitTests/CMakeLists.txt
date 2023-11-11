@@ -4,8 +4,10 @@ set(SOURCE_LIST TestLandmarks.cpp
 								LandmarkUnitTests.cpp
 )
 
-set(PRIVATE_DEPS_LIST Landmarks
-											SSE	# TODO Remove after ZAMS is migrated to Landmarks
+set(PRIVATE_DEPS_LIST Generic
+											Exceptions
+											Landmarks
+											SSE
 											UnitTestUtils
 											boost_unit_test_framework
 )

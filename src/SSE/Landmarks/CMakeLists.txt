@@ -1,11 +1,12 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(HEADER_LIST BaseOfGiantBranch.h						
 								TerminalMainSequence.h
+								ZeroAgeMainSequence.h 
 )
 
 set(SOURCE_LIST BaseOfGiantBranch.cpp
 								TerminalMainSequence.cpp
-
+								ZeroAgeMainSequence.cpp
 )
 
 set(PRIVATE_DEPS_LIST Generic

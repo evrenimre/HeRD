@@ -12,15 +12,14 @@
 
 #include "ZeroAgeMainSequence.h"
 
-#include "Constants.h"
 #include <Generic/MathHelpers.h>
 #include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
 #include <Physics/LuminosityRadiusTemperature.h>
+#include <SSE/Constants.h>
 
-#include <algorithm>
 #include <cmath>
-#include <cstddef>
+#include <type_traits>
 
 namespace
 {
@@ -46,6 +45,33 @@ const std::array< double, 45 > s_ZR { 1.715359e+00, 6.2246212e-01, -9.2557761e-0
 };  ///< Coefficients for \f$ R_{ZAMS}(z) \f$
 // @formatter:on
 
+/**
+ * @brief Updates a cache entry
+ * @tparam TValue Type of the quantity being computed
+ * @tparam TCallable Computing function
+ * @param[in, out] i_rCache Current cached value. Updated
+ * @param i_Mass Mass
+ * @param i_Computer Computing function. Passed by reference as it carries captured data
+ * @return Computed value
+ * @pre \c TCallable can be called with an argument of type \c Mass and return a value
+ */
+template< class TValue, class TCallable >
+auto UpdateCache( std::pair< std::optional< Herd::Generic::Mass >, TValue >& io_rCache, Herd::Generic::Mass i_Mass, const TCallable& i_Computer )
+{
+  static_assert( std::is_invocable_v< TCallable, Herd::Generic::Mass >);
+  static_assert( !std::is_same_v< std::invoke_result<TCallable, Herd::Generic::Mass>, void> );
+
+  auto& [ rKey, rValue ] = io_rCache;
+
+  if( !rKey || *rKey != i_Mass )
+  {
+    rKey = i_Mass;
+    rValue = i_Computer( i_Mass );
+  }
+
+  return rValue;
+}
+
 }
 
 namespace Herd::SSE
@@ -65,30 +91,46 @@ ZeroAgeMainSequence::ZeroAgeMainSequence( Herd::Generic::Metallicity i_Z )
 }
 
 /**
- * @param i_Mass Mass
- * @return Track point with radius, luminosity and temperature at ZAMS
- * @pre \c i_Mass is within the permissible range
+ * @param i_Mass Mass. Unused
+ * @returns Always 0
+ * @pre \c i_Mass is within the range specified in \c ZeroAgeMainSequenceSpecs
  * @throws PreconditionError If the precondition is violated
  */
-Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass )
+Herd::Generic::Time ZeroAgeMainSequence::Age( [[maybe_unused]] Herd::Generic::Mass i_Mass )
+{
+  // This is only needed to simplify the unit test code, which expects all derived classes of ILandmark to throw at an invalid mass value
+  ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
+
+  return Herd::Generic::Time( 0. );
+}
+
+/**
+ * @param i_Mass Mass
+ * @returns \f$ L_{TMS}\f$
+ * @pre \c i_Mass is within the range specified in \c ZeroAgeMainSequenceSpecs
+ * @throws PreconditionError If the precondition is violated
+ */
+Herd::Generic::Luminosity ZeroAgeMainSequence::Luminosity( Herd::Generic::Mass i_Mass )
 {
   ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
 
-  if( i_Mass != m_MDependents.m_EvaluatedAt )
-  {
-    ComputeMassDependents( i_Mass );
-  }
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_Luminosity, i_Mass, [ & ]( auto i_Mass ){ return ComputeLuminosity(i_Mass);} ); // @suppress("Invalid arguments")
+    // @formatter:on
+}
+  /**
+   * @param i_Mass Mass
+   * @returns \f$ R_{TMS}\f$
+   * @pre \c i_Mass is within the range specified in \c ZeroAgeMainSequenceSpecs
+   * @throws PreconditionError If the precondition is violated
+   */
+Herd::Generic::Radius ZeroAgeMainSequence::Radius( Herd::Generic::Mass i_Mass )
+{
+  ZeroAgeMainSequenceSpecs::s_MassRange.ThrowIfNotInRange( i_Mass, "i_Mass" );  // Mass is within the allowed range
 
-  Herd::SSE::TrackPoint output;
-  output.m_Age.Set( 0 );
-  output.m_Luminosity = m_MDependents.m_LZAMS;
-  output.m_Radius = m_MDependents.m_RZAMS;
-  output.m_Mass = i_Mass;
-  output.m_InitialMetallicity = m_ZDependents.m_EvaluatedAt;
-  output.m_Temperature = m_MDependents.m_TZAMS;
-  output.m_Stage = Herd::SSE::EvolutionStage::e_Undefined;
-
-  return output;
+  // @formatter:off
+  return UpdateCache( m_MDependents.m_Radius, i_Mass, [ & ]( auto i_Mass ){ return ComputeRadius( i_Mass); } ); // @suppress("Invalid arguments")
+    // @formatter:on
 }
 
 /**
@@ -96,8 +138,6 @@ Herd::SSE::TrackPoint ZeroAgeMainSequence::Compute( Herd::Generic::Mass i_Mass )
  */
 void ZeroAgeMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z )
 {
-  m_ZDependents.m_EvaluatedAt = i_Z;
-
   std::array< double, 5 > zetaPowers;
   double logZeta = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
   Herd::SSE::ComputePowers( zetaPowers, logZeta );
@@ -105,16 +145,6 @@ void ZeroAgeMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallici
   // Eq. 3
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LZAMS, s_ZL, zetaPowers );
   Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_RZAMS, s_ZR, zetaPowers );
-}
-
-/**
- * @param i_Mass Mass
- */
-void ZeroAgeMainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
-{
-  m_MDependents.m_LZAMS = ComputeLuminosity( i_Mass );
-  m_MDependents.m_RZAMS = ComputeRadius( i_Mass );
-  m_MDependents.m_TZAMS = Herd::Physics::ComputeAbsoluteTemperature( m_MDependents.m_LZAMS, m_MDependents.m_RZAMS );
 }
 
 /**
@@ -180,6 +210,5 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
 
   return Herd::Generic::Radius( num / den );
 }
-
 } // namespace Herd::SSE
 
