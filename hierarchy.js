@@ -14,7 +14,8 @@ var hierarchy =
     [ "Herd::SSE::GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", null ],
     [ "Herd::SSE::ILandmark", "classHerd_1_1SSE_1_1ILandmark.html", [
       [ "Herd::SSE::BaseOfGiantBranch", "classHerd_1_1SSE_1_1BaseOfGiantBranch.html", null ],
-      [ "Herd::SSE::TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", null ]
+      [ "Herd::SSE::TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", null ],
+      [ "Herd::SSE::ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", null ]
     ] ],
     [ "Herd::SSE::ConvectiveEnvelope::InitialMassDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html", null ],
     [ "Herd::SSE::IPhase", "classHerd_1_1SSE_1_1IPhase.html", [
@@ -39,6 +40,5 @@ var hierarchy =
     [ "Herd::SSE::StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", null ],
     [ "Herd::SSE::StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", null ],
     [ "Herd::SSE::TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", null ],
-    [ "Herd::SSE::ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", null ]
 ];

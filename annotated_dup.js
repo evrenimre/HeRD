@@ -24,14 +24,14 @@ var annotated_dup =
         [ "BaseOfGiantBranch", "classHerd_1_1SSE_1_1BaseOfGiantBranch.html", "classHerd_1_1SSE_1_1BaseOfGiantBranch" ],
         [ "ILandmark", "classHerd_1_1SSE_1_1ILandmark.html", "classHerd_1_1SSE_1_1ILandmark" ],
         [ "TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", "classHerd_1_1SSE_1_1TerminalMainSequence" ],
+        [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
+        [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ],
         [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],
         [ "SingleStarEvolutuion", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html", "classHerd_1_1SSE_1_1SingleStarEvolutuion" ],
         [ "SingleStarEvolutuionSpecs", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs" ],
         [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],
         [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ],
-        [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ],
-        [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
-        [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ]
+        [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ]
       ] ],
       [ "UnitTestUtils", "namespaceHerd_1_1UnitTestUtils.html", [
         [ "DataLoaderFixture", "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html", "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture" ],

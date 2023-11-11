@@ -12,14 +12,14 @@ var namespaceHerd_1_1SSE =
     [ "BaseOfGiantBranch", "classHerd_1_1SSE_1_1BaseOfGiantBranch.html", "classHerd_1_1SSE_1_1BaseOfGiantBranch" ],
     [ "ILandmark", "classHerd_1_1SSE_1_1ILandmark.html", "classHerd_1_1SSE_1_1ILandmark" ],
     [ "TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", "classHerd_1_1SSE_1_1TerminalMainSequence" ],
+    [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
+    [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ],
     [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],
     [ "SingleStarEvolutuion", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html", "classHerd_1_1SSE_1_1SingleStarEvolutuion" ],
     [ "SingleStarEvolutuionSpecs", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs" ],
     [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],
     [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ],
     [ "TrackPoint", "structHerd_1_1SSE_1_1TrackPoint.html", "structHerd_1_1SSE_1_1TrackPoint" ],
-    [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
-    [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ],
     [ "EvolutionStage", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583ae", [
       [ "e_MSLM", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aeabf9082c73339ab99e365d5f3cb7896fa", null ],
       [ "e_MS", "namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583aeab7aa810934861fa6d70c01f8a4cb5fe9", null ],
@@ -53,6 +53,7 @@ var namespaceHerd_1_1SSE =
     [ "IsRemnant", "namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d", null ],
     [ "MultiplyMatrixVector", "namespaceHerd_1_1SSE.html#ae008f591df2b91795c1df6b4f8928aca", null ],
     [ "StringToEvolutionStage", "namespaceHerd_1_1SSE.html#a835bcc940a0d81431be1314348854fef", null ],
+    [ "UpdateCache", "namespaceHerd_1_1SSE.html#a140a2da121c5125da9de86dec494280e", null ],
     [ "ValidateEvolutionState", "namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb", null ],
     [ "ValidateTrackPoint", "namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57", null ]
 ];

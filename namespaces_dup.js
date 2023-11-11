@@ -25,6 +25,5 @@ var namespaces_dup =
       [ "_evolution_stages", "namespaceSSEHelpers.html#a77b045ae9ef941fcbf0efc7d39cfb220", null ],
       [ "_track_point_tag", "namespaceSSEHelpers.html#ae6b324dffb2787bf87037bdebe721d34", null ],
       [ "_track_tag", "namespaceSSEHelpers.html#a61d2c8e6a51bd3a9e729c8b62a358378", null ]
-    ] ],
-    [ "ZAMSExtractorMIST", "namespaceZAMSExtractorMIST.html", null ]
+    ] ]
 ];

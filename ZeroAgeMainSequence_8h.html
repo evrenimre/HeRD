@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HeRD: src/SSE/ZeroAgeMainSequence.h File Reference</title>
+<title>HeRD: src/SSE/Landmarks/ZeroAgeMainSequence.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,39 +97,42 @@ $(document).ready(function(){initNavTree('ZeroAgeMainSequence_8h.html',''); init
 <div class="title">ZeroAgeMainSequence.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="TrackPoint_8h_source.html">TrackPoint.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="ILandmark_8h_source.html">ILandmark.h</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="Quantity_8h_source.html">Generic/Quantity.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="QuantityRange_8h_source.html">Generic/QuantityRange.h</a>&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ZeroAgeMainSequence.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="ZeroAgeMainSequence_8h__incl.png" border="0" usemap="#asrc_2SSE_2ZeroAgeMainSequence_8h" alt=""/></div>
-<map name="asrc_2SSE_2ZeroAgeMainSequence_8h" id="asrc_2SSE_2ZeroAgeMainSequence_8h">
-<area shape="rect" title=" " alt="" coords="103,5,337,32"/>
-<area shape="rect" href="TrackPoint_8h.html" title=" " alt="" coords="125,80,227,107"/>
-<area shape="rect" title=" " alt="" coords="5,244,61,271"/>
-<area shape="rect" href="Quantity_8h.html" title=" " alt="" coords="193,162,335,189"/>
-<area shape="rect" href="QuantityRange_8h.html" title=" " alt="" coords="317,80,502,107"/>
-<area shape="rect" href="EvolutionStage_8h.html" title=" " alt="" coords="37,162,169,189"/>
-<area shape="rect" title=" " alt="" coords="224,244,283,271"/>
-<area shape="rect" title=" " alt="" coords="121,244,199,271"/>
-<area shape="rect" href="ExceptionWrappers_8h.html" title=" " alt="" coords="307,244,541,271"/>
-<area shape="rect" title=" " alt="" coords="461,162,536,189"/>
-<area shape="rect" title=" " alt="" coords="560,155,712,196"/>
+<div class="center"><img src="ZeroAgeMainSequence_8h__incl.png" border="0" usemap="#asrc_2SSE_2Landmarks_2ZeroAgeMainSequence_8h" alt=""/></div>
+<map name="asrc_2SSE_2Landmarks_2ZeroAgeMainSequence_8h" id="asrc_2SSE_2Landmarks_2ZeroAgeMainSequence_8h">
+<area shape="rect" title=" " alt="" coords="271,5,475,47"/>
+<area shape="rect" href="ILandmark_8h.html" title=" " alt="" coords="29,95,132,121"/>
+<area shape="rect" href="Quantity_8h.html" title=" " alt="" coords="45,177,188,203"/>
+<area shape="rect" href="QuantityRange_8h.html" title=" " alt="" coords="208,95,393,121"/>
+<area shape="rect" title=" " alt="" coords="418,95,474,121"/>
+<area shape="rect" title=" " alt="" coords="498,95,573,121"/>
+<area shape="rect" title=" " alt="" coords="597,95,657,121"/>
+<area shape="rect" title=" " alt="" coords="5,259,84,285"/>
+<area shape="rect" href="ExceptionWrappers_8h.html" title=" " alt="" coords="109,259,343,285"/>
+<area shape="rect" title=" " alt="" coords="263,177,338,203"/>
+<area shape="rect" title=" " alt="" coords="362,177,421,203"/>
+<area shape="rect" title=" " alt="" coords="445,169,597,211"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="ZeroAgeMainSequence_8h__dep__incl.png" border="0" usemap="#asrc_2SSE_2ZeroAgeMainSequence_8hdep" alt=""/></div>
-<map name="asrc_2SSE_2ZeroAgeMainSequence_8hdep" id="asrc_2SSE_2ZeroAgeMainSequence_8hdep">
-<area shape="rect" title=" " alt="" coords="510,5,745,32"/>
-<area shape="rect" href="ComputeZAMS_8cpp.html" title=" " alt="" coords="5,87,276,114"/>
-<area shape="rect" href="TerminalMainSequence_8cpp.html" title=" " alt="" coords="301,80,506,121"/>
-<area shape="rect" href="MainSequence_8cpp.html" title=" " alt="" coords="530,87,725,114"/>
-<area shape="rect" href="ZeroAgeMainSequenceUnitTests_8cpp.html" title=" " alt="" coords="749,80,953,121"/>
-<area shape="rect" href="ZeroAgeMainSequence_8cpp.html" title=" " alt="" coords="978,87,1229,114"/>
+<div class="center"><img src="ZeroAgeMainSequence_8h__dep__incl.png" border="0" usemap="#asrc_2SSE_2Landmarks_2ZeroAgeMainSequence_8hdep" alt=""/></div>
+<map name="asrc_2SSE_2Landmarks_2ZeroAgeMainSequence_8hdep" id="asrc_2SSE_2Landmarks_2ZeroAgeMainSequence_8hdep">
+<area shape="rect" title=" " alt="" coords="533,5,737,47"/>
+<area shape="rect" href="ComputeZAMS_8cpp.html" title=" " alt="" coords="5,102,276,129"/>
+<area shape="rect" href="TerminalMainSequence_8cpp.html" title=" " alt="" coords="301,95,506,136"/>
+<area shape="rect" href="LandmarkUnitTests_8cpp.html" title=" " alt="" coords="531,95,740,136"/>
+<area shape="rect" href="ZeroAgeMainSequence_8cpp.html" title=" " alt="" coords="764,95,968,136"/>
+<area shape="rect" href="MainSequence_8cpp.html" title=" " alt="" coords="993,102,1187,129"/>
 </map>
 </div>
 </div>
@@ -141,10 +144,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the track point at ZAMS <b>[Tout96]</b>.  <a href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html">Herd::SSE::ZeroAgeMainSequence::MetallicityDependents</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various quantities and values that depend on metallicity only.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various quantities and values that depend on the metallicity only.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html">Herd::SSE::ZeroAgeMainSequence::MassDependents</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various quantities and values that depend on mass and metallicity.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various quantities and values that depend on mass.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html">Herd::SSE::ZeroAgeMainSequenceSpecs</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the track point at ZAMS .">ZeroAgeMainSequence</a>.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#details">More...</a><br /></td></tr>
@@ -166,7 +169,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a7e8d45762b6eccc936283eff74a9bb5.html">SSE</a></li><li class="navelem"><a class="el" href="ZeroAgeMainSequence_8h.html">ZeroAgeMainSequence.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a7e8d45762b6eccc936283eff74a9bb5.html">SSE</a></li><li class="navelem"><a class="el" href="dir_2e59b15193eccb9e79c0e20bff0999d3.html">Landmarks</a></li><li class="navelem"><a class="el" href="ZeroAgeMainSequence_8h.html">ZeroAgeMainSequence.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

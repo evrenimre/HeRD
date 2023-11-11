@@ -12,6 +12,5 @@ var dir_9b0048d3176e15ec70c0572370a56736 =
     [ "StellarRotationUnitTests.cpp", "StellarRotationUnitTests_8cpp.html", "StellarRotationUnitTests_8cpp" ],
     [ "StellarWindMassLossUnitTests.cpp", "StellarWindMassLossUnitTests_8cpp.html", "StellarWindMassLossUnitTests_8cpp" ],
     [ "TestSSE.cpp", "TestSSE_8cpp.html", "TestSSE_8cpp" ],
-    [ "TrackPointUnitTests.cpp", "TrackPointUnitTests_8cpp.html", "TrackPointUnitTests_8cpp" ],
-    [ "ZeroAgeMainSequenceUnitTests.cpp", "ZeroAgeMainSequenceUnitTests_8cpp.html", "ZeroAgeMainSequenceUnitTests_8cpp" ]
+    [ "TrackPointUnitTests.cpp", "TrackPointUnitTests_8cpp.html", "TrackPointUnitTests_8cpp" ]
 ];

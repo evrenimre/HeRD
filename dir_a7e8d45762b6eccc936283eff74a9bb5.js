@@ -41,12 +41,5 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
       [ "StellarWindMassLoss", "classHerd_1_1SSE_1_1StellarWindMassLoss.html", "classHerd_1_1SSE_1_1StellarWindMassLoss" ]
     ] ],
     [ "TrackPoint.cpp", "TrackPoint_8cpp.html", "TrackPoint_8cpp" ],
-    [ "TrackPoint.h", "TrackPoint_8h.html", "TrackPoint_8h" ],
-    [ "ZeroAgeMainSequence.cpp", "ZeroAgeMainSequence_8cpp.html", null ],
-    [ "ZeroAgeMainSequence.h", "ZeroAgeMainSequence_8h.html", [
-      [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
-      [ "MetallicityDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents" ],
-      [ "MassDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents" ],
-      [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ]
-    ] ]
+    [ "TrackPoint.h", "TrackPoint_8h.html", "TrackPoint_8h" ]
 ];

@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['initialiseatnsorbh_604',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
-  ['initialiseatzams_605',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
-  ['initialiselazy_606',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
-  ['isagb_607',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
-  ['ishestar_608',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
-  ['ismatchingfile_609',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
-  ['isms_610',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
-  ['isprefgb_611',['IsPreFGB',['../namespaceHerd_1_1SSE.html#a8da140201274ce0398b6174c56500ceb',1,'Herd::SSE']]],
-  ['isremnant_612',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
+  ['initialiseatnsorbh_597',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
+  ['initialiseatzams_598',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
+  ['initialiselazy_599',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['isagb_600',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
+  ['ishestar_601',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
+  ['ismatchingfile_602',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
+  ['isms_603',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
+  ['isprefgb_604',['IsPreFGB',['../namespaceHerd_1_1SSE.html#a8da140201274ce0398b6174c56500ceb',1,'Herd::SSE']]],
+  ['isremnant_605',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
 ];

@@ -130,6 +130,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1TerminalMainSequence.html">TerminalMainSequence</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the characteristic values at terminal main sequence.  <a href="classHerd_1_1SSE_1_1TerminalMainSequence.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html">ZeroAgeMainSequence</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the track point at ZAMS <b>[Tout96]</b>.  <a href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html">ZeroAgeMainSequenceSpecs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the track point at ZAMS .">ZeroAgeMainSequence</a>.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html">MainSequence</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main sequence evolution <b>[Hurley00]</b>.  <a href="classHerd_1_1SSE_1_1MainSequence.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,12 +153,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">TrackPoint</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a track point in an evolutionary track.  <a href="structHerd_1_1SSE_1_1TrackPoint.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html">ZeroAgeMainSequence</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the track point at ZAMS <b>[Tout96]</b>.  <a href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html">ZeroAgeMainSequenceSpecs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm specs for <a class="el" href="classHerd_1_1SSE_1_1ZeroAgeMainSequence.html" title="Computes the track point at ZAMS .">ZeroAgeMainSequence</a>.  <a href="structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -234,6 +234,10 @@ Functions</h2></td></tr>
 <tr class="memitem:af219527b0931e81376815a95f9e89ffb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb">ValidateEvolutionState</a> (const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">EvolutionState</a> &amp;i_rState)</td></tr>
 <tr class="memdesc:af219527b0931e81376815a95f9e89ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates an evolution state.  <a href="namespaceHerd_1_1SSE.html#af219527b0931e81376815a95f9e89ffb">More...</a><br /></td></tr>
 <tr class="separator:af219527b0931e81376815a95f9e89ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a140a2da121c5125da9de86dec494280e"><td class="memTemplParams" colspan="2">template&lt;class TValue , class TCallable &gt; </td></tr>
+<tr class="memitem:a140a2da121c5125da9de86dec494280e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a140a2da121c5125da9de86dec494280e">UpdateCache</a> (std::pair&lt; std::optional&lt; <a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a> &gt;, TValue &gt; &amp;io_rCache, <a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a> i_Mass, const TCallable &amp;i_Computer)</td></tr>
+<tr class="memdesc:a140a2da121c5125da9de86dec494280e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a cache entry.  <a href="namespaceHerd_1_1SSE.html#a140a2da121c5125da9de86dec494280e">More...</a><br /></td></tr>
+<tr class="separator:a140a2da121c5125da9de86dec494280e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee0ae21ef79bc2ddd789769bbea6b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57">ValidateTrackPoint</a> (const <a class="el" href="structHerd_1_1SSE_1_1TrackPoint.html">TrackPoint</a> &amp;i_rTrackPoint)</td></tr>
 <tr class="memdesc:a9ee0ae21ef79bc2ddd789769bbea6b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a track point.  <a href="namespaceHerd_1_1SSE.html#a9ee0ae21ef79bc2ddd789769bbea6b57">More...</a><br /></td></tr>
 <tr class="separator:a9ee0ae21ef79bc2ddd789769bbea6b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -779,6 +783,61 @@ template&lt;std::size_t Size, std::size_t Row, std::size_t Column&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a140a2da121c5125da9de86dec494280e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a140a2da121c5125da9de86dec494280e">&#9670;&nbsp;</a></span>UpdateCache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TValue , class TCallable &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Herd::SSE::UpdateCache </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; std::optional&lt; <a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a> &gt;, TValue &gt; &amp;&#160;</td>
+          <td class="paramname"><em>io_rCache</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceHerd_1_1Generic.html#adee8ce5b82ce482574389fb32b355ae8">Herd::Generic::Mass</a>&#160;</td>
+          <td class="paramname"><em>i_Mass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TCallable &amp;&#160;</td>
+          <td class="paramname"><em>i_Computer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates a cache entry. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TValue</td><td>Type of the quantity being computed </td></tr>
+    <tr><td class="paramname">TCallable</td><td>Computing function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">i_rCache</td><td>Current cached value. Updated </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">i_Mass</td><td>Mass </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">i_Computer</td><td>Computing function. Passed by reference as it carries captured data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Computed value </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>TCallable</code> can be called with an argument of type <code>Mass</code> and return a value </dd></dl>
 
 </div>
 </div>
