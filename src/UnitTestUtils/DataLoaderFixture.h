@@ -33,9 +33,6 @@ public:
 
   DataLoaderFixture();  ///< Constructor
 
-  // File operations
-  boost::property_tree::ptree ReadAsXML() const; ///< Reads DataLoaderFixture::m_DataPath as an XML file into a property tree
-
   // Directory operations
   boost::property_tree::ptree ReadAsXML( const std::string& i_rRegex, std::size_t i_Index ); ///< Among the files in DataLoaderFixture::m_DataDir that satisfy the regex, reads the one indicated by the index into a property tree
   std::unordered_map< std::string, boost::property_tree::ptree > ReadAsXML( const std::string& i_rRegex ) const; ///< Reads each file in DataLoaderFixture::m_DataDir matching the regex into a property tree
@@ -46,10 +43,8 @@ private:
   static boost::property_tree::ptree ReadAsXML( const std::filesystem::path& i_Path );  ///< Reads an XML file to a property tree
   static bool IsMatchingFile( const std::filesystem::directory_entry& i_rEntry, const std::regex& i_rRegex ); ///< Checks whether a path is a regular file with a name having a substring that matches the regex
 
-  std::filesystem::path m_DataPath; ///< Value of the command line argument DataLoaderFixture::s_DataArgumentName
   std::filesystem::path m_DataDir; ///< Value of the command line argument DataLoaderFixture::s_DataDirArgumentName
 
-  inline static const std::string s_DataPathArgumentName = "--data-path";  ///< Command line argument for the test data file
   inline static const std::string s_DataDirArgumentName = "--data-dir";  ///< Command line argument for the test data dir
 };
 }

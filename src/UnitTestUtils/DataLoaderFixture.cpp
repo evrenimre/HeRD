@@ -32,35 +32,14 @@ namespace Herd::UnitTestUtils
 
 DataLoaderFixture::DataLoaderFixture()
 {
-  std::optional< std::string > dataPath = Herd::UnitTestUtils::GetCommandLineArgument( s_DataPathArgumentName );
-  if( dataPath )
-  {
-    m_DataPath = *dataPath;
-    BOOST_TEST_REQUIRE( std::filesystem::exists( m_DataPath ), "Does not exist: " + *dataPath );
-    BOOST_TEST_REQUIRE( std::filesystem::is_regular_file( m_DataPath ), "Not a file: " + *dataPath );
-  }
 
   std::optional< std::string > dataDir = Herd::UnitTestUtils::GetCommandLineArgument( s_DataDirArgumentName );
   if( dataDir )
   {
     m_DataDir = *dataDir;
-    BOOST_TEST_REQUIRE( std::filesystem::exists( m_DataDir ), "Does not exist: " + *dataPath );
-    BOOST_TEST_REQUIRE( std::filesystem::is_directory( m_DataDir ), "Not a file: " + *dataPath );
+    BOOST_TEST_REQUIRE( std::filesystem::exists( m_DataDir ), "Does not exist: " + *dataDir );
+    BOOST_TEST_REQUIRE( std::filesystem::is_directory( m_DataDir ), "Not a directory: " + *dataDir );
   }
-}
-
-/**
- * @return Data as a property tree
- * @remarks The test framework will bail if the operation cannot be completed
- */
-boost::property_tree::ptree DataLoaderFixture::ReadAsXML() const
-{
-  if( m_DataPath.empty() )
-  {
-    BOOST_TEST_REQUIRE( false, "No filename was specified. Missing command line argument " + s_DataPathArgumentName + "?" );
-  }
-  
-  return ReadAsXML( m_DataPath );
 }
 
 /**

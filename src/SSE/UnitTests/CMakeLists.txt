@@ -9,7 +9,6 @@ set(SOURCE_LIST TestSSE.cpp
 								SSETestUtils.cpp
 								StellarWindMassLossUnitTests.cpp
 								TrackPointUnitTests.cpp
-							  ZeroAgeMainSequenceUnitTests.cpp
 )
 
 set(PRIVATE_DEPS_LIST Generic
@@ -28,4 +27,4 @@ herd_add_executable(TARGET ${TEST_TARGET_NAME} SOURCES ${SOURCE_LIST}
 set(TEST_DATA_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Data/ZAMS.trackpoints.xml")
 set(TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Data/EvolutionaryTracks")
 
-add_test(NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} ${TEST_LABEL_ARG} -- --data-path=${TEST_DATA_PATH} --data-dir=${TEST_DATA_DIR})
+add_test(NAME ${TARGET_NAME} COMMAND ${TEST_TARGET_NAME} ${TEST_LABEL_ARG} -- --data-dir=${TEST_DATA_DIR})
