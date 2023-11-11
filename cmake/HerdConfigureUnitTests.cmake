@@ -35,6 +35,7 @@ endif()
 # Unit tests are automatically run after all targets in this list are built
 set(TEST_TARGETS TestExceptions
 								 TestGeneric
+								 TestLandmarks
 								 TestPhysics
 								 TestSSE 
 								 TestUnitTestUtils 														
