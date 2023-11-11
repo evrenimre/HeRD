@@ -12,7 +12,9 @@ set(SOURCE_LIST TestSSE.cpp
 							  ZeroAgeMainSequenceUnitTests.cpp
 )
 
-set(PRIVATE_DEPS_LIST SSE
+set(PRIVATE_DEPS_LIST Generic
+											Exceptions
+											SSE
 											UnitTestUtils
 											boost_unit_test_framework
 											Boost::boost

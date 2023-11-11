@@ -4,7 +4,9 @@ set(SOURCE_LIST TestPhysics.cpp
 								LuminosityRadiusTemperatureUnitTests.cpp
 )
 
-set(PRIVATE_DEPS_LIST Physics
+set(PRIVATE_DEPS_LIST Generic
+											Exceptions
+											Physics
 											UnitTestUtils
 											boost_unit_test_framework
 											Boost::boost
