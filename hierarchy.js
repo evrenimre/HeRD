@@ -14,6 +14,7 @@ var hierarchy =
     [ "Herd::SSE::GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", null ],
     [ "Herd::SSE::ILandmark", "classHerd_1_1SSE_1_1ILandmark.html", [
       [ "Herd::SSE::BaseOfGiantBranch", "classHerd_1_1SSE_1_1BaseOfGiantBranch.html", null ],
+      [ "Herd::SSE::HeliumIgnition", "classHerd_1_1SSE_1_1HeliumIgnition.html", null ],
       [ "Herd::SSE::TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", null ],
       [ "Herd::SSE::ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", null ]
     ] ],
@@ -23,10 +24,12 @@ var hierarchy =
     ] ],
     [ "Herd::Physics::LuminosityRadiusTemperature", "classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html", null ],
     [ "Herd::SSE::BaseOfGiantBranch::MassDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html", null ],
+    [ "Herd::SSE::HeliumIgnition::MassDependents", "structHerd_1_1SSE_1_1HeliumIgnition_1_1MassDependents.html", null ],
     [ "Herd::SSE::MainSequence::MassDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html", null ],
     [ "Herd::SSE::TerminalMainSequence::MassDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequence::MassDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html", null ],
     [ "Herd::SSE::BaseOfGiantBranch::MetallicityDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html", null ],
+    [ "Herd::SSE::HeliumIgnition::MetallicityDependents", "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html", null ],
     [ "Herd::SSE::MainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html", null ],
     [ "Herd::SSE::TerminalMainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MetallicityDependents.html", null ],

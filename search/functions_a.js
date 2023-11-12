@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['parsecommandlinearguments_621',['ParseCommandLineArguments',['../namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582',1,'Herd::UnitTestUtils']]],
-  ['populatetrackpoints_622',['PopulateTrackPoints',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#aab156c0c55619746be1a24879ca2471d',1,'Herd::SSE::UnitTests::SSETestDataManager']]],
-  ['preconditionerror_623',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html#a8d431cb3b9ed9b7f7dbf394bf64fb2e4',1,'Herd::Exceptions::PreconditionError::PreconditionError(const std::string &amp;i_rElement, const std::string &amp;i_rExpected, const std::string &amp;i_rActual)'],['../classHerd_1_1Exceptions_1_1PreconditionError.html#a00189bad64a7c4cf5c7b1828f3a663bc',1,'Herd::Exceptions::PreconditionError::PreconditionError(const char *i_pElement, const char *i_pExpected, T i_Actual)']]]
+  ['operator_20double_622',['operator double',['../classHerd_1_1Generic_1_1Quantity.html#adce932ee62a5006c15a8cdc7ec281ac5',1,'Herd::Generic::Quantity']]],
+  ['operator_2a_3d_623',['operator*=',['../classHerd_1_1Generic_1_1Quantity.html#ace9c07d4f2a4543edbc702d5dc8405bd',1,'Herd::Generic::Quantity']]],
+  ['operator_2b_3d_624',['operator+=',['../classHerd_1_1Generic_1_1Quantity.html#a820e201c377dbbb35693ac0bc55c5327',1,'Herd::Generic::Quantity']]],
+  ['operator_2d_3d_625',['operator-=',['../classHerd_1_1Generic_1_1Quantity.html#a13da026aa492fab7c751c1f53447c03a',1,'Herd::Generic::Quantity']]],
+  ['operator_2f_3d_626',['operator/=',['../classHerd_1_1Generic_1_1Quantity.html#ad9f48a0865ed83c5f7c1b4eba94df83c',1,'Herd::Generic::Quantity']]],
+  ['operator_3c_3d_3e_627',['operator&lt;=&gt;',['../classHerd_1_1Generic_1_1Quantity.html#ab47021408279a726d5bf304abc28397b',1,'Herd::Generic::Quantity']]],
+  ['operator_3d_3d_628',['operator==',['../classHerd_1_1Generic_1_1Quantity.html#ac0edbe5a8677bf576ed74f889d46cd11',1,'Herd::Generic::Quantity']]]
 ];

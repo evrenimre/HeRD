@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['load_5fsse_5ftrack_606',['load_sse_track',['../namespaceSSEHelpers.html#a8195249208854f4d185549fe05e52dee',1,'SSEHelpers']]],
-  ['lower_607',['Lower',['../classHerd_1_1Generic_1_1QuantityRange.html#a62e774ba344406d14542f581578256ff',1,'Herd::Generic::QuantityRange']]],
-  ['luminosity_608',['Luminosity',['../classHerd_1_1SSE_1_1BaseOfGiantBranch.html#aed2b05b5b8b211c3f491b87e262c1e5f',1,'Herd::SSE::BaseOfGiantBranch::Luminosity()'],['../classHerd_1_1SSE_1_1ILandmark.html#aea53bdd98a87e33acb20fcc7cf3c9ac6',1,'Herd::SSE::ILandmark::Luminosity()'],['../classHerd_1_1SSE_1_1TerminalMainSequence.html#ad1e45549d9484ebbcb66486c7fe13f88',1,'Herd::SSE::TerminalMainSequence::Luminosity()'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a703fcfd3c10cf7daa84d6c4be41f9052',1,'Herd::SSE::ZeroAgeMainSequence::Luminosity()']]]
+  ['initialiseatnsorbh_605',['InitialiseAtNSOrBH',['../classHerd_1_1SSE_1_1StellarRotation.html#a6ecbb12584f5ff648fbaf277d235ab7d',1,'Herd::SSE::StellarRotation']]],
+  ['initialiseatzams_606',['InitialiseAtZAMS',['../classHerd_1_1SSE_1_1StellarRotation.html#aec86d2dda1c71519badeb8d8e4ab34e4',1,'Herd::SSE::StellarRotation']]],
+  ['initialiselazy_607',['InitialiseLazy',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#adad75810103b112834259fa709aba0a5',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['isagb_608',['IsAGB',['../namespaceHerd_1_1SSE.html#a4b1c6b74f16e1e3affa1df36dca80b79',1,'Herd::SSE']]],
+  ['ishestar_609',['IsHeStar',['../namespaceHerd_1_1SSE.html#a5e16e045b62428235960373056b9ebc6',1,'Herd::SSE']]],
+  ['ismatchingfile_610',['IsMatchingFile',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03',1,'Herd::UnitTestUtils::DataLoaderFixture']]],
+  ['isms_611',['IsMS',['../namespaceHerd_1_1SSE.html#a898168595caece7ff07acd89c110a3d1',1,'Herd::SSE']]],
+  ['isprefgb_612',['IsPreFGB',['../namespaceHerd_1_1SSE.html#a8da140201274ce0398b6174c56500ceb',1,'Herd::SSE']]],
+  ['isremnant_613',['IsRemnant',['../namespaceHerd_1_1SSE.html#ac3164dcca8e7e33d7494c1f06f81ee2d',1,'Herd::SSE']]]
 ];

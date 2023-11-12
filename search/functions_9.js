@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['operator_20double_614',['operator double',['../classHerd_1_1Generic_1_1Quantity.html#adce932ee62a5006c15a8cdc7ec281ac5',1,'Herd::Generic::Quantity']]],
-  ['operator_2a_3d_615',['operator*=',['../classHerd_1_1Generic_1_1Quantity.html#ace9c07d4f2a4543edbc702d5dc8405bd',1,'Herd::Generic::Quantity']]],
-  ['operator_2b_3d_616',['operator+=',['../classHerd_1_1Generic_1_1Quantity.html#a820e201c377dbbb35693ac0bc55c5327',1,'Herd::Generic::Quantity']]],
-  ['operator_2d_3d_617',['operator-=',['../classHerd_1_1Generic_1_1Quantity.html#a13da026aa492fab7c751c1f53447c03a',1,'Herd::Generic::Quantity']]],
-  ['operator_2f_3d_618',['operator/=',['../classHerd_1_1Generic_1_1Quantity.html#ad9f48a0865ed83c5f7c1b4eba94df83c',1,'Herd::Generic::Quantity']]],
-  ['operator_3c_3d_3e_619',['operator&lt;=&gt;',['../classHerd_1_1Generic_1_1Quantity.html#ab47021408279a726d5bf304abc28397b',1,'Herd::Generic::Quantity']]],
-  ['operator_3d_3d_620',['operator==',['../classHerd_1_1Generic_1_1Quantity.html#ac0edbe5a8677bf576ed74f889d46cd11',1,'Herd::Generic::Quantity']]]
+  ['main_617',['main',['../ComputeZAMS_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'ComputeZAMS.cpp']]],
+  ['mainsequence_618',['MainSequence',['../classHerd_1_1SSE_1_1MainSequence.html#aef10f430a10602714ac6f0d767ecb8b8',1,'Herd::SSE::MainSequence']]],
+  ['makerange_619',['MakeRange',['../namespaceHerd_1_1Generic_1_1Detail.html#a7086fbbf296196a5bb1d9287b7da2867',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::OpenRangeTag *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a2d6586fbf3f0b395ea63fedda0decf63',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::LeftOpenRangeTag *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a5423889693e3cc05d516ee3422a0b298',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::RightOpenRangeTag *)'],['../namespaceHerd_1_1Generic_1_1Detail.html#a2b491edb88458ae29802407ac3a1ac24',1,'Herd::Generic::Detail::MakeRange(double i_Min, double i_Max, Detail::ClosedRangeTag *)']]],
+  ['maketrackpoint_620',['MakeTrackPoint',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#ac252a6d17bef266a618205db21657140',1,'Herd::SSE::UnitTests::SSETestDataManager::MakeTrackPoint(std::size_t i_Index, const std::optional&lt; Herd::Generic::Metallicity &gt; &amp;i_rZo=std::nullopt) const'],['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a17cd5d6a925357d33c9ed7c3eeac1e6f',1,'Herd::SSE::UnitTests::SSETestDataManager::MakeTrackPoint(const boost::property_tree::ptree &amp;i_rNode, const std::optional&lt; Herd::Generic::Metallicity &gt; &amp;i_rZo=std::nullopt) const']]],
+  ['multiplymatrixvector_621',['MultiplyMatrixVector',['../namespaceHerd_1_1SSE.html#ae008f591df2b91795c1df6b4f8928aca',1,'Herd::SSE']]]
 ];

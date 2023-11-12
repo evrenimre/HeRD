@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zeroagemainsequence_661',['ZeroAgeMainSequence',['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#a764871ce794fb505ae1144c4ea8e1bd5',1,'Herd::SSE::ZeroAgeMainSequence']]]
+  ['what_668',['what',['../classHerd_1_1Exceptions_1_1Exception.html#a9acf51007f84f83d960a8b6054e8b149',1,'Herd::Exceptions::Exception']]]
 ];

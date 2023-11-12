@@ -10,6 +10,7 @@ var namespaceHerd_1_1SSE =
     [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ],
     [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ],
     [ "BaseOfGiantBranch", "classHerd_1_1SSE_1_1BaseOfGiantBranch.html", "classHerd_1_1SSE_1_1BaseOfGiantBranch" ],
+    [ "HeliumIgnition", "classHerd_1_1SSE_1_1HeliumIgnition.html", "classHerd_1_1SSE_1_1HeliumIgnition" ],
     [ "ILandmark", "classHerd_1_1SSE_1_1ILandmark.html", "classHerd_1_1SSE_1_1ILandmark" ],
     [ "TerminalMainSequence", "classHerd_1_1SSE_1_1TerminalMainSequence.html", "classHerd_1_1SSE_1_1TerminalMainSequence" ],
     [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],

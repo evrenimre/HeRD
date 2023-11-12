@@ -9,7 +9,6 @@ var classHerd_1_1SSE_1_1MainSequence =
     [ "ComputeBetaL", "classHerd_1_1SSE_1_1MainSequence.html#ae1156e629e8f16e649d00dbd5b0b56cf", null ],
     [ "ComputeBetaR", "classHerd_1_1SSE_1_1MainSequence.html#abab79e07ae84cee0dab96f572be73c12", null ],
     [ "ComputeGammaR", "classHerd_1_1SSE_1_1MainSequence.html#a0dc1f4743b58de29cf39c67a8524baaa", null ],
-    [ "ComputeLHeI", "classHerd_1_1SSE_1_1MainSequence.html#a7997baee741dce35cf25f91dffa02d26", null ],
     [ "ComputeLHook", "classHerd_1_1SSE_1_1MainSequence.html#a3df3600c00b8611b60207da05f6746d8", null ],
     [ "ComputeMassDependents", "classHerd_1_1SSE_1_1MainSequence.html#a62b093e93e3804a8bb3100e500e02485", null ],
     [ "ComputeMetallicityDependents", "classHerd_1_1SSE_1_1MainSequence.html#aeaa8385fe5e3cc23b3a7b5a0dd384b95", null ],

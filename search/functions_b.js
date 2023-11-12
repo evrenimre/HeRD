@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['quantity_624',['Quantity',['../classHerd_1_1Generic_1_1Quantity.html#ac5ea61d216fab033b7e20c87bf97a985',1,'Herd::Generic::Quantity::Quantity()'],['../classHerd_1_1Generic_1_1Quantity.html#a8ac696458cbfcf4d0c53081061583497',1,'Herd::Generic::Quantity::Quantity(double i_Value)']]],
-  ['quantityrange_625',['QuantityRange',['../classHerd_1_1Generic_1_1QuantityRange.html#a43f2c48e525f1e804f3512c4fb8a51e1',1,'Herd::Generic::QuantityRange']]]
+  ['parsecommandlinearguments_629',['ParseCommandLineArguments',['../namespaceHerd_1_1UnitTestUtils.html#a4204a5acd6719ad5c96b79694568c582',1,'Herd::UnitTestUtils']]],
+  ['populatetrackpoints_630',['PopulateTrackPoints',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#aab156c0c55619746be1a24879ca2471d',1,'Herd::SSE::UnitTests::SSETestDataManager']]],
+  ['preconditionerror_631',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html#a8d431cb3b9ed9b7f7dbf394bf64fb2e4',1,'Herd::Exceptions::PreconditionError::PreconditionError(const std::string &amp;i_rElement, const std::string &amp;i_rExpected, const std::string &amp;i_rActual)'],['../classHerd_1_1Exceptions_1_1PreconditionError.html#a00189bad64a7c4cf5c7b1828f3a663bc',1,'Herd::Exceptions::PreconditionError::PreconditionError(const char *i_pElement, const char *i_pExpected, T i_Actual)']]]
 ];

@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['s_5fcompile_634',['s_Compile',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#ab3b438276bae66825af5562f9f5d4a5e',1,'Herd::UnitTestUtils::Labels']]],
-  ['s_5fcontinuous_635',['s_Continuous',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#a66e55a4236abe8724848314949fac25f',1,'Herd::UnitTestUtils::Labels']]],
-  ['s_5fnightly_636',['s_Nightly',['../namespaceHerd_1_1UnitTestUtils_1_1Labels.html#a2d7d9c292699ee5009d9106dbc72156b',1,'Herd::UnitTestUtils::Labels']]],
-  ['seed_637',['Seed',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a7c362850b5a5b35dc8c10d4ef8e64b38',1,'Herd::UnitTestUtils::RandomTestFixture']]],
-  ['set_638',['Set',['../classHerd_1_1Generic_1_1Quantity.html#ac8cf5e8ee1dd331ae147a0510bbc83ef',1,'Herd::Generic::Quantity']]],
-  ['setdata_639',['SetData',['../classHerd_1_1SSE_1_1UnitTests_1_1SSETestDataManager.html#a17bcf6c874cdd9da51e71fd1d1861477',1,'Herd::SSE::UnitTests::SSETestDataManager']]],
-  ['setseed_640',['SetSeed',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a180efdafec5f3dd1b10c5cf9c745972d',1,'Herd::UnitTestUtils::RandomTestFixture']]],
-  ['stringtoevolutionstage_641',['StringToEvolutionStage',['../namespaceHerd_1_1SSE.html#a835bcc940a0d81431be1314348854fef',1,'Herd::SSE']]]
+  ['radius_634',['Radius',['../classHerd_1_1SSE_1_1BaseOfGiantBranch.html#a20ef25169d929093aa447d1b9e21c185',1,'Herd::SSE::BaseOfGiantBranch::Radius()'],['../classHerd_1_1SSE_1_1HeliumIgnition.html#a14012d0608452ed2e78133e06fec49a8',1,'Herd::SSE::HeliumIgnition::Radius()'],['../classHerd_1_1SSE_1_1ILandmark.html#ab6fa5772bfed8be18a9a0c0cea78ddc5',1,'Herd::SSE::ILandmark::Radius()'],['../classHerd_1_1SSE_1_1TerminalMainSequence.html#a39511e97d53248c505f510ced6b77524',1,'Herd::SSE::TerminalMainSequence::Radius()'],['../classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#aad378d43b86217ed62c176b1af1a34b7',1,'Herd::SSE::ZeroAgeMainSequence::Radius()']]],
+  ['randomtestfixture_635',['RandomTestFixture',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#af94e7fb13a5e459e044c0318bc194a20',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['range_636',['Range',['../classHerd_1_1Generic_1_1QuantityRange.html#a1631a73b968855308dfd4f417a5348c9',1,'Herd::Generic::QuantityRange']]],
+  ['readasxml_637',['ReadAsXML',['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a11612300aeac347f9f5d181c7fa3e110',1,'Herd::UnitTestUtils::DataLoaderFixture::ReadAsXML(const std::string &amp;i_rRegex, std::size_t i_Index)'],['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#afa44a43a899d38bafd22d1f9db8a2647',1,'Herd::UnitTestUtils::DataLoaderFixture::ReadAsXML(const std::string &amp;i_rRegex) const'],['../classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a8eaf33e6ed187123e11201e8fa74443b',1,'Herd::UnitTestUtils::DataLoaderFixture::ReadAsXML(const std::filesystem::path &amp;i_Path)']]],
+  ['remove_5fattributes_638',['remove_attributes',['../namespaceSSEHelpers.html#a498fc98379ba0a42e0bbce591b3f46d1',1,'SSEHelpers']]],
+  ['rng_639',['Rng',['../classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a71c0d8049a330a2f201ca79f866e1840',1,'Herd::UnitTestUtils::RandomTestFixture']]],
+  ['run_5fsse_640',['run_sse',['../namespaceRunSSE.html#a256763068ee569be8abcf2961d928a59',1,'RunSSE']]],
+  ['runtimeerror_641',['RuntimeError',['../classHerd_1_1Exceptions_1_1RuntimeError.html#a1ae4b108480d00a95eb825dfb165c8e8',1,'Herd::Exceptions::RuntimeError']]]
 ];
