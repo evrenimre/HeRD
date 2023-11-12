@@ -18,6 +18,7 @@
 #include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
+#include <SSE/Landmarks/HeliumIgnition.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
 #include <SSE/Landmarks/ZeroAgeMainSequence.h>
 
@@ -105,13 +106,6 @@ const std::array< double, 28 > s_ZRhook { 7.330122e-01, 5.192827e-01, 2.316416e-
   0.063e+00,  0.0481e+00, 0.00984e+00, 0.,
   1.2e+00, 2.45e+00, 0., 0.
 }; ///< Coefficients for \f$ R_{hook}(z) \f$ calculations
-
-const std::array< double, 15 > s_ZLHeI { 2.751631e+03, 3.557098e+02, 0.,
-  -3.820831e-02, 5.872664e-02, 0.,
-  1.071738e+02, -8.970339e+01, -3.949739e+01,
-  7.348793e+02, -1.531020e+02, -3.793700e+01,
-  9.219293e+00, -2.005865e+00, -5.561309e-01
-};
 
 // @formatter:on
 }
@@ -263,7 +257,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   io_rState.m_RZAMS = rZAMS;
 
   io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity( mass );
-  io_rState.m_LHeI = m_MDependents.m_LHeI;
+  io_rState.m_LHeI = m_ZDependents.m_pHeIComputer->Luminosity( mass );
 
   io_rState.m_EffectiveAge = effectiveAge;
 
@@ -303,7 +297,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   ranges::cpp20::copy_n( zetaPowers4.begin(), 3, zetaPowers2.begin() );
 
   m_ZDependents.m_Mhook.Set( Herd::SSE::ComputeInnerProduct( { 1.0185, 0.16015, 0.0892 }, zetaPowers2 ) );  // Eq. 1
-  m_ZDependents.m_MHeF.Set( Herd::SSE::ComputeInnerProduct( { 1.995, 0.25, 0.087 }, zetaPowers2 ) );  // Eq. 2
   m_ZDependents.m_MFGB.Set( BXhC( relativeZ, 13.048, 0.06 ) / ApBXhC( relativeZ, 1., 1e-4, -1.27 ) );  // Eq. 3, but 0.0012 replaced by 1e-4 in AMUSE.SSE
 
   // AlphaL
@@ -386,31 +379,10 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   // Maximum value of eta
   m_ZDependents.m_MaxEta = i_Z > 0.0009 ? 10. : 20.;
 
-
-  // LHeI
-  std::array< double, 5 > tempLHeI;
-  Herd::SSE::MultiplyMatrixVector( tempLHeI, s_ZLHeI, zetaPowers2 );
-
-  {
-    auto& rB = m_ZDependents.m_LHeI;
-    rB[ 0 ] = tempLHeI[ 0 ];
-    rB[ 1 ] = tempLHeI[ 1 ];
-    rB[ 2 ] = 15.;
-
-    rB[ 4 ] = tempLHeI[ 2 ];
-    rB[ 5 ] = tempLHeI[ 3 ] * tempLHeI[ 3 ];
-    rB[ 6 ] = tempLHeI[ 4 ] * tempLHeI[ 4 ];
-
-    rB[ 3 ] = 0.; // This value is just an initialiser. The next call goes down a branch that does not use rB[3]
-    Herd::Generic::Luminosity lHeI = ComputeLHeI( m_ZDependents.m_MHeF );  // L_HeI at M_HeF
-    rB[ 3 ] = ( BXhC( m_ZDependents.m_MHeF, rB[ 0 ], rB[ 1 ] ) - lHeI ) / ( lHeI * std::exp( m_ZDependents.m_MHeF * rB[ 2 ] ) ); // AMASS.SSE implements this differently from the paper
-  }
-
-  // Initialise the ZAMS computer
+  // Initialise the landmark computers
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
-
-  // Initialise the TMS computer
   m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
+  m_ZDependents.m_pHeIComputer = std::make_unique< Herd::SSE::HeliumIgnition >( i_Z );
 
   // Initialise the BGB computer
   m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
@@ -435,9 +407,6 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_BetaR = ComputeBetaR( i_Mass );
   m_MDependents.m_GammaR = ComputeGammaR( i_Mass );
   m_MDependents.m_DeltaR = ComputeRHook( i_Mass );
-
-  // HeI
-  m_MDependents.m_LHeI = ComputeLHeI( i_Mass );
 
   // Rg
   m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius( i_Mass );
@@ -685,24 +654,4 @@ double MainSequence::ComputeRHook( Herd::Generic::Mass i_Mass ) const
   return ( rA[ 0 ] + rA[ 1 ] * m30 * m05 ) / ( rA[ 2 ] * m30 + std::pow( i_Mass, rA[ 3 ] ) ) - 1.;
 }
 
-/**
- * @param i_Mass Mass
- * @return \f$ L_{HeI} \f$
- */
-Herd::Generic::Luminosity MainSequence::ComputeLHeI( Herd::Generic::Mass i_Mass ) const
-{
-  auto& rB = m_ZDependents.m_LHeI;
-
-  // Eq. 49
-  if( i_Mass < m_ZDependents.m_MHeF )
-  {
-    double num = BXhC( i_Mass, rB[ 0 ], rB[ 1 ] );
-    double den = 1. + rB[ 3 ] * std::exp( i_Mass * rB[ 2 ] ); // AMASS.SSE implementation: MHeF is not subtracted
-    return Herd::Generic::Luminosity( num / den );
-  }
-
-  double num = ApBXhC( i_Mass, rB[ 4 ], rB[ 5 ], 3.8 );
-  double den = rB[ 6 ] + i_Mass * i_Mass;
-  return Herd::Generic::Luminosity( num / den );
-}
 }

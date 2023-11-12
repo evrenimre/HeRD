@@ -27,6 +27,7 @@ namespace Herd::SSE
 struct EvolutionState;
 
 class BaseOfGiantBranch;
+class HeliumIgnition;
 class TerminalMainSequence;
 class ZeroAgeMainSequence;
 
@@ -58,8 +59,6 @@ private:
   double ComputeGammaR( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \beta_R\f$
   double ComputeRHook( Herd::Generic::Mass i_Mass ) const; ///< Computes \f$ \Delta_R\f$
 
-  Herd::Generic::Luminosity ComputeLHeI( Herd::Generic::Mass i_Mass ) const;  ///< Computes the luminosity at He ignition
-
   /**
    * @brief Various quantities and values that depend on metallicity only
    */
@@ -68,7 +67,6 @@ private:
     Herd::Generic::Metallicity m_EvaluatedAt; ///< Dependents calculated at this value
 
     Herd::Generic::Mass m_Mhook;  ///< Minimum initial mass for a hook
-    Herd::Generic::Mass m_MHeF; ///< Maximum initial mass for a He flash
     Herd::Generic::Mass m_MFGB; ///< Maximum initial mass for He to ignite on the first giant branch
 
     double m_MaxEta = 0.;  ///< \f$ \eta \f$ in Eq. 18
@@ -82,12 +80,11 @@ private:
     std::array< double, 7 > m_GammaR;  ///< \f$ \gamma_R \f$ calculations
     std::array< double, 7 > m_Rhook;  ///< \f$ \R_{hook} \f$ calculations
 
-    std::array< double, 7 > m_LHeI; ///< \f$ L_{HeI} \f$ calculations
-
     // No default constructor, so needs to be a pointer
     std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
     std::unique_ptr< Herd::SSE::TerminalMainSequence > m_pTMSComputer; ///< Computes the characteristic values at TMS
     std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< Computes the characteristic values at BGB
+    std::unique_ptr< Herd::SSE::HeliumIgnition > m_pHeIComputer; ///< Computes the characteristic values at HeI
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial metallicity

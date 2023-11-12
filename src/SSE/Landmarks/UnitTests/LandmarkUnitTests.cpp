@@ -17,6 +17,7 @@
 #include <Exceptions/PreconditionError.h>
 #include <Generic/Quantity.h>
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
+#include <SSE/Landmarks/HeliumIgnition.h>
 #include <SSE/Landmarks/ILandmark.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
 #include <SSE/Landmarks/ZeroAgeMainSequence.h>
@@ -37,6 +38,7 @@ enum class ELandmarkType
   e_ZAMS,
   e_TMS,
   e_BGB,
+  e_HeI,
 };
 }
 
@@ -61,11 +63,14 @@ BOOST_AUTO_TEST_CASE( ValidationTest, *Herd::UnitTestUtils::Labels::s_Compile )
       Herd::Exceptions::PreconditionError );
   BOOST_CHECK_THROW( Landmarks.emplace( ELandmarkType::e_BGB, std::make_unique< Herd::SSE::BaseOfGiantBranch >( invalidMetallicity ) ),
       Herd::Exceptions::PreconditionError );
+  BOOST_CHECK_THROW( Landmarks.emplace( ELandmarkType::e_HeI, std::make_unique< Herd::SSE::HeliumIgnition >( invalidMetallicity ) ),
+      Herd::Exceptions::PreconditionError );
 
   // Valid construction
   BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_ZAMS, std::make_unique< Herd::SSE::ZeroAgeMainSequence >( validMetallicity ) ) );
   BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_TMS, std::make_unique< Herd::SSE::TerminalMainSequence >( validMetallicity ) ) );
   BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_BGB, std::make_unique< Herd::SSE::BaseOfGiantBranch >( validMetallicity ) ) );
+  BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_HeI, std::make_unique< Herd::SSE::HeliumIgnition >( validMetallicity ) ) );
 
   // Common interface
   for( auto& [ key, pLandmark ] : Landmarks )
