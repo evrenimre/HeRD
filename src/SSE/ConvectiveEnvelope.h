@@ -13,14 +13,19 @@
 #ifndef HAFD0B7BF_5E2F_47CD_A165_00F64B49B33F
 #define HAFD0B7BF_5E2F_47CD_A165_00F64B49B33F
 
-#include <utility>
-
 #include <Generic/Quantity.h>
+
+#include <memory>
+#include <utility>
 
 namespace Herd::SSE
 {
 // Forward declarations
 struct EvolutionState;
+class BaseOfGiantBranch;
+class HeliumIgnition;
+class TerminalMainSequence;
+class ZeroAgeMainSequence;
 
 /**
  * @brief Computation of convective envelope properties
@@ -31,6 +36,10 @@ struct EvolutionState;
 class ConvectiveEnvelope
 {
 public:
+
+  ConvectiveEnvelope( Herd::Generic::Metallicity i_Z );  ///< Constructor
+  ~ConvectiveEnvelope();  ///< Destructor
+
   /**
    * @brief Envelope properties
    */
@@ -45,6 +54,18 @@ public:
   Envelope Compute( const Herd::SSE::EvolutionState& i_rState );
 
 private:
+  /**
+   * @brief Components depending on the metallicity
+   */
+  struct MetallicityDependents
+  {
+    std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer;  ///< ZAMS computations
+    std::unique_ptr< Herd::SSE::TerminalMainSequence > m_pTMSComputer;  ///< TMS computations
+    std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< BGB computations
+    std::unique_ptr< Herd::SSE::HeliumIgnition > m_pHeIComputer; ///< HeI computations
+  };
+
+  MetallicityDependents m_ZDependents;  ///< Metallicity dependentss
 
   /**
    * @brief Quantities depending on initial mass

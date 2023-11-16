@@ -13,6 +13,7 @@
 #include "MainSequence.h"
 
 #include "Constants.h"
+#include "ConvectiveEnvelope.h"
 #include "EvolutionState.h"
 
 #include <Generic/MathHelpers.h>
@@ -269,7 +270,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 
   io_rState.m_Rg = m_MDependents.m_Rg;
 
-  auto convectiveEnvelope = m_ConvectiveEnvelopeComputer.Compute( io_rState );
+  auto convectiveEnvelope = m_ZDependents.m_pConvectiveEnvelopeComputer->Compute( io_rState );
   rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;
   io_rState.m_EnvelopeRadius = convectiveEnvelope.m_Radius;
   io_rState.m_K2 = convectiveEnvelope.m_K2;
@@ -382,10 +383,11 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   // Initialise the landmark computers
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
   m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
+  m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
   m_ZDependents.m_pHeIComputer = std::make_unique< Herd::SSE::HeliumIgnition >( i_Z );
 
-  // Initialise the BGB computer
-  m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
+  // Initialise the convective envelope computer
+  m_ZDependents.m_pConvectiveEnvelopeComputer = std::make_unique< Herd::SSE::ConvectiveEnvelope >( i_Z );
 }
 
 /**

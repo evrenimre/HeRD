@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE( InputTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   Herd::SSE::EvolutionState valid = Herd::SSE::UnitTests::GenerateRandomEvolutionState( Rng() );
 
-  Herd::SSE::ConvectiveEnvelope envelopeComputer;
+  Herd::SSE::ConvectiveEnvelope envelopeComputer( valid.m_TrackPoint.m_InitialMetallicity );
   Herd::SSE::ConvectiveEnvelope::Envelope Output = envelopeComputer.Compute( valid );
 
   if( Herd::SSE::IsRemnant( valid.m_TrackPoint.m_Stage ) )

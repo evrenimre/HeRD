@@ -18,6 +18,10 @@
 
 #include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
+#include <SSE/Landmarks/BaseOfGiantBranch.h>
+#include <SSE/Landmarks/HeliumIgnition.h>
+#include <SSE/Landmarks/TerminalMainSequence.h>
+#include <SSE/Landmarks/ZeroAgeMainSequence.h>
 
 #include <algorithm>
 #include <cmath>
@@ -28,6 +32,19 @@ namespace Herd::SSE
 {
 
 using Herd::SSE::ComputeBlendWeight;
+
+/**
+ * @param i_Z Metallicity
+ */
+ConvectiveEnvelope::ConvectiveEnvelope( Herd::Generic::Metallicity i_Z )
+{
+  m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
+  m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
+  m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
+  m_ZDependents.m_pHeIComputer = std::make_unique< Herd::SSE::HeliumIgnition >( i_Z );
+}
+
+ConvectiveEnvelope::~ConvectiveEnvelope() = default;
 
 /**
  * @param i_rState State
@@ -43,8 +60,7 @@ ConvectiveEnvelope::Envelope ConvectiveEnvelope::Compute( const Herd::SSE::Evolu
   // Remnants do not have an envelope
   if( Herd::SSE::IsRemnant( rTrackPoint.m_Stage ) )
   {
-    return
-    {};
+    return ConvectiveEnvelope::Envelope();
   }
 
   ComputeInitialMassDependents( DetermineInitialMass( i_rState ) );
@@ -153,7 +169,8 @@ double ConvectiveEnvelope::ComputeProximityToHayashi( const Herd::SSE::Evolution
   double x = 0;
   if( Herd::SSE::IsPreFGB( rTrackPoint.m_Stage ) )
   {
-    Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( i_rState.m_LBGB, i_rState.m_Rg );
+    Herd::Generic::Luminosity lBGB = m_ZDependents.m_pBGBComputer->Luminosity( rTrackPoint.m_Mass );
+    Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( lBGB, i_rState.m_Rg );
     x = teBGB / rTrackPoint.m_Temperature;
   } else
   {
@@ -182,12 +199,13 @@ Herd::Generic::Radius ConvectiveEnvelope::ComputeRadiusOfGyration( const Herd::S
     double logM20 = logM * logM;
     double f = 0.208 + 0.125 * logM - 0.035 * logM20;
 
+    Herd::Generic::Luminosity lBGB = m_ZDependents.m_pBGBComputer->Luminosity( rTrackPoint.m_Mass );
     double m15 = rTrackPoint.m_Mass * std::sqrt( rTrackPoint.m_Mass );
-    double x05 = ( rTrackPoint.m_Luminosity - i_rState.m_LBGB ) / ( 10000. * m15 / ( 1. + 0.1 * m15 ) );
+    double x05 = ( rTrackPoint.m_Luminosity - lBGB ) / ( 10000. * m15 / ( 1. + 0.1 * m15 ) );
     double x = x05 * x05;
 
-    double y = ( f - 0.033 * std::log10( i_rState.m_LBGB ) ) / m_M0Dependents.m_RGBGB - 1.;
-    rGG = ( f - 0.033 * std::log10( rTrackPoint.m_Luminosity ) + 0.4 * x ) / ( 1 + y * ( i_rState.m_LBGB / rTrackPoint.m_Luminosity ) + x );
+    double y = ( f - 0.033 * std::log10( lBGB ) ) / m_M0Dependents.m_RGBGB - 1.;
+    rGG = ( f - 0.033 * std::log10( rTrackPoint.m_Luminosity ) + 0.4 * x ) / ( 1 + y * ( lBGB / rTrackPoint.m_Luminosity ) + x );
   }
 
   // HeGB
@@ -207,18 +225,21 @@ Herd::Generic::Radius ConvectiveEnvelope::ComputeRadiusOfGyration( const Herd::S
     // Up to He stars
     if( Herd::SSE::IsPreFGB( stage ) || stage == Herd::SSE::EvolutionStage::e_FGB || stage == Herd::SSE::EvolutionStage::e_CHeB || Herd::SSE::IsAGB( stage ) )
     {
-      double radiusRatio = rTrackPoint.m_Radius / i_rState.m_RZAMS;
+      Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
+      double radiusRatio = rTrackPoint.m_Radius / rZAMS;
       rG = ( m_M0Dependents.m_RGZAMS - 0.025 ) * std::pow( radiusRatio, m_M0Dependents.m_C ) + 0.025 * std::pow( radiusRatio, -0.1 );
     }
 
     if( stage == Herd::SSE::EvolutionStage::e_HeMS )
     {
-      rG = 0.08 - 0.03 * ( i_rState.m_EffectiveAge / i_rState.m_TMS );
+      double tau = i_rState.m_EffectiveAge / m_ZDependents.m_pTMSComputer->Age( rTrackPoint.m_Mass );
+      rG = 0.08 - 0.03 * tau;
     }
 
     if( stage == Herd::SSE::EvolutionStage::e_HeHG || stage == Herd::SSE::EvolutionStage::e_HeGB )
     {
-      rG = 0.08 * i_rState.m_RZAMS / rTrackPoint.m_Radius;
+      Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
+      rG = 0.08 * rZAMS / rTrackPoint.m_Radius;
     }
 
     if( i_TauEnv > 0. )
@@ -226,7 +247,7 @@ Herd::Generic::Radius ConvectiveEnvelope::ComputeRadiusOfGyration( const Herd::S
       double tauEnv30 = boost::math::pow< 3 >( i_TauEnv );
       if( Herd::SSE::IsMS( stage ) )
       {
-        double tau = i_rState.m_EffectiveAge / i_rState.m_TMS;
+        double tau = i_rState.m_EffectiveAge / m_ZDependents.m_pTMSComputer->Age( rTrackPoint.m_Mass );
         rG += std::pow( tau, m_M0Dependents.m_Y ) * tauEnv30 * ( rGG - rG );
       } else
       {
@@ -258,10 +279,12 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
   }
 
   // Fresh FGB stars are yet to develop a fully-convective envelope
-  if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_FGB && rTrackPoint.m_Luminosity < 3. * i_rState.m_LBGB )
+  Herd::Generic::Luminosity lBGB = m_ZDependents.m_pBGBComputer->Luminosity( rTrackPoint.m_Mass );
+  if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_FGB && rTrackPoint.m_Luminosity < 3. * lBGB )
   {
-    double x = std::min( 3., i_rState.m_LHeI.Value() / i_rState.m_LBGB );
-    double tau = std::clamp( ComputeBlendWeight( rTrackPoint.m_Luminosity / i_rState.m_LBGB, x, 1. ), 0., 1. );
+    Herd::Generic::Luminosity lHeI = m_ZDependents.m_pHeIComputer->Luminosity( rTrackPoint.m_Mass );
+    double x = std::min( 3., lHeI.Value() / lBGB );
+    double tau = std::clamp( ComputeBlendWeight( rTrackPoint.m_Luminosity / lBGB, x, 1. ), 0., 1. );
     mCEG = 1. - 0.5 * tau * tau;
     rCEG = 1. - 0.35 * tau * tau;
   }
@@ -286,8 +309,11 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
       if( Herd::SSE::IsMS( rTrackPoint.m_Stage ) )
       {
         //ComputeProximityToHayashi evaluated at teTMS
-        Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( i_rState.m_LBGB, i_rState.m_Rg );
-        Herd::Generic::Temperature teTMS = Herd::Physics::ComputeAbsoluteTemperature( i_rState.m_LTMS, i_rState.m_RTMS );
+        Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( lBGB, i_rState.m_Rg );
+
+        Herd::Generic::Luminosity lTMS = m_ZDependents.m_pTMSComputer->Luminosity( rTrackPoint.m_Mass );
+        Herd::Generic::Radius rTMS = m_ZDependents.m_pTMSComputer->Radius( rTrackPoint.m_Mass );
+        Herd::Generic::Temperature teTMS = Herd::Physics::ComputeAbsoluteTemperature( lTMS, rTMS );
         double tauTMS = std::clamp( ComputeBlendWeight( teBGB / teTMS, m_M0Dependents.m_A, 1. ), 0., 1. );
 
         if( tauTMS > 0. )
@@ -296,7 +322,8 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
           double mCEHG = MassRelation( tauTMS );
           double rCEHG = RadiusRelation( tauTMS );
 
-          double tauhy = std::pow( i_rState.m_EffectiveAge / i_rState.m_TMS, m_M0Dependents.m_Y );
+          double tau = i_rState.m_EffectiveAge / m_ZDependents.m_pTMSComputer->Age( rTrackPoint.m_Mass );
+          double tauhy = std::pow( tau, m_M0Dependents.m_Y );
           mCE = m_M0Dependents.m_MCEZAMS + tauhy * mCE * ( 1. - m_M0Dependents.m_MCEZAMS / mCEHG );
           rCE = m_M0Dependents.m_RCEZAMS + tauhy * rCE * ( 1. - m_M0Dependents.m_RCEZAMS / rCEHG );
         }
@@ -327,13 +354,15 @@ double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState,
   if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_CHeB || rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_FGB
       || Herd::SSE::IsAGB( rTrackPoint.m_Stage ) )
   {
+    Herd::Generic::Luminosity lBGB = m_ZDependents.m_pBGBComputer->Luminosity( rTrackPoint.m_Mass );
+
     double b = ( 1e4 * m15 ) / ( 1 + 0.1 * m15 );
-    double x = boost::math::pow< 2 >( ( rTrackPoint.m_Luminosity - i_rState.m_LBGB ) / b );
+    double x = boost::math::pow< 2 >( ( rTrackPoint.m_Luminosity - lBGB ) / b );
 
     double f = 0.208 + 0.125 * logM - 0.035 * boost::math::pow< 2 >( logM );
-    double y = ( f - 0.33 * log10( i_rState.m_LBGB ) + 0.4 * x ) / m_M0Dependents.m_K2BGB - 1.0;
+    double y = ( f - 0.33 * log10( lBGB ) + 0.4 * x ) / m_M0Dependents.m_K2BGB - 1.0;
 
-    k2g = ( f - 0.33 * log10( rTrackPoint.m_Luminosity ) + 0.4 * x ) / ( 1.0 + y * ( i_rState.m_LBGB / rTrackPoint.m_Luminosity ) + x );
+    k2g = ( f - 0.33 * log10( rTrackPoint.m_Luminosity ) + 0.4 * x ) / ( 1.0 + y * ( lBGB / rTrackPoint.m_Luminosity ) + x );
   }
 
   if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeGB )
@@ -350,7 +379,8 @@ double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState,
     // AGB or earlier
     if( !Herd::SSE::IsHeStar( rTrackPoint.m_Stage ) || !Herd::SSE::IsRemnant( rTrackPoint.m_Stage ) )
     {
-      double relativeR = rTrackPoint.m_Radius / i_rState.m_RZAMS;
+      Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
+      double relativeR = rTrackPoint.m_Radius / rZAMS;
       double term1 = Herd::SSE::BXhC( relativeR, m_M0Dependents.m_K2ZAMS - 0.025, m_M0Dependents.m_C );
       double term2 = Herd::SSE::BXhC( relativeR, 0.025, -0.1 );
       k2 = term1 + term2;
@@ -364,14 +394,15 @@ double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState,
 
     if( rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeHG || rTrackPoint.m_Stage == Herd::SSE::EvolutionStage::e_HeGB )
     {
-      k2 = 0.08 * i_rState.m_RZAMS / rTrackPoint.m_Radius;
+      Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
+      k2 = 0.08 * rZAMS / rTrackPoint.m_Radius;
     }
 
     if( i_TauEnv > 0.0 )
     {
       if( Herd::SSE::IsMS( rTrackPoint.m_Stage ) )
       {
-        double tau = i_rState.m_EffectiveAge / i_rState.m_TMS;
+        double tau = i_rState.m_EffectiveAge / m_ZDependents.m_pTMSComputer->Age( rTrackPoint.m_Mass );
         double x = std::clamp( ( 0.1 - logM ) / 0.55, 0., 1. );
         double y = 2.0 + 8.0 * x;
         k2 += std::pow( tau, y ) * boost::math::pow< 3 >( i_TauEnv ) * ( k2g - k2 );
