@@ -62,7 +62,7 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
 
   while( rTrackPoint.m_Age < i_EvolveUntil )
   {
-    Herd::Generic::Time TerminateAt = state.m_TMS; // This is a temporary variable, set at the end of the most advanced stage implemented so far
+    Herd::Generic::Time TerminateAt = ms.EndsAt(); // This is a temporary variable, set at the end of the most advanced stage implemented so far
     if( rTrackPoint.m_Age >= TerminateAt )
     {
       break;
@@ -177,13 +177,13 @@ Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& io
   switch( rTrackPoint.m_Stage )
   {
     case Herd::SSE::EvolutionStage::e_MSLM:
-      endOfPhase = i_rState.m_TMS;
-      deltaT.Set( deltaPercentage * i_rState.m_TMS );
+      endOfPhase = io_rPhase.EndsAt();
+      deltaT.Set( deltaPercentage * io_rPhase.EndsAt() );
       break;
 
     case Herd::SSE::EvolutionStage::e_MS:
-      endOfPhase = i_rState.m_TMS;
-      deltaT.Set( deltaPercentage * i_rState.m_TMS );
+      endOfPhase = io_rPhase.EndsAt();
+      deltaT.Set( deltaPercentage * io_rPhase.EndsAt() );
       break;
 
     default:

@@ -157,7 +157,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   Herd::Generic::Time thook = m_ZDependents.m_pTMSComputer->THook( mass );
 
   // Change in mass changes the effective age of the star
-  Herd::Generic::Time tMSOld = ( rTrackPoint.m_Mass == io_rState.m_MZAMS ) ? tMS : io_rState.m_TMS;
+  Herd::Generic::Time tMSOld = io_rState.m_EffectiveAge == 0 ? tMS : m_MDependents.m_TMS; // If ZAMS, we have no cached tMS yet
 
   // Handling the no tMS change separately is numerically more stable. Otherwise, at the end of the stage, effectiveAge can fall just short of tMS, causing insertion of an extra track point
   Herd::Generic::Time effectiveAge = io_rState.m_EffectiveAge;
@@ -250,15 +250,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_CoreMass.Set( 0. );
   io_rState.m_CoreRadius.Set( 0. );
 
-  io_rState.m_TMS = m_ZDependents.m_pTMSComputer->Age( mass );
-
   io_rState.m_MFGB = m_ZDependents.m_MFGB;
-  io_rState.m_LTMS = m_ZDependents.m_pTMSComputer->Luminosity( mass );
-  io_rState.m_RTMS = m_ZDependents.m_pTMSComputer->Radius( mass );
-  io_rState.m_RZAMS = rZAMS;
-
-  io_rState.m_LBGB = m_ZDependents.m_pBGBComputer->Luminosity( mass );
-  io_rState.m_LHeI = m_ZDependents.m_pHeIComputer->Luminosity( mass );
 
   io_rState.m_EffectiveAge = effectiveAge;
 
@@ -276,6 +268,15 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   io_rState.m_K2 = convectiveEnvelope.m_K2;
 
   return true;
+}
+
+/**
+ * @return Terminal age computed in the most recent call to \c Evolve
+ * @remarks If called before any prior call to \c Evolve, returns \c Herd::Generic::Time()
+ */
+Herd::Generic::Time MainSequence::EndsAt() const
+{
+  return m_MDependents.m_TMS;
 }
 
 /**
@@ -412,6 +413,9 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
 
   // Rg
   m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius( i_Mass );
+
+  //tMS
+  m_MDependents.m_TMS = m_ZDependents.m_pTMSComputer->Age( i_Mass );
 }
 
 /**

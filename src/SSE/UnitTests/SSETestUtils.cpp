@@ -32,7 +32,7 @@ Herd::SSE::TrackPoint GenerateRandomTrackPoint( std::mt19937& io_rRng )
     return distribution(io_rRng);
   };
 
-  generated.m_Mass.Set( Generator( 0.08, 216. ) );
+  generated.m_Mass.Set( Generator( 0.2, 100. ) );
   generated.m_InitialMetallicity.Set( Generator( 1e-4, 0.03 ) );
   generated.m_Radius.Set( Generator( 0.084, 2150. ) );
   generated.m_Luminosity.Set( Generator( 0.000126, 6166000. ) );
@@ -82,22 +82,15 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
   generated.m_MZAMS.Set( Generator( generated.m_TrackPoint.m_Mass, 216. ) );
   generated.m_MZHe.Set( Generator( 0.08, generated.m_MZAMS ) );
 
-  generated.m_RZAMS.Set( Generator( 0.084, 2150. ) );
-
   generated.m_MFGB.Set( Generator( 0.08, 216. ) );
-  generated.m_RTMS.Set( Generator( 0.084, 2150. ) );
-  generated.m_LTMS.Set( Generator( 0.000126, 6166000 ) );
-  generated.m_TMS.Set( Generator( 0., 13600. ) );
 
   generated.m_Rg.Set( Generator( 0.084, 2150. ) );
-  generated.m_LBGB.Set( Generator( 0.000126, 6166000 ) );
 
   generated.m_MCHeI.Set( Generator( 0.08, 216. ) );
-  generated.m_LHeI.Set( Generator( 0.000126, 6166000 ) );
 
   generated.m_DeltaT.Set( Generator( 0., 1.0e-1 ) );
   
-  generated.m_THeMS.Set( Generator( generated.m_TMS, 13600. ) );
+  generated.m_THeMS.Set( Generator( 0., 13600. ) );
 
   return generated;
 }

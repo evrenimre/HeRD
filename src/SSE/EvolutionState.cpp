@@ -45,17 +45,10 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   }
 
   Herd::Generic::ThrowIfNotPositive( i_rState.m_MZAMS, "m_MZAMS" );
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_RZAMS, "m_RZAMS" );
 
   Herd::Generic::ThrowIfNotPositive( i_rState.m_MFGB, "m_MFGB" );
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_RTMS, "m_RTMS" );
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_LTMS, "m_LTMS" );
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_TMS, "m_TMS" );
 
   Herd::Generic::ThrowIfNotPositive( i_rState.m_Rg, "m_Rg" );
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_LBGB, "m_LBGB" );
-
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_LHeI, "m_LHeI" );
 
   Herd::Generic::ThrowIfNegative( i_rState.m_DeltaT, "m_DeltaT" );
 

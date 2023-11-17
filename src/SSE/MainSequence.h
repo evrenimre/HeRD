@@ -44,6 +44,8 @@ public:
 
   bool Evolve( Herd::SSE::EvolutionState& io_rState ) override; ///< Evolves the state
 
+  Herd::Generic::Time EndsAt() const override;  ///< End of the phase
+
 private:
 
   void ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z ); ///< Computes various metallicity-dependent quantities
@@ -110,9 +112,9 @@ private:
     double m_GammaR = 0;  ///< \f$ \gamma_R \f$
     double m_DeltaR = 0;  ///< \f$ \Delta_R \f$
 
-    Herd::Generic::Luminosity m_LHeI; ///< Luminosity at He ignition
-
     Herd::Generic::Radius m_Rg; ///< \f$ R_g \f$ required for convective envelope calculations
+
+    Herd::Generic::Time m_TMS;  ///< \f$ t_{MS} \f$ is cached for computing the effective age
   };
 
   MassDependents m_MDependents; ///< Mass-dependent quantities evaluated at a certain value
