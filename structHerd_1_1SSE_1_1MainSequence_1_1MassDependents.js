@@ -9,6 +9,6 @@ var structHerd_1_1SSE_1_1MainSequence_1_1MassDependents =
     [ "m_Eta", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ae7fc8b99eba02c8792c72e6174cbd264", null ],
     [ "m_EvaluatedAt", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a6395e82b2a77095e3ef990008dfc266b", null ],
     [ "m_GammaR", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#ad6d4bcc65d9ac80cef29e16c2b6c4e0a", null ],
-    [ "m_LHeI", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a334c7b1b56cfe9ef8f1f3cbebdfe6824", null ],
-    [ "m_Rg", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a3116fc73f49ad2dfe63c3d027e08ae88", null ]
+    [ "m_Rg", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a3116fc73f49ad2dfe63c3d027e08ae88", null ],
+    [ "m_TMS", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a0cba20affda8ee28dd82a5163cbbfa1b", null ]
 ];

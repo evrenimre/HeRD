@@ -64,8 +64,8 @@ var NAVTREEINDEX =
 [
 "BaseOfGiantBranch_8cpp.html",
 "TestLandmarks_8cpp.html",
-"dir_f8ffb3d0c0b60355d0c946bf8f606bf6.html",
-"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aeaab84f3c1a16c14237f64330de7e336"
+"dir_b997967e9effd815d3b53584b5f775b1.html",
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a69c79fedcf14cbc7eed82cb0a4b1fc6e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

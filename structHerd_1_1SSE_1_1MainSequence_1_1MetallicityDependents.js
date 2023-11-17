@@ -11,6 +11,7 @@ var structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents =
     [ "m_MFGB", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6ff2fbe8547eeda8577834da833db5c0", null ],
     [ "m_Mhook", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#aa95d2a1a1988704b7ec13f5f282ac9df", null ],
     [ "m_pBGBComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#aeb8b12da1ff07b74941a54fa7e30e182", null ],
+    [ "m_pConvectiveEnvelopeComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a26d634e1f4d4807de270470616b3e08d", null ],
     [ "m_pHeIComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#afbb0e56d2416c29ddc6d845a23164a9c", null ],
     [ "m_pTMSComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a84ddd8e43005ee9d2f44ec22ebf70530", null ],
     [ "m_pZAMSComputer", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6a03e0a898bebe7c6b0e4202ba1b2b68", null ],

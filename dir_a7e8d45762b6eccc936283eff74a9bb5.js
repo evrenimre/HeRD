@@ -7,6 +7,7 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "ConvectiveEnvelope.h", "ConvectiveEnvelope_8h.html", [
       [ "ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", "classHerd_1_1SSE_1_1ConvectiveEnvelope" ],
       [ "Envelope", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1Envelope.html", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1Envelope" ],
+      [ "MetallicityDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents" ],
       [ "InitialMassDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents" ]
     ] ],
     [ "EvolutionStage.cpp", "EvolutionStage_8cpp.html", "EvolutionStage_8cpp" ],

@@ -119,12 +119,10 @@ Collaboration diagram for Herd::SSE::MainSequence:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHerd_1_1SSE_1_1MainSequence__coll__graph.png" border="0" usemap="#aHerd_1_1SSE_1_1MainSequence_coll__map" alt="Collaboration graph"/></div>
 <map name="aHerd_1_1SSE_1_1MainSequence_coll__map" id="aHerd_1_1SSE_1_1MainSequence_coll__map">
-<area shape="rect" title="Main sequence evolution ." alt="" coords="899,97,1087,124"/>
-<area shape="rect" href="classHerd_1_1SSE_1_1IPhase.html" title="Interface class for updating the star state in an evolution phase." alt="" coords="448,5,584,32"/>
-<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html" title="Various quantities and values that depend on metallicity only." alt="" coords="422,57,610,98"/>
-<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html" title="Various quantities and values that depend on mass." alt="" coords="422,122,610,163"/>
-<area shape="rect" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html" title="Computation of convective envelope properties." alt="" coords="403,188,629,215"/>
-<area shape="rect" href="structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html" title="Quantities depending on initial mass." alt="" coords="5,181,232,222"/>
+<area shape="rect" title="Main sequence evolution ." alt="" coords="356,64,544,91"/>
+<area shape="rect" href="classHerd_1_1SSE_1_1IPhase.html" title="Interface class for updating the star state in an evolution phase." alt="" coords="31,5,167,32"/>
+<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html" title="Various quantities and values that depend on metallicity only." alt="" coords="5,57,193,98"/>
+<area shape="rect" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html" title="Various quantities and values that depend on mass." alt="" coords="5,122,193,163"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -148,6 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aad0decc162bd15f0fa4eb62e2e1e5c54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#aad0decc162bd15f0fa4eb62e2e1e5c54">Evolve</a> (<a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;io_rState) override</td></tr>
 <tr class="memdesc:aad0decc162bd15f0fa4eb62e2e1e5c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolves the state.  <a href="classHerd_1_1SSE_1_1MainSequence.html#aad0decc162bd15f0fa4eb62e2e1e5c54">More...</a><br /></td></tr>
 <tr class="separator:aad0decc162bd15f0fa4eb62e2e1e5c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31fc5e3739b8ffd7c1c3e211db73ed8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd">Herd::Generic::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a31fc5e3739b8ffd7c1c3e211db73ed8a">EndsAt</a> () const override</td></tr>
+<tr class="memdesc:a31fc5e3739b8ffd7c1c3e211db73ed8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">End of the phase.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a31fc5e3739b8ffd7c1c3e211db73ed8a">More...</a><br /></td></tr>
+<tr class="separator:a31fc5e3739b8ffd7c1c3e211db73ed8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classHerd_1_1SSE_1_1IPhase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classHerd_1_1SSE_1_1IPhase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classHerd_1_1SSE_1_1IPhase.html">Herd::SSE::IPhase</a></td></tr>
 <tr class="memitem:a1e1707786d02ab3f83151ec0998ac46e inherit pub_methods_classHerd_1_1SSE_1_1IPhase"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1IPhase.html#a1e1707786d02ab3f83151ec0998ac46e">~IPhase</a> ()=default</td></tr>
 <tr class="separator:a1e1707786d02ab3f83151ec0998ac46e inherit pub_methods_classHerd_1_1SSE_1_1IPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,9 +191,6 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a9854b808522367be3471985c1175b674"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html">MassDependents</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a9854b808522367be3471985c1175b674">m_MDependents</a></td></tr>
 <tr class="memdesc:a9854b808522367be3471985c1175b674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mass-dependent quantities evaluated at a certain value.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a9854b808522367be3471985c1175b674">More...</a><br /></td></tr>
 <tr class="separator:a9854b808522367be3471985c1175b674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0033bda54c847ec3f8e7dd97a9b221"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html">Herd::SSE::ConvectiveEnvelope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a4b0033bda54c847ec3f8e7dd97a9b221">m_ConvectiveEnvelopeComputer</a></td></tr>
-<tr class="memdesc:a4b0033bda54c847ec3f8e7dd97a9b221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the properties of the convective envelope.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a4b0033bda54c847ec3f8e7dd97a9b221">More...</a><br /></td></tr>
-<tr class="separator:a4b0033bda54c847ec3f8e7dd97a9b221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main sequence evolution <b>[Hurley00]</b>. </p>
@@ -572,6 +570,37 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a31fc5e3739b8ffd7c1c3e211db73ed8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fc5e3739b8ffd7c1c3e211db73ed8a">&#9670;&nbsp;</a></span>EndsAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd">Herd::Generic::Time</a> Herd::SSE::MainSequence::EndsAt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>End of the phase. </p>
+<dl class="section return"><dt>Returns</dt><dd>Terminal age computed in the most recent call to <code>Evolve</code> </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>If called before any prior call to <code>Evolve</code>, returns <code><a class="el" href="namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd" title="A duration or a time point.">Herd::Generic::Time()</a></code> </dd></dl>
+
+<p>Implements <a class="el" href="classHerd_1_1SSE_1_1IPhase.html#a8fc2ae11716a0bc050881e081bacc3a8">Herd::SSE::IPhase</a>.</p>
+
+</div>
+</div>
 <a id="aad0decc162bd15f0fa4eb62e2e1e5c54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad0decc162bd15f0fa4eb62e2e1e5c54">&#9670;&nbsp;</a></span>Evolve()</h2>
 
@@ -620,30 +649,6 @@ Age in <code>io_rState</code> is non-negative </dd></dl>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4b0033bda54c847ec3f8e7dd97a9b221"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b0033bda54c847ec3f8e7dd97a9b221">&#9670;&nbsp;</a></span>m_ConvectiveEnvelopeComputer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html">Herd::SSE::ConvectiveEnvelope</a> Herd::SSE::MainSequence::m_ConvectiveEnvelopeComputer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the properties of the convective envelope. </p>
-
-</div>
-</div>
 <a id="a9854b808522367be3471985c1175b674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9854b808522367be3471985c1175b674">&#9670;&nbsp;</a></span>m_MDependents</h2>
 

@@ -6,8 +6,6 @@ var structHerd_1_1SSE_1_1EvolutionState =
     [ "m_EffectiveAge", "structHerd_1_1SSE_1_1EvolutionState.html#a1e297e1e7ab19e61c839169ce940ce46", null ],
     [ "m_EnvelopeRadius", "structHerd_1_1SSE_1_1EvolutionState.html#a2cc2c6332e6ffbebf715beab06f5e923", null ],
     [ "m_K2", "structHerd_1_1SSE_1_1EvolutionState.html#af8d9b4ad0ccffbd758ef3fa133e6b918", null ],
-    [ "m_LBGB", "structHerd_1_1SSE_1_1EvolutionState.html#a1b924908d44830a62248f25537d9e17e", null ],
-    [ "m_LHeI", "structHerd_1_1SSE_1_1EvolutionState.html#ac72b9add47dece82a404aa34c506ea63", null ],
     [ "m_LTMS", "structHerd_1_1SSE_1_1EvolutionState.html#aab7c942c0225fe03cee4d5c9e602cbf8", null ],
     [ "m_MassLossRate", "structHerd_1_1SSE_1_1EvolutionState.html#aa8da5d4c521678909767f3bb340771ee", null ],
     [ "m_MCHeI", "structHerd_1_1SSE_1_1EvolutionState.html#a12b5cfc5eb39d17849f900f95ca8069b", null ],
@@ -16,7 +14,6 @@ var structHerd_1_1SSE_1_1EvolutionState =
     [ "m_MZHe", "structHerd_1_1SSE_1_1EvolutionState.html#ae8c88e547dac87ac83705f8378c40d0d", null ],
     [ "m_Rg", "structHerd_1_1SSE_1_1EvolutionState.html#aef8a97b34271ec3fa0a5ed6d4dc1ec74", null ],
     [ "m_RTMS", "structHerd_1_1SSE_1_1EvolutionState.html#a7ea68b6ebd5af611da762166311382a8", null ],
-    [ "m_RZAMS", "structHerd_1_1SSE_1_1EvolutionState.html#a565afce78ba45a3e5878a77a251649cd", null ],
     [ "m_THeMS", "structHerd_1_1SSE_1_1EvolutionState.html#a8851b6265c7252ee4314bc1d2c97cd04", null ],
     [ "m_TMS", "structHerd_1_1SSE_1_1EvolutionState.html#a83066a3f8760cc6b2429922c108686d2", null ],
     [ "m_TrackPoint", "structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438", null ]

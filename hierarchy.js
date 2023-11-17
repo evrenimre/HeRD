@@ -29,6 +29,7 @@ var hierarchy =
     [ "Herd::SSE::TerminalMainSequence::MassDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MassDependents.html", null ],
     [ "Herd::SSE::ZeroAgeMainSequence::MassDependents", "structHerd_1_1SSE_1_1ZeroAgeMainSequence_1_1MassDependents.html", null ],
     [ "Herd::SSE::BaseOfGiantBranch::MetallicityDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html", null ],
+    [ "Herd::SSE::ConvectiveEnvelope::MetallicityDependents", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html", null ],
     [ "Herd::SSE::HeliumIgnition::MetallicityDependents", "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html", null ],
     [ "Herd::SSE::MainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html", null ],
     [ "Herd::SSE::TerminalMainSequence::MetallicityDependents", "structHerd_1_1SSE_1_1TerminalMainSequence_1_1MetallicityDependents.html", null ],

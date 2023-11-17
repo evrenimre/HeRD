@@ -1,5 +1,12 @@
 var NAVTREEINDEX3 =
 {
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a69c79fedcf14cbc7eed82cb0a4b1fc6e":[2,0,0,3,12,0,9],
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a7aa16d05021717aa42d5ea77ab7ea112":[2,0,0,3,12,0,7],
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a80c3db27b8d4fc5addaaad5646631cc2":[2,0,0,3,12,0,0],
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a89dd2715c1cc3ec3e072ee45cd71beba":[2,0,0,3,12,0,12],
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#abb7a9a29236fd1f417b259714bb04cf8":[2,0,0,3,12,0,13],
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#ac404eb999477c51d04f981a4c2fa6407":[2,0,0,3,12,0,8],
+"structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#ae017181055df00695b77d0565a2a8e05":[2,0,0,3,12,0,2],
 "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aeaab84f3c1a16c14237f64330de7e336":[2,0,0,3,12,0,5],
 "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aee99056381de01c73416fc7178b82efd":[2,0,0,3,12,0,4],
 "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#aefc39af92c7ebfdba0cef5177389b582":[2,0,0,3,12,0,6],
