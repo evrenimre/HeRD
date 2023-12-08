@@ -12,13 +12,13 @@
 
 #include "MainSequence.h"
 
-#include "Constants.h"
 #include "ConvectiveEnvelope.h"
 #include "EvolutionState.h"
 
 #include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
+#include <SSE/Landmarks/Constants.h>
 #include <SSE/Landmarks/HeliumIgnition.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
 #include <SSE/Landmarks/ZeroAgeMainSequence.h>

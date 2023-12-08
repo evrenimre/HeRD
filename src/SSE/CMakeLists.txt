@@ -1,9 +1,7 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
-set(HEADER_LIST Constants.h
-								ConvectiveEnvelope.h
+set(HEADER_LIST ConvectiveEnvelope.h
 								EvolutionStage.h
 								EvolutionState.h
-								GiantBranchRadius.h
 								IPhase.h
 							  MainSequence.h
 								SingleStarEvolution.h
@@ -15,7 +13,6 @@ set(HEADER_LIST Constants.h
 set(SOURCE_LIST ConvectiveEnvelope.cpp
 								EvolutionStage.cpp
 								EvolutionState.cpp
-								GiantBranchRadius.cpp
 								MainSequence.cpp
 								SingleStarEvolution.cpp
 								StellarRotation.cpp

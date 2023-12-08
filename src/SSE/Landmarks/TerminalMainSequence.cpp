@@ -13,12 +13,12 @@
 #include "TerminalMainSequence.h"
 
 #include "BaseOfGiantBranch.h"
+#include "Constants.h"
 #include "Utilities.h"
 #include "ZeroAgeMainSequence.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
-#include <SSE/Constants.h>
 
 #include <algorithm>
 #include <cmath>

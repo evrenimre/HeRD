@@ -20,10 +20,10 @@
 #include <UnitTestUtils/RandomTestFixture.h>
 #include <UnitTestUtils/UnitTestUtilityFunctions.h>
 
-#include <SSE/Constants.h>
 #include <SSE/EvolutionStage.h>
 #include <SSE/SingleStarEvolution.h>
 #include <SSE/TrackPoint.h>
+#include <SSE/Landmarks/Constants.h>
 
 #include <Exceptions/PreconditionError.h>
 #include <Physics/Constants.h>

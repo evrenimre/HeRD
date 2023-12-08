@@ -1,5 +1,7 @@
 get_filename_component(TARGET_NAME "${CMAKE_CURRENT_SOURCE_DIR}" NAME_WLE)
 set(HEADER_LIST BaseOfGiantBranch.h
+								Constants.h
+								GiantBranchRadius.h
 								HeliumIgnition.h						
 								TerminalMainSequence.h
 								Utilities.h
@@ -8,6 +10,7 @@ set(HEADER_LIST BaseOfGiantBranch.h
 )
 
 set(SOURCE_LIST BaseOfGiantBranch.cpp
+								GiantBranchRadius.cpp
 								HeliumIgnition.cpp
 								TerminalMainSequence.cpp
 								ZeroAgeMainSequence.cpp

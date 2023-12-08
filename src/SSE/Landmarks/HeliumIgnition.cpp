@@ -12,11 +12,11 @@
 
 #include "HeliumIgnition.h"
 
+#include "Constants.h"
 #include "Utilities.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
-#include <SSE/Constants.h>
 
 #include <cmath>
 
@@ -39,7 +39,7 @@ namespace Herd::SSE
 
 /**
  * @param i_Z Metallicity
- * @pre \c \c i_Z is positive
+ * @pre \c i_Z is positive
  * @throws PreconditionError If the precondition is violated
  */
 HeliumIgnition::HeliumIgnition( Herd::Generic::Metallicity i_Z )

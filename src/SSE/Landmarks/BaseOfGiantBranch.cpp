@@ -12,12 +12,12 @@
 
 #include "BaseOfGiantBranch.h"
 
+#include "Constants.h"
+#include "GiantBranchRadius.h"
 #include "Utilities.h"
 
 #include <Exceptions/PreconditionError.h>
 #include <Generic/MathHelpers.h>
-#include <SSE/Constants.h>
-#include <SSE/GiantBranchRadius.h>
 
 #include <cmath>
 

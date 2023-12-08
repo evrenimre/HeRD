@@ -12,13 +12,13 @@
 
 #include "ZeroAgeMainSequence.h"
 
+#include "Constants.h"
 #include "Utilities.h"
 
 #include <Generic/MathHelpers.h>
 #include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
 #include <Physics/LuminosityRadiusTemperature.h>
-#include <SSE/Constants.h>
 
 #include <cmath>
 

@@ -13,8 +13,8 @@
 #include "GiantBranchRadius.h"
 
 #include <Generic/MathHelpers.h>
+#include <SSE/Landmarks/Constants.h>
 
-#include "Constants.h"
 #include <algorithm>
 #include <cmath>
 #include <iterator>
