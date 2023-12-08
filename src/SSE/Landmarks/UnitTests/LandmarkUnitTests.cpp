@@ -42,7 +42,7 @@ enum class ELandmarkType
 };
 }
 
-BOOST_FIXTURE_TEST_SUITE( StellarRotationTests, Herd::UnitTestUtils::RandomTestFixture )
+BOOST_FIXTURE_TEST_SUITE( LandmarkTests, Herd::UnitTestUtils::RandomTestFixture )
 
 // Only testing input validation
 // Correctness tests are performed through the single star evolution unit tests
