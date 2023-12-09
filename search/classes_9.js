@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parameters_430',['Parameters',['../structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html',1,'Herd::SSE::SingleStarEvolutuion']]],
-  ['preconditionerror_431',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html',1,'Herd::Exceptions']]]
+  ['parameters_431',['Parameters',['../structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html',1,'Herd::SSE::SingleStarEvolutuion']]],
+  ['preconditionerror_432',['PreconditionError',['../classHerd_1_1Exceptions_1_1PreconditionError.html',1,'Herd::Exceptions']]]
 ];

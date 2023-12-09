@@ -2,7 +2,6 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
 [
     [ "Landmarks", "dir_2e59b15193eccb9e79c0e20bff0999d3.html", "dir_2e59b15193eccb9e79c0e20bff0999d3" ],
     [ "UnitTests", "dir_9b0048d3176e15ec70c0572370a56736.html", "dir_9b0048d3176e15ec70c0572370a56736" ],
-    [ "Constants.h", "SSE_2Constants_8h.html", "SSE_2Constants_8h" ],
     [ "ConvectiveEnvelope.cpp", "ConvectiveEnvelope_8cpp.html", null ],
     [ "ConvectiveEnvelope.h", "ConvectiveEnvelope_8h.html", [
       [ "ConvectiveEnvelope", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html", "classHerd_1_1SSE_1_1ConvectiveEnvelope" ],
@@ -14,10 +13,6 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
     [ "EvolutionStage.h", "EvolutionStage_8h.html", "EvolutionStage_8h" ],
     [ "EvolutionState.cpp", "EvolutionState_8cpp.html", "EvolutionState_8cpp" ],
     [ "EvolutionState.h", "EvolutionState_8h.html", "EvolutionState_8h" ],
-    [ "GiantBranchRadius.cpp", "GiantBranchRadius_8cpp.html", null ],
-    [ "GiantBranchRadius.h", "GiantBranchRadius_8h.html", [
-      [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ]
-    ] ],
     [ "IPhase.h", "IPhase_8h.html", [
       [ "IPhase", "classHerd_1_1SSE_1_1IPhase.html", "classHerd_1_1SSE_1_1IPhase" ]
     ] ],

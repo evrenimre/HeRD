@@ -13,5 +13,6 @@ var searchData=
   ['getrangestring_127',['GetRangeString',['../classHerd_1_1Generic_1_1QuantityRange.html#a723a2ef33dc039830e6c06c81f95d2d0',1,'Herd::Generic::QuantityRange']]],
   ['giantbranchradius_128',['GiantBranchRadius',['../classHerd_1_1SSE_1_1GiantBranchRadius.html#a16b361744a4b71653ed78a9637e9ffa1',1,'Herd::SSE::GiantBranchRadius::GiantBranchRadius()'],['../classHerd_1_1SSE_1_1GiantBranchRadius.html',1,'Herd::SSE::GiantBranchRadius']]],
   ['giantbranchradius_2ecpp_129',['GiantBranchRadius.cpp',['../GiantBranchRadius_8cpp.html',1,'']]],
-  ['giantbranchradius_2eh_130',['GiantBranchRadius.h',['../GiantBranchRadius_8h.html',1,'']]]
+  ['giantbranchradius_2eh_130',['GiantBranchRadius.h',['../GiantBranchRadius_8h.html',1,'']]],
+  ['giantbranchradiusunittests_2ecpp_131',['GiantBranchRadiusUnitTests.cpp',['../GiantBranchRadiusUnitTests_8cpp.html',1,'']]]
 ];

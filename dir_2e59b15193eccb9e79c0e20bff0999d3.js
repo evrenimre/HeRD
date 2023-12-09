@@ -7,6 +7,11 @@ var dir_2e59b15193eccb9e79c0e20bff0999d3 =
       [ "MetallicityDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MetallicityDependents" ],
       [ "MassDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents" ]
     ] ],
+    [ "Constants.h", "SSE_2Landmarks_2Constants_8h.html", "SSE_2Landmarks_2Constants_8h" ],
+    [ "GiantBranchRadius.cpp", "GiantBranchRadius_8cpp.html", null ],
+    [ "GiantBranchRadius.h", "GiantBranchRadius_8h.html", [
+      [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ]
+    ] ],
     [ "HeliumIgnition.cpp", "HeliumIgnition_8cpp.html", null ],
     [ "HeliumIgnition.h", "HeliumIgnition_8h.html", [
       [ "HeliumIgnition", "classHerd_1_1SSE_1_1HeliumIgnition.html", "classHerd_1_1SSE_1_1HeliumIgnition" ],

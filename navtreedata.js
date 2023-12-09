@@ -63,8 +63,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BaseOfGiantBranch_8cpp.html",
-"TestLandmarks_8cpp.html",
-"dir_b997967e9effd815d3b53584b5f775b1.html",
+"TestGeneric_8cpp.html",
+"dir_ab8a53883e24c3e4798b8a7ea6b57564.html",
 "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html#a69c79fedcf14cbc7eed82cb0a4b1fc6e"
 ];
 
