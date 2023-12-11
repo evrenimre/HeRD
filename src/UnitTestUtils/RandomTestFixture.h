@@ -54,6 +54,14 @@ public:
   T GenerateNumber(); // @suppress("Type cannot be resolved")
   ///@}
   
+  /// @name Random physical quantity generators
+  ///@{
+  double GenerateMetallicity(); ///< Generates a metallicity value
+  double GenerateMass(); ///< Generates a mass value
+  double GenerateLuminosity();  ///< Generates a luminosity value
+  double GenerateRadius(); ///< Generates a radius value
+  /// @}
+
 
 private:
 

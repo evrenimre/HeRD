@@ -109,4 +109,44 @@ void RandomTestFixture::InitialiseLazy()
 
 }
 
+/**
+ * @return A random metallicity value
+ * @remarks No unit test- \c GenerateNumber is tested
+ * @cite Hurley00
+ */
+double RandomTestFixture::GenerateMetallicity()
+{
+  return GenerateNumber( 1e-4, 0.03 );  // Metallicity range from Hurley00 // @suppress("Invalid arguments")
+}
+
+/**
+ * @return A random mass value in \fS M_{odot}\fS
+ * @remarks No unit test- \c GenerateNumber is tested
+ * @cite AMUSE
+ */
+double RandomTestFixture::GenerateMass()
+{
+  return GenerateNumber( 0.1, 100. ); // Mass range from AMUSE // @suppress("Invalid arguments")
+}
+
+/**
+ * @return Returns a random luminosity value
+ * @remarks No unit test- \c GenerateNumber is tested
+ * @remarks https://en.wikipedia.org/wiki/List_of_star_extremes
+ */
+double RandomTestFixture::GenerateLuminosity()
+{
+  return GenerateNumber( 0.000126, 6166000. );  // @suppress("Invalid arguments")
+}
+
+/**
+ * @return Returns a random radius value
+ * @remarks No unit test- \c GenerateNumber is tested
+ * @remarks https://en.wikipedia.org/wiki/List_of_star_extremes
+ */
+double RandomTestFixture::GenerateRadius()
+{
+  return GenerateNumber( 0.084, 2150. );  // @suppress("Invalid arguments")
+}
+
 } // namespace Herd::UnitTestUtils
