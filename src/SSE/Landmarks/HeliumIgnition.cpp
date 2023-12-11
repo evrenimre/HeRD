@@ -13,6 +13,7 @@
 #include "HeliumIgnition.h"
 
 #include "Constants.h"
+#include "CriticalMassValues.h"
 #include "Utilities.h"
 
 #include <Exceptions/PreconditionError.h>
@@ -106,7 +107,7 @@ void HeliumIgnition::ComputeMetallicityDependents( Herd::Generic::Metallicity i_
   Herd::SSE::ComputePowers( zetaPowers2, zeta );
 
   // MHeF
-  m_ZDependents.m_MHeF.Set( Herd::SSE::ComputeInnerProduct( { 1.995, 0.25, 0.087 }, zetaPowers2 ) );  // Eq. 2
+  m_ZDependents.m_MHeF = Herd::SSE::ComputeMHeF( i_Z );
 
   // LHeI
   std::array< double, 5 > tempLHeI;

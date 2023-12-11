@@ -19,6 +19,7 @@
 #include <Physics/LuminosityRadiusTemperature.h>
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
 #include <SSE/Landmarks/Constants.h>
+#include <SSE/Landmarks/CriticalMassValues.h>
 #include <SSE/Landmarks/HeliumIgnition.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
 #include <SSE/Landmarks/ZeroAgeMainSequence.h>
@@ -298,8 +299,8 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   std::array< double, 3 > zetaPowers2;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 3, zetaPowers2.begin() );
 
-  m_ZDependents.m_Mhook.Set( Herd::SSE::ComputeInnerProduct( { 1.0185, 0.16015, 0.0892 }, zetaPowers2 ) );  // Eq. 1
-  m_ZDependents.m_MFGB.Set( BXhC( relativeZ, 13.048, 0.06 ) / ApBXhC( relativeZ, 1., 1e-4, -1.27 ) );  // Eq. 3, but 0.0012 replaced by 1e-4 in AMUSE.SSE
+  m_ZDependents.m_Mhook = Herd::SSE::ComputeMhook( i_Z );
+  m_ZDependents.m_MFGB = Herd::SSE::ComputeMFGB( i_Z );
 
   // AlphaL
   std::array< double, 11 > tempAlphaL;
