@@ -8,6 +8,8 @@ var dir_2e59b15193eccb9e79c0e20bff0999d3 =
       [ "MassDependents", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents.html", "structHerd_1_1SSE_1_1BaseOfGiantBranch_1_1MassDependents" ]
     ] ],
     [ "Constants.h", "SSE_2Landmarks_2Constants_8h.html", "SSE_2Landmarks_2Constants_8h" ],
+    [ "CriticalMassValues.cpp", "CriticalMassValues_8cpp.html", "CriticalMassValues_8cpp" ],
+    [ "CriticalMassValues.h", "CriticalMassValues_8h.html", "CriticalMassValues_8h" ],
     [ "GiantBranchRadius.cpp", "GiantBranchRadius_8cpp.html", null ],
     [ "GiantBranchRadius.h", "GiantBranchRadius_8h.html", [
       [ "GiantBranchRadius", "classHerd_1_1SSE_1_1GiantBranchRadius.html", "classHerd_1_1SSE_1_1GiantBranchRadius" ]
