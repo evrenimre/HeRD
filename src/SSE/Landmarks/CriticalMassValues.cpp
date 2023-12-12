@@ -28,7 +28,7 @@ namespace
  * @param o_rPowers
  * @param i_Z
  */
-void ComputeZetaPowers2( std::array< double, 3 > o_rPowers, Herd::Generic::Metallicity i_Z )
+void ComputeZetaPowers2( std::array< double, 3 >& o_rPowers, Herd::Generic::Metallicity i_Z )
 {
   Herd::Generic::Metallicity relativeZ( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 ); // Metallicity relative to the Sun
 

@@ -296,9 +296,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   std::array< double, 4 > zetaPowers3;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 4, zetaPowers3.begin() );
 
-  std::array< double, 3 > zetaPowers2;
-  ranges::cpp20::copy_n( zetaPowers4.begin(), 3, zetaPowers2.begin() );
-
   m_ZDependents.m_Mhook = Herd::SSE::ComputeMhook( i_Z );
   m_ZDependents.m_MFGB = Herd::SSE::ComputeMFGB( i_Z );
 
