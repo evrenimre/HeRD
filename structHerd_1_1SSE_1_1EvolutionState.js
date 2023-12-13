@@ -11,7 +11,6 @@ var structHerd_1_1SSE_1_1EvolutionState =
     [ "m_MFGB", "structHerd_1_1SSE_1_1EvolutionState.html#adaf00b4a01f2a5bf265198272d553dac", null ],
     [ "m_MZAMS", "structHerd_1_1SSE_1_1EvolutionState.html#a610bbe56fb9aa52c632a94385dec3596", null ],
     [ "m_MZHe", "structHerd_1_1SSE_1_1EvolutionState.html#ae8c88e547dac87ac83705f8378c40d0d", null ],
-    [ "m_Rg", "structHerd_1_1SSE_1_1EvolutionState.html#aef8a97b34271ec3fa0a5ed6d4dc1ec74", null ],
     [ "m_THeMS", "structHerd_1_1SSE_1_1EvolutionState.html#a8851b6265c7252ee4314bc1d2c97cd04", null ],
     [ "m_TrackPoint", "structHerd_1_1SSE_1_1EvolutionState.html#a2e768b4ab174c59a4d0886d964758438", null ]
 ];

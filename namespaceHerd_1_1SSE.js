@@ -16,6 +16,7 @@ var namespaceHerd_1_1SSE =
     [ "ZeroAgeMainSequence", "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html", "classHerd_1_1SSE_1_1ZeroAgeMainSequence" ],
     [ "ZeroAgeMainSequenceSpecs", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs.html", "structHerd_1_1SSE_1_1ZeroAgeMainSequenceSpecs" ],
     [ "MainSequence", "classHerd_1_1SSE_1_1MainSequence.html", "classHerd_1_1SSE_1_1MainSequence" ],
+    [ "RgComputer", "classHerd_1_1SSE_1_1RgComputer.html", "classHerd_1_1SSE_1_1RgComputer" ],
     [ "SingleStarEvolutuion", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html", "classHerd_1_1SSE_1_1SingleStarEvolutuion" ],
     [ "SingleStarEvolutuionSpecs", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs.html", "structHerd_1_1SSE_1_1SingleStarEvolutuionSpecs" ],
     [ "StellarRotation", "classHerd_1_1SSE_1_1StellarRotation.html", "classHerd_1_1SSE_1_1StellarRotation" ],

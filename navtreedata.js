@@ -63,9 +63,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BaseOfGiantBranch_8cpp.html",
-"StellarWindMassLossUnitTests_8cpp.html#a824d0314f21234755de07c3a0754f758",
-"classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#aa946e7fcd3db80e6c60aa4576196d759",
-"structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html#a6a03e0a898bebe7c6b0e4202ba1b2b68"
+"StellarRotation_8h_source.html",
+"classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a22e00aba8328ab1bd6c321ab7ef1e29b",
+"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#acb1bd38956cab6742ca421bf8b989f55"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

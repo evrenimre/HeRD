@@ -22,6 +22,11 @@ var dir_a7e8d45762b6eccc936283eff74a9bb5 =
       [ "MetallicityDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1MainSequence_1_1MetallicityDependents" ],
       [ "MassDependents", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html", "structHerd_1_1SSE_1_1MainSequence_1_1MassDependents" ]
     ] ],
+    [ "RgComputer.cpp", "RgComputer_8cpp.html", null ],
+    [ "RgComputer.h", "RgComputer_8h.html", [
+      [ "RgComputer", "classHerd_1_1SSE_1_1RgComputer.html", "classHerd_1_1SSE_1_1RgComputer" ],
+      [ "MetallicityDependents", "structHerd_1_1SSE_1_1RgComputer_1_1MetallicityDependents.html", "structHerd_1_1SSE_1_1RgComputer_1_1MetallicityDependents" ]
+    ] ],
     [ "SingleStarEvolution.cpp", "SingleStarEvolution_8cpp.html", null ],
     [ "SingleStarEvolution.h", "SingleStarEvolution_8h.html", [
       [ "SingleStarEvolutuion", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html", "classHerd_1_1SSE_1_1SingleStarEvolutuion" ],

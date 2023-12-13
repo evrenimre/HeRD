@@ -13,5 +13,6 @@ var classHerd_1_1SSE_1_1ConvectiveEnvelope =
     [ "ComputeRadiusOfGyration", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a15c4503ed2d788588cb1fbdb017c9f79", null ],
     [ "DetermineInitialMass", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#ab8fd4c611194c82342c1014030e146b8", null ],
     [ "m_M0Dependents", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a12ff3e6ea4bf9b9be7188ea8f246657e", null ],
+    [ "m_Rg", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a6208d0c8b42ddda92d74bb33ebba5e76", null ],
     [ "m_ZDependents", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a36af9dc1a56885ac14d7dcc3897b505e", null ]
 ];
