@@ -42,6 +42,9 @@ ConvectiveEnvelope::ConvectiveEnvelope( Herd::Generic::Metallicity i_Z )
   m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
   m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
   m_ZDependents.m_pHeIComputer = std::make_unique< Herd::SSE::HeliumIgnition >( i_Z );
+
+  m_ZDependents.m_pRgComputer = std::make_unique< Herd::SSE::RgComputer >( i_Z );
+
 }
 
 ConvectiveEnvelope::~ConvectiveEnvelope() = default;
@@ -64,6 +67,8 @@ ConvectiveEnvelope::Envelope ConvectiveEnvelope::Compute( const Herd::SSE::Evolu
   }
 
   ComputeInitialMassDependents( DetermineInitialMass( i_rState ) );
+
+  m_Rg = m_ZDependents.m_pRgComputer->ComputeRg( i_rState );
 
   double tauEnv = ComputeProximityToHayashi( i_rState );
   auto [ fractionalM, fractionalR ] = ComputeMassAndRadius( i_rState, tauEnv );
@@ -170,11 +175,11 @@ double ConvectiveEnvelope::ComputeProximityToHayashi( const Herd::SSE::Evolution
   if( Herd::SSE::IsPreFGB( rTrackPoint.m_Stage ) )
   {
     Herd::Generic::Luminosity lBGB = m_ZDependents.m_pBGBComputer->Luminosity( rTrackPoint.m_Mass );
-    Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( lBGB, i_rState.m_Rg );
+    Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( lBGB, m_Rg );
     x = teBGB / rTrackPoint.m_Temperature;
   } else
   {
-    x = std::sqrt( rTrackPoint.m_Radius / i_rState.m_Rg );
+    x = std::sqrt( rTrackPoint.m_Radius / m_Rg );
   }
 
   return std::clamp( ComputeBlendWeight( x, m_M0Dependents.m_A, 1. ), 0., 1. );
@@ -220,7 +225,7 @@ Herd::Generic::Radius ConvectiveEnvelope::ComputeRadiusOfGyration( const Herd::S
   double rG = rGG;
 
   // Radius of gyration for stars not on the Hayashi track
-  if( rTrackPoint.m_Radius < i_rState.m_Rg )
+  if( rTrackPoint.m_Radius < m_Rg )
   {
     // Up to He stars
     if( Herd::SSE::IsPreFGB( stage ) || stage == Herd::SSE::EvolutionStage::e_FGB || stage == Herd::SSE::EvolutionStage::e_CHeB || Herd::SSE::IsAGB( stage ) )
@@ -299,7 +304,7 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
   { return rCEG * i_Tau * std::pow( i_Tau, 0.25);};
   
   // Stars not on the Hayashi track
-  if( rTrackPoint.m_Radius < i_rState.m_Rg )
+  if( rTrackPoint.m_Radius < m_Rg )
   {
     // Correction for stars close to the Hayashi track
     if( i_TauEnv > 0. )
@@ -309,7 +314,7 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
       if( Herd::SSE::IsMS( rTrackPoint.m_Stage ) )
       {
         //ComputeProximityToHayashi evaluated at teTMS
-        Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( lBGB, i_rState.m_Rg );
+        Herd::Generic::Temperature teBGB = Herd::Physics::ComputeAbsoluteTemperature( lBGB, m_Rg );
 
         Herd::Generic::Luminosity lTMS = m_ZDependents.m_pTMSComputer->Luminosity( rTrackPoint.m_Mass );
         Herd::Generic::Radius rTMS = m_ZDependents.m_pTMSComputer->Radius( rTrackPoint.m_Mass );
@@ -374,7 +379,7 @@ double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState,
   
   // Compute k2
   double k2 = k2g;
-  if( rTrackPoint.m_Radius < i_rState.m_Rg )
+  if( rTrackPoint.m_Radius < m_Rg )
   {
     // AGB or earlier
     if( !Herd::SSE::IsHeStar( rTrackPoint.m_Stage ) || !Herd::SSE::IsRemnant( rTrackPoint.m_Stage ) )

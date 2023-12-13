@@ -85,7 +85,6 @@ private:
     // No default constructor, so needs to be a pointer
     std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
     std::unique_ptr< Herd::SSE::TerminalMainSequence > m_pTMSComputer; ///< Computes the characteristic values at TMS
-    std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< Computes the characteristic values at BGB
     std::unique_ptr< Herd::SSE::HeliumIgnition > m_pHeIComputer; ///< Computes the characteristic values at HeI
 
     std::unique_ptr< Herd::SSE::ConvectiveEnvelope > m_pConvectiveEnvelopeComputer;  ///< Computes the properties of the convective envelope

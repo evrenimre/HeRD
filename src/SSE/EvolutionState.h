@@ -43,8 +43,6 @@ struct EvolutionState
 
   Herd::Generic::Mass m_MFGB;  ///< \f$ M_{FGB} \f$, Eq. 3. Maximum mass for a star to have a GB phase
 
-  Herd::Generic::Radius m_Rg; ///< \f$ R_g \f$ required for convective envelope calculations
-
   Herd::Generic::Mass m_MCHeI; ///< \f$ M_{c, HeI}\f$. Core mass at He ignition
 
   Herd::Generic::Time m_DeltaT; ///<  Timestep

@@ -13,6 +13,8 @@
 #ifndef HAFD0B7BF_5E2F_47CD_A165_00F64B49B33F
 #define HAFD0B7BF_5E2F_47CD_A165_00F64B49B33F
 
+#include "RgComputer.h"
+
 #include <Generic/Quantity.h>
 
 #include <memory>
@@ -26,6 +28,8 @@ class BaseOfGiantBranch;
 class HeliumIgnition;
 class TerminalMainSequence;
 class ZeroAgeMainSequence;
+
+class RgComputer;
 
 /**
  * @brief Computation of convective envelope properties
@@ -63,6 +67,8 @@ private:
     std::unique_ptr< Herd::SSE::TerminalMainSequence > m_pTMSComputer;  ///< TMS computations
     std::unique_ptr< Herd::SSE::BaseOfGiantBranch > m_pBGBComputer; ///< BGB computations
     std::unique_ptr< Herd::SSE::HeliumIgnition > m_pHeIComputer; ///< HeI computations
+
+    std::unique_ptr< Herd::SSE::RgComputer > m_pRgComputer; ///< \fS R_g \fS computations
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity dependentss
@@ -89,6 +95,8 @@ private:
   };
 
   InitialMassDependents m_M0Dependents;
+
+  Herd::Generic::Radius m_Rg; ///< \f$ R_g \f$
 
   void ComputeInitialMassDependents( Herd::Generic::Mass i_Mass );  ///< Computes the initial mass dependent quantities
   Herd::Generic::Mass DetermineInitialMass( const Herd::SSE::EvolutionState& i_rState );  ///< Determines the effective initial mass for the computations

@@ -84,8 +84,6 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
 
   generated.m_MFGB.Set( Generator( 0.08, 216. ) );
 
-  generated.m_Rg.Set( Generator( 0.084, 2150. ) );
-
   generated.m_MCHeI.Set( Generator( 0.08, 216. ) );
 
   generated.m_DeltaT.Set( Generator( 0., 1.0e-1 ) );

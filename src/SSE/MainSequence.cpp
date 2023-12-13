@@ -261,8 +261,6 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_EnvelopeMass.Set( 0. );
   io_rState.m_EnvelopeRadius.Set( 0. );
 
-  io_rState.m_Rg = m_MDependents.m_Rg;
-
   auto convectiveEnvelope = m_ZDependents.m_pConvectiveEnvelopeComputer->Compute( io_rState );
   rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;
   io_rState.m_EnvelopeRadius = convectiveEnvelope.m_Radius;
@@ -382,7 +380,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   // Initialise the landmark computers
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
   m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
-  m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
   m_ZDependents.m_pHeIComputer = std::make_unique< Herd::SSE::HeliumIgnition >( i_Z );
 
   // Initialise the convective envelope computer
@@ -408,9 +405,6 @@ void MainSequence::ComputeMassDependents( Herd::Generic::Mass i_Mass )
   m_MDependents.m_BetaR = ComputeBetaR( i_Mass );
   m_MDependents.m_GammaR = ComputeGammaR( i_Mass );
   m_MDependents.m_DeltaR = ComputeRHook( i_Mass );
-
-  // Rg
-  m_MDependents.m_Rg = m_ZDependents.m_pBGBComputer->Radius( i_Mass );
 
   //tMS
   m_MDependents.m_TMS = m_ZDependents.m_pTMSComputer->Age( i_Mass );

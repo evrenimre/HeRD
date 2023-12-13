@@ -4,6 +4,7 @@ set(HEADER_LIST ConvectiveEnvelope.h
 								EvolutionState.h
 								IPhase.h
 							  MainSequence.h
+							  RgComputer.h
 								SingleStarEvolution.h
 								StellarRotation.h
 								StellarWindMassLoss.h
@@ -14,6 +15,7 @@ set(SOURCE_LIST ConvectiveEnvelope.cpp
 								EvolutionStage.cpp
 								EvolutionState.cpp
 								MainSequence.cpp
+								RgComputer.cpp
 								SingleStarEvolution.cpp
 								StellarRotation.cpp
 								StellarWindMassLoss.cpp
