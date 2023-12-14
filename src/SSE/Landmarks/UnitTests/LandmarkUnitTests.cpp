@@ -73,7 +73,7 @@ BOOST_AUTO_TEST_CASE( ValidationTest, *Herd::UnitTestUtils::Labels::s_Compile )
   BOOST_CHECK_NO_THROW( Landmarks.emplace( ELandmarkType::e_HeI, std::make_unique< Herd::SSE::HeliumIgnition >( validMetallicity ) ) );
 
   // Common interface
-  for( auto& [ key, pLandmark ] : Landmarks )
+  for( auto& [ rKey, pLandmark ] : Landmarks )
   {
     // Valid input
     BOOST_CHECK_NO_THROW( pLandmark->Age( validMass ) );
