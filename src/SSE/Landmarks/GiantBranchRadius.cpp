@@ -37,8 +37,8 @@ std::array< double, 24 > s_ZRGB { 9.960283e-01, 8.164393e-01, 2.383830e+00, 2.22
 namespace Herd::SSE
 {
 
-using Herd::SSE::ApBXhC;
-using Herd::SSE::BXhC;
+using Herd::Generic::ApBXhC;
+using Herd::Generic::BXhC;
 
 /**
  * @param i_Z Initial metallicity
@@ -54,7 +54,7 @@ GiantBranchRadius::GiantBranchRadius( Herd::Generic::Metallicity i_Z )
 
   std::array< double, 6 > zetaPowers5;
   double zeta = std::log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
-  Herd::SSE::ComputePowers( zetaPowers5, zeta );
+  Herd::Generic::ComputePowers( zetaPowers5, zeta );
 
   std::array< double, 3 > zetaPowers2;
   ranges::cpp20::copy_n( zetaPowers5.begin(), 3, zetaPowers2.begin() );
@@ -63,7 +63,7 @@ GiantBranchRadius::GiantBranchRadius( Herd::Generic::Metallicity i_Z )
   m_B[ 0 ] = std::max( std::pow( 10., -4.6739 - 0.9394 * logZ ), -0.04167 + 55.67 * i_Z );
   m_B[ 0 ] = std::min( m_B[ 0 ], 0.4771 - BXhC( i_Z, 9329.21, 2.94 ) );
 
-  m_B[ 1 ] = std::min( 0.54, Herd::SSE::ComputeInnerProduct( { 0.397, 0.28826, 0.5293 }, zetaPowers2 ) );
+  m_B[ 1 ] = std::min( 0.54, Herd::Generic::ComputeInnerProduct( { 0.397, 0.28826, 0.5293 }, zetaPowers2 ) );
 
   {
     m_B[ 2 ] = std::pow( 10., std::max( -0.1451, -2.2794 - 1.5175 * logZ - 0.254 * logZ * logZ ) );
@@ -74,7 +74,7 @@ GiantBranchRadius::GiantBranchRadius( Herd::Generic::Metallicity i_Z )
   }
 
   std::array< double, 4 > tempB;
-  Herd::SSE::MultiplyMatrixVector( tempB, s_ZRGB, zetaPowers5 );
+  Herd::Generic::MultiplyMatrixVector( tempB, s_ZRGB, zetaPowers5 );
   ranges::cpp20::copy( tempB, std::next( m_B.begin(), 3 ) ); // @suppress("Invalid arguments")
 }
 

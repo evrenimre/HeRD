@@ -120,14 +120,14 @@ void BaseOfGiantBranch::ComputeMetallicityDependents( Herd::Generic::Metallicity
 
   std::array< double, 4 > zetaPowers3;
   double zeta = std::log10( relativeZ );
-  Herd::SSE::ComputePowers( zetaPowers3, zeta );
+  Herd::Generic::ComputePowers( zetaPowers3, zeta );
 
   // TBGB
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_TBGB, s_ZTBGB, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_TBGB, s_ZTBGB, zetaPowers3 );
 
   // LBGB
   std::array< double, 6 > tempLBGB;
-  Herd::SSE::MultiplyMatrixVector( tempLBGB, s_ZLBGB, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( tempLBGB, s_ZLBGB, zetaPowers3 );
   ranges::cpp20::copy( tempLBGB, m_ZDependents.m_LBGB.begin() );
 
   auto& rB = m_ZDependents.m_LBGB;
@@ -162,8 +162,8 @@ Herd::Generic::Time BaseOfGiantBranch::ComputeAge( Herd::Generic::Mass i_Mass ) 
   massPowersDen[ 0 ] = m20;
   massPowersDen[ 1 ] = massPowersNum[ 3 ]; // m^7
 
-  double num = Herd::SSE::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ], rA[ 2 ], 1. }, massPowersNum );
-  double den = Herd::SSE::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, massPowersDen );
+  double num = Herd::Generic::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ], rA[ 2 ], 1. }, massPowersNum );
+  double den = Herd::Generic::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, massPowersDen );
 
   return Herd::Generic::Time( num / den );
 }
@@ -177,8 +177,8 @@ Herd::Generic::Luminosity BaseOfGiantBranch::ComputeLuminosity( Herd::Generic::M
   auto& rB = m_ZDependents.m_LBGB;
 
   // Eq. 10
-  double num = Herd::SSE::BXhC( i_Mass, rB[ 0 ], rB[ 4 ] ) + BXhC( i_Mass, rB[ 1 ], rB[ 7 ] );
-  double den = Herd::SSE::ApBXhC( i_Mass, rB[ 2 ], rB[ 3 ], rB[ 6 ] ) + std::pow( i_Mass, rB[ 5 ] );
+  double num = Herd::Generic::BXhC( i_Mass, rB[ 0 ], rB[ 4 ] ) + BXhC( i_Mass, rB[ 1 ], rB[ 7 ] );
+  double den = Herd::Generic::ApBXhC( i_Mass, rB[ 2 ], rB[ 3 ], rB[ 6 ] ) + std::pow( i_Mass, rB[ 5 ] );
   return Herd::Generic::Luminosity( num / den );
 }
 

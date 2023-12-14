@@ -33,7 +33,7 @@ void ComputeZetaPowers2( std::array< double, 3 >& o_rPowers, Herd::Generic::Meta
   Herd::Generic::Metallicity relativeZ( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 ); // Metallicity relative to the Sun
 
   double zeta = std::log10( relativeZ );
-  Herd::SSE::ComputePowers( o_rPowers, zeta );
+  Herd::Generic::ComputePowers( o_rPowers, zeta );
 }
 
 }
@@ -53,7 +53,7 @@ Herd::Generic::Mass ComputeMhook( Herd::Generic::Metallicity i_Z )
 
   std::array< double, 3 > zetaPowers2;
   ComputeZetaPowers2( zetaPowers2, i_Z );
-  return Herd::Generic::Mass( Herd::SSE::ComputeInnerProduct( { 1.0185, 0.16015, 0.0892 }, zetaPowers2 ) );  // Eq. 1
+  return Herd::Generic::Mass( Herd::Generic::ComputeInnerProduct( { 1.0185, 0.16015, 0.0892 }, zetaPowers2 ) );  // Eq. 1
 }
 
 /**
@@ -68,7 +68,7 @@ Herd::Generic::Mass ComputeMHeF( Herd::Generic::Metallicity i_Z )
 
   std::array< double, 3 > zetaPowers2;
   ComputeZetaPowers2( zetaPowers2, i_Z );
-  return Herd::Generic::Mass( Herd::SSE::ComputeInnerProduct( { 1.995, 0.25, 0.087 }, zetaPowers2 ) );  // Eq. 2);
+  return Herd::Generic::Mass( Herd::Generic::ComputeInnerProduct( { 1.995, 0.25, 0.087 }, zetaPowers2 ) );  // Eq. 2);
 }
 
 /**
@@ -84,8 +84,8 @@ Herd::Generic::Mass ComputeMFGB( Herd::Generic::Metallicity i_Z )
   Herd::Generic::Metallicity relativeZ( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 ); // Metallicity relative to the Sun
 
   // Eq. 3, but 0.0012 replaced by 1e-4 in AMUSE.SSE
-  double num = Herd::SSE::BXhC( relativeZ, 13.048, 0.06 );
-  double den = Herd::SSE::ApBXhC( relativeZ, 1., 1e-4, -1.27 );
+  double num = Herd::Generic::BXhC( relativeZ, 13.048, 0.06 );
+  double den = Herd::Generic::ApBXhC( relativeZ, 1., 1e-4, -1.27 );
   return Herd::Generic::Mass( num / den );
 }
 }

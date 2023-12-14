@@ -115,9 +115,9 @@ const std::array< double, 28 > s_ZRhook { 7.330122e-01, 5.192827e-01, 2.316416e-
 namespace Herd::SSE
 {
 
-using Herd::SSE::ComputeBlendWeight;
-using Herd::SSE::ApBXhC;
-using Herd::SSE::BXhC;
+using Herd::Generic::ComputeBlendWeight;
+using Herd::Generic::ApBXhC;
+using Herd::Generic::BXhC;
 
 /**
  * @param i_InitialMetallicity Metallicity at ZAMS
@@ -289,7 +289,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
 
   std::array< double, 5 > zetaPowers4;
   double zeta = std::log10( relativeZ );
-  Herd::SSE::ComputePowers( zetaPowers4, zeta );
+  Herd::Generic::ComputePowers( zetaPowers4, zeta );
 
   std::array< double, 4 > zetaPowers3;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 4, zetaPowers3.begin() );
@@ -299,7 +299,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
 
   // AlphaL
   std::array< double, 11 > tempAlphaL;
-  Herd::SSE::MultiplyMatrixVector( tempAlphaL, s_ZAlphaL, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( tempAlphaL, s_ZAlphaL, zetaPowers3 );
   ranges::cpp20::copy_n( tempAlphaL.begin(), 4, m_ZDependents.m_AlphaL.begin() );
   {
     auto& rA = m_ZDependents.m_AlphaL;
@@ -318,18 +318,18 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   }
 
   // BetaL
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_BetaL, s_ZBetaL, zetaPowers4 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_BetaL, s_ZBetaL, zetaPowers4 );
   m_ZDependents.m_BetaL[ 3 ] = std::min( 1.4, m_ZDependents.m_BetaL[ 3 ] );
   m_ZDependents.m_BetaL[ 3 ] = std::max( { 0.6355e+00 - 0.4192e+00 * zeta, 1.25, m_ZDependents.m_BetaL[ 3 ] } );
 
   // Lhook
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Lhook, s_ZLhook, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_Lhook, s_ZLhook, zetaPowers3 );
   m_ZDependents.m_Lhook[ 4 ] = std::min( 1.4, m_ZDependents.m_Lhook[ 4 ] );
   m_ZDependents.m_Lhook[ 4 ] = std::max( { 0.6355e+00 - 0.4192e+00 * zeta, 1.25, m_ZDependents.m_Lhook[ 4 ] } );
 
   // AlphaR
   std::array< double, 13 > tempAlphaR;
-  Herd::SSE::MultiplyMatrixVector( tempAlphaR, s_ZAlphaR, zetaPowers4 );
+  Herd::Generic::MultiplyMatrixVector( tempAlphaR, s_ZAlphaR, zetaPowers4 );
   ranges::cpp20::copy_n( tempAlphaR.begin(), 5, m_ZDependents.m_AlphaR.begin() );
 
   {
@@ -350,13 +350,13 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   }
 
   // BetaR
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_BetaR, s_ZBetaR, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_BetaR, s_ZBetaR, zetaPowers3 );
   m_ZDependents.m_BetaR[ 4 ] = i_Z <= 0.01 ? m_ZDependents.m_BetaR[ 4 ] : std::max( 0.95, m_ZDependents.m_BetaR[ 4 ] );
   m_ZDependents.m_BetaR[ 5 ] = std::clamp( m_ZDependents.m_BetaR[ 5 ], 1.4, 1.6 );
 
   // GammaR
   std::array< double, 12 > tempGammaR;
-  Herd::SSE::MultiplyMatrixVector( tempGammaR, s_ZGammaR, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( tempGammaR, s_ZGammaR, zetaPowers3 );
 
   {
     auto& rA = m_ZDependents.m_GammaR;
@@ -370,7 +370,7 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   }
 
   // Rhook
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Rhook, s_ZRhook, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_Rhook, s_ZRhook, zetaPowers3 );
   m_ZDependents.m_Rhook[ 4 ] = std::clamp( m_ZDependents.m_Rhook[ 4 ], 1.1, 1.25 );
   m_ZDependents.m_Rhook[ 6 ] = std::clamp( m_ZDependents.m_Rhook[ 6 ], 0.45, 1.3 );
 

@@ -31,7 +31,7 @@
 namespace Herd::SSE
 {
 
-using Herd::SSE::ComputeBlendWeight;
+using Herd::Generic::ComputeBlendWeight;
 
 /**
  * @param i_Z Metallicity
@@ -122,7 +122,7 @@ void ConvectiveEnvelope::ComputeInitialMassDependents( Herd::Generic::Mass i_Mas
   m_M0Dependents.m_K2ZAMS = std::min( 0.21, std::max( 0.09 - 0.27 * logM, 0.037 + 0.033 * logM ) );
   if( logM > 1.3 )
   {
-    m_M0Dependents.m_K2ZAMS -= Herd::SSE::BXhC( logM - 1.3, 0.055, 2 );
+    m_M0Dependents.m_K2ZAMS -= Herd::Generic::BXhC( logM - 1.3, 0.055, 2 );
   }
 
   m_M0Dependents.m_K2BGB = std::min( { 0.15, 0.147 + 0.03 * logM, 0.162 - 0.04 * logM } );
@@ -374,7 +374,7 @@ double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState,
   {
     double b = 3e4 * m15;
     double x = boost::math::pow< 2 >( std::max( 0.0, rTrackPoint.m_Luminosity / ( b - 0.5 ) ) );
-    k2g = Herd::SSE::ComputeBlendWeight( m_M0Dependents.m_K2BGB, -0.4 * x, 1.0 );
+    k2g = Herd::Generic::ComputeBlendWeight( m_M0Dependents.m_K2BGB, -0.4 * x, 1.0 );
   }
   
   // Compute k2
@@ -386,8 +386,8 @@ double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState,
     {
       Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
       double relativeR = rTrackPoint.m_Radius / rZAMS;
-      double term1 = Herd::SSE::BXhC( relativeR, m_M0Dependents.m_K2ZAMS - 0.025, m_M0Dependents.m_C );
-      double term2 = Herd::SSE::BXhC( relativeR, 0.025, -0.1 );
+      double term1 = Herd::Generic::BXhC( relativeR, m_M0Dependents.m_K2ZAMS - 0.025, m_M0Dependents.m_C );
+      double term2 = Herd::Generic::BXhC( relativeR, 0.025, -0.1 );
       k2 = term1 + term2;
     }
 

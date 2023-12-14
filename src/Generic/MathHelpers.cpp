@@ -14,7 +14,7 @@
 
 #include <cmath>
 
-namespace Herd::SSE
+namespace Herd::Generic
 {
 /**
  * @param i_X Variable

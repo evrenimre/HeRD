@@ -21,7 +21,7 @@
 #include <range/v3/algorithm.hpp>
 #include <range/v3/view.hpp>
 
-namespace Herd::SSE
+namespace Herd::Generic
 {
 template< std::size_t Size, std::size_t Row, std::size_t Column >
 void MultiplyMatrixVector( std::array< double, Row >& o_rResult, const std::array< double, Size >& i_rMatrix, const std::array< double, Column >& i_rVector ); ///< Matrix-vector multiplication with fixed-size arrays

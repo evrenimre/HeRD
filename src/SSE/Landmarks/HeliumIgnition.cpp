@@ -104,14 +104,14 @@ void HeliumIgnition::ComputeMetallicityDependents( Herd::Generic::Metallicity i_
 
   std::array< double, 3 > zetaPowers2;
   double zeta = std::log10( relativeZ );
-  Herd::SSE::ComputePowers( zetaPowers2, zeta );
+  Herd::Generic::ComputePowers( zetaPowers2, zeta );
 
   // MHeF
   m_ZDependents.m_MHeF = Herd::SSE::ComputeMHeF( i_Z );
 
   // LHeI
   std::array< double, 5 > tempLHeI;
-  Herd::SSE::MultiplyMatrixVector( tempLHeI, s_ZLHeI, zetaPowers2 );
+  Herd::Generic::MultiplyMatrixVector( tempLHeI, s_ZLHeI, zetaPowers2 );
 
   {
     auto& rB = m_ZDependents.m_LHeI;
@@ -125,7 +125,7 @@ void HeliumIgnition::ComputeMetallicityDependents( Herd::Generic::Metallicity i_
 
     rB[ 3 ] = 0.; // This value is just an initialiser. The next call goes down a branch that does not use rB[3]
     Herd::Generic::Luminosity lHeI = ComputeLuminosity( m_ZDependents.m_MHeF );  // L_HeI at M_HeF
-    rB[ 3 ] = ( Herd::SSE::BXhC( m_ZDependents.m_MHeF, rB[ 0 ], rB[ 1 ] ) - lHeI ) / ( lHeI * std::exp( m_ZDependents.m_MHeF * rB[ 2 ] ) ); // AMASS.SSE implements this differently from the paper
+    rB[ 3 ] = ( Herd::Generic::BXhC( m_ZDependents.m_MHeF, rB[ 0 ], rB[ 1 ] ) - lHeI ) / ( lHeI * std::exp( m_ZDependents.m_MHeF * rB[ 2 ] ) ); // AMASS.SSE implements this differently from the paper
   }
 }
 

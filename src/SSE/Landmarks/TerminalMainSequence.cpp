@@ -150,7 +150,7 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
 
   std::array< double, 5 > zetaPowers4;
   double zeta = std::log10( relativeZ );
-  Herd::SSE::ComputePowers( zetaPowers4, zeta );
+  Herd::Generic::ComputePowers( zetaPowers4, zeta );
 
   std::array< double, 4 > zetaPowers3;
   ranges::cpp20::copy_n( zetaPowers4.begin(), 4, zetaPowers3.begin() );
@@ -160,13 +160,13 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
   m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
 
   // LTMS
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LTMS, s_ZLTMS, zetaPowers4 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_LTMS, s_ZLTMS, zetaPowers4 );
   m_ZDependents.m_LTMS[ 0 ] *= m_ZDependents.m_LTMS[ 3 ];
   m_ZDependents.m_LTMS[ 1 ] *= m_ZDependents.m_LTMS[ 3 ];
 
   // RTMS
   std::array< double, 10 > tempRTMS;
-  Herd::SSE::MultiplyMatrixVector( tempRTMS, s_ZRTMS, zetaPowers4 );
+  Herd::Generic::MultiplyMatrixVector( tempRTMS, s_ZRTMS, zetaPowers4 );
   ranges::cpp20::copy( tempRTMS, m_ZDependents.m_RTMS.begin() );
   m_ZDependents.m_RTMS[ 0 ] *= m_ZDependents.m_RTMS[ 2 ];
   m_ZDependents.m_RTMS[ 1 ] *= m_ZDependents.m_RTMS[ 2 ];
@@ -188,7 +188,7 @@ void TerminalMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallic
   }
 
   // ThookCoefficients
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_Thook, s_ZThook, zetaPowers3 );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_Thook, s_ZThook, zetaPowers3 );
 }
 /**
  * @param i_Mass Mass
@@ -215,8 +215,8 @@ Herd::Generic::Luminosity TerminalMainSequence::ComputeLuminosity( Herd::Generic
   double m40 = m20 * m20;
   double m50 = m40 * i_Mass;
 
-  double num = Herd::SSE::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ] }, std::array< double, 2 > { m30, m40 } ) + rA[ 2 ] * std::pow( i_Mass, rA[ 5 ] + 1.8 );
-  double den = Herd::SSE::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, std::array< double, 2 > { 1., m50 } ) + std::pow( i_Mass, rA[ 5 ] ); // @suppress("Invalid arguments")
+  double num = Herd::Generic::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ] }, std::array< double, 2 > { m30, m40 } ) + rA[ 2 ] * std::pow( i_Mass, rA[ 5 ] + 1.8 );
+  double den = Herd::Generic::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, std::array< double, 2 > { 1., m50 } ) + std::pow( i_Mass, rA[ 5 ] ); // @suppress("Invalid arguments")
 
   return Herd::Generic::Luminosity( num / den );
 }
@@ -232,8 +232,8 @@ Herd::Generic::Radius TerminalMainSequence::ComputeRadius( Herd::Generic::Mass i
   if( i_Mass <= rA[ 10 ] )
   {
     // Eq. 9a
-    double num = Herd::SSE::ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
-    double den = Herd::SSE::ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
+    double num = Herd::Generic::ApBXhC( i_Mass, rA[ 0 ], rA[ 1 ], rA[ 3 ] );
+    double den = Herd::Generic::ApBXhC( i_Mass, rA[ 2 ], 1., rA[ 4 ] );
     Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( i_Mass );
     return Herd::Generic::Radius( std::max( 1.5 * rZAMS, num / den ) ); // AMUSE.SSE added a check to ensure that RTMS > RZAMS
   }
@@ -250,7 +250,7 @@ Herd::Generic::Radius TerminalMainSequence::ComputeRadius( Herd::Generic::Mass i
   }
 
   // Between rA[10] and rA[10] + 0.1, interpolate
-  return Herd::Generic::Radius( std::lerp( rA[ 11 ], rA[ 12 ], Herd::SSE::ComputeBlendWeight( i_Mass, rA[ 10 ], rA[ 10 ] + 0.1 ) ) );
+  return Herd::Generic::Radius( std::lerp( rA[ 11 ], rA[ 12 ], Herd::Generic::ComputeBlendWeight( i_Mass, rA[ 10 ], rA[ 10 ] + 0.1 ) ) );
 }
 
 /**
@@ -262,8 +262,8 @@ Herd::Generic::Time TerminalMainSequence::ComputeTHook( Herd::Generic::Mass i_Ma
   // Eq. 7
   double mu = 0;
   const auto& rA = m_ZDependents.m_Thook;
-  double left = Herd::SSE::BXhC( i_Mass, rA[ 0 ], -rA[ 1 ] );
-  double right = Herd::SSE::ApBXhC( i_Mass, rA[ 2 ], rA[ 3 ], -rA[ 4 ] );
+  double left = Herd::Generic::BXhC( i_Mass, rA[ 0 ], -rA[ 1 ] );
+  double right = Herd::Generic::ApBXhC( i_Mass, rA[ 2 ], rA[ 3 ], -rA[ 4 ] );
   mu = std::max( 0.5, 1. - 0.01 * std::max( left, right ) );
 
   Herd::Generic::Time tBGB = m_ZDependents.m_pBGBComputer->Age( i_Mass );

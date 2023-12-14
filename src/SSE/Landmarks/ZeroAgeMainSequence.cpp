@@ -113,11 +113,11 @@ void ZeroAgeMainSequence::ComputeMetallicityDependents( Herd::Generic::Metallici
 {
   std::array< double, 5 > zetaPowers;
   double logZeta = log10( i_Z / Herd::SSE::Constants::s_SolarMetallicityTout96 );
-  Herd::SSE::ComputePowers( zetaPowers, logZeta );
+  Herd::Generic::ComputePowers( zetaPowers, logZeta );
 
   // Eq. 3
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_LZAMS, s_ZL, zetaPowers );
-  Herd::SSE::MultiplyMatrixVector( m_ZDependents.m_RZAMS, s_ZR, zetaPowers );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_LZAMS, s_ZL, zetaPowers );
+  Herd::Generic::MultiplyMatrixVector( m_ZDependents.m_RZAMS, s_ZR, zetaPowers );
 }
 
 /**
@@ -144,7 +144,7 @@ Herd::Generic::Luminosity ZeroAgeMainSequence::ComputeLuminosity( Herd::Generic:
 
   // Eq. 1
   double num = m55 * ( rA[ 0 ] + m55 * rA[ 1 ] );
-  double den = Herd::SSE::ComputeInnerProduct( { rA[ 2 ], 1., rA[ 3 ], rA[ 4 ], rA[ 5 ], rA[ 6 ] }, massPowers );
+  double den = Herd::Generic::ComputeInnerProduct( { rA[ 2 ], 1., rA[ 3 ], rA[ 4 ], rA[ 5 ], rA[ 6 ] }, massPowers );
 
   return Herd::Generic::Luminosity( num / den );
 }
@@ -178,8 +178,8 @@ Herd::Generic::Radius ZeroAgeMainSequence::ComputeRadius( Herd::Generic::Mass i_
   massPowersDen[ 4 ] = massPowersNum[ 4 ];  // m^19.5
 
   // Eq. 2
-  double num = Herd::SSE::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ], rA[ 2 ], rA[ 3 ], rA[ 4 ] }, massPowersNum );
-  double den = Herd::SSE::ComputeInnerProduct( { rA[ 5 ], rA[ 6 ], rA[ 7 ], 1., rA[ 8 ] }, massPowersDen );
+  double num = Herd::Generic::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ], rA[ 2 ], rA[ 3 ], rA[ 4 ] }, massPowersNum );
+  double den = Herd::Generic::ComputeInnerProduct( { rA[ 5 ], rA[ 6 ], rA[ 7 ], 1., rA[ 8 ] }, massPowersDen );
 
   return Herd::Generic::Radius( num / den );
 }
