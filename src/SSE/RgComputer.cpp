@@ -41,7 +41,7 @@ Herd::Generic::Radius RgComputer::ComputeRg( const Herd::SSE::EvolutionState& i_
   }
   else
   {
-    return Herd::Generic::Radius( 0 );  // Placeholder
+    return Herd::Generic::Radius( 0.1 );  // Placeholder. 0.1, as unit tests can fail at 0
   }
 }
 }
