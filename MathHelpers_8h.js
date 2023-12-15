@@ -1,9 +1,9 @@
 var MathHelpers_8h =
 [
-    [ "ApBXhC", "MathHelpers_8h.html#adb2d57367a5c3971150e6ae6adf1ea23", null ],
-    [ "BXhC", "MathHelpers_8h.html#a137fe8358fb724780e904f761569b2d0", null ],
-    [ "ComputeBlendWeight", "MathHelpers_8h.html#aba1468701a793b737e4a2b31e94fcd1b", null ],
-    [ "ComputeInnerProduct", "MathHelpers_8h.html#ac9c5be5d42520d05ed5e6a0fecf9bee7", null ],
-    [ "ComputePowers", "MathHelpers_8h.html#aabfed8b93d0a5ba9e56467f1cbbefe96", null ],
-    [ "MultiplyMatrixVector", "MathHelpers_8h.html#ae008f591df2b91795c1df6b4f8928aca", null ]
+    [ "ApBXhC", "MathHelpers_8h.html#a811865829fe12a2171b49a68a0785334", null ],
+    [ "BXhC", "MathHelpers_8h.html#a8fe1e46bac2c4451f95d30a8291a0b3b", null ],
+    [ "ComputeBlendWeight", "MathHelpers_8h.html#a572aadb307bee608bf352483b98938ca", null ],
+    [ "ComputeInnerProduct", "MathHelpers_8h.html#a8dce709ee337ac32ac30dc95136921c3", null ],
+    [ "ComputePowers", "MathHelpers_8h.html#a8032f7f99312aba540143bcede490891", null ],
+    [ "MultiplyMatrixVector", "MathHelpers_8h.html#a7abb587cfdfad2fcfeff38b577404e61", null ]
 ];

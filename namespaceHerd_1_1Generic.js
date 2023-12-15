@@ -20,6 +20,12 @@ var namespaceHerd_1_1Generic =
     [ "RightOpenRange", "namespaceHerd_1_1Generic.html#aa9557d098cb0af55e8b1e40227ad4097", null ],
     [ "Temperature", "namespaceHerd_1_1Generic.html#a5dae631b17703ec1b877b7254134a986", null ],
     [ "Time", "namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd", null ],
+    [ "ApBXhC", "namespaceHerd_1_1Generic.html#a811865829fe12a2171b49a68a0785334", null ],
+    [ "BXhC", "namespaceHerd_1_1Generic.html#a8fe1e46bac2c4451f95d30a8291a0b3b", null ],
+    [ "ComputeBlendWeight", "namespaceHerd_1_1Generic.html#a572aadb307bee608bf352483b98938ca", null ],
+    [ "ComputeInnerProduct", "namespaceHerd_1_1Generic.html#a8dce709ee337ac32ac30dc95136921c3", null ],
+    [ "ComputePowers", "namespaceHerd_1_1Generic.html#a8032f7f99312aba540143bcede490891", null ],
+    [ "MultiplyMatrixVector", "namespaceHerd_1_1Generic.html#a7abb587cfdfad2fcfeff38b577404e61", null ],
     [ "ThrowIfNegative", "namespaceHerd_1_1Generic.html#a6f17f1c241557febe8c702f442108af3", null ],
     [ "ThrowIfNotPositive", "namespaceHerd_1_1Generic.html#ad65c02efb3c5fa89eda8e451537c4843", null ]
 ];

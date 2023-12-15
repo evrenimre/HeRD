@@ -421,7 +421,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>\f L_{TMS} \( */ Herd::Generic::Luminosity TerminalMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass ) const { // Eq. 8 auto&amp; rA = m_ZDependents.m_LTMS; double m20 = i_Mass * i_Mass; double m30 = m20 * i_Mass; double m40 = m20 * m20; double m50 = m40 * i_Mass; double num = Herd::SSE::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ] }, std::array&lt; double, 2 &gt; { m30, m40 } ) + rA[ 2 ] * std::pow( i_Mass, rA[ 5 ] + 1.8 ); double den = Herd::SSE::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, std::array&lt; double, 2 &gt; { 1., m50 } ) + std::pow( i_Mass, rA[ 5 ] ); // @suppress(&quot;Invalid arguments&quot;) return Herd::Generic::Luminosity( num / den ); } /** @param i_Mass Mass @return \f R_{TMS}\) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>\f L_{TMS} \( */ Herd::Generic::Luminosity TerminalMainSequence::ComputeLuminosity( Herd::Generic::Mass i_Mass ) const { // Eq. 8 auto&amp; rA = m_ZDependents.m_LTMS; double m20 = i_Mass * i_Mass; double m30 = m20 * i_Mass; double m40 = m20 * m20; double m50 = m40 * i_Mass; double num = Herd::Generic::ComputeInnerProduct( { rA[ 0 ], rA[ 1 ] }, std::array&lt; double, 2 &gt; { m30, m40 } ) + rA[ 2 ] * std::pow( i_Mass, rA[ 5 ] + 1.8 ); double den = Herd::Generic::ComputeInnerProduct( { rA[ 3 ], rA[ 4 ] }, std::array&lt; double, 2 &gt; { 1., m50 } ) + std::pow( i_Mass, rA[ 5 ] ); // @suppress(&quot;Invalid arguments&quot;) return Herd::Generic::Luminosity( num / den ); } /** @param i_Mass Mass @return \f R_{TMS}\) </dd></dl>
 
 </div>
 </div>
