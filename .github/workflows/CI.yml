@@ -27,7 +27,7 @@ jobs:
       BUILD_DIR: ${{ github.workspace }}/build
       
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - uses: ./.github/actions/install-ubuntu-packages
       with:
@@ -41,7 +41,7 @@ jobs:
     - name: Initialize CodeQL
       id: setup-codeql
       if: env.WITH_GNU == 'true'
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: cpp, python    
         
@@ -52,7 +52,7 @@ jobs:
 
     - name: Perform CodeQL Analysis
       if: steps.setup-codeql.outcome != 'skipped'
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
 
     - name: Run the unit tests
       working-directory: ${{ env.BUILD_DIR }}
@@ -88,7 +88,7 @@ jobs:
     - name: Deploy documentation
       if: steps.generate-documentation.outcome != 'skipped'
       # Deploys the documentation to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3.9.0
+      uses: peaceiris/actions-gh-pages@v3.9.3
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ env.BUILD_DIR }}/html
