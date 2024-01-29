@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03":[2,0,0,4,0,2],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a3f6075db474c9277859d44b5298931b9":[2,0,0,4,0,6],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a5d436b9f639c184fe715dd6e222e247f":[2,0,0,4,0,7],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a8eaf33e6ed187123e11201e8fa74443b":[2,0,0,4,0,3],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a9d873cee2cc98d6ea326707302ac3f49":[2,0,0,4,0,0],
 "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#afa44a43a899d38bafd22d1f9db8a2647":[2,0,0,4,0,4],
 "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html":[2,0,0,4,1],
 "classHerd_1_1UnitTestUtils_1_1RandomTestFixture.html#a180efdafec5f3dd1b10c5cf9c745972d":[2,0,0,4,1,11],
@@ -244,10 +249,5 @@ var NAVTREEINDEX2 =
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#a9ac7b8bd30ac13235134e98670930abd":[2,0,0,3,6,1,3],
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#aab7195037e36890bf21e3feae24e513e":[2,0,0,3,6,1,0],
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#ae49536a993c68fca266572f2f38c246f":[2,0,0,3,6,1,2],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html":[2,0,0,3,11,0],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a042b1b33ac11f240c60ec10e4b9f2e08":[2,0,0,3,11,0,3],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a0cba20affda8ee28dd82a5163cbbfa1b":[2,0,0,3,11,0,10],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a213f72f77f1f79cc369e7bc725dc4956":[2,0,0,3,11,0,0],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a2a642ff3b5d6090567c4aa0c3b1430dd":[2,0,0,3,11,0,1],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html#a2ab1fd97519ffef283db5ff38f2957ce":[2,0,0,3,11,0,5]
+"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html":[2,0,0,3,11,0]
 };

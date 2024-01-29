@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"SingleStarEvolution_8cpp.html":[3,0,0,5,13],
+"SingleStarEvolution_8h.html":[3,0,0,5,14],
+"SingleStarEvolution_8h_source.html":[3,0,0,5,14],
+"StellarRotationUnitTests_8cpp.html":[3,0,0,5,1,10],
+"StellarRotationUnitTests_8cpp.html#a139f00d2466d591f60b8d6a73c8273f1":[3,0,0,5,1,10,0],
 "StellarRotationUnitTests_8cpp.html#a38b9606f0242b32cf0fa2d038ac01817":[3,0,0,5,1,10,1],
 "StellarRotation_8cpp.html":[3,0,0,5,15],
 "StellarRotation_8h.html":[3,0,0,5,16],
@@ -18,9 +23,9 @@ var NAVTREEINDEX1 =
 "TestExceptions_8cpp.html":[3,0,0,2,0,2],
 "TestExceptions_8cpp.html#a139f00d2466d591f60b8d6a73c8273f1":[3,0,0,2,0,2,0],
 "TestExceptions_8cpp.html#a6b2a3852db8bb19ab6909bac01859985":[3,0,0,2,0,2,1],
-"TestGeneric_8cpp.html":[3,0,0,3,0,2],
-"TestGeneric_8cpp.html#a139f00d2466d591f60b8d6a73c8273f1":[3,0,0,3,0,2,0],
-"TestGeneric_8cpp.html#a6b2a3852db8bb19ab6909bac01859985":[3,0,0,3,0,2,1],
+"TestGeneric_8cpp.html":[3,0,0,3,0,3],
+"TestGeneric_8cpp.html#a139f00d2466d591f60b8d6a73c8273f1":[3,0,0,3,0,3,0],
+"TestGeneric_8cpp.html#a6b2a3852db8bb19ab6909bac01859985":[3,0,0,3,0,3,1],
 "TestLandmarks_8cpp.html":[3,0,0,5,0,0,3],
 "TestLandmarks_8cpp.html#a139f00d2466d591f60b8d6a73c8273f1":[3,0,0,5,0,0,3,0],
 "TestLandmarks_8cpp.html#a6b2a3852db8bb19ab6909bac01859985":[3,0,0,5,0,0,3,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX1 =
 "classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#af60dc681b3cf7ff9933a87b1d4ddd477":[2,0,0,3,9,6],
 "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html":[2,0,0,4,0],
 "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a11612300aeac347f9f5d181c7fa3e110":[2,0,0,4,0,5],
-"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a181acf17cfae93cb75a5edf765738919":[2,0,0,4,0,1],
-"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03":[2,0,0,4,0,2],
-"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a3f6075db474c9277859d44b5298931b9":[2,0,0,4,0,6],
-"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a5d436b9f639c184fe715dd6e222e247f":[2,0,0,4,0,7],
-"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a8eaf33e6ed187123e11201e8fa74443b":[2,0,0,4,0,3],
-"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a9d873cee2cc98d6ea326707302ac3f49":[2,0,0,4,0,0]
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a181acf17cfae93cb75a5edf765738919":[2,0,0,4,0,1]
 };
