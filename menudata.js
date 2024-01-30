@@ -126,7 +126,9 @@ var menudata={children:[
 {text:"m",url:"globals.html#index_m"},
 {text:"q",url:"globals.html#index_q"},
 {text:"t",url:"globals.html#index_t"}]},
-{text:"Functions",url:"globals_func.html"},
+{text:"Functions",url:"globals_func.html",children:[
+{text:"b",url:"globals_func.html#index_b"},
+{text:"m",url:"globals_func.html#index_m"}]},
 {text:"Typedefs",url:"globals_type.html"},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"b",url:"globals_defs.html#index_b"}]}]}]}]}

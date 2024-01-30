@@ -5,6 +5,7 @@ var dir_9b0048d3176e15ec70c0572370a56736 =
     [ "EvolutionStageUnitTests.cpp", "EvolutionStageUnitTests_8cpp.html", "EvolutionStageUnitTests_8cpp" ],
     [ "EvolutionStateUnitTests.cpp", "EvolutionStateUnitTests_8cpp.html", "EvolutionStateUnitTests_8cpp" ],
     [ "PhaseUnitTests.cpp", "PhaseUnitTests_8cpp.html", "PhaseUnitTests_8cpp" ],
+    [ "RgComputerUnitTests.cpp", "RgComputerUnitTests_8cpp.html", "RgComputerUnitTests_8cpp" ],
     [ "SingleStarEvolutionUnitTests.cpp", "SingleStarEvolutionUnitTests_8cpp.html", "SingleStarEvolutionUnitTests_8cpp" ],
     [ "SSETestDataManager.cpp", "SSETestDataManager_8cpp.html", null ],
     [ "SSETestDataManager.h", "SSETestDataManager_8h.html", "SSETestDataManager_8h" ],

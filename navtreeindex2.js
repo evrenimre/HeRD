@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"classHerd_1_1SSE_1_1ZeroAgeMainSequence.html#af60dc681b3cf7ff9933a87b1d4ddd477":[2,0,0,3,9,6],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html":[2,0,0,4,0],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a11612300aeac347f9f5d181c7fa3e110":[2,0,0,4,0,5],
+"classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a181acf17cfae93cb75a5edf765738919":[2,0,0,4,0,1],
 "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a24155042c44f2e401228d8c4c2c16a03":[2,0,0,4,0,2],
 "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a3f6075db474c9277859d44b5298931b9":[2,0,0,4,0,6],
 "classHerd_1_1UnitTestUtils_1_1DataLoaderFixture.html#a5d436b9f639c184fe715dd6e222e247f":[2,0,0,4,0,7],
@@ -41,8 +45,8 @@ var NAVTREEINDEX2 =
 "dir_df33ef27e382c11fca7793080de16f62.html":[3,0,0,5,0,0],
 "dir_f8ffb3d0c0b60355d0c946bf8f606bf6.html":[3,0,0,6],
 "files.html":[3,0],
-"functions.html":[2,3,0],
 "functions.html":[2,3,0,0],
+"functions.html":[2,3,0],
 "functions_b.html":[2,3,0,1],
 "functions_c.html":[2,3,0,2],
 "functions_d.html":[2,3,0,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MassDependents.html#aae6136ad3898eedf5064b17737a9e9fd":[2,0,0,3,6,0,3],
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MassDependents.html#af9289bfe8d432464c7e3f684ff49887e":[2,0,0,3,6,0,0],
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html":[2,0,0,3,6,1],
-"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#a40623e072785ac8a0a0569d2d87fc6dd":[2,0,0,3,6,1,1],
-"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#a9ac7b8bd30ac13235134e98670930abd":[2,0,0,3,6,1,3],
-"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#aab7195037e36890bf21e3feae24e513e":[2,0,0,3,6,1,0],
-"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#ae49536a993c68fca266572f2f38c246f":[2,0,0,3,6,1,2],
-"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html":[2,0,0,3,11,0]
+"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#a40623e072785ac8a0a0569d2d87fc6dd":[2,0,0,3,6,1,1]
 };
