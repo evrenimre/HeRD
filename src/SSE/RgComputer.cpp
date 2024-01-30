@@ -44,6 +44,12 @@ Herd::Generic::Radius RgComputer::ComputeRg( const Herd::SSE::EvolutionState& i_
     return Herd::Generic::Radius( 0.1 );  // Placeholder. 0.1, as unit tests can fail at 0
   }
 }
+
+/**
+ * @remarks Without a user-defined destructor, unique_ptr with forward declarations does not compile
+ */
+RgComputer::~RgComputer() = default;
+
 }
 
 

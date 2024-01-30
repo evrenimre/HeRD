@@ -34,6 +34,7 @@ class RgComputer
 public:
 
   RgComputer( Herd::Generic::Metallicity i_Z );  ///< Constructor
+  ~RgComputer(); ///< Destructor
 
   Herd::Generic::Radius ComputeRg( const Herd::SSE::EvolutionState& i_rState ); ///< Computes \f$ R_g \f$
 

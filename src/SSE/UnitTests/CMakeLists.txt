@@ -5,6 +5,7 @@ set(SOURCE_LIST TestSSE.cpp
 								EvolutionStageUnitTests.cpp
 								EvolutionStateUnitTests.cpp
 								PhaseUnitTests.cpp
+								RgComputerUnitTests.cpp
 								SingleStarEvolutionUnitTests.cpp
 								SSETestDataManager.cpp
 								SSETestUtils.cpp
