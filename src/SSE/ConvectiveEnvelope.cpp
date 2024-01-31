@@ -76,9 +76,6 @@ ConvectiveEnvelope::Envelope ConvectiveEnvelope::Compute( const Herd::SSE::Evolu
   ConvectiveEnvelope::Envelope Output;
   Output.m_Mass.Set( std::max( 1e-10, fractionalM * ( rTrackPoint.m_Mass - rTrackPoint.m_CoreMass ) ) );
   Output.m_Radius.Set( std::max( 1e-10, fractionalR * ( rTrackPoint.m_Radius - i_rState.m_CoreRadius ) ) );
-
-  Output.m_RadiusOfGyration = ComputeRadiusOfGyration( i_rState, tauEnv );
-
   Output.m_K2 = ComputeK2( i_rState, tauEnv );
 
   return Output;
@@ -110,14 +107,6 @@ void ConvectiveEnvelope::ComputeInitialMassDependents( Herd::Generic::Mass i_Mas
 
     m_M0Dependents.m_Y = 2. + 8. * x;
   }
-
-  m_M0Dependents.m_RGZAMS.Set( std::min( 0.21, std::max( 0.09 - 0.27 * logM, 0.037 + 0.033 * logM ) ) );
-  if( logM >= 1.3 )
-  {
-    m_M0Dependents.m_RGZAMS -= Herd::Generic::Radius( 0.055 * boost::math::pow< 2 >( logM - 1.3 ) );
-  }
-
-  m_M0Dependents.m_RGBGB.Set( std::min( { 0.15, 0.147 + 0.03 * logM, 0.162 - 0.04 * logM } ) );
 
   m_M0Dependents.m_K2ZAMS = std::min( 0.21, std::max( 0.09 - 0.27 * logM, 0.037 + 0.033 * logM ) );
   if( logM > 1.3 )
@@ -188,85 +177,6 @@ double ConvectiveEnvelope::ComputeProximityToHayashi( const Herd::SSE::Evolution
 /**
  * @param i_rState State
  * @param i_TauEnv Proximity to the Hayashi track
- * @return Radius of gyration, in \f$ R_{\odot}\f$
- */
-Herd::Generic::Radius ConvectiveEnvelope::ComputeRadiusOfGyration( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv )
-{
-  auto& rTrackPoint = i_rState.m_TrackPoint;
-  auto stage = rTrackPoint.m_Stage;
-
-  double rGG = m_M0Dependents.m_RGBGB;  // Giant-like radius of gyration
-
-  // FGB to AGB
-  if( stage == Herd::SSE::EvolutionStage::e_FGB || stage == Herd::SSE::EvolutionStage::e_CHeB || Herd::SSE::IsAGB( stage ) )
-  {
-    double logM = std::log10( rTrackPoint.m_Mass );
-    double logM20 = logM * logM;
-    double f = 0.208 + 0.125 * logM - 0.035 * logM20;
-
-    Herd::Generic::Luminosity lBGB = m_ZDependents.m_pBGBComputer->Luminosity( rTrackPoint.m_Mass );
-    double m15 = rTrackPoint.m_Mass * std::sqrt( rTrackPoint.m_Mass );
-    double x05 = ( rTrackPoint.m_Luminosity - lBGB ) / ( 10000. * m15 / ( 1. + 0.1 * m15 ) );
-    double x = x05 * x05;
-
-    double y = ( f - 0.033 * std::log10( lBGB ) ) / m_M0Dependents.m_RGBGB - 1.;
-    rGG = ( f - 0.033 * std::log10( rTrackPoint.m_Luminosity ) + 0.4 * x ) / ( 1 + y * ( lBGB / rTrackPoint.m_Luminosity ) + x );
-  }
-
-  // HeGB
-  if( stage == Herd::SSE::EvolutionStage::e_HeGB )
-  {
-    double m15 = rTrackPoint.m_Mass * std::sqrt( rTrackPoint.m_Mass );
-    double x05 = std::max( 0., rTrackPoint.m_Luminosity / ( 30000. * m15 ) - 0.5 );
-    double x = x05 * x05;
-    rGG = ( m_M0Dependents.m_RGBGB + 0.4 * x ) / ( 1. + 0.4 * x );
-  }
-
-  double rG = rGG;
-
-  // Radius of gyration for stars not on the Hayashi track
-  if( rTrackPoint.m_Radius < m_Rg )
-  {
-    // Up to He stars
-    if( Herd::SSE::IsPreFGB( stage ) || stage == Herd::SSE::EvolutionStage::e_FGB || stage == Herd::SSE::EvolutionStage::e_CHeB || Herd::SSE::IsAGB( stage ) )
-    {
-      Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
-      double radiusRatio = rTrackPoint.m_Radius / rZAMS;
-      rG = ( m_M0Dependents.m_RGZAMS - 0.025 ) * std::pow( radiusRatio, m_M0Dependents.m_C ) + 0.025 * std::pow( radiusRatio, -0.1 );
-    }
-
-    if( stage == Herd::SSE::EvolutionStage::e_HeMS )
-    {
-      double tau = i_rState.m_EffectiveAge / m_ZDependents.m_pTMSComputer->Age( rTrackPoint.m_Mass );
-      rG = 0.08 - 0.03 * tau;
-    }
-
-    if( stage == Herd::SSE::EvolutionStage::e_HeHG || stage == Herd::SSE::EvolutionStage::e_HeGB )
-    {
-      Herd::Generic::Radius rZAMS = m_ZDependents.m_pZAMSComputer->Radius( rTrackPoint.m_Mass );
-      rG = 0.08 * rZAMS / rTrackPoint.m_Radius;
-    }
-
-    if( i_TauEnv > 0. )
-    {
-      double tauEnv30 = boost::math::pow< 3 >( i_TauEnv );
-      if( Herd::SSE::IsMS( stage ) )
-      {
-        double tau = i_rState.m_EffectiveAge / m_ZDependents.m_pTMSComputer->Age( rTrackPoint.m_Mass );
-        rG += std::pow( tau, m_M0Dependents.m_Y ) * tauEnv30 * ( rGG - rG );
-      } else
-      {
-        rG += tauEnv30 * ( rGG - rG );
-      }
-    }
-  }
-  
-  return Herd::Generic::Radius( rG );
-}
-
-/**
- * @param i_rState State
- * @param i_TauEnv Proximity to the Hayashi track
  * @return M and R of the convective envelope, relative to the entire envelope
  */
 std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv )
@@ -300,6 +210,7 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
 
   auto MassRelation = [ & ]( auto i_Tau )
   { return mCEG * boost::math::pow<5>( i_Tau);};
+
   auto RadiusRelation = [ & ]( auto i_Tau )
   { return rCEG * i_Tau * std::pow( i_Tau, 0.25);};
   
@@ -348,6 +259,11 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
   return std::pair( mCE, rCE ); // @suppress("Ambiguous problem")
 }
 
+/**
+ * @param i_rState State
+ * @param i_TauEnv Proximity to the Hayashi track
+ * @return Radius of gyration, in terms of the radius of the star
+ */
 double ConvectiveEnvelope::ComputeK2( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv )
 {
   // Compute k2g

@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE( InputTest, *Herd::UnitTestUtils::Labels::s_Compile )
   {
     BOOST_TEST( Output.m_Mass == 0. );
     BOOST_TEST( Output.m_Radius == 0. );
-    BOOST_TEST( Output.m_RadiusOfGyration == 0. );
+    BOOST_TEST( Output.m_K2 == 0. ); // @suppress("Invalid arguments") // @suppress("Method cannot be resolved")
   }
 
   BOOST_CHECK_THROW( envelopeComputer.Compute( Herd::SSE::EvolutionState() ), Herd::Exceptions::PreconditionError );

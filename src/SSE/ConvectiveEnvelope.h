@@ -34,8 +34,9 @@ class RgComputer;
 /**
  * @brief Computation of convective envelope properties
  * @remarks Implementation of mrenv in AMUSE.SSE
+ * @remarks No mention of the original paper for this one. And it is not discussed in Hurley00 either.
  * @cite AMUSE
- * @warning Radius of gyration is used only in binary star evolution. Until it is implemented, it will not be possible to write useful unit tests
+ * @cite Hurley02
  */
 class ConvectiveEnvelope
 {
@@ -51,8 +52,7 @@ public:
   {
     Herd::Generic::Mass m_Mass; ///< Envelope mass
     Herd::Generic::Radius m_Radius; ///< Envelope radius
-    Herd::Generic::Radius m_RadiusOfGyration;  ///< Radius of gyration for the envelope, in \f$ R_{\odot}\f$
-    double m_K2; ///< Constant for computing the contribution of the envelope to the angular momentum
+    double m_K2; ///< Constant for computing the contribution of the envelope to the angular momentum. Hurley02 defines it as the radius of gyration, and referred to it that way in the code. It is actually the radius of gyration normalised by radius
   };
 
   Envelope Compute( const Herd::SSE::EvolutionState& i_rState );
@@ -87,11 +87,8 @@ private:
     Herd::Generic::Radius m_RCEZAMS;  ///< Radius of the convective envelope at ZAMS, in terms of the total envelope radius
     double m_Y = 0;  ///< Used for computing envelope properties in non-Hayashi stars
 
-    Herd::Generic::Radius m_RGZAMS;  ///< Radius of gyration at ZAMS
-    Herd::Generic::Radius m_RGBGB;  ///< Radius of gyration at base of the giant branch
-
-    double m_K2ZAMS = 0;  ///< Constant for computing the angular momentum of the envelope at ZAMS
-    double m_K2BGB = 0; ///< Constant for computing the angular momentum of the envelope at BGB
+    double m_K2ZAMS = 0;  ///< Normalised radius of gyration at ZAMS
+    double m_K2BGB = 0; ///< Normalised radius of gyration at BGB
   };
 
   InitialMassDependents m_M0Dependents;
@@ -103,9 +100,8 @@ private:
 
   double ComputeProximityToHayashi( const Herd::SSE::EvolutionState& i_rState ); ///< Computes a measure of proximity to the Hayashi track in terms of temperature
 
-  Herd::Generic::Radius ComputeRadiusOfGyration( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv ); ///< Computes the radius of gyration
   std::pair< double, double > ComputeMassAndRadius( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv ); ///< Computes the mass and the radius of the convective envelope in terms of the entire envelope
-  double ComputeK2( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv );  ///< Computes the K2 coefficient
+  double ComputeK2( const Herd::SSE::EvolutionState& i_rState, double i_TauEnv );  ///< Computes the K2 coefficient, the normalised radius of gyration
 };
 }
 
