@@ -8,7 +8,5 @@ var structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents =
     [ "m_LogM0", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a9c04108792c668a79b405068a6e5737e", null ],
     [ "m_MCEZAMS", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ad04098615866104a6c89d5b137d17364", null ],
     [ "m_RCEZAMS", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a77a1db787ae408c2b8d0b7e38c1b4ce5", null ],
-    [ "m_RGBGB", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a37a1da646707440b668a70b9d7918d54", null ],
-    [ "m_RGZAMS", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a3a97bfb5423925df110caed2d66c886e", null ],
     [ "m_Y", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a6ebdc77534ebe8ca044c082f72a6161f", null ]
 ];

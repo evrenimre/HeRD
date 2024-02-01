@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ssehelpers_480',['SSEHelpers',['../namespaceSSEHelpers.html',1,'']]]
+  ['ssehelpers_476',['SSEHelpers',['../namespaceSSEHelpers.html',1,'']]]
 ];

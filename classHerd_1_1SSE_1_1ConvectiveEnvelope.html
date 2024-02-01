@@ -150,14 +150,11 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a0a89415b3650a403f50b17eddc71ea02"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a0a89415b3650a403f50b17eddc71ea02">ComputeProximityToHayashi</a> (const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;i_rState)</td></tr>
 <tr class="memdesc:a0a89415b3650a403f50b17eddc71ea02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a measure of proximity to the Hayashi track in terms of temperature.  <a href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a0a89415b3650a403f50b17eddc71ea02">More...</a><br /></td></tr>
 <tr class="separator:a0a89415b3650a403f50b17eddc71ea02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15c4503ed2d788588cb1fbdb017c9f79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0">Herd::Generic::Radius</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a15c4503ed2d788588cb1fbdb017c9f79">ComputeRadiusOfGyration</a> (const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;i_rState, double i_TauEnv)</td></tr>
-<tr class="memdesc:a15c4503ed2d788588cb1fbdb017c9f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the radius of gyration.  <a href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a15c4503ed2d788588cb1fbdb017c9f79">More...</a><br /></td></tr>
-<tr class="separator:a15c4503ed2d788588cb1fbdb017c9f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc2c528080bbc46868a256f3b838d8c"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a8bc2c528080bbc46868a256f3b838d8c">ComputeMassAndRadius</a> (const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;i_rState, double i_TauEnv)</td></tr>
 <tr class="memdesc:a8bc2c528080bbc46868a256f3b838d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the mass and the radius of the convective envelope in terms of the entire envelope.  <a href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a8bc2c528080bbc46868a256f3b838d8c">More...</a><br /></td></tr>
 <tr class="separator:a8bc2c528080bbc46868a256f3b838d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20d33a687271512de25308d0d4540590"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a20d33a687271512de25308d0d4540590">ComputeK2</a> (const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;i_rState, double i_TauEnv)</td></tr>
-<tr class="memdesc:a20d33a687271512de25308d0d4540590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the K2 coefficient.  <a href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a20d33a687271512de25308d0d4540590">More...</a><br /></td></tr>
+<tr class="memdesc:a20d33a687271512de25308d0d4540590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the K2 coefficient, the normalised radius of gyration.  <a href="classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a20d33a687271512de25308d0d4540590">More...</a><br /></td></tr>
 <tr class="separator:a20d33a687271512de25308d0d4540590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -173,8 +170,9 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computation of convective envelope properties. </p>
-<dl class="section remark"><dt>Remarks</dt><dd>Implementation of mrenv in AMUSE.SSE <b>[AMUSE]</b> </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Radius of gyration is used only in binary star evolution. Until it is implemented, it will not be possible to write useful unit tests </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Implementation of mrenv in AMUSE.SSE </dd>
+<dd>
+No mention of the original paper for this one. And it is not discussed in Hurley00 either. <b>[AMUSE]</b> <b>[Hurley02]</b> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2a107d140c00080dba6a00c215139f69"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a107d140c00080dba6a00c215139f69">&#9670;&nbsp;</a></span>ConvectiveEnvelope()</h2>
@@ -324,7 +322,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the K2 coefficient. </p>
+<p>Computes the K2 coefficient, the normalised radius of gyration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_rState</td><td>State </td></tr>
+    <tr><td class="paramname">i_TauEnv</td><td>Proximity to the Hayashi track </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Radius of gyration, in terms of the radius of the star </dd></dl>
 
 </div>
 </div>
@@ -406,52 +412,6 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Proximity to the Hayashi track </dd></dl>
-
-</div>
-</div>
-<a id="a15c4503ed2d788588cb1fbdb017c9f79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15c4503ed2d788588cb1fbdb017c9f79">&#9670;&nbsp;</a></span>ComputeRadiusOfGyration()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceHerd_1_1Generic.html#a33b96d55db92d8bd536426a933eb3fc0">Herd::Generic::Radius</a> Herd::SSE::ConvectiveEnvelope::ComputeRadiusOfGyration </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;&#160;</td>
-          <td class="paramname"><em>i_rState</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>i_TauEnv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the radius of gyration. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i_rState</td><td>State </td></tr>
-    <tr><td class="paramname">i_TauEnv</td><td>Proximity to the Hayashi track </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Radius of gyration, in \( R_{\odot}\) </dd></dl>
 
 </div>
 </div>

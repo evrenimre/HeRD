@@ -10,7 +10,6 @@ var classHerd_1_1SSE_1_1ConvectiveEnvelope =
     [ "ComputeK2", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a20d33a687271512de25308d0d4540590", null ],
     [ "ComputeMassAndRadius", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a8bc2c528080bbc46868a256f3b838d8c", null ],
     [ "ComputeProximityToHayashi", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a0a89415b3650a403f50b17eddc71ea02", null ],
-    [ "ComputeRadiusOfGyration", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a15c4503ed2d788588cb1fbdb017c9f79", null ],
     [ "DetermineInitialMass", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#ab8fd4c611194c82342c1014030e146b8", null ],
     [ "m_M0Dependents", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a12ff3e6ea4bf9b9be7188ea8f246657e", null ],
     [ "m_Rg", "classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a6208d0c8b42ddda92d74bb33ebba5e76", null ],
