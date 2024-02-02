@@ -26,7 +26,6 @@ namespace Herd::SSE
 struct EvolutionState;
 
 class BaseOfGiantBranch;
-class ConvectiveEnvelope;
 class HeliumIgnition;
 class TerminalMainSequence;
 class ZeroAgeMainSequence;
@@ -86,8 +85,6 @@ private:
     std::unique_ptr< Herd::SSE::ZeroAgeMainSequence > m_pZAMSComputer; ///< Computes the ZAMS parameters
     std::unique_ptr< Herd::SSE::TerminalMainSequence > m_pTMSComputer; ///< Computes the characteristic values at TMS
     std::unique_ptr< Herd::SSE::HeliumIgnition > m_pHeIComputer; ///< Computes the characteristic values at HeI
-
-    std::unique_ptr< Herd::SSE::ConvectiveEnvelope > m_pConvectiveEnvelopeComputer;  ///< Computes the properties of the convective envelope
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity-dependent quantities evaluated at initial metallicity

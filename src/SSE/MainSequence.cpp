@@ -12,7 +12,6 @@
 
 #include "MainSequence.h"
 
-#include "ConvectiveEnvelope.h"
 #include "EvolutionState.h"
 
 #include <Generic/MathHelpers.h>
@@ -255,17 +254,6 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 
   io_rState.m_EffectiveAge = effectiveAge;
 
-  // Convective envelope
-
-  // Reset the convective envelope properties. At this point they are outdated and can trigger a validation failure
-  rTrackPoint.m_EnvelopeMass.Set( 0. );
-  io_rState.m_EnvelopeRadius.Set( 0. );
-
-  auto convectiveEnvelope = m_ZDependents.m_pConvectiveEnvelopeComputer->Compute( io_rState );
-  rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;
-  io_rState.m_EnvelopeRadius = convectiveEnvelope.m_Radius;
-  io_rState.m_K2 = convectiveEnvelope.m_K2;
-
   return true;
 }
 
@@ -381,9 +369,6 @@ void MainSequence::ComputeMetallicityDependents( Herd::Generic::Metallicity i_Z 
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
   m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
   m_ZDependents.m_pHeIComputer = std::make_unique< Herd::SSE::HeliumIgnition >( i_Z );
-
-  // Initialise the convective envelope computer
-  m_ZDependents.m_pConvectiveEnvelopeComputer = std::make_unique< Herd::SSE::ConvectiveEnvelope >( i_Z );
 }
 
 /**
