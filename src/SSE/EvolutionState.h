@@ -31,7 +31,6 @@ struct EvolutionState
 
   Herd::Generic::Time m_EffectiveAge;  ///< Effective age to represent the ageing effect of mass loss
   Herd::Generic::Radius m_CoreRadius; ///< Radius of the core in \f$ R_{\odot} \f$
-  Herd::Generic::Radius m_EnvelopeRadius; ///< Radius of the convective envelope in \f$ R_{\odot} \f$
 
   double m_MassLossRate = 0;  ///< Mass loss rate in \f$ M_{\odot} {year}^{-1}\f$
 

@@ -67,7 +67,6 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
   Herd::SSE::StellarRotation::InitialiseAtZAMS( state );
   m_Trajectory.push_back( rTrackPoint );
 
-
   while( rTrackPoint.m_Age < i_EvolveUntil )
   {
     Herd::Generic::Time TerminateAt = ms.EndsAt(); // This is a temporary variable, set at the end of the most advanced stage implemented so far
