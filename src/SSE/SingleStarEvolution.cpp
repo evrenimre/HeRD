@@ -100,11 +100,9 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
     // Convective envelope
     // Reset the convective envelope properties. At this point they are outdated and can trigger a validation failure
     rTrackPoint.m_EnvelopeMass.Set( 0. );
-    state.m_EnvelopeRadius.Set( 0. );
 
     convectiveEnvelope = convectiveEnvelopeComputer.Compute( state );
     rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;
-    state.m_EnvelopeRadius = convectiveEnvelope.m_Radius;
     state.m_K2 = convectiveEnvelope.m_K2;
 
     rTrackPoint.m_AngularVelocity = Herd::SSE::StellarRotation::ComputeAngularVelocity( state );

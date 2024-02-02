@@ -38,12 +38,6 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
     Herd::Exceptions::ThrowPreconditionError( "m_CoreRadus", "<=m_Radius", i_rState.m_CoreRadius.Value() );
   }
 
-  Herd::Generic::ThrowIfNegative( i_rState.m_EnvelopeRadius, "m_EnvelopeRadius" );
-  if( i_rState.m_EnvelopeRadius > i_rState.m_TrackPoint.m_Radius )
-  {
-    Herd::Exceptions::ThrowPreconditionError( "m_EnvelopeRadius", "<=m_Radius", i_rState.m_EnvelopeRadius.Value() );
-  }
-
   Herd::Generic::ThrowIfNotPositive( i_rState.m_MZAMS, "m_MZAMS" );
 
   Herd::Generic::ThrowIfNotPositive( i_rState.m_MFGB, "m_MFGB" );

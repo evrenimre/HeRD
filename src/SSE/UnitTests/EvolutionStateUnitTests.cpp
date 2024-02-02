@@ -64,15 +64,6 @@ BOOST_AUTO_TEST_CASE( validatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
 
   {
     Herd::SSE::EvolutionState invalid = valid;
-    InvalidateQuantity( invalid.m_EnvelopeRadius );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
-
-    invalid.m_EnvelopeRadius.Set( valid.m_TrackPoint.m_Radius + 0.1 );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::EvolutionState invalid = valid;
     invalid.m_MassLossRate = -invalid.m_MassLossRate - 0.1;
     BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
   }
