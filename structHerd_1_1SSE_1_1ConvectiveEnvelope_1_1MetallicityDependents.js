@@ -1,5 +1,6 @@
 var structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents =
 [
+    [ "m_MFGB", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html#a3a795321ce94e4ba0c99ea2241899e0f", null ],
     [ "m_pBGBComputer", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html#a8c840729ff81b26fd6a5ce1958a7caa2", null ],
     [ "m_pHeIComputer", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html#a00de48c6886a284a2ccaf1463be05b0d", null ],
     [ "m_pRgComputer", "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html#af7ac869a2a3b8b0f3d7c70e9a1d71253", null ],
