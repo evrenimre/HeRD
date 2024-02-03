@@ -13,8 +13,6 @@
 #ifndef HAFD0B7BF_5E2F_47CD_A165_00F64B49B33F
 #define HAFD0B7BF_5E2F_47CD_A165_00F64B49B33F
 
-#include "RgComputer.h"
-
 #include <Generic/Quantity.h>
 
 #include <memory>
@@ -78,7 +76,7 @@ private:
   Herd::Generic::Mass m_MZAMS;  ///< \f$ M_{ZAMS} \f$, mass at ZAMS
 
   /**
-   * @brief Quantities depending on initial mass
+   * @brief Quantities depending on the initial mass
    * @remarks This is not necessarily \f$ M_{ZAMS} \f$
    */
   struct InitialMassDependents
@@ -87,7 +85,6 @@ private:
 
     double m_A = 0; ///< A
     double m_C = 0; ///< C
-    double m_LogM0 = 0;  ///< \f$ log_{10}M_0 \f$
     Herd::Generic::Mass m_MCEZAMS; ///< Mass of the convective envelope at ZAMS, in terms of the total envelope mass
     Herd::Generic::Radius m_RCEZAMS;  ///< Radius of the convective envelope at ZAMS, in terms of the total envelope radius
     double m_Y = 0;  ///< Used for computing envelope properties in non-Hayashi stars

@@ -14,6 +14,7 @@
 
 #include "EvolutionStage.h"
 #include "EvolutionState.h"
+#include "RgComputer.h"
 #include "TrackPoint.h"
 
 #include <Exceptions/ExceptionWrappers.h>
@@ -103,7 +104,6 @@ void ConvectiveEnvelope::ComputeInitialMassDependents( Herd::Generic::Mass i_Mas
   m_M0Dependents.m_EvaluatedAt = i_Mass;
 
   double logM = std::log10( i_Mass );
-  m_M0Dependents.m_LogM0 = logM;
 
   m_M0Dependents.m_A = std::clamp( 0.68 + 0.4 * logM, 0.68, 0.81 );
   m_M0Dependents.m_C = std::clamp( -2.5 + 5 * logM, -2.5, -1.5 );
@@ -209,8 +209,9 @@ std::pair< double, double > ConvectiveEnvelope::ComputeMassAndRadius( const Herd
     Herd::Generic::Luminosity lHeI = m_ZDependents.m_pHeIComputer->Luminosity( rTrackPoint.m_Mass );
     double x = std::min( 3., lHeI.Value() / lBGB );
     double tau = std::clamp( ComputeBlendWeight( rTrackPoint.m_Luminosity / lBGB, x, 1. ), 0., 1. );
-    mCEG = 1. - 0.5 * tau * tau;
-    rCEG = 1. - 0.35 * tau * tau;
+    double tau2 = tau * tau;
+    mCEG = 1. - 0.5 * tau2;
+    rCEG = 1. - 0.35 * tau2;
   }
 
   // Assume giant
