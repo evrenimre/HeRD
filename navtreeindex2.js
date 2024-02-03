@@ -45,8 +45,8 @@ var NAVTREEINDEX2 =
 "dir_df33ef27e382c11fca7793080de16f62.html":[3,0,0,5,0,0],
 "dir_f8ffb3d0c0b60355d0c946bf8f606bf6.html":[3,0,0,6],
 "files.html":[3,0],
-"functions.html":[2,3,0,0],
 "functions.html":[2,3,0],
+"functions.html":[2,3,0,0],
 "functions_b.html":[2,3,0,1],
 "functions_c.html":[2,3,0,2],
 "functions_d.html":[2,3,0,3],
@@ -213,12 +213,11 @@ var NAVTREEINDEX2 =
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html":[2,0,0,3,1,1],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a071e8579023e8af70021a37b82dbcd97":[2,0,0,3,1,1,1],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a2af0e335ae30ab5cf56b5c047d155fce":[2,0,0,3,1,1,4],
-"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a6ebdc77534ebe8ca044c082f72a6161f":[2,0,0,3,1,1,8],
-"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a77a1db787ae408c2b8d0b7e38c1b4ce5":[2,0,0,3,1,1,7],
-"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a9c04108792c668a79b405068a6e5737e":[2,0,0,3,1,1,5],
+"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a6ebdc77534ebe8ca044c082f72a6161f":[2,0,0,3,1,1,7],
+"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#a77a1db787ae408c2b8d0b7e38c1b4ce5":[2,0,0,3,1,1,6],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#aa7061a7d75d14fe01d2dd3e74598e712":[2,0,0,3,1,1,0],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ac231509b581e04648204f7c5265e1cbf":[2,0,0,3,1,1,3],
-"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ad04098615866104a6c89d5b137d17364":[2,0,0,3,1,1,6],
+"structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ad04098615866104a6c89d5b137d17364":[2,0,0,3,1,1,5],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1InitialMassDependents.html#ad3cdb83fb360166c0dd5ed2718125735":[2,0,0,3,1,1,2],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html":[2,0,0,3,1,2],
 "structHerd_1_1SSE_1_1ConvectiveEnvelope_1_1MetallicityDependents.html#a00de48c6886a284a2ccaf1463be05b0d":[2,0,0,3,1,2,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#a40623e072785ac8a0a0569d2d87fc6dd":[2,0,0,3,6,1,1],
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#a9ac7b8bd30ac13235134e98670930abd":[2,0,0,3,6,1,3],
 "structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#aab7195037e36890bf21e3feae24e513e":[2,0,0,3,6,1,0],
-"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#ae49536a993c68fca266572f2f38c246f":[2,0,0,3,6,1,2]
+"structHerd_1_1SSE_1_1HeliumIgnition_1_1MetallicityDependents.html#ae49536a993c68fca266572f2f38c246f":[2,0,0,3,6,1,2],
+"structHerd_1_1SSE_1_1MainSequence_1_1MassDependents.html":[2,0,0,3,11,0]
 };
