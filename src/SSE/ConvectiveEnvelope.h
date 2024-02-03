@@ -42,7 +42,7 @@ class ConvectiveEnvelope
 {
 public:
 
-  ConvectiveEnvelope( Herd::Generic::Metallicity i_Z );  ///< Constructor
+  ConvectiveEnvelope( Herd::Generic::Mass i_MZAMS, Herd::Generic::Metallicity i_Z );  ///< Constructor
   ~ConvectiveEnvelope();  ///< Destructor
 
   /**
@@ -69,12 +69,17 @@ private:
     std::unique_ptr< Herd::SSE::HeliumIgnition > m_pHeIComputer; ///< HeI computations
 
     std::unique_ptr< Herd::SSE::RgComputer > m_pRgComputer; ///< \fS R_g \fS computations
+
+    Herd::Generic::Mass m_MFGB; ///< \f$ M_{FGB} \f$, maximum mass for a star to have a GB phase
   };
 
   MetallicityDependents m_ZDependents;  ///< Metallicity dependentss
 
+  Herd::Generic::Mass m_MZAMS;  ///< \f$ M_{ZAMS} \f$, mass at ZAMS
+
   /**
    * @brief Quantities depending on initial mass
+   * @remarks This is not necessarily \f$ M_{ZAMS} \f$
    */
   struct InitialMassDependents
   {

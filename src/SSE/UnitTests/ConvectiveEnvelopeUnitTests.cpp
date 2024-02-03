@@ -32,8 +32,12 @@ BOOST_FIXTURE_TEST_SUITE( ConvectiveEnvelopeTests, Herd::UnitTestUtils::RandomTe
 BOOST_AUTO_TEST_CASE( InputTest, *Herd::UnitTestUtils::Labels::s_Compile )
 {
   Herd::SSE::EvolutionState valid = Herd::SSE::UnitTests::GenerateRandomEvolutionState( Rng() );
+  Herd::Generic::Mass mZAMS( GenerateMass() );
 
-  Herd::SSE::ConvectiveEnvelope envelopeComputer( valid.m_TrackPoint.m_InitialMetallicity );
+  BOOST_CHECK_THROW( Herd::SSE::ConvectiveEnvelope( Herd::Generic::Mass( -mZAMS ), valid.m_TrackPoint.m_InitialMetallicity ),
+      Herd::Exceptions::PreconditionError );
+
+  Herd::SSE::ConvectiveEnvelope envelopeComputer( mZAMS, valid.m_TrackPoint.m_InitialMetallicity );
   Herd::SSE::ConvectiveEnvelope::Envelope Output = envelopeComputer.Compute( valid );
 
   if( Herd::SSE::IsRemnant( valid.m_TrackPoint.m_Stage ) )

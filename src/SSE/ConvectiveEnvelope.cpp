@@ -16,9 +16,11 @@
 #include "EvolutionState.h"
 #include "TrackPoint.h"
 
+#include <Exceptions/ExceptionWrappers.h>
 #include <Generic/MathHelpers.h>
 #include <Physics/LuminosityRadiusTemperature.h>
 #include <SSE/Landmarks/BaseOfGiantBranch.h>
+#include <SSE/Landmarks/CriticalMassValues.h>
 #include <SSE/Landmarks/HeliumIgnition.h>
 #include <SSE/Landmarks/TerminalMainSequence.h>
 #include <SSE/Landmarks/ZeroAgeMainSequence.h>
@@ -34,10 +36,14 @@ namespace Herd::SSE
 using Herd::Generic::ComputeBlendWeight;
 
 /**
+ * @param i_MZAMS
  * @param i_Z Metallicity
+ * @pre \c i_MZAMS>0
  */
-ConvectiveEnvelope::ConvectiveEnvelope( Herd::Generic::Metallicity i_Z )
+ConvectiveEnvelope::ConvectiveEnvelope( Herd::Generic::Mass i_MZAMS, Herd::Generic::Metallicity i_Z )
 {
+  Herd::Exceptions::ThrowPreconditionErrorIfNotPositive( i_MZAMS, "MZAMS" );
+
   m_ZDependents.m_pZAMSComputer = std::make_unique< Herd::SSE::ZeroAgeMainSequence >( i_Z );
   m_ZDependents.m_pTMSComputer = std::make_unique< Herd::SSE::TerminalMainSequence >( i_Z );
   m_ZDependents.m_pBGBComputer = std::make_unique< Herd::SSE::BaseOfGiantBranch >( i_Z );
@@ -45,6 +51,9 @@ ConvectiveEnvelope::ConvectiveEnvelope( Herd::Generic::Metallicity i_Z )
 
   m_ZDependents.m_pRgComputer = std::make_unique< Herd::SSE::RgComputer >( i_Z );
 
+  m_ZDependents.m_MFGB = Herd::SSE::ComputeMFGB( i_Z );
+
+  m_MZAMS = i_MZAMS;
 }
 
 ConvectiveEnvelope::~ConvectiveEnvelope() = default;
@@ -133,9 +142,9 @@ Herd::Generic::Mass ConvectiveEnvelope::DetermineInitialMass( const Herd::SSE::E
 
   if( stage == Herd::SSE::EvolutionStage::e_HG )
   {
-    if( i_rState.m_TrackPoint.m_CoreMass > i_rState.m_MCHeI || i_rState.m_MZAMS > i_rState.m_MFGB )
+    if( i_rState.m_TrackPoint.m_CoreMass > i_rState.m_MCHeI || m_MZAMS > m_ZDependents.m_MFGB )
     {
-      return i_rState.m_MZAMS;
+      return m_MZAMS;
     } else
     {
       return i_rState.m_TrackPoint.m_Mass;
@@ -145,7 +154,7 @@ Herd::Generic::Mass ConvectiveEnvelope::DetermineInitialMass( const Herd::SSE::E
   // Between HG and HeMS
   if( Herd::SSE::IsAGB( stage ) || stage == Herd::SSE::EvolutionStage::e_FGB || stage == Herd::SSE::EvolutionStage::e_CHeB )
   {
-    return i_rState.m_MZAMS;
+    return m_MZAMS;
   }
 
   // After HeMS until remnant

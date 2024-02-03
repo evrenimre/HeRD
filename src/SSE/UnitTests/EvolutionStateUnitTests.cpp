@@ -82,18 +82,6 @@ BOOST_AUTO_TEST_CASE( validatorTests, *Herd::UnitTestUtils::Labels::s_Compile )
 
   {
     Herd::SSE::EvolutionState invalid = valid;
-    InvalidateQuantity( invalid.m_MZAMS );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::EvolutionState invalid = valid;
-    InvalidateQuantity( invalid.m_MFGB );
-    BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );
-  }
-
-  {
-    Herd::SSE::EvolutionState invalid = valid;
     SetStage( invalid, Herd::SSE::EvolutionStage::e_HG );
     InvalidateQuantity( invalid.m_MCHeI );
     BOOST_CHECK_THROW( Herd::SSE::ValidateEvolutionState( invalid ), Herd::Exceptions::PreconditionError );

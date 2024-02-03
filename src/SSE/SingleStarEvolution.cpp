@@ -52,14 +52,13 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
 
   // ZAMS
   Herd::SSE::EvolutionState state;
-  state.m_MZAMS = i_Mass;
   auto& rTrackPoint = state.m_TrackPoint;
   rTrackPoint.m_Mass = i_Mass;
 
   Herd::SSE::MainSequence ms( i_Z );
   ms.Evolve( state ); // Call at age zero initialises the state to ZAMS
 
-  Herd::SSE::ConvectiveEnvelope convectiveEnvelopeComputer( i_Z );
+  Herd::SSE::ConvectiveEnvelope convectiveEnvelopeComputer( i_Mass, i_Z );
   auto convectiveEnvelope = convectiveEnvelopeComputer.Compute( state );
   state.m_K2 = convectiveEnvelope.m_K2;
   rTrackPoint.m_EnvelopeMass = convectiveEnvelope.m_Mass;

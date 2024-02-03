@@ -78,10 +78,7 @@ Herd::SSE::EvolutionState GenerateRandomEvolutionState( std::mt19937& io_rRng )
   generated.m_AngularMomentum.Set( Generator( 0., 715. ) );
   generated.m_K2 = Generator( 0., 1. );
 
-  generated.m_MZAMS.Set( Generator( generated.m_TrackPoint.m_Mass, 216. ) );
-  generated.m_MZHe.Set( Generator( 0.08, generated.m_MZAMS ) );
-
-  generated.m_MFGB.Set( Generator( 0.08, 216. ) );
+  generated.m_MZHe.Set( Generator( 0.08, 216. ) );
 
   generated.m_MCHeI.Set( Generator( 0.08, 216. ) );
 

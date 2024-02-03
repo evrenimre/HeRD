@@ -38,10 +38,6 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
     Herd::Exceptions::ThrowPreconditionError( "m_CoreRadus", "<=m_Radius", i_rState.m_CoreRadius.Value() );
   }
 
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_MZAMS, "m_MZAMS" );
-
-  Herd::Generic::ThrowIfNotPositive( i_rState.m_MFGB, "m_MFGB" );
-
   Herd::Generic::ThrowIfNegative( i_rState.m_DeltaT, "m_DeltaT" );
 
   if( i_rState.m_TrackPoint.m_Stage >= Herd::SSE::EvolutionStage::e_HG )
@@ -57,7 +53,6 @@ void ValidateEvolutionState( const EvolutionState& i_rState )
   if( Herd::SSE::IsHeStar( i_rState.m_TrackPoint.m_Stage ) )
   {
     Herd::Generic::ThrowIfNotPositive( i_rState.m_THeMS, "m_THeMS" );
-
   }
 }
 

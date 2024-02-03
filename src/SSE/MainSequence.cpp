@@ -250,8 +250,6 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   rTrackPoint.m_CoreMass.Set( 0. );
   io_rState.m_CoreRadius.Set( 0. );
 
-  io_rState.m_MFGB = m_ZDependents.m_MFGB;
-
   io_rState.m_EffectiveAge = effectiveAge;
 
   return true;
