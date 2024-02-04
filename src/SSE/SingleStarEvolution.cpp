@@ -89,8 +89,8 @@ void SingleStarEvolutuion::Evolve( Herd::Generic::Mass i_Mass, Herd::Generic::Me
 
     // Run the evolution step
     // TODO Stage transition to be implemented
-    bool bInMS = ms.Evolve( state );
-    if( !bInMS )
+    Herd::SSE::EvolutionStage nextStage = ms.Evolve( state );
+    if( !Herd::SSE::IsMS( nextStage ) )
     {
       break;
     }
@@ -173,7 +173,7 @@ unsigned int SingleStarEvolutuion::EstimateTrajectoryLength( const Parameters& i
  * @param i_EvolveUntil Evolution cut-off
  * @return Timestep in Myr
  */
-Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState i_rState,
+Herd::Generic::Time SingleStarEvolutuion::ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState& i_rState,
     const Parameters& i_rParameters,
     Herd::Generic::Time i_EvolveUntil )
 {

@@ -137,13 +137,13 @@ MainSequence::~MainSequence() = default;
 
 /**
  * @param[in, out] io_rState Evolution state
- * @return \c false if star is not in this evolution stage
+ * @return Next evolution stage
  * @pre Mass in \c io_rState is positive
  * @pre Age in \c io_rState is non-negative
  * @throws PreconditionError If any preconditions are violated
  * @remarks Call at age=0 returns the ZAMS state
  */
-bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
+Herd::SSE::EvolutionStage MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 {
   // Validation
   Herd::Generic::ThrowIfNotPositive( io_rState.m_TrackPoint.m_Mass, "m_Mass" );
@@ -172,7 +172,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
   // Not a MS star
   if( effectiveAge >= tMS )
   {
-    return false;
+    return Herd::SSE::EvolutionStage::e_HG;
   }
 
   // Modify io_rState only after this point, as the call cannot fail
@@ -252,7 +252,7 @@ bool MainSequence::Evolve( Herd::SSE::EvolutionState& io_rState )
 
   io_rState.m_EffectiveAge = effectiveAge;
 
-  return true;
+  return stage;
 }
 
 /**

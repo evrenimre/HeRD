@@ -13,8 +13,6 @@
 #ifndef H5CFC91CB_E335_485A_9D7D_189B85CF3E28
 #define H5CFC91CB_E335_485A_9D7D_189B85CF3E28
 
-#include "EvolutionState.h"
-
 #include <Generic/Quantity.h>
 #include <Generic/QuantityRange.h>
 
@@ -30,6 +28,7 @@ namespace Herd::SSE
 {
 
 // Forward declarations
+class EvolutionState;
 class IPhase;
 
 /**
@@ -98,7 +97,7 @@ private:
   static void Validate( Herd::Generic::Mass i_Mass, Herd::Generic::Metallicity i_Z, Herd::Generic::Time i_EvolveUntil );  ///< Validates the input arguments
 
   unsigned int EstimateTrajectoryLength( const Parameters& i_rParameters ); ///< Estimates the total number of timesteps
-  static Herd::Generic::Time ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState i_rState,
+  static Herd::Generic::Time ComputeTimestep( Herd::SSE::IPhase& io_rPhase, const Herd::SSE::EvolutionState& i_rState,
       const Parameters& i_rParameters, Herd::Generic::Time i_EvolveUntil ); ///< Computes the size of the timestep
 
   std::vector< Herd::SSE::TrackPoint > m_Trajectory; ///< Evolution trajectory

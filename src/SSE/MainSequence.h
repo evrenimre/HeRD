@@ -13,6 +13,7 @@
 #ifndef H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 #define H9242DC68_449E_4FAF_81AA_13E3C3C156E3
 
+#include "EvolutionStage.h"
 #include "IPhase.h"
 #include "TrackPoint.h"
 
@@ -41,7 +42,7 @@ public:
   MainSequence( Herd::Generic::Metallicity i_Z ); ///< Constructor
   ~MainSequence(); ///< Destructor
 
-  bool Evolve( Herd::SSE::EvolutionState& io_rState ) override; ///< Evolves the state
+  Herd::SSE::EvolutionStage Evolve( Herd::SSE::EvolutionState& io_rState ) override; ///< Evolves the state
 
   Herd::Generic::Time EndsAt() const override;  ///< End of the phase
 
