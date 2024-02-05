@@ -28,7 +28,7 @@ namespace Herd::SSE
 {
 
 // Forward declarations
-class EvolutionState;
+struct EvolutionState;
 class IPhase;
 
 /**
