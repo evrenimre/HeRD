@@ -1,7 +1,7 @@
 var classHerd_1_1SSE_1_1SingleStarEvolutuion =
 [
     [ "Parameters", "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters.html", "structHerd_1_1SSE_1_1SingleStarEvolutuion_1_1Parameters" ],
-    [ "ComputeTimestep", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a2b8c383c56f33389c543550647a8718e", null ],
+    [ "ComputeTimestep", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a72d7ab6641ac3f51ac98b0b703f14034", null ],
     [ "EstimateTrajectoryLength", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html#afc55b429e9bc59bfdbdb5761fb05c5b2", null ],
     [ "Evolve", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html#aeba630a0f9afc0ff8a669dbd593bddcb", null ],
     [ "Trajectory", "classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a543c563cd0a87ce78e2c617e2eaf5ec6", null ],

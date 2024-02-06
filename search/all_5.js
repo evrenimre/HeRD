@@ -30,7 +30,7 @@ var searchData=
   ['evolutionstate_2ecpp_114',['EvolutionState.cpp',['../EvolutionState_8cpp.html',1,'']]],
   ['evolutionstate_2eh_115',['EvolutionState.h',['../EvolutionState_8h.html',1,'']]],
   ['evolutionstateunittests_2ecpp_116',['EvolutionStateUnitTests.cpp',['../EvolutionStateUnitTests_8cpp.html',1,'']]],
-  ['evolve_117',['Evolve',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#aeba630a0f9afc0ff8a669dbd593bddcb',1,'Herd::SSE::SingleStarEvolutuion::Evolve()'],['../classHerd_1_1SSE_1_1MainSequence.html#aad0decc162bd15f0fa4eb62e2e1e5c54',1,'Herd::SSE::MainSequence::Evolve()'],['../classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba',1,'Herd::SSE::IPhase::Evolve()']]],
+  ['evolve_117',['Evolve',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#aeba630a0f9afc0ff8a669dbd593bddcb',1,'Herd::SSE::SingleStarEvolutuion::Evolve()'],['../classHerd_1_1SSE_1_1MainSequence.html#ac189e4d32905012eb09ea2e1dc289627',1,'Herd::SSE::MainSequence::Evolve()'],['../classHerd_1_1SSE_1_1IPhase.html#af7d02ca2d1b1d77a96e6bce788b87ea2',1,'Herd::SSE::IPhase::Evolve()']]],
   ['exception_118',['Exception',['../classHerd_1_1Exceptions_1_1Exception.html#a58ce1ef812891726b0958ca0e8b4b2a5',1,'Herd::Exceptions::Exception::Exception()'],['../classHerd_1_1Exceptions_1_1Exception.html',1,'Herd::Exceptions::Exception']]],
   ['exception_2eh_119',['Exception.h',['../Exception_8h.html',1,'']]],
   ['exceptionwrappers_2ecpp_120',['ExceptionWrappers.cpp',['../ExceptionWrappers_8cpp.html',1,'']]],

@@ -40,7 +40,7 @@ var searchData=
   ['computestellarwindloss_608',['ComputeStellarWindLoss',['../classHerd_1_1SSE_1_1StellarRotation.html#ae8c37a4c762ad8063317fdbb6dbcdcef',1,'Herd::SSE::StellarRotation']]],
   ['computetemperature_609',['ComputeTemperature',['../classHerd_1_1Physics_1_1LuminosityRadiusTemperature.html#a4d7d2e42d97e4edcb12d24476eaa3205',1,'Herd::Physics::LuminosityRadiusTemperature']]],
   ['computethook_610',['ComputeTHook',['../classHerd_1_1SSE_1_1TerminalMainSequence.html#a01ccd81f84c4fac4d1a74ff4b5aca122',1,'Herd::SSE::TerminalMainSequence']]],
-  ['computetimestep_611',['ComputeTimestep',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a2b8c383c56f33389c543550647a8718e',1,'Herd::SSE::SingleStarEvolutuion']]],
+  ['computetimestep_611',['ComputeTimestep',['../classHerd_1_1SSE_1_1SingleStarEvolutuion.html#a72d7ab6641ac3f51ac98b0b703f14034',1,'Herd::SSE::SingleStarEvolutuion']]],
   ['computewrlikeloss_612',['ComputeWRLikeLoss',['../classHerd_1_1SSE_1_1StellarWindMassLoss.html#a5880e2dc1ce250aaef647721c3a9cdac',1,'Herd::SSE::StellarWindMassLoss']]],
   ['contains_613',['Contains',['../classHerd_1_1Generic_1_1QuantityRange.html#af2f1b012f184901b1dba30eb37b5f2b4',1,'Herd::Generic::QuantityRange']]],
   ['convectiveenvelope_614',['ConvectiveEnvelope',['../classHerd_1_1SSE_1_1ConvectiveEnvelope.html#a1f7b5cc35b2e0b9cd6d2848570bdd1cb',1,'Herd::SSE::ConvectiveEnvelope']]]

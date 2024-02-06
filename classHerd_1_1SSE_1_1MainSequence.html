@@ -143,9 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1eb6acb1f78be23011ce9e5159ca17f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a1eb6acb1f78be23011ce9e5159ca17f6">~MainSequence</a> ()</td></tr>
 <tr class="memdesc:a1eb6acb1f78be23011ce9e5159ca17f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a1eb6acb1f78be23011ce9e5159ca17f6">More...</a><br /></td></tr>
 <tr class="separator:a1eb6acb1f78be23011ce9e5159ca17f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad0decc162bd15f0fa4eb62e2e1e5c54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#aad0decc162bd15f0fa4eb62e2e1e5c54">Evolve</a> (<a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;io_rState) override</td></tr>
-<tr class="memdesc:aad0decc162bd15f0fa4eb62e2e1e5c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolves the state.  <a href="classHerd_1_1SSE_1_1MainSequence.html#aad0decc162bd15f0fa4eb62e2e1e5c54">More...</a><br /></td></tr>
-<tr class="separator:aad0decc162bd15f0fa4eb62e2e1e5c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac189e4d32905012eb09ea2e1dc289627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583ae">Herd::SSE::EvolutionStage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#ac189e4d32905012eb09ea2e1dc289627">Evolve</a> (<a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;io_rState) override</td></tr>
+<tr class="memdesc:ac189e4d32905012eb09ea2e1dc289627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolves the state.  <a href="classHerd_1_1SSE_1_1MainSequence.html#ac189e4d32905012eb09ea2e1dc289627">More...</a><br /></td></tr>
+<tr class="separator:ac189e4d32905012eb09ea2e1dc289627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31fc5e3739b8ffd7c1c3e211db73ed8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceHerd_1_1Generic.html#a665291a797ffe29280791178cec26bbd">Herd::Generic::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHerd_1_1SSE_1_1MainSequence.html#a31fc5e3739b8ffd7c1c3e211db73ed8a">EndsAt</a> () const override</td></tr>
 <tr class="memdesc:a31fc5e3739b8ffd7c1c3e211db73ed8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">End of the phase.  <a href="classHerd_1_1SSE_1_1MainSequence.html#a31fc5e3739b8ffd7c1c3e211db73ed8a">More...</a><br /></td></tr>
 <tr class="separator:a31fc5e3739b8ffd7c1c3e211db73ed8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -601,8 +601,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aad0decc162bd15f0fa4eb62e2e1e5c54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad0decc162bd15f0fa4eb62e2e1e5c54">&#9670;&nbsp;</a></span>Evolve()</h2>
+<a id="ac189e4d32905012eb09ea2e1dc289627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac189e4d32905012eb09ea2e1dc289627">&#9670;&nbsp;</a></span>Evolve()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -611,7 +611,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Herd::SSE::MainSequence::Evolve </td>
+          <td class="memname"><a class="el" href="namespaceHerd_1_1SSE.html#abfff4cd44552d6fe8771676ee95583ae">Herd::SSE::EvolutionStage</a> Herd::SSE::MainSequence::Evolve </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structHerd_1_1SSE_1_1EvolutionState.html">Herd::SSE::EvolutionState</a> &amp;&#160;</td>
           <td class="paramname"><em>io_rState</em></td><td>)</td>
@@ -632,7 +632,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>false</code> if star is not in this evolution stage </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Next evolution stage </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Mass in <code>io_rState</code> is positive </dd>
 <dd>
 Age in <code>io_rState</code> is non-negative </dd></dl>
@@ -644,7 +644,7 @@ Age in <code>io_rState</code> is non-negative </dd></dl>
 </dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Call at age=0 returns the ZAMS state </dd></dl>
 
-<p>Implements <a class="el" href="classHerd_1_1SSE_1_1IPhase.html#ac9a9030f30000312b6dfc838578c5aba">Herd::SSE::IPhase</a>.</p>
+<p>Implements <a class="el" href="classHerd_1_1SSE_1_1IPhase.html#af7d02ca2d1b1d77a96e6bce788b87ea2">Herd::SSE::IPhase</a>.</p>
 
 </div>
 </div>
